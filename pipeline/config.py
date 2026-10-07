@@ -19,8 +19,9 @@ MIN_GAMES = 3                      # weighted games needed before a player is pr
 # --- minutes -------------------------------------------------------------
 RECENT_WEIGHT_MIN = 0.5            # share of projected minutes taken from the rolling window
 TEAM_MINUTES = 240.0               # a game's worth of player minutes
-RESCALE_CLIP = (0.85, 1.20)        # how far the team rescale may move anyone's minutes
+RESCALE_CLIP = (0.80, 1.25)        # how far the team rescale may move anyone's minutes
 MAX_MIN = 42.0
+PLAY_WINDOW = 20                   # team games used to measure how often a player actually plays
 ACTIVE_DAYS = 21                   # a player must have played in this window to take minutes
 QUESTIONABLE_MIN_MULT = 0.90       # Questionable/Day-To-Day minutes haircut; Out/Doubtful are dropped
 

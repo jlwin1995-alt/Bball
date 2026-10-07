@@ -80,7 +80,7 @@ if __name__ == "__main__":
     ap.add_argument("--last", type=int, default=60)
     ap.add_argument("--write-spread", action="store_true")
     a = ap.parse_args()
-    games = pd.read_csv(f"{a.raw}/games.csv")
+    games = pd.read_csv(f"{a.raw}/games.csv", dtype={"pid": str})
     R = run(games, a.every, a.last)
     res, R = summarise(R)
     print(f"{'stat':6}{'n':>6}{'MAE model':>11}{'season':>9}{'last5':>9}{'edge vs season':>16}{'Bias %':>9}{'Over %':>8}")

@@ -27,9 +27,9 @@ def season_view(g):
 
 def main(raw="data/raw", out="site/data"):
     os.makedirs(out, exist_ok=True)
-    games = pd.read_csv(f"{raw}/games.csv")
+    games = pd.read_csv(f"{raw}/games.csv", dtype={"pid": str})
     sched = pd.read_csv(f"{raw}/schedule.csv")
-    inj = pd.read_csv(f"{raw}/injuries.csv") if os.path.exists(f"{raw}/injuries.csv") else None
+    inj = pd.read_csv(f"{raw}/injuries.csv", dtype={"pid": str}) if os.path.exists(f"{raw}/injuries.csv") else None
     meta_in = pd.read_csv(f"{raw}/meta.csv").iloc[0].to_dict() if os.path.exists(f"{raw}/meta.csv") else {}
     sample = str(meta_in.get("sample", "False")) == "True"
 

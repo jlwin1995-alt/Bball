@@ -10,9 +10,9 @@ from datetime import date, timedelta
 
 TEAMS = ("ATL BOS BKN CHA CHI CLE DAL DEN DET GSW HOU IND LAC LAL MEM MIA MIL MIN NOP NYK "
          "OKC ORL PHI PHX POR SAC SAS TOR UTA WAS").split()
-FIRST = "Jalen Marcus Devin Tariq Kofi Elias Nico Darius Malik Teo Rashad Cole Andre Brandon Isaiah Leon Omar Silas Ty Zane".split()
-LAST = "Ashford Brook Calloway Dray Ellison Fairley Grayson Holloway Ibarra Jessup Keller Lund Mercer Nash Okafor Pruitt Quill Rowe Stroud Vance".split()
-ROLE_MIN = [34, 32, 30, 27, 25, 22, 19, 16, 12, 9, 6, 4]
+FIRST = "Jalen Marcus Devin Tariq Kofi Elias Nico Darius Malik Teo Rashad Cole Andre Brandon Isaiah Leon Omar Silas Ty Zane Amari Beau Cyrus Dante Emeka Felix Gideon Hugo Idris Joaquin".split()
+LAST = "Ashford Brook Calloway Dray Ellison Fairley Grayson Holloway Ibarra Jessup Keller Lund Mercer Nash Okafor Pruitt Quill Rowe Stroud Vance Whitlock Yates Zeller Abara Bellamy Cruz Dunmore Easley Fontaine Gaines".split()
+ROLE_MIN = [34, 32, 30, 28, 26, 24, 21, 18, 15, 12, 10, 8, 8, 6, 5]   # 15-man rosters; conditional on playing
 KEYS = ["min", "pts", "reb", "ast", "fg3m", "stl", "blk", "tov", "fgm", "fga", "ftm", "fta"]
 
 
@@ -22,7 +22,7 @@ def make_league(rng):
     defense = {}
     for t in TEAMS:
         defense[t] = {s: float(np.clip(rng.normal(1.0, 0.06), 0.85, 1.15)) for s in ["pts", "reb", "ast", "fg3m", "stl", "blk", "tov"]}
-        for i in range(12):
+        for i in range(15):
             while True:
                 nm = f"{rng.choice(FIRST)} {rng.choice(LAST)}"
                 if nm not in names:
@@ -76,10 +76,14 @@ def build(out_dir="data/sample", seed=7, asof="2026-10-07"):
     for season, sched in ((2026, prior),):
         for d, home, away in sched:
             for team, opp, is_home in ((home, away, 1), (away, home, 0)):
+                dressed = []
                 for _, p in by_team[team].iterrows():
-                    if rng.random() < 0.04:        # DNP / rest
+                    if rng.random() < (0.04 if p.role < 5 else 0.12 if p.role < 9 else 0.45):   # DNP / rest; deep bench misses a lot
                         continue
-                    m = float(np.clip(rng.normal(ROLE_MIN[p.role], 3.5), 0, 42))
+                    dressed.append((p, float(np.clip(rng.normal(ROLE_MIN[p.role], 3.5), 0, 42))))
+                tot = sum(m for _, m in dressed)
+                for p, m in dressed:
+                    m = min(m * 240.0 / tot, 44.0)          # every real game's minutes sum to 240
                     if m < 3:
                         continue
                     g = sim_game(p, defense[opp], rng, m)

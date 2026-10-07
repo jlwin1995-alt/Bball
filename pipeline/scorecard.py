@@ -27,7 +27,7 @@ def log_slate(P, games, today=None):
     day = P["date"].iloc[0]
     if day <= g["date"].max():
         return 0                                           # a projection made after tip-off is not a prediction
-    old = pd.read_csv(LOG) if os.path.exists(LOG) else pd.DataFrame()
+    old = pd.read_csv(LOG, dtype={"pid": str}) if os.path.exists(LOG) else pd.DataFrame()
     if len(old) and (pd.to_datetime(old["date"]) == day).any():
         return 0
     base = g.assign(fp=fantasy(g)).sort_values("date")
@@ -46,8 +46,8 @@ def log_slate(P, games, today=None):
 def score(games):
     if not os.path.exists(LOG):
         return {"weeks": [], "current": stamp(), "summary": None}
-    L = pd.read_csv(LOG)
-    g = _prep(games)
+    L = pd.read_csv(LOG, dtype={"pid": str})
+    g = _prep(games.astype({"pid": str}))
     g["fp_a"] = fantasy(g)
     A = g[["date", "pid", "fp_a", "min"]].rename(columns={"min": "min_a"})
     A["date"] = A["date"].dt.strftime("%Y-%m-%d")

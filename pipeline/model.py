@@ -40,8 +40,21 @@ def defence_table(g):
     return out
 
 
+def play_rates(g):
+    """Share of each player's recent team games he actually played in (last PLAY_WINDOW team games, since he joined the team)."""
+    out = {}
+    for team, d in g.groupby("team"):
+        dates = np.sort(d["date"].unique())[-C.PLAY_WINDOW:]
+        for pid, pd_ in d[d["date"].isin(dates)].groupby("pid"):
+            first = pd_["date"].min()
+            denom = max(int((dates >= first).sum()), 1)
+            out[(team, pid)] = min(len(pd_) / denom, 1.0)
+    return out
+
+
 def player_rates(g, asof):
     """Shrunk per-minute rates, projected minutes, and bookkeeping per player."""
+    pp = play_rates(g)
     lg_rate = {}
     for pos, d in g.groupby("pos"):
         lg_rate[pos] = {s: (d[s] * d["w"]).sum() / (d["min"] * d["w"]).sum() for s in C.STATS}
@@ -58,7 +71,7 @@ def player_rates(g, asof):
         pos = last["pos"]
         r = {"pid": pid, "name": last["name"], "team": last["team"], "pos": pos,
              "g": round(float(gw), 1), "last_game": last["date"],
-             "min_s": mw / gw, "min_r": rec["min"].mean()}
+             "min_s": mw / gw, "min_r": rec["min"].mean(), "pplay": pp.get((last["team"], pid), 0.0)}
         for s in C.STATS:
             k = C.RATE_PRIOR_MIN[s]
             num = (d[s] * d["w"]).sum() + C.RECENT_EXTRA * rec[s].sum() + k * lg_rate[pos][s]
@@ -69,6 +82,7 @@ def player_rates(g, asof):
 
 
 def project(games, slate, injuries=None, asof=None):
+    games = games.astype({"pid": str})
     g = _prep(games)
     asof = pd.Timestamp(asof) if asof else g["date"].max() + pd.Timedelta(days=1)
     g = g[g["date"] < asof]
@@ -83,7 +97,9 @@ def project(games, slate, injuries=None, asof=None):
     P = P.merge(slate[["team", "opp", "home"]], on="team", how="inner")
     status = {}
     if injuries is not None and len(injuries):
-        status = dict(zip(injuries["pid"], injuries["status"]))
+        inj = injuries.dropna(subset=["pid", "status"]).astype({"pid": str})
+        inj = inj[~inj["pid"].isin(["None", "nan", ""])].drop_duplicates("pid", keep="last")
+        status = dict(zip(inj["pid"], inj["status"]))
     P["status"] = P["pid"].map(status).fillna("")
     team_last = P["team"].map(last_played)
     P["active"] = (team_last - P["last_game"]).dt.days <= C.ACTIVE_DAYS   # relative to the team, so the offseason does not drop everyone
@@ -96,7 +112,10 @@ def project(games, slate, injuries=None, asof=None):
     P["min_raw"] = (C.RECENT_WEIGHT_MIN * P["min_r"] + (1 - C.RECENT_WEIGHT_MIN) * P["min_s"]) * rest_mult * qm
     P.loc[P["out"], "min_raw"] = 0.0
 
-    tot = P.groupby("team")["min_raw"].transform("sum")
+    # Minutes above are conditional on playing; a team's 240 is shared by whoever dresses, so the
+    # rescale sums EXPECTED minutes (weighted by how often each man plays) and is applied to the conditional ones.
+    P["min_exp"] = P["min_raw"] * P["pplay"]
+    tot = P.groupby("team")["min_exp"].transform("sum")
     fac = np.clip(C.TEAM_MINUTES / tot.replace(0, np.nan), *C.RESCALE_CLIP).fillna(1.0)
     P["min"] = np.minimum(P["min_raw"] * fac, C.MAX_MIN)
     P["site_mult"] = np.where(P["home"] == 1, C.HOME_MULT, C.AWAY_MULT)
