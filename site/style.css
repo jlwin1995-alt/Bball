@@ -17,16 +17,19 @@ button{cursor:pointer}button:hover{border-color:var(--acc)}
 .tw{overflow:auto;border:1px solid var(--line);border-radius:8px;max-height:75vh}
 table{border-collapse:collapse;width:100%;white-space:nowrap}
 th,td{padding:4px 9px;text-align:right;border-bottom:1px solid var(--line)}
-th{position:sticky;top:0;background:var(--head);cursor:pointer;user-select:none;font-weight:600;font-size:12px}
+th{position:sticky;top:0;z-index:2;background:var(--head);cursor:pointer;user-select:none;font-weight:600;font-size:12px}
 th:hover{color:var(--acc)}th.s::after{content:" \25BE"}th.s.asc::after{content:" \25B4"}
 td.l,th.l{text-align:left}tr:hover td{background:var(--head)}
 td input.ovr{width:56px;text-align:right;background:var(--in)}
 .out td{color:var(--mut);text-decoration:line-through}
 .good{color:var(--good)}.bad{color:var(--bad)}.mut{color:var(--mut)}
 .pill{padding:1px 7px;border-radius:9px;font-size:11px;border:1px solid var(--line)}
-.hot{color:var(--bad);border-color:var(--bad)}.cold{color:#1c7ed6;border-color:#1c7ed6}
+.hot{color:var(--acc);border-color:var(--acc)}.cold{color:#1c7ed6;border-color:#1c7ed6}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0}
 .card{border:1px solid var(--line);border-radius:8px;padding:10px 12px}.card b{display:block;font-size:20px}.card span{color:var(--mut);font-size:12px}
 .doc{max-width:820px;line-height:1.55}.doc h3{margin:18px 0 4px}.doc code{background:var(--head);padding:1px 4px;border-radius:4px}
 .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(520px,1fr));gap:14px}
 @media (max-width:640px){.two{grid-template-columns:1fr}main{padding:10px}}
+td:first-child,th:first-child{position:sticky;left:0;background:var(--bg);z-index:1}
+th:first-child{background:var(--head);z-index:3}
+tr:hover td:first-child{background:var(--head)}

@@ -62,7 +62,7 @@ function filters(extra = "") {
   return `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}">
   <label>Pos <select id="pos">${["", "G", "F", "C"].map(p => `<option ${F.pos === p ? "selected" : ""} value="${p}">${p || "All"}</option>`).join("")}</select></label>${extra}</div>`;
 }
-const F = {q: "", pos: "", ming: 0};
+const F = {q: "", pos: "", ming: 10};
 function passes(r) {
   if (F.pos && r.pos !== F.pos) return false;
   const q = F.q.trim().toLowerCase();
@@ -130,23 +130,23 @@ const pages = {
     const cols = [...nameCols, {k: "g", h: "G"}, {k: "mpg", h: "MPG"}, ...["pts", "reb", "ast", "stl", "blk", "tov"].map(s => ({k: s + "36", h: LABEL[s] + "/36", f: r => num(r[s + "36"], s === "stl" || s === "blk" || s === "tov" ? 2 : 1)})),
       {k: "ts", h: "TS%", t: "True shooting", f: r => r.ts == null ? "" : num(r.ts * 100)}, {k: "fg", h: "FG%", f: r => r.fg == null ? "" : num(r.fg * 100)},
       {k: "ft", h: "FT%", f: r => r.ft == null ? "" : num(r.ft * 100)}, {k: "ast_tov", h: "AST/TOV", f: r => num(r.ast_tov, 2)}];
-    return `<h2>Efficiency</h2><p class="sub">Per-36 rates and shooting efficiency, so a bench player and a starter compare on equal terms.</p>
+    return `<h2>Efficiency</h2><p class="sub">Per-36 rates and shooting efficiency, so a bench player and a starter compare on equal terms. Defaults to 10+ MPG; lower it to see the end of the bench.</p>
       ${filters(`<label>Min MPG <input id="ming" size="3" value="${F.ming}"></label>`)}${table(cols, rows, {id: "eff", sort: {key: "pts36"}})}`;
   },
 
   Usage() {
-    const rows = D.usage.filter(passes);
+    const rows = D.usage.filter(passes).filter(r => r.mpg >= F.ming);
     const cols = [...nameCols, {k: "g", h: "G"}, ...[["min_sh", "Min %"], ["fga_sh", "FGA %"], ["fta_sh", "FTA %"], ["ast_sh", "AST %"], ["reb_sh", "REB %"], ["tov_sh", "TOV %"], ["usg", "Usage %"]]
       .map(([k, h]) => ({k, h, f: r => num(r[k])}))];
-    return `<h2>Usage</h2><p class="sub">Share of team opportunity so far — history, not projection. Usage % = (FGA + 0.44·FTA + TOV) share. Always read G beside a share.</p>
-      ${filters()}${table(cols, rows, {id: "use", sort: {key: "usg"}})}`;
+    return `<h2>Usage</h2><p class="sub">Share of team opportunity so far — history, not projection. Usage % = (FGA + 0.44·FTA + TOV) share. Shares are over the games he played in, so missed time isn't held against him; read G beside them.</p>
+      ${filters(`<label>Min MPG <input id="ming" size="3" value="${F.ming}"></label>`)}${table(cols, rows, {id: "use", sort: {key: "usg"}})}`;
   },
 
   Trends() {
     const spark = a => { const w = 70, h = 18, mx = Math.max(...a), mn = Math.min(...a), sp = (mx - mn) || 1;
       const pts = a.map((v, i) => `${(i / (a.length - 1) * w).toFixed(1)},${(h - (v - mn) / sp * h).toFixed(1)}`).join(" ");
       return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><polyline points="${pts}" fill="none" stroke="var(--acc)" stroke-width="1.5"/></svg>`; };
-    const rows = D.trends.filter(passes);
+    const rows = D.trends.filter(passes).filter(r => r.min_s >= F.ming);
     const cols = [...nameCols, {k: "g", h: "G"}, {k: "fp_s", h: "Season FP"}, {k: "fp_r", h: `Last ${D.meta.rolling_window}`},
       {k: "d_fp", h: "Δ FP %", f: r => `<span class="${r.d_fp > 0 ? "good" : "bad"}">${num(r.d_fp)}</span>`},
       {k: "min_s", h: "Min"}, {k: "min_r", h: `Min L${D.meta.rolling_window}`}, {k: "d_min", h: "Δ Min %", f: r => `<span class="${r.d_min > 0 ? "good" : "bad"}">${num(r.d_min)}</span>`},
@@ -154,7 +154,7 @@ const pages = {
       {k: "sd", h: "SD"}, {k: "cv", h: "CV", t: "SD / mean. Lower = steadier. Compare within a position."}, {k: "floor", h: "Floor", t: "10th percentile"}, {k: "ceil", h: "Ceiling", t: "90th percentile"},
       {k: "last", h: "Last 10", f: r => spark(r.last), v: r => r.d_fp}];
     return `<h2>Trends</h2><p class="sub">Rolling form against season baseline, plus consistency. FP uses the DraftKings default weights regardless of your Config choice.</p>
-      ${filters()}${table(cols, rows, {id: "trend", sort: {key: "d_fp"}})}`;
+      ${filters(`<label>Min MPG <input id="ming" size="3" value="${F.ming}"></label>`)}${table(cols, rows, {id: "trend", sort: {key: "d_fp"}})}`;
   },
 
   Lines() {
@@ -176,7 +176,7 @@ const pages = {
         <td class="${edge > 0 ? "good" : "bad"}">${edge == null ? "" : num(edge)}</td><td><b>${pick}</b></td><td><button data-del="${i}">×</button></td></tr>`;
     }).join("");
     const opts = D.projections.filter(p => !p.out).sort((a, b) => a.name.localeCompare(b.name)).map(p => `<option value="${esc(p.pid)}">${esc(p.name)} (${esc(p.team)})</option>`).join("");
-    return `<h2>Lines</h2><p class="sub">Compare a projection to a posted line. The probability uses a measured-style spread (sd = a + b × projection, per stat); treat it as directional until the spread is fitted on your data. Book P(over) has the vig removed. Pick only appears past the edge threshold (Config).</p>
+    return `<h2>Lines</h2><p class="sub">Compare a projection to a posted line. The probability uses a measured-style spread (sd = a + b × projection, per stat); treat it as directional until the spread is fitted on your data. Book P(over) has the vig removed. Pick only appears past the edge threshold (Config). The FP spread is fitted on DraftKings scoring, so FP lines under other scoring are rougher.</p>
       <div class="bar"><select id="lp">${opts}</select><select id="ls">${[...STATS, "fp"].map(s => `<option value="${s}">${LABEL[s]}</option>`).join("")}</select>
         <input id="ll" size="5" placeholder="line"><input id="lo" size="5" placeholder="over odds" value="-110"><input id="lu" size="5" placeholder="under odds" value="-110"><button id="ladd">Add</button></div>
       <div class="tw"><table><thead><tr><th class="l">Player</th><th>Stat</th><th>Proj</th><th>Line</th><th>Over</th><th>Under</th><th>SD</th><th>P(over)</th><th>Book</th><th>Edge pp</th><th>Pick</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
@@ -213,7 +213,7 @@ const pages = {
 
   Methodology() {
     return `<h2>Methodology</h2><div class="doc">
-<h3>The projection</h3><p><b>Minutes × per-minute rate × opponent × situation.</b> Minutes are a blend of the rolling window and the season average, adjusted for back-to-backs and rest, then rescaled so a team's available players add up to a realistic 240 — if a starter is out, his minutes flow to the rest. Players listed Out or Doubtful are dropped; Questionable players take a small minutes haircut.</p>
+<h3>The projection</h3><p><b>Minutes × per-minute rate × opponent × situation.</b> Minutes are a blend of the rolling window and the season average, adjusted for back-to-backs and rest. They are conditional on the player suiting up; each team's expected minutes (weighted by how often every player actually plays) are rescaled to 240, so if a starter is out, his minutes flow to the rest. Players listed Out or Doubtful are dropped; Questionable players take a small minutes haircut.</p>
 <h3>Rates</h3><p>Each stat per minute, shrunk toward the position average by minutes played, so a hot 40-minute sample does not become a forecast. Blocks and steals need far more minutes to mean anything than points do, so they are shrunk harder. Early in a season, last season's games count at half weight and fade as the new ones pile up.</p>
 <h3>Matchups</h3><p>Each defence is measured against league average per stat, regressed by games played, capped, and then <b>damped</b> — only a share of the measured adjustment is applied, because most of it does not carry forward. Matchup tab shows the undamped number; Projections uses the damped one. These shares are starting values; <code>python -m pipeline.backtest</code> is how they get tuned on real data.</p>
 <h3>Median or mean</h3><p>Stat lines are right-skewed: a few huge nights pull the average above the typical one. <b>Median-style</b> is the number to compare to a posted line; <b>Mean</b> (× MEAN_FACTOR) is for season-long value.</p>
@@ -236,7 +236,9 @@ function nav() {
 }
 function route() {
   const h = decodeURIComponent(location.hash.slice(1)).replace("-", " ");
-  page = TABS.includes(h) ? h : "Projections";
+  const next = TABS.includes(h) ? h : "Projections";
+  if (next !== page) { F.q = ""; F.pos = ""; }          // a stale search should not silently filter the next tab
+  page = next;
   nav(); render();
 }
 window.addEventListener("hashchange", route);

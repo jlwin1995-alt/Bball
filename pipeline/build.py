@@ -62,7 +62,10 @@ def main(raw="data/raw", out="site/data"):
     sv = season_view(g)
     agg = sv.groupby("pid").agg(name=("name", "last"), team=("team", "last"), pos=("pos", "last"), g=("min", "size"),
                                  **{s: (s, "sum") for s in ["min", "pts", "reb", "ast", "fg3m", "stl", "blk", "tov", "fgm", "fga", "ftm", "fta"]})
-    tt = sv.groupby("team")[["min", "fga", "fta", "tov", "ast", "reb"]].sum()
+    # Team totals only over games the player appeared in, so missed games are not held against his share.
+    tcols = ["min", "fga", "fta", "tov", "ast", "reb"]
+    tg = sv.groupby(["team", "date"])[tcols].sum().add_prefix("t_").reset_index()
+    tt = sv.merge(tg, on=["team", "date"]).groupby("pid")[["t_" + c for c in tcols]].sum()
     eff, use = [], []
     for pid, a in agg.iterrows():
         if a["min"] < 100:
@@ -75,14 +78,14 @@ def main(raw="data/raw", out="site/data"):
                     "fg": r(a["fgm"] / a["fga"], 3) if a["fga"] else None, "fg3": None,
                     "ft": r(a["ftm"] / a["fta"], 3) if a["fta"] else None, "ts": r(ts, 3),
                     "ast_tov": r(a["ast"] / a["tov"], 2) if a["tov"] else None})
-        t = tt.loc[a["team"]]
-        mins_t = t["min"] / 5
+        t = tt.loc[pid]
+        mins_t = t["t_min"] / 5
         uses = a["fga"] + 0.44 * a["fta"] + a["tov"]
-        tuses = t["fga"] + 0.44 * t["fta"] + t["tov"]
+        tuses = t["t_fga"] + 0.44 * t["t_fta"] + t["t_tov"]
         use.append({"pid": pid, "name": a["name"], "team": a["team"], "pos": a["pos"], "g": int(a["g"]),
-                    "min_sh": r(a["min"] / mins_t * 100, 1), "fga_sh": r(a["fga"] / t["fga"] * 100, 1),
-                    "fta_sh": r(a["fta"] / t["fta"] * 100, 1), "ast_sh": r(a["ast"] / t["ast"] * 100, 1),
-                    "reb_sh": r(a["reb"] / t["reb"] * 100, 1), "tov_sh": r(a["tov"] / t["tov"] * 100, 1),
+                    "min_sh": r(a["min"] / mins_t * 100, 1), "mpg": r(a["min"] / a["g"], 1), "fga_sh": r(a["fga"] / t["t_fga"] * 100, 1),
+                    "fta_sh": r(a["fta"] / t["t_fta"] * 100, 1), "ast_sh": r(a["ast"] / t["t_ast"] * 100, 1),
+                    "reb_sh": r(a["reb"] / t["t_reb"] * 100, 1), "tov_sh": r(a["tov"] / t["t_tov"] * 100, 1),
                     "usg": r(uses / tuses * 100, 1)})
     dump(eff, out, "efficiency.json")
     dump(use, out, "usage.json")
