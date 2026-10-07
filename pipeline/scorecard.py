@@ -25,6 +25,8 @@ def log_slate(P, games, today=None):
         return 0
     g = _prep(games)
     day = P["date"].iloc[0]
+    if day < pd.Timestamp(C.CUR_START):
+        return 0                                           # preseason: starters sit, and those games are never scored
     if day <= g["date"].max():
         return 0                                           # a projection made after tip-off is not a prediction
     old = pd.read_csv(LOG, dtype={"pid": str}) if os.path.exists(LOG) else pd.DataFrame()

@@ -45,8 +45,8 @@ RESTED_MIN_MULT = 1.01             # 3+ days off
 
 # --- distribution --------------------------------------------------------
 # Proj is the central (median-ish) outcome; Mean = Proj x MEAN_FACTOR. Stat lines are right-skewed.
-# UNCALIBRATED until the backtest runs on real data.
-MEAN_FACTOR = 1.05
+# 1.07 = 1 / (1 - 0.068): the measured median-style bias on 2,400 real player-games (Over % ~ 50).
+MEAN_FACTOR = 1.07
 
 # Spread for Lines: sd = a + b * projection, per stat. Placeholders until backtest fits them.
 SPREAD_DEFAULT = {"pts": [2.5, 0.20], "reb": [1.2, 0.30], "ast": [0.9, 0.30],

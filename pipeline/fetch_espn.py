@@ -110,16 +110,16 @@ def main(backfill=False):
     print(f"games.csv: +{len(new)} player-games, {len(old)} total")
 
     sched = []
-    for day in daterange(today, today + timedelta(days=7)):
+    for day in daterange(today, today + timedelta(days=21)):      # 21 days so the opener shows up in the offseason
         for ev in scoreboard(day):
             comp = ev["competitions"][0]
-            if comp["status"]["type"].get("completed"):
-                continue
+            if comp["status"]["type"].get("completed") or ev.get("season", {}).get("type", 2) != 2:
+                continue                                           # finished, or preseason/playoffs (type 1/3)
             t = {c["homeAway"]: c["team"]["abbreviation"] for c in comp["competitors"]}
             local = ev["date"][:10] if False else day.isoformat()
             sched += [dict(date=local, team=t["home"], opp=t["away"], home=1), dict(date=local, team=t["away"], opp=t["home"], home=0)]
     pd.DataFrame(sched, columns=["date", "team", "opp", "home"]).to_csv(f"{RAW}/schedule.csv", index=False)
-    print(f"schedule.csv: {len(sched) // 2} games in the next 7 days")
+    print(f"schedule.csv: {len(sched) // 2} regular-season games in the next 21 days")
 
     inj = []
     for team in get(f"{BASE}/injuries").get("injuries", []):

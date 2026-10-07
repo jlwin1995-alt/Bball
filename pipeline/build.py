@@ -33,6 +33,9 @@ def main(raw="data/raw", out="site/data"):
     meta_in = pd.read_csv(f"{raw}/meta.csv").iloc[0].to_dict() if os.path.exists(f"{raw}/meta.csv") else {}
     sample = str(meta_in.get("sample", "False")) == "True"
 
+    if sched.empty:
+        raise SystemExit("schedule.csv has no upcoming regular-season games; leaving site/data as it was. "
+                         "Re-run the fetch closer to the season.")
     P, D = project(games, sched, inj)
     g = _prep(games)
 
