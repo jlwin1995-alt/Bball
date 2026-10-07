@@ -26,7 +26,9 @@ jobs:
           cache-dependency-path: pipeline/requirements.txt
       - run: pip install -r pipeline/requirements.txt
       - name: Fetch box scores, schedule, injuries
-        run: python -m pipeline.fetch_espn          # first run backfills last season automatically
+        # DATA_SOURCE is a repository variable: "espn" (default) or "nba_api".
+        # nba_api is often blocked from GitHub-hosted runners; if so, run it locally and commit data/raw.
+        run: python -m pipeline.fetch_${{ vars.DATA_SOURCE || 'espn' }}   # first run backfills last season automatically
       - name: Fit spreads for the Lines tab
         run: python -m pipeline.backtest --every 5 --write-spread
       - name: Build site data (and log the next slate before tip-off)

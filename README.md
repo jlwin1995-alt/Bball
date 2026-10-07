@@ -31,6 +31,15 @@ No network? Develop on a synthetic league (clearly bannered on the site):
 python -m pipeline.sample_data && python -m pipeline.build --raw data/sample
 ```
 
+### Data sources
+
+| Source | Command | Notes |
+|---|---|---|
+| ESPN public JSON (default) | `python -m pipeline.fetch_espn` | Box scores, schedule and injuries; works from CI. One request per game. |
+| `nba_api` (official stats.nba.com) | `python -m pipeline.fetch_nba_api` | Whole season in one call; best stats quality. Often blocked from cloud IPs, so run it locally and commit `data/raw`. Injuries still come from ESPN, matched by name. |
+
+Pick one per `games.csv`: the two use different player ids, and `fetch_nba_api` refuses to run over an ESPN file. In CI, set the repository variable `DATA_SOURCE` to `nba_api` to switch.
+
 `.github/workflows/refresh.yml` does the fetch → build → deploy daily. Enable GitHub Pages (source: GitHub Actions).
 
 ## Status — read this
