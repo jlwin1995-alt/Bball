@@ -1,0 +1,43 @@
+name: Refresh data and deploy
+
+on:
+  schedule:
+    - cron: "17 9 * * *"      # daily, after the previous night's games are final
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pipeline/requirements.txt
+      - run: pip install -r pipeline/requirements.txt
+      - name: Fetch box scores, schedule, injuries
+        run: python -m pipeline.fetch_espn          # first run backfills last season automatically
+      - name: Fit spreads for the Lines tab
+        run: python -m pipeline.backtest --every 5 --write-spread
+      - name: Build site data (and log the next slate before tip-off)
+        run: python -m pipeline.build
+      - name: Commit data
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add data site/data
+          git diff --cached --quiet || (git commit -m "Refresh data" && git push)
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - uses: actions/deploy-pages@v4
