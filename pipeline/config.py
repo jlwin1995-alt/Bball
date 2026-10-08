@@ -63,7 +63,7 @@ PRESEASON_MULT_FALLBACK = {"T1": 0.60, "T2": 0.80, "T3": 1.00}
 
 # --- live lines (The Odds API) ------------------------------------------------
 # Needs the ODDS_API_KEY environment variable (a GitHub Actions secret in CI). Never put the key in this file.
-ODDS_SPORT = "basketball_nba"
+ODDS_SPORTS = ["basketball_nba", "basketball_nba_preseason"]   # tried in order; a key your plan/the API does not know is skipped
 # Specific bookmakers rather than regions: as I recall The Odds API bills every 10 bookmakers as one "region", so up to
 # 10 books here costs (markets x 1) credits per game. Verify against their docs/usage before relying on that.
 ODDS_BOOKS = ["draftkings", "fanduel", "betmgm", "williamhill_us", "betrivers", "espnbet", "fanatics",

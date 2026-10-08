@@ -62,5 +62,8 @@ jobs:
         if: steps.key.outputs.skip != '1'
         with:
           path: site
+          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}   # unique per attempt: a Re-run must not find 2 artifacts
       - uses: actions/deploy-pages@v4
         if: steps.key.outputs.skip != '1'
+        with:
+          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}

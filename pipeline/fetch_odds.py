@@ -53,35 +53,52 @@ def parse_event(ev, odds, now_iso):
     return rows
 
 
-def main():
+def main(session=None):
     key = os.environ.get("ODDS_API_KEY")
     if not key:
         raise SystemExit("ODDS_API_KEY is not set (GitHub: Settings -> Secrets and variables -> Actions -> New repository secret)")
-    s = requests.Session()
+    s = session or requests.Session()
     now = datetime.now(timezone.utc)
-    r = s.get(f"{BASE}/sports/{C.ODDS_SPORT}/events", params={"apiKey": key, "dateFormat": "iso"}, timeout=30)
-    r.raise_for_status()
     horizon = now + timedelta(hours=C.ODDS_HORIZON_HOURS)
-    events = [e for e in r.json() if now < datetime.fromisoformat(e["commence_time"].replace("Z", "+00:00")) <= horizon]
-    print(f"{len(events)} games start in the next {C.ODDS_HORIZON_HOURS}h (events endpoint is free)")
-    rows, remaining = [], None
-    for ev in events:
-        if remaining is not None and remaining < C.ODDS_MIN_CREDITS:
-            print(f"stopping: only {remaining} credits left (ODDS_MIN_CREDITS={C.ODDS_MIN_CREDITS})")
-            break
-        resp = s.get(f"{BASE}/sports/{C.ODDS_SPORT}/events/{ev['id']}/odds", timeout=30, params={
-            "apiKey": key, "bookmakers": ",".join(C.ODDS_BOOKS), "markets": ",".join(C.ODDS_MARKETS), "oddsFormat": "american", "dateFormat": "iso"})
-        if resp.status_code == 401 or resp.status_code == 429:
-            raise SystemExit(f"Odds API {resp.status_code}: {resp.text[:200]}")
-        resp.raise_for_status()
-        remaining = float(resp.headers.get("x-requests-remaining", "nan"))
-        rows += parse_event(ev, resp.json(), now.isoformat(timespec="seconds"))
-        time.sleep(0.2)
+    try:                                                   # free call: which basketball feeds does this key see?
+        sp = s.get(f"{BASE}/sports", params={"apiKey": key, "all": "true"}, timeout=30)
+        if sp.status_code == 200:
+            ks = [f"{x['key']}{'' if x.get('active') else ' (inactive)'}" for x in sp.json() if "basketball" in x["key"]]
+            print("basketball feeds visible:", ", ".join(ks) or "none")
+    except requests.RequestException as e:
+        print("could not list sports:", e)
+    rows, remaining, resp, n_games = [], None, None, 0
+    for sport in C.ODDS_SPORTS:
+        r = s.get(f"{BASE}/sports/{sport}/events", params={"apiKey": key, "dateFormat": "iso"}, timeout=30)
+        if r.status_code in (404, 422):
+            print(f"{sport}: not available ({r.status_code}); skipping")
+            continue
+        if r.status_code in (401, 429):
+            raise SystemExit(f"Odds API {r.status_code}: {r.text[:200]}")
+        r.raise_for_status()
+        remaining = float(r.headers.get("x-requests-remaining", "nan"))
+        events = [e for e in r.json() if now < datetime.fromisoformat(e["commence_time"].replace("Z", "+00:00")) <= horizon]
+        print(f"{sport}: {len(events)} games start in the next {C.ODDS_HORIZON_HOURS}h (events endpoint is free); credits remaining {remaining}")
+        for ev in events:
+            if remaining is not None and remaining < C.ODDS_MIN_CREDITS:
+                print(f"stopping: only {remaining} credits left (ODDS_MIN_CREDITS={C.ODDS_MIN_CREDITS})")
+                break
+            resp = s.get(f"{BASE}/sports/{sport}/events/{ev['id']}/odds", timeout=30, params={
+                "apiKey": key, "bookmakers": ",".join(C.ODDS_BOOKS), "markets": ",".join(C.ODDS_MARKETS), "oddsFormat": "american", "dateFormat": "iso"})
+            if resp.status_code in (401, 429):
+                raise SystemExit(f"Odds API {resp.status_code}: {resp.text[:200]}")
+            resp.raise_for_status()
+            remaining = float(resp.headers.get("x-requests-remaining", "nan"))
+            got = parse_event(ev, resp.json(), now.isoformat(timespec="seconds"))
+            n_games += 1
+            if not got:
+                print(f"  {ev['away_team']} @ {ev['home_team']}: no props posted yet for the configured books/markets")
+            rows += got
+            time.sleep(0.2)
     os.makedirs(RAW, exist_ok=True)
     cols = ["ts", "event", "commence", "game", "home", "away", "player", "stat", "book", "line", "over", "under"]
     pd.DataFrame(rows, columns=cols).to_csv(f"{RAW}/odds.csv", index=False)
-    used = resp.headers.get("x-requests-last") if rows else None
-    print(f"odds.csv: {len(rows)} lines across {len(events)} games; credits remaining: {remaining}")
+    print(f"odds.csv: {len(rows)} lines across {n_games} games; credits remaining: {remaining}")
 
 
 if __name__ == "__main__":
