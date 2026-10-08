@@ -8,6 +8,7 @@ import pandas as pd
 from . import config as C
 from .model import project, fantasy, _prep
 from . import scorecard
+from .preseason_test import resolve_mult
 
 
 def r(x, n=3):
@@ -36,8 +37,11 @@ def main(raw="data/raw", out="site/data"):
     if sched.empty:
         raise SystemExit("schedule.csv has no upcoming regular-season games; leaving site/data as it was. "
                          "Re-run the fetch closer to the season.")
+    # Preseason slate (before the regular season starts): stars play far fewer minutes, so apply the learned tier multipliers.
+    pre = pd.Timestamp(sched["date"].min()) < pd.Timestamp(C.CUR_START)
+    mult, mult_how = (resolve_mult(None, None, raw) if pre else (None, None))
     ros = pd.read_csv(f"{raw}/rosters.csv", dtype={"pid": str}) if os.path.exists(f"{raw}/rosters.csv") else None
-    P, D = project(games, sched, inj, rosters=ros)
+    P, D = project(games, sched, inj, rosters=ros, minute_mult=mult)
     g = _prep(games)
 
     # --- Projections / Game Board ------------------------------------------------
@@ -119,7 +123,7 @@ def main(raw="data/raw", out="site/data"):
            "cur_season_games": int((g["season"] == C.SEASON).sum()), "game_days": int(g["date"].nunique())}
     dump(cov, out, "coverage.json")
     dump({"sample": sample, "season": C.SEASON, "rolling_window": C.ROLLING_WINDOW, "mean_factor": C.MEAN_FACTOR,
-          "stats": C.STATS, "default_scoring": C.DEFAULT_SCORING, "spread": C.SPREAD_DEFAULT,
+          "preseason": bool(pre), "minute_mult": mult, "mult_source": mult_how, "stats": C.STATS, "default_scoring": C.DEFAULT_SCORING, "spread": C.SPREAD_DEFAULT,
           "generated": pd.Timestamp.now("UTC").isoformat(timespec="seconds")}, out, "meta.json")
     if os.path.exists(f"{raw}/spread.json"):
         dump(json.load(open(f"{raw}/spread.json")), out, "spread.json")

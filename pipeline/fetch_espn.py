@@ -115,7 +115,7 @@ def daterange(a, b):
         d += timedelta(days=1)
 
 
-def main(backfill=False):
+def main(backfill=False, preseason=False):
     os.makedirs(RAW, exist_ok=True)
     path = f"{RAW}/games.csv"
     old = pd.read_csv(path, dtype={"pid": str, "event": str}) if os.path.exists(path) else pd.DataFrame()
@@ -147,8 +147,8 @@ def main(backfill=False):
     for day in daterange(today, today + timedelta(days=21)):      # 21 days so the opener shows up in the offseason
         for ev in scoreboard(day):
             comp = ev["competitions"][0]
-            if comp["status"]["type"].get("completed") or ev.get("season", {}).get("type", 2) != 2:
-                continue                                           # finished, or preseason/playoffs (type 1/3)
+            if comp["status"]["type"].get("completed") or ev.get("season", {}).get("type", 2) not in ((1, 2) if preseason else (2,)):
+                continue                                           # finished, or preseason (unless --preseason) / playoffs
             t = {c["homeAway"]: c["team"]["abbreviation"] for c in comp["competitors"]}
             local = ev["date"][:10] if False else day.isoformat()
             sched += [dict(date=local, team=t["home"], opp=t["away"], home=1), dict(date=local, team=t["away"], opp=t["home"], home=0)]
@@ -189,5 +189,6 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--backfill", action="store_true")
     ap.add_argument("--selftest", action="store_true")
+    ap.add_argument("--preseason", action="store_true", help="include preseason games in schedule.csv")
     a = ap.parse_args()
-    selftest() if a.selftest else main(a.backfill)
+    selftest() if a.selftest else main(a.backfill, a.preseason)

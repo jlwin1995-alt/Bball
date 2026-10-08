@@ -47,6 +47,12 @@ python -m pipeline.preseason_test project --date 2026-10-08 --game-no 1   # or -
 Preseason minutes look nothing like the regular season, so `score` grades the per-minute rates and matchup
 adjustments at the minutes each player actually played, and reports minutes separately. It never touches the real accuracy log.
 
+To show preseason-adjusted projections on the site itself (it switches back to normal on its own once the next slate is on or after `CUR_START`):
+```bash
+python -m pipeline.preseason_minutes && python -m pipeline.fetch_espn --preseason && python -m pipeline.build
+```
+The site then carries a PRESEASON banner, and nothing is logged to the Scorecard.
+
 ### Data sources
 
 | Source | Command | Notes |

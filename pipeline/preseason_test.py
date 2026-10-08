@@ -56,11 +56,11 @@ def score_slate(P, actual):
     return S, M
 
 
-def resolve_mult(manual, game_no):
+def resolve_mult(manual, game_no, raw="data/raw"):
     """Minutes multiplier by tier: --mult wins, else learned from last preseason, else none (regular-season minutes)."""
     if manual:
         return {k.strip(): float(v) for k, v in (kv.split("=") for kv in manual.split(","))}, "manual"
-    path = "data/raw/preseason_minutes.json"
+    path = f"{raw}/preseason_minutes.json"
     if os.path.exists(path):
         import json
         f = json.load(open(path))
