@@ -13,7 +13,12 @@ on:
     - cron: "5 21 * * *"      # ~5pm ET
     - cron: "40 21 * * *"     # backup
     - cron: "35 23 * * *"     # ~7:35pm ET: close to the first tip
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      probe:
+        description: "Diagnose instead of pull: list what the API has for the next game (spends a few credits; commits and deploys nothing)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -44,14 +49,17 @@ jobs:
           cache-dependency-path: pipeline/requirements.txt
       - if: steps.key.outputs.skip != '1'
         run: pip install -r pipeline/requirements.txt
+      - name: Probe the API (manual run with the 'probe' box ticked)
+        if: steps.key.outputs.skip != '1' && github.event.inputs.probe == 'true'
+        run: python -m pipeline.fetch_odds --probe
       - name: Fetch lines (the events list is free; props cost credits per game)
-        if: steps.key.outputs.skip != '1'
+        if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
         run: python -m pipeline.fetch_odds ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}   # manual runs always pull
       - name: Build lines.json
-        if: steps.key.outputs.skip != '1'
+        if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
         run: python -m pipeline.lines
       - name: Commit data
-        if: steps.key.outputs.skip != '1'
+        if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
         run: |
           git config user.name "github-actions"
           git config user.email "actions@users.noreply.github.com"
@@ -65,11 +73,11 @@ jobs:
           done
           echo "::error::could not push the odds commit after 3 attempts"; exit 1
       - uses: actions/upload-pages-artifact@v3
-        if: steps.key.outputs.skip != '1'
+        if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
         with:
           path: site
           name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}   # unique per attempt: a Re-run must not find 2 artifacts
       - uses: actions/deploy-pages@v4
-        if: steps.key.outputs.skip != '1'
+        if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
         with:
           artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}

@@ -54,6 +54,56 @@ def parse_event(ev, odds, now_iso):
     return rows
 
 
+def probe(session=None):
+    """Diagnostic (costs a handful of credits): what does The Odds API actually have for the next game of each feed?
+    Prints which bookmakers/markets exist for it, what the DFS region (PrizePicks, Underdog, Pick6) returns, and whether
+    ordinary books post any player props. Run from the workflow with 'probe' ticked, or:  ODDS_API_KEY=... python -m pipeline.fetch_odds --probe
+    """
+    key = os.environ.get("ODDS_API_KEY")
+    if not key:
+        raise SystemExit("ODDS_API_KEY is not set")
+    s = session or requests.Session()
+    PROPS = "player_points,player_rebounds,player_assists,player_threes,player_points_alternate"
+    def show(label, r):
+        left = r.headers.get("x-requests-remaining") if hasattr(r, "headers") else None
+        print(f"  [{label}] HTTP {r.status_code}" + (f", credits left {left}" if left else ""))
+        if r.status_code != 200:
+            print("    ", str(r.text)[:200]); return None
+        return r.json()
+    for sport in C.ODDS_SPORTS:
+        r = s.get(f"{BASE}/sports/{sport}/events", params={"apiKey": key, "dateFormat": "iso"}, timeout=30)
+        if r.status_code != 200:
+            print(f"{sport}: events HTTP {r.status_code}"); continue
+        evs = r.json()
+        print(f"\n{sport}: {len(evs)} upcoming events")
+        if not evs:
+            continue
+        ev = evs[0]
+        print(f"  probing {ev['away_team']} @ {ev['home_team']} (tip {ev['commence_time']}, id {ev['id']})")
+        base = f"{BASE}/sports/{sport}/events/{ev['id']}"
+        found = {}
+        j = show("which markets each book has (US + DFS regions)", s.get(f"{base}/markets", params={"apiKey": key, "regions": "us,us_dfs"}, timeout=30))
+        if j:
+            for bk in j.get("bookmakers", []):
+                keys = sorted(m["key"] for m in bk.get("markets", []))
+                found[bk["key"]] = keys
+                print(f"     {bk['key']:<18} {', '.join(keys)[:140]}")
+            print("     -> prizepicks listed:", "prizepicks" in found, "| any player_* market anywhere:", any(k.startswith("player_") for v in found.values() for k in v))
+        for label, params in (("DFS region, player props", {"regions": "us_dfs", "markets": PROPS}),
+                              ("US books, player props", {"regions": "us", "markets": "player_points,player_rebounds,player_assists"}),
+                              ("US books, game moneyline", {"regions": "us", "markets": "h2h"})):
+            resp = s.get(f"{base}/odds", params={"apiKey": key, "oddsFormat": "american", "dateFormat": "iso", **params}, timeout=30)
+            j = show(label, resp)
+            if j is None:
+                continue
+            bks = j.get("bookmakers", [])
+            if not bks:
+                print("     (no bookmakers returned)")
+            for bk in bks:
+                print(f"     {bk['key']:<18} " + ", ".join(f"{m['key']}: {len(m.get('outcomes', []))} outcomes" for m in bk.get("markets", [])))
+        time.sleep(0.3)
+
+
 def main(session=None, force=False):
     key = os.environ.get("ODDS_API_KEY")
     if not key:
@@ -127,4 +177,6 @@ if __name__ == "__main__":
     import argparse
     ap = argparse.ArgumentParser()
     ap.add_argument("--force", action="store_true", help="pull even if the last check was recent (manual runs)")
-    main(force=ap.parse_args().force)
+    ap.add_argument("--probe", action="store_true", help="diagnostic: what does the API have for the next game of each feed? (spends a few credits)")
+    a = ap.parse_args()
+    probe() if a.probe else main(force=a.force)
