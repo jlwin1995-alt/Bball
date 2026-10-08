@@ -40,6 +40,8 @@ def main(raw="data/raw", out="site/data"):
     # Preseason slate (before the regular season starts): stars play far fewer minutes, so apply the learned tier multipliers.
     pre = pd.Timestamp(sched["date"].min()) < pd.Timestamp(C.CUR_START)
     mult, mult_how = (resolve_mult(None, None, raw) if pre else (None, None))
+    if pre and not mult:
+        mult, mult_how = C.PRESEASON_MULT_FALLBACK, "fallback"
     ros = pd.read_csv(f"{raw}/rosters.csv", dtype={"pid": str}) if os.path.exists(f"{raw}/rosters.csv") else None
     P, D = project(games, sched, inj, rosters=ros, minute_mult=mult)
     g = _prep(games)
