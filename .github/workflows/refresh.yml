@@ -2,7 +2,9 @@ name: Refresh data and deploy
 
 on:
   schedule:
-    - cron: "17 9 * * *"      # daily, after the previous night's games are final
+    - cron: "17 9 * * *"      # daily, ~5am ET, after the previous night's games are final
+    - cron: "47 10 * * *"     # backups: GitHub's scheduler is best-effort and skipped the first 09:17 run, so run again twice.
+    - cron: "17 12 * * *"     # Extra runs are cheap (incremental fetch, no Odds API credits) and commit only if something changed.
   workflow_dispatch: {}
 
 permissions:
