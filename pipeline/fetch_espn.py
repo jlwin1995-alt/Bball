@@ -74,6 +74,21 @@ def parse_box(event_id, ev_date, season, home_abbr, away_abbr):
     return rows
 
 
+def fetch_rosters():
+    """Current roster per team -> data/raw/rosters.csv. The model uses it so a player who changed teams
+    over the summer is projected for his NEW team, and players on no roster are not projected at all."""
+    teams = get(f"{BASE}/teams", limit=40)["sports"][0]["leagues"][0]["teams"]
+    rows = []
+    for t in teams:
+        tm = t["team"]
+        for g in get(f"{BASE}/teams/{tm['id']}/roster").get("athletes", []):
+            for a in (g.get("items") or [g]):                 # flat list, or grouped by position
+                rows.append(dict(pid=str(a["id"]), name=a.get("fullName") or a.get("displayName"), team=tm["abbreviation"]))
+        time.sleep(0.15)
+    pd.DataFrame(rows, columns=["pid", "name", "team"]).to_csv(f"{RAW}/rosters.csv", index=False)
+    return len(rows)
+
+
 def daterange(a, b):
     d = a
     while d <= b:
@@ -120,6 +135,11 @@ def main(backfill=False):
             sched += [dict(date=local, team=t["home"], opp=t["away"], home=1), dict(date=local, team=t["away"], opp=t["home"], home=0)]
     pd.DataFrame(sched, columns=["date", "team", "opp", "home"]).to_csv(f"{RAW}/schedule.csv", index=False)
     print(f"schedule.csv: {len(sched) // 2} regular-season games in the next 21 days")
+
+    try:
+        print(f"rosters.csv: {fetch_rosters()} players")
+    except Exception as e:                                     # soft-fail: the model falls back to last-played team
+        print("rosters skipped:", e)
 
     inj = []
     for team in get(f"{BASE}/injuries").get("injuries", []):

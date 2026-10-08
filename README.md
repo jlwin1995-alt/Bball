@@ -31,6 +31,16 @@ No network? Develop on a synthetic league (clearly bannered on the site):
 python -m pipeline.sample_data && python -m pipeline.build --raw data/sample
 ```
 
+### Dry-run on a preseason slate
+
+```bash
+python -m pipeline.fetch_espn                              # refreshes injuries, schedule and current rosters
+python -m pipeline.preseason_test project --date 2026-10-08   # BEFORE tip-off
+python -m pipeline.preseason_test score   --date 2026-10-08   # after the games are final
+```
+Preseason minutes look nothing like the regular season, so `score` grades the per-minute rates and matchup
+adjustments at the minutes each player actually played, and reports minutes separately. It never touches the real accuracy log.
+
 ### Data sources
 
 | Source | Command | Notes |

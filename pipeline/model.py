@@ -81,13 +81,17 @@ def player_rates(g, asof):
     return pd.DataFrame(rows)
 
 
-def project(games, slate, injuries=None, asof=None):
+def project(games, slate, injuries=None, asof=None, rosters=None):
     games = games.astype({"pid": str})
     g = _prep(games)
     asof = pd.Timestamp(asof) if asof else g["date"].max() + pd.Timedelta(days=1)
     g = g[g["date"] < asof]
     P = player_rates(g, asof)
     D = defence_table(g)
+    if rosters is not None and len(rosters) >= 350:           # a full league's worth; a partial fetch must not drop people
+        cur = dict(zip(rosters["pid"].astype(str), rosters["team"]))
+        P = P[P["pid"].isin(cur)].copy()                       # on no roster = not playing
+        P["team"] = P["pid"].map(cur)                          # traded over the summer -> his new team
     slate = slate.copy()
     slate["date"] = pd.to_datetime(slate["date"])
     day = slate["date"].min()

@@ -36,7 +36,8 @@ def main(raw="data/raw", out="site/data"):
     if sched.empty:
         raise SystemExit("schedule.csv has no upcoming regular-season games; leaving site/data as it was. "
                          "Re-run the fetch closer to the season.")
-    P, D = project(games, sched, inj)
+    ros = pd.read_csv(f"{raw}/rosters.csv", dtype={"pid": str}) if os.path.exists(f"{raw}/rosters.csv") else None
+    P, D = project(games, sched, inj, rosters=ros)
     g = _prep(games)
 
     # --- Projections / Game Board ------------------------------------------------
