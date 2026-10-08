@@ -69,6 +69,13 @@ k-pick entry paying M× needs M^(-1/k) per leg).
 Markets and books are in `pipeline/config.py` (`ODDS_MARKETS`, `ODDS_BOOKS`). Edges above 15 points get a warning marker: they usually mean the
 model has the player's minutes or role wrong (injury news), not a bargain. Players with 0 projected minutes show OUT instead of a pick.
 
+### Live games
+
+The **Live** tab polls ESPN's scoreboard from your browser every 30 s (no credits, no workflow needed): scores, clock, and for games in
+progress every player's box line as *now → projected final* (model per-minute rate × minutes still expected) with the posted line in
+brackets. Blowouts and foul trouble aren't modelled. On the Lines tab, a game that has tipped off keeps its last pregame lines for
+`ODDS_KEEP_STARTED_HOURS` and is marked LIVE with no pick: books pull props at tip and the model's pregame probability no longer applies.
+
 ### Data sources
 
 | Source | Command | Notes |

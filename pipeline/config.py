@@ -79,3 +79,5 @@ ODDS_HORIZON_HOURS = 30            # only games starting within this window are 
 ODDS_MIN_CREDITS = 60              # stop pulling when the API reports fewer credits than this remaining
 COMBOS = {"pra": ["pts", "reb", "ast"], "pr": ["pts", "reb"], "pa": ["pts", "ast"], "ra": ["reb", "ast"]}
 SPREAD_DEFAULT.update({"pra": [3.5, 0.17], "pr": [3.0, 0.20], "pa": [2.8, 0.20], "ra": [1.5, 0.25]})
+
+ODDS_KEEP_STARTED_HOURS = 5        # keep a game's last PREGAME lines on the site this long after tipoff (books pull props at tip)
