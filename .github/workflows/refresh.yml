@@ -28,7 +28,9 @@ jobs:
       - name: Fetch box scores, schedule, injuries
         # DATA_SOURCE is a repository variable: "espn" (default) or "nba_api".
         # nba_api is often blocked from GitHub-hosted runners; if so, run it locally and commit data/raw.
-        run: python -m pipeline.fetch_${{ vars.DATA_SOURCE || 'espn' }}   # first run backfills last season automatically
+        run: python -m pipeline.fetch_${{ vars.DATA_SOURCE || 'espn' }}   # first run backfills last season; includes preseason games until CUR_START
+      - name: Learn preseason minutes (once, before the season; cached in data/raw)
+        run: test -f data/raw/preseason_minutes.json || python -m pipeline.preseason_minutes || echo "preseason minutes unavailable; slate will be unadjusted"
       - name: Fit spreads for the Lines tab
         run: python -m pipeline.backtest --every 5 --write-spread
       - name: Build site data (and log the next slate before tip-off)

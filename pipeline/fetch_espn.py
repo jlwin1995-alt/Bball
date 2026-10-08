@@ -121,6 +121,7 @@ def main(backfill=False, preseason=False):
     old = pd.read_csv(path, dtype={"pid": str, "event": str}) if os.path.exists(path) else pd.DataFrame()
     seen = set(old["event"].dropna()) if "event" in old else set()
     today = datetime.now(timezone.utc).date()
+    preseason = preseason or today < date.fromisoformat(C.CUR_START)   # before the season, the next games ARE preseason games
     windows = [(date.fromisoformat(C.CUR_START), min(today, date.fromisoformat(C.CUR_START) + timedelta(days=260)), C.SEASON)]
     if backfill or old.empty:
         windows.append((date.fromisoformat(C.PRIOR_START), date.fromisoformat(C.PRIOR_END), C.SEASON - 1))

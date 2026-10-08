@@ -62,7 +62,14 @@ The site then carries a PRESEASON banner, and nothing is logged to the Scorecard
 
 Pick one per `games.csv`: the two use different player ids, and `fetch_nba_api` refuses to run over an ESPN file. In CI, set the repository variable `DATA_SOURCE` to `nba_api` to switch.
 
-`.github/workflows/refresh.yml` does the fetch → build → deploy daily. Enable GitHub Pages (source: GitHub Actions).
+### Automatic daily refresh
+
+`.github/workflows/refresh.yml` runs every day at 09:17 UTC (about 5am Eastern): fetch → learn preseason minutes (once) → fit spreads →
+build (logging the next regular-season slate) → commit the data → deploy the site. GitHub only runs scheduled workflows from the
+**default branch**, so merge this branch to `main` first, then in the repo go to Settings → Pages → Source: **GitHub Actions**, and
+run it once from the Actions tab (Run workflow) to check it. No secrets needed. Preseason games are included automatically until `CUR_START`.
+
+Prefer your own machine? `scripts/morning.sh` does the same refresh locally; add it to `crontab -e` (the Mac must be awake).
 
 ## Status — read this
 
