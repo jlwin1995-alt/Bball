@@ -140,6 +140,21 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
     return P.sort_values(["team", "min"], ascending=[True, False]).reset_index(drop=True), D
 
 
+def all_players(games, rosters=None, minute_mult=None):
+    """Every player we have history for: expected minutes IF he plays and per-minute rates, with no slate or opponent attached.
+    The Live tab uses it to project players in games that are not in the daily slate (today's later games, yesterday's, preseason)."""
+    g = _prep(games.astype({"pid": str}))
+    P = player_rates(g, None)
+    if rosters is not None and len(rosters) >= 350:
+        cur = dict(zip(rosters["pid"].astype(str), rosters["team"]))
+        P = P[P["pid"].isin(cur)].copy()
+        P["team"] = P["pid"].map(cur)
+    raw = C.RECENT_WEIGHT_MIN * P["min_r"] + (1 - C.RECENT_WEIGHT_MIN) * P["min_s"]
+    tier = np.where(raw >= C.TIER_CUTS[0], "T1", np.where(raw >= C.TIER_CUTS[1], "T2", "T3"))
+    P["min_exp"] = np.minimum(raw * (pd.Series(tier, index=P.index).map(minute_mult).fillna(1.0) if minute_mult else 1.0), C.MAX_MIN)
+    return P.reset_index(drop=True)
+
+
 def fantasy(df, scoring=None):
     sc = scoring or C.DEFAULT_SCORING
     return sum(df[s] * w for s, w in sc.items())

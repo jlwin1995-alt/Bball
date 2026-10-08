@@ -262,6 +262,8 @@ const pages = {
     if (LIVE.err && !LIVE.games) return `<h2>Live</h2><p class="sub">Couldn't load live data from ESPN in this browser (${esc(LIVE.err)}). If this keeps happening, ESPN is blocking cross-site requests; tell whoever maintains the site.</p>`;
     if (!LIVE.games) return `<h2>Live</h2><p class="sub">Loading today's games…</p>`;
     const byId = Object.fromEntries(projMed().map(p => [p.pid, p]));
+    const rateOf = pid => { const p = byId[pid]; if (p && p.c.min > 0) return {min: p.c.min, per: st => p.c[st] / p.c.min};      // today's slate: matchup-adjusted, honours Min OVR
+      const q = D.players && D.players[pid]; return q ? {min: q.m, per: st => q.r[STATS.indexOf(st)]} : null; };                 // anyone else: season rates, no matchup
     const lineOf = {};                                           // pid|stat -> consensus line, else PrizePicks
     for (const r of (D.lines?.rows || [])) lineOf[r.pid + "|" + r.stat] = r.cons?.line ?? r.dfs?.prizepicks ?? null;
     const order = {in: 0, pre: 1, post: 2}, games = [...LIVE.games].sort((a, b) => order[a.state] - order[b.state] || Date.parse(a.tip) - Date.parse(b.tip));
@@ -272,20 +274,20 @@ const pages = {
       if (g.state === "pre") return `<div class="card"><span>${head.replace(/ \d+<\/strong>/g, "</strong>")}</span><br><span class="mut">tip ${new Date(g.tip).toLocaleTimeString([], {hour: "numeric", minute: "2-digit"})}</span></div>`;
       const badge = g.state === "in" ? `<span class="pill hot">LIVE</span> ` : `<span class="pill">FINAL</span> `;
       const rows = (LIVE.box[g.id] || []).map(b => {
-        const p = byId[b.pid], remain = g.state === "post" || !p ? 0 : Math.max(p.c.min - b.min, 0), o = {...b, p, onCourt: g.state === "in"};
-        for (const st of STATS_SHOWN) { o["f_" + st] = p ? b[st] + remain * p.c[st] / Math.max(p.c.min, 1e-9) : null; o["l_" + st] = p ? lineOf[b.pid + "|" + st] ?? null : null; }
+        const q = rateOf(b.pid), remain = g.state === "post" || !q ? 0 : Math.max(q.min - b.min, 0), o = {...b, q};
+        for (const st of STATS_SHOWN) { o["f_" + st] = q ? b[st] + remain * q.per(st) : null; o["l_" + st] = lineOf[b.pid + "|" + st] ?? null; }
         return o;
       });
       const cell = st => ({k: st, h: LABEL[st], t: "now → projected final (model rate × minutes still expected); [line] = consensus, else PrizePicks. Green = already over the line, orange = on pace to go over.",
-        v: r => r["f_" + st] ?? r[st], f: r => { const f = r["f_" + st], l = r["l_" + st]; if (f == null) return String(r[st]);
-          const cls = l != null ? (r[st] > l ? "good" : f > l ? "" : "mut") : "";
-          return `${r[st]} <span class="mut">→</span> <span class="${cls}">${num(f)}</span>${l != null ? ` <span class="mut">[${l}]</span>` : ""}`; }});
+        v: r => r["f_" + st] ?? r[st], f: r => { const f = r["f_" + st], l = r["l_" + st]; if (f == null && l == null) return String(r[st]);
+          const cls = l != null ? (r[st] > l ? "good" : (f ?? r[st]) > l ? "" : "mut") : "";
+          return `${r[st]}${f != null ? ` <span class="mut">→</span> <span class="${cls}">${num(f)}</span>` : ""}${l != null ? ` <span class="mut">[${l}]</span>` : ""}`; }});
       const cols = [{k: "name", h: "Player", l: 1}, {k: "team", h: "Team", l: 1}, {k: "min", h: "MIN", f: r => num(r.min, 0)}, ...STATS_SHOWN.map(cell)];
       return `<div class="card" style="grid-column:1/-1"><div>${badge}${head} <span class="mut">· ${esc(g.detail)}</span></div>
         <div style="margin-top:8px">${rows.length ? table(cols, rows, {id: "live" + g.id, sort: {key: "min"}}) : `<span class="mut">No box score yet.</span>`}</div></div>`;
     };
     return `<h2>Live</h2><p class="sub">Today's games, updated every 30 s${ago != null ? ` (refreshed ${ago}s ago)` : ""}${LIVE.err ? ` — <b>last refresh failed: ${esc(LIVE.err)}</b>` : ""}.
-      Each stat shows <b>now → projected final</b> from the model's per-minute rate and the minutes still expected (blowouts and foul trouble aren't modelled), with the posted line in brackets.</p>
+      Each stat shows <b>now → projected final</b> from the player's per-minute rate and the minutes still expected, with the posted line in brackets. Players in today's slate use the matchup-adjusted projection (and your Min OVR); everyone else uses season rates with no matchup adjustment. Blowouts and foul trouble aren't modelled.</p>
       ${games.length ? `<div class="cards" style="grid-template-columns:1fr">${games.map(card).join("")}</div>` : `<p class="sub">No games on ESPN's scoreboard today.</p>`}`;
   },
 
@@ -401,7 +403,7 @@ document.addEventListener("click", e => {
 
 async function boot() {
   CFG = {...CFG, ...store.get("cfg", {})}; OVR = store.get("ovr", {}); LINES = store.get("lines", []);
-  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "scorecard", "spread", "lines"];
+  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "scorecard", "spread", "lines", "players"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   if (!D.projections) { view().innerHTML = "<p>No data found in <code>data/</code>. Run <code>python -m pipeline.build</code>.</p>"; return; }
   document.getElementById("asof").textContent = `data through ${D.coverage.asof} · slate ${D.coverage.slate_date}`;

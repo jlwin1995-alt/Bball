@@ -72,7 +72,7 @@ model has the player's minutes or role wrong (injury news), not a bargain. Playe
 ### Live games
 
 The **Live** tab polls ESPN's scoreboard from your browser every 30 s (no credits, no workflow needed): scores, clock, and for games in
-progress every player's box line as *now → projected final* (model per-minute rate × minutes still expected) with the posted line in
+progress every player's box line (any player with history, via `players.json`, not just today's slate) as *now → projected final* (model per-minute rate × minutes still expected) with the posted line in
 brackets. Blowouts and foul trouble aren't modelled. On the Lines tab, a game that has tipped off keeps its last pregame lines for
 `ODDS_KEEP_STARTED_HOURS` and is marked LIVE with no pick: books pull props at tip and the model's pregame probability no longer applies.
 

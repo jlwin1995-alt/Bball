@@ -6,7 +6,7 @@ import argparse, json, os
 import numpy as np
 import pandas as pd
 from . import config as C
-from .model import project, fantasy, _prep
+from .model import project, fantasy, _prep, all_players
 from . import scorecard, lines as lines_mod
 from .preseason_test import resolve_mult
 
@@ -60,6 +60,9 @@ def main(raw="data/raw", out="site/data"):
             row["pm_" + s] = r(p["pm_" + s], 5)
         proj.append(row)
     dump(proj, out, "projections.json")
+    AP = all_players(games, ros, mult)                              # for the Live tab: anyone in any game, not just today's slate
+    dump({q.pid: {"m": round(float(q.min_exp), 1), "r": [round(float(getattr(q, "pm_" + st)), 5) for st in C.STATS]} for q in AP.itertuples()},
+         out, "players.json")
 
     # --- Matchups ------------------------------------------------------------------
     play = {(t) for t in P["team"]}

@@ -11,6 +11,7 @@ raises loudly instead of filling zeros. Run it once locally or from the GitHub A
 `python -m pipeline.fetch_espn --selftest` output before trusting the numbers.
 """
 import argparse, os, sys, time
+from zoneinfo import ZoneInfo
 from datetime import date, datetime, timedelta, timezone
 import pandas as pd
 import requests
@@ -134,7 +135,7 @@ def main(backfill=False, preseason=False):
     path = f"{RAW}/games.csv"
     old = pd.read_csv(path, dtype={"pid": str, "event": str}) if os.path.exists(path) else pd.DataFrame()
     seen = set(old["event"].dropna()) if "event" in old else set()
-    today = datetime.now(timezone.utc).date()
+    today = datetime.now(ZoneInfo("America/New_York")).date()   # ESPN scoreboard days are US Eastern
     preseason = preseason or today < date.fromisoformat(C.CUR_START)   # before the season, the next games ARE preseason games
     windows = [(date.fromisoformat(C.CUR_START), min(today, date.fromisoformat(C.CUR_START) + timedelta(days=260)), C.SEASON)]
     if backfill or old.empty:
