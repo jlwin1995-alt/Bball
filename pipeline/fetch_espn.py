@@ -89,6 +89,25 @@ def fetch_rosters():
     return len(rows)
 
 
+def fetch_preseason(start, end, path=f"{RAW}/preseason_games.csv"):
+    """Preseason (ESPN season type 1) box scores in [start, end], cached incrementally. Used to LEARN how many minutes
+    stars/starters/bench play in the preseason relative to the regular season."""
+    old = pd.read_csv(path, dtype={"pid": str, "event": str}) if os.path.exists(path) else pd.DataFrame()
+    seen = set(old["event"].dropna()) if "event" in old else set()
+    new = []
+    for day in daterange(start, end):
+        for ev in scoreboard(day):
+            comp = ev["competitions"][0]
+            if ev.get("season", {}).get("type") != 1 or not comp["status"]["type"].get("completed") or str(ev["id"]) in seen:
+                continue
+            t = {c["homeAway"]: c["team"]["abbreviation"] for c in comp["competitors"]}
+            new += parse_box(ev["id"], day.isoformat(), start.year, t["home"], t["away"])
+            time.sleep(0.15)
+    out = pd.concat([old, pd.DataFrame(new)], ignore_index=True) if new else old
+    out.to_csv(path, index=False)
+    return out
+
+
 def daterange(a, b):
     d = a
     while d <= b:

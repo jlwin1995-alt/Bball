@@ -38,6 +38,12 @@ python -m pipeline.fetch_espn                              # refreshes injuries,
 python -m pipeline.preseason_test project --date 2026-10-08   # BEFORE tip-off
 python -m pipeline.preseason_test score   --date 2026-10-08   # after the games are final
 ```
+Stars play far fewer minutes in preseason, so learn by how much from last year's preseason box scores (one-off, a few minutes),
+then `project` applies it by tier (T1 = 30+ mpg, T2 = 22-30, T3 = the rest) instead of the usual 240-minute rescale:
+```bash
+python -m pipeline.preseason_minutes                        # writes data/raw/preseason_minutes.json
+python -m pipeline.preseason_test project --date 2026-10-08 --game-no 1   # or --mult T1=0.55,T2=0.8,T3=1.05
+```
 Preseason minutes look nothing like the regular season, so `score` grades the per-minute rates and matchup
 adjustments at the minutes each player actually played, and reports minutes separately. It never touches the real accuracy log.
 

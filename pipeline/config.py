@@ -23,6 +23,7 @@ RESCALE_CLIP = (0.80, 1.25)        # how far the team rescale may move anyone's 
 MAX_MIN = 42.0
 PLAY_WINDOW = 20                   # team games used to measure how often a player actually plays
 ACTIVE_DAYS = 21                   # a player must have played in this window to take minutes
+TIER_CUTS = (30.0, 22.0)             # projected-minutes cutoffs: T1 stars/starters >= 30, T2 rotation >= 22, T3 the rest
 QUESTIONABLE_MIN_MULT = 0.90       # Questionable/Day-To-Day minutes haircut; Out/Doubtful are dropped
 
 # --- rates ---------------------------------------------------------------

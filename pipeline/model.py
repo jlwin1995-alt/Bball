@@ -81,7 +81,7 @@ def player_rates(g, asof):
     return pd.DataFrame(rows)
 
 
-def project(games, slate, injuries=None, asof=None, rosters=None):
+def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=None):
     games = games.astype({"pid": str})
     g = _prep(games)
     asof = pd.Timestamp(asof) if asof else g["date"].max() + pd.Timedelta(days=1)
@@ -122,6 +122,12 @@ def project(games, slate, injuries=None, asof=None, rosters=None):
     tot = P.groupby("team")["min_exp"].transform("sum")
     fac = np.clip(C.TEAM_MINUTES / tot.replace(0, np.nan), *C.RESCALE_CLIP).fillna(1.0)
     P["min"] = np.minimum(P["min_raw"] * fac, C.MAX_MIN)
+    P["min_noadj"] = P["min"]
+    # Preseason mode: stars/starters play a fraction of their normal minutes. A multiplier by tier replaces the
+    # 240 rescale (which would just undo it): the missing minutes go to rookies/two-way players we do not project.
+    P["tier"] = np.where(P["min_raw"] >= C.TIER_CUTS[0], "T1", np.where(P["min_raw"] >= C.TIER_CUTS[1], "T2", "T3"))
+    if minute_mult:
+        P["min"] = P["min_raw"] * P["tier"].map(minute_mult).fillna(1.0)
     P["site_mult"] = np.where(P["home"] == 1, C.HOME_MULT, C.AWAY_MULT)
 
     for s in C.STATS:
