@@ -1,6 +1,6 @@
 "use strict";
 // ---------- state ----------------------------------------------------------
-const TABS = ["Projections", "Game Board", "Matchups", "Efficiency", "Usage", "Trends", "Lines", "Scorecard", "Config", "Methodology"];
+const TABS = ["Projections", "Live", "Game Board", "Matchups", "Efficiency", "Usage", "Trends", "Lines", "Scorecard", "Config", "Methodology"];
 const STATS = ["pts", "reb", "ast", "fg3m", "stl", "blk", "tov"];
 const LABEL = {pts: "PTS", reb: "REB", ast: "AST", fg3m: "3PM", stl: "STL", blk: "BLK", tov: "TOV", fp: "FP", pra: "PTS+REB+AST", pr: "PTS+REB", pa: "PTS+AST", ra: "REB+AST"};
 const COMBO = {pra: ["pts", "reb", "ast"], pr: ["pts", "reb"], pa: ["pts", "ast"], ra: ["reb", "ast"]};
@@ -94,6 +94,44 @@ const pct = x => x == null ? "" : `<span class="${x > 1.005 ? "good" : x < 0.995
 const statusPill = s => s ? `<span class="pill ${s === "Out" ? "bad" : ""}">${esc(s)}</span>` : "";
 
 
+// ---------- Live tab: polls ESPN straight from the browser (no credits, no CI) ------------------------------
+const ESPN = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba";
+const LIVE = {games: null, box: {}, err: null, ts: null, timer: null};
+function parseBox(j) {
+  const rows = [];
+  for (const tm of (j.boxscore?.players || [])) {
+    const ab = tm.team?.abbreviation || tm.team?.shortDisplayName || "";
+    for (const grp of tm.statistics || []) {
+      const k = grp.keys || [], ix = n => k.indexOf(n);
+      for (const a of grp.athletes || []) {
+        const st = a.stats || []; if (a.didNotPlay || !st.length) continue;
+        const mn = parseFloat(st[ix("minutes")]); if (!(mn > 0)) continue;
+        const n = key => { const v = st[ix(key)]; return v == null ? 0 : +v || 0; };
+        rows.push({pid: String(a.athlete.id), name: a.athlete.displayName, team: ab, min: mn, pts: n("points"), reb: n("rebounds"), ast: n("assists"),
+          fg3m: +String(st[ix("threePointFieldGoalsMade-threePointFieldGoalsAttempted")] ?? "0").split("-")[0] || 0, stl: n("steals"), blk: n("blocks"), tov: n("turnovers")});
+      }
+    }
+  }
+  return rows;
+}
+async function liveRefresh() {
+  try {
+    const sb = await (await fetch(`${ESPN}/scoreboard`, {cache: "no-store"})).json();
+    LIVE.games = (sb.events || []).map(e => {
+      const c = e.competitions[0], st = e.status.type, t = {};
+      for (const x of c.competitors) t[x.homeAway] = {ab: x.team.abbreviation || x.team.shortDisplayName || x.team.displayName || "?", score: +x.score || 0};
+      return {id: e.id, state: st.state, detail: st.shortDetail, home: t.home, away: t.away, tip: e.date};
+    });
+    await Promise.all(LIVE.games.filter(g => g.state === "in" || (g.state === "post" && !LIVE.box[g.id])).map(async g => {
+      LIVE.box[g.id] = parseBox(await (await fetch(`${ESPN}/summary?event=${g.id}`, {cache: "no-store"})).json());
+    }));
+    LIVE.err = null; LIVE.ts = Date.now();
+  } catch (e) { LIVE.err = String(e && e.message || e); }
+  if (page === "Live") render(true);
+}
+function liveStart() { if (!LIVE.timer) { liveRefresh(); LIVE.timer = setInterval(() => { if (!document.hidden) liveRefresh(); }, 30000); } }
+function liveStop() { clearInterval(LIVE.timer); LIVE.timer = null; }
+
 const warn = e => e != null && Math.abs(e) >= 15 ? ` <span title="An edge this large is usually the model having the minutes or role wrong (injury news, rotation change), not a bargain. Check before trusting it." style="cursor:help">⚠</span>` : "";
 function liveLines() {
   const L = D.lines;
@@ -110,29 +148,30 @@ function liveLines() {
   let rows = L.rows.map(r => {
     const p = byId[r.pid]; if (!p) return null;
     const m = p.c[r.stat], [a, b] = sp[r.stat] || [1, 0.3], sd = Math.max(a + b * m, 0.1), c = r.cons, pp = r.dfs.prizepicks;
-    const out = {name: p.name, pos: p.pos, team: p.team, game: r.game, stat: r.stat, m, c, r, pp, ud: r.dfs.underdog ?? r.dfs.pick6, out: p.c.min === 0};
-    if (c) { const s = sides(c.line, m, sd); out.po = s.o; out.edge = (s.o - c.p_over) * 100; out.pick = out.out ? "OUT" : Math.abs(out.edge) >= CFG.edgeMin ? (out.edge > 0 ? "OVER" : "UNDER") : ""; }
+    const started = Date.now() >= Date.parse(r.commence);
+    const out = {started, name: p.name, pos: p.pos, team: p.team, game: r.game, stat: r.stat, m, c, r, pp, ud: r.dfs.underdog ?? r.dfs.pick6, out: p.c.min === 0};
+    if (c) { const s = sides(c.line, m, sd); out.po = s.o; out.edge = (s.o - c.p_over) * 100; out.pick = started ? "LIVE" : out.out ? "OUT" : Math.abs(out.edge) >= CFG.edgeMin ? (out.edge > 0 ? "OVER" : "UNDER") : ""; }
     if (pp != null) { const s = sides(pp, m, sd); out.side = s.o >= s.u ? "OVER" : "UNDER"; out.pw = Math.max(s.o, s.u); out.ppEdge = (out.pw - BE) * 100;
-      out.ppPick = out.out ? "OUT" : out.ppEdge >= CFG.edgeMin ? "PP " + out.side : ""; out.gap = c ? pp - c.line : null; }
+      out.ppPick = started ? "LIVE" : out.out ? "OUT" : out.ppEdge >= CFG.edgeMin ? "PP " + out.side : ""; out.gap = c ? pp - c.line : null; }
     return out;
   }).filter(Boolean).filter(passes);
   if (F.lstat) rows = rows.filter(r => r.stat === F.lstat);
   if (F.lgame) rows = rows.filter(r => r.game === F.lgame);
-  if (F.lpicks) rows = rows.filter(r => (r.pick && r.pick !== "OUT") || (r.ppPick && r.ppPick !== "OUT"));
+  if (F.lpicks) rows = rows.filter(r => (r.pick && r.pick !== "OUT" && r.pick !== "LIVE") || (r.ppPick && r.ppPick !== "OUT" && r.ppPick !== "LIVE"));
   const tip = r => r.r.books.map(b => `${b.b} ${b.line} (${b.over ?? "-"}/${b.under ?? "-"})`).join("\n");
-  const cols = [{k: "name", h: "Player", l: 1, f: r => esc(r.name)}, {k: "team", h: "Team", l: 1}, {k: "game", h: "Game", l: 1}, {k: "stat", h: "Stat", l: 1, f: r => LABEL[r.stat]},
+  const cols = [{k: "name", h: "Player", l: 1, f: r => esc(r.name)}, {k: "team", h: "Team", l: 1}, {k: "game", h: "Game", l: 1, f: r => esc(r.game) + (r.started ? ` <span class="pill hot" title="Tipped off: these are the last PRE-game lines. The model's pregame probability no longer applies, so no pick is shown.">LIVE</span>` : "")}, {k: "stat", h: "Stat", l: 1, f: r => LABEL[r.stat]},
     {k: "m", h: "Proj", t: "Median-style projection with your Min OVR overrides", f: r => num(r.m)},
     {k: "cl", h: "Cons line", t: "Median sportsbook line; hover for every book", v: r => r.c?.line, f: r => r.c ? `<span title="${esc(tip(r))}">${r.c.line} <span class="mut">${r.c.n}/${r.c.n_books}</span></span>` : ""},
     {k: "cp", h: "Cons P(over)", t: "Average vig-free P(over) of the books at the consensus line", v: r => r.c?.p_over, f: r => r.c ? num(r.c.p_over * 100) + "%" : ""},
     {k: "fo", h: "Fair odds", t: "Over / under, from the consensus probability", v: r => r.c?.p_over, f: r => r.c ? `${amer(r.c.p_over)} / ${amer(1 - r.c.p_over)}` : ""},
     {k: "po", h: "Model P(over)", v: r => r.po, f: r => r.po == null ? "" : num(r.po * 100) + "%"},
     {k: "edge", h: "Edge pp", v: r => r.edge, f: r => r.edge == null ? "" : `<span class="${r.edge > 0 ? "good" : "bad"}">${num(r.edge)}</span>`},
-    {k: "pick", h: "Pick", l: 1, f: r => r.pick ? `<b>${r.pick}</b>${r.pick === "OUT" ? "" : warn(r.edge)}` : ""},
+    {k: "pick", h: "Pick", l: 1, f: r => r.pick ? `<b>${r.pick}</b>${r.pick === "OUT" || r.pick === "LIVE" ? "" : warn(r.edge)}` : ""},
     {k: "pp", h: "PrizePicks", v: r => r.pp, f: r => r.pp ?? ""},
     {k: "gap", h: "PP − cons", t: "Positive: PrizePicks line is higher than the books' (easier UNDER); negative: lower (easier OVER)", v: r => r.gap, f: r => r.gap == null ? "" : `<span class="${r.gap < 0 ? "good" : r.gap > 0 ? "bad" : "mut"}">${r.gap > 0 ? "+" : ""}${num(r.gap)}</span>`},
     {k: "pw", h: "PP P(win)", t: "Model probability of the better side at the PrizePicks line", v: r => r.pw, f: r => r.pw == null ? "" : `${r.side[0]} ${num(r.pw * 100)}%`},
     {k: "ppEdge", h: "PP edge pp", t: `vs your break-even of ${CFG.ppBE}% (Config)`, v: r => r.ppEdge, f: r => r.ppEdge == null ? "" : `<span class="${r.ppEdge > 0 ? "good" : "bad"}">${num(r.ppEdge)}</span>`},
-    {k: "ppPick", h: "PP pick", l: 1, f: r => r.ppPick ? `<b>${r.ppPick}</b>${r.ppPick === "OUT" ? "" : warn(r.ppEdge)}` : ""},
+    {k: "ppPick", h: "PP pick", l: 1, f: r => r.ppPick ? `<b>${r.ppPick}</b>${r.ppPick === "OUT" || r.ppPick === "LIVE" ? "" : warn(r.ppEdge)}` : ""},
     {k: "ud", h: "UD/Pick6", v: r => r.ud, f: r => r.ud ?? ""}];
   const games = [...new Set(L.rows.map(r => r.game))].sort(), stats = [...new Set(L.rows.map(r => r.stat))];
   const extra = `<label>Stat <select id="lstat"><option value="">All</option>${stats.map(s => `<option value="${s}" ${F.lstat === s ? "selected" : ""}>${LABEL[s] || s}</option>`).join("")}</select></label>
@@ -219,6 +258,37 @@ const pages = {
       ${filters(`<label>Min MPG <input id="ming" size="3" value="${F.ming}"></label>`)}${table(cols, rows, {id: "trend", sort: {key: "d_fp"}})}`;
   },
 
+  Live() {
+    if (LIVE.err && !LIVE.games) return `<h2>Live</h2><p class="sub">Couldn't load live data from ESPN in this browser (${esc(LIVE.err)}). If this keeps happening, ESPN is blocking cross-site requests; tell whoever maintains the site.</p>`;
+    if (!LIVE.games) return `<h2>Live</h2><p class="sub">Loading today's games…</p>`;
+    const byId = Object.fromEntries(projMed().map(p => [p.pid, p]));
+    const lineOf = {};                                           // pid|stat -> consensus line, else PrizePicks
+    for (const r of (D.lines?.rows || [])) lineOf[r.pid + "|" + r.stat] = r.cons?.line ?? r.dfs?.prizepicks ?? null;
+    const order = {in: 0, pre: 1, post: 2}, games = [...LIVE.games].sort((a, b) => order[a.state] - order[b.state] || Date.parse(a.tip) - Date.parse(b.tip));
+    const ago = LIVE.ts ? Math.round((Date.now() - LIVE.ts) / 1000) : null;
+    const STATS_SHOWN = ["pts", "reb", "ast", "fg3m"];
+    const card = g => {
+      const head = `<strong>${esc(g.away.ab)} ${g.away.score}</strong> @ <strong>${esc(g.home.ab)} ${g.home.score}</strong>`;
+      if (g.state === "pre") return `<div class="card"><span>${head.replace(/ \d+<\/strong>/g, "</strong>")}</span><br><span class="mut">tip ${new Date(g.tip).toLocaleTimeString([], {hour: "numeric", minute: "2-digit"})}</span></div>`;
+      const badge = g.state === "in" ? `<span class="pill hot">LIVE</span> ` : `<span class="pill">FINAL</span> `;
+      const rows = (LIVE.box[g.id] || []).map(b => {
+        const p = byId[b.pid], remain = g.state === "post" || !p ? 0 : Math.max(p.c.min - b.min, 0), o = {...b, p, onCourt: g.state === "in"};
+        for (const st of STATS_SHOWN) { o["f_" + st] = p ? b[st] + remain * p.c[st] / Math.max(p.c.min, 1e-9) : null; o["l_" + st] = p ? lineOf[b.pid + "|" + st] ?? null : null; }
+        return o;
+      });
+      const cell = st => ({k: st, h: LABEL[st], t: "now → projected final (model rate × minutes still expected); [line] = consensus, else PrizePicks. Green = already over the line, orange = on pace to go over.",
+        v: r => r["f_" + st] ?? r[st], f: r => { const f = r["f_" + st], l = r["l_" + st]; if (f == null) return String(r[st]);
+          const cls = l != null ? (r[st] > l ? "good" : f > l ? "" : "mut") : "";
+          return `${r[st]} <span class="mut">→</span> <span class="${cls}">${num(f)}</span>${l != null ? ` <span class="mut">[${l}]</span>` : ""}`; }});
+      const cols = [{k: "name", h: "Player", l: 1}, {k: "team", h: "Team", l: 1}, {k: "min", h: "MIN", f: r => num(r.min, 0)}, ...STATS_SHOWN.map(cell)];
+      return `<div class="card" style="grid-column:1/-1"><div>${badge}${head} <span class="mut">· ${esc(g.detail)}</span></div>
+        <div style="margin-top:8px">${rows.length ? table(cols, rows, {id: "live" + g.id, sort: {key: "min"}}) : `<span class="mut">No box score yet.</span>`}</div></div>`;
+    };
+    return `<h2>Live</h2><p class="sub">Today's games, updated every 30 s${ago != null ? ` (refreshed ${ago}s ago)` : ""}${LIVE.err ? ` — <b>last refresh failed: ${esc(LIVE.err)}</b>` : ""}.
+      Each stat shows <b>now → projected final</b> from the model's per-minute rate and the minutes still expected (blowouts and foul trouble aren't modelled), with the posted line in brackets.</p>
+      ${games.length ? `<div class="cards" style="grid-template-columns:1fr">${games.map(card).join("")}</div>` : `<p class="sub">No games on ESPN's scoreboard today.</p>`}`;
+  },
+
   Lines() {
     const byId = Object.fromEntries(proj().map(p => [p.pid, p]));
     const sp = D.spread || D.meta.spread;
@@ -298,6 +368,7 @@ function route() {
   const next = TABS.includes(h) ? h : "Projections";
   if (next !== page) { F.q = ""; F.pos = ""; }          // a stale search should not silently filter the next tab
   page = next;
+  if (page === "Live") liveStart(); else liveStop();
   nav(); render();
 }
 window.addEventListener("hashchange", route);

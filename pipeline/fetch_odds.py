@@ -10,7 +10,7 @@ Cost control: /events is free; /events/{id}/odds costs (markets x bookmaker-grou
 inside ODDS_HORIZON_HOURS are pulled, and the run stops if the remaining-credits header drops below ODDS_MIN_CREDITS.
 NOT yet run against the live API from the dev sandbox (host blocked); the response parsing is unit-tested on a stub.
 """
-import os, sys, time
+import json, os, sys, time
 from datetime import datetime, timedelta, timezone
 import pandas as pd
 import requests
@@ -67,6 +67,8 @@ def main(session=None):
             print("basketball feeds visible:", ", ".join(ks) or "none")
     except requests.RequestException as e:
         print("could not list sports:", e)
+    prev_rows = pd.read_csv(f"{RAW}/odds.csv") if os.path.exists(f"{RAW}/odds.csv") else pd.DataFrame()
+    prev_meta = json.load(open(f"{RAW}/odds_meta.json")) if os.path.exists(f"{RAW}/odds_meta.json") else {}
     rows, remaining, resp, n_games, info = [], None, None, 0, []
     for sport in C.ODDS_SPORTS:
         r = s.get(f"{BASE}/sports/{sport}/events", params={"apiKey": key, "dateFormat": "iso"}, timeout=30)
@@ -97,10 +99,19 @@ def main(session=None):
                 print(f"  {ev['away_team']} @ {ev['home_team']}: no props posted yet for the configured books/markets")
             rows += got
             time.sleep(0.2)
+    # Games that have tipped off are not re-fetched (books pull props at tip; live prices would cost credits and mean something else),
+    # so carry their last PREGAME rows forward for a few hours. The site marks them LIVE.
+    cutoff = now - timedelta(hours=C.ODDS_KEEP_STARTED_HOURS)
+    started = lambda c: cutoff <= datetime.fromisoformat(str(c).replace("Z", "+00:00")) <= now
+    seen_events = {r["event"] for r in rows}
+    if len(prev_rows):
+        keep = prev_rows[prev_rows["commence"].map(started) & ~prev_rows["event"].isin(seen_events)]
+        rows += keep.astype(object).where(keep.notna(), None).to_dict("records")
+    seen_games = {g["game"] for g in info}
+    info += [g for g in prev_meta.get("games", []) if started(g["commence"]) and g["game"] not in seen_games]
     os.makedirs(RAW, exist_ok=True)
     cols = ["ts", "event", "commence", "game", "home", "away", "player", "stat", "book", "line", "over", "under"]
     pd.DataFrame(rows, columns=cols).to_csv(f"{RAW}/odds.csv", index=False)
-    import json
     json.dump(dict(ts=now.isoformat(timespec="seconds"), credits=None if remaining is None or remaining != remaining else remaining,
                    games=info, feeds=[f for f in C.ODDS_SPORTS]), open(f"{RAW}/odds_meta.json", "w"))
     print(f"odds.csv: {len(rows)} lines across {n_games} games; credits remaining: {remaining}")
