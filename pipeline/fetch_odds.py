@@ -67,7 +67,7 @@ def main(session=None):
             print("basketball feeds visible:", ", ".join(ks) or "none")
     except requests.RequestException as e:
         print("could not list sports:", e)
-    rows, remaining, resp, n_games = [], None, None, 0
+    rows, remaining, resp, n_games, info = [], None, None, 0, []
     for sport in C.ODDS_SPORTS:
         r = s.get(f"{BASE}/sports/{sport}/events", params={"apiKey": key, "dateFormat": "iso"}, timeout=30)
         if r.status_code in (404, 422):
@@ -91,6 +91,8 @@ def main(session=None):
             remaining = float(resp.headers.get("x-requests-remaining", "nan"))
             got = parse_event(ev, resp.json(), now.isoformat(timespec="seconds"))
             n_games += 1
+            info.append(dict(feed=sport, game=f"{TEAM_ABBR.get(ev['away_team'], ev['away_team'])} @ {TEAM_ABBR.get(ev['home_team'], ev['home_team'])}",
+                             commence=ev["commence_time"], props=len(got)))
             if not got:
                 print(f"  {ev['away_team']} @ {ev['home_team']}: no props posted yet for the configured books/markets")
             rows += got
@@ -98,6 +100,9 @@ def main(session=None):
     os.makedirs(RAW, exist_ok=True)
     cols = ["ts", "event", "commence", "game", "home", "away", "player", "stat", "book", "line", "over", "under"]
     pd.DataFrame(rows, columns=cols).to_csv(f"{RAW}/odds.csv", index=False)
+    import json
+    json.dump(dict(ts=now.isoformat(timespec="seconds"), credits=None if remaining is None or remaining != remaining else remaining,
+                   games=info, feeds=[f for f in C.ODDS_SPORTS]), open(f"{RAW}/odds_meta.json", "w"))
     print(f"odds.csv: {len(rows)} lines across {n_games} games; credits remaining: {remaining}")
 
 

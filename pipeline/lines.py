@@ -83,6 +83,9 @@ def main(raw, out):
         g = pd.read_csv(f"{raw}/games.csv", dtype={"pid": str}).sort_values("date")
         ros = g.drop_duplicates("pid", keep="last")[["pid", "name", "team"]]
     res = build_lines(odds, ros) if len(odds) else dict(updated=None, n=0, games=[], unmatched=[], rows=[])
+    mp = f"{raw}/odds_meta.json"
+    if os.path.exists(mp):
+        res["meta"] = json.load(open(mp))                       # when we last looked, which games exist, credits left
     os.makedirs(out, exist_ok=True)
     json.dump(res, open(f"{out}/lines.json", "w"), separators=(",", ":"))
     print(f"lines.json: {res['n']} player-stat lines, {len(res['games'])} games, {len(res['unmatched'])} unmatched names")
