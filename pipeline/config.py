@@ -75,7 +75,8 @@ ODDS_MARKETS = {                                                    # Odds API m
     # add more here (each costs credits per game): "player_steals": "stl", "player_blocks": "blk", "player_turnovers": "tov",
     # "player_points_rebounds": "pr", "player_points_assists": "pa", "player_rebounds_assists": "ra"
 }
-ODDS_HORIZON_HOURS = 30            # only games starting within this window are pulled
+ODDS_HORIZON_HOURS = 18            # only games starting within this window are pulled (props for tomorrow's games are rarely up yet)
+ODDS_MIN_INTERVAL_MIN = 90         # a scheduled pull is skipped if the previous check was this recent, so backup runs cost no credits
 ODDS_MIN_CREDITS = 60              # stop pulling when the API reports fewer credits than this remaining
 COMBOS = {"pra": ["pts", "reb", "ast"], "pr": ["pts", "reb"], "pa": ["pts", "ast"], "ra": ["reb", "ast"]}
 SPREAD_DEFAULT.update({"pra": [3.5, 0.17], "pr": [3.0, 0.20], "pa": [2.8, 0.20], "ra": [1.5, 0.25]})

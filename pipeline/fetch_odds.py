@@ -54,12 +54,18 @@ def parse_event(ev, odds, now_iso):
     return rows
 
 
-def main(session=None):
+def main(session=None, force=False):
     key = os.environ.get("ODDS_API_KEY")
     if not key:
         raise SystemExit("ODDS_API_KEY is not set (GitHub: Settings -> Secrets and variables -> Actions -> New repository secret)")
     s = session or requests.Session()
     now = datetime.now(timezone.utc)
+    prev_meta = json.load(open(f"{RAW}/odds_meta.json")) if os.path.exists(f"{RAW}/odds_meta.json") else {}
+    if not force and prev_meta.get("ts"):
+        age = (now - datetime.fromisoformat(prev_meta["ts"])).total_seconds() / 60
+        if age < C.ODDS_MIN_INTERVAL_MIN:
+            print(f"last check was {age:.0f} min ago (< {C.ODDS_MIN_INTERVAL_MIN}); skipping so backup runs do not spend credits. Use --force to override.")
+            return
     horizon = now + timedelta(hours=C.ODDS_HORIZON_HOURS)
     try:                                                   # free call: which basketball feeds does this key see?
         sp = s.get(f"{BASE}/sports", params={"apiKey": key, "all": "true"}, timeout=30)
@@ -69,7 +75,6 @@ def main(session=None):
     except requests.RequestException as e:
         print("could not list sports:", e)
     prev_rows = pd.read_csv(f"{RAW}/odds.csv") if os.path.exists(f"{RAW}/odds.csv") else pd.DataFrame()
-    prev_meta = json.load(open(f"{RAW}/odds_meta.json")) if os.path.exists(f"{RAW}/odds_meta.json") else {}
     rows, remaining, resp, n_games, info = [], None, None, 0, []
     for sport in C.ODDS_SPORTS:
         r = s.get(f"{BASE}/sports/{sport}/events", params={"apiKey": key, "dateFormat": "iso"}, timeout=30)
@@ -119,4 +124,7 @@ def main(session=None):
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--force", action="store_true", help="pull even if the last check was recent (manual runs)")
+    main(force=ap.parse_args().force)

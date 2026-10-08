@@ -1,11 +1,17 @@
 name: Refresh odds
 
-# Pulls NBA player-prop lines (sportsbooks + PrizePicks/Underdog) from The Odds API three times on game days,
+# Pulls NBA player-prop lines (sportsbooks + PrizePicks/Underdog) from The Odds API several times on game days,
 # rebuilds site/data/lines.json, and redeploys. Needs the repository secret ODDS_API_KEY; without it this just skips.
 on:
   schedule:
-    - cron: "5 16 * * *"      # ~noon ET: lines are up
+    # GitHub's scheduler is best-effort (it skipped and delayed runs here), so every pull has a backup ~35 min later. fetch_odds skips
+    # a run if the previous check was under 90 min ago, so backups only spend credits when the first run did not happen.
+    - cron: "5 14 * * *"      # ~10am ET: books start posting props
+    - cron: "40 14 * * *"     # backup
+    - cron: "5 16 * * *"      # ~noon ET
+    - cron: "40 16 * * *"     # backup
     - cron: "5 21 * * *"      # ~5pm ET
+    - cron: "40 21 * * *"     # backup
     - cron: "35 23 * * *"     # ~7:35pm ET: close to the first tip
   workflow_dispatch: {}
 
@@ -40,7 +46,7 @@ jobs:
         run: pip install -r pipeline/requirements.txt
       - name: Fetch lines (the events list is free; props cost credits per game)
         if: steps.key.outputs.skip != '1'
-        run: python -m pipeline.fetch_odds
+        run: python -m pipeline.fetch_odds ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}   # manual runs always pull
       - name: Build lines.json
         if: steps.key.outputs.skip != '1'
         run: python -m pipeline.lines
