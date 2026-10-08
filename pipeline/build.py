@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from . import config as C
 from .model import project, fantasy, _prep
-from . import scorecard
+from . import scorecard, lines as lines_mod
 from .preseason_test import resolve_mult
 
 
@@ -129,6 +129,8 @@ def main(raw="data/raw", out="site/data"):
           "generated": pd.Timestamp.now("UTC").isoformat(timespec="seconds")}, out, "meta.json")
     if os.path.exists(f"{raw}/spread.json"):
         dump(json.load(open(f"{raw}/spread.json")), out, "spread.json")
+    if not sample:
+        lines_mod.main(raw, out)                                    # live lines + consensus, if odds.csv exists
     logged = 0 if sample else scorecard.log_slate(P, games)   # sample data never touches the real log
     dump(scorecard.score(games), out, "scorecard.json")
     print(f"logged {logged} rows; projected {len(P)} players for {cov['slate_date']}  (out: {cov['out']})")

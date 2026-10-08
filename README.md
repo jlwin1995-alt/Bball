@@ -53,6 +53,22 @@ python -m pipeline.preseason_minutes && python -m pipeline.fetch_espn --preseaso
 ```
 The site then carries a PRESEASON banner, and nothing is logged to the Scorecard.
 
+### Live lines, consensus and PrizePicks
+
+The **Lines** tab shows every posted player prop with the sportsbook consensus (median line, vig removed, fair odds), the PrizePicks and
+Underdog lines beside it, and the model's edge against each. Data comes from [The Odds API](https://the-odds-api.com): its `us_dfs` region
+carries `prizepicks`, `underdog` and `pick6`. DFS prices are nominal, so PrizePicks edge is measured against your own break-even (Config; a
+k-pick entry paying M× needs M^(-1/k) per leg).
+
+1. Get a key at the-odds-api.com (the free tier is 500 credits/month; a full slate of 5 markets costs roughly 5 credits per game per pull
+   with one bookmaker group, so plan on a paid tier for daily use - check their pricing page).
+2. GitHub: Settings → Secrets and variables → Actions → **New repository secret** `ODDS_API_KEY`. Never commit the key.
+3. Actions → **Refresh odds** → Run workflow. It then runs three times a day (noon, 5pm, 7:35pm ET). Locally:
+   `ODDS_API_KEY=... python -m pipeline.fetch_odds && python -m pipeline.lines`.
+
+Markets and books are in `pipeline/config.py` (`ODDS_MARKETS`, `ODDS_BOOKS`). Edges above 15 points get a warning marker: they usually mean the
+model has the player's minutes or role wrong (injury news), not a bargain. Players with 0 projected minutes show OUT instead of a pick.
+
 ### Data sources
 
 | Source | Command | Notes |

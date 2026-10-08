@@ -60,3 +60,22 @@ DEFAULT_SCORING = {"pts": 1.0, "fg3m": 0.5, "reb": 1.25, "ast": 1.5, "stl": 2.0,
 # Preseason fallback if the learner (pipeline.preseason_minutes) has no data: a ROUGH GUESS, not measured here, so the site never
 # projects stars for regular-season minutes in a preseason game. The site banner says when these are in use.
 PRESEASON_MULT_FALLBACK = {"T1": 0.60, "T2": 0.80, "T3": 1.00}
+
+# --- live lines (The Odds API) ------------------------------------------------
+# Needs the ODDS_API_KEY environment variable (a GitHub Actions secret in CI). Never put the key in this file.
+ODDS_SPORT = "basketball_nba"
+# Specific bookmakers rather than regions: as I recall The Odds API bills every 10 bookmakers as one "region", so up to
+# 10 books here costs (markets x 1) credits per game. Verify against their docs/usage before relying on that.
+ODDS_BOOKS = ["draftkings", "fanduel", "betmgm", "williamhill_us", "betrivers", "espnbet", "fanatics",
+              "prizepicks", "underdog", "pick6"]
+DFS_BOOKS = ["prizepicks", "underdog", "pick6", "dabble_us_dfs"]     # nominal-price books: shown beside, never in the consensus
+ODDS_MARKETS = {                                                    # Odds API market key -> our stat key
+    "player_points": "pts", "player_rebounds": "reb", "player_assists": "ast", "player_threes": "fg3m",
+    "player_points_rebounds_assists": "pra",
+    # add more here (each costs credits per game): "player_steals": "stl", "player_blocks": "blk", "player_turnovers": "tov",
+    # "player_points_rebounds": "pr", "player_points_assists": "pa", "player_rebounds_assists": "ra"
+}
+ODDS_HORIZON_HOURS = 30            # only games starting within this window are pulled
+ODDS_MIN_CREDITS = 60              # stop pulling when the API reports fewer credits than this remaining
+COMBOS = {"pra": ["pts", "reb", "ast"], "pr": ["pts", "reb"], "pa": ["pts", "ast"], "ra": ["reb", "ast"]}
+SPREAD_DEFAULT.update({"pra": [3.5, 0.17], "pr": [3.0, 0.20], "pa": [2.8, 0.20], "ra": [1.5, 0.25]})

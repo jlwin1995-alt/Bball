@@ -48,9 +48,18 @@ def run(games, every=3, last=60, min_proj_min=15.0):
         C.SEASON = saved
 
 
+def add_combos(R):
+    """Combo markets (PRA etc.) as sums of the modelled stats, so their spreads can be fitted too."""
+    R = R.copy()
+    for c, parts in C.COMBOS.items():
+        for suf in ["p", "a", "season", "last"]:
+            R[f"{c}_{suf}"] = sum(R[f"{s}_{suf}"] for s in parts)
+    return R
+
+
 def summarise(R):
     res = {}
-    R = R.copy()
+    R = add_combos(R)
     for suf in ["p", "a", "season", "last"]:
         R["fp_" + suf] = sum(R[f"{s}_{suf}"] * w for s, w in C.DEFAULT_SCORING.items())
     for s in C.STATS + ["fp"]:
@@ -66,7 +75,7 @@ def summarise(R):
 
 def fit_spread(R):
     out = {}
-    for s in C.STATS + ["fp"]:
+    for s in C.STATS + ["fp"] + list(C.COMBOS):
         x, y = R[s + "_p"].values, (R[s + "_a"] - R[s + "_p"]).abs().values * np.sqrt(np.pi / 2)  # E|e| = sd*sqrt(2/pi)
         b, a = np.polyfit(x, y, 1)
         out[s] = [round(float(max(a, 0.05)), 3), round(float(max(b, 0.0)), 3)]
