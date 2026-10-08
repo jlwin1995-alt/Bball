@@ -38,6 +38,18 @@ def scoreboard(day):
     return get(f"{BASE}/scoreboard", dates=day.strftime("%Y%m%d"), limit=100).get("events", [])
 
 
+def teams_of(comp):
+    """{'home': ABBR, 'away': ABBR}, or None if either side is not an NBA team. Preseason slates include
+    international clubs whose ESPN entries have no abbreviation; those games are skipped, never crashed on."""
+    out = {}
+    for c in comp.get("competitors", []):
+        ab = (c.get("team") or {}).get("abbreviation")
+        if not ab:
+            return None
+        out[c["homeAway"]] = ab
+    return out if len(out) == 2 else None
+
+
 def split(v):
     a, b = str(v).split("-")
     return int(a), int(b)
@@ -100,7 +112,9 @@ def fetch_preseason(start, end, path=f"{RAW}/preseason_games.csv"):
             comp = ev["competitions"][0]
             if ev.get("season", {}).get("type") != 1 or not comp["status"]["type"].get("completed") or str(ev["id"]) in seen:
                 continue
-            t = {c["homeAway"]: c["team"]["abbreviation"] for c in comp["competitors"]}
+            t = teams_of(comp)
+            if t is None:
+                continue
             new += parse_box(ev["id"], day.isoformat(), start.year, t["home"], t["away"])
             time.sleep(0.15)
     out = pd.concat([old, pd.DataFrame(new)], ignore_index=True) if new else old
@@ -136,7 +150,9 @@ def main(backfill=False, preseason=False):
                     continue
                 if ev.get("season", {}).get("type", 2) != 2:
                     continue
-                t = {c["homeAway"]: c["team"]["abbreviation"] for c in comp["competitors"]}
+                t = teams_of(comp)
+                if t is None:
+                    continue
                 new += parse_box(ev["id"], day.isoformat(), season, t["home"], t["away"])
                 time.sleep(0.15)
     if new:
@@ -150,11 +166,13 @@ def main(backfill=False, preseason=False):
             comp = ev["competitions"][0]
             if comp["status"]["type"].get("completed") or ev.get("season", {}).get("type", 2) not in ((1, 2) if preseason else (2,)):
                 continue                                           # finished, or preseason (unless --preseason) / playoffs
-            t = {c["homeAway"]: c["team"]["abbreviation"] for c in comp["competitors"]}
+            t = teams_of(comp)
+            if t is None:
+                continue
             local = ev["date"][:10] if False else day.isoformat()
             sched += [dict(date=local, team=t["home"], opp=t["away"], home=1), dict(date=local, team=t["away"], opp=t["home"], home=0)]
     pd.DataFrame(sched, columns=["date", "team", "opp", "home"]).to_csv(f"{RAW}/schedule.csv", index=False)
-    print(f"schedule.csv: {len(sched) // 2} regular-season games in the next 21 days")
+    print(f"schedule.csv: {len(sched) // 2} games in the next 21 days")
 
     try:
         print(f"rosters.csv: {fetch_rosters()} players")
@@ -175,10 +193,10 @@ def selftest():
     """One scoreboard + one box score, printed raw, so the parsing can be eyeballed."""
     d = datetime.now(timezone.utc).date() - timedelta(days=1)
     for _ in range(200):
-        evs = [e for e in scoreboard(d) if e["competitions"][0]["status"]["type"].get("completed")]
+        evs = [e for e in scoreboard(d) if e["competitions"][0]["status"]["type"].get("completed") and teams_of(e["competitions"][0])]
         if evs:
             e = evs[0]
-            t = {c["homeAway"]: c["team"]["abbreviation"] for c in e["competitions"][0]["competitors"]}
+            t = teams_of(e["competitions"][0])
             rows = parse_box(e["id"], d.isoformat(), C.SEASON, t["home"], t["away"])
             print(pd.DataFrame(rows).head(12).to_string())
             return

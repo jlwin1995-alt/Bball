@@ -80,7 +80,9 @@ def cmd_project(date, manual=None, game_no=None):
     rows, kinds = [], set()
     for ev in E.scoreboard(d):
         comp = ev["competitions"][0]
-        t = {c["homeAway"]: c["team"]["abbreviation"] for c in comp["competitors"]}
+        t = E.teams_of(comp)
+        if t is None:
+            continue                       # non-NBA opponent
         kinds.add(ev.get("season", {}).get("type"))
         if comp["status"]["type"].get("completed"):
             print("warning: a game on this date is already final; projecting it now is not a fair test:", t)
@@ -113,7 +115,9 @@ def cmd_score(date):
         comp = ev["competitions"][0]
         if not comp["status"]["type"].get("completed"):
             continue
-        t = {c["homeAway"]: c["team"]["abbreviation"] for c in comp["competitors"]}
+        t = E.teams_of(comp)
+        if t is None:
+            continue                       # non-NBA opponent
         rows += E.parse_box(ev["id"], d.isoformat(), C.SEASON, t["home"], t["away"])
     if not rows:
         raise SystemExit("no finished games yet on that date")

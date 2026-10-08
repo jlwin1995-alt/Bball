@@ -30,17 +30,27 @@ jobs:
         # nba_api is often blocked from GitHub-hosted runners; if so, run it locally and commit data/raw.
         run: python -m pipeline.fetch_${{ vars.DATA_SOURCE || 'espn' }}   # first run backfills last season; includes preseason games until CUR_START
       - name: Learn preseason minutes (once, before the season; cached in data/raw)
-        run: test -f data/raw/preseason_minutes.json || python -m pipeline.preseason_minutes || echo "preseason minutes unavailable; slate will be unadjusted"
+        run: test -f data/raw/preseason_minutes.json || python -m pipeline.preseason_minutes || echo "::warning::preseason minutes could not be learned; the site uses a rough default"
       - name: Fit spreads for the Lines tab
         run: python -m pipeline.backtest --every 5 --write-spread
       - name: Build site data (and log the next slate before tip-off)
         run: python -m pipeline.build
       - name: Commit data
+        # If main moved while this job ran (a re-run of an old commit, or a merge mid-run), rebase our freshly
+        # generated data onto it instead of failing. Only data/ and site/data/ are touched, and where both sides
+        # changed a generated file, ours (the newer build) wins.
         run: |
           git config user.name "github-actions"
           git config user.email "actions@users.noreply.github.com"
           git add data site/data
-          git diff --cached --quiet || (git commit -m "Refresh data" && git push)
+          git diff --cached --quiet && exit 0
+          git commit -m "Refresh data"
+          for i in 1 2 3; do
+            git pull --rebase -X theirs origin main && git push && exit 0
+            git rebase --abort 2>/dev/null || true
+            sleep $((i * 5))
+          done
+          echo "::error::could not push the data commit after 3 attempts"; exit 1
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site

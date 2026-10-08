@@ -56,3 +56,7 @@ SPREAD_DEFAULT = {"pts": [2.5, 0.20], "reb": [1.2, 0.30], "ast": [0.9, 0.30],
 
 # Default fantasy scoring used for Trends, the Scorecard and the backtest. (DraftKings classic)
 DEFAULT_SCORING = {"pts": 1.0, "fg3m": 0.5, "reb": 1.25, "ast": 1.5, "stl": 2.0, "blk": 2.0, "tov": -0.5}
+
+# Preseason fallback if the learner (pipeline.preseason_minutes) has no data: a ROUGH GUESS, not measured here, so the site never
+# projects stars for regular-season minutes in a preseason game. The site banner says when these are in use.
+PRESEASON_MULT_FALLBACK = {"T1": 0.60, "T2": 0.80, "T3": 1.00}
