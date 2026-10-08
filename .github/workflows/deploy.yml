@@ -1,0 +1,32 @@
+name: Deploy site
+
+# Merging a change to the site code (site/**) publishes it. The data workflows deploy too, but only when they run;
+# without this, a merged UI change would sit on main until the next scheduled refresh.
+# (Commits pushed by the data workflows use GITHUB_TOKEN and do not trigger this, so there is no loop.)
+on:
+  push:
+    branches: [main]
+    paths: ["site/**"]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: refresh              # serialise with the data workflows so two deploys never race
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
