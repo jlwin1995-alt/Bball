@@ -82,3 +82,8 @@ COMBOS = {"pra": ["pts", "reb", "ast"], "pr": ["pts", "reb"], "pa": ["pts", "ast
 SPREAD_DEFAULT.update({"pra": [3.5, 0.17], "pr": [3.0, 0.20], "pa": [2.8, 0.20], "ra": [1.5, 0.25]})
 
 ODDS_KEEP_STARTED_HOURS = 5        # keep a game's last PREGAME lines on the site this long after tipoff (books pull props at tip)
+
+# --- Results tab ---------------------------------------------------------------------------------------------------
+RESULTS_MIN_PROJ_MIN = 15.0        # players projected for fewer minutes are shown but not counted in the headline error numbers
+RESULTS_EDGE_PP = 4.0              # model-vs-line gap (percentage points) that counts as a "pick" when grading line results
+PP_BREAKEVEN = 0.577               # PrizePicks per-leg break-even used to grade PrizePicks picks (2 legs at 3x); edit if you play differently

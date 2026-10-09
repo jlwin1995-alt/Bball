@@ -69,6 +69,17 @@ k-pick entry paying M× needs M^(-1/k) per leg).
 Markets and books are in `pipeline/config.py` (`ODDS_MARKETS`, `ODDS_BOOKS`). Edges above 15 points get a warning marker: they usually mean the
 model has the player's minutes or role wrong (injury news), not a bargain. Players with 0 projected minutes show OUT instead of a pick.
 
+### Results (projected vs actual)
+
+Each morning's projections are frozen in `data/log/accuracy_log.csv` before tip-off, and each odds pull keeps the **last pregame**
+consensus and PrizePicks line per game day, player and stat in `data/log/lines_log.csv` (overwritten while a game hasn't started,
+never touched after tip-off). Once box scores are in, `pipeline/results.py` joins the three and writes `site/data/results/index.json`
+(one summary row per day) and `results/<date>.json` (every player, loaded on demand). The **Results** tab shows projected → actual for
+minutes, fantasy points, the main stats and the combos, with the pregame lines beside them and hit rates for the model's side against
+the consensus and PrizePicks lines (picks = at least 4 points of disagreement; PrizePicks picks clear a 57.7% per-leg break-even; both in
+`config.py`). A result equal to the line is a push and is excluded. Preseason slates are not logged. A game with no odds pull before tip
+has no line to grade against.
+
 ### Live games
 
 The **Live** tab polls ESPN's scoreboard from your browser every 30 s (no credits, no workflow needed): scores, clock, and for games in
