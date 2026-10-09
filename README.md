@@ -63,7 +63,7 @@ k-pick entry paying M× needs M^(-1/k) per leg).
 1. Get a key at the-odds-api.com (the free tier is 500 credits/month; a full slate of 5 markets costs roughly 5 credits per game per pull
    with one bookmaker group, so plan on a paid tier for daily use - check their pricing page).
 2. GitHub: Settings → Secrets and variables → Actions → **New repository secret** `ODDS_API_KEY`. Never commit the key.
-3. Actions → **Refresh odds** → Run workflow. It then runs three times a day (noon, 5pm, 7:35pm ET). Locally:
+3. Actions → **Refresh odds** → Run workflow. It then pulls at about 10am, noon, 5pm and 7:35pm ET, each with a backup 35 min later; a run is skipped if the previous check was under 90 minutes ago, so backups cost no credits (GitHub's scheduler is best-effort and does skip or delay runs). Manual runs always pull. Locally:
    `ODDS_API_KEY=... python -m pipeline.fetch_odds && python -m pipeline.lines`.
 
 Markets and books are in `pipeline/config.py` (`ODDS_MARKETS`, `ODDS_BOOKS`). Edges above 15 points get a warning marker: they usually mean the
