@@ -1,9 +1,17 @@
 pid,name,team,status
-None,Aaron Wiggins,ATL,Day-To-Day
+None,Keshon Gilbert,ATL,Day-To-Day
 None,Luguentz Dort,ATL,Day-To-Day
-None,CJ McCollum,ATL,Day-To-Day
+None,Jalen Johnson,ATL,Day-To-Day
 None,Henri Veesaar,ATL,Out
 None,Mouhamed Gueye,ATL,Day-To-Day
+None,Sam Hauser,BOS,Day-To-Day
+None,Ron Harper Jr.,BOS,Day-To-Day
+None,Payton Pritchard,BOS,Day-To-Day
+None,Mitchell Robinson,BOS,Day-To-Day
+None,Neemias Queta,BOS,Day-To-Day
+None,Paul George,BOS,Day-To-Day
+None,Jayson Tatum,BOS,Day-To-Day
+None,Derrick White,BOS,Day-To-Day
 None,Joshua Jefferson,BKN,Day-To-Day
 None,Mikel Brown Jr.,BKN,Day-To-Day
 None,Day'Ron Sharpe,BKN,Day-To-Day
@@ -18,13 +26,13 @@ None,Zach Collins,CHI,Day-To-Day
 None,Jaylin Sellers,CHI,Day-To-Day
 None,Tre Jones,CHI,Day-To-Day
 None,Nic Claxton,CHI,Day-To-Day
-None,Peyton Watson,DEN,Day-To-Day
-None,Morez Johnson Jr.,DAL,Day-To-Day
+None,Khalifa Diop,CLE,Day-To-Day
+None,Nae'Qwan Tomlin,CLE,Day-To-Day
+None,James Harden,CLE,Day-To-Day
 None,Santi Aldama,MEM,Day-To-Day
 None,Dereck Lively II,DAL,Day-To-Day
 None,Spencer Jones,DEN,Day-To-Day
 None,Jalen Duren,DET,Day-To-Day
-None,Al Horford,GS,Day-To-Day
 None,Gui Santos,GS,Day-To-Day
 None,Brandin Podziemski,GS,Day-To-Day
 None,Gary Payton II,GS,Day-To-Day
@@ -45,21 +53,25 @@ None,Max Strus,LAC,Out
 None,Yanic Konan Niederhauser,LAC,Out
 None,Brandon Ingram,TOR,Out
 None,Jordan Miller,LAC,Out
-None,Arthur Kaluma,LAL,Day-To-Day
-None,Collin Sexton,LAL,Day-To-Day
-None,Ziaire Williams,LAL,Day-To-Day
+None,Dalton Knecht,LAL,Day-To-Day
 None,Walker Kessler,LAL,Day-To-Day
-None,Luka Doncic,LAL,Day-To-Day
+None,Collin Sexton,LAL,Day-To-Day
+None,Arthur Kaluma,LAL,Day-To-Day
+None,Ziaire Williams,LAL,Day-To-Day
+None,Cameron Carr,LAL,Day-To-Day
 None,Matisse Thybulle,LAL,Day-To-Day
-None,Austin Reaves,LAL,Day-To-Day
 None,Micah Peavy,MEM,Day-To-Day
 None,Isaiah Stewart,MEM,Day-To-Day
-None,Keshad Johnson,MIA,Out
 None,Pelle Larsson,MIA,Day-To-Day
-None,Andrew Wiggins,MIA,Day-To-Day
+None,Keshad Johnson,MIA,Out
 None,Dru Smith,MIA,Day-To-Day
 None,Nate Ament,MIL,Day-To-Day
 None,Donte DiVincenzo,MIN,Out
+None,Dejounte Murray,NO,Day-To-Day
+None,Kevin McCullar Jr.,NY,Day-To-Day
+None,Tony Bradley,NY,Day-To-Day
+None,Ochai Agbaji,NY,Day-To-Day
+None,Drew Eubanks,NY,Day-To-Day
 None,Jose Alvarado,NY,Day-To-Day
 None,Thomas Sorber,OKC,Day-To-Day
 None,Chet Holmgren,OKC,Day-To-Day
@@ -75,19 +87,19 @@ None,Dominick Barlow,PHI,Day-To-Day
 None,Anfernee Simons,PHI,Day-To-Day
 None,Adem Bona,PHI,Day-To-Day
 None,Ariel Hukporti,PHI,Out
-None,Tyrese Maxey,PHI,Day-To-Day
-None,LeBron James,PHI,Day-To-Day
-None,Joel Embiid,PHI,Day-To-Day
 None,Tacko Fall,PHI,Day-To-Day
 None,Miles Bridges,PHX,Day-To-Day
 None,Mark Williams,PHX,Out
 None,Shaedon Sharpe,POR,Out
+None,Domantas Sabonis,SAC,Day-To-Day
 None,Keegan Murray,SAC,Day-To-Day
 None,Malik Monk,SAC,Day-To-Day
 None,Ben Simmons,SAC,Day-To-Day
+None,Malik Williams,SA,Day-To-Day
+None,De'Aaron Fox,SA,Day-To-Day
+None,Maliq Brown,SA,Day-To-Day
 None,Jayden Quaintance,SA,Out
 None,Tobias Harris,SA,Day-To-Day
-None,David Jones Garcia,SA,Day-To-Day
 None,Trayce Jackson-Davis,TOR,Day-To-Day
 None,Jamison Battle,TOR,Day-To-Day
 None,Allen Graves,TOR,Day-To-Day
@@ -98,5 +110,6 @@ None,Lauri Markkanen,UTAH,Day-To-Day
 None,Brice Sensabaugh,UTAH,Day-To-Day
 None,Kyle Filipowski,UTAH,Day-To-Day
 None,Alex Sarr,WSH,Day-To-Day
+None,Khris Middleton,WSH,Day-To-Day
 None,Tristan Vukcevic,WSH,Out
 None,Jamir Watkins,WSH,Out
