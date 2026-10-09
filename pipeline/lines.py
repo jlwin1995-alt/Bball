@@ -13,6 +13,8 @@ import pandas as pd
 from . import config as C
 from .fetch_nba_api import norm
 
+LOG = "data/log/lines_log.csv"
+
 
 def imp(price):
     """American price -> implied probability (with vig)."""
@@ -70,6 +72,39 @@ def build_lines(odds, roster):
                 games=sorted({r["game"] for r in rows}), unmatched=sorted(unmatched)[:25], rows=rows)
 
 
+def et_date(commence):
+    """ESPN scoreboard days (and so every date in the logs) are US Eastern."""
+    return pd.Timestamp(commence).tz_convert("America/New_York").date().isoformat()
+
+
+def snapshot_pregame(res, log=None, now=None):
+    """Keep the LAST PRE-GAME consensus / PrizePicks line for every (game day, player, stat).
+
+    Each pull overwrites that key while the game has not started; once it tips off the key is never touched again, so the row left
+    in the log is the final pregame line. The Results tab grades projections against it.
+    """
+    log = log or LOG
+    now = now or pd.Timestamp.now("UTC")
+    rows = []
+    for r in res.get("rows", []):
+        if pd.Timestamp(r["commence"]) <= now:
+            continue                                            # started: its line is already frozen
+        c = r.get("cons") or {}
+        rows.append(dict(date=et_date(r["commence"]), commence=r["commence"], pid=str(r["pid"]), name=r["name"], team=r["team"], game=r["game"],
+                         stat=r["stat"], cons_line=c.get("line"), cons_p_over=c.get("p_over"), n_books=c.get("n"),
+                         pp_line=r["dfs"].get("prizepicks"), ud_line=r["dfs"].get("underdog") if r["dfs"].get("underdog") is not None else r["dfs"].get("pick6"),
+                         ts=res.get("updated")))
+    if not rows:
+        return 0
+    new = pd.DataFrame(rows)
+    old = pd.read_csv(log, dtype={"pid": str}) if os.path.exists(log) else pd.DataFrame(columns=new.columns)
+    key = lambda d: d["date"].astype(str) + "|" + d["pid"].astype(str) + "|" + d["stat"].astype(str)
+    old = old[~key(old).isin(set(key(new)))] if len(old) else old
+    os.makedirs(os.path.dirname(log), exist_ok=True)
+    pd.concat([old, new], ignore_index=True).to_csv(log, index=False)
+    return len(new)
+
+
 def main(raw, out):
     p = f"{raw}/odds.csv"
     if not os.path.exists(p):
@@ -88,6 +123,7 @@ def main(raw, out):
         res["meta"] = json.load(open(mp))                       # when we last looked, which games exist, credits left
     os.makedirs(out, exist_ok=True)
     json.dump(res, open(f"{out}/lines.json", "w"), separators=(",", ":"))
+    snapshot_pregame(res)
     print(f"lines.json: {res['n']} player-stat lines, {len(res['games'])} games, {len(res['unmatched'])} unmatched names")
     if res["unmatched"]:
         print("  unmatched (check name spellings):", ", ".join(res["unmatched"][:10]))

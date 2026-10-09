@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from . import config as C
 from .model import project, fantasy, _prep, all_players
-from . import scorecard, lines as lines_mod
+from . import scorecard, lines as lines_mod, results as results_mod
 from .preseason_test import resolve_mult
 
 
@@ -139,6 +139,8 @@ def main(raw="data/raw", out="site/data"):
         lines_mod.main(raw, out)                                    # live lines + consensus, if odds.csv exists
     logged = 0 if sample else scorecard.log_slate(P, games, preseason=pre)   # sample data never touches the real log
     dump(scorecard.score(games), out, "scorecard.json")
+    if not sample:
+        results_mod.main(raw, out, games)                           # projected vs actual per player, per game day
     print(f"logged {logged} rows; projected {len(P)} players for {cov['slate_date']}  (out: {cov['out']})")
 
 

@@ -1,6 +1,6 @@
 "use strict";
 // ---------- state ----------------------------------------------------------
-const TABS = ["Projections", "Live", "Game Board", "Matchups", "Efficiency", "Usage", "Trends", "Lines", "Scorecard", "Config", "Methodology"];
+const TABS = ["Projections", "Live", "Game Board", "Matchups", "Efficiency", "Usage", "Trends", "Lines", "Scorecard", "Results", "Config", "Methodology"];
 const STATS = ["pts", "reb", "ast", "fg3m", "stl", "blk", "tov"];
 const LABEL = {pts: "PTS", reb: "REB", ast: "AST", fg3m: "3PM", stl: "STL", blk: "BLK", tov: "TOV", fp: "FP", pra: "PTS+REB+AST", pr: "PTS+REB", pa: "PTS+AST", ra: "REB+AST"};
 const COMBO = {pra: ["pts", "reb", "ast"], pr: ["pts", "reb"], pa: ["pts", "ast"], ra: ["reb", "ast"]};
@@ -72,7 +72,8 @@ function filters(extra = "") {
   return `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}">
   <label>Pos <select id="pos">${["", "G", "F", "C"].map(p => `<option ${F.pos === p ? "selected" : ""} value="${p}">${p || "All"}</option>`).join("")}</select></label>${extra}</div>`;
 }
-const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lpicks: false};
+const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lpicks: false, rday: "", rlines: false, rpicks: false};
+const RES = {};                                     // results/<date>.json cache
 function passes(r) {
   if (F.pos && r.pos !== F.pos) return false;
   const q = F.q.trim().toLowerCase();
@@ -131,6 +132,17 @@ async function liveRefresh() {
 }
 function liveStart() { if (!LIVE.timer) { liveRefresh(); LIVE.timer = setInterval(() => { if (!document.hidden) liveRefresh(); }, 30000); } }
 function liveStop() { clearInterval(LIVE.timer); LIVE.timer = null; }
+
+// ---------- Results: pregame projection vs final box score, graded against the frozen pregame lines -------------------
+const grade = (a, line, side) => a === line ? null : (side === "O" ? a > line : a < line);
+const RES_PENDING = {};
+async function loadResultsDay(date) {
+  if (!date || RES[date] || RES_PENDING[date]) return;
+  RES_PENDING[date] = true;
+  try { RES[date] = await (await fetch(`data/results/${date}.json`)).json(); } catch (e) { RES[date] = {error: String(e)}; }
+  if (page === "Results") render(true);
+}
+const pct1 = (h, n) => n ? `${(h / n * 100).toFixed(1)}% <span class="mut">(${h}/${n})</span>` : "—";
 
 const warn = e => e != null && Math.abs(e) >= 15 ? ` <span title="An edge this large is usually the model having the minutes or role wrong (injury news, rotation change), not a bargain. Check before trusting it." style="cursor:help">⚠</span>` : "";
 function liveLines() {
@@ -314,6 +326,53 @@ const pages = {
       <p class="sub">Note: the "Proj" here follows your Median/Mean choice in Config — use Median against a line.</p>`;
   },
 
+  Results() {
+    const I = D.rIdx;
+    if (!I || !I.days || !I.days.length)
+      return `<h2>Results</h2><div class="doc"><p>No graded games yet. From the first regular-season slate on, each morning's projections are frozen before tip-off, the last pregame consensus and PrizePicks lines are saved, and once the box scores are in, every player's projection is shown here next to what happened. The first graded day appears the morning after the opener. (Preseason slates are not logged.)</p></div>`;
+    const days = I.days, sum = k => days.reduce((a, d) => a + (d[k] || 0), 0), wavg = k => { const n = days.reduce((a, d) => a + (d[k] != null ? d.n : 0), 0); return n ? days.reduce((a, d) => a + (d[k] != null ? d[k] * d.n : 0), 0) / n : null; };
+    const tot = k => [days.reduce((a, d) => a + d[k][0], 0), days.reduce((a, d) => a + d[k][1], 0)];
+    const card = (v, l) => `<div class="card"><b>${v}</b><span>${l}</span></div>`;
+    const [cn, ch] = tot("cons"), [kn, kh] = tot("picks"), [pn, ph] = tot("pp"), [qn, qh] = tot("pp_picks");
+    if (!F.rday || !days.some(d => d.date === F.rday)) F.rday = days[0].date;
+    loadResultsDay(F.rday);
+    const dayCols = [{k: "date", h: "Day", l: 1}, {k: "n", h: "Players", t: `Projected for ${I.min_proj}+ minutes`}, {k: "min_mae", h: "Min MAE", f: r => num(r.min_mae, 1)}, {k: "fp_mae", h: "FP MAE", f: r => num(r.fp_mae, 1)},
+      {k: "fp_bias", h: "FP bias %", f: r => num(r.fp_bias, 1)},
+      {k: "c", h: "vs consensus", t: "Model side (over if its projection is above the line) vs the last pregame consensus line", v: r => r.cons[0] ? r.cons[1] / r.cons[0] : null, f: r => pct1(r.cons[1], r.cons[0])},
+      {k: "pk", h: "Picks", t: `Lines where the model and the book differ by ${I.edge_pp}+ points`, v: r => r.picks[0] ? r.picks[1] / r.picks[0] : null, f: r => pct1(r.picks[1], r.picks[0])},
+      {k: "pp", h: "vs PrizePicks", v: r => r.pp[0] ? r.pp[1] / r.pp[0] : null, f: r => pct1(r.pp[1], r.pp[0])},
+      {k: "pq", h: "PP picks", t: `Model's better side clears the ${(I.pp_breakeven * 100).toFixed(1)}% break-even by ${I.edge_pp}+ points`, v: r => r.pp_picks[0] ? r.pp_picks[1] / r.pp_picks[0] : null, f: r => pct1(r.pp_picks[1], r.pp_picks[0])}];
+    // selected day
+    const det = RES[F.rday];
+    let body;
+    if (!det) body = `<p class="sub">Loading ${esc(F.rday)}…</p>`;
+    else if (det.error) body = `<p class="sub">Couldn't load that day (${esc(det.error)}).</p>`;
+    else {
+      let rows = det.filter(r => (r.n + " " + r.t).toLowerCase().includes(F.q.trim().toLowerCase()));
+      const hasLine = r => Object.values(r.s).some(x => x[2] != null || x[3] != null), hasPick = r => Object.values(r.s).some(x => x[4] || x[5]);
+      if (F.rlines) rows = rows.filter(hasLine);
+      if (F.rpicks) rows = rows.filter(hasPick);
+      const cell = st => ({k: st, h: LABEL[st] || st, t: "projected → actual. [line] = last pregame consensus, then PrizePicks; ✓/✗ = whether the model's side (over if its projection is above the line) won; ◆ = a pick (model and book differ by the edge threshold).",
+        v: r => Math.abs(r.s[st][1] - r.s[st][0]), f: r => {
+          const [p, a, cl, pl, pc, pk] = r.s[st], mk = (line, side, pick) => { const g = grade(a, line, side); return `<span class="${g === true ? "good" : g === false ? "bad" : "mut"}">${g === true ? "✓" : g === false ? "✗" : "="}</span>${pick ? "◆" : ""}`; };
+          let t = `${num(p)} <span class="mut">→</span> ${num(a)}`;
+          if (cl != null) t += ` <span class="mut">[${cl}]</span>${mk(cl, p > cl ? "O" : "U", pc)}`;
+          if (pl != null) t += ` <span class="mut">PP ${pl}</span>${mk(pl, p >= pl ? "O" : "U", pk)}`;
+          return t; }});
+      const cols = [{k: "n", h: "Player", l: 1}, {k: "t", h: "Team", l: 1},
+        {k: "mp", h: "MIN", t: "projected → actual minutes", v: r => Math.abs(r.ma - r.mp), f: r => `${num(r.mp, 0)} <span class="mut">→</span> ${num(r.ma, 0)}`},
+        {k: "fp", h: "FP", t: "DraftKings scoring, projected → actual", v: r => Math.abs(r.fp[1] - r.fp[0]), f: r => `${num(r.fp[0])} <span class="mut">→</span> ${num(r.fp[1])}`},
+        ...["pts", "reb", "ast", "fg3m", "pra", "pr", "pa", "ra"].map(cell)];
+      body = `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}"><label><input type="checkbox" id="rlines" ${F.rlines ? "checked" : ""}> has a line</label><label><input type="checkbox" id="rpicks" ${F.rpicks ? "checked" : ""}> has a pick</label><span class="mut">${rows.length} players · click a header to sort by the size of the miss</span></div>${table(cols, rows, {id: "resday", sort: {key: "fp"}})}`;
+    }
+    return `<h2>Results</h2><p class="sub">What the model said before the game vs what happened. Pregame projections are frozen before tip-off; lines are the last pregame consensus (and PrizePicks) pull. A single day is a few hundred coin flips, so judge the hit rates over weeks, not days: against a −110 market a bettor needs about 52.4% to break even, and PrizePicks needs about ${(I.pp_breakeven * 100).toFixed(1)}% per leg.</p>
+      <div class="cards">${card(days.length, "graded game days")}${card(sum("n"), "player-games (15+ min)")}${card(num(wavg("min_mae"), 1), "minutes MAE")}${card(num(wavg("fp_mae"), 1), "fantasy-points MAE")}${card(num(wavg("fp_bias"), 1) + "%", "fantasy-points bias")}</div>
+      <div class="cards">${card(pct1(ch, cn), "model side vs consensus line")}${card(pct1(kh, kn), "picks vs consensus")}${card(pct1(ph, pn), "model side vs PrizePicks")}${card(pct1(qh, qn), "PrizePicks picks")}</div>
+      <div class="bar"><label>Day <select id="rday">${days.map(d => `<option value="${d.date}" ${d.date === F.rday ? "selected" : ""}>${d.date}</option>`).join("")}</select></label></div>
+      ${body}
+      <h3>All graded days</h3>${table(dayCols, days, {id: "resdays", sort: {key: "date"}})}`;
+  },
+
   Scorecard() {
     const s = D.scorecard, sm = s && s.summary;
     if (!s || !s.days || !s.days.length) return `<h2>Scorecard</h2><div class="doc"><p>No scored games yet. Projections for each slate are written to <code>data/log/accuracy_log.csv</code> <i>before</i> tip-off and never rewritten; this tab fills in once those games finish. ${s ? s.logged_rows + " rows logged so far." : ""}</p></div>`;
@@ -349,7 +408,7 @@ const pages = {
 <h3>Matchups</h3><p>Each defence is measured against league average per stat, regressed by games played, capped, and then <b>damped</b> — only a share of the measured adjustment is applied, because most of it does not carry forward. Matchup tab shows the undamped number; Projections uses the damped one. These shares are starting values; <code>python -m pipeline.backtest</code> is how they get tuned on real data.</p>
 <h3>Median or mean</h3><p>Stat lines are right-skewed: a few huge nights pull the average above the typical one. <b>Median-style</b> is the number to compare to a posted line; <b>Mean</b> (× MEAN_FACTOR) is for season-long value.</p>
 <h3>Lines</h3><p>P(over) uses sd = a + b × projection per stat. Book probability has the vig removed first (a −110/−110 market prices at 104.8%). Pick shows only past the edge threshold.</p>
-<h3>Scorecard</h3><p>Every slate's projections are logged before the games and never rewritten, then scored against the season-average and last-N baselines. Each row carries a settings stamp so a change to any knob starts a fresh record rather than blending into the old one.</p>
+<h3>Results</h3><p>For each graded game day, every player's pregame projection next to his box score, with the last pregame consensus and PrizePicks lines. The model "takes" the over if its projection is above a line and the under if below; a result exactly on the line is a push and is left out. A <b>pick</b> is a line where the model's probability differs from the book's by the edge threshold (PrizePicks: from the break-even). Lines are snapshotted at each odds pull until tip-off and frozen after; if a game had no pull before tip, it has no line to grade against.</p><h3>Scorecard</h3><p>Every slate's projections are logged before the games and never rewritten, then scored against the season-average and last-N baselines. Each row carries a settings stamp so a change to any knob starts a fresh record rather than blending into the old one.</p>
 <h3>Not modelled</h3><p>Opposing-offence strength inside the defence rating, pace as its own term, double-double bonuses, garbage-time and blowout risk, player-vs-player matchups, and in-browser minute redistribution when you override a teammate. Injury status comes from ESPN's feed and is only as current as the last build.</p>
 <h3>Data</h3><p>ESPN's public NBA JSON endpoints (box scores, schedule, injuries), refreshed by the scheduled GitHub Action. No API key.</p></div>`;
   },
@@ -387,6 +446,9 @@ document.addEventListener("change", e => {
   else if (t.id === "preset") { CFG.preset = t.value; if (PRESETS[t.value]) CFG.scoring = {...PRESETS[t.value]}; store.set("cfg", CFG); render(); }
   else if (t.dataset.sc) { CFG.scoring[t.dataset.sc] = +t.value || 0; CFG.preset = "Custom"; store.set("cfg", CFG); render(); }
   else if (t.id === "mean") { CFG.mean = t.value === "1"; store.set("cfg", CFG); render(); }
+  else if (t.id === "rday") { F.rday = t.value; render(); }
+  else if (t.id === "rlines") { F.rlines = t.checked; render(); }
+  else if (t.id === "rpicks") { F.rpicks = t.checked; render(); }
   else if (t.id === "edge") { CFG.edgeMin = +t.value || 0; store.set("cfg", CFG); }
   else if (t.id === "ppbe") { CFG.ppBE = +t.value || 57.7; store.set("cfg", CFG); render(); }
 });
@@ -405,6 +467,7 @@ async function boot() {
   CFG = {...CFG, ...store.get("cfg", {})}; OVR = store.get("ovr", {}); LINES = store.get("lines", []);
   const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "scorecard", "spread", "lines", "players"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
+  try { const r = await fetch("data/results/index.json"); if (r.ok) D.rIdx = await r.json(); } catch (e) {}
   if (!D.projections) { view().innerHTML = "<p>No data found in <code>data/</code>. Run <code>python -m pipeline.build</code>.</p>"; return; }
   document.getElementById("asof").textContent = `data through ${D.coverage.asof} · slate ${D.coverage.slate_date}`;
   const msgs = [];
