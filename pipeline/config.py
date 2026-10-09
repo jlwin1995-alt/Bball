@@ -21,7 +21,7 @@ RECENT_WEIGHT_MIN = 0.5            # share of projected minutes taken from the r
 TEAM_MINUTES = 240.0               # a game's worth of player minutes
 RESCALE_CLIP = (0.80, 1.25)        # how far the team rescale may move anyone's minutes
 MAX_MIN = 42.0
-RESCALE_STRENGTH = 1.0             # share of the team-240 rescale applied (1 = fully; <1 when absences redistribute fewer minutes than the rescale gives)
+RESCALE_STRENGTH = 0.25            # share of the team-240 rescale applied. MEASURED (pipeline.absence_test, 2025-26): full rescale over-credits teammates; 0.25 cuts minutes MAE 6% and fantasy-point MAE ~2% with absences known (~1% unknown), in both halves of the season
 PLAY_WINDOW = 20                   # team games used to measure how often a player actually plays
 ACTIVE_DAYS = 21                   # a player must have played in this window to take minutes
 TIER_CUTS = (30.0, 22.0)             # projected-minutes cutoffs: T1 stars/starters >= 30, T2 rotation >= 22, T3 the rest
