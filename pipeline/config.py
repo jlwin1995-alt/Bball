@@ -34,9 +34,15 @@ RECENT_EXTRA = 0.5                 # extra weight on the rolling window when est
 # --- matchups ------------------------------------------------------------
 DEF_PRIOR_GAMES = 12               # defence regressed toward league by games / (games + this)
 DEF_ADJ_CAP = 0.15                 # raw multiplier capped to 1 +/- this
-# Share of the measured adjustment that is allowed through (damping). Starting values; the
-# backtest (`python -m pipeline.backtest`) is how they should be re-tuned on real data.
-DEF_STRENGTH = {"pts": 0.50, "reb": 0.35, "ast": 0.40, "fg3m": 0.40, "stl": 0.15, "blk": 0.15, "tov": 0.15}
+# Share of the (already shrunk and capped) adjustment that is allowed through. MEASURED by `python -m pipeline.measure` on the
+# 2025-26 season: the share that arrives is ~1.0 (pts 1.33, blk 1.37, ast 1.2 with intervals that include 1; fg3m 0.75), so 1.0 across
+# the board. Guessed values of 0.15-0.5 used before were costing accuracy. Re-measure when a second season of data exists.
+DEF_STRENGTH = {"pts": 1.0, "reb": 1.0, "ast": 1.0, "fg3m": 1.0, "stl": 1.0, "blk": 1.0, "tov": 1.0}
+
+# Calibration: projected per-minute rates are over-shrunk toward the league (actual outcomes spread out ~5-20% more than the
+# projections do; slope of actual on projection measured at 1.05-1.20 in both halves of the season). Rates are stretched about
+# the league rate by this factor. Out-of-sample MAE improves 0.3-1.2% per stat. 1.0 = off.
+CAL_RATE_SLOPE = {"pts": 1.2, "reb": 1.1, "ast": 1.2, "fg3m": 1.2, "stl": 1.0, "blk": 1.2, "tov": 1.2}
 
 # --- situation -----------------------------------------------------------
 HOME_MULT = 1.01

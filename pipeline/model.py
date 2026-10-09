@@ -78,7 +78,15 @@ def player_rates(g, asof):
             den = mw + C.RECENT_EXTRA * mr + k
             r["pm_" + s] = num / den
         rows.append(r)
-    return pd.DataFrame(rows)
+    R = pd.DataFrame(rows)
+    if len(R):                                                        # un-shrink: stretch rates about the league rate (see CAL_RATE_SLOPE)
+        w = R["min_s"].where(R["min_s"] >= 15, 0.0)
+        for s in C.STATS:
+            b = C.CAL_RATE_SLOPE.get(s, 1.0)
+            if b != 1.0 and w.sum() > 0:
+                mu = (R["pm_" + s] * w).sum() / w.sum()
+                R["pm_" + s] = (mu + b * (R["pm_" + s] - mu)).clip(lower=0.0)
+    return R
 
 
 def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=None):
