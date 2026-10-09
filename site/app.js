@@ -1,6 +1,6 @@
 "use strict";
 // ---------- state ----------------------------------------------------------
-const TABS = ["Projections", "Live", "Game Board", "Matchups", "Efficiency", "Usage", "Trends", "Lines", "Scorecard", "Results", "Config", "Methodology"];
+const TABS = ["Projections", "Live", "Game Board", "Matchups", "Team Tiers", "Shots", "Efficiency", "Usage", "Trends", "Lines", "Scorecard", "Results", "Config", "Methodology"];
 const STATS = ["pts", "reb", "ast", "fg3m", "stl", "blk", "tov"];
 const LABEL = {pts: "PTS", reb: "REB", ast: "AST", fg3m: "3PM", stl: "STL", blk: "BLK", tov: "TOV", fp: "FP", pra: "PTS+REB+AST", pr: "PTS+REB", pa: "PTS+AST", ra: "REB+AST"};
 const COMBO = {pra: ["pts", "reb", "ast"], pr: ["pts", "reb"], pa: ["pts", "ast"], ra: ["reb", "ast"]};
@@ -72,7 +72,7 @@ function filters(extra = "") {
   return `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}">
   <label>Pos <select id="pos">${["", "G", "F", "C"].map(p => `<option ${F.pos === p ? "selected" : ""} value="${p}">${p || "All"}</option>`).join("")}</select></label>${extra}</div>`;
 }
-const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lpicks: false, rday: "", rmode: null, rlines: false, rpicks: false};
+const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lpicks: false, rday: "", vstat: "pts", sview: "chart", cteam: "", cplayer: "", cheat: "fg", cdots: "all", rmode: null, rlines: false, rpicks: false};
 const RES = {};                                     // results/<date>.json cache
 function passes(r) {
   if (F.pos && r.pos !== F.pos) return false;
@@ -195,6 +195,154 @@ function liveLines() {
     ${filters(extra)}${table(cols, rows, {id: "live", sort: {key: "edge"}})}`;
 }
 
+function vsPosition() {
+  const T = D.tiers;
+  if (!T || !T.vspos || !T.vspos.length) return "";
+  const st = F.vstat, rel = T.vspos_rel || {};
+  const cell = pos => ({k: pos, h: {G: "Guards", F: "Forwards", C: "Centers"}[pos], t: `Reliability (split-half): ${rel[pos + "_" + st] ?? "n/a"}`,
+    v: r => r[pos + "_" + st], f: r => { const x = r[pos + "_" + st]; return x == null ? "" : `<span class="${x > 1 ? "good" : x < -1 ? "bad" : "mut"}">${x > 0 ? "+" : ""}${num(x, 1)}%</span>`; }});
+  return `<h3>Vs position</h3><p class="sub">Per-minute ${LABEL[st]} each defence allows to guards, forwards and centers, relative to the league at that position (green = soft). Shrunk toward zero by minutes seen. <b>Display only:</b> as a projection input it added nothing in a walk-forward test (the position-specific part beyond the team-wide matchup was noise and the two halves of the season disagreed), so the projections do not use it. Split-half reliability for ${LABEL[st]}: guards ${rel["G_" + st] ?? "–"}, forwards ${rel["F_" + st] ?? "–"}, centers ${rel["C_" + st] ?? "–"}.</p>
+    <div class="bar"><label>Stat <select id="vstat">${STATS.map(s => `<option value="${s}" ${s === st ? "selected" : ""}>${LABEL[s]}</option>`).join("")}</select></label></div>
+    ${table([{k: "team", h: "Team", l: 1}, cell("G"), cell("F"), cell("C")], T.vspos, {id: "vspos", sort: {key: "G"}})}`;
+}
+
+
+// ---------- shot chart: a defence's allowed-shot map under a shooter's shots --------------------------------------------------
+const SCP = {data: null, pending: false};
+async function loadShotPlayers() {
+  if (SCP.data || SCP.pending) return;
+  SCP.pending = true;
+  try { SCP.data = await (await fetch("data/shotchart_players.json")).json(); } catch (e) { SCP.data = {}; }
+  if (page === "Shots") render(true);
+}
+const HEAT = {                                      // diverging pair, cool = tough defence, warm = soft defence, neutral midpoint; equal steps per arm
+  light: {mid: [240, 239, 236], cold: [42, 111, 187], warm: [200, 64, 42]},
+  dark: {mid: [56, 56, 53], cold: [91, 155, 220], warm: [239, 122, 90]},
+};
+const HEAT_STEPS = 5;
+function heatColor(v, cap) {                        // v in [-cap, cap] -> rgb string, quantised into HEAT_STEPS per arm
+  const P = HEAT[matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"];
+  const t = Math.min(1, Math.abs(v) / cap), k = Math.ceil(t * HEAT_STEPS - 1e-9) / HEAT_STEPS, pole = v < 0 ? P.cold : P.warm;
+  return `rgb(${P.mid.map((m, i) => Math.round(m + (pole[i] - m) * k)).join(",")})`;
+}
+const SC_Y = y => 41.75 - y;                         // court feet -> svg y (basket at the bottom of the picture)
+function courtLines() {
+  const st = 'fill="none" stroke="var(--mut)" stroke-width="0.18" stroke-linejoin="round"';
+  const r = Math.sqrt(23.75 ** 2 - 22 ** 2);
+  return `<g ${st}>
+    <rect x="0" y="0" width="50" height="47"/>
+    <rect x="17" y="${SC_Y(13.75)}" width="16" height="${13.75 + 5.25}"/>
+    <path d="M19 ${SC_Y(13.75)} A6 6 0 0 1 31 ${SC_Y(13.75)}"/>
+    <path d="M19 ${SC_Y(13.75)} A6 6 0 0 0 31 ${SC_Y(13.75)}" stroke-dasharray="0.6 0.6"/>
+    <path d="M21 ${SC_Y(0)} A4 4 0 0 1 29 ${SC_Y(0)}"/>
+    <line x1="22" y1="${SC_Y(-1.25)}" x2="28" y2="${SC_Y(-1.25)}"/>
+    <circle cx="25" cy="${SC_Y(0)}" r="0.75"/>
+    <path d="M3 ${SC_Y(-5.25)} L3 ${SC_Y(r)} A23.75 23.75 0 0 1 47 ${SC_Y(r)} L47 ${SC_Y(-5.25)}"/>
+    <path d="M19 0 A6 6 0 0 0 31 0"/>
+  </g>`;
+}
+const SC_SMOOTH = new Map();
+function scSmooth(a, cols) {                           // 3x3 kernel [1 2 1; 2 4 2; 1 2 1] / 4: neighbours lend their shots, so one lucky square cannot colour the court
+  if (SC_SMOOTH.has(a)) return SC_SMOOTH.get(a);
+  const rows = a.length / cols, out = new Array(a.length).fill(0);
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+    let t = 0;
+    for (let dr = -1; dr <= 1; dr++) for (let dc = -1; dc <= 1; dc++) {
+      const rr = r + dr, cc = c + dc;
+      if (rr < 0 || rr >= rows || cc < 0 || cc >= cols) continue;
+      t += a[rr * cols + cc] * (dr === 0 && dc === 0 ? 4 : (dr === 0 || dc === 0 ? 2 : 1));
+    }
+    out[r * cols + c] = t / 4;
+  }
+  SC_SMOOTH.set(a, out);
+  return out;
+}
+function shotChartSVG(team, pid) {
+  const G = D.shotchart, c = G.cols, CELL = G.cell, tm0 = G.teams[team];
+  const ln = scSmooth(G.lg.n, c), lm = scSmooth(G.lg.m, c), tn = scSmooth(tm0.n, c), tmk = scSmooth(tm0.m, c);
+  const tot = tn.reduce((a, b) => a + b, 0), Ltot = ln.reduce((a, b) => a + b, 0), K = 60;
+  let cells = "";
+  if (F.cheat !== "none") {
+    for (let i = 0; i < ln.length; i++) {
+      if (ln[i] < 160) continue;
+      const col = i % c, row = (i - col) / c, y1 = G.y0 + (row + 1) * CELL, lf = lm[i] / ln[i];
+      let v, cap, tip;
+      if (F.cheat === "fg") {
+        const sh = (tmk[i] + K * lf) / (tn[i] + K); v = (sh - lf) * 100; cap = 6;
+        tip = `${team} allow about ${(sh * 100).toFixed(0)}% around here vs ${(lf * 100).toFixed(0)}% league (${v > 0 ? "+" : ""}${v.toFixed(1)} pts); ${tm0.n[i]} attempts in this square`;
+      } else {
+        const exp = ln[i] / Ltot * tot; v = (tn[i] + 12) / (exp + 12) - 1; cap = 0.6;
+        tip = `${team} face ${tm0.n[i]} attempts in this square; around here ${(v > 0 ? "+" : "")}${(v * 100).toFixed(0)}% vs the league's share`;
+      }
+      cells += `<rect class="sccell" data-tip="${esc(tip)}" x="${(col * CELL + 0.1).toFixed(2)}" y="${(SC_Y(y1) + 0.1).toFixed(2)}" width="${CELL - 0.2}" height="${CELL - 0.2}" rx="0.4" fill="${heatColor(v, cap)}"/>`;
+    }
+  }
+  let dots = "", n = 0;
+  const sh = pid && SCP.data && SCP.data[pid];
+  if (sh && F.cdots !== "none") {
+    for (let i = 0; i < sh.length; i += 3) {
+      const made = sh[i + 2] === 1;
+      if ((F.cdots === "made" && !made) || (F.cdots === "miss" && made)) continue;
+      n++;
+      dots += made ? `<circle cx="${sh[i]}" cy="${SC_Y(sh[i + 1])}" r="0.42" fill="var(--fg)" fill-opacity="0.8" stroke="var(--bg)" stroke-width="0.1"/>`
+                   : `<circle cx="${sh[i]}" cy="${SC_Y(sh[i + 1])}" r="0.36" fill="none" stroke="var(--fg)" stroke-opacity="0.7" stroke-width="0.14"/>`;
+    }
+  }
+  return {n, svg: `<svg viewBox="-1 -1 52 49" class="scchart" role="img" aria-label="Shot chart: ${esc(team)} defence with shooter overlay"><g>${cells}</g>${courtLines()}<g pointer-events="none">${dots}</g></svg>`};
+}
+function shotChartView(T) {
+  const G = D.shotchart;
+  if (!G) return `<p class="sub">Shot chart data is not built yet.</p>`;
+  loadShotPlayers();
+  const teams = Object.keys(G.teams).sort(), players = T.players;
+  const byId = Object.fromEntries(players.map(p => [p.pid, p]));
+  if (!F.cplayer || !byId[F.cplayer]) {                                   // default: the best projected player on the slate who has shot data
+    const top = [...D.projections].filter(p => !p.out && byId[p.pid]).sort((a, b) => b.fp - a.fp)[0];
+    F.cplayer = top ? top.pid : players[0].pid; F.cteam = "";
+  }
+  const pl = byId[F.cplayer];
+  if (!F.cteam || !G.teams[F.cteam]) {                                    // default defence: tonight's opponent, else the first team
+    const pr = D.projections.find(p => p.pid === F.cplayer);
+    F.cteam = pr && G.teams[pr.opp] ? pr.opp : (G.teams[pl.team] ? teams.find(t => t !== pl.team) : teams[0]);
+  }
+  const {n, svg} = shotChartSVG(F.cteam, F.cplayer);
+  const opt = (v, cur, label) => `<option value="${v}" ${v === cur ? "selected" : ""}>${label}</option>`;
+  const dark = matchMedia("(prefers-color-scheme: dark)").matches, P = HEAT[dark ? "dark" : "light"];
+  const sw = Array.from({length: 2 * HEAT_STEPS + 1}, (_, i) => `<i style="background:${heatColor(i < HEAT_STEPS ? -(HEAT_STEPS - i) : i - HEAT_STEPS, HEAT_STEPS)}"></i>`).join("");
+  const legend = F.cheat === "none" ? "" : `<div class="sclegend"><span>${F.cheat === "fg" ? "Tougher: allows fewer makes" : "Fewer shots from here"}</span><span class="scsw">${sw}</span><span>${F.cheat === "fg" ? "Softer: allows more makes" : "More shots from here"}</span></div>`;
+  const ZN = {rim: "Rim", paint: "Paint", mid: "Mid-range", corner3: "Corner 3", arc3: "Above-break 3"}, Z = Object.keys(ZN);
+  const dr = T.defense.find(r => r.team === F.cteam) || {};
+  const rows = Z.map(z => ({z: ZN[z], mix: pl[z + "_mix"], fg: pl[z + "_fg"], lg: T.lg_fg[z], dfg: dr[z + "_fg"], dfreq: dr[z + "_freq"],
+    edge: pl[z + "_fg"] == null || dr[z + "_fg"] == null ? null : dr[z + "_fg"]}));
+  const sg = x => x == null ? "" : `${x > 0 ? "+" : ""}${num(x, 1)}`;
+  const rel = T.defense_rel || {};
+  const cols = [{k: "z", h: "Zone", l: 1}, {k: "mix", h: "His shots %", f: r => num(r.mix, 0)}, {k: "fg", h: "His FG%", f: r => num(r.fg, 0)},
+    {k: "lg", h: "League FG%", f: r => num(r.lg, 0)},
+    {k: "dfg", h: `${esc(F.cteam)} allow`, t: "FG% allowed in this zone minus the league FG% there, in points: + = soft, - = tough", f: r => `<span class="${r.dfg > 0.5 ? "good" : r.dfg < -0.5 ? "bad" : "mut"}">${sg(r.dfg)}</span>`},
+    {k: "dfreq", h: `${esc(F.cteam)} freq`, t: "% more (+) or fewer (-) of the shots this defence faces come from this zone than the league average", f: r => sg(r.dfreq)}];
+  return `<div class="bar scbar">
+      <label>Shooter <input id="cplayer" list="scplayers" value="${esc(pl.name)}" size="22" autocomplete="off"></label>
+      <datalist id="scplayers">${players.map(p => `<option value="${esc(p.name)}">${esc(p.team)}</option>`).join("")}</datalist>
+      <label>Defence <select id="cteam">${teams.map(t => opt(t, F.cteam, t)).join("")}</select></label>
+      <label>Under the dots <select id="cheat">${opt("fg", F.cheat, "FG% allowed vs league")}${opt("freq", F.cheat, "Where shots come from")}${opt("none", F.cheat, "Nothing (court only)")}</select></label>
+      <label>Shots <select id="cdots">${opt("all", F.cdots, "Makes and misses")}${opt("made", F.cdots, "Makes only")}${opt("miss", F.cdots, "Misses only")}${opt("none", F.cdots, "Hide")}</select></label>
+    </div>
+    <div class="scwrap"><div>${svg}${legend}<div class="sclegend"><span><svg width="14" height="14" viewBox="-7 -7 14 14"><circle r="4.5" fill="var(--fg)" fill-opacity=".8"/></svg> make</span><span><svg width="14" height="14" viewBox="-7 -7 14 14"><circle r="4" fill="none" stroke="var(--fg)" stroke-opacity=".7" stroke-width="1.6"/></svg> miss</span><span class="mut">${SCP.data ? `${n} of ${pl.n} shots shown` : "loading shots…"}</span></div></div>
+      <div class="scside"><h3>${esc(pl.name)} (${esc(pl.team)}) vs ${esc(F.cteam)}</h3>
+        <p class="sub">Where he shoots and how well, next to what this defence allows from each zone. ${esc(pl.name)}: ${num(pl.pps, 2)} points per shot against ${num(pl.xpps, 2)} expected from his locations.</p>
+        ${table(cols, rows, {id: "sczone"})}
+        <p class="sub">Read the colours as cells: warm squares are spots where ${esc(F.cteam)} have let the league shoot better than average, cool squares where they have been tough (smoothed toward the league; small squares are mostly noise). Only the rim and paint numbers are reliable season to season (split-half ${rel.rim_fg} and ${rel.paint_fg}); mid-range and three-point FG% allowed are mostly luck. The chart is for reading a matchup and does not feed the projections.</p>
+      </div></div>`;
+}
+document.addEventListener("pointermove", e => {
+  let tip = document.getElementById("sctip");
+  const t = e.target.closest && e.target.closest(".sccell");
+  if (!t) { if (tip) tip.hidden = true; return; }
+  if (!tip) { tip = document.createElement("div"); tip.id = "sctip"; document.body.appendChild(tip); }
+  tip.textContent = t.dataset.tip; tip.hidden = false;
+  tip.style.left = Math.min(e.clientX + 14, innerWidth - 280) + "px"; tip.style.top = (e.clientY + 14) + "px";
+});
+
 const pages = {
   Projections() {
     const rows = proj().filter(passes);
@@ -239,7 +387,55 @@ const pages = {
     const cols = [{k: "team", h: "Team", l: 1}, {k: "playing", h: "Plays", l: 1, f: r => r.playing ? "yes" : ""}, {k: "games", h: "G"},
       ...STATS.map(s => ({k: s + "_raw", h: LABEL[s], t: "What this defence allowed vs league, regressed by sample (not damped)", f: r => pct(r[s + "_raw"])}))];
     return `<h2>Matchups</h2><p class="sub">What each defence has allowed relative to league, regressed toward 1.0 by games played. Green = soft (stat inflates), red = tough. The projection uses a damped share of these (see Methodology). Opposing-offence strength is not removed.</p>
-      ${table(cols, D.matchups, {id: "mu", sort: {key: "pts_raw"}})}`;
+      ${table(cols, D.matchups, {id: "mu", sort: {key: "pts_raw"}})}
+      ${vsPosition()}`;
+  },
+
+  "Team Tiers"() {
+    const T = D.tiers;
+    if (!T || !T.rows || !T.rows.length) return `<h2>Team Tiers</h2><p class="sub">No team data yet.</p>`;
+    const rel = T.reliability || {}, rk = (v, n = 30) => `<span class="${v <= 6 ? "good" : v > n - 6 ? "bad" : ""}">${v}</span>`;
+    const cols = [{k: "team", h: "Team", l: 1}, {k: "tier", h: "Tier", t: "1 = best fifth of the league by net rating, 5 = worst"},
+      {k: "g", h: "G"}, {k: "rec", h: "W-L", v: r => r.w / Math.max(r.g, 1), f: r => `${r.w}-${r.l}`},
+      {k: "off", h: "Off Rtg", t: "Points per 100 possessions"}, {k: "off_rk", h: "Off rk", f: r => rk(r.off_rk)},
+      {k: "def", h: "Def Rtg", t: "Points allowed per 100 possessions. Lower is better."}, {k: "def_rk", h: "Def rk", f: r => rk(r.def_rk)},
+      {k: "net", h: "Net", f: r => `<b class="${r.net > 0 ? "good" : "bad"}">${num(r.net)}</b>`}, {k: "net_rk", h: "Net rk", f: r => rk(r.net_rk)},
+      {k: "net10", h: "Net L10", t: "Net rating over the last 10 games", f: r => `<span class="${r.net10 > 0 ? "good" : "bad"}">${num(r.net10)}</span>`}, {k: "pace", h: "Pace", t: "Possessions per game, both teams"}];
+    return `<h2>Team Tiers</h2><p class="sub">${T.season ? `Season ending ${T.season}. ` : ""}Offensive and defensive rating (points per 100 possessions, possessions estimated from the box score, so levels run a few percent high but rankings hold), pace, and net rating. For reading a slate; it does <b>not</b> feed the projections. Split-half reliability across the season (odd vs even game days; 1 = all signal): offence ${rel.off ?? "–"}, defence ${rel.def ?? "–"}, net ${rel.net ?? "–"}, pace ${rel.pace ?? "–"}. Anything well under 0.5 would be mostly noise; these are usable but not gospel.</p>
+      ${table(cols, T.rows, {id: "tiers", sort: {key: "net"}})}`;
+  },
+
+  Shots() {
+    const T = D.shots;
+    if (!T) return `<h2>Shots</h2><p class="sub">No shot-location data yet. It is pulled from ESPN play-by-play by the daily refresh.</p>`;
+    const ZN = {rim: "Rim", paint: "Paint", mid: "Mid", corner3: "Corner 3", arc3: "Arc 3"}, Z = Object.keys(ZN);
+    const toggle = `<div class="bar"><label>View <select id="sview"><option value="chart" ${F.sview === "chart" ? "selected" : ""}>Shot chart (defence under a shooter)</option><option value="team" ${F.sview === "team" ? "selected" : ""}>Team shot defense</option><option value="player" ${F.sview === "player" ? "selected" : ""}>Player shot profile</option></select></label></div>`;
+    const sg = x => x == null ? "" : `${x > 0 ? "+" : ""}${num(x, 1)}`;
+    let body, note;
+    if (F.sview === "chart") {
+      body = shotChartView(T);
+      note = "";
+    } else if (F.sview === "team") {
+      const rel = T.defense_rel || {};
+      const cols = [{k: "team", h: "Team", l: 1}, ...Z.flatMap(z => [
+        {k: z + "_freq", h: ZN[z] + " freq", t: `% more (+) or fewer (-) of the shots this defence faces come from here than the league average. Split-half reliability ${rel[z + "_freq"]}`, f: r => sg(r[z + "_freq"])},
+        {k: z + "_fg", h: ZN[z] + " FG%", t: `FG% it allows from here minus the league FG% there, in points (negative = better defence). Shrunk toward the league. Split-half reliability ${rel[z + "_fg"]}`,
+          f: r => `<span class="${r[z + "_fg"] < -0.5 ? "bad" : r[z + "_fg"] > 0.5 ? "good" : "mut"}">${sg(r[z + "_fg"])}</span>`}])];
+      body = table(cols, T.defense, {id: "sdef", sort: {key: "rim_fg"}});
+      note = `Where each defence lets teams shoot from (freq) and how well they shoot from there (FG% vs league). Green = soft (offence does better), red = tough. Split-half reliability (odd vs even game days; 1 = all signal): shot mix allowed is steady (rim ${rel.rim_freq}, paint ${rel.paint_freq}, arc 3 ${rel.arc3_freq}), and so is FG% allowed at the rim (${rel.rim_fg}) and in the paint (${rel.paint_fg}); mid-range (${rel.mid_fg}), corner 3 (${rel.corner3_fg}) and above-break 3 (${rel.arc3_fg}) FG% allowed are mostly luck, so ignore those. Hover a header for details.`;
+    } else {
+      const rows = T.players.filter(passes);
+      const cols = [...nameCols, {k: "n", h: "Shots", t: "Field-goal attempts logged"},
+        ...Z.map(z => ({k: z + "_mix", h: ZN[z] + " %", t: "Share of his shots from this zone"})),
+        {k: "ast_pct", h: "Ast %", t: "Share of his shots that were assisted"},
+        {k: "xpps", h: "xPPS", t: "Expected points per shot from where he shoots (league FG% by zone). Location only: ESPN has no defender distance."},
+        {k: "pps", h: "PPS", t: "Actual points per shot (field goals only)"},
+        {k: "make", h: "Make", t: "PPS minus xPPS: shooting better (+) or worse (-) than his shot locations imply", f: r => `<span class="${r.make > 0.02 ? "good" : r.make < -0.02 ? "bad" : "mut"}">${r.make > 0 ? "+" : ""}${num(r.make, 3)}</span>`}];
+      body = `${filters("")}${table(cols, rows, {id: "splay", sort: {key: "n"}})}`;
+      note = `Shot quality is location only: xPPS is the points per shot an average player would get from his zones, so a high xPPS means good looks (rim and corner threes), not open ones. Make = how far his actual shooting sits above or below that. It is only partly skill: split-half reliability of Make across the season is ${T.skill_rel} (${T.skill_n} players), so small gaps are mostly luck.`;
+    }
+    return `<h2>Shots</h2><p class="sub">${num(T.shots, 0)} field-goal attempts from ${T.games} games, from ESPN play-by-play coordinates. <b>Display only</b>: tested as projection inputs (zone defence matched to a player's shot mix, and shot-making vs shot locations) neither survived the replication test, so the projections do not use them (see Methodology). ${note}</p>
+      ${toggle}${body}`;
   },
 
   Efficiency() {
@@ -418,7 +614,7 @@ const pages = {
 <h3>Lines</h3><p>P(over) uses sd = a + b × projection per stat. Book probability has the vig removed first (a −110/−110 market prices at 104.8%). Pick shows only past the edge threshold.</p>
 <h3>Results</h3><p>For each graded game day, every player's pregame projection next to his box score, with the last pregame consensus and PrizePicks lines. The model "takes" the over if its projection is above a line and the under if below; a result exactly on the line is a push and is left out. A <b>pick</b> is a line where the model's probability differs from the book's by the edge threshold (PrizePicks: from the break-even). Lines are snapshotted at each odds pull until tip-off and frozen after; if a game had no pull before tip, it has no line to grade against.</p><h3>Scorecard</h3><p>Every slate's projections are logged before the games and never rewritten, then scored against the season-average and last-N baselines. Each row carries a settings stamp so a change to any knob starts a fresh record rather than blending into the old one.</p>
 <h3>Game environment</h3><p>Each team's pace (possessions per game, both sides) and average point margin are shrunk toward the league by games played. <b>Pace</b>: the average of the two teams' pace vs league scales per-minute rates; measured on 2025-26 the share that arrives is about 1.0 (points 1.36 [0.71, 2.06]), and the effect is small (about 1%). <b>Blowouts</b>: starters do lose about 0.3 minutes per point of expected margin beyond 9 (replicated in both halves), but fantasy-point error did not move and the half-by-half minutes error disagreed, so it is <b>tested and not modelled</b> (<code>BLOWOUT_SLOPE</code> = 0). The expected margin on the Game Board is a point-differential stand-in; swap in the real spread once pregame spreads are stored.</p>
-<h3>Not modelled</h3><p>Opposing-offence strength inside the defence rating, double-double bonuses, player-vs-player matchups, and in-browser minute redistribution when you override a teammate. Injury status comes from ESPN's feed and is only as current as the last build.</p>
+<h3>Shot zones</h3><p>Shot locations come from ESPN's play-by-play (x/y in feet, free), grouped into rim, paint, mid-range, corner three and above-break three. No defender distance exists in the feed, so shot quality here is <b>location and type only</b>, not open vs contested. Two ideas were tested as projection inputs on 2025-26, the football way (measure how much arrives, check both halves): (1) the opponent's points-per-shot allowed in each zone, weighted by the player's own shot mix, on top of the team-wide matchup already applied: share arriving 0.19 [-0.09, 0.57], halves -0.02 and +0.42, error unchanged; (2) shooting better than his shot locations imply: it regresses further than the model already assumes (-0.24 [-0.35, -0.14], negative in both halves) but the effect is too small to move error. Neither is modelled; the Shots tab is for reading a game. Split-half reliability is shown there: shot mix allowed and rim/paint FG% allowed are steady, mid-range and three-point FG% allowed are mostly luck.</p>\n<h3>Not modelled</h3><p>Opposing-offence strength inside the defence rating, double-double bonuses, player-vs-player matchups, and in-browser minute redistribution when you override a teammate. Injury status comes from ESPN's feed and is only as current as the last build.</p>
 <h3>Data</h3><p>ESPN's public NBA JSON endpoints (box scores, schedule, injuries), refreshed by the scheduled GitHub Action. No API key.</p></div>`;
   },
 };
@@ -456,6 +652,12 @@ document.addEventListener("change", e => {
   else if (t.dataset.sc) { CFG.scoring[t.dataset.sc] = +t.value || 0; CFG.preset = "Custom"; store.set("cfg", CFG); render(); }
   else if (t.id === "mean") { CFG.mean = t.value === "1"; store.set("cfg", CFG); render(); }
   else if (t.id === "rday") { F.rday = t.value; render(); }
+  else if (t.id === "sview") { F.sview = t.value; render(); }
+  else if (t.id === "cteam") { F.cteam = t.value; render(); }
+  else if (t.id === "cheat") { F.cheat = t.value; render(); }
+  else if (t.id === "cdots") { F.cdots = t.value; render(); }
+  else if (t.id === "cplayer") { const p = (D.shots?.players || []).find(x => x.name.toLowerCase() === t.value.trim().toLowerCase()); if (p) { F.cplayer = p.pid; F.cteam = ""; render(); } }
+  else if (t.id === "vstat") { F.vstat = t.value; render(); }
   else if (t.id === "rmode") { F.rmode = t.value; F.rday = ""; render(); }
   else if (t.id === "rlines") { F.rlines = t.checked; render(); }
   else if (t.id === "rpicks") { F.rpicks = t.checked; render(); }
@@ -475,7 +677,7 @@ document.addEventListener("click", e => {
 
 async function boot() {
   CFG = {...CFG, ...store.get("cfg", {})}; OVR = store.get("ovr", {}); LINES = store.get("lines", []);
-  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "scorecard", "spread", "lines", "players"];
+  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "shots", "shotchart", "scorecard", "spread", "lines", "players"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   try { const r = await fetch("data/results/index.json"); if (r.ok) D.rIdx = await r.json(); } catch (e) {}
   try { const r = await fetch("data/results_rehearsal/index.json"); if (r.ok) D.rIdxR = await r.json(); } catch (e) {}

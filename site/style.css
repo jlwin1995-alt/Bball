@@ -34,3 +34,12 @@ td:first-child,th:first-child{position:sticky;left:0;background:var(--bg);z-inde
 th:first-child{background:var(--head);z-index:3}
 tr:hover td:first-child{background:var(--head)}
 .banner{background:var(--in);padding:8px 12px;border:1px solid var(--line);border-radius:6px;font-size:13px}
+
+.scbar{gap:10px 16px;align-items:end}.scbar input,.scbar select{max-width:260px}
+.scwrap{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start}
+.scwrap>div:first-child{flex:1 1 420px;max-width:640px}.scside{flex:1 1 380px;min-width:300px}
+.scchart{width:100%;height:auto;display:block;background:var(--bg);border:1px solid var(--line);border-radius:8px}
+.sclegend{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;justify-content:center;margin:8px 0 0;font-size:12px;color:var(--mut)}
+.scsw{display:inline-flex}.scsw i{display:block;width:18px;height:10px}.scsw i:first-child{border-radius:3px 0 0 3px}.scsw i:last-child{border-radius:0 3px 3px 0}
+.sccell{cursor:crosshair}.sccell:hover{stroke:var(--fg);stroke-width:.18}
+#sctip{position:fixed;z-index:20;max-width:270px;padding:6px 9px;border-radius:6px;background:var(--fg);color:var(--bg);font-size:12px;pointer-events:none}

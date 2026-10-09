@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from . import config as C
 from .model import project, fantasy, _prep, all_players
-from . import scorecard, lines as lines_mod, results as results_mod
+from . import scorecard, lines as lines_mod, results as results_mod, tiers as tiers_mod, shots as shots_mod
 from .preseason_test import resolve_mult
 
 
@@ -125,6 +125,22 @@ def main(raw="data/raw", out="site/data"):
                        "floor": r(d["fp"].quantile(.10), 1), "ceil": r(d["fp"].quantile(.90), 1), "form": form,
                        "last": [r(x, 1) for x in d["fp"].tail(10)]})
     dump(trends, out, "trends.json")
+    sp = f"{raw}/shots.csv.gz"
+    if os.path.exists(sp):                                           # shot zones from ESPN play-by-play (display only)
+        sdf = shots_mod.add_zone(pd.read_csv(sp, dtype={"pid": str, "event": str}))
+        nm = games.sort_values("date").drop_duplicates("pid", keep="last")[["pid", "name", "team", "pos"]]
+        d_rows, d_rel = shots_mod.team_defense(sdf)
+        p_rows, lg_pps = shots_mod.player_profiles(sdf, nm)
+        skill_rel, skill_n = shots_mod.split_half_player_skill(sdf)
+        dump(shots_mod.defense_grids(sdf), out, "shotchart.json")
+        dump(shots_mod.player_shots(sdf, [r["pid"] for r in p_rows]), out, "shotchart_players.json")
+        lgz = shots_mod.league_fg(sdf)["fg"]
+        dump({"defense": d_rows, "defense_rel": d_rel, "players": p_rows, "lg_pps": lg_pps, "lg_fg": {z: round(float(v) * 100, 1) for z, v in lgz.items()}, "skill_rel": skill_rel, "skill_n": skill_n,
+              "shots": int(len(sdf)), "games": int(sdf["event"].nunique())}, out, "shots.json")
+    gl = games[games["season"] == games["season"].max()]            # latest season in the data (the new one has no games until the opener)
+    vsp, vsp_rel = tiers_mod.vs_position(gl) if len(gl) else ([], {})
+    dump({"season": int(gl["season"].iloc[0]) if len(gl) else None, "rows": tiers_mod.build(gl), "reliability": tiers_mod.reliability(gl),
+          "vspos": vsp, "vspos_rel": vsp_rel}, out, "tiers.json")
 
     # --- Coverage / meta -----------------------------------------------------------
     cov = {"asof": str(g["date"].max().date()), "slate_date": str(P["date"].iloc[0].date()) if len(P) else None,
