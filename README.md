@@ -110,7 +110,7 @@ Prefer your own machine? `scripts/morning.sh` does the same refresh locally; add
 - **The fetcher has not been run against live ESPN.** The dev sandbox blocks the host, so
   `pipeline/fetch_espn.py` was written from the API's known shape and fails loudly if a stat key is
   missing. Run `python -m pipeline.fetch_espn --selftest` first and eyeball the box score it prints.
-- **Model knobs are untuned starting values** (`pipeline/config.py`): damping shares, `MEAN_FACTOR`,
+- **Damping shares and calibration are measured** (`python -m pipeline.measure`, one season of data: re-measure with a second); other knobs, e.g. `MEAN_FACTOR`,
   shrinkage strengths. On the synthetic league the model ties the season-average baseline, which is
   all that league can show. Run the backtest on real data before trusting any edge, and use the
   Scorecard to keep it honest.
