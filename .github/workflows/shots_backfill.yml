@@ -1,0 +1,30 @@
+name: Backfill shots
+# One-off: pull shot locations for every stored game (about 1,200 summary calls, ~10 min) and commit data/raw/shots.csv.gz
+# to this branch. Re-running only fetches games not yet in the file. Delete this workflow once the daily refresh keeps the file current.
+on:
+  push:
+    paths: [".github/workflows/shots_backfill.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: shots-backfill
+  cancel-in-progress: false
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -r pipeline/requirements.txt
+      - run: python -m pipeline.fetch_shots
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/raw/shots.csv.gz
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -m "Shots: backfill play-by-play locations"
+          for i in 1 2 3 4; do git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((i*3)); done
