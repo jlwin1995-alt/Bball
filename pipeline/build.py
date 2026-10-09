@@ -132,7 +132,10 @@ def main(raw="data/raw", out="site/data"):
         d_rows, d_rel = shots_mod.team_defense(sdf)
         p_rows, lg_pps = shots_mod.player_profiles(sdf, nm)
         skill_rel, skill_n = shots_mod.split_half_player_skill(sdf)
-        dump({"defense": d_rows, "defense_rel": d_rel, "players": p_rows, "lg_pps": lg_pps, "skill_rel": skill_rel, "skill_n": skill_n,
+        dump(shots_mod.defense_grids(sdf), out, "shotchart.json")
+        dump(shots_mod.player_shots(sdf, [r["pid"] for r in p_rows]), out, "shotchart_players.json")
+        lgz = shots_mod.league_fg(sdf)["fg"]
+        dump({"defense": d_rows, "defense_rel": d_rel, "players": p_rows, "lg_pps": lg_pps, "lg_fg": {z: round(float(v) * 100, 1) for z, v in lgz.items()}, "skill_rel": skill_rel, "skill_n": skill_n,
               "shots": int(len(sdf)), "games": int(sdf["event"].nunique())}, out, "shots.json")
     gl = games[games["season"] == games["season"].max()]            # latest season in the data (the new one has no games until the opener)
     vsp, vsp_rel = tiers_mod.vs_position(gl) if len(gl) else ([], {})

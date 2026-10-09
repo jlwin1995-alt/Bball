@@ -93,6 +93,8 @@ def player_profiles(s, names, min_shots=100):
                "ast_pct": round(r["ast"] * 100, 0)}
         for z in ZONES:
             row[f"{z}_mix"] = round(float(mix.loc[pid, z]) * 100, 0)
+            v = fgz.loc[pid, z]
+            row[f"{z}_fg"] = None if pd.isna(v) else round(float(v) * 100, 1)
         rows.append(row)
     return sorted(rows, key=lambda r: -r["n"]), {z: round(float(v), 3) for z, v in (lg["p"] / lg["n"]).items()}
 
@@ -109,3 +111,40 @@ def split_half_player_skill(s, min_shots=150):
     a = (t["r"][0] - t["x"][0]) / t["n"][0]
     b = (t["r"][1] - t["x"][1]) / t["n"][1]
     return round(float(np.corrcoef(a, b)[0, 1]), 2), int(len(t))
+
+
+# --- shot chart grids (display only) -------------------------------------------------------------------------------
+CELL = 2.5                     # feet per square cell
+GX, GY0, GY1 = 20, -5.0, 40.0  # 20 columns across 50 ft; rows from y=-5 (behind the rim) to y=40
+GROWS = int((GY1 - GY0) / CELL)
+
+
+def _cell(s):
+    col = np.clip((s["x"] // CELL).astype(int), 0, GX - 1)
+    row = np.clip(((s["y"] - GY0) // CELL).astype(int), 0, GROWS - 1)
+    return row * GX + col
+
+
+def defense_grids(s):
+    """Per defence, FGA and FGM allowed in each CELL-ft square, flattened (index = row*GX + col, row 0 = behind the rim), plus the
+    league's. The browser shrinks and colours them, so the smoothing can change without a rebuild."""
+    s = s.copy()
+    s["c"] = _cell(s)
+    n = s.groupby("opp")["event"].nunique()
+    s = s[s["opp"].isin(n[n >= 0.5 * n.max()].index)]
+    size = GX * GROWS
+    def arr(d):
+        a = np.bincount(d["c"], minlength=size)
+        m = np.bincount(d["c"], weights=d["made"], minlength=size).astype(int)
+        return a.tolist(), m.tolist()
+    teams = {t: dict(zip(("n", "m"), arr(d))) for t, d in s.groupby("opp")}
+    ln, lm = arr(s)
+    return {"cell": CELL, "cols": GX, "rows": GROWS, "y0": GY0, "teams": teams, "lg": {"n": ln, "m": lm}}
+
+
+def player_shots(s, pids):
+    """Compact per-player shot list [x, y, made, x, y, made, ...] for the overlay (lazy-loaded by the browser)."""
+    out = {}
+    for pid, d in s[s["pid"].isin(pids)].groupby("pid"):
+        out[pid] = np.column_stack([d["x"].round().astype(int), d["y"].round().astype(int), d["made"].astype(int)]).ravel().tolist()
+    return out

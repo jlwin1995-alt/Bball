@@ -75,7 +75,7 @@ model has the player's minutes or role wrong (injury news), not a bargain. Playe
 
 ### Shots
 
-`pipeline/fetch_shots.py` pulls every field-goal attempt's location (x/y in feet, shooter, made, 2/3, type) from ESPN's play-by-play into `data/raw/shots.csv.gz`, incrementally (the daily refresh runs it). `pipeline/shots.py` groups them into rim / paint / mid-range / corner three / above-break three; the Shots tab shows team shot defense by zone and player shot profiles. There is no defender distance in the feed, so shot quality is location and type only. Display only: tested as projection inputs and neither idea survived (see Methodology).
+`pipeline/fetch_shots.py` pulls every field-goal attempt's location (x/y in feet, shooter, made, 2/3, type) from ESPN's play-by-play into `data/raw/shots.csv.gz`, incrementally (the daily refresh runs it). `pipeline/shots.py` groups them into rim / paint / mid-range / corner three / above-break three; the Shots tab shows a shot chart (a defence's allowed-shot map drawn under a shooter's shots), team shot defense by zone and player shot profiles. There is no defender distance in the feed, so shot quality is location and type only. Display only: tested as projection inputs and neither idea survived (see Methodology).
 
 ### Results (projected vs actual)
 
