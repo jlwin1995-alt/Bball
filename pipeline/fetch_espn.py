@@ -136,8 +136,10 @@ def main(backfill=False, preseason=False):
     old = pd.read_csv(path, dtype={"pid": str, "event": str}) if os.path.exists(path) else pd.DataFrame()
     seen = set(old["event"].dropna()) if "event" in old else set()
     today = datetime.now(ZoneInfo("America/New_York")).date()   # ESPN scoreboard days are US Eastern
-    preseason = preseason or today < date.fromisoformat(C.CUR_START)   # before the season, the next games ARE preseason games
-    windows = [(date.fromisoformat(C.CUR_START), min(today, date.fromisoformat(C.CUR_START) + timedelta(days=260)), C.SEASON)]
+    # CUR_START is only a rough anchor. Box scores are filtered by ESPN's season type (regular season only), so starting the
+    # window 3 weeks early is harmless and means a wrong guess about the opener can never make us miss a game.
+    start = date.fromisoformat(C.CUR_START) - timedelta(days=21)
+    windows = [(start, min(today, start + timedelta(days=300)), C.SEASON)]
     if backfill or old.empty:
         windows.append((date.fromisoformat(C.PRIOR_START), date.fromisoformat(C.PRIOR_END), C.SEASON - 1))
     new = []
@@ -165,14 +167,15 @@ def main(backfill=False, preseason=False):
     for day in daterange(today, today + timedelta(days=21)):      # 21 days so the opener shows up in the offseason
         for ev in scoreboard(day):
             comp = ev["competitions"][0]
-            if comp["status"]["type"].get("completed") or ev.get("season", {}).get("type", 2) not in ((1, 2) if preseason else (2,)):
-                continue                                           # finished, or preseason (unless --preseason) / playoffs
+            stype = ev.get("season", {}).get("type", 2)            # ESPN: 1 = preseason, 2 = regular season
+            if comp["status"]["type"].get("completed") or stype not in (1, 2):
+                continue                                           # finished, or playoffs / other
             t = teams_of(comp)
             if t is None:
                 continue
-            local = ev["date"][:10] if False else day.isoformat()
-            sched += [dict(date=local, team=t["home"], opp=t["away"], home=1), dict(date=local, team=t["away"], opp=t["home"], home=0)]
-    pd.DataFrame(sched, columns=["date", "team", "opp", "home"]).to_csv(f"{RAW}/schedule.csv", index=False)
+            local = day.isoformat()
+            sched += [dict(date=local, team=t["home"], opp=t["away"], home=1, stype=stype), dict(date=local, team=t["away"], opp=t["home"], home=0, stype=stype)]
+    pd.DataFrame(sched, columns=["date", "team", "opp", "home", "stype"]).to_csv(f"{RAW}/schedule.csv", index=False)
     print(f"schedule.csv: {len(sched) // 2} games in the next 21 days")
 
     try:

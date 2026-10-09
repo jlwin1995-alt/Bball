@@ -38,7 +38,10 @@ def main(raw="data/raw", out="site/data"):
         raise SystemExit("schedule.csv has no upcoming regular-season games; leaving site/data as it was. "
                          "Re-run the fetch closer to the season.")
     # Preseason slate (before the regular season starts): stars play far fewer minutes, so apply the learned tier multipliers.
-    pre = pd.Timestamp(sched["date"].min()) < pd.Timestamp(C.CUR_START)
+    first = sched[sched["date"] == sched["date"].min()]
+    # Preseason = every game on the slate day is tagged preseason by ESPN (no hard-coded season-start date to get wrong).
+    # Older schedule files without the tag fall back to the CUR_START date.
+    pre = bool((first["stype"] == 1).all()) if "stype" in first.columns and first["stype"].notna().all() else pd.Timestamp(sched["date"].min()) < pd.Timestamp(C.CUR_START)
     mult, mult_how = (resolve_mult(None, None, raw) if pre else (None, None))
     if pre and not mult:
         mult, mult_how = C.PRESEASON_MULT_FALLBACK, "fallback"
@@ -134,7 +137,7 @@ def main(raw="data/raw", out="site/data"):
         dump(json.load(open(f"{raw}/spread.json")), out, "spread.json")
     if not sample:
         lines_mod.main(raw, out)                                    # live lines + consensus, if odds.csv exists
-    logged = 0 if sample else scorecard.log_slate(P, games)   # sample data never touches the real log
+    logged = 0 if sample else scorecard.log_slate(P, games, preseason=pre)   # sample data never touches the real log
     dump(scorecard.score(games), out, "scorecard.json")
     print(f"logged {logged} rows; projected {len(P)} players for {cov['slate_date']}  (out: {cov['out']})")
 
