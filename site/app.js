@@ -1,6 +1,6 @@
 "use strict";
 // ---------- state ----------------------------------------------------------
-const TABS = ["Projections", "Live", "Game Board", "Matchups", "Efficiency", "Usage", "Trends", "Lines", "Scorecard", "Results", "Config", "Methodology"];
+const TABS = ["Projections", "Live", "Game Board", "Matchups", "Team Tiers", "Efficiency", "Usage", "Trends", "Lines", "Scorecard", "Results", "Config", "Methodology"];
 const STATS = ["pts", "reb", "ast", "fg3m", "stl", "blk", "tov"];
 const LABEL = {pts: "PTS", reb: "REB", ast: "AST", fg3m: "3PM", stl: "STL", blk: "BLK", tov: "TOV", fp: "FP", pra: "PTS+REB+AST", pr: "PTS+REB", pa: "PTS+AST", ra: "REB+AST"};
 const COMBO = {pra: ["pts", "reb", "ast"], pr: ["pts", "reb"], pa: ["pts", "ast"], ra: ["reb", "ast"]};
@@ -242,6 +242,20 @@ const pages = {
       ${table(cols, D.matchups, {id: "mu", sort: {key: "pts_raw"}})}`;
   },
 
+  "Team Tiers"() {
+    const T = D.tiers;
+    if (!T || !T.rows || !T.rows.length) return `<h2>Team Tiers</h2><p class="sub">No team data yet.</p>`;
+    const rel = T.reliability || {}, rk = (v, n = 30) => `<span class="${v <= 6 ? "good" : v > n - 6 ? "bad" : ""}">${v}</span>`;
+    const cols = [{k: "team", h: "Team", l: 1}, {k: "tier", h: "Tier", t: "1 = best fifth of the league by net rating, 5 = worst"},
+      {k: "g", h: "G"}, {k: "rec", h: "W-L", v: r => r.w / Math.max(r.g, 1), f: r => `${r.w}-${r.l}`},
+      {k: "off", h: "Off Rtg", t: "Points per 100 possessions"}, {k: "off_rk", h: "Off rk", f: r => rk(r.off_rk)},
+      {k: "def", h: "Def Rtg", t: "Points allowed per 100 possessions. Lower is better."}, {k: "def_rk", h: "Def rk", f: r => rk(r.def_rk)},
+      {k: "net", h: "Net", f: r => `<b class="${r.net > 0 ? "good" : "bad"}">${num(r.net)}</b>`}, {k: "net_rk", h: "Net rk", f: r => rk(r.net_rk)},
+      {k: "net10", h: "Net L10", t: "Net rating over the last 10 games", f: r => `<span class="${r.net10 > 0 ? "good" : "bad"}">${num(r.net10)}</span>`}, {k: "pace", h: "Pace", t: "Possessions per game, both teams"}];
+    return `<h2>Team Tiers</h2><p class="sub">${T.season ? `Season ending ${T.season}. ` : ""}Offensive and defensive rating (points per 100 possessions, possessions estimated from the box score, so levels run a few percent high but rankings hold), pace, and net rating. For reading a slate; it does <b>not</b> feed the projections. Split-half reliability across the season (odd vs even game days; 1 = all signal): offence ${rel.off ?? "–"}, defence ${rel.def ?? "–"}, net ${rel.net ?? "–"}, pace ${rel.pace ?? "–"}. Anything well under 0.5 would be mostly noise; these are usable but not gospel.</p>
+      ${table(cols, T.rows, {id: "tiers", sort: {key: "net"}})}`;
+  },
+
   Efficiency() {
     const rows = D.efficiency.filter(passes).filter(r => r.mpg >= F.ming);
     const cols = [...nameCols, {k: "g", h: "G"}, {k: "mpg", h: "MPG"}, ...["pts", "reb", "ast", "stl", "blk", "tov"].map(s => ({k: s + "36", h: LABEL[s] + "/36", f: r => num(r[s + "36"], s === "stl" || s === "blk" || s === "tov" ? 2 : 1)})),
@@ -475,7 +489,7 @@ document.addEventListener("click", e => {
 
 async function boot() {
   CFG = {...CFG, ...store.get("cfg", {})}; OVR = store.get("ovr", {}); LINES = store.get("lines", []);
-  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "scorecard", "spread", "lines", "players"];
+  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "scorecard", "spread", "lines", "players"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   try { const r = await fetch("data/results/index.json"); if (r.ok) D.rIdx = await r.json(); } catch (e) {}
   try { const r = await fetch("data/results_rehearsal/index.json"); if (r.ok) D.rIdxR = await r.json(); } catch (e) {}

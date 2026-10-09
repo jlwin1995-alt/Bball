@@ -69,6 +69,10 @@ k-pick entry paying M× needs M^(-1/k) per leg).
 Markets and books are in `pipeline/config.py` (`ODDS_MARKETS`, `ODDS_BOOKS`). Edges above 15 points get a warning marker: they usually mean the
 model has the player's minutes or role wrong (injury news), not a bargain. Players with 0 projected minutes show OUT instead of a pick.
 
+### Team Tiers
+
+`pipeline/tiers.py` builds offensive / defensive rating, pace and net rating per team from box scores (display only; it does not feed projections). The tab shows split-half reliability (odd vs even game days) for each measure so you can see how much of a number is signal.
+
 ### Results (projected vs actual)
 
 Each morning's projections are frozen in `data/log/accuracy_log.csv` before tip-off, and each odds pull keeps the **last pregame**
