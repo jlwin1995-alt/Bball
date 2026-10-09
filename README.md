@@ -73,6 +73,10 @@ model has the player's minutes or role wrong (injury news), not a bargain. Playe
 
 `pipeline/tiers.py` builds offensive / defensive rating, pace and net rating per team from box scores (display only; it does not feed projections). The tab shows split-half reliability (odd vs even game days) for each measure so you can see how much of a number is signal. The Matchups tab also has a display-only "vs position" table (guards / forwards / centers); tested as a projection input it added nothing, so projections do not use it.
 
+### Shots
+
+`pipeline/fetch_shots.py` pulls every field-goal attempt's location (x/y in feet, shooter, made, 2/3, type) from ESPN's play-by-play into `data/raw/shots.csv.gz`, incrementally (the daily refresh runs it). `pipeline/shots.py` groups them into rim / paint / mid-range / corner three / above-break three; the Shots tab shows team shot defense by zone and player shot profiles. There is no defender distance in the feed, so shot quality is location and type only. Display only: tested as projection inputs and neither idea survived (see Methodology).
+
 ### Results (projected vs actual)
 
 Each morning's projections are frozen in `data/log/accuracy_log.csv` before tip-off, and each odds pull keeps the **last pregame**

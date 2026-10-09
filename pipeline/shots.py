@@ -29,3 +29,83 @@ def league_fg(s):
     g["fg"] = g["fgm"] / g["fga"]
     g["pps"] = g["fg"] * np.where(g["three"] > 0.5, 3, 2)
     return g
+
+
+def _team_zone(s, k=300.0):
+    """Per defence and zone: share of the FGA it faces, FG% allowed and points per shot allowed vs league (shrunk by k shots)."""
+    lg = s.groupby("zone").agg(n=("made", "size"), m=("made", "sum"), p=("pts", "sum"))
+    lg_share, lg_fg, lg_pps = lg["n"] / lg["n"].sum(), lg["m"] / lg["n"], lg["p"] / lg["n"]
+    t = s.groupby(["opp", "zone"]).agg(n=("made", "size"), m=("made", "sum"), p=("pts", "sum"))
+    tot = t.groupby("opp")["n"].sum()
+    out = {}
+    for (team, z), r in t.iterrows():
+        out[(team, z)] = {"share": r["n"] / tot[team] / lg_share[z] - 1,                       # + = faces more shots from here than average
+                          "fg": (r["m"] + k * lg_fg[z]) / (r["n"] + k) - lg_fg[z],              # FG% allowed minus league (points of FG%)
+                          "pps": ((r["p"] + k * lg_pps[z]) / (r["n"] + k)) / lg_pps[z] - 1, "n": r["n"]}
+    return out
+
+
+def team_defense(s):
+    """Rows per team: for each zone, freq (% above/below league share of shots faced) and fg (FG% allowed minus league, in points).
+    Also split-half reliability (odd vs even game days) of each. Display only: see module docs / Methodology for the projection test."""
+    s = s.copy()
+    s["pts"] = s["made"] * np.where(s["three"] == 1, 3, 2)
+    n = s.groupby("opp")["event"].nunique()
+    s = s[s["opp"].isin(n[n >= 0.5 * n.max()].index)]
+    full = _team_zone(s)
+    rows = {}
+    for (team, z), v in full.items():
+        r = rows.setdefault(team, {"team": team})
+        r[f"{z}_freq"] = round(v["share"] * 100, 1)
+        r[f"{z}_fg"] = round(v["fg"] * 100, 1)
+    days = {d: i for i, d in enumerate(sorted(s["date"].unique()))}
+    h = s["date"].map(days) % 2
+    a, b = _team_zone(s[h == 0]), _team_zone(s[h == 1])
+    rel = {}
+    for z in ZONES:
+        for key, nm in (("share", "freq"), ("fg", "fg")):
+            ks = [k for k in a if k in b and k[1] == z]
+            rel[f"{z}_{nm}"] = round(float(np.corrcoef([a[k][key] for k in ks], [b[k][key] for k in ks])[0, 1]), 2)
+    return sorted(rows.values(), key=lambda r: r["team"]), rel
+
+
+def player_profiles(s, names, min_shots=100):
+    """Per player: zone mix, assisted share, expected points per shot from his locations (league FG% by zone), actual points per shot
+    and the gap between them (shot-making). names: DataFrame pid, name, team, pos."""
+    s = s.copy()
+    s["pts"] = s["made"] * np.where(s["three"] == 1, 3, 2)
+    lg = s.groupby("zone").agg(n=("made", "size"), p=("pts", "sum"))
+    lg_pps = lg["p"] / lg["n"]
+    s["xp"] = s["zone"].map(lg_pps)
+    g = s.groupby("pid")
+    base = g.agg(n=("made", "size"), pts=("pts", "sum"), xp=("xp", "sum"), ast=("assisted", "mean"), three=("three", "mean"))
+    base = base[base["n"] >= min_shots]
+    mix = s.groupby(["pid", "zone"]).size().unstack(fill_value=0).reindex(columns=ZONES, fill_value=0)
+    mix = mix.div(mix.sum(axis=1), axis=0)
+    fgz = s.groupby(["pid", "zone"])["made"].mean().unstack().reindex(columns=ZONES)
+    nm = names.drop_duplicates("pid").set_index("pid")
+    rows = []
+    for pid, r in base.iterrows():
+        if pid not in nm.index:
+            continue
+        row = {"pid": pid, "name": nm.loc[pid, "name"], "team": nm.loc[pid, "team"], "pos": nm.loc[pid, "pos"], "n": int(r["n"]),
+               "xpps": round(r["xp"] / r["n"], 3), "pps": round(r["pts"] / r["n"], 3), "make": round((r["pts"] - r["xp"]) / r["n"], 3),
+               "ast_pct": round(r["ast"] * 100, 0)}
+        for z in ZONES:
+            row[f"{z}_mix"] = round(float(mix.loc[pid, z]) * 100, 0)
+        rows.append(row)
+    return sorted(rows, key=lambda r: -r["n"]), {z: round(float(v), 3) for z, v in (lg["p"] / lg["n"]).items()}
+
+
+def split_half_player_skill(s, min_shots=150):
+    """Reliability of 'shot-making' (points per shot minus location-expected) across odd/even game days, per player."""
+    s = s.copy()
+    s["pts"] = s["made"] * np.where(s["three"] == 1, 3, 2)
+    s["xp"] = s["zone"].map(s.groupby("zone")["pts"].mean())
+    days = {d: i for i, d in enumerate(sorted(s["date"].unique()))}
+    s["h"] = s["date"].map(days) % 2
+    t = s.groupby(["pid", "h"]).agg(n=("pts", "size"), r=("pts", "sum"), x=("xp", "sum")).unstack()
+    t = t[(t["n"] >= min_shots / 2).all(axis=1)]
+    a = (t["r"][0] - t["x"][0]) / t["n"][0]
+    b = (t["r"][1] - t["x"][1]) / t["n"][1]
+    return round(float(np.corrcoef(a, b)[0, 1]), 2), int(len(t))

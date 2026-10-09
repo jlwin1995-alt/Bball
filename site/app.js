@@ -1,6 +1,6 @@
 "use strict";
 // ---------- state ----------------------------------------------------------
-const TABS = ["Projections", "Live", "Game Board", "Matchups", "Team Tiers", "Efficiency", "Usage", "Trends", "Lines", "Scorecard", "Results", "Config", "Methodology"];
+const TABS = ["Projections", "Live", "Game Board", "Matchups", "Team Tiers", "Shots", "Efficiency", "Usage", "Trends", "Lines", "Scorecard", "Results", "Config", "Methodology"];
 const STATS = ["pts", "reb", "ast", "fg3m", "stl", "blk", "tov"];
 const LABEL = {pts: "PTS", reb: "REB", ast: "AST", fg3m: "3PM", stl: "STL", blk: "BLK", tov: "TOV", fp: "FP", pra: "PTS+REB+AST", pr: "PTS+REB", pa: "PTS+AST", ra: "REB+AST"};
 const COMBO = {pra: ["pts", "reb", "ast"], pr: ["pts", "reb"], pa: ["pts", "ast"], ra: ["reb", "ast"]};
@@ -72,7 +72,7 @@ function filters(extra = "") {
   return `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}">
   <label>Pos <select id="pos">${["", "G", "F", "C"].map(p => `<option ${F.pos === p ? "selected" : ""} value="${p}">${p || "All"}</option>`).join("")}</select></label>${extra}</div>`;
 }
-const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lpicks: false, rday: "", vstat: "pts", rmode: null, rlines: false, rpicks: false};
+const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lpicks: false, rday: "", vstat: "pts", sview: "team", rmode: null, rlines: false, rpicks: false};
 const RES = {};                                     // results/<date>.json cache
 function passes(r) {
   if (F.pos && r.pos !== F.pos) return false;
@@ -268,6 +268,36 @@ const pages = {
       ${table(cols, T.rows, {id: "tiers", sort: {key: "net"}})}`;
   },
 
+  Shots() {
+    const T = D.shots;
+    if (!T) return `<h2>Shots</h2><p class="sub">No shot-location data yet. It is pulled from ESPN play-by-play by the daily refresh.</p>`;
+    const ZN = {rim: "Rim", paint: "Paint", mid: "Mid", corner3: "Corner 3", arc3: "Arc 3"}, Z = Object.keys(ZN);
+    const toggle = `<div class="bar"><label>View <select id="sview"><option value="team" ${F.sview === "team" ? "selected" : ""}>Team shot defense</option><option value="player" ${F.sview === "player" ? "selected" : ""}>Player shot profile</option></select></label></div>`;
+    const sg = x => x == null ? "" : `${x > 0 ? "+" : ""}${num(x, 1)}`;
+    let body, note;
+    if (F.sview === "team") {
+      const rel = T.defense_rel || {};
+      const cols = [{k: "team", h: "Team", l: 1}, ...Z.flatMap(z => [
+        {k: z + "_freq", h: ZN[z] + " freq", t: `% more (+) or fewer (-) of the shots this defence faces come from here than the league average. Split-half reliability ${rel[z + "_freq"]}`, f: r => sg(r[z + "_freq"])},
+        {k: z + "_fg", h: ZN[z] + " FG%", t: `FG% it allows from here minus the league FG% there, in points (negative = better defence). Shrunk toward the league. Split-half reliability ${rel[z + "_fg"]}`,
+          f: r => `<span class="${r[z + "_fg"] < -0.5 ? "bad" : r[z + "_fg"] > 0.5 ? "good" : "mut"}">${sg(r[z + "_fg"])}</span>`}])];
+      body = table(cols, T.defense, {id: "sdef", sort: {key: "rim_fg"}});
+      note = `Where each defence lets teams shoot from (freq) and how well they shoot from there (FG% vs league). Green = soft (offence does better), red = tough. Split-half reliability (odd vs even game days; 1 = all signal): shot mix allowed is steady (rim ${rel.rim_freq}, paint ${rel.paint_freq}, arc 3 ${rel.arc3_freq}), and so is FG% allowed at the rim (${rel.rim_fg}) and in the paint (${rel.paint_fg}); mid-range (${rel.mid_fg}), corner 3 (${rel.corner3_fg}) and above-break 3 (${rel.arc3_fg}) FG% allowed are mostly luck, so ignore those. Hover a header for details.`;
+    } else {
+      const rows = T.players.filter(passes);
+      const cols = [...nameCols, {k: "n", h: "Shots", t: "Field-goal attempts logged"},
+        ...Z.map(z => ({k: z + "_mix", h: ZN[z] + " %", t: "Share of his shots from this zone"})),
+        {k: "ast_pct", h: "Ast %", t: "Share of his shots that were assisted"},
+        {k: "xpps", h: "xPPS", t: "Expected points per shot from where he shoots (league FG% by zone). Location only: ESPN has no defender distance."},
+        {k: "pps", h: "PPS", t: "Actual points per shot (field goals only)"},
+        {k: "make", h: "Make", t: "PPS minus xPPS: shooting better (+) or worse (-) than his shot locations imply", f: r => `<span class="${r.make > 0.02 ? "good" : r.make < -0.02 ? "bad" : "mut"}">${r.make > 0 ? "+" : ""}${num(r.make, 3)}</span>`}];
+      body = `${filters("")}${table(cols, rows, {id: "splay", sort: {key: "n"}})}`;
+      note = `Shot quality is location only: xPPS is the points per shot an average player would get from his zones, so a high xPPS means good looks (rim and corner threes), not open ones. Make = how far his actual shooting sits above or below that. It is only partly skill: split-half reliability of Make across the season is ${T.skill_rel} (${T.skill_n} players), so small gaps are mostly luck.`;
+    }
+    return `<h2>Shots</h2><p class="sub">${num(T.shots, 0)} field-goal attempts from ${T.games} games, from ESPN play-by-play coordinates. <b>Display only</b>: tested as projection inputs (zone defence matched to a player's shot mix, and shot-making vs shot locations) neither survived the replication test, so the projections do not use them (see Methodology). ${note}</p>
+      ${toggle}${body}`;
+  },
+
   Efficiency() {
     const rows = D.efficiency.filter(passes).filter(r => r.mpg >= F.ming);
     const cols = [...nameCols, {k: "g", h: "G"}, {k: "mpg", h: "MPG"}, ...["pts", "reb", "ast", "stl", "blk", "tov"].map(s => ({k: s + "36", h: LABEL[s] + "/36", f: r => num(r[s + "36"], s === "stl" || s === "blk" || s === "tov" ? 2 : 1)})),
@@ -444,7 +474,7 @@ const pages = {
 <h3>Lines</h3><p>P(over) uses sd = a + b × projection per stat. Book probability has the vig removed first (a −110/−110 market prices at 104.8%). Pick shows only past the edge threshold.</p>
 <h3>Results</h3><p>For each graded game day, every player's pregame projection next to his box score, with the last pregame consensus and PrizePicks lines. The model "takes" the over if its projection is above a line and the under if below; a result exactly on the line is a push and is left out. A <b>pick</b> is a line where the model's probability differs from the book's by the edge threshold (PrizePicks: from the break-even). Lines are snapshotted at each odds pull until tip-off and frozen after; if a game had no pull before tip, it has no line to grade against.</p><h3>Scorecard</h3><p>Every slate's projections are logged before the games and never rewritten, then scored against the season-average and last-N baselines. Each row carries a settings stamp so a change to any knob starts a fresh record rather than blending into the old one.</p>
 <h3>Game environment</h3><p>Each team's pace (possessions per game, both sides) and average point margin are shrunk toward the league by games played. <b>Pace</b>: the average of the two teams' pace vs league scales per-minute rates; measured on 2025-26 the share that arrives is about 1.0 (points 1.36 [0.71, 2.06]), and the effect is small (about 1%). <b>Blowouts</b>: starters do lose about 0.3 minutes per point of expected margin beyond 9 (replicated in both halves), but fantasy-point error did not move and the half-by-half minutes error disagreed, so it is <b>tested and not modelled</b> (<code>BLOWOUT_SLOPE</code> = 0). The expected margin on the Game Board is a point-differential stand-in; swap in the real spread once pregame spreads are stored.</p>
-<h3>Not modelled</h3><p>Opposing-offence strength inside the defence rating, double-double bonuses, player-vs-player matchups, and in-browser minute redistribution when you override a teammate. Injury status comes from ESPN's feed and is only as current as the last build.</p>
+<h3>Shot zones</h3><p>Shot locations come from ESPN's play-by-play (x/y in feet, free), grouped into rim, paint, mid-range, corner three and above-break three. No defender distance exists in the feed, so shot quality here is <b>location and type only</b>, not open vs contested. Two ideas were tested as projection inputs on 2025-26, the football way (measure how much arrives, check both halves): (1) the opponent's points-per-shot allowed in each zone, weighted by the player's own shot mix, on top of the team-wide matchup already applied: share arriving 0.19 [-0.09, 0.57], halves -0.02 and +0.42, error unchanged; (2) shooting better than his shot locations imply: it regresses further than the model already assumes (-0.24 [-0.35, -0.14], negative in both halves) but the effect is too small to move error. Neither is modelled; the Shots tab is for reading a game. Split-half reliability is shown there: shot mix allowed and rim/paint FG% allowed are steady, mid-range and three-point FG% allowed are mostly luck.</p>\n<h3>Not modelled</h3><p>Opposing-offence strength inside the defence rating, double-double bonuses, player-vs-player matchups, and in-browser minute redistribution when you override a teammate. Injury status comes from ESPN's feed and is only as current as the last build.</p>
 <h3>Data</h3><p>ESPN's public NBA JSON endpoints (box scores, schedule, injuries), refreshed by the scheduled GitHub Action. No API key.</p></div>`;
   },
 };
@@ -482,6 +512,7 @@ document.addEventListener("change", e => {
   else if (t.dataset.sc) { CFG.scoring[t.dataset.sc] = +t.value || 0; CFG.preset = "Custom"; store.set("cfg", CFG); render(); }
   else if (t.id === "mean") { CFG.mean = t.value === "1"; store.set("cfg", CFG); render(); }
   else if (t.id === "rday") { F.rday = t.value; render(); }
+  else if (t.id === "sview") { F.sview = t.value; render(); }
   else if (t.id === "vstat") { F.vstat = t.value; render(); }
   else if (t.id === "rmode") { F.rmode = t.value; F.rday = ""; render(); }
   else if (t.id === "rlines") { F.rlines = t.checked; render(); }
@@ -502,7 +533,7 @@ document.addEventListener("click", e => {
 
 async function boot() {
   CFG = {...CFG, ...store.get("cfg", {})}; OVR = store.get("ovr", {}); LINES = store.get("lines", []);
-  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "scorecard", "spread", "lines", "players"];
+  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "shots", "scorecard", "spread", "lines", "players"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   try { const r = await fetch("data/results/index.json"); if (r.ok) D.rIdx = await r.json(); } catch (e) {}
   try { const r = await fetch("data/results_rehearsal/index.json"); if (r.ok) D.rIdxR = await r.json(); } catch (e) {}

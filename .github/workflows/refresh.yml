@@ -31,6 +31,9 @@ jobs:
         # DATA_SOURCE is a repository variable: "espn" (default) or "nba_api".
         # nba_api is often blocked from GitHub-hosted runners; if so, run it locally and commit data/raw.
         run: python -m pipeline.fetch_${{ vars.DATA_SOURCE || 'espn' }}   # first run backfills last season; includes preseason games until CUR_START
+      - name: Update shot locations
+        # ESPN play-by-play shot coordinates (one summary call per new game); soft-fail so it can never block the refresh
+        run: python -m pipeline.fetch_shots || echo "::warning::shot locations could not be updated"
       - name: Learn preseason minutes (once, before the season; cached in data/raw)
         run: test -f data/raw/preseason_minutes.json || python -m pipeline.preseason_minutes || echo "::warning::preseason minutes could not be learned; the site uses a rough default"
       - name: Fit spreads for the Lines tab
