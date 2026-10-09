@@ -72,7 +72,7 @@ function filters(extra = "") {
   return `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}">
   <label>Pos <select id="pos">${["", "G", "F", "C"].map(p => `<option ${F.pos === p ? "selected" : ""} value="${p}">${p || "All"}</option>`).join("")}</select></label>${extra}</div>`;
 }
-const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lpicks: false, rday: "", rlines: false, rpicks: false};
+const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lpicks: false, rday: "", rmode: null, rlines: false, rpicks: false};
 const RES = {};                                     // results/<date>.json cache
 function passes(r) {
   if (F.pos && r.pos !== F.pos) return false;
@@ -136,10 +136,12 @@ function liveStop() { clearInterval(LIVE.timer); LIVE.timer = null; }
 // ---------- Results: pregame projection vs final box score, graded against the frozen pregame lines -------------------
 const grade = (a, line, side) => a === line ? null : (side === "O" ? a > line : a < line);
 const RES_PENDING = {};
+const rdir = () => F.rmode ? "results_rehearsal" : "results";
 async function loadResultsDay(date) {
-  if (!date || RES[date] || RES_PENDING[date]) return;
-  RES_PENDING[date] = true;
-  try { RES[date] = await (await fetch(`data/results/${date}.json`)).json(); } catch (e) { RES[date] = {error: String(e)}; }
+  const key = rdir() + "/" + date;
+  if (!date || RES[key] || RES_PENDING[key]) return;
+  RES_PENDING[key] = true;
+  try { RES[key] = await (await fetch(`data/${key}.json`)).json(); } catch (e) { RES[key] = {error: String(e)}; }
   if (page === "Results") render(true);
 }
 const pct1 = (h, n) => n ? `${(h / n * 100).toFixed(1)}% <span class="mut">(${h}/${n})</span>` : "—";
@@ -327,9 +329,13 @@ const pages = {
   },
 
   Results() {
-    const I = D.rIdx;
-    if (!I || !I.days || !I.days.length)
-      return `<h2>Results</h2><div class="doc"><p>No graded games yet. From the first regular-season slate on, each morning's projections are frozen before tip-off, the last pregame consensus and PrizePicks lines are saved, and once the box scores are in, every player's projection is shown here next to what happened. The first graded day appears the morning after the opener. (Preseason slates are not logged.)</p></div>`;
+    const has = i => i && i.days && i.days.length;
+    if (!has(D.rIdx) && has(D.rIdxR) && F.rmode === null) F.rmode = "rehearsal";   // nothing real yet: show the dress rehearsal
+    const I = F.rmode ? D.rIdxR : D.rIdx;
+    const toggle = has(D.rIdxR) || F.rmode ? `<div class="bar"><label>Showing <select id="rmode"><option value="" ${F.rmode ? "" : "selected"}>Regular season (the real record)</option><option value="rehearsal" ${F.rmode ? "selected" : ""}>Preseason rehearsal</option></select></label></div>` : "";
+    const banner = F.rmode ? `<p class="banner">PRESEASON REHEARSAL — a dry run of this tab on preseason games, projected the morning of with the preseason minutes adjustment. Starters sit and rotations are odd, so these numbers say nothing about regular-season accuracy; they are here to check that logging, scoring and grading work. Preseason lines are not available, so the hit-rate columns stay empty.</p>` : "";
+    if (!has(I))
+      return `<h2>Results</h2>${toggle}${banner}<div class="doc"><p>${F.rmode ? "No finished preseason games logged yet. The rehearsal fills in the morning after each preseason slate that was projected." : "No graded games yet. From the first regular-season slate on, each morning's projections are frozen before tip-off, the last pregame consensus and PrizePicks lines are saved, and once the box scores are in, every player's projection is shown here next to what happened. The first graded day appears the morning after the opener."}</p></div>`;
     const days = I.days, sum = k => days.reduce((a, d) => a + (d[k] || 0), 0), wavg = k => { const n = days.reduce((a, d) => a + (d[k] != null ? d.n : 0), 0); return n ? days.reduce((a, d) => a + (d[k] != null ? d[k] * d.n : 0), 0) / n : null; };
     const tot = k => [days.reduce((a, d) => a + d[k][0], 0), days.reduce((a, d) => a + d[k][1], 0)];
     const card = (v, l) => `<div class="card"><b>${v}</b><span>${l}</span></div>`;
@@ -343,7 +349,7 @@ const pages = {
       {k: "pp", h: "vs PrizePicks", v: r => r.pp[0] ? r.pp[1] / r.pp[0] : null, f: r => pct1(r.pp[1], r.pp[0])},
       {k: "pq", h: "PP picks", t: `Model's better side clears the ${(I.pp_breakeven * 100).toFixed(1)}% break-even by ${I.edge_pp}+ points`, v: r => r.pp_picks[0] ? r.pp_picks[1] / r.pp_picks[0] : null, f: r => pct1(r.pp_picks[1], r.pp_picks[0])}];
     // selected day
-    const det = RES[F.rday];
+    const det = RES[rdir() + "/" + F.rday];
     let body;
     if (!det) body = `<p class="sub">Loading ${esc(F.rday)}…</p>`;
     else if (det.error) body = `<p class="sub">Couldn't load that day (${esc(det.error)}).</p>`;
@@ -365,7 +371,7 @@ const pages = {
         ...["pts", "reb", "ast", "fg3m", "pra", "pr", "pa", "ra"].map(cell)];
       body = `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}"><label><input type="checkbox" id="rlines" ${F.rlines ? "checked" : ""}> has a line</label><label><input type="checkbox" id="rpicks" ${F.rpicks ? "checked" : ""}> has a pick</label><span class="mut">${rows.length} players · click a header to sort by the size of the miss</span></div>${table(cols, rows, {id: "resday", sort: {key: "fp"}})}`;
     }
-    return `<h2>Results</h2><p class="sub">What the model said before the game vs what happened. Pregame projections are frozen before tip-off; lines are the last pregame consensus (and PrizePicks) pull. A single day is a few hundred coin flips, so judge the hit rates over weeks, not days: against a −110 market a bettor needs about 52.4% to break even, and PrizePicks needs about ${(I.pp_breakeven * 100).toFixed(1)}% per leg.</p>
+    return `<h2>Results</h2>${toggle}${banner}<p class="sub">What the model said before the game vs what happened. Pregame projections are frozen before tip-off; lines are the last pregame consensus (and PrizePicks) pull. A single day is a few hundred coin flips, so judge the hit rates over weeks, not days: against a −110 market a bettor needs about 52.4% to break even, and PrizePicks needs about ${(I.pp_breakeven * 100).toFixed(1)}% per leg.</p>
       <div class="cards">${card(days.length, "graded game days")}${card(sum("n"), "player-games (15+ min)")}${card(num(wavg("min_mae"), 1), "minutes MAE")}${card(num(wavg("fp_mae"), 1), "fantasy-points MAE")}${card(num(wavg("fp_bias"), 1) + "%", "fantasy-points bias")}</div>
       <div class="cards">${card(pct1(ch, cn), "model side vs consensus line")}${card(pct1(kh, kn), "picks vs consensus")}${card(pct1(ph, pn), "model side vs PrizePicks")}${card(pct1(qh, qn), "PrizePicks picks")}</div>
       <div class="bar"><label>Day <select id="rday">${days.map(d => `<option value="${d.date}" ${d.date === F.rday ? "selected" : ""}>${d.date}</option>`).join("")}</select></label></div>
@@ -447,6 +453,7 @@ document.addEventListener("change", e => {
   else if (t.dataset.sc) { CFG.scoring[t.dataset.sc] = +t.value || 0; CFG.preset = "Custom"; store.set("cfg", CFG); render(); }
   else if (t.id === "mean") { CFG.mean = t.value === "1"; store.set("cfg", CFG); render(); }
   else if (t.id === "rday") { F.rday = t.value; render(); }
+  else if (t.id === "rmode") { F.rmode = t.value; F.rday = ""; render(); }
   else if (t.id === "rlines") { F.rlines = t.checked; render(); }
   else if (t.id === "rpicks") { F.rpicks = t.checked; render(); }
   else if (t.id === "edge") { CFG.edgeMin = +t.value || 0; store.set("cfg", CFG); }
@@ -468,6 +475,7 @@ async function boot() {
   const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "scorecard", "spread", "lines", "players"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   try { const r = await fetch("data/results/index.json"); if (r.ok) D.rIdx = await r.json(); } catch (e) {}
+  try { const r = await fetch("data/results_rehearsal/index.json"); if (r.ok) D.rIdxR = await r.json(); } catch (e) {}
   if (!D.projections) { view().innerHTML = "<p>No data found in <code>data/</code>. Run <code>python -m pipeline.build</code>.</p>"; return; }
   document.getElementById("asof").textContent = `data through ${D.coverage.asof} · slate ${D.coverage.slate_date}`;
   const msgs = [];

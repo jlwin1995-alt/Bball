@@ -6,12 +6,15 @@ changes, so the scorecard can tell one model's record from another's. Only the n
 toward the headline numbers.
 """
 import hashlib, json, os
+from datetime import datetime
+from zoneinfo import ZoneInfo
 import numpy as np
 import pandas as pd
 from . import config as C
 from .model import fantasy, _prep
 
 LOG = "data/log/accuracy_log.csv"
+REHEARSAL_LOG = "data/log/rehearsal_log.csv"       # preseason dress rehearsal: same format, never mixed into the real record
 
 
 def stamp():
@@ -20,16 +23,19 @@ def stamp():
 
 
 def log_slate(P, games, today=None, preseason=False):
-    """Append the slate's projections unless that date is already logged or already played."""
+    """Append the slate's projections unless that date is already logged or already played.
+    Preseason slates go to REHEARSAL_LOG (a dry run of the Results tab); regular-season slates go to LOG."""
     if not len(P):
         return 0
     g = _prep(games)
     day = P["date"].iloc[0]
-    if preseason:
-        return 0                                           # preseason: starters sit, and those games are never scored
-    if day <= g["date"].max():
+    today = pd.Timestamp(today) if today is not None else pd.Timestamp(datetime.now(ZoneInfo("America/New_York")).date())
+    if day > today + pd.Timedelta(days=1):
+        return 0                                           # more than a day out: injuries/lineups will still change, log it the day before
+    if not preseason and day <= g["date"].max():
         return 0                                           # a projection made after tip-off is not a prediction
-    old = pd.read_csv(LOG, dtype={"pid": str}) if os.path.exists(LOG) else pd.DataFrame()
+    log = REHEARSAL_LOG if preseason else LOG
+    old = pd.read_csv(log, dtype={"pid": str}) if os.path.exists(log) else pd.DataFrame()
     if len(old) and (pd.to_datetime(old["date"]) == day).any():
         return 0
     base = g.assign(fp=fantasy(g)).sort_values("date")
@@ -40,8 +46,8 @@ def log_slate(P, games, today=None, preseason=False):
                         **{s: Q[s].round(3) for s in C.STATS}, "fp": fantasy(Q).round(3),
                         "base_season": Q["pid"].map(ssn).round(3), "base_last": Q["pid"].map(lst).round(3),
                         "stamp": stamp(), "logged_at": pd.Timestamp.now("UTC").isoformat(timespec="seconds")})
-    os.makedirs(os.path.dirname(LOG), exist_ok=True)
-    pd.concat([old, new]).to_csv(LOG, index=False)
+    os.makedirs(os.path.dirname(log), exist_ok=True)
+    pd.concat([old, new]).to_csv(log, index=False)
     return len(new)
 
 

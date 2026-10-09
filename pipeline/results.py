@@ -109,25 +109,30 @@ def build(L, G, LG, spread):
     return sorted(days, key=lambda x: x["date"], reverse=True), detail
 
 
-def main(raw="data/raw", out="site/data", games=None):
-    os.makedirs(f"{out}/results", exist_ok=True)
-    meta = {"edge_pp": C.RESULTS_EDGE_PP, "pp_breakeven": C.PP_BREAKEVEN, "min_proj": C.RESULTS_MIN_PROJ_MIN, "stamp": scorecard.stamp()}
-    if not os.path.exists(scorecard.LOG):
-        json.dump({"days": [], **meta}, open(f"{out}/results/index.json", "w"))
-        print("results: no accuracy_log.csv yet (logging starts with the first regular-season slate)")
+def main(raw="data/raw", out="site/data", games=None, log=None, subdir="results", rehearsal=False):
+    log = log or scorecard.LOG
+    os.makedirs(f"{out}/{subdir}", exist_ok=True)
+    meta = {"edge_pp": C.RESULTS_EDGE_PP, "pp_breakeven": C.PP_BREAKEVEN, "min_proj": C.RESULTS_MIN_PROJ_MIN, "stamp": scorecard.stamp(), "rehearsal": rehearsal}
+    if not os.path.exists(log):
+        json.dump({"days": [], **meta}, open(f"{out}/{subdir}/index.json", "w"))
+        print(f"{subdir}: no {os.path.basename(log)} yet")
         return
-    L = pd.read_csv(scorecard.LOG, dtype={"pid": str}).rename(columns={"min": "min_p"})
+    L = pd.read_csv(log, dtype={"pid": str}).rename(columns={"min": "min_p"})
     G = (games if games is not None else pd.read_csv(f"{raw}/games.csv", dtype={"pid": str}))
     G = G.astype({"pid": str}); G["date"] = G["date"].astype(str)
     L["date"] = L["date"].astype(str)
-    LG = pd.read_csv(lines_mod.LOG, dtype={"pid": str}) if os.path.exists(lines_mod.LOG) else pd.DataFrame()
+    if not len(G):
+        json.dump({"days": [], **meta}, open(f"{out}/{subdir}/index.json", "w"))
+        print(f"{subdir}: no finished games to score yet")
+        return
+    LG = pd.read_csv(lines_mod.LOG, dtype={"pid": str}) if (not rehearsal and os.path.exists(lines_mod.LOG)) else pd.DataFrame()
     sp = json.load(open(f"{raw}/spread.json")) if os.path.exists(f"{raw}/spread.json") else {}
     spread = {**C.SPREAD_DEFAULT, **sp}
     days, detail = build(L, G, LG, spread)
     for date, rows in detail.items():
-        json.dump(rows, open(f"{out}/results/{date}.json", "w"), separators=(",", ":"))
-    json.dump({"days": days, **meta}, open(f"{out}/results/index.json", "w"), separators=(",", ":"))
-    print(f"results: {len(days)} scored game days, {sum(d['rows'] for d in days)} player rows")
+        json.dump(rows, open(f"{out}/{subdir}/{date}.json", "w"), separators=(",", ":"))
+    json.dump({"days": days, **meta}, open(f"{out}/{subdir}/index.json", "w"), separators=(",", ":"))
+    print(f"{subdir}: {len(days)} scored game days, {sum(d['rows'] for d in days)} player rows")
 
 
 if __name__ == "__main__":
