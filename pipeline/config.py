@@ -45,6 +45,17 @@ DEF_STRENGTH = {"pts": 1.0, "reb": 1.0, "ast": 1.0, "fg3m": 1.0, "stl": 1.0, "bl
 # the league rate by this factor. Out-of-sample MAE improves 0.3-1.2% per stat. 1.0 = off.
 CAL_RATE_SLOPE = {"pts": 1.2, "reb": 1.1, "ast": 1.2, "fg3m": 1.2, "stl": 1.0, "blk": 1.2, "tov": 1.2}
 
+# --- game environment ------------------------------------------------------
+# Expected margin comes from each team's shrunk average point differential (a stand-in for the spread; swap in the book's
+# spread when it is stored). Starters (T1) lose minutes in expected blowouts, as a hinge: nothing below BLOWOUT_HINGE points.
+# Pace = both teams' average possessions per game vs the league, applied to per-minute rates. 0 = off.
+ENV_PRIOR_GAMES = 8                # games before a team's own pace / margin outweighs the league's
+HOME_MARGIN = 1.5                  # points of home advantage in the expected margin
+BLOWOUT_HINGE = 9.0
+BLOWOUT_SLOPE = 0.0                # T1 minutes lost per point of |expected margin| beyond the hinge
+PACE_STRENGTH = 1.0                # share of the pace factor applied to rates. Measured lambda ~1 (pts 1.36 [0.71, 2.06]); effect is small, +0.1pt of edge
+# BLOWOUT_SLOPE stays 0: starters do lose ~0.3 min per point past 9, and it replicated in both halves on T1 minutes, but fantasy-point MAE did not move and half-by-half minutes MAE disagreed on blowout games. Tested, not modelled.
+
 # --- situation -----------------------------------------------------------
 HOME_MULT = 1.01
 AWAY_MULT = 0.995

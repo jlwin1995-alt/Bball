@@ -40,6 +40,23 @@ def defence_table(g):
     return out
 
 
+def team_env(g):
+    """Per-team shrunk pace (possessions per game, both sides) and average point margin, plus the league pace. Box scores only."""
+    g = g.assign(poss=g["fga"] + 0.44 * g["fta"] + g["tov"])
+    tg = g.groupby(["team", "opp", "date", "w"], as_index=False)[["poss", "pts"]].sum()
+    o = tg.rename(columns={"team": "opp", "opp": "team", "pts": "pts_o", "poss": "poss_o"})[["team", "opp", "date", "pts_o", "poss_o"]]
+    tg = tg.merge(o, on=["team", "opp", "date"])
+    tg["pace"] = (tg["poss"] + tg["poss_o"]) / 2
+    tg["margin"] = tg["pts"] - tg["pts_o"]
+    lg = float(np.average(tg["pace"], weights=tg["w"])) if len(tg) else 100.0
+    out = {}
+    for team, d in tg.groupby("team"):
+        n = d["w"].sum()
+        sh = n / (n + C.ENV_PRIOR_GAMES)
+        out[team] = {"pace": lg + (np.average(d["pace"], weights=d["w"]) - lg) * sh, "margin": float(np.average(d["margin"], weights=d["w"]) * sh)}
+    return out, lg
+
+
 def play_rates(g):
     """Share of each player's recent team games he actually played in (last PLAY_WINDOW team games, since he joined the team)."""
     out = {}
@@ -137,12 +154,18 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
     P["tier"] = np.where(P["min_raw"] >= C.TIER_CUTS[0], "T1", np.where(P["min_raw"] >= C.TIER_CUTS[1], "T2", "T3"))
     if minute_mult:
         P["min"] = P["min_raw"] * P["tier"].map(minute_mult).fillna(1.0)
+    env, lg_pace = team_env(g)
+    P["pace_f"] = P.apply(lambda r: (env.get(r["team"], {}).get("pace", lg_pace) + env.get(r["opp"], {}).get("pace", lg_pace)) / 2 / lg_pace, axis=1)
+    P["exp_margin"] = P.apply(lambda r: env.get(r["team"], {}).get("margin", 0.0) - env.get(r["opp"], {}).get("margin", 0.0)
+                              + (C.HOME_MARGIN if r["home"] == 1 else -C.HOME_MARGIN), axis=1)
+    if not minute_mult and C.BLOWOUT_SLOPE:                       # starters sit in expected blowouts (not in preseason mode: tier multipliers rule there)
+        P.loc[P["tier"] == "T1", "min"] -= C.BLOWOUT_SLOPE * np.clip(P["exp_margin"].abs() - C.BLOWOUT_HINGE, 0, None)
     P["site_mult"] = np.where(P["home"] == 1, C.HOME_MULT, C.AWAY_MULT)
 
     for s in C.STATS:
         adj = P["opp"].map(lambda t: D.get(t, {}).get(s, 1.0))
         P["adj_" + s] = adj
-        P["rate_" + s] = P["pm_" + s] * adj * P["site_mult"]           # per-minute, fully adjusted
+        P["rate_" + s] = P["pm_" + s] * adj * P["site_mult"] * (1 + C.PACE_STRENGTH * (P["pace_f"] - 1))           # per-minute, fully adjusted
         P[s] = P["min"] * P["rate_" + s]
     P["date"] = day
     P["team_min_factor"] = fac

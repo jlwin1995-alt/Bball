@@ -228,7 +228,9 @@ const pages = {
         {k: "cfp", h: "FP", v: r => r.c.fp, f: r => `<b>${num(r.c.fp)}</b>`}];
       return `<div><h3>${esc(t)} ${t === home ? "(home)" : "(away)"}</h3>${table(cols, rows, {id: "gb" + t, sort: {key: "cfp"}, rowClass: r => r.c.min === 0 ? "out" : ""})}</div>`;
     };
-    return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected fantasy points.</p>
+    const h0 = D.projections.find(p => p.team === home && p.exp_margin != null);
+    const env = h0 ? ` Expected margin ${esc(home)} ${h0.exp_margin >= 0 ? "+" : ""}${num(h0.exp_margin)} (from each team's average point differential, a stand-in for the spread); pace ${h0.pace_f >= 1 ? "+" : ""}${num((h0.pace_f - 1) * 100)}% vs league.` : "";
+    return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected fantasy points.${env}</p>
       <div class="bar"><select id="game">${games.map(g => `<option value="${g}" ${g === F.game ? "selected" : ""}>${g.split("|")[1]} @ ${g.split("|")[0]}</option>`).join("")}</select></div>
       <div class="two">${mk(away)}${mk(home)}</div>`;
   },

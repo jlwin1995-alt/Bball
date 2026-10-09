@@ -57,6 +57,8 @@ def main(raw="data/raw", out="site/data"):
         row["home"] = int(p["home"])
         row["out"] = bool(p["out"])
         row["fp"] = r(fantasy(p))
+        row["exp_margin"] = r(p["exp_margin"], 1)
+        row["pace_f"] = r(p["pace_f"], 3)
         for s in C.STATS:
             row["rate_" + s] = r(p["rate_" + s], 5)
             row["adj_" + s] = r(p["adj_" + s], 4)
