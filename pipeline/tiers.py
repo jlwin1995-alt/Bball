@@ -61,3 +61,40 @@ def reliability(g):
     a, b = a.align(b, join="inner")
     out["net"] = round(float(np.corrcoef(a, b)[0, 1]), 2)
     return out
+
+
+def vs_position(g, k_min=4000.0):
+    """What each defence allows per minute to guards / forwards / centers, vs the league at that position, shrunk toward 0
+    by team-position minutes seen. Display only: tested as a projection input (walk-forward, 2025-26) it added nothing
+    (lambda 0.0-0.5 with intervals through zero, halves disagreeing, MAE unchanged). Returns (rows, split-half reliability)."""
+    from . import config as C
+    from .model import norm_pos
+    g = g[g["min"] > 0].copy()
+    g["pos"] = g["pos"].map(norm_pos)
+    n = g.groupby("opp")["date"].nunique()
+    g = g[g["opp"].isin(n[n >= 0.5 * n.max()].index)]                  # real clubs only
+
+    def ratios(d):
+        tp = d.groupby(["opp", "pos"])[C.STATS + ["min"]].sum()
+        lp = d.groupby("pos")[C.STATS + ["min"]].sum()
+        out = {}
+        for (team, pos), r in tp.iterrows():
+            sh = r["min"] / (r["min"] + k_min)
+            for s in C.STATS:
+                lg = lp.loc[pos, s] / lp.loc[pos, "min"]
+                out[(team, pos, s)] = ((r[s] / r["min"]) / lg - 1, sh)
+        return out
+    full = ratios(g)
+    rows = {}
+    for (team, pos, s), (v, sh) in full.items():
+        rows.setdefault(team, {"team": team})[f"{pos}_{s}"] = round(v * sh * 100, 1)
+    days = {d: i for i, d in enumerate(sorted(g["date"].unique()))}
+    h = g["date"].map(days) % 2
+    a, b = ratios(g[h == 0]), ratios(g[h == 1])
+    rel = {}
+    for pos in ("G", "F", "C"):
+        for s in C.STATS:
+            keys = [k for k in a if k in b and k[1] == pos and k[2] == s]
+            x = np.array([a[k][0] for k in keys]); y = np.array([b[k][0] for k in keys])
+            rel[f"{pos}_{s}"] = round(float(np.corrcoef(x, y)[0, 1]), 2) if len(keys) > 5 else None
+    return sorted(rows.values(), key=lambda r: r["team"]), rel

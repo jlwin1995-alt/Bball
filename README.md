@@ -71,7 +71,7 @@ model has the player's minutes or role wrong (injury news), not a bargain. Playe
 
 ### Team Tiers
 
-`pipeline/tiers.py` builds offensive / defensive rating, pace and net rating per team from box scores (display only; it does not feed projections). The tab shows split-half reliability (odd vs even game days) for each measure so you can see how much of a number is signal.
+`pipeline/tiers.py` builds offensive / defensive rating, pace and net rating per team from box scores (display only; it does not feed projections). The tab shows split-half reliability (odd vs even game days) for each measure so you can see how much of a number is signal. The Matchups tab also has a display-only "vs position" table (guards / forwards / centers); tested as a projection input it added nothing, so projections do not use it.
 
 ### Results (projected vs actual)
 
