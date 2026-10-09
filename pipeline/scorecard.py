@@ -19,13 +19,13 @@ def stamp():
     return hashlib.sha1(json.dumps(knobs, sort_keys=True, default=str).encode()).hexdigest()[:8]
 
 
-def log_slate(P, games, today=None):
+def log_slate(P, games, today=None, preseason=False):
     """Append the slate's projections unless that date is already logged or already played."""
     if not len(P):
         return 0
     g = _prep(games)
     day = P["date"].iloc[0]
-    if day < pd.Timestamp(C.CUR_START):
+    if preseason:
         return 0                                           # preseason: starters sit, and those games are never scored
     if day <= g["date"].max():
         return 0                                           # a projection made after tip-off is not a prediction

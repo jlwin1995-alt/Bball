@@ -6,7 +6,7 @@ valued, not how they are projected.
 """
 
 SEASON = 2027                      # season ENDING year: 2026-27 -> 2027
-CUR_START = "2026-10-21"           # first regular-season game date of SEASON
+CUR_START = "2026-10-21"           # APPROXIMATE first regular-season date (a guess; The Odds API lists 2026-10-20). Only anchors the fetch window; preseason/regular is read from ESPN's season type
 PRIOR_START = "2025-10-21"         # prior season window used as early-season prior
 PRIOR_END = "2026-04-13"
 
