@@ -137,10 +137,13 @@ def main(raw="data/raw", out="site/data"):
         dump(json.load(open(f"{raw}/spread.json")), out, "spread.json")
     if not sample:
         lines_mod.main(raw, out)                                    # live lines + consensus, if odds.csv exists
-    logged = 0 if sample else scorecard.log_slate(P, games, preseason=pre)   # sample data never touches the real log
+    logged = 0 if sample else scorecard.log_slate(P, games, preseason=pre)   # sample data never touches the real log; preseason -> rehearsal log
     dump(scorecard.score(games), out, "scorecard.json")
     if not sample:
         results_mod.main(raw, out, games)                           # projected vs actual per player, per game day
+        rg = f"{raw}/rehearsal_games.csv"                           # preseason dress rehearsal of the same pipeline
+        results_mod.main(raw, out, pd.read_csv(rg, dtype={"pid": str}) if os.path.exists(rg) else pd.DataFrame(columns=["date", "pid"]),
+                         log=scorecard.REHEARSAL_LOG, subdir="results_rehearsal", rehearsal=True)
     print(f"logged {logged} rows; projected {len(P)} players for {cov['slate_date']}  (out: {cov['out']})")
 
 

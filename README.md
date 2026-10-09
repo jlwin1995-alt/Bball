@@ -77,7 +77,7 @@ never touched after tip-off). Once box scores are in, `pipeline/results.py` join
 (one summary row per day) and `results/<date>.json` (every player, loaded on demand). The **Results** tab shows projected → actual for
 minutes, fantasy points, the main stats and the combos, with the pregame lines beside them and hit rates for the model's side against
 the consensus and PrizePicks lines (picks = at least 4 points of disagreement; PrizePicks picks clear a 57.7% per-leg break-even; both in
-`config.py`). A result equal to the line is a push and is excluded. Preseason slates are not logged. A game with no odds pull before tip
+`config.py`). A result equal to the line is a push and is excluded. Preseason slates go to a separate `data/log/rehearsal_log.csv` and show up under "Preseason rehearsal" on the Results tab (a dry run of the same pipeline; never mixed into the real record, no lines). A game with no odds pull before tip
 has no line to grade against.
 
 ### Live games

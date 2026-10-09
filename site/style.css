@@ -33,3 +33,4 @@ td input.ovr{width:56px;text-align:right;background:var(--in)}
 td:first-child,th:first-child{position:sticky;left:0;background:var(--bg);z-index:1}
 th:first-child{background:var(--head);z-index:3}
 tr:hover td:first-child{background:var(--head)}
+.banner{background:var(--in);padding:8px 12px;border:1px solid var(--line);border-radius:6px;font-size:13px}

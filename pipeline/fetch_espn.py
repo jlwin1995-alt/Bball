@@ -163,6 +163,13 @@ def main(backfill=False, preseason=False):
         old.to_csv(path, index=False)
     print(f"games.csv: +{len(new)} player-games, {len(old)} total")
 
+    if today <= date.fromisoformat(C.CUR_START):               # preseason box scores feed the Results-tab rehearsal
+        try:
+            r = fetch_preseason(max(today - timedelta(days=14), date(today.year, 9, 1)), today, path=f"{RAW}/rehearsal_games.csv")
+            print(f"rehearsal_games.csv: {len(r)} preseason player-games")
+        except Exception as e:
+            print("rehearsal box scores skipped:", e)
+
     sched = []
     for day in daterange(today, today + timedelta(days=21)):      # 21 days so the opener shows up in the offseason
         for ev in scoreboard(day):
