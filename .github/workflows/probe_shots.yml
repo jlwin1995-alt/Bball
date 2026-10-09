@@ -1,0 +1,38 @@
+name: Probe shot data
+# One-off diagnostic: does ESPN's play-by-play carry shot coordinates? Prints a summary to the log; commits nothing.
+on:
+  push:
+    paths: [".github/workflows/probe_shots.yml"]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install requests
+      - run: |
+          python - <<'PY'
+          import requests, json, collections
+          B = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba"
+          evs = []
+          for d in ("20260408", "20260410", "20260412"):
+              evs += requests.get(f"{B}/scoreboard?dates={d}", timeout=30).json().get("events", [])
+          print("events", len(evs))
+          for ev in evs[:2]:
+              s = requests.get(f"{B}/summary?event={ev['id']}", timeout=30).json()
+              pl = s.get("plays", [])
+              shots = [p for p in pl if p.get("shootingPlay")]
+              co = [p for p in shots if p.get("coordinate")]
+              print("\n==", ev["shortName"], "keys:", sorted(s.keys()))
+              print("plays", len(pl), "shooting plays", len(shots), "with coordinate", len(co))
+              for p in shots[:3]:
+                  print(json.dumps(p)[:700])
+              if co:
+                  xs = [p["coordinate"].get("x") for p in co]; ys = [p["coordinate"].get("y") for p in co]
+                  print("x range", min(xs), max(xs), "y range", min(ys), max(ys))
+                  print(collections.Counter(p.get("type", {}).get("text") for p in shots).most_common(12))
+                  print("participants sample", json.dumps(shots[0].get("participants"))[:300])
+          PY
