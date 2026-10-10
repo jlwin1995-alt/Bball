@@ -1,1 +1,1 @@
-{"days":[{"date":"2026-10-09","rows":20,"n":17,"min_mae":6.31,"fp_mae":9.94,"fp_bias":12.0,"cons":[0,0],"picks":[0,0],"pp":[0,0],"pp_picks":[0,0]}],"edge_pp":4.0,"pp_breakeven":0.577,"min_proj":15.0,"stamp":"590876fa","rehearsal":true}
+{"days":[{"date":"2026-10-09","rows":40,"n":37,"min_mae":5.94,"fp_mae":9.65,"fp_bias":25.8,"cons":[0,0],"picks":[0,0],"pp":[0,0],"pp_picks":[0,0]}],"edge_pp":4.0,"pp_breakeven":0.577,"min_proj":15.0,"stamp":"590876fa","rehearsal":true}
