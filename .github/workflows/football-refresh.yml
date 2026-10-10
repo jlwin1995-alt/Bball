@@ -24,6 +24,8 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    env:
+      CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}      # optional: without it the college steps just skip
     defaults:
       run:
         working-directory: football
@@ -37,12 +39,18 @@ jobs:
       - run: pip install -r pipeline/requirements.txt
       - name: Fetch box scores, schedule, snap counts, injuries
         run: python -m pipeline.fetch
+      - name: College data (CollegeFootballData; skips without CFBD_API_KEY, and spends 1 call when nothing new has finished)
+        run: python -m pipeline.cfb_data || echo "::warning::college data could not be updated"
       - name: Backtest last season (once; the result is committed)
         run: |
           S=$(python -c "from pipeline import config as C; print(C.SEASON - 1)")
           test -f site/data/backtest_$S.json || { python -m pipeline.fetch --season $S && python -m pipeline.backtest --season $S --write; } || echo "::warning::backtest could not be built"
       - name: Build site data (and log the week before kickoff)
         run: python -m pipeline.build
+      - name: Build college data (and log the week before kickoff)
+        run: |
+          python -m pipeline.cfb_build || echo "::warning::college build failed"
+          python -m pipeline.cfb_build --backtest || true
       - name: Commit data
         # If main moved while this job ran, rebase our freshly generated data onto it instead of failing. Only football/data and
         # football/site/data are touched, and where both sides changed a generated file, ours (the newer build) wins.

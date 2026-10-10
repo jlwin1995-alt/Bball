@@ -196,3 +196,25 @@ TEAM_ABBR = {
     "Philadelphia Eagles": "PHI", "Pittsburgh Steelers": "PIT", "San Francisco 49ers": "SF", "Seattle Seahawks": "SEA",
     "Tampa Bay Buccaneers": "TB", "Tennessee Titans": "TEN", "Washington Commanders": "WAS",
 }
+
+# --- college football (CollegeFootballData.com; needs CFBD_API_KEY, free tier = 1,000 calls/month) ---------------------------------
+CFBD = "https://api.collegefootballdata.com"
+CFB_SEASON_TYPE = "regular"
+CFB_CONFERENCE = ""                # limit projections to one conference (e.g. "SEC"); blank = all FBS
+CFB_MIN_OPPS = 8                   # season carries + receptions + attempts a player needs to be projected
+CFB_QB_MIN_ATT = 5                 # season pass attempts before a player counts as a QB
+CFB_PRIOR_CAR = 30
+CFB_PRIOR_REC = 18
+CFB_PRIOR_ATT = 35
+CFB_K_DEF_RUSH = 50
+CFB_K_DEF_REC = 45
+CFB_K_DEF_PASS = 60
+CFB_K_TEAM_VOL = 3
+CFB_TEAM_SCALE_CAP = 0.20
+CFB_MAX_WEEK = 20
+CFB_BACKTEST_FROM_WEEK = 2
+CFB_MODEL_KEYS = [
+    "ROLLING_WINDOW", "DEF_ADJ_CAP", "CATCH_CAP_FRACTION", "RECENT_WEIGHT", "RECENT_WEIGHT_ATT", "PRIOR_FUMBLES", "LAMBDA_RUSH_TD", "LAMBDA_REC_TD",
+    "LAMBDA_PASS_TD", "LG_PASS_TD", "LG_INT", "CFB_CONFERENCE", "CFB_MIN_OPPS", "CFB_QB_MIN_ATT", "CFB_PRIOR_CAR", "CFB_PRIOR_REC", "CFB_PRIOR_ATT",
+    "CFB_K_DEF_RUSH", "CFB_K_DEF_REC", "CFB_K_DEF_PASS", "CFB_K_TEAM_VOL", "CFB_TEAM_SCALE_CAP", "DEFAULT_SCORING",
+]

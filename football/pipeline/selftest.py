@@ -54,7 +54,35 @@ def main():
         import datetime as dt
         later = dt.datetime(2026, 10, 11, 18, 0, tzinfo=dt.timezone.utc)
         assert lines.snapshot_pregame(res, log=log, now=later) == 0                                                # started: frozen, not rewritten
+    cfb_checks()
     print("selftest ok:", len(rows), "rows,", len(res["rows"]), "lines")
+
+
+def cfb_stub():
+    """A /games/players payload shaped like the documented response (game -> teams -> categories -> types -> athletes)."""
+    def cat(name, **types):
+        return dict(name=name, types=[dict(name=k, athletes=[dict(id=i, name=n, stat=v) for i, n, v in vs]) for k, vs in types.items()])
+    home = dict(team="Ohio State", conference="Big Ten", homeAway="home", categories=[
+        cat("passing", **{"C/ATT": [("1", "QB One", "27/41")], "YDS": [("1", "QB One", "310")], "TD": [("1", "QB One", "3")], "INT": [("1", "QB One", "1")]}),
+        cat("rushing", **{"CAR": [("2", "RB Two", "18"), ("1", "QB One", "4")], "YDS": [("2", "RB Two", "96"), ("1", "QB One", "-3")], "TD": [("2", "RB Two", "1")]}),
+        cat("receiving", **{"REC": [("3", "WR Three", "7")], "YDS": [("3", "WR Three", "121")], "TD": [("3", "WR Three", "2")]}),
+        cat("fumbles", **{"LOST": [("2", "RB Two", "1")]}),
+        cat("defensive", **{"TOT": [("9", "LB Nine", "11")]}),
+    ])
+    away = dict(team="Michigan", conference="Big Ten", homeAway="away", categories=[cat("rushing", **{"CAR": [("7", "RB Seven", "10")], "YDS": [("7", "RB Seven", "40")]})])
+    return [dict(id=1, teams=[home, away])]
+
+
+def cfb_checks():
+    from . import cfb_data
+    rows = cfb_data.flatten_week(cfb_stub(), 3, {"1": "QB"})
+    by = {r["playerId"]: r for r in rows}
+    assert set(by) == {"1", "2", "3", "7"}, set(by)                    # the linebacker (defence only) is dropped
+    q = by["1"]
+    assert (q["completions"], q["attempts"], q["passing_yards"], q["passing_tds"], q["interceptions"]) == (27, 41, 310, 3, 1), q
+    assert (q["carries"], q["rushing_yards"]) == (4, -3) and q["position"] == "QB" and q["opponent"] == "Michigan" and q["home"] is True
+    assert by["2"]["fumbles_lost"] == 1 and by["3"]["receiving_yards"] == 121 and by["7"]["opponent"] == "Ohio State" and by["7"]["home"] is False
+    print("college parser ok")
 
 
 def fair_ok(x):

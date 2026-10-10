@@ -20,6 +20,7 @@ The model itself is a line-for-line port of the Google-Sheets "Football Player M
 | Results | Projected → actual for every player and market of each graded week, with the last pregame lines beside them and hit rates for the model's side. |
 | Scorecard | Each week's projections are logged **before** kickoff and never rewritten, then scored against season-average and last-3 baselines. |
 | Backtest | Walk-forward replay of past seasons with the same code the site runs. |
+| College (`/football/college/`) | The same engine on FBS: Projections (volume overrides), Game Board, Leaders, Matchups, Scorecard, Backtest (with a measured college spread), Config, Methodology. |
 | Config | Scoring preset (Full/Half/Standard PPR, 6-pt pass TD, FanDuel, custom), median vs mean. |
 
 ## Run it
@@ -59,6 +60,20 @@ Each pull keeps the **last pregame** consensus and PrizePicks line per game, pla
 hasn't kicked off, never touched after). `pipeline/results.py` joins that to the frozen projections and the box scores and writes `site/data/results/`.
 A pick is a gap of at least 4 points between the model and the book (`RESULTS_EDGE_PP`); PrizePicks picks must clear a 57.7% per-leg break-even (`PP_BREAKEVEN`).
 
+### College football
+
+`pipeline/cfb_data.py` pulls [CollegeFootballData](https://collegefootballdata.com) (`cfb_model.py` is the port of the sheet's `cfbCore_`, `cfb_build.py` builds
+`site/data/cfb/` plus the college log, scorecard and walk-forward backtest). It needs a free key:
+
+1. Get a key at collegefootballdata.com/key (free tier = 1,000 calls/month).
+2. GitHub: Settings → Secrets and variables → Actions → **New repository secret** `CFBD_API_KEY`.
+3. Run **Football refresh data and deploy**. Without the key the college steps skip and the college page says so.
+
+A refresh with nothing new costs one API call (the schedule); each newly finished week costs two (positions once, plus the week). A stored week is only
+fetched again if more of its games have finished since. Locally: `CFBD_API_KEY=... python -m pipeline.cfb_data && python -m pipeline.cfb_build`.
+What differs from the NFL model is what CFBD reports: no targets (receptions are projected directly), no injury report, no weather, no sacks, no
+2-point conversions, no betting lines, and a college QB's rushing line has his sacks subtracted so quarterbacks get their own rushing baseline.
+
 ## How the pieces fit
 
 - `pipeline/model.py` — `nfl_core` (league baselines, regressed defence ratings, volumes, rates, participation weighting, QB calibration) and
@@ -88,7 +103,10 @@ first, then run the workflow once from the Actions tab. All deploys (basketball,
   reading). Run the workflow once and check the Weather tab.
 - **Lines / odds not validated live:** the Odds API host is blocked from the dev sandbox, so the fetcher was written from the documented response
   shape and tested only on a stub (`pipeline.selftest`). Run the *probe* workflow once and eyeball the output before trusting the Lines tab.
-- **Not ported yet:** college football (CollegeFootballData, needs a `CFBD_API_KEY`) and the sheet's phone "Edges" view (the Lines tab covers it).
+- **College not validated against live CFBD:** the host is blocked here and there is no key, so the parser was tested on a stub shaped like the documented
+  payload and the model on synthetic weeks. Check the first real
+  run's CFB_Fields-equivalent output: `data/raw/cfb_weekly.csv` should have carries/receptions/attempts filled in for every team.
+- **Not ported:** the sheet's phone "Edges" view (the Lines tab covers it).
   The sheet has no live in-game view either, so there is no Live tab.
 - The model only uses the current season's games (as the sheet does), so Week 1-3 projections are thin by design: priors do the work.
 - Season constants (`SEASON` in `config.py`) need updating each year.

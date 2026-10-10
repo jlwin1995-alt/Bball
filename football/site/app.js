@@ -10,8 +10,6 @@ const store = {
   get(k, d) { try { const v = localStorage.getItem("gm_" + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
   set(k, v) { try { localStorage.setItem("gm_" + k, JSON.stringify(v)); } catch (e) {} },
 };
-const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
-const num = (x, d = 1) => x == null || x === "" || Number.isNaN(+x) ? "" : Number(x).toFixed(d);
 const view = () => document.getElementById("view");
 const SCORE_LABEL = {passYd: "Pass yd", passTd: "Pass TD", intr: "INT", rushYd: "Rush yd", rushTd: "Rush TD", recYd: "Rec yd", recTd: "Rec TD", rec: "Reception", fum: "Fumble lost", two: "2-pt conv"};
 const POS = ["QB", "RB", "WR", "TE"];
@@ -33,33 +31,6 @@ function calcFor(p) {
 }
 const proj = () => D.projections.map(p => ({...p, c: calcFor(p)}));
 
-// ---------- generic sortable table -------------------------------------------
-function table(cols, rows, {sort = null, id = "t", rowClass = null} = {}) {
-  const st = table.state[id] || (table.state[id] = {key: sort?.key, asc: sort?.asc ?? false});
-  const sorted = [...rows];
-  const col = cols.find(c => c.k === st.key);
-  if (col) {
-    const g = col.v || (r => r[col.k]);
-    sorted.sort((a, b) => {
-      const x = g(a), y = g(b);
-      if (x == null || x === "") return 1;
-      if (y == null || y === "") return -1;
-      return (typeof x === "string" ? x.localeCompare(y) : x - y) * (st.asc ? 1 : -1);
-    });
-  }
-  const head = cols.map(c => `<th class="${c.l ? "l" : ""} ${c.k === st.key ? "s " + (st.asc ? "asc" : "") : ""}" data-k="${c.k}" title="${esc(c.t || "")}">${c.h}</th>`).join("");
-  const body = sorted.map(r => `<tr class="${rowClass ? rowClass(r) : ""}">` + cols.map(c => `<td class="${c.l ? "l" : ""}">${c.f ? c.f(r) : esc(r[c.k])}</td>`).join("") + "</tr>").join("");
-  return `<div class="tw" data-tid="${id}"><table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
-}
-table.state = {};
-document.addEventListener("click", e => {
-  const th = e.target.closest("th[data-k]");
-  if (!th) return;
-  const id = th.closest("[data-tid]").dataset.tid, st = table.state[id], k = th.dataset.k;
-  st.asc = st.key === k ? !st.asc : false; st.key = k;
-  render(true);
-});
-
 const nameCols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}];
 const F = {q: "", pos: "", team: "", hideStarted: false, game: "", effView: "QB", year: "", minG: 0, lstat: "", lgame: "", lpicks: false, rweek: "", rmkt: "pts", rlines: false, rpicks: false};
 function teams() { return [...new Set(D.projections.map(p => p.team))].sort(); }
@@ -76,13 +47,7 @@ function passes(r) {
 }
 document.addEventListener("input", e => { if (e.target.id === "q") { F.q = e.target.value; render(true, "q"); } });
 
-// ---------- small formatters ---------------------------------------------------
-const adj = x => x == null ? "" : `<span class="${x > 1.005 ? "good" : x < 0.995 ? "bad" : "mut"}">${num((x - 1) * 100, 1)}%</span>`;
-const signed = (x, d = 1) => x == null || x === "" ? "" : `<span class="${x > 0 ? "good" : x < 0 ? "bad" : "mut"}">${x > 0 ? "+" : ""}${num(x, d)}</span>`;
 const statusPill = s => s ? `<span class="pill ${isOut(s) || /doubt/i.test(s) ? "bad" : "q"}">${esc(s)}</span>` : "";
-// change in error against a baseline: negative means the model made smaller misses, so negative is the good colour
-const plainSigned = x => x == null ? "" : (x > 0 ? "+" : "") + num(x, 1);
-const vsBase = x => x == null ? "" : `<span class="${x < 0 ? "good" : x > 0 ? "bad" : "mut"}">${x > 0 ? "+" : ""}${num(x, 1)}%</span>`;
 const formPill = f => f === "HOT" ? `<span class="pill hot">HOT</span>` : f === "COLD" ? `<span class="pill cold">COLD</span>` : `<span class="mut">${esc(f || "")}</span>`;
 const vsOpp = r => (r.home ? "vs " : "@ ") + esc(r.opp);
 function spark(a) {

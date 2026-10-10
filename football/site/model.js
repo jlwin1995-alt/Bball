@@ -50,6 +50,20 @@
       + r.passTD * W.passTd + r.int * W.intr + r.fum * W.fum + r.two * W.two;
   }
 
+  // College: no targets (receptions are projected directly), no 2-point term, no sacks, no QB calibration shrink. Mirrors pipeline/cfb_model.py `derive`.
+  function calcCfb(p, o, W) {
+    o = o || {};
+    const car = o.car != null ? o.car : p.car, rec = o.rec != null ? o.rec : p.rec, att = o.att != null ? o.att : p.att;
+    const rushY = car * p.ypc * p.a_rush, recY = rec * p.ypr * p.a_rec, passY = att * p.ypa * p.a_pass;
+    const rushTD = car * p.rtd_r * p.a_rtd, recTD = rec * p.rectd_r * p.a_rectd, passTD = att * p.ptd_r * p.a_ptd;
+    const int = att * p.int_r, fum = (car + rec + att) * p.fum_r, comp = att * p.cmp * p.a_comp;
+    const r = {car, rec, att, rushY, recY, passY, comp, rushTD, recTD, passTD, int, fum, td: rushTD + recTD};
+    r.pts = rushY * W.rushYd + recY * W.recYd + passY * W.passYd + rec * W.rec + rushTD * W.rushTd + recTD * W.recTd + passTD * W.passTd + int * W.intr + fum * W.fum;
+    r.carSh = p.tcar ? car / p.tcar * 100 : null;
+    r.recSh = p.trec ? rec / p.trec * 100 : null;
+    return r;
+  }
+
   // ---- probabilities for the Lines tab ----
   // Standard normal CDF (Abramowitz & Stegun 26.2.17; worst-case error 7.5e-8).
   function normCdf(z) {
@@ -88,6 +102,6 @@
   const impl = o => { o = +o; return !o ? null : o < 0 ? -o / (-o + 100) : 100 / (o + 100); };
   const amer = p => p == null ? "" : (p >= 0.5 ? "-" + Math.round(100 * p / (1 - p)) : "+" + Math.round(100 * (1 - p) / p));
 
-  const api = {SCORING, calShrink, calc, points, normCdf, poisCdf, sigmaFor, sides, impl, amer};
+  const api = {SCORING, calShrink, calc, calcCfb, points, normCdf, poisCdf, sigmaFor, sides, impl, amer};
   if (typeof module !== "undefined" && module.exports) module.exports = api; else root.FB = api;
 })(typeof window !== "undefined" ? window : globalThis);

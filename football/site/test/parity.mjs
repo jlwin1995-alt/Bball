@@ -16,4 +16,17 @@ for (const p of proj) {
   }
 }
 console.log("players", proj.length, "worst abs diff per field", JSON.stringify(worst));
+// college (only when college data has been built)
+import {existsSync} from "fs";
+const cdir = process.argv[2] || dir + "cfb/";
+if (existsSync(cdir + "projections.json")) {
+  const cp = JSON.parse(readFileSync(cdir + "projections.json")); let cworst = 0, cbad = 0;
+  for (const p of cp) {
+    const c = FB.calcCfb(p, {}, W);
+    for (const [k, pk] of [["rushY", "ry"], ["recY", "recy"], ["passY", "py"], ["comp", "comp"], ["rushTD", "rtd"], ["recTD", "rectd"], ["passTD", "ptd"], ["int", "int"], ["fum", "fum"], ["pts", "pts"]]) {
+      const d = Math.abs(c[k] - p[pk]); cworst = Math.max(cworst, d); if (d > 0.02) { cbad++; if (cbad < 5) console.log("CFB MISMATCH", p.name, k, c[k], p[pk]); }
+    }
+  }
+  console.log("college players", cp.length, "worst abs diff", cworst); bad += cbad;
+}
 process.exit(bad ? 1 : 0);
