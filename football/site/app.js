@@ -58,6 +58,24 @@ function spark(a) {
 }
 const ovrCell = (r, key, shown) => `<input class="ovr" data-id="${esc(r.id)}" data-key="${key}" value="${OVR[r.id]?.[key] ?? ""}" placeholder="${num(shown)}">`;
 
+// Posted lines for one player (from the last odds pull), each scored against the model's current median projection
+function playerLines(p) {
+  const L = D.lines;
+  if (!L || !L.rows) return [];
+  return L.rows.filter(r => r.id === p.id).map(r => {
+    const spec = mktSpec(r.stat), m = p.c[MKT[r.stat]], c = r.cons, sd = c ? FB.sides(c.line, m, spec) : null;
+    return {r, spec, m, c, po: sd?.o, edge: sd ? (sd.o - c.p_over) * 100 : null, pp: r.dfs.prizepicks, ud: r.dfs.underdog ?? r.dfs.pick6, started: Date.now() >= Date.parse(r.commence)};
+  }).sort((a, b) => Math.abs(b.edge ?? 0) - Math.abs(a.edge ?? 0));
+}
+function linesCell(p) {
+  const ls = playerLines(p);
+  if (!ls.length) return `<span class="mut">${D.lines?.rows?.length ? "no props" : ""}</span>`;
+  const b = ls[0], pick = b.edge != null && !b.started && !isOut(p.status) && Math.abs(b.edge) >= CFG.edgeMin;
+  const head = b.c ? `${esc(b.spec.label)} ${b.edge >= 0 ? "o" : "u"}${b.c.line} <span class="${b.edge > 0 ? "good" : "bad"}">${b.edge > 0 ? "+" : ""}${num(b.edge)}</span>` : `${esc(b.spec.label)} PP ${b.pp ?? ""}`;
+  const rows = ls.map(x => `<div>${esc(x.spec.label)}: proj ${num(x.m)} · ${x.c ? `cons ${x.c.line} (${num(x.c.p_over * 100)}% over, ${FB.amer(x.c.p_over)}/${FB.amer(1 - x.c.p_over)}) · model ${num(x.po * 100)}% · <b class="${x.edge > 0 ? "good" : "bad"}">${x.edge > 0 ? "+" : ""}${num(x.edge)}pp</b>` : ""}${x.pp != null ? ` · PrizePicks ${x.pp}` : ""}${x.ud != null ? ` · UD/Pick6 ${x.ud}` : ""}<br><span class="mut">${x.r.books.map(k => `${esc(k.b)} ${k.line} (${k.over ?? "-"}/${k.under ?? "-"})`).join(" · ")}</span></div>`).join("");
+  return `<details><summary>${head}${pick ? ` <b>${b.edge > 0 ? "OVER" : "UNDER"}</b>` : ""}${b.started ? ` <span class="pill hot">LIVE</span>` : ""}</summary><div class="lines-pop">${rows}</div></details>`;
+}
+
 // ---------- pages ---------------------------------------------------------------
 const pages = {
   Projections() {
@@ -113,7 +131,10 @@ const pages = {
         {k: "crec", h: "Rec", v: r => r.c.rec, f: r => num(r.c.rec)}, {k: "crecy", h: "Rec Yds", v: r => r.c.recY, f: r => num(r.c.recY, 0)},
         {k: "catt", h: "Att", v: r => r.c.att, f: r => r.c.att > 0 ? num(r.c.att) : ""}, {k: "cpy", h: "Pass Yds", v: r => r.c.passY, f: r => r.c.att > 0 ? num(r.c.passY, 0) : ""},
         {k: "ctd", h: "TD", v: r => r.c.rushTD + r.c.recTD + r.c.passTD, f: r => num(r.c.rushTD + r.c.recTD + r.c.passTD, 2)},
-        {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`}];
+        {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`},
+        {k: "ovp", h: "Opp vs Pos", t: "What the opponent gives up to this player's position group, and where it ranks among this week's defences (1 = most generous)", v: r => r.ovp,
+          f: r => r.ovp == null ? "" : `${signed(r.ovp)}% <span class="mut">${esc(r.ork || "")}</span>`},
+        {k: "lines", h: "Lines · best edge", l: 1, t: "Click to open every posted line for this player", v: r => { const b = playerLines(r)[0]; return b?.edge == null ? null : Math.abs(b.edge); }, f: linesCell}];
       const live = rows.filter(r => !isOut(r.status)), nOut = rows.length - live.length;
       const tot = live.reduce((a, r) => a + r.c.shown, 0);
       return `<div><h3>${esc(t)} <span class="mut">· ${num(tot)} projected pts across ${live.length} players${nOut ? ` (${nOut} listed out, not counted)` : ""}</span></h3>${table(cols, rows, {id: "gb" + t, sort: {key: "cpts"}})}</div>`;
@@ -125,7 +146,7 @@ const pages = {
       <div class="gamehead"><div><span>Kickoff</span><b>${esc(koLabel(g.ko))}</b></div><div><span>Stadium</span><b>${esc(g.stadium)}</b></div>
         <div><span>Weather</span><b>${wx}</b></div>${g.spread == null ? "" : `<div><span>Line (nflverse)</span><b>${esc(sp)} · O/U ${num(g.total)}</b></div>
         <div><span>Implied total</span><b>${esc(g.away)} ${num(g.away_imp)} – ${esc(g.home)} ${num(g.home_imp)}</b></div>`}</div>
-      <div class="two">${mk(g.away)}${mk(g.home)}</div>`;
+      <div class="stack">${mk(g.away)}${mk(g.home)}</div>`;
   },
 
   Leaders() {
@@ -167,9 +188,13 @@ const pages = {
       {k: "catch_wr", h: "Catch vs WR", f: a3("catch_wr")}, {k: "catch_te", h: "Catch vs TE", f: a3("catch_te")}, {k: "catch_rb", h: "Catch vs RB", f: a3("catch_rb")},
       {k: "ypr_wr", h: "Y/Rec vs WR", f: a3("ypr_wr")}, {k: "ypr_te", h: "Y/Rec vs TE", f: a3("ypr_te")}, {k: "ypr_rb", h: "Y/Rec vs RB", f: a3("ypr_rb")},
       {k: "faces", h: `Faces in wk ${M.week}`, l: 1}];
+    const rkc = (k, h) => ({k: k + "_rk", h, t: "Rank (1 = most generous) and the multiplier applied", f: r => `<b>${r[k + "_rk"]}</b> <span class="mut">${adj(r[k])}</span>`, v: r => r[k + "_rk"]});
+    const posCols = [{k: "team", h: "Defense", l: 1}, rkc("qb", "vs QB (pass)"), rkc("rb_rush", "vs RB (rush)"), rkc("wr_rec", "vs WR (rec)"), rkc("te_rec", "vs TE (rec)"), rkc("rb_rec", "vs RB (rec)")];
     return `<h2>Matchups — Week ${D.meta.week}</h2>
       <p class="sub">Above 0% means the opponent has been easier than average to gain on; below, harder. Every value is regressed by how many plays the defence has faced and then capped, so early in a season most sit near 0%.</p>
       <h3>This week, softest matchup first</h3>${table(c1, rk, {id: "mr", sort: {key: "overall"}})}
+      <h3>Positional rankings — every defence</h3><p class="sub">How each defence has fared against each position group, as the multiplier actually applied to projections (defence only). <b>1 = most generous</b>. QB = passing, RB = rushing, the three receiving columns are catch rate × yards per catch against that group. Tight-end splits carry no information (a defence's tight-end numbers in one half of a season correlate −0.03 with the other), so the TE column falls back on the overall receiving rating.</p>
+      ${table(posCols, M.ranks, {id: "mpos", sort: {key: "qb_rk", asc: true}})}
       <h3>Every defence</h3>${table(c2, M.rows, {id: "md", sort: {key: "rush"}})}
       <div class="doc"><p class="mut">League baseline: ${num(M.lg.ypc, 2)} Y/C, ${num(M.lg.catch, 3)} catch rate, ${num(M.lg.ypr, 2)} Y/Rec. Per position — ${Object.entries(M.lg.pos).map(([p, v]) => `${p} ${num(v.catch, 3)} / ${num(v.ypr, 1)} Y/Rec`).join(", ")}.
       The three TD columns are derived from the yardage columns, not from touchdowns allowed (a defence's own TD rate allowed barely predicts its future one). The position columns regress toward that defence's own overall number; tight-end splits are switched off because how a defence did against tight ends in one half of a season tells you nothing about the other.</p></div>`;

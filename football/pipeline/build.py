@@ -61,6 +61,26 @@ def matchup_table(core, mu, week, P):
     return rows
 
 
+def position_rankings(core):
+    """Every defence ranked against each position group, 1 = most generous. QB uses the passing multiplier, RB the rushing one, and WR / TE / RB
+    receiving the catch-rate x yards-per-catch split for that group (tight-end splits are switched off by K_DEF_POS_TE, so that column falls back on the
+    defence's overall receiving rating). All are the damped multipliers actually applied to projections, defence only."""
+    teams = sorted(core["de"])
+    cols = {"qb": lambda d: core["defPass"].get(d, 1.0), "rb_rush": lambda d: core["defRush"].get(d, 1.0)}
+    for p in REC_POS:
+        cols[f"{p.lower()}_rec"] = (lambda p: lambda d: core["defPosCatch"].get(d, {}).get(p, 1.0) * core["defPosYpr"].get(d, {}).get(p, 1.0))(p)
+    vals = {k: {d: f(d) for d in teams} for k, f in cols.items()}
+    out = []
+    for d in teams:
+        row = dict(team=d)
+        for k in cols:
+            order = sorted(teams, key=lambda t: -vals[k][t])
+            row[k] = r(vals[k][d], 4)
+            row[k + "_rk"] = order.index(d) + 1
+        out.append(row)
+    return out
+
+
 def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=None):
     os.makedirs(out, exist_ok=True)
     P = params()
@@ -130,7 +150,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     dump(games, out, "games.json")
     lines_mod.main(raw, out, {g["game"] for g in games})        # live lines + consensus, if odds.csv exists
     dump(wx_rows, out, "weather.json")
-    dump(dict(week=week, rows=matchup_table(core, mu, week, P), lg=dict(ypc=r(core["LG_YPC"], 3), catch=r(core["LG_CATCH"], 4), ypr=r(core["LG_YPR"], 3),
+    dump(dict(week=week, rows=matchup_table(core, mu, week, P), ranks=position_rankings(core), lg=dict(ypc=r(core["LG_YPC"], 3), catch=r(core["LG_CATCH"], 4), ypr=r(core["LG_YPR"], 3),
                                                                         pos={p: dict(catch=r(v["catch"], 3), ypr=r(v["ypr"], 2)) for p, v in core["posBase"].items()})),
          out, "matchups.json")
 
