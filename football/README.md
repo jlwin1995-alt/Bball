@@ -45,7 +45,7 @@ node site/test/parity.mjs                                 # the browser arithmet
 Lines come from [The Odds API](https://the-odds-api.com) (`pipeline/fetch_odds.py`; markets, books and the fitted spreads are in `config.py`).
 
 1. Get a key at the-odds-api.com. A game costs (6 markets × 1 bookmaker group) = 6 credits, so a 13-game Sunday is about 80 credits per full pull;
-   the schedule (Thu, Sat, Sun ×2, Mon) is sized for roughly 500 credits a month, but check their pricing page for your plan.
+   the schedule (Tue, Thu, Fri, Sat ×2, Sun ×4, Mon ×2, each with a skipped backup) uses roughly 5,000 credits a month, sized for a 20,000-credit plan shared with the basketball workflow. Games start being pulled 72 hours ahead (`ODDS_HORIZON_HOURS`); the run stops if fewer than `ODDS_MIN_CREDITS` (500) remain.
 2. GitHub: Settings → Secrets and variables → Actions → **New repository secret** `ODDS_API_KEY` (the same one the basketball workflow uses). Never commit the key.
 3. Actions → **Football refresh odds** → Run workflow (tick *probe* first to see what the API has for the next game without spending much).
    Scheduled runs skip themselves if the previous check was under 90 minutes ago, so the backup runs cost nothing unless the first one failed.
