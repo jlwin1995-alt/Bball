@@ -78,6 +78,10 @@ DEFAULT_SCORING = {"pts": 1.0, "fg3m": 0.5, "reb": 1.25, "ast": 1.5, "stl": 2.0,
 # Preseason fallback if the learner (pipeline.preseason_minutes) has no data: a ROUGH GUESS, not measured here, so the site never
 # projects stars for regular-season minutes in a preseason game. The site banner says when these are in use.
 PRESEASON_MULT_FALLBACK = {"T1": 0.60, "T2": 0.80, "T3": 1.00}
+# Preseason minutes are modelled as a + b x (regular-season minutes), fitted by pipeline.preseason_minutes.relearn on last preseason plus
+# this one so far; this year's games count PRESEASON_CUR_WEIGHT times (preseason rest differs year to year). Out-of-sample on the 2026
+# preseason: minutes MAE 6.7 (tier ratios) -> 4.5 (line, last year only) -> 3.8 (line, adapting to this year).
+PRESEASON_CUR_WEIGHT = 4.0
 
 # --- live lines (The Odds API) ------------------------------------------------
 # Needs the ODDS_API_KEY environment variable (a GitHub Actions secret in CI). Never put the key in this file.

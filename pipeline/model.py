@@ -152,7 +152,10 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
     # Preseason mode: stars/starters play a fraction of their normal minutes. A multiplier by tier replaces the
     # 240 rescale (which would just undo it): the missing minutes go to rookies/two-way players we do not project.
     P["tier"] = np.where(P["min_raw"] >= C.TIER_CUTS[0], "T1", np.where(P["min_raw"] >= C.TIER_CUTS[1], "T2", "T3"))
-    if minute_mult:
+    if minute_mult and "lin" in minute_mult:                       # preseason: minutes = a + b x usual minutes (fitted, see PRESEASON_CUR_WEIGHT)
+        a, b = minute_mult["lin"]
+        P["min"] = np.where(P["min_raw"] > 0, np.clip(a + b * P["min_raw"], 0, C.MAX_MIN), 0.0)
+    elif minute_mult:
         P["min"] = P["min_raw"] * P["tier"].map(minute_mult).fillna(1.0)
     env, lg_pace = team_env(g)
     P["pace_f"] = P.apply(lambda r: (env.get(r["team"], {}).get("pace", lg_pace) + env.get(r["opp"], {}).get("pace", lg_pace)) / 2 / lg_pace, axis=1)
@@ -183,7 +186,11 @@ def all_players(games, rosters=None, minute_mult=None):
         P["team"] = P["pid"].map(cur)
     raw = C.RECENT_WEIGHT_MIN * P["min_r"] + (1 - C.RECENT_WEIGHT_MIN) * P["min_s"]
     tier = np.where(raw >= C.TIER_CUTS[0], "T1", np.where(raw >= C.TIER_CUTS[1], "T2", "T3"))
-    P["min_exp"] = np.minimum(raw * (pd.Series(tier, index=P.index).map(minute_mult).fillna(1.0) if minute_mult else 1.0), C.MAX_MIN)
+    if minute_mult and "lin" in minute_mult:
+        a, b = minute_mult["lin"]
+        P["min_exp"] = np.clip(a + b * raw, 0, C.MAX_MIN)
+    else:
+        P["min_exp"] = np.minimum(raw * (pd.Series(tier, index=P.index).map(minute_mult).fillna(1.0) if minute_mult else 1.0), C.MAX_MIN)
     return P.reset_index(drop=True)
 
 
