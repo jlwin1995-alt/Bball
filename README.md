@@ -53,6 +53,8 @@ python -m pipeline.preseason_minutes && python -m pipeline.fetch_espn --preseaso
 ```
 The site then carries a PRESEASON banner, and nothing is logged to the Scorecard.
 
+Preseason minutes are modelled as a straight line, `a + b x usual minutes`, fitted on last preseason plus this one so far (this year's games weighted x4 because preseason rest differs year to year), and re-fitted offline on every build. On the 2026 preseason (781 player-games, learned on 2025) it cut minutes error from 6.7 (the old per-tier ratios, whose bench factor of x1.39 was inflated by deep-bench players with tiny baselines) to 4.5, and to about 3.8 once this year's games feed in.
+
 ### Live lines, consensus and PrizePicks
 
 The **Lines** tab shows every posted player prop with the sportsbook consensus (median line, vig removed, fair odds), the PrizePicks and

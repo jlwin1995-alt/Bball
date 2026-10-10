@@ -736,8 +736,10 @@ async function boot() {
   if (D.meta.sample) msgs.push("<b>SAMPLE DATA.</b> Players, teams' strengths and results are synthetic — nothing here is a real NBA projection. Run the fetch step to load real data.");
   if (D.meta.preseason) {
     const m = D.meta.minute_mult;
-    const src = D.meta.mult_source === "fallback" ? " — a rough default, NOT learned from data yet" : " — learned from last preseason";
-    msgs.push(m ? `<b>PRESEASON slate.</b> Minutes are scaled by tier (${Object.entries(m).map(([t, v]) => `${t} ×${v}`).join(", ")}; T1 = 30+ mpg)${src}, and each projection assumes the player suits up — stars often sit. Not logged to the Scorecard.`
+    const src = D.meta.mult_source === "fallback" ? " — a rough default, NOT learned from data yet" : " — learned from last preseason and this one so far";
+    const how = m && m.lin ? `Minutes follow a line fitted to preseason box scores: ${num(m.lin[0], 1)} + ${num(m.lin[1], 2)} × his usual minutes (a 34-minute starter projects to ${num(m.lin[0] + m.lin[1] * 34, 0)}, a 12-minute reserve to ${num(m.lin[0] + m.lin[1] * 12, 0)})`
+      : m ? `Minutes are scaled by tier (${Object.entries(m).map(([t, v]) => `${t} ×${v}`).join(", ")}; T1 = 30+ mpg)` : "";
+    msgs.push(m ? `<b>PRESEASON slate.</b> ${how}${src}, and each projection assumes the player suits up — stars often sit. Not logged to the Scorecard.`
                 : "<b>PRESEASON slate with NO minutes adjustment</b> — stars will be projected for regular-season minutes. Run <code>python -m pipeline.preseason_minutes</code>.");
   }
   if (msgs.length) { const b = document.getElementById("banner"); b.hidden = false; b.innerHTML = msgs.join("<br>"); }

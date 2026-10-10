@@ -64,6 +64,8 @@ def resolve_mult(manual, game_no, raw="data/raw"):
     if os.path.exists(path):
         import json
         f = json.load(open(path))
+        if "lin" in f and not (game_no and str(game_no) in f.get("T1", {})):
+            return {"lin": f["lin"]}, "learned (line)"
         key = str(game_no) if game_no and str(game_no) in f.get("T1", {}) else "all"
         return {t: f[t].get(key, f[t]["all"]) for t in ("T1", "T2", "T3") if t in f}, f"learned ({key})"
     return None, "none"

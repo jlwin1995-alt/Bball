@@ -42,6 +42,12 @@ def main(raw="data/raw", out="site/data"):
     # Preseason = every game on the slate day is tagged preseason by ESPN (no hard-coded season-start date to get wrong).
     # Older schedule files without the tag fall back to the CUR_START date.
     pre = bool((first["stype"] == 1).all()) if "stype" in first.columns and first["stype"].notna().all() else pd.Timestamp(sched["date"].min()) < pd.Timestamp(C.CUR_START)
+    if pre:
+        try:                                                        # refit preseason minutes from the box scores so far (offline, cheap)
+            from .preseason_minutes import relearn
+            relearn(raw)
+        except Exception as e:
+            print("preseason minutes relearn skipped:", e)
     mult, mult_how = (resolve_mult(None, None, raw) if pre else (None, None))
     if pre and not mult:
         mult, mult_how = C.PRESEASON_MULT_FALLBACK, "fallback"
