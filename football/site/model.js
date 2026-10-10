@@ -67,8 +67,12 @@
   }
   // Spread of outcomes around a projection: a + b x projection, fitted per market, and never allowed to reach zero.
   const sigmaFor = (spec, m) => Math.max(spec.a + spec.b * m, Math.max(0.12 * m, 0.5));
-  // P(over) and P(under) for a posted line given the median projection m. A whole-number line can push; a push is neither side.
+  // P(over) and P(under) for a posted line given the median projection m. A whole-number line can push; a push is neither side, so the two are renormalised to sum to 1 (a book's de-vigged price is conditional on no push).
   function sides(line, m, spec) {
+    const r = rawSides(line, m, spec), t = r.o + r.u;
+    return t > 0 ? {o: r.o / t, u: r.u / t} : {o: 0.5, u: 0.5};
+  }
+  function rawSides(line, m, spec) {
     line = +line;
     const whole = Number.isInteger(line);
     if (spec.law === "poisson") {

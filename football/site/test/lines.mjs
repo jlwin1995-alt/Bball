@@ -15,7 +15,9 @@ const s = FB.sides(249.5, 249.5, py);
 ok("half-point line at the median is a coin flip", near(s.o, 0.5) && near(s.u, 0.5));
 ok("probabilities add to 1 on half lines", near(FB.sides(200.5, 249.5, py).o + FB.sides(200.5, 249.5, py).u, 1, 1e-9));
 const w = FB.sides(250, 250, py);
-ok("whole-number line leaves room for a push", w.o + w.u < 1 && near(w.o, w.u));
+ok("whole-number line: push removed, symmetric case is a coin flip", near(w.o + w.u, 1, 1e-9) && near(w.o, 0.5));
+const rc = FB.sides(5, 5, {a: 1.25, b: 0.286, law: "normal"});
+ok("receptions line 5 at projection 5 has no phantom under edge", near(rc.o, 0.5));
 const sk = {a: 0.997, b: 0.308, law: "poisson"};
 ok("poisson CDF", near(FB.poisCdf(2, 1.5), 0.8088, 1e-3));            // e^-1.5 (1 + 1.5 + 1.125)
 ok("sacks over 1.5 at mean 1.5", near(FB.sides(1.5, 1.5, sk).o, 1 - 0.5578, 1e-3));

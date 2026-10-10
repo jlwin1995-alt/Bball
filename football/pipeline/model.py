@@ -39,6 +39,14 @@ def load_weekly(path):
     return out
 
 
+def nsum(it):
+    """Plain left-to-right float sum. Python 3.12's sum() is compensated, JS is not; the original's half-way averages must round the same way."""
+    t = 0.0
+    for v in it:
+        t += v
+    return t
+
+
 def regress(raw, nobs, k, toward=1.0):
     return toward + (raw - toward) * (nobs / (nobs + k))
 
@@ -235,12 +243,12 @@ def nfl_core(rows, matchup, wx=None, P=None):
 
     def blend(p, key):
         w = sorted(p["weeks"], key=lambda x: x["week"])
-        season = sum(x[key] for x in w) / len(w)
+        season = nsum(x[key] for x in w) / len(w)
         if len(w) < win:
             return season
         recent = w[-win:]
         rw = P["RECENT_WEIGHT_ATT"] if key == "att" else P["RECENT_WEIGHT"]
-        return rw * (sum(x[key] for x in recent) / len(recent)) + (1 - rw) * season
+        return rw * (nsum(x[key] for x in recent) / len(recent)) + (1 - rw) * season
 
     ids = [i for i in PL if PL[i]["team"] in matchup]
     raw = {i: dict(car=blend(PL[i], "car"), tgt=blend(PL[i], "tgt"), att=blend(PL[i], "att")) for i in ids}
@@ -271,7 +279,7 @@ def nfl_core(rows, matchup, wx=None, P=None):
     for t in team_base:
         scale[t] = dict(car=1.0, tgt=1.0, att=1.0)
         for k in ("car", "tgt", "att"):
-            tot = sum(raw[i][k] * (p_play[i][k] if use_w[k] else 1) for i in ids if PL[i]["team"] == t)
+            tot = nsum(raw[i][k] * (p_play[i][k] if use_w[k] else 1) for i in ids if PL[i]["team"] == t)
             if tot > 0:
                 scale[t][k] = max(1 - P["TEAM_SCALE_CAP"], min(1 + P["TEAM_SCALE_CAP"], team_base[t][k] / tot))
 

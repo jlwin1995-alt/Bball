@@ -26,7 +26,13 @@ def sigma_for(spec, m):
 
 
 def sides(line, m, spec):
-    """(P(over), P(under)). A whole-number line can push; a push is neither side."""
+    """(P(over), P(under)) given no push: a book's de-vigged price is conditional on no push, so these sum to 1."""
+    o, u = _raw_sides(line, m, spec)
+    t = o + u
+    return (o / t, u / t) if t > 0 else (0.5, 0.5)
+
+
+def _raw_sides(line, m, spec):
     line = float(line)
     whole = line == int(line)
     if spec["law"] == "poisson":

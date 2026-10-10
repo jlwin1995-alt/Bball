@@ -1,7 +1,7 @@
 """Efficiency / Usage / Trends / Coverage tables from the weekly box scores (ports of buildEfficiency_ / buildUsage_ / buildTrends_)."""
 import csv, math, re
 from . import config as C
-from .model import num, rnd
+from .model import num, rnd, nsum
 
 SUM = ["completions", "attempts", "passing_yards", "passing_tds", "passing_interceptions", "sacks_suffered", "sack_yards_lost",
        "passing_air_yards", "passing_yards_after_catch", "passing_first_downs", "passing_epa", "carries", "rushing_yards", "rushing_tds",
@@ -128,7 +128,7 @@ def usage(P):
 def trends(P, win=None):
     win = win or C.ROLLING_WINDOW
     out = []
-    mean = lambda arr, f: sum(f(x) for x in arr) / len(arr) if arr else 0.0
+    mean = lambda arr, f: nsum(f(x) for x in arr) / len(arr) if arr else 0.0
     for p in P.values():
         if p["g"] < 2:
             continue
@@ -140,7 +140,7 @@ def trends(P, win=None):
         epa_s, epa_r = mean(w, lambda x: x["epa"]), mean(recent, lambda x: x["epa"])
         if ppr_s < 1 and opp_s < 2:
             continue
-        sd = math.sqrt(sum((x["ppr"] - ppr_s) ** 2 for x in w) / len(w))
+        sd = math.sqrt(nsum((x["ppr"] - ppr_s) ** 2 for x in w) / len(w))
         pprs = [x["ppr"] for x in w]
         delta = ppr_r - ppr_s
         delta_pct = delta / ppr_s * 100 if ppr_s else None
@@ -178,5 +178,5 @@ def coverage(team_week, live):
         pct = b["recorded"] / n if n else 0
         missing = n - b["recorded"]
         status = "complete" if pct >= 0.95 else (f"in progress - {missing} teams not in yet" if pct >= 0.5 else f"early - only {b['recorded']} of {n} teams in")
-        rows.append(dict(week=wk, teams=b["recorded"], league=n, pct=round(pct * 100), games=round(b["recorded"] / 2), pending=missing, status=status))
+        rows.append(dict(week=wk, teams=b["recorded"], league=n, pct=int(rnd(pct * 100, 0)), games=int(rnd(b["recorded"] / 2, 0)), pending=missing, status=status))
     return rows

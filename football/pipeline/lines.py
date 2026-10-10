@@ -136,7 +136,8 @@ def main(raw="data/raw", out="site/data", games=None):
         return
     odds = read_rows(p)
     if games is not None:
-        odds = [r for r in odds if r["game"] in games]
+        ids = {frozenset(g.split(" @ ")) for g in games}      # unordered: The Odds API's home/away can differ from nflverse's (neutral sites)
+        odds = [r for r in odds if frozenset((r["away"], r["home"])) in ids]
     players = json.load(open(f"{out}/projections.json"))
     res = build_lines(odds, players) if odds else dict(updated=None, n=0, games=[], unmatched=[], rows=[])
     mp = f"{raw}/odds_meta.json"
