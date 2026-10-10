@@ -80,6 +80,9 @@ document.addEventListener("input", e => { if (e.target.id === "q") { F.q = e.tar
 const adj = x => x == null ? "" : `<span class="${x > 1.005 ? "good" : x < 0.995 ? "bad" : "mut"}">${num((x - 1) * 100, 1)}%</span>`;
 const signed = (x, d = 1) => x == null || x === "" ? "" : `<span class="${x > 0 ? "good" : x < 0 ? "bad" : "mut"}">${x > 0 ? "+" : ""}${num(x, d)}</span>`;
 const statusPill = s => s ? `<span class="pill ${isOut(s) || /doubt/i.test(s) ? "bad" : "q"}">${esc(s)}</span>` : "";
+// change in error against a baseline: negative means the model made smaller misses, so negative is the good colour
+const plainSigned = x => x == null ? "" : (x > 0 ? "+" : "") + num(x, 1);
+const vsBase = x => x == null ? "" : `<span class="${x < 0 ? "good" : x > 0 ? "bad" : "mut"}">${x > 0 ? "+" : ""}${num(x, 1)}%</span>`;
 const formPill = f => f === "HOT" ? `<span class="pill hot">HOT</span>` : f === "COLD" ? `<span class="pill cold">COLD</span>` : `<span class="mut">${esc(f || "")}</span>`;
 const vsOpp = r => (r.home ? "vs " : "@ ") + esc(r.opp);
 function spark(a) {
@@ -391,11 +394,11 @@ const pages = {
     if (!s.markets.length) return `<h2>Scorecard</h2><p class="sub">Projections are written to the log <b>before</b> each week's games and never rewritten, then scored against two baselines: the player's season average and his last three games, as of that week.</p>${cards}
       <p class="banner">Nothing scored yet under model <code>${esc(s.stamp)}</code>. The first scores appear once a logged week's games are final (the nightly refresh picks them up).</p>`;
     const mc = [{k: "label", h: "Market", l: 1}, {k: "n", h: "n"}, {k: "mae", h: "Model MAE", f: r => `<b>${num(r.mae, 2)}</b>`}, {k: "base", h: "Season-avg MAE", f: r => num(r.base, 2)},
-      {k: "last3", h: "Last-3 MAE", f: r => num(r.last3, 2)}, {k: "vs", h: "vs season", t: "Negative = the model beat the baseline", f: r => signed(r.vs == null ? null : -r.vs, 1) + "%"},
-      {k: "vs3", h: "vs last-3", f: r => signed(r.vs3 == null ? null : -r.vs3, 1) + "%"}, {k: "bias", h: "Bias %", f: r => signed(r.bias)},
+      {k: "last3", h: "Last-3 MAE", f: r => num(r.last3, 2)}, {k: "vs", h: "vs season", t: "Negative = the model beat the baseline", f: r => vsBase(r.vs)},
+      {k: "vs3", h: "vs last-3", f: r => vsBase(r.vs3)}, {k: "bias", h: "Bias %", f: r => plainSigned(r.bias)},
       {k: "over", h: "Over %", t: "How often the actual landed above the projection. 50 is the target: the projection is a median", f: r => r.over == null ? "" : `${num(r.over)} ± ${num(r.band)}`},
       {k: "read", h: "Read", l: 1}];
-    const pc = [{k: "pos", h: "Pos", l: 1}, {k: "n", h: "n"}, {k: "mae", h: "Pts MAE", f: r => num(r.mae, 2)}, {k: "over", h: "Over %", f: r => `${num(r.over)} ± ${num(r.band)}`}, {k: "bias", h: "Bias %", f: r => signed(r.bias)}, {k: "read", h: "Read", l: 1}];
+    const pc = [{k: "pos", h: "Pos", l: 1}, {k: "n", h: "n"}, {k: "mae", h: "Pts MAE", f: r => num(r.mae, 2)}, {k: "over", h: "Over %", f: r => `${num(r.over)} ± ${num(r.band)}`}, {k: "bias", h: "Bias %", f: r => plainSigned(r.bias)}, {k: "read", h: "Read", l: 1}];
     const wc = [{k: "week", h: "Week"}, {k: "n", h: "n"}, {k: "model", h: "Model", f: r => `<b>${num(r.model, 2)}</b>`}, {k: "season", h: "Season avg", f: r => num(r.season, 2)}, {k: "last3", h: "Last-3", f: r => num(r.last3, 2)}];
     return `<h2>Scorecard</h2><p class="sub">Live record under model <code>${esc(s.stamp)}</code> (full-PPR points). Change any knob and the stamp changes, starting a fresh record instead of blending into the old one.</p>${cards}
       <h3>By market</h3>${table(mc, s.markets, {id: "scm"})}<h3>By position (points)</h3>${table(pc, s.pos, {id: "scp"})}<h3>By week (points MAE)</h3>${table(wc, s.weeks, {id: "scw"})}
@@ -409,11 +412,11 @@ const pages = {
     const b = D.backtest[F.year];
     if (!b) return `<h2>Backtest</h2><p>Loading…</p>`;
     const c = [{k: "label", h: "Stat", l: 1}, {k: "n", h: "n"}, {k: "mae", h: "Model MAE", f: r => `<b>${num(r.mae, 3)}</b>`}, {k: "base", h: "Season-avg MAE", f: r => num(r.base, 3)}, {k: "last3", h: "Last-3 MAE", f: r => num(r.last3, 3)},
-      {k: "rmse", h: "RMSE", f: r => num(r.rmse, 3)}, {k: "vs", h: "vs season", f: r => signed(r.vs == null ? null : -r.vs, 1) + "%"}, {k: "vs3", h: "vs last-3", f: r => signed(r.vs3 == null ? null : -r.vs3, 1) + "%"},
-      {k: "bias", h: "Bias %", f: r => signed(r.bias)}, {k: "over", h: "Over %", f: r => num(r.over)}];
-    const pc = [{k: "pos", h: "Pos", l: 1}, {k: "n", h: "n"}, {k: "over", h: "Over %", f: r => num(r.over)}, {k: "band", h: "95% band ±", f: r => num(r.band)}, {k: "verdict", h: "Verdict", l: 1}, {k: "bias", h: "Bias %", f: r => signed(r.bias)}];
+      {k: "rmse", h: "RMSE", f: r => num(r.rmse, 3)}, {k: "vs", h: "vs season", f: r => vsBase(r.vs)}, {k: "vs3", h: "vs last-3", f: r => vsBase(r.vs3)},
+      {k: "bias", h: "Bias %", f: r => plainSigned(r.bias)}, {k: "over", h: "Over %", f: r => num(r.over)}];
+    const pc = [{k: "pos", h: "Pos", l: 1}, {k: "n", h: "n"}, {k: "over", h: "Over %", f: r => num(r.over)}, {k: "band", h: "95% band ±", f: r => num(r.band)}, {k: "verdict", h: "Verdict", l: 1}, {k: "bias", h: "Bias %", f: r => plainSigned(r.bias)}];
     const wc = [{k: "week", h: "Week"}, {k: "n", h: "n"}, {k: "model", h: "Model", f: r => `<b>${num(r.model, 2)}</b>`}, {k: "season", h: "Season avg", f: r => num(r.season, 2)}, {k: "last3", h: "Last-3", f: r => num(r.last3, 2)}];
-    return `<h2>Backtest</h2><p class="sub">Walk-forward over the ${esc(b.season)} season, weeks ${b.weeks[0]}–${b.weeks[1]}: each week is projected using only the weeks before it, then scored against what happened. Negative-versus-baseline is good. Rows are limited to players projected for at least ${b.min_pts} points.</p>
+    return `<h2>Backtest</h2><p class="sub">Walk-forward over the ${esc(b.season)} season, weeks ${b.weeks[0]}–${b.weeks[1]}: each week is projected using only the weeks before it, then scored against what happened. A negative percentage against a baseline means the model beat it. Rows are limited to players projected for at least ${b.min_pts} points.</p>
       <div class="bar"><label>Season <select id="year">${ys.map(y => `<option ${y === F.year ? "selected" : ""}>${y}</option>`).join("")}</select></label></div>
       ${table(c, b.table, {id: "bt"})}<h3>Calibration by position — projected points against the median</h3>${table(pc, b.pos, {id: "btp"})}<h3>Points MAE by week</h3>${table(wc, b.per_week, {id: "btw"})}
       <div class="doc"><p class="mut"><b>Bias %</b> and <b>Over %</b> ask different questions. Bias compares total projected to total actual (the MEAN outcome); Over % is how often the actual landed above the projection (the MEDIAN). Scoring is right-skewed - the median week sits about 14% below the mean - so a Bias near −13% beside an Over % near 50 is not a fault: that is what a correctly calibrated median projection looks like. Weather in a backtest is the wind that actually blew, so its measured gain is a ceiling on what a forecast delivers.</p></div>`;
