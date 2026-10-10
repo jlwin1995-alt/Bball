@@ -1,12 +1,12 @@
 name: Deploy site
 
-# Merging a change to the site code (site/**) publishes it. The data workflows deploy too, but only when they run;
+# Merging a change to the site code (site/** or football/site/**) publishes it. The data workflows deploy too, but only when they run;
 # without this, a merged UI change would sit on main until the next scheduled refresh.
 # (Commits pushed by the data workflows use GITHUB_TOKEN and do not trigger this, so there is no loop.)
 on:
   push:
     branches: [main]
-    paths: ["site/**"]
+    paths: ["site/**", "football/site/**", "scripts/stage_pages.sh"]
   workflow_dispatch: {}
 
 permissions:
@@ -23,9 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: scripts/stage_pages.sh       # basketball at /, football at /football/ (one Pages artifact serves both)
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: _pages
           name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
       - uses: actions/deploy-pages@v4
         with:
