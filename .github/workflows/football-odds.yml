@@ -17,6 +17,10 @@ on:
     - cron: "40 21 * * 1"     # backup
   workflow_dispatch:
     inputs:
+      hours:
+        description: "Pull games starting within this many hours (default 36 on schedule; a manual run can reach further, e.g. 48 to see all of Sunday on Friday night). Costs ~6 credits per game."
+        type: string
+        default: "48"
       probe:
         description: "Diagnose instead of pull: list what the API has for the next game (spends a few credits; commits and deploys nothing)"
         type: boolean
@@ -36,6 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+      ODDS_HORIZON_HOURS: ${{ github.event.inputs.hours }}
     defaults:
       run:
         working-directory: football

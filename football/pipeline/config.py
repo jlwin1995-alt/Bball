@@ -179,7 +179,7 @@ ODDS_MARKETS = {
     "player_pass_completions": ("comp", "Completions", 13.44, -0.341, "normal"),
     "player_sacks": ("sacks", "Sacks", 0.997, 0.308, "poisson"),
 }
-ODDS_HORIZON_HOURS = 30            # only games starting within this window are pulled (props for next week's games are rarely up yet)
+ODDS_HORIZON_HOURS = float(__import__("os").environ.get("ODDS_HORIZON_HOURS") or 36)   # only games starting within this many hours are pulled (the workflow's manual "hours" box overrides it)
 ODDS_MIN_INTERVAL_MIN = 90         # a scheduled pull is skipped if the previous check was this recent, so backup runs cost no credits
 ODDS_MIN_CREDITS = 60              # stop pulling when the API reports fewer credits than this remaining
 ODDS_KEEP_STARTED_HOURS = 6        # keep a game's last PREGAME lines on the site this long after kickoff (books pull props at kickoff)
