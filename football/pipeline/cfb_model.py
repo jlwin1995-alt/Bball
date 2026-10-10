@@ -11,6 +11,14 @@ from . import config as C
 from .model import regress, clamp_to, td_adj, rnd, nsum
 
 
+def js_order(d):
+    """Keys in JavaScript object order: integer-like ids ascending numerically, everything else in insertion order. The sheet's float sums
+    visit players this way, and a 1e-15 difference can flip a one-decimal rounding."""
+    ks = list(d)
+    ints = sorted((k for k in ks if k.isdigit() and (k == "0" or not k.startswith("0"))), key=int)
+    return ints + [k for k in ks if not (k.isdigit() and (k == "0" or not k.startswith("0")))]
+
+
 def is_qb(p):
     return str(p["pos"] or "").upper().startswith("QB") or p["attempts"] >= C.CFB_QB_MIN_ATT or p["passing_yards"] >= 40
 
@@ -97,7 +105,7 @@ def cfb_core(rows, matchup, conf, P):
 
     # rushing baselines per group, from this season's own data, so they track whatever the sack environment is doing
     grp = {"QB": dict(car=0.0, ry=0.0, td=0.0), "OTHER": dict(car=0.0, ry=0.0, td=0.0)}
-    for p in PL.values():
+    for p in (PL[k] for k in js_order(PL)):
         g = grp["QB" if is_qb(p) else "OTHER"]
         g["car"] += p["carries"]; g["ry"] += p["rushing_yards"]; g["td"] += p["rushing_tds"]
     rush_base = {k: dict(ypc=a["ry"] / a["car"] if a["car"] >= 200 else LG_YPC, td=a["td"] / a["car"] if a["car"] >= 200 else LG_RUSH_TD) for k, a in grp.items()}
@@ -113,7 +121,8 @@ def cfb_core(rows, matchup, conf, P):
 
     want_conf = str(C.CFB_CONFERENCE or "").strip().upper()
     ids = []
-    for i, p in PL.items():
+    for i in js_order(PL):
+        p = PL[i]
         if p["team"] not in matchup:
             continue
         if want_conf and str(p["conf"] or conf.get(p["team"]) or "").upper() != want_conf:

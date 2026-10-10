@@ -7,7 +7,7 @@ import argparse, csv, datetime as dt, hashlib, json, math, os, sys
 from . import config as C
 from .cfb_model import cfb_core, derive, load_rows, actual_pts, STATS as RAWSTATS
 from .cfb_data import read_csv
-from .model import params, rnd
+from .model import params, rnd, nsum
 from .scorecard import read_tag
 
 LOG = "data/log/cfb_log.csv"
@@ -20,7 +20,7 @@ COLS = (["season", "week", "player_id", "name", "pos", "team", "opp", "kickoff",
 
 
 def r(x, n=3):
-    return None if x is None or x == "" or x != x else round(float(x), n)
+    return None if x is None or x == "" or x != x else rnd(float(x), n)
 
 
 def stamp(P):
@@ -87,9 +87,9 @@ def log_week(season, week, core, hist, kick, P, W, path=LOG, now=None):
                    kickoff=k0.isoformat(timespec="seconds") if k0 else "", logged_at=now.isoformat(timespec="seconds"),
                    late=int(bool(k0 and now >= k0)), stamp=st)
         for k in KEYS:
-            row[f"p_{k}"] = round(d[k], 3)
-            row[f"bs_{k}"] = round(sum(a[k] for a in h) / len(h), 3) if h else ""
-            row[f"bl_{k}"] = round(sum(a[k] for a in h[-3:]) / len(h[-3:]), 3) if h else ""
+            row[f"p_{k}"] = rnd(d[k], 3)
+            row[f"bs_{k}"] = rnd(nsum(a[k] for a in h) / len(h), 3) if h else ""
+            row[f"bl_{k}"] = rnd(nsum(a[k] for a in h[-3:]) / len(h[-3:]), 3) if h else ""
         new.append(row)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "a" if old else "w", newline="") as f:
@@ -136,10 +136,10 @@ def score(rows, played, P, W, path=LOG):
         if n:
             o = ov / ovn * 100 if ovn else None
             band = math.sqrt(0.25 / ovn) * 100 * 1.96 if ovn else None
-            markets.append(dict(k=k, label=label_, n=n, mae=round(ae / n, 3), base=round(bs / n, 3), last3=round(bl / n, 3),
-                                vs=round((ae - bs) / bs * 100, 2) if bs else None, vs3=round((ae - bl) / bl * 100, 2) if bl else None,
-                                bias=round((pred / actv - 1) * 100, 1) if actv else None, over=round(o, 1) if o is not None else None,
-                                band=round(band, 1) if band else None, read=read_tag(ovn, o, band) if ovn else "too few to read"))
+            markets.append(dict(k=k, label=label_, n=n, mae=rnd(ae / n, 3), base=rnd(bs / n, 3), last3=rnd(bl / n, 3),
+                                vs=rnd((ae - bs) / bs * 100, 2) if bs else None, vs3=rnd((ae - bl) / bl * 100, 2) if bl else None,
+                                bias=rnd((pred / actv - 1) * 100, 1) if actv else None, over=rnd(o, 1) if o is not None else None,
+                                band=rnd(band, 1) if band else None, read=read_tag(ovn, o, band) if ovn else "too few to read"))
     weeks = {}
     for x, a in scored:
         p = f(x, "p_pts")
@@ -151,10 +151,10 @@ def score(rows, played, P, W, path=LOG):
     for g, c in sorted(by_pos.items()):
         o = c["ov"] / c["n"] * 100
         band = math.sqrt(0.25 / c["n"]) * 100 * 1.96
-        pos.append(dict(pos=g, n=c["n"], mae=round(c["ae"] / c["n"], 3), over=round(o, 1), band=round(band, 1),
-                        bias=round((c["pred"] / c["act"] - 1) * 100, 1) if c["act"] else None, read=read_tag(c["n"], o, band)))
+        pos.append(dict(pos=g, n=c["n"], mae=rnd(c["ae"] / c["n"], 3), over=rnd(o, 1), band=rnd(band, 1),
+                        bias=rnd((c["pred"] / c["act"] - 1) * 100, 1) if c["act"] else None, read=read_tag(c["n"], o, band)))
     return dict(stamp=cur, scored=len(scored), waiting=waiting, late=late, dnp=dnp, other_models=other, logged=len(log), markets=markets, pos=pos,
-                weeks=[dict(week=w, n=c["n"], model=round(c["m"] / c["n"], 3), season=round(c["s"] / c["n"], 3), last3=round(c["l"] / c["n"], 3)) for w, c in sorted(weeks.items())])
+                weeks=[dict(week=w, n=c["n"], model=rnd(c["m"] / c["n"], 3), season=rnd(c["s"] / c["n"], 3), last3=rnd(c["l"] / c["n"], 3)) for w, c in sorted(weeks.items())])
 
 
 def backtest(rows, games, W, P, from_week=None):
@@ -197,8 +197,8 @@ def backtest(rows, games, W, P, from_week=None):
                 c = acc[k]
                 c["ae"] += abs(pj - ac); c["se"] += (pj - ac) ** 2; c["n"] += 1; c["over"] += ac > pj; c["pred"] += pj; c["act"] += ac
                 series = pts_h if k == "pts" else [x[act] for x in h]
-                c["sAe"] += abs(sum(series) / len(series) - ac)
-                c["lAe"] += abs(sum(series[-3:]) / len(series[-3:]) - ac)
+                c["sAe"] += abs(nsum(series) / len(series) - ac)
+                c["lAe"] += abs(nsum(series[-3:]) / len(series[-3:]) - ac)
                 if k == "pts":
                     nscored += 1
                 resid.append((k, pj, ac - pj))
@@ -207,9 +207,9 @@ def backtest(rows, games, W, P, from_week=None):
     for k, label_, _, _ in MKT:
         c = acc[k]
         mm, sa, l3 = (c["ae"] / c["n"], c["sAe"] / c["n"], c["lAe"] / c["n"]) if c["n"] else (0, 0, 0)
-        table.append(dict(k=k, label=label_, n=c["n"], mae=round(mm, 3), base=round(sa, 3), last3=round(l3, 3), rmse=round(math.sqrt(c["se"] / c["n"]), 3) if c["n"] else 0,
-                          vs=round((mm - sa) / sa * 100, 2) if sa else None, vs3=round((mm - l3) / l3 * 100, 2) if l3 else None,
-                          bias=round((c["pred"] / c["act"] - 1) * 100, 1) if c["act"] else None, over=round(c["over"] / c["n"] * 100, 1) if c["n"] >= 100 else None))
+        table.append(dict(k=k, label=label_, n=c["n"], mae=rnd(mm, 3), base=rnd(sa, 3), last3=rnd(l3, 3), rmse=rnd(math.sqrt(c["se"] / c["n"]), 3) if c["n"] else 0,
+                          vs=rnd((mm - sa) / sa * 100, 2) if sa else None, vs3=rnd((mm - l3) / l3 * 100, 2) if l3 else None,
+                          bias=rnd((c["pred"] / c["act"] - 1) * 100, 1) if c["act"] else None, over=rnd(c["over"] / c["n"] * 100, 1) if c["n"] >= 100 else None))
     # residual spread per market: what the college sigma should be, measured rather than borrowed from the NFL
     spread = []
     for k, label_, _, _ in MKT:
@@ -226,7 +226,7 @@ def backtest(rows, games, W, P, from_week=None):
             return math.sqrt(sum((x[2] - m) ** 2 for x in arr) / max(1, len(arr) - 1)), sum(x[1] for x in arr) / len(arr)
         (sd_lo, p_lo), (sd_hi, p_hi) = fit(mine[:half]), fit(mine[half:])
         b = (sd_hi - sd_lo) / max(0.001, p_hi - p_lo)
-        spread.append(dict(label=label_, n=len(mine), a=round(sd_lo - b * p_lo, 3), b=round(b, 4)))
+        spread.append(dict(label=label_, n=len(mine), a=rnd(sd_lo - b * p_lo, 3), b=rnd(b, 4)))
     return dict(weeks=used, scored=nscored, thin=len(used) < 3, table=table, spread=spread)
 
 

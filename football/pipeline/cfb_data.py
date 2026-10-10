@@ -10,7 +10,7 @@ The season-totals endpoint cannot support a projection (no rolling window, no op
 returns box scores per game with both teams side by side. CFBD reports RECEPTIONS, not targets, so there is no catch rate to model, and it
 publishes no injury report at any tier.
 """
-import argparse, csv, json, os, sys, time
+import argparse, csv, json, os, re, sys, time
 import requests
 from . import config as C
 
@@ -27,10 +27,10 @@ def key_(s):
 def cnum(v):
     if v is None or v == "":
         return 0.0
-    try:
-        return float(str(v).replace(",", ""))
-    except ValueError:
+    t = str(v).replace(",", "").strip()
+    if not re.fullmatch(r"[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?", t):      # JS Number() would not read "nan", "1_0" or "0x10" the way float() does
         return 0.0
+    return float(t)
 
 
 def get(path, key, tries=3, **params):
@@ -94,7 +94,8 @@ def flatten_week(games, week, positions, seen=None):
                             elif tn in ("TD", "TDS"): p["passing_tds"] = cnum(v)
                             elif tn in ("INT", "INTS"): p["interceptions"] = cnum(v)
             # defensive players come back in the same payload; keep only those who touched the ball on offence
-            out += [p for p in acc.values() if p["carries"] or p["receptions"] or p["attempts"]]
+            order = sorted((k for k in acc if k.isdigit()), key=int) + [k for k in acc if not k.isdigit()]   # JS object key order
+            out += [acc[k] for k in order if acc[k]["carries"] or acc[k]["receptions"] or acc[k]["attempts"]]
     return out
 
 
