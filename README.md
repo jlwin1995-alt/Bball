@@ -3,6 +3,9 @@
 NBA player projections for fantasy and stat lines — the basketball sibling of the football model.
 A static site (`site/`) fed by a small Python pipeline (`pipeline/`).
 
+> **Football:** the NFL version of this site lives in [`football/`](football/README.md) and is published at `/football/` next to this one.
+> All GitHub Pages deploys go through `scripts/stage_pages.sh`, which assembles both sites into one artifact.
+
 ## What's on the site
 
 | Tab | What it does |

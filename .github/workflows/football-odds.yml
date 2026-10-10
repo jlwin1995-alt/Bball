@@ -1,18 +1,20 @@
-name: Refresh odds
+name: Football refresh odds
 
-# Pulls NBA player-prop lines (sportsbooks + PrizePicks/Underdog) from The Odds API several times on game days,
-# rebuilds site/data/lines.json, and redeploys. Needs the repository secret ODDS_API_KEY; without it this just skips.
+# Pulls NFL player-prop lines (sportsbooks + PrizePicks/Underdog) from The Odds API on game days, rebuilds football/site/data/lines.json, and
+# redeploys. Needs the repository secret ODDS_API_KEY (the same one the basketball workflow uses); without it this just skips.
+# Credits: /events is free, /events/{id}/odds costs (6 markets x 1 bookmaker group) = 6 per game; fetch_odds only pulls games starting inside
+# ODDS_HORIZON_HOURS and skips a run if the previous check was under 90 minutes ago, so the backup runs cost nothing unless the first one failed.
 on:
   schedule:
-    # GitHub's scheduler is best-effort (it skipped and delayed runs here), so every pull has a backup ~35 min later. fetch_odds skips
-    # a run if the previous check was under 90 min ago, so backups only spend credits when the first run did not happen.
-    - cron: "5 14 * * *"      # ~10am ET: books start posting props
-    - cron: "40 14 * * *"     # backup
-    - cron: "5 16 * * *"      # ~noon ET
-    - cron: "40 16 * * *"     # backup
-    - cron: "5 21 * * *"      # ~5pm ET
-    - cron: "40 21 * * *"     # backup
-    - cron: "35 23 * * *"     # ~7:35pm ET: close to the first tip
+    - cron: "5 14 * * 4"      # Thursday ~10am ET: Thursday-night game
+    - cron: "40 14 * * 4"     # backup
+    - cron: "5 21 * * 6"      # Saturday ~5pm ET: most of Sunday's slate (props are usually up a day ahead)
+    - cron: "40 21 * * 6"     # backup
+    - cron: "5 15 * * 0"      # Sunday ~11am ET: late-posting lines and the 4pm games (the London game has kicked off by now and is frozen)
+    - cron: "40 15 * * 0"     # backup
+    - cron: "5 17 * * 0"      # Sunday ~1pm ET: last look before the 1pm kickoffs
+    - cron: "5 21 * * 1"      # Monday ~5pm ET: Monday-night game
+    - cron: "40 21 * * 1"     # backup
   workflow_dispatch:
     inputs:
       probe:
@@ -26,7 +28,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: refresh              # same group as the daily refresh so the two never push at once
+  group: refresh              # same group as the other refreshes so they never push at once
   cancel-in-progress: false
 
 jobs:
@@ -34,6 +36,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+    defaults:
+      run:
+        working-directory: football
     steps:
       - name: Check for the API key
         id: key
@@ -46,7 +51,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-          cache-dependency-path: pipeline/requirements.txt
+          cache-dependency-path: football/pipeline/requirements.txt
       - if: steps.key.outputs.skip != '1'
         run: pip install -r pipeline/requirements.txt
       - name: Probe the API (manual run with the 'probe' box ticked)
@@ -55,30 +60,32 @@ jobs:
       - name: Fetch lines (the events list is free; props cost credits per game)
         if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
         run: python -m pipeline.fetch_odds ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}   # manual runs always pull
-      - name: Build lines.json
+      - name: "Rebuild lines.json (no re-log - the accuracy log is written once, by the data refresh)"
         if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
-        run: python -m pipeline.lines
+        run: python -m pipeline.build --no-log
       - name: Commit data
         if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
+        working-directory: .
         run: |
           git config user.name "github-actions"
           git config user.email "actions@users.noreply.github.com"
-          git add data site/data
+          git add football/data football/site/data
           git diff --cached --quiet && exit 0
-          git commit -m "Refresh odds"
+          git commit -m "Refresh football odds"
           for i in 1 2 3; do
             git pull --rebase -X theirs origin main && git push && exit 0
             git rebase --abort 2>/dev/null || true
             sleep $((i * 5))
           done
-          echo "::error::could not push the odds commit after 3 attempts"; exit 1
+          echo "::error::could not push the football odds commit after 3 attempts"; exit 1
       - run: scripts/stage_pages.sh
         if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
+        working-directory: .
       - uses: actions/upload-pages-artifact@v3
         if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
         with:
           path: _pages
-          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}   # unique per attempt: a Re-run must not find 2 artifacts
+          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
       - uses: actions/deploy-pages@v4
         if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
         with:

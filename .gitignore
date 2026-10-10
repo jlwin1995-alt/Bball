@@ -1,3 +1,5 @@
 __pycache__/
 *.pyc
 data/sample/
+_pages/
+football/data/raw/history/

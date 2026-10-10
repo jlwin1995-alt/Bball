@@ -56,9 +56,10 @@ jobs:
             sleep $((i * 5))
           done
           echo "::error::could not push the data commit after 3 attempts"; exit 1
+      - run: scripts/stage_pages.sh       # basketball at /, football at /football/ (one Pages artifact serves both)
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: _pages
           name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}   # unique per attempt: a Re-run must not find 2 artifacts
       - uses: actions/deploy-pages@v4
         with:
