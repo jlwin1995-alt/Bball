@@ -6,21 +6,30 @@ name: Football refresh odds
 # ODDS_HORIZON_HOURS and skips a run if the previous check was under 90 minutes ago, so the backup runs cost nothing unless the first one failed.
 on:
   schedule:
-    - cron: "5 14 * * 4"      # Thursday ~10am ET: Thursday-night game
-    - cron: "40 14 * * 4"     # backup
-    - cron: "5 21 * * 6"      # Saturday ~5pm ET: most of Sunday's slate (props are usually up a day ahead)
-    - cron: "40 21 * * 6"     # backup
-    - cron: "5 15 * * 0"      # Sunday ~11am ET: late-posting lines and the 4pm games (the London game has kicked off by now and is frozen)
-    - cron: "40 15 * * 0"     # backup
+    # Sized for a 20,000-credit month shared with the basketball workflow: ~100 credits per full 16-game pull, ~12 pulls a week = ~5,000/month.
+    # Every pull has a backup ~35 min later that fetch_odds skips (previous check under 90 min ago) unless the first run never happened.
+    - cron: "5 22 * * 2"      # Tuesday ~6pm ET: first look at the week (Thursday game and early Sunday props)
+    - cron: "40 22 * * 2"     # backup
+    - cron: "5 14 * * 4"      # Thursday ~10am ET: Thursday-night game, line movement on Sunday
+    - cron: "40 14 * * 4"
+    - cron: "5 21 * * 5"      # Friday ~5pm ET
+    - cron: "40 21 * * 5"
+    - cron: "5 14 * * 6"      # Saturday ~10am ET
+    - cron: "5 21 * * 6"      # Saturday ~5pm ET
+    - cron: "40 21 * * 6"
+    - cron: "5 12 * * 0"      # Sunday ~8am ET (the London game is ~9:30)
+    - cron: "5 15 * * 0"      # Sunday ~11am ET
     - cron: "5 17 * * 0"      # Sunday ~1pm ET: last look before the 1pm kickoffs
+    - cron: "5 20 * * 0"      # Sunday ~4pm ET: before the late games
+    - cron: "5 14 * * 1"      # Monday ~10am ET
     - cron: "5 21 * * 1"      # Monday ~5pm ET: Monday-night game
-    - cron: "40 21 * * 1"     # backup
+    - cron: "40 21 * * 1"
   workflow_dispatch:
     inputs:
       hours:
-        description: "Pull games starting within this many hours (default 36 on schedule; a manual run can reach further, e.g. 48 to see all of Sunday on Friday night). Costs ~6 credits per game."
+        description: "Pull games starting within this many hours (default 72 on schedule; a manual run can reach further). Costs ~6 credits per game."
         type: string
-        default: "48"
+        default: "72"
       probe:
         description: "Diagnose instead of pull: list what the API has for the next game (spends a few credits; commits and deploys nothing)"
         type: boolean

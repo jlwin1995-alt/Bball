@@ -179,9 +179,9 @@ ODDS_MARKETS = {
     "player_pass_completions": ("comp", "Completions", 13.44, -0.341, "normal"),
     "player_sacks": ("sacks", "Sacks", 0.997, 0.308, "poisson"),
 }
-ODDS_HORIZON_HOURS = float(__import__("os").environ.get("ODDS_HORIZON_HOURS") or 36)   # only games starting within this many hours are pulled (the workflow's manual "hours" box overrides it)
+ODDS_HORIZON_HOURS = float(__import__("os").environ.get("ODDS_HORIZON_HOURS") or 72)   # only games starting within this many hours are pulled (the workflow's manual "hours" box overrides it)
 ODDS_MIN_INTERVAL_MIN = 90         # a scheduled pull is skipped if the previous check was this recent, so backup runs cost no credits
-ODDS_MIN_CREDITS = 60              # stop pulling when the API reports fewer credits than this remaining
+ODDS_MIN_CREDITS = 500             # stop pulling when the API reports fewer credits than this remaining
 ODDS_KEEP_STARTED_HOURS = 6        # keep a game's last PREGAME lines on the site this long after kickoff (books pull props at kickoff)
 PP_BREAKEVEN = 0.577               # PrizePicks per-leg break-even (2 legs at 3x); edit if you play differently
 RESULTS_EDGE_PP = 4.0              # model-vs-line gap (percentage points) that counts as a "pick" when grading line results
