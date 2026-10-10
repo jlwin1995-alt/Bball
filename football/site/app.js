@@ -69,7 +69,7 @@ function playerLines(p) {
 }
 function linesCell(p) {
   const ls = playerLines(p);
-  if (!ls.length) return `<span class="mut">${D.lines?.rows?.length ? "no props" : ""}</span>`;
+  if (!ls.length) return `<span class="mut">${D.lines?.rows?.length ? "no props" : "no lines pulled yet"}</span>`;
   const b = ls[0], pick = b.edge != null && !b.started && !isOut(p.status) && Math.abs(b.edge) >= CFG.edgeMin;
   const head = b.c ? `${esc(b.spec.label)} ${b.edge >= 0 ? "o" : "u"}${b.c.line} <span class="${b.edge > 0 ? "good" : "bad"}">${b.edge > 0 ? "+" : ""}${num(b.edge)}</span>` : `${esc(b.spec.label)} PP ${b.pp ?? ""}`;
   const rows = ls.map(x => `<div>${esc(x.spec.label)}: proj ${num(x.m)} · ${x.c ? `cons ${x.c.line} (${num(x.c.p_over * 100)}% over, ${FB.amer(x.c.p_over)}/${FB.amer(1 - x.c.p_over)}) · model ${num(x.po * 100)}% · <b class="${x.edge > 0 ? "good" : "bad"}">${x.edge > 0 ? "+" : ""}${num(x.edge)}pp</b>` : ""}${x.pp != null ? ` · PrizePicks ${x.pp}` : ""}${x.ud != null ? ` · UD/Pick6 ${x.ud}` : ""}<br><span class="mut">${x.r.books.map(k => `${esc(k.b)} ${k.line} (${k.over ?? "-"}/${k.under ?? "-"})`).join(" · ")}</span></div>`).join("");
