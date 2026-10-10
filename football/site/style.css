@@ -46,3 +46,4 @@ tr:hover td:first-child{background:var(--head)}
 svg.spark{vertical-align:middle}
 .bar2{display:inline-block;height:6px;border-radius:3px;background:var(--acc);vertical-align:middle}
 .brand a.sw{margin-left:12px;font-size:12px;color:var(--mut);text-decoration:none}.brand a.sw:hover{color:var(--acc)}
+details summary{cursor:pointer;list-style:none}details summary::-webkit-details-marker{display:none}details{position:relative}.lines-pop{white-space:normal;position:absolute;left:0;top:100%;z-index:8;width:430px;padding:8px 10px;font-size:12px;background:var(--bg);border:1px solid var(--line);border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.25)}.stack{display:grid;gap:14px}.lines-pop div{padding:3px 0;border-bottom:1px dotted var(--line)}
