@@ -141,7 +141,7 @@ async function loadResultsDay(date) {
   const key = rdir() + "/" + date;
   if (!date || RES[key] || RES_PENDING[key]) return;
   RES_PENDING[key] = true;
-  try { RES[key] = await (await fetch(`data/${key}.json`)).json(); } catch (e) { RES[key] = {error: String(e)}; }
+  try { RES[key] = await (await fetch(`data/${key}.json`, {cache: "no-cache"})).json(); } catch (e) { RES[key] = {error: String(e)}; }
   if (page === "Results") render(true);
 }
 const pct1 = (h, n) => n ? `${(h / n * 100).toFixed(1)}% <span class="mut">(${h}/${n})</span>` : "—";
@@ -234,7 +234,7 @@ const SCP = {data: null, pending: false};
 async function loadShotPlayers() {
   if (SCP.data || SCP.pending) return;
   SCP.pending = true;
-  try { SCP.data = await (await fetch("data/shotchart_players.json")).json(); } catch (e) { SCP.data = {}; }
+  try { SCP.data = await (await fetch("data/shotchart_players.json", {cache: "no-cache"})).json(); } catch (e) { SCP.data = {}; }
   if (page === "Shots") render(true);
 }
 const HEAT = {                                      // diverging pair, cool = tough defence, warm = soft defence, neutral midpoint; equal steps per arm
@@ -727,9 +727,9 @@ document.addEventListener("click", e => {
 async function boot() {
   CFG = {...CFG, ...store.get("cfg", {})}; OVR = store.get("ovr", {}); LINES = store.get("lines", []);
   const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "shots", "shotchart", "scorecard", "spread", "lines", "players"];
-  await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
-  try { const r = await fetch("data/results/index.json"); if (r.ok) D.rIdx = await r.json(); } catch (e) {}
-  try { const r = await fetch("data/results_rehearsal/index.json"); if (r.ok) D.rIdxR = await r.json(); } catch (e) {}
+  await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
+  try { const r = await fetch("data/results/index.json", {cache: "no-cache"}); if (r.ok) D.rIdx = await r.json(); } catch (e) {}
+  try { const r = await fetch("data/results_rehearsal/index.json", {cache: "no-cache"}); if (r.ok) D.rIdxR = await r.json(); } catch (e) {}
   if (!D.projections) { view().innerHTML = "<p>No data found in <code>data/</code>. Run <code>python -m pipeline.build</code>.</p>"; return; }
   document.getElementById("asof").textContent = `data through ${D.coverage.asof} · slate ${D.coverage.slate_date}`;
   const msgs = [];
