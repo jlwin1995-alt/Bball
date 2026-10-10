@@ -8,7 +8,19 @@ they live in the browser (Config tab) and the pipeline ships the stat lines, not
 import datetime as dt
 from zoneinfo import ZoneInfo
 
-SEASON = 2026                      # NFL season (the year it kicks off)
+def _season():
+    """The NFL season being shown (the year it kicks off). pipeline.fetch writes data/raw/season.txt after checking which season nflverse has
+    published stats for, so the site rolls over by itself in September and stays on last season through the off-season. Before the first
+    fetch, fall back to the calendar: the season runs September-February."""
+    import os
+    try:
+        return int(open(os.path.join("data", "raw", "season.txt")).read().strip())
+    except (OSError, ValueError):
+        t = dt.date.today()
+        return t.year if t.month >= 3 else t.year - 1
+
+
+SEASON = _season()
 SEASON_TYPE = "REG"
 PROJECT_WEEK = "auto"              # "auto" = first week that still has an unplayed game
 
@@ -60,6 +72,18 @@ CONCENTRATE_TARGETS = 0
 PLAY_WINDOW = 6
 PLAY_PRIOR = 0.25
 MEAN_FACTOR = 1.17                 # Proj Pts is a MEDIAN; x this gives the mean (scoring is right-skewed)
+
+# Every setting that changes a projection. If one of these moves, rows logged before and after are not the same model's work and must not
+# be averaged together as if they were: the scorecard hashes exactly these (and the scoring used to grade) into the settings stamp.
+MODEL_KEYS = [
+    "ROLLING_WINDOW", "DEF_ADJ_CAP", "CATCH_CAP_FRACTION", "RECENT_WEIGHT", "RECENT_WEIGHT_ATT", "PRIOR_CARRIES", "PRIOR_TARGETS", "PRIOR_ATTEMPTS",
+    "PRIOR_FUMBLES", "PRIOR_SACKS", "PRIOR_TWOPT", "SACK_DEF_STRENGTH", "K_DEF_RUSH", "K_DEF_CATCH", "K_DEF_YPR", "K_DEF_PASS", "K_DEF_POS",
+    "K_DEF_POS_WR", "K_DEF_POS_TE", "K_DEF_POS_RB", "K_TEAM_VOL", "TEAM_SCALE_CAP", "DEF_STRENGTH_RUSH", "DEF_STRENGTH_YPR", "DEF_STRENGTH_CATCH",
+    "DEF_STRENGTH_PASS", "DEF_STRENGTH_COMP", "TEAM_TD_WEIGHT", "K_TEAM_TD", "EXPL_RUSH_WEIGHT", "EXPL_RUSH_SCALE", "CAL_PASS_SLOPE", "CAL_COMP_SLOPE",
+    "LAMBDA_RUSH_TD", "LAMBDA_REC_TD", "LAMBDA_PASS_TD", "CONCENTRATE_ATTEMPTS", "CONCENTRATE_CARRIES", "CONCENTRATE_TARGETS", "PLAY_WINDOW",
+    "PLAY_PRIOR", "LG_PASS_TD", "LG_INT", "LG_YPA", "WEATHER_ON", "WX_WIND_THRESHOLD", "WX_WIND_SLOPE", "WX_WIND_FLOOR", "WX_REC_DAMP", "WX_RUSH_SLOPE",
+    "DEFAULT_SCORING",
+]
 
 # league fallbacks used before a sample exists
 LG_PASS_TD = 0.045
@@ -135,3 +159,40 @@ def kickoff(day, time):
         return dt.datetime(int(y), int(mo), int(d), int(h), int(m), tzinfo=ET)
     except Exception:
         return None
+
+# --- live lines (The Odds API) -------------------------------------------------------------------------------------
+# Needs the ODDS_API_KEY environment variable (a GitHub Actions secret in CI). Never put the key in this file.
+ODDS_SPORT = "americanfootball_nfl"
+# Specific bookmakers rather than regions: The Odds API bills every 10 bookmakers as one "region", so up to 10 books here costs
+# (markets x 1) credits per game. Verify against their usage page before relying on that.
+ODDS_BOOKS = ["draftkings", "fanduel", "betmgm", "williamhill_us", "betrivers", "espnbet", "fanatics", "prizepicks", "underdog", "pick6"]
+DFS_BOOKS = ["prizepicks", "underdog", "pick6", "dabble_us_dfs"]      # nominal-price books: shown beside, never in the consensus
+# Odds API market key -> (stat key, label, sigma intercept, sigma slope, law). Sigma is fitted as a + b x projection on 2024-25
+# because a 60-yard receiving projection and a 300-yard passing one do not scatter alike; passing and completions carry a NEGATIVE
+# slope, which is real rather than a sign error (a quarterback projected for 150 yards is usually in an unsettled situation).
+# Sacks is the one count market, and Poisson beat a normal there (error 2.36 points against 4.10 at the half-point lines books post).
+ODDS_MARKETS = {
+    "player_pass_yds": ("passY", "Pass Yds", 141.57, -0.281, "normal"),
+    "player_rush_yds": ("rushY", "Rush Yds", 14.68, 0.369, "normal"),
+    "player_reception_yds": ("recY", "Rec Yds", 13.50, 0.438, "normal"),
+    "player_receptions": ("rec", "Receptions", 1.25, 0.286, "normal"),
+    "player_pass_completions": ("comp", "Completions", 13.44, -0.341, "normal"),
+    "player_sacks": ("sacks", "Sacks", 0.997, 0.308, "poisson"),
+}
+ODDS_HORIZON_HOURS = 30            # only games starting within this window are pulled (props for next week's games are rarely up yet)
+ODDS_MIN_INTERVAL_MIN = 90         # a scheduled pull is skipped if the previous check was this recent, so backup runs cost no credits
+ODDS_MIN_CREDITS = 60              # stop pulling when the API reports fewer credits than this remaining
+ODDS_KEEP_STARTED_HOURS = 6        # keep a game's last PREGAME lines on the site this long after kickoff (books pull props at kickoff)
+PP_BREAKEVEN = 0.577               # PrizePicks per-leg break-even (2 legs at 3x); edit if you play differently
+RESULTS_EDGE_PP = 4.0              # model-vs-line gap (percentage points) that counts as a "pick" when grading line results
+
+# nflverse abbreviations (what rosters, schedules and projections use) <- the names The Odds API spells out
+TEAM_ABBR = {
+    "Arizona Cardinals": "ARI", "Atlanta Falcons": "ATL", "Baltimore Ravens": "BAL", "Buffalo Bills": "BUF", "Carolina Panthers": "CAR",
+    "Chicago Bears": "CHI", "Cincinnati Bengals": "CIN", "Cleveland Browns": "CLE", "Dallas Cowboys": "DAL", "Denver Broncos": "DEN",
+    "Detroit Lions": "DET", "Green Bay Packers": "GB", "Houston Texans": "HOU", "Indianapolis Colts": "IND", "Jacksonville Jaguars": "JAX",
+    "Kansas City Chiefs": "KC", "Las Vegas Raiders": "LV", "Los Angeles Chargers": "LAC", "Los Angeles Rams": "LA", "Miami Dolphins": "MIA",
+    "Minnesota Vikings": "MIN", "New England Patriots": "NE", "New Orleans Saints": "NO", "New York Giants": "NYG", "New York Jets": "NYJ",
+    "Philadelphia Eagles": "PHI", "Pittsburgh Steelers": "PIT", "San Francisco 49ers": "SF", "Seattle Seahawks": "SEA",
+    "Tampa Bay Buccaneers": "TB", "Tennessee Titans": "TEN", "Washington Commanders": "WAS",
+}

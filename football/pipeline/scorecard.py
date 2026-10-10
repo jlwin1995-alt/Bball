@@ -18,14 +18,11 @@ KEYS = [k for k, *_ in STATS]
 COLS = (["season", "week", "player_id", "name", "pos", "team", "opp", "kickoff", "logged_at", "late", "stamp", "status",
          "car", "tgt", "att", "rtd", "rectd", "ptd", "int", "fum", "two"]
         + [f"p_{k}" for k in KEYS] + [f"bs_{k}" for k in KEYS] + [f"bl_{k}" for k in KEYS])
-# model knobs only: the scoring weights are applied in the browser, and the season/schedule do not change what the model is
-STAMP_SKIP = {"SEASON", "NFLVERSE", "OPEN_METEO", "STADIUMS", "STADIUM_BY_NAME", "NFL_COLS", "ET", "PROJECT_WEEK", "DEFAULT_SCORING",
-              "BACKTEST_FROM_WEEK", "BACKTEST_MIN_PTS", "SCORECARD_MIN_PTS", "EDGE_MIN", "MIN_ATTEMPTS", "MIN_CARRIES", "MIN_TARGETS", "SEASON_TYPE"}
 
 
 def stamp(P=None):
     P = P or params()
-    knobs = {k: v for k, v in P.items() if k not in STAMP_SKIP}
+    knobs = {k: P[k] for k in C.MODEL_KEYS}
     return hashlib.sha1(json.dumps(knobs, sort_keys=True, default=str).encode()).hexdigest()[:8]
 
 

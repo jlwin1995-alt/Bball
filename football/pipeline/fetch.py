@@ -58,9 +58,27 @@ def simple(url, out, season=None):
     return len(t) - 1
 
 
+def resolve_season(raw="data/raw"):
+    """The newest season nflverse has published weekly stats for (this calendar year's once Week 1 has been played, otherwise last year's).
+    Written to data/raw/season.txt so config.SEASON follows it: the site rolls over by itself in September and stays on last season through
+    the off-season instead of failing every night on a file that does not exist yet."""
+    today = C.dt.date.today()
+    for s in (today.year, today.year - 1):
+        try:
+            with requests.get(f"{C.NFLVERSE}/stats_player/stats_player_week_{s}.csv", timeout=30, stream=True) as r:
+                r.raise_for_status()
+            os.makedirs(raw, exist_ok=True)
+            open(os.path.join(raw, "season.txt"), "w").write(str(s))
+            return s
+        except requests.RequestException:
+            continue
+    return C.SEASON
+
+
 def main(season=None, raw="data/raw"):
-    season = season or C.SEASON
-    cur = season == C.SEASON
+    current = resolve_season(raw)
+    season = season or current
+    cur = season == current
     d = raw if cur else os.path.join(raw, "history")
     sfx = "" if cur else f"_{season}"
     n = weekly(season, f"{d}/weekly{sfx}.csv")

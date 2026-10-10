@@ -3,7 +3,7 @@
     python -m pipeline.build [--raw data/raw] [--out site/data] [--no-log] [--no-weather] [--week N]
 """
 import argparse, datetime as dt, json, os, sys
-from . import config as C, analysis, scorecard, weather
+from . import config as C, analysis, scorecard, weather, results, lines as lines_mod
 from .model import (load_weekly, nfl_core, derive, params, rnd, td_adj, td_base, opp_pos_factor, pos_group, REC_POS, num)
 from .slate import load_csv, target_week, matchups, kickoffs, statuses, week_games, game_label, history_gaps
 
@@ -128,6 +128,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
 
     games = game_rows(sched, week, wx_rows)
     dump(games, out, "games.json")
+    lines_mod.main(raw, out, {g["game"] for g in games})        # live lines + consensus, if odds.csv exists
     dump(wx_rows, out, "weather.json")
     dump(dict(week=week, rows=matchup_table(core, mu, week, P), lg=dict(ypc=r(core["LG_YPC"], 3), catch=r(core["LG_CATCH"], 4), ypr=r(core["LG_YPR"], 3),
                                                                         pos={p: dict(catch=r(v["catch"], 3), ypr=r(v["ypr"], 2)) for p, v in core["posBase"].items()})),
@@ -147,16 +148,19 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     logged = scorecard.log_week(C.SEASON, week, core, hist, status, kick, P) if (log and not gaps) else 0
     sc = scorecard.score(rows, live, P=P)
     dump(sc, out, "scorecard.json")
+    nres = results.main(rows, live, out)
 
     now = dt.datetime.now(dt.timezone.utc)
     dump(dict(season=C.SEASON, week=week, generated=now.isoformat(timespec="seconds"), stamp=scorecard.stamp(P),
               mean_factor=C.MEAN_FACTOR, window=C.ROLLING_WINDOW, cal_pass=P["CAL_PASS_SLOPE"], cal_comp=P["CAL_COMP_SLOPE"], default_scoring=C.DEFAULT_SCORING,
               players=len(proj), games=len(games), history_rows=len(hist), history_gaps=gaps[:6], asof_week=int(max(x["week"] for x in rows)),
               weather=dict(on=P["WEATHER_ON"], threshold=P["WX_WIND_THRESHOLD"]),
+              edge_min=C.EDGE_MIN * 100, pp_breakeven=C.PP_BREAKEVEN * 100,
+              markets={v[0]: dict(label=v[1], a=v[2], b=v[3], law=v[4]) for v in C.ODDS_MARKETS.values()},
               first_kick=min((g["ko"] for g in games if g["ko"]), default=None),
               backtests=sorted(f[len("backtest_"):-5] for f in os.listdir(out) if f.startswith("backtest_") and f.endswith(".json"))),
          out, "meta.json")
-    print(f"week {week}: projected {len(proj)} players in {len(games)} games; logged {logged} rows; scorecard has {sc['scored']} scored")
+    print(f"week {week}: projected {len(proj)} players in {len(games)} games; logged {logged} rows; scorecard has {sc['scored']} scored, {nres} graded week(s)")
     return len(proj)
 
 

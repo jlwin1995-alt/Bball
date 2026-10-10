@@ -16,6 +16,8 @@ The model itself is a line-for-line port of the Google-Sheets "Football Player M
 | Matchups | This week's offences ranked by how soft their opponent has been, plus every defence's rushing / catch / yards-per-catch / pass rating and position splits. |
 | Efficiency / Usage / Trends | Season-to-date efficiency (QB / rushing / receiving views), share of team opportunity (target share, WOPR, carry share), rolling form vs season with HOT/COLD. |
 | Weather | Kickoff wind per game and the multiplier it applies (wind only: temperature and rain were tested and dropped). |
+| Lines | Every posted player prop (pass / rush / receiving yards, receptions, completions, sacks): sportsbook consensus with the vig removed, PrizePicks / Underdog lines beside it, and the model's edge against each. Type your own line and two prices and it recalculates (works with no API key). |
+| Results | Projected → actual for every player and market of each graded week, with the last pregame lines beside them and hit rates for the model's side. |
 | Scorecard | Each week's projections are logged **before** kickoff and never rewritten, then scored against season-average and last-3 baselines. |
 | Backtest | Walk-forward replay of past seasons with the same code the site runs. |
 | Config | Scoring preset (Full/Half/Standard PPR, 6-pt pass TD, FanDuel, custom), median vs mean. |
@@ -37,6 +39,26 @@ node site/test/parity.mjs                                 # the browser arithmet
 
 `python -m pipeline.build --no-log` builds without touching the accuracy log (use this when experimenting).
 
+### Live lines, consensus and PrizePicks
+
+Lines come from [The Odds API](https://the-odds-api.com) (`pipeline/fetch_odds.py`; markets, books and the fitted spreads are in `config.py`).
+
+1. Get a key at the-odds-api.com. A game costs (6 markets × 1 bookmaker group) = 6 credits, so a 13-game Sunday is about 80 credits per full pull;
+   the schedule (Thu, Sat, Sun ×2, Mon) is sized for roughly 500 credits a month, but check their pricing page for your plan.
+2. GitHub: Settings → Secrets and variables → Actions → **New repository secret** `ODDS_API_KEY` (the same one the basketball workflow uses). Never commit the key.
+3. Actions → **Football refresh odds** → Run workflow (tick *probe* first to see what the API has for the next game without spending much).
+   Scheduled runs skip themselves if the previous check was under 90 minutes ago, so the backup runs cost nothing unless the first one failed.
+   Locally: `ODDS_API_KEY=... python -m pipeline.fetch_odds && python -m pipeline.build --no-log`.
+
+`python -m pipeline.selftest` checks the response parser, name matching (two Josh Allens) and the consensus maths offline.
+`node site/test/lines.mjs` checks the probability maths the Lines tab uses.
+
+### Results
+
+Each pull keeps the **last pregame** consensus and PrizePicks line per game, player and market in `data/log/lines_log.csv` (overwritten while a game
+hasn't kicked off, never touched after). `pipeline/results.py` joins that to the frozen projections and the box scores and writes `site/data/results/`.
+A pick is a gap of at least 4 points between the model and the book (`RESULTS_EDGE_PP`); PrizePicks picks must clear a 57.7% per-leg break-even (`PP_BREAKEVEN`).
+
 ## How the pieces fit
 
 - `pipeline/model.py` — `nfl_core` (league baselines, regressed defence ratings, volumes, rates, participation weighting, QB calibration) and
@@ -52,7 +74,7 @@ node site/test/parity.mjs                                 # the browser arithmet
 
 ## Automatic refresh
 
-`.github/workflows/football-refresh.yml` runs daily (with backups, plus Tuesday-afternoon, Sunday-morning and Wednesday-evening runs): fetch →
+`.github/workflows/football-refresh.yml` (data) and `football-odds.yml` (lines) run on a schedule. The data refresh runs daily (with backups, plus Tuesday-afternoon, Sunday-morning and Wednesday-evening runs): fetch →
 build → commit data → deploy. No secrets are needed. GitHub only runs scheduled workflows from the **default branch**, so merge to `main`
 first, then run the workflow once from the Actions tab. All deploys (basketball, football, site-only) publish both sites through
 `scripts/stage_pages.sh`, so one can never erase the other.
@@ -64,7 +86,9 @@ first, then run the workflow once from the Actions tab. All deploys (basketball,
   18,540 player-games), the browser arithmetic matches the pipeline to rounding, and the log → score cycle was exercised on 2025 weeks.
 - **Not validated live:** the Open-Meteo forecast call (the dev sandbox blocks the host; it fails soft and the site says which games have no
   reading). Run the workflow once and check the Weather tab.
-- **Not ported yet:** college football (CollegeFootballData), the Lines tab (sportsbook / PrizePicks props via The Odds API), a Live tab, and a
-  per-player Results tab. The sheet's Lines logic is the next piece.
+- **Lines / odds not validated live:** the Odds API host is blocked from the dev sandbox, so the fetcher was written from the documented response
+  shape and tested only on a stub (`pipeline.selftest`). Run the *probe* workflow once and eyeball the output before trusting the Lines tab.
+- **Not ported yet:** college football (CollegeFootballData, needs a `CFBD_API_KEY`) and the sheet's phone "Edges" view (the Lines tab covers it).
+  The sheet has no live in-game view either, so there is no Live tab.
 - The model only uses the current season's games (as the sheet does), so Week 1-3 projections are thin by design: priors do the work.
 - Season constants (`SEASON` in `config.py`) need updating each year.

@@ -50,6 +50,40 @@
       + r.passTD * W.passTd + r.int * W.intr + r.fum * W.fum + r.two * W.two;
   }
 
-  const api = {SCORING, calShrink, calc, points};
+  // ---- probabilities for the Lines tab ----
+  // Standard normal CDF (Abramowitz & Stegun 26.2.17; worst-case error 7.5e-8).
+  function normCdf(z) {
+    const t = 1 / (1 + 0.2316419 * Math.abs(z)), d = 0.3989422804014327 * Math.exp(-z * z / 2);
+    const q = d * t * (0.319381530 + t * (-0.356563782 + t * (1.781477937 + t * (-1.821255978 + t * 1.330274429))));
+    return z > 0 ? 1 - q : q;
+  }
+  // Poisson CDF P(X <= k) by direct summation (counts are small).
+  function poisCdf(k, mean) {
+    if (k < 0) return 0;
+    if (mean <= 0) return 1;
+    let term = Math.exp(-mean), cum = term;
+    for (let i = 1; i <= k; i++) { term *= mean / i; cum += term; }
+    return Math.min(1, cum);
+  }
+  // Spread of outcomes around a projection: a + b x projection, fitted per market, and never allowed to reach zero.
+  const sigmaFor = (spec, m) => Math.max(spec.a + spec.b * m, Math.max(0.12 * m, 0.5));
+  // P(over) and P(under) for a posted line given the median projection m. A whole-number line can push; a push is neither side.
+  function sides(line, m, spec) {
+    line = +line;
+    const whole = Number.isInteger(line);
+    if (spec.law === "poisson") {
+      if (m <= 0) return {o: 0, u: 1};
+      const cdf = k => poisCdf(k, m);
+      return whole ? {o: 1 - cdf(line), u: cdf(line - 1)} : {o: 1 - cdf(Math.floor(line)), u: cdf(Math.floor(line))};
+    }
+    const sd = sigmaFor(spec, m);
+    if (whole) return {o: 1 - normCdf((line + 0.5 - m) / sd), u: normCdf((line - 0.5 - m) / sd)};
+    const o = 1 - normCdf((line - m) / sd);
+    return {o, u: 1 - o};
+  }
+  const impl = o => { o = +o; return !o ? null : o < 0 ? -o / (-o + 100) : 100 / (o + 100); };
+  const amer = p => p == null ? "" : (p >= 0.5 ? "-" + Math.round(100 * p / (1 - p)) : "+" + Math.round(100 * (1 - p) / p));
+
+  const api = {SCORING, calShrink, calc, points, normCdf, poisCdf, sigmaFor, sides, impl, amer};
   if (typeof module !== "undefined" && module.exports) module.exports = api; else root.FB = api;
 })(typeof window !== "undefined" ? window : globalThis);
