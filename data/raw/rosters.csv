@@ -250,6 +250,7 @@ pid,name,team
 3936099,Derrick Jones Jr.,LAC
 5159895,Yuki Kawamura,LAC
 3448,Brook Lopez,LAC
+5105853,Fletcher Loyer,LAC
 5105832,Nick Martinelli,LAC
 5075626,Baba Miller,LAC
 4396818,Jordan Miller,LAC
@@ -257,6 +258,7 @@ pid,name,team
 4398390,Jalen Pickett,LAC
 4702352,Kobe Sanders,LAC
 4065778,Max Strus,LAC
+4702785,Jahmyl Telfort,LAC
 5254165,Keaton Wagler,LAC
 4683935,Blake Wesley,LAC
 5113969,Cameron Carr,LAL
@@ -307,6 +309,7 @@ pid,name,team
 3899664,Simone Fontecchio,MIA
 4431772,Myron Gardner,MIA
 4700818,Vladislav Goldin,MIA
+4702784,J'Vonne Hadley,MIA
 2528210,Tim Hardaway Jr.,MIA
 4431786,Keshad Johnson,MIA
 4997528,Nikola Jovic,MIA
@@ -316,9 +319,11 @@ pid,name,team
 4898237,Bez Mbeng,MIA
 4278053,Davion Mitchell,MIA
 3064482,Bobby Portis,MIA
+4431720,Lester Quinones,MIA
 4278076,Nick Richards,MIA
 4693954,Ian Schieffelin,MIA
 4066993,Dru Smith,MIA
+4065697,Dennis Smith Jr.,MIA
 6475,Klay Thompson,MIA
 3059319,Andrew Wiggins,MIA
 5164559,Nate Ament,MIL
@@ -554,8 +559,10 @@ pid,name,team
 4432586,Nate Bittle,TOR
 4432737,Jaden Bradley,TOR
 4433138,Nimari Burnett,TOR
+4898260,Tyson Degenhart,TOR
 5149115,Allen Graves,TOR
 4590360,Chucky Hepburn,TOR
+4432190,Andre Jackson Jr.,TOR
 4431684,Trayce Jackson-Davis,TOR
 4395623,Trey Jemison III,TOR
 4279143,Tyreke Key,TOR
@@ -596,6 +603,7 @@ pid,name,team
 5142718,AJ Dybantsa,WSH
 5174563,Kyshawn George,WSH
 2581184,Anthony Gill,WSH
+4708972,Jazian Gortman,WSH
 5238230,Tre Johnson,WSH
 4432645,Trevor Keels,WSH
 3936296,Skal Labissiere,WSH
