@@ -52,7 +52,9 @@ def main(raw="data/raw", out="site/data"):
     if pre and not mult:
         mult, mult_how = C.PRESEASON_MULT_FALLBACK, "fallback"
     ros = pd.read_csv(f"{raw}/rosters.csv", dtype={"pid": str}) if os.path.exists(f"{raw}/rosters.csv") else None
-    P, D = project(games, sched, inj, rosters=ros, minute_mult=mult)
+    fbp = f"{raw}/rehearsal_games.csv"                              # preseason box scores: history for rookies / players with no NBA games
+    fb = pd.read_csv(fbp, dtype={"pid": str}) if os.path.exists(fbp) else None
+    P, D = project(games, sched, inj, rosters=ros, minute_mult=mult, fallback=fb)
     g = _prep(games)
 
     # --- Projections / Game Board ------------------------------------------------
@@ -71,7 +73,7 @@ def main(raw="data/raw", out="site/data"):
             row["pm_" + s] = r(p["pm_" + s], 5)
         proj.append(row)
     dump(proj, out, "projections.json")
-    AP = all_players(games, ros, mult)                              # for the Live tab: anyone in any game, not just today's slate
+    AP = all_players(games, ros, mult, fb)                              # for the Live tab: anyone in any game, not just today's slate
     dump({q.pid: {"m": round(float(q.min_exp), 1), "r": [round(float(getattr(q, "pm_" + st)), 5) for st in C.STATS]} for q in AP.itertuples()},
          out, "players.json")
 

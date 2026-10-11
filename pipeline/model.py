@@ -69,26 +69,48 @@ def play_rates(g):
     return out
 
 
-def player_rates(g, asof):
-    """Shrunk per-minute rates, projected minutes, and bookkeeping per player."""
+def player_rates(g, asof, fallback=None):
+    """Shrunk per-minute rates, projected minutes, and bookkeeping per player.
+    fallback: preseason box scores (same columns as games). Players without MIN_GAMES of regular-season history are built from
+    them instead of being dropped (rookies, players back from a missed season); flagged pre_only when ALL their games are preseason."""
     pp = play_rates(g)
     lg_rate = {}
     for pos, d in g.groupby("pos"):
         lg_rate[pos] = {s: (d[s] * d["w"]).sum() / (d["min"] * d["w"]).sum() for s in C.STATS}
+    gall = g.assign(pre=False)
+    if fallback is not None and len(fallback):
+        have = g.groupby("pid")["w"].sum()
+        fb = fallback[~fallback["pid"].astype(str).isin(have[have >= C.MIN_GAMES].index)].copy()
+        fb["pid"] = fb["pid"].astype(str)
+        fb["date"] = pd.to_datetime(fb["date"])
+        fb = fb[fb["min"] > 0]                                        # the caller already cut it off at the slate day
+        fb["pos"] = fb["pos"].map(norm_pos)
+        fb["w"] = 1.0
+        fb["pre"] = True
+        for pos in fb["pos"].unique():
+            lg_rate.setdefault(pos, next(iter(lg_rate.values())) if lg_rate else {s: 0.0 for s in C.STATS})
+        gall = pd.concat([gall, fb], ignore_index=True)
     rows = []
-    for pid, d in g.groupby("pid"):
+    for pid, d in gall.groupby("pid"):
         d = d.sort_values("date")
         last = d.iloc[-1]
         gw = d["w"].sum()
-        if gw < C.MIN_GAMES:
+        pre_only = bool(d["pre"].all())
+        if gw < (1 if pre_only else C.MIN_GAMES):
             continue
         rec = d.tail(C.ROLLING_WINDOW)
         mw = (d["min"] * d["w"]).sum()
         mr = rec["min"].sum()
         pos = last["pos"]
-        r = {"pid": pid, "name": last["name"], "team": last["team"], "pos": pos,
+        if pre_only:                                                  # his preseason minutes are a noisy guide: pull toward a rookie-ish default
+            min_s = (mw + C.PRE_ONLY_MIN_K * C.PRE_ONLY_MIN_PRIOR) / (gw + C.PRE_ONLY_MIN_K)
+            min_r = (mr + C.PRE_ONLY_MIN_K * C.PRE_ONLY_MIN_PRIOR) / (len(rec) + C.PRE_ONLY_MIN_K)
+            pplay = C.PRE_ONLY_PPLAY
+        else:
+            min_s, min_r, pplay = mw / gw, rec["min"].mean(), pp.get((last["team"], pid), 0.0)
+        r = {"pid": pid, "name": last["name"], "team": last["team"], "pos": pos, "pre_only": pre_only,
              "g": round(float(gw), 1), "last_game": last["date"],
-             "min_s": mw / gw, "min_r": rec["min"].mean(), "pplay": pp.get((last["team"], pid), 0.0)}
+             "min_s": min_s, "min_r": min_r, "pplay": pplay}
         for s in C.STATS:
             k = C.RATE_PRIOR_MIN[s]
             num = (d[s] * d["w"]).sum() + C.RECENT_EXTRA * rec[s].sum() + k * lg_rate[pos][s]
@@ -106,12 +128,14 @@ def player_rates(g, asof):
     return R
 
 
-def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=None):
+def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=None, fallback=None):
     games = games.astype({"pid": str})
     g = _prep(games)
     asof = pd.Timestamp(asof) if asof else g["date"].max() + pd.Timedelta(days=1)
     g = g[g["date"] < asof]
-    P = player_rates(g, asof)
+    if fallback is not None and len(fallback):                      # preseason rows only count if they are BEFORE the day being projected
+        fallback = fallback[pd.to_datetime(fallback["date"]) < pd.to_datetime(slate["date"]).min()]
+    P = player_rates(g, asof, fallback)
     D = defence_table(g)
     if rosters is not None and len(rosters) >= 350:           # a full league's worth; a partial fetch must not drop people
         cur = dict(zip(rosters["pid"].astype(str), rosters["team"]))
@@ -140,6 +164,8 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
     qm = np.where(P["status"].isin(["Questionable", "Day-To-Day"]), C.QUESTIONABLE_MIN_MULT, 1.0)
     P["min_raw"] = (C.RECENT_WEIGHT_MIN * P["min_r"] + (1 - C.RECENT_WEIGHT_MIN) * P["min_s"]) * rest_mult * qm
     P.loc[P["out"], "min_raw"] = 0.0
+    if not minute_mult:                                              # regular-season slate: no-history players play ~1.1x their preseason minutes
+        P.loc[P["pre_only"] & ~P["out"], "min_raw"] *= C.PRE_ONLY_REG_MULT
 
     # Minutes above are conditional on playing; a team's 240 is shared by whoever dresses, so the
     # rescale sums EXPECTED minutes (weighted by how often each man plays) and is applied to the conditional ones.
@@ -154,9 +180,10 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
     P["tier"] = np.where(P["min_raw"] >= C.TIER_CUTS[0], "T1", np.where(P["min_raw"] >= C.TIER_CUTS[1], "T2", "T3"))
     if minute_mult and "lin" in minute_mult:                       # preseason: minutes = a + b x usual minutes (fitted, see PRESEASON_CUR_WEIGHT)
         a, b = minute_mult["lin"]
-        P["min"] = np.where(P["min_raw"] > 0, np.clip(a + b * P["min_raw"], 0, C.MAX_MIN), 0.0)
+        mapped = np.where(P["min_raw"] > 0, np.clip(a + b * P["min_raw"], 0, C.MAX_MIN), 0.0)
+        P["min"] = np.where(P["pre_only"], np.minimum(P["min_raw"], C.MAX_MIN), mapped)      # no-history players already carry preseason minutes
     elif minute_mult:
-        P["min"] = P["min_raw"] * P["tier"].map(minute_mult).fillna(1.0)
+        P["min"] = np.where(P["pre_only"], np.minimum(P["min_raw"], C.MAX_MIN), P["min_raw"] * P["tier"].map(minute_mult).fillna(1.0))
     env, lg_pace = team_env(g)
     P["pace_f"] = P.apply(lambda r: (env.get(r["team"], {}).get("pace", lg_pace) + env.get(r["opp"], {}).get("pace", lg_pace)) / 2 / lg_pace, axis=1)
     P["exp_margin"] = P.apply(lambda r: env.get(r["team"], {}).get("margin", 0.0) - env.get(r["opp"], {}).get("margin", 0.0)
@@ -175,11 +202,11 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
     return P.sort_values(["team", "min"], ascending=[True, False]).reset_index(drop=True), D
 
 
-def all_players(games, rosters=None, minute_mult=None):
+def all_players(games, rosters=None, minute_mult=None, fallback=None):
     """Every player we have history for: expected minutes IF he plays and per-minute rates, with no slate or opponent attached.
     The Live tab uses it to project players in games that are not in the daily slate (today's later games, yesterday's, preseason)."""
     g = _prep(games.astype({"pid": str}))
-    P = player_rates(g, None)
+    P = player_rates(g, None, fallback)
     if rosters is not None and len(rosters) >= 350:
         cur = dict(zip(rosters["pid"].astype(str), rosters["team"]))
         P = P[P["pid"].isin(cur)].copy()
@@ -188,9 +215,10 @@ def all_players(games, rosters=None, minute_mult=None):
     tier = np.where(raw >= C.TIER_CUTS[0], "T1", np.where(raw >= C.TIER_CUTS[1], "T2", "T3"))
     if minute_mult and "lin" in minute_mult:
         a, b = minute_mult["lin"]
-        P["min_exp"] = np.clip(a + b * raw, 0, C.MAX_MIN)
+        adj = np.clip(a + b * raw, 0, C.MAX_MIN)
     else:
-        P["min_exp"] = np.minimum(raw * (pd.Series(tier, index=P.index).map(minute_mult).fillna(1.0) if minute_mult else 1.0), C.MAX_MIN)
+        adj = np.minimum(raw * (pd.Series(tier, index=P.index).map(minute_mult).fillna(1.0) if minute_mult else 1.0), C.MAX_MIN)
+    P["min_exp"] = np.where(P["pre_only"], np.minimum(raw, C.MAX_MIN), adj) if minute_mult else adj
     return P.reset_index(drop=True)
 
 

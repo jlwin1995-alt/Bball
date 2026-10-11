@@ -15,6 +15,15 @@ STATS = ["pts", "reb", "ast", "fg3m", "stl", "blk", "tov"]
 ROLLING_WINDOW = 5                 # games in the recent-form window
 PRIOR_SEASON_WEIGHT = 0.5          # last season's games count this much; fades as games pile up
 MIN_GAMES = 3                      # weighted games needed before a player is projected
+# Players with no NBA regular-season history (rookies, veterans who missed last season) are projected from their PRESEASON box scores
+# until real games exist: rates shrink hard toward the position average (RATE_PRIOR_MIN already does that); the preseason minute
+# adjustment is NOT applied to them (their minutes already are preseason minutes). Measured on 494 players (2025 preseason -> first 5
+# regular-season games): early regular minutes = ~1.1 x preseason minutes (corr 0.59), heavy shrinkage toward a default HURT (minutes MAE
+# 6.8 unshrunk vs 7.5 with k=2), so the prior is light.
+PRE_ONLY_MIN_PRIOR = 17.0          # minutes a no-history player is lightly pulled toward (the group's average preseason minutes)
+PRE_ONLY_MIN_K = 0.5               # preseason games' worth of that prior
+PRE_ONLY_REG_MULT = 1.1            # regular-season minutes per preseason minute (not applied on preseason slates)
+PRE_ONLY_PPLAY = 0.85              # share of team games assumed to be played
 
 # --- minutes -------------------------------------------------------------
 RECENT_WEIGHT_MIN = 0.5            # share of projected minutes taken from the rolling window
