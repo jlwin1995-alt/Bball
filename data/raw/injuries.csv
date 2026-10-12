@@ -11,21 +11,18 @@ None,Joshua Jefferson,BKN,Day-To-Day
 None,Mikel Brown Jr.,BKN,Day-To-Day
 None,Day'Ron Sharpe,BKN,Day-To-Day
 None,Michael Porter Jr.,BKN,Day-To-Day
-None,Brandon Miller,CHA,Day-To-Day
 None,Christian Anderson,CHA,Day-To-Day
+None,Grayson Allen,CHA,Day-To-Day
 None,Kylan Boswell,CHA,Day-To-Day
 None,Coby White,CHA,Day-To-Day
 None,Kon Knueppel,CHA,Day-To-Day
 None,Grant Williams,CHA,Day-To-Day
-None,Matas Buzelis,CHI,Day-To-Day
 None,Tre Jones,CHI,Day-To-Day
-None,Jalen Smith,CHI,Day-To-Day
 None,Zach Collins,CHI,Day-To-Day
 None,Jaylin Sellers,CHI,Day-To-Day
 None,Nic Claxton,CHI,Day-To-Day
-None,Khalifa Diop,CLE,Day-To-Day
 None,Nae'Qwan Tomlin,CLE,Day-To-Day
-None,James Harden,CLE,Day-To-Day
+None,Khalifa Diop,CLE,Day-To-Day
 None,Marcus Sasser,DAL,Day-To-Day
 None,Santi Aldama,DAL,Day-To-Day
 None,Dereck Lively II,DAL,Day-To-Day
@@ -49,9 +46,9 @@ None,Max Strus,LAC,Out
 None,Yanic Konan Niederhauser,LAC,Out
 None,Brandon Ingram,TOR,Out
 None,Jordan Miller,LAC,Out
+None,Walker Kessler,LAL,Day-To-Day
 None,Ziaire Williams,LAL,Day-To-Day
 None,Arthur Kaluma,LAL,Day-To-Day
-None,Walker Kessler,LAL,Day-To-Day
 None,Collin Sexton,LAL,Day-To-Day
 None,Dalton Knecht,LAL,Day-To-Day
 None,Cameron Carr,LAL,Day-To-Day
@@ -66,6 +63,8 @@ None,Giannis Antetokounmpo,MIA,Day-To-Day
 None,Davion Mitchell,MIA,Day-To-Day
 None,Keshad Johnson,MIA,Out
 None,Dru Smith,MIA,Day-To-Day
+None,Kasparas Jakucionis,MIL,Day-To-Day
+None,Brayden Burries,MIL,Day-To-Day
 None,Nate Ament,MIL,Day-To-Day
 None,Jaden McDaniels,MIN,Day-To-Day
 None,Jonathan Kuminga,MIN,Day-To-Day
@@ -91,10 +90,10 @@ None,Isaiah Hartenstein,OKC,Day-To-Day
 None,Cason Wallace,OKC,Day-To-Day
 None,Jalen Williams,OKC,Day-To-Day
 None,Shai Gilgeous-Alexander,OKC,Day-To-Day
-None,Jalen Suggs,ORL,Day-To-Day
-None,Anthony Black,ORL,Day-To-Day
-None,Noah Penda,ORL,Day-To-Day
 None,Jonathan Isaac,ORL,Day-To-Day
+None,Anthony Black,ORL,Day-To-Day
+None,Desmond Bane,ORL,Day-To-Day
+None,Jalen Suggs,ORL,Day-To-Day
 None,Izaiyah Nelson,ORL,Out
 None,LeBron James,PHI,Day-To-Day
 None,Kentavious Caldwell-Pope,PHI,Day-To-Day
@@ -109,7 +108,7 @@ None,Devin Booker,PHX,Day-To-Day
 None,Miles Bridges,PHX,Day-To-Day
 None,Mark Williams,PHX,Out
 None,Shaedon Sharpe,POR,Out
-None,Maxime Raynaud,SAC,Day-To-Day
+None,Maxime Raynaud,SAC,Out
 None,Dylan Cardwell,SAC,Day-To-Day
 None,Domantas Sabonis,SAC,Day-To-Day
 None,Malik Monk,SAC,Day-To-Day
