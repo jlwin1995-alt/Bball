@@ -3,7 +3,7 @@
     python -m pipeline.build [--raw data/raw] [--out site/data] [--no-log] [--no-weather] [--week N]
 """
 import argparse, datetime as dt, json, os, sys
-from . import config as C, analysis, scorecard, weather, results, lines as lines_mod
+from . import config as C, analysis, scorecard, weather, results, legacy, lines as lines_mod
 from .model import (load_weekly, nfl_core, derive, params, rnd, td_adj, td_base, opp_pos_factor, pos_group, REC_POS, num)
 from .slate import load_csv, target_week, matchups, kickoffs, statuses, week_games, game_label, history_gaps
 
@@ -166,7 +166,11 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     if gaps:
         print(f"::warning::history is incomplete ({len(gaps)} earlier games have no box scores yet, e.g. {gaps[0]}); showing projections but NOT logging them")
     logged = scorecard.log_week(C.SEASON, week, core, hist, status, kick, P) if (log and not gaps) else 0
+    imported = legacy.import_sheet_log() if log else 0
+    if imported:
+        print(f"imported {imported} rows from the Google-Sheet model's own log")
     sc = scorecard.score(rows, live, P=P)
+    sc["legacy"] = scorecard.score(rows, live, P=P, stamp_override=legacy.STAMP)
     dump(sc, out, "scorecard.json")
     nres = results.main(rows, live, out)
 

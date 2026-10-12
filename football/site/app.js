@@ -76,6 +76,18 @@ function linesCell(p) {
   return `<details><summary>${head}${pick ? ` <b>${b.edge > 0 ? "OVER" : "UNDER"}</b>` : ""}${b.started ? ` <span class="pill hot">LIVE</span>` : ""}</summary><div class="lines-pop">${rows}</div></details>`;
 }
 
+// The Google-Sheet model's own pre-kickoff log (same model, weeks played before this site existed), scored on points
+function legacyBlock(L, wc, pc) {
+  if (!L || !L.scored) return "";
+  const tot = L.weeks.reduce((a, w) => ({n: a.n + w.n, m: a.m + w.model * w.n, s: a.s + w.season * w.n, l: a.l + w.last3 * w.n}), {n: 0, m: 0, s: 0, l: 0});
+  const mae = tot.m / tot.n, base = tot.s / tot.n, l3 = tot.l / tot.n;
+  return `<h3>Earlier record — Google Sheet model</h3><p class="sub">The same model, before this site existed: each week's projections were written to the sheet's log before kickoff (${L.late} rows logged after kickoff are excluded, and ${L.dnp} players who did not play are not scored). Scored here against nflverse box scores on points only, since the sheet kept baselines for points alone. Full-PPR points.</p>
+    <div class="cards"><div class="card"><b>${L.scored}</b><span>player-games scored</span></div><div class="card"><b>${num(mae, 2)}</b><span>points MAE (season average ${num(base, 2)}, last-3 ${num(l3, 2)})</span></div>
+    <div class="card"><b>${vsBase((mae - base) / base * 100)}</b><span>vs season average</span></div></div>
+    ${table(wc, L.weeks, {id: "lgw"})}${table(pc, L.pos, {id: "lgp"})}
+    <p class="mut">These weeks also appear on the Results tab, projected against actual for every player. They are kept apart from the live record above because they were logged under the sheet's settings stamp, and averaging across a change in model describes a model that never existed.</p>`;
+}
+
 // ---------- pages ---------------------------------------------------------------
 const pages = {
   Projections() {
@@ -382,7 +394,7 @@ const pages = {
       <div class="card"><b>${s.logged}</b><span>rows in the log</span></div><div class="card"><b>${s.late}</b><span>logged after kickoff (never scored)</span></div>
       <div class="card"><b>${s.other_models}</b><span>from earlier model settings (not counted)</span></div></div>`;
     if (!s.markets.length) return `<h2>Scorecard</h2><p class="sub">Projections are written to the log <b>before</b> each week's games and never rewritten, then scored against two baselines: the player's season average and his last three games, as of that week.</p>${cards}
-      <p class="banner">Nothing scored yet under model <code>${esc(s.stamp)}</code>. The first scores appear once a logged week's games are final (the nightly refresh picks them up).</p>`;
+      <p class="banner">Nothing scored yet under model <code>${esc(s.stamp)}</code>. The first scores appear once a logged week's games are final (the nightly refresh picks them up).</p>${legacyBlock(s.legacy, [{k: "week", h: "Week"}, {k: "n", h: "n"}, {k: "model", h: "Model", f: r => `<b>${num(r.model, 2)}</b>`}, {k: "season", h: "Season avg", f: r => num(r.season, 2)}, {k: "last3", h: "Last-3", f: r => num(r.last3, 2)}], [{k: "pos", h: "Pos", l: 1}, {k: "n", h: "n"}, {k: "mae", h: "Pts MAE", f: r => num(r.mae, 2)}, {k: "over", h: "Over %", f: r => `${num(r.over)} ± ${num(r.band)}`}, {k: "bias", h: "Bias %", f: r => plainSigned(r.bias)}, {k: "read", h: "Read", l: 1}])}`;
     const mc = [{k: "label", h: "Market", l: 1}, {k: "n", h: "n"}, {k: "mae", h: "Model MAE", f: r => `<b>${num(r.mae, 2)}</b>`}, {k: "base", h: "Season-avg MAE", f: r => num(r.base, 2)},
       {k: "last3", h: "Last-3 MAE", f: r => num(r.last3, 2)}, {k: "vs", h: "vs season", t: "Negative = the model beat the baseline", f: r => vsBase(r.vs)},
       {k: "vs3", h: "vs last-3", f: r => vsBase(r.vs3)}, {k: "bias", h: "Bias %", f: r => plainSigned(r.bias)},
@@ -392,6 +404,7 @@ const pages = {
     const wc = [{k: "week", h: "Week"}, {k: "n", h: "n"}, {k: "model", h: "Model", f: r => `<b>${num(r.model, 2)}</b>`}, {k: "season", h: "Season avg", f: r => num(r.season, 2)}, {k: "last3", h: "Last-3", f: r => num(r.last3, 2)}];
     return `<h2>Scorecard</h2><p class="sub">Live record under model <code>${esc(s.stamp)}</code> (full-PPR points). Change any knob and the stamp changes, starting a fresh record instead of blending into the old one.</p>${cards}
       <h3>By market</h3>${table(mc, s.markets, {id: "scm"})}<h3>By position (points)</h3>${table(pc, s.pos, {id: "scp"})}<h3>By week (points MAE)</h3>${table(wc, s.weeks, {id: "scw"})}
+      ${legacyBlock(s.legacy, wc, pc)}
       <div class="doc"><p class="mut">MAE is the raw average miss, so it is comparable with the baselines in the same row but not between markets. A miss can be spotted from about 100 rows, but <i>no miss detected</i> is not <i>calibrated</i>: the word is held back until 400. Players who did not play are not scored.</p></div>`;
   },
 
