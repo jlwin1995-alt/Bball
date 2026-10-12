@@ -84,10 +84,10 @@ def read_tag(n, over, band):
     return "no miss detected" if n < 400 else "calibrated"
 
 
-def score(season_rows, live, path=LOG, P=None, W=None):
+def score(season_rows, live, path=LOG, P=None, W=None, stamp_override=None):
     """season_rows: this season's weekly rows. live: {(team, week): bool} from analysis.aggregate. -> scorecard dict."""
     W = W or C.DEFAULT_SCORING
-    cur = stamp(P)
+    cur = stamp_override or stamp(P)
     log = read_log(path)
     act = {(r["player_id"], int(r["week"])): actual(r, W) for r in season_rows}
     scored, waiting, late, dnp, other = [], 0, 0, 0, 0

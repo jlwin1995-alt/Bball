@@ -67,6 +67,8 @@ def main(rows, live, out="site/data", log_path=None, lines_path=LINES_LOG, W=Non
                 continue
             a = actual(a_row, W)
             k0 = dt.datetime.fromisoformat(r["kickoff"]) if r["kickoff"] else None
+            if k0 and k0.tzinfo is None:
+                k0 = k0.replace(tzinfo=dt.timezone.utc)          # imported history carries only a date
             pl = dict(id=r["player_id"], name=r["name"], pos=r["pos"], team=r["team"], opp=r["opp"], status=r["status"],
                       vol={"car": [fnum(r["car"]), a_row.get("carries", 0.0)], "tgt": [fnum(r["tgt"]), a_row.get("targets", 0.0)],
                            "att": [fnum(r["att"]), a_row.get("attempts", 0.0)]},
