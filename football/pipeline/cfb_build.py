@@ -9,6 +9,7 @@ from .cfb_model import cfb_core, derive, load_rows, actual_pts, STATS as RAWSTAT
 from .cfb_data import read_csv
 from .model import params, rnd, nsum
 from .scorecard import read_tag
+from . import cfb_lines
 
 LOG = "data/log/cfb_log.csv"
 # market key -> (label, actual field, floor): `floor` is the projection size below which a player is not counted in that row
@@ -279,6 +280,13 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
         games_out.append(dict(game=label(g["homeTeam"], g["awayTeam"], "N" if g["neutral"] else "vs"), away=g["awayTeam"], home=g["homeTeam"], neutral=g["neutral"],
                               ko=g["startDate"], done=g["done"], conf=[g["awayConference"], g["homeConference"]]))
     games_out.sort(key=lambda x: x["ko"] or "")
+    cl = cfb_lines.load(raw)
+    lines_ts = None
+    if cl:
+        miss = cfb_lines.attach(games_out, cl["games"])
+        lines_ts = cl["ts"]
+        got = sum(1 for g in games_out if g.get("spread") is not None or g.get("total") is not None)
+        print(f"college lines: {got} of {len(games_out)} games matched" + (f"; unmatched Odds API games: {', '.join(miss[:8])}" if miss else ""))
     faces = {}
     for t, m in s["matchup"].items():
         faces.setdefault(m["opp"], []).append(t)
@@ -302,7 +310,7 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
     json.dump(sc, open(f"{out}/scorecard.json", "w"), separators=(",", ":"))
     bts = sorted(f[len("backtest_"):-5] for f in os.listdir(out) if f.startswith("backtest_") and f.endswith(".json"))
     json.dump(dict(season=season, week=week, generated=dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), stamp=stamp(P), default_scoring=W,
-                   players=len(proj), games=len(games_out), history_rows=len(rows), history_gaps=sorted(gaps)[:6], backtests=bts,
+                   players=len(proj), games=len(games_out), lines_ts=lines_ts, history_rows=len(rows), history_gaps=sorted(gaps)[:6], backtests=bts,
                    asof_week=int(max(x["week"] for x in rows))), open(f"{out}/meta.json", "w"), separators=(",", ":"))
     print(f"college week {week}: projected {len(proj)} players in {len(games_out)} games; logged {logged}; scorecard has {sc['scored']} scored")
     return len(proj)

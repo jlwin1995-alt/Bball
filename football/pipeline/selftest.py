@@ -56,6 +56,7 @@ def main():
         later = dt.datetime(2026, 10, 11, 18, 0, tzinfo=dt.timezone.utc)
         assert lines.snapshot_pregame(res, log=log, now=later) == 0                                                # started: frozen, not rewritten
     cfb_checks()
+    cfb_lines_checks()
     print("selftest ok:", len(rows), "rows,", len(res["rows"]), "lines")
 
 
@@ -84,6 +85,21 @@ def cfb_checks():
     assert (q["carries"], q["rushing_yards"]) == (4, -3) and q["position"] == "QB" and q["opponent"] == "Michigan" and q["home"] is True
     assert by["2"]["fumbles_lost"] == 1 and by["3"]["receiving_yards"] == 121 and by["7"]["opponent"] == "Ohio State" and by["7"]["home"] is False
     print("college parser ok")
+
+
+def cfb_lines_checks():
+    from . import cfb_lines as L
+    names = ["Texas", "Texas A&M", "Washington", "Washington State", "Miami", "Miami (OH)", "San José State"]
+    got = {n: L.resolve(n, names) for n in ("Texas A&M Aggies", "Texas Longhorns", "Washington State Cougars", "Washington Huskies", "Miami (OH) RedHawks", "Miami Hurricanes", "San Jose State Spartans")}
+    assert list(got.values()) == ["Texas A&M", "Texas", "Washington State", "Washington", "Miami (OH)", "Miami", "San José State"], got
+    ev = [dict(id="1", commence_time="2026-10-17T16:00:00Z", home_team="Texas Longhorns", away_team="Ohio State Buckeyes", bookmakers=[
+        dict(key="a", markets=[dict(key="spreads", outcomes=[dict(name="Texas Longhorns", point=-3.5)]), dict(key="totals", outcomes=[dict(name="Over", point=55.5)])]),
+        dict(key="b", markets=[dict(key="spreads", outcomes=[dict(name="Texas Longhorns", point=-4.5)]), dict(key="totals", outcomes=[dict(name="Over", point=56.5)])])])]
+    lines = fetch_odds.parse_game_lines(ev)
+    assert lines[0]["home_spread"] == -4.0 and lines[0]["total"] == 56.0
+    games = [dict(home="Ohio State", away="Texas", ko="2026-10-17T16:00:00Z")]       # neutral site: CFBD calls the other team "home"
+    assert L.attach(games, lines) == [] and games[0]["spread"] == -4.0 and games[0]["away_imp"] > games[0]["home_imp"], games
+    print("college lines ok")
 
 
 def fair_ok(x):
