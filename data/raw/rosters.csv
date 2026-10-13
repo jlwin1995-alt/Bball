@@ -14,6 +14,7 @@ pid,name,team
 4280151,Corey Kispert,ATL
 3146557,Jock Landale,ATL
 2490149,CJ McCollum,ATL
+4712845,Isaac McKneely,ATL
 4873201,Asa Newell,ATL
 4431680,Onyeka Okongwu,ATL
 5105571,Henri Veesaar,ATL
@@ -41,6 +42,7 @@ pid,name,team
 3078576,Derrick White,BOS
 4702745,Amari Williams,BOS
 5105626,Tyler Bilodeau,BKN
+5107242,Dion Brown,BKN
 5101761,Mikel Brown Jr.,BKN
 4712896,Noah Clowney,BKN
 4432189,Dain Dainja,BKN
@@ -163,7 +165,6 @@ pid,name,team
 4433629,Ryan Nembhard,DEN
 4431690,Zeke Nnaji,DEN
 4432181,Julian Strawther,DEN
-4277890,Lonnie Walker IV,DEN
 5105592,Cam Whitmore,DEN
 3908845,John Collins,DET
 4432166,Cade Cunningham,DET
@@ -375,7 +376,6 @@ pid,name,team
 4683736,Kobe Bufkin,NO
 4712862,Malik Dia,NO
 5144091,Jeremiah Fears,NO
-4433623,Caleb Houstan,NO
 5170947,AJ Johnson,NO
 4277813,Herbert Jones,NO
 3442,DeAndre Jordan,NO
@@ -422,6 +422,7 @@ pid,name,team
 4433255,Chet Holmgren,OKC
 5174983,Aday Mara,OKC
 4683778,Jared McCain,OKC
+4685802,Robert McCray V,OKC
 4900671,Ajay Mitchell,OKC
 5106270,Otega Oweh,OKC
 4897155,Anthony Pritchard,OKC
@@ -565,7 +566,6 @@ pid,name,team
 4433138,Nimari Burnett,TOR
 4898260,Tyson Degenhart,TOR
 5149115,Allen Graves,TOR
-4590360,Chucky Hepburn,TOR
 4432190,Andre Jackson Jr.,TOR
 4431684,Trayce Jackson-Davis,TOR
 4395623,Trey Jemison III,TOR
@@ -583,6 +583,7 @@ pid,name,team
 4873138,Ace Bailey,UTAH
 4277919,Mo Bamba,UTAH
 4683933,Tamar Bates,UTAH
+4395997,Terrell Brown Jr.,UTAH
 4683766,Isaiah Collier,UTAH
 4684793,Kyle Filipowski,UTAH
 4278395,Taylor Funk,UTAH
@@ -598,6 +599,7 @@ pid,name,team
 4065663,Josh Okogie,UTAH
 5041955,Darryn Peterson,UTAH
 5105839,Brice Sensabaugh,UTAH
+5106293,Mohamed Wague,UTAH
 4278129,Deandre Ayton,WSH
 4432187,Reece Beekman,WSH
 4845374,Bub Carrington,WSH
@@ -620,4 +622,5 @@ pid,name,team
 4704043,Steve Settle III,WSH
 4997537,Tristan Vukcevic,WSH
 4606840,Jamir Watkins,WSH
+4592216,Alondes Williams,WSH
 4277905,Trae Young,WSH
