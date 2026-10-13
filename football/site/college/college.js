@@ -80,7 +80,7 @@ const pages = {
     };
     return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected points.</p>
       <div class="bar"><label>Game <select id="game">${games.map(x => `<option value="${esc(x.game)}" ${x.game === g.game ? "selected" : ""}>${esc(x.game)} · ${esc(koLabel(x.ko))}${started(x.ko) ? " (started)" : ""}</option>`).join("")}</select></label></div>
-      <div class="gamehead"><div><span>Kickoff</span><b>${esc(koLabel(g.ko))}</b></div><div><span>Conferences</span><b>${esc(g.conf[0] || "-")} / ${esc(g.conf[1] || "-")}</b></div>${g.neutral ? `<div><span>Site</span><b>Neutral</b></div>` : ""}</div>
+      <div class="gamehead"><div><span>Kickoff</span><b>${esc(koLabel(g.ko))}</b></div><div><span>Conferences</span><b>${esc(g.conf[0] || "-")} / ${esc(g.conf[1] || "-")}</b></div>${g.neutral ? `<div><span>Site</span><b>Neutral</b></div>` : ""}${g.spread == null && g.total == null ? "" : `<div><span>Line (The Odds API)</span><b>${g.spread == null ? "" : g.spread > 0 ? esc(g.home) + " -" + num(g.spread) : g.spread < 0 ? esc(g.away) + " -" + num(-g.spread) : "pick'em"}${g.total == null ? "" : " · O/U " + num(g.total)}</b></div>`}${g.home_imp == null ? "" : `<div><span>Implied total</span><b>${esc(g.away)} ${num(g.away_imp)} – ${esc(g.home)} ${num(g.home_imp)}</b></div>`}</div>
       <div class="two">${mk(g.away)}${mk(g.home)}</div>`;
   },
 

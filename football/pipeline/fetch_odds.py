@@ -15,6 +15,7 @@ import requests
 from . import config as C
 
 BASE = f"https://api.the-odds-api.com/v4/sports/{C.ODDS_SPORT}"
+CFB_BASE = f"https://api.the-odds-api.com/v4/sports/{C.ODDS_SPORT_CFB}"
 RAW = "data/raw"
 COLS = ["ts", "event", "commence", "game", "home", "away", "player", "stat", "book", "line", "over", "under"]
 
@@ -74,6 +75,46 @@ def write_rows(path, rows):
         w.writerows(rows)
 
 
+def parse_game_lines(events):
+    """/odds (featured markets) -> one row per game: consensus spread (home perspective, NEGATIVE = home favoured, as books print it) and total.
+    The consensus is the median across books; a book that posts only one of the two still counts for the one it posts."""
+    import statistics
+    out = []
+    for ev in events:
+        sp, tot = [], []
+        for bk in ev.get("bookmakers", []):
+            for mk in bk.get("markets", []):
+                if mk["key"] == "spreads":
+                    for o in mk.get("outcomes", []):
+                        if o.get("name") == ev["home_team"] and o.get("point") is not None:
+                            sp.append(float(o["point"]))
+                elif mk["key"] == "totals":
+                    for o in mk.get("outcomes", []):
+                        if o.get("name") == "Over" and o.get("point") is not None:
+                            tot.append(float(o["point"]))
+        if sp or tot:
+            out.append(dict(event=ev["id"], commence=ev["commence_time"], home=ev["home_team"], away=ev["away_team"],
+                            home_spread=statistics.median(sp) if sp else None, total=statistics.median(tot) if tot else None,
+                            n_spread=len(sp), n_total=len(tot)))
+    return out
+
+
+def fetch_cfb_lines(s, key, now):
+    """College spreads and totals: ONE call covers every upcoming game (cost = markets x bookmaker groups, about 2 credits), so this is cheap
+    next to per-game player props. Never lets a failure here stop the NFL pull."""
+    try:
+        r = s.get(f"{CFB_BASE}/odds", timeout=30, params={"apiKey": key, "bookmakers": ",".join(b for b in C.ODDS_BOOKS if b not in C.DFS_BOOKS),
+                                                           "markets": "spreads,totals", "oddsFormat": "american", "dateFormat": "iso"})
+        if r.status_code != 200:
+            print(f"college lines: HTTP {r.status_code} {r.text[:120]}")
+            return
+        games = parse_game_lines(r.json())
+        json.dump(dict(ts=now.isoformat(timespec="seconds"), games=games), open(f"{RAW}/cfb_lines.json", "w"))
+        print(f"college lines: {len(games)} games with a spread or total; credits remaining {r.headers.get('x-requests-remaining')}")
+    except Exception as e:                                      # noqa: BLE001
+        print(f"::warning::college lines failed: {e}")
+
+
 def probe(session=None):
     """Diagnostic (costs a handful of credits): which bookmakers and markets does the API have for the next NFL game?"""
     key = os.environ.get("ODDS_API_KEY")
@@ -111,6 +152,7 @@ def main(session=None, force=False):
         if age < C.ODDS_MIN_INTERVAL_MIN:
             print(f"last check was {age:.0f} min ago (< {C.ODDS_MIN_INTERVAL_MIN}); skipping so backup runs do not spend credits. Use --force to override.")
             return
+    fetch_cfb_lines(s, key, now)
     horizon = now + timedelta(hours=C.ODDS_HORIZON_HOURS)
     prev_rows = read_rows(f"{RAW}/odds.csv")
     rows, remaining, n_games, info = [], None, 0, []

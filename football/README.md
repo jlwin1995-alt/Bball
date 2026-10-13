@@ -72,7 +72,7 @@ A pick is a gap of at least 4 points between the model and the book (`RESULTS_ED
 A refresh with nothing new costs one API call (the schedule); each newly finished week costs two (positions once, plus the week). A stored week is only
 fetched again if more of its games have finished since. Locally: `CFBD_API_KEY=... python -m pipeline.cfb_data && python -m pipeline.cfb_build`.
 What differs from the NFL model is what CFBD reports: no targets (receptions are projected directly), no injury report, no weather, no sacks, no
-2-point conversions, no betting lines, and a college QB's rushing line has his sacks subtracted so quarterbacks get their own rushing baseline.
+2-point conversions, no player props (the college Game Board does show the game spread, total and implied scores from The Odds API's `americanfootball_ncaaf`, one cheap call of about 2 credits per pull), and a college QB's rushing line has his sacks subtracted so quarterbacks get their own rushing baseline.
 
 ## How the pieces fit
 

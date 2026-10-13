@@ -163,6 +163,7 @@ def kickoff(day, time):
 # --- live lines (The Odds API) -------------------------------------------------------------------------------------
 # Needs the ODDS_API_KEY environment variable (a GitHub Actions secret in CI). Never put the key in this file.
 ODDS_SPORT = "americanfootball_nfl"
+ODDS_SPORT_CFB = "americanfootball_ncaaf"      # college: game spread and total only (player props are thin)
 # Specific bookmakers rather than regions: The Odds API bills every 10 bookmakers as one "region", so up to 10 books here costs
 # (markets x 1) credits per game. Verify against their usage page before relying on that.
 ODDS_BOOKS = ["draftkings", "fanduel", "betmgm", "williamhill_us", "betrivers", "espnbet", "fanatics", "prizepicks", "underdog", "pick6"]
