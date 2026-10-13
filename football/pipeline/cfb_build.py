@@ -70,13 +70,16 @@ def plain(x):
 
 def log_week(season, week, core, hist, kick, P, W, path=LOG, now=None):
     old = read_csv(path)
-    if any(x["season"] == str(season) and x["week"] == str(week) for x in old):
+    st = stamp(P)
+    # a week is written once PER MODEL: after a settings change the new model logs the week again (only games that have not kicked off count;
+    # the rest are flagged late), and the earlier model's rows stay in the log, untouched and excluded from the current record
+    if any(x["season"] == str(season) and x["week"] == str(week) and x["stamp"] == st for x in old):
         return 0
     now = now or dt.datetime.now(dt.timezone.utc)
     by = {}
     for x in hist:
         by.setdefault(x["playerId"], []).append(actuals(x, W))
-    st, new = stamp(P), []
+    new = []
     for pl in core["players"]:
         d = derive(pl, W)
         if d["pts"] < C.SCORECARD_MIN_PTS:

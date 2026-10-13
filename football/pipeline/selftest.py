@@ -50,8 +50,9 @@ def main():
     assert fair_ok(lines.fair_american(0.6)) and lines.fair_american(0.4) == 150
     with tempfile.TemporaryDirectory() as d:
         log = os.path.join(d, "lines_log.csv")
-        assert lines.snapshot_pregame(res, log=log) == len(res["rows"])
         import datetime as dt
+        before = dt.datetime(2026, 10, 10, 12, 0, tzinfo=dt.timezone.utc)
+        assert lines.snapshot_pregame(res, log=log, now=before) == len(res["rows"])
         later = dt.datetime(2026, 10, 11, 18, 0, tzinfo=dt.timezone.utc)
         assert lines.snapshot_pregame(res, log=log, now=later) == 0                                                # started: frozen, not rewritten
     cfb_checks()

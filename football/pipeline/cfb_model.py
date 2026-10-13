@@ -129,12 +129,15 @@ def cfb_core(rows, matchup, conf, P):
             continue
         if p["carries"] + p["receptions"] + p["attempts"] >= (C.CFB_MIN_OPPS or 12):
             ids.append(i)
-    raw = {i: dict(car=blend(PL[i], "car"), rec=blend(PL[i], "rec"), att=blend(PL[i], "att")) for i in ids}
+    # Everyone on a team's roster share the team's volume, not only the players selected for projection: scaling the selected few up to the whole
+    # team's baseline hands them the receptions that real depth-chart players below the minimum really take (CFB_SCALE_ALL; see the Backtest notes).
+    pool = [i for i in js_order(PL) if PL[i]["team"] in matchup] if P.get("CFB_SCALE_ALL", C.CFB_SCALE_ALL) else ids
+    raw = {i: dict(car=blend(PL[i], "car"), rec=blend(PL[i], "rec"), att=blend(PL[i], "att")) for i in pool}
     scale = {}
     for t in team_base:
         scale[t] = dict(car=1.0, rec=1.0, att=1.0)
         for k in ("car", "rec", "att"):
-            tot = nsum(raw[i][k] for i in ids if PL[i]["team"] == t)
+            tot = nsum(raw[i][k] for i in pool if PL[i]["team"] == t)
             if tot > 0:
                 scale[t][k] = max(1 - C.CFB_TEAM_SCALE_CAP, min(1 + C.CFB_TEAM_SCALE_CAP, team_base[t][k] / tot))
     # team projected volume after the rescale, so a share adds to 100% across the team (receiving share is a share of RECEPTIONS)
