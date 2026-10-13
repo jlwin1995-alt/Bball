@@ -78,6 +78,9 @@ jobs:
       - name: "Rebuild lines.json (no re-log - the accuracy log is written once, by the data refresh)"
         if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
         run: python -m pipeline.build --no-log
+      - name: Attach college spread and total to the college Game Board (no re-log)
+        if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
+        run: python -m pipeline.cfb_build --no-log || echo "::warning::college build failed"
       - name: Commit data
         if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
         working-directory: .
