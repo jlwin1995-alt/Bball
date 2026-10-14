@@ -44,6 +44,13 @@ def cfb_core(rows, matchup, conf, P):
     cap = P["DEF_ADJ_CAP"] or 0.15
     lg = dict(car=0.0, ry=0.0, rec=0.0, recy=0.0, att=0.0, py=0.0, rtd=0.0, rectd=0.0, fum=0.0, comp=0.0)
     de, team_tot, team_weeks = {}, {}, {}
+    qb_ids, lg_nq = set(), [0.0, 0.0]
+    if P.get("CFB_DEF_EXCL_QB", C.CFB_DEF_EXCL_QB):
+        att_by = {}
+        for r in rows:
+            a = att_by.setdefault(r["playerId"], [0.0, 0.0, ""])
+            a[0] += r["attempts"]; a[1] += r["passing_yards"]; a[2] = r["position"]
+        qb_ids = {i for i, a in att_by.items() if is_qb(dict(pos=a[2], attempts=a[0], passing_yards=a[1]))}
     for r in rows:
         t, w = r["team"], r["week"]
         lg["car"] += r["carries"]; lg["ry"] += r["rushing_yards"]; lg["rec"] += r["receptions"]; lg["recy"] += r["receiving_yards"]
@@ -52,7 +59,9 @@ def cfb_core(rows, matchup, conf, P):
         d = r["opponent"]
         if d:
             a = de.setdefault(d, dict(car=0.0, ry=0.0, rec=0.0, recy=0.0, att=0.0, py=0.0, comp=0.0))
-            a["car"] += r["carries"]; a["ry"] += r["rushing_yards"]; a["rec"] += r["receptions"]; a["recy"] += r["receiving_yards"]
+            if r["playerId"] not in qb_ids:      # CFB_DEF_EXCL_QB: rate the defence on running backs only (a QB's line carries his sacks as negative yards)
+                a["car"] += r["carries"]; a["ry"] += r["rushing_yards"]; lg_nq[0] += r["carries"]; lg_nq[1] += r["rushing_yards"]
+            a["rec"] += r["receptions"]; a["recy"] += r["receiving_yards"]
             a["att"] += r["attempts"]; a["py"] += r["passing_yards"]; a["comp"] += r["completions"]
         tt = team_tot.setdefault(t, dict(car=0.0, rec=0.0, att=0.0))
         team_weeks.setdefault(t, set()).add(w)
@@ -67,9 +76,10 @@ def cfb_core(rows, matchup, conf, P):
     LG_COMP = lg["comp"] / lg["att"] if lg["att"] else 0.62
 
     def_rush, def_rec, def_pass, def_comp = {}, {}, {}, {}
+    DEF_LG_YPC = (lg_nq[1] / lg_nq[0]) if (qb_ids and lg_nq[0]) else LG_YPC       # the league figure a defence is compared with must be on the same footing
     for d, a in de.items():
         if a["car"]:
-            def_rush[d] = clamp_to(regress((a["ry"] / a["car"]) / LG_YPC, a["car"], C.CFB_K_DEF_RUSH), cap)
+            def_rush[d] = clamp_to(regress((a["ry"] / a["car"]) / DEF_LG_YPC, a["car"], C.CFB_K_DEF_RUSH), cap)
         if a["rec"]:
             def_rec[d] = clamp_to(regress((a["recy"] / a["rec"]) / LG_YPR, a["rec"], C.CFB_K_DEF_REC), cap)
         if a["att"]:
@@ -110,6 +120,23 @@ def cfb_core(rows, matchup, conf, P):
         g["car"] += p["carries"]; g["ry"] += p["rushing_yards"]; g["td"] += p["rushing_tds"]
     rush_base = {k: dict(ypc=a["ry"] / a["car"] if a["car"] >= 200 else LG_YPC, td=a["td"] / a["car"] if a["car"] >= 200 else LG_RUSH_TD) for k, a in grp.items()}
 
+    # CFB_QB_TIERS: quarterbacks regress toward their own kind. A pocket passer's rushing line is mostly sacks; a dual-threat's is designed runs, so one
+    # blended baseline pulls the first up and the second down. Tier = carries per game so far (pocket < 3, mid 3-8, mobile 8+), each with its own
+    # baseline when the tier has enough carries to say anything.
+    def qb_tier(p):
+        c = p["carries"] / max(p["g"], 1)
+        return "pocket" if c < 3 else ("mid" if c < 8 else "mobile")
+    use_tiers = P.get("CFB_QB_TIERS", C.CFB_QB_TIERS)
+    if use_tiers:
+        tg = {t: dict(car=0.0, ry=0.0, td=0.0) for t in ("pocket", "mid", "mobile")}
+        for p in PL.values():
+            if is_qb(p):
+                g = tg[qb_tier(p)]
+                g["car"] += p["carries"]; g["ry"] += p["rushing_yards"]; g["td"] += p["rushing_tds"]
+        for t, a in tg.items():
+            rush_base["QB_" + t] = dict(ypc=a["ry"] / a["car"] if a["car"] >= 150 else rush_base["QB"]["ypc"], td=a["td"] / a["car"] if a["car"] >= 150 else rush_base["QB"]["td"])
+    qb_prior = P.get("CFB_QB_PRIOR_CAR") or C.CFB_PRIOR_CAR
+
     def blend(p, k):
         w = sorted(p["weeks"], key=lambda x: x["week"])
         season = nsum(x[k] for x in w) / len(w)
@@ -133,10 +160,19 @@ def cfb_core(rows, matchup, conf, P):
     # team's baseline hands them the receptions that real depth-chart players below the minimum really take (CFB_SCALE_ALL; see the Backtest notes).
     pool = [i for i in js_order(PL) if PL[i]["team"] in matchup] if P.get("CFB_SCALE_ALL", C.CFB_SCALE_ALL) else ids
     raw = {i: dict(car=blend(PL[i], "car"), rec=blend(PL[i], "rec"), att=blend(PL[i], "att")) for i in pool}
+    qb_fixed = P.get("CFB_QB_FIXED_CARRIES", C.CFB_QB_FIXED_CARRIES)
     scale = {}
     for t in team_base:
         scale[t] = dict(car=1.0, rec=1.0, att=1.0)
         for k in ("car", "rec", "att"):
+            # CFB_QB_FIXED_CARRIES: a quarterback's carries are his own style (and his sacks), not a share of a fixed pie, so the rescale divides the
+            # pie among the other ball carriers: team carries minus what the QBs are expected to take
+            if k == "car" and qb_fixed:
+                qb_tot = nsum(raw[i]["car"] for i in pool if PL[i]["team"] == t and is_qb(PL[i]))
+                tot = nsum(raw[i]["car"] for i in pool if PL[i]["team"] == t and not is_qb(PL[i]))
+                if tot > 0:
+                    scale[t]["car"] = max(1 - C.CFB_TEAM_SCALE_CAP, min(1 + C.CFB_TEAM_SCALE_CAP, max(team_base[t]["car"] - qb_tot, 0.0) / tot))
+                continue
             tot = nsum(raw[i][k] for i in pool if PL[i]["team"] == t)
             if tot > 0:
                 scale[t][k] = max(1 - C.CFB_TEAM_SCALE_CAP, min(1 + C.CFB_TEAM_SCALE_CAP, team_base[t][k] / tot))
@@ -144,7 +180,7 @@ def cfb_core(rows, matchup, conf, P):
     team_car, team_rec = {}, {}
     for i in ids:
         t = PL[i]["team"]
-        team_car[t] = team_car.get(t, 0.0) + raw[i]["car"] * scale[t]["car"]
+        team_car[t] = team_car.get(t, 0.0) + raw[i]["car"] * (1.0 if (qb_fixed and is_qb(PL[i])) else scale[t]["car"])
         team_rec[t] = team_rec.get(t, 0.0) + raw[i]["rec"] * scale[t]["rec"]
 
     out = []
@@ -152,19 +188,22 @@ def cfb_core(rows, matchup, conf, P):
         p = PL[i]
         m = matchup[p["team"]]
         car, rec, att = (raw[i][k] * scale[p["team"]][k] for k in ("car", "rec", "att"))
+        if qb_fixed and is_qb(p):
+            car = raw[i]["car"]
         if car < 0.5 and rec < 0.5 and att < 1:
             continue
         dr, dc, dp, dcomp = def_rush.get(m["opp"], 1.0), def_rec.get(m["opp"], 1.0), def_pass.get(m["opp"], 1.0), def_comp.get(m["opp"], 1.0)
         site = 1.02 if m["site"] == "vs" else (1.0 if m["site"] == "N" else 0.98)
-        rb = rush_base["QB" if is_qb(p) else "OTHER"]
+        rb = rush_base[("QB_" + qb_tier(p) if use_tiers else "QB") if is_qb(p) else "OTHER"]
+        pc = qb_prior if is_qb(p) else C.CFB_PRIOR_CAR
         out.append(dict(
             id=i, name=p["name"], pos=p["pos"], team=p["team"], conf=p["conf"] or conf.get(p["team"]) or "", opp=m["opp"], siteTag=m["site"], start=m.get("start") or "",
             g=p["g"], car=rnd(car, 1), rec=rnd(rec, 1), att=rnd(att, 1),
-            ypc=(p["rushing_yards"] + C.CFB_PRIOR_CAR * rb["ypc"]) / (p["carries"] + C.CFB_PRIOR_CAR),
+            ypc=(p["rushing_yards"] + pc * rb["ypc"]) / (p["carries"] + pc),
             ypr=(p["receiving_yards"] + C.CFB_PRIOR_REC * LG_YPR) / (p["receptions"] + C.CFB_PRIOR_REC),
             ypa=(p["passing_yards"] + C.CFB_PRIOR_ATT * LG_YPA) / (p["attempts"] + C.CFB_PRIOR_ATT),
             compRate=(p["completions"] + C.CFB_PRIOR_ATT * LG_COMP) / (p["attempts"] + C.CFB_PRIOR_ATT),
-            rushTdRate=(p["rushing_tds"] + C.CFB_PRIOR_CAR * rb["td"]) / (p["carries"] + C.CFB_PRIOR_CAR),
+            rushTdRate=(p["rushing_tds"] + pc * rb["td"]) / (p["carries"] + pc),
             recTdRate=(p["receiving_tds"] + C.CFB_PRIOR_REC * LG_REC_TD) / (p["receptions"] + C.CFB_PRIOR_REC),
             ptdRate=(p["passing_tds"] + C.CFB_PRIOR_ATT * P["LG_PASS_TD"]) / (p["attempts"] + C.CFB_PRIOR_ATT),
             intRate=(p["interceptions"] + C.CFB_PRIOR_ATT * P["LG_INT"]) / (p["attempts"] + C.CFB_PRIOR_ATT),

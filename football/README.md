@@ -74,6 +74,13 @@ fetched again if more of its games have finished since. Locally: `CFBD_API_KEY=.
 What differs from the NFL model is what CFBD reports: no targets (receptions are projected directly), no injury report, no weather, no sacks, no
 2-point conversions, no player props (the college Game Board does show the game spread, total and implied scores from The Odds API's `americanfootball_ncaaf`, one cheap call of about 2 credits per pull), and a college QB's rushing line has his sacks subtracted so quarterbacks get their own rushing baseline.
 
+**Tested and not adopted (college QB mobility).** College starters range from pocket passers to near-running-backs (QBs take 25% of team carries
+against 15% in the NFL). On the walk-forward backtest (2026 weeks 3-6, 453 QB starts) none of these moved the model: mobility tiers for the QB rushing baseline
+(pocket < 3 carries a game, mid 3-8, mobile 8+), a lighter QB prior, leaving QB carries out of the team-volume rescale, and rating defences on non-QB carries.
+Points error changed by under 0.1% in every case; tiers helped pocket QBs (rushing MAE 11.3 to 11.0) and hurt mobile ones (27.4 to 27.8), and only the
+fixed-carries variant changed bias (-9% to +3%) without reducing error. The options remain in `config.py` (`CFB_QB_TIERS`, `CFB_QB_PRIOR_CAR`,
+`CFB_QB_FIXED_CARRIES`, `CFB_DEF_EXCL_QB`), all off.
+
 ## How the pieces fit
 
 - `pipeline/model.py` — `nfl_core` (league baselines, regressed defence ratings, volumes, rates, participation weighting, QB calibration) and

@@ -214,6 +214,10 @@ CFB_K_TEAM_VOL = 3
 CFB_TEAM_SCALE_CAP = 0.20
 CFB_MAX_WEEK = 20
 CFB_SCALE_ALL = True              # scale a team's volume over its whole roster, not only the projected players (tested in the college backtest)
+CFB_DEF_EXCL_QB = False            # rate a defence's rushing on non-QB carries only (tested in the college backtest)
+CFB_QB_FIXED_CARRIES = False       # a QB's carries are not rescaled to the team total (tested in the college backtest)
+CFB_QB_TIERS = False               # quarterbacks regress rushing toward their own mobility tier (tested in the college backtest)
+CFB_QB_PRIOR_CAR = None            # carries of prior for a QB's yards per carry and rushing TD rate (None = the same as everyone, CFB_PRIOR_CAR)
 CFB_BACKTEST_FROM_WEEK = 2
 CFB_MODEL_KEYS = [
     "ROLLING_WINDOW", "DEF_ADJ_CAP", "CATCH_CAP_FRACTION", "RECENT_WEIGHT", "RECENT_WEIGHT_ATT", "PRIOR_FUMBLES", "LAMBDA_RUSH_TD", "LAMBDA_REC_TD",
