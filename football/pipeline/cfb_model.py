@@ -161,6 +161,25 @@ def cfb_core(rows, matchup, conf, P):
     pool = [i for i in js_order(PL) if PL[i]["team"] in matchup] if P.get("CFB_SCALE_ALL", C.CFB_SCALE_ALL) else ids
     raw = {i: dict(car=blend(PL[i], "car"), rec=blend(PL[i], "rec"), att=blend(PL[i], "att")) for i in pool}
     qb_fixed = P.get("CFB_QB_FIXED_CARRIES", C.CFB_QB_FIXED_CARRIES)
+
+    # CFB_CONCENTRATE_ATT (the NFL model's participation weighting): a team's attempts are shared among everyone who might throw them, which divides
+    # them too far, because a backup who threw in one game of six still counts as a full passer. Each player's contribution to the DENOMINATOR is weighted
+    # by how often he has actually thrown in the team's last PLAY_WINDOW games; his own projection stays the conditional one (what he does in a game he plays).
+    p_play = {}
+    if P.get("CFB_CONCENTRATE_ATT", C.CFB_CONCENTRATE_ATT):
+        win_p, prior_p = max(1, int(P["PLAY_WINDOW"])), P.get("CFB_PLAY_PRIOR", C.CFB_PLAY_PRIOR)
+        seen_w = {}
+        for r in rows:
+            if r["team"] and r["week"]:
+                seen_w.setdefault(r["team"], set()).add(r["week"])
+        recent_w = {t: sorted(ws)[-win_p:] for t, ws in seen_w.items()}
+        for i in pool:
+            want = recent_w.get(PL[i]["team"], [])
+            if not want:
+                continue
+            seen = {x["week"]: x for x in PL[i]["weeks"]}
+            hits = sum(1 for w in want if w in seen and seen[w]["att"] >= 5)
+            p_play[i] = (hits + prior_p * 0.5) / (len(want) + prior_p)
     scale = {}
     for t in team_base:
         scale[t] = dict(car=1.0, rec=1.0, att=1.0)
@@ -173,7 +192,7 @@ def cfb_core(rows, matchup, conf, P):
                 if tot > 0:
                     scale[t]["car"] = max(1 - C.CFB_TEAM_SCALE_CAP, min(1 + C.CFB_TEAM_SCALE_CAP, max(team_base[t]["car"] - qb_tot, 0.0) / tot))
                 continue
-            tot = nsum(raw[i][k] for i in pool if PL[i]["team"] == t)
+            tot = nsum(raw[i][k] * (p_play.get(i, 1.0) if k == "att" else 1.0) for i in pool if PL[i]["team"] == t)
             if tot > 0:
                 scale[t][k] = max(1 - C.CFB_TEAM_SCALE_CAP, min(1 + C.CFB_TEAM_SCALE_CAP, team_base[t][k] / tot))
     # team projected volume after the rescale, so a share adds to 100% across the team (receiving share is a share of RECEPTIONS)

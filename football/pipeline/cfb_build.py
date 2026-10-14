@@ -231,7 +231,8 @@ def backtest(rows, games, W, P, from_week=None):
         (sd_lo, p_lo), (sd_hi, p_hi) = fit(mine[:half]), fit(mine[half:])
         b = (sd_hi - sd_lo) / max(0.001, p_hi - p_lo)
         spread.append(dict(label=label_, n=len(mine), a=rnd(sd_lo - b * p_lo, 3), b=rnd(b, 4)))
-    return dict(weeks=used, scored=nscored, thin=len(used) < 3, table=table, spread=spread)
+    pa = acc["pts"]
+    return dict(weeks=used, scored=nscored, thin=len(used) < 3, table=table, spread=spread, mean_factor=rnd(pa["act"] / pa["pred"], 3) if pa["pred"] else None)
 
 
 def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, season=None):
@@ -310,7 +311,7 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
     json.dump(sc, open(f"{out}/scorecard.json", "w"), separators=(",", ":"))
     bts = sorted(f[len("backtest_"):-5] for f in os.listdir(out) if f.startswith("backtest_") and f.endswith(".json"))
     json.dump(dict(season=season, week=week, generated=dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), stamp=stamp(P), default_scoring=W,
-                   players=len(proj), games=len(games_out), lines_ts=lines_ts, history_rows=len(rows), history_gaps=sorted(gaps)[:6], backtests=bts,
+                   players=len(proj), games=len(games_out), lines_ts=lines_ts, mean_factor=C.CFB_MEAN_FACTOR, history_rows=len(rows), history_gaps=sorted(gaps)[:6], backtests=bts,
                    asof_week=int(max(x["week"] for x in rows))), open(f"{out}/meta.json", "w"), separators=(",", ":"))
     print(f"college week {week}: projected {len(proj)} players in {len(games_out)} games; logged {logged}; scorecard has {sc['scored']} scored")
     return len(proj)
