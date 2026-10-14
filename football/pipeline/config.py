@@ -218,9 +218,12 @@ CFB_DEF_EXCL_QB = False            # rate a defence's rushing on non-QB carries 
 CFB_QB_FIXED_CARRIES = False       # a QB's carries are not rescaled to the team total (tested in the college backtest)
 CFB_QB_TIERS = False               # quarterbacks regress rushing toward their own mobility tier (tested in the college backtest)
 CFB_QB_PRIOR_CAR = None            # carries of prior for a QB's yards per carry and rushing TD rate (None = the same as everyone, CFB_PRIOR_CAR)
+CFB_CONCENTRATE_ATT = True         # weight a team's pass attempts by how often each player has actually thrown (the NFL model's participation weighting)
+CFB_PLAY_PRIOR = 0.1               # regression on that judgement for college (the NFL uses PLAY_PRIOR = 0.25; 0.1 was best on the college backtest)
+CFB_MEAN_FACTOR = 1.08             # mean points / median points for college: sum of actual over sum of projected in the walk-forward backtest (NFL: 1.17); five weeks
 CFB_BACKTEST_FROM_WEEK = 2
 CFB_MODEL_KEYS = [
     "ROLLING_WINDOW", "DEF_ADJ_CAP", "CATCH_CAP_FRACTION", "RECENT_WEIGHT", "RECENT_WEIGHT_ATT", "PRIOR_FUMBLES", "LAMBDA_RUSH_TD", "LAMBDA_REC_TD",
     "LAMBDA_PASS_TD", "LG_PASS_TD", "LG_INT", "CFB_CONFERENCE", "CFB_MIN_OPPS", "CFB_QB_MIN_ATT", "CFB_PRIOR_CAR", "CFB_PRIOR_REC", "CFB_PRIOR_ATT",
-    "CFB_K_DEF_RUSH", "CFB_K_DEF_REC", "CFB_K_DEF_PASS", "CFB_K_TEAM_VOL", "CFB_TEAM_SCALE_CAP", "CFB_SCALE_ALL", "DEFAULT_SCORING",
+    "CFB_K_DEF_RUSH", "CFB_K_DEF_REC", "CFB_K_DEF_PASS", "CFB_K_TEAM_VOL", "CFB_TEAM_SCALE_CAP", "CFB_SCALE_ALL", "CFB_CONCENTRATE_ATT", "CFB_PLAY_PRIOR", "DEFAULT_SCORING",
 ]

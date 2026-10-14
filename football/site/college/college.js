@@ -4,7 +4,7 @@
 const TABS = ["Projections", "Game Board", "Leaders", "Matchups", "Scorecard", "Backtest", "Config", "Methodology"];
 const D = {};
 const store = makeStore("gmc_");
-let CFG = {preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}, detail: false};
+let CFG = {preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}, detail: false, mean: false};
 let OVR = {};
 const POS = ["QB", "RB", "WR", "TE"];
 const view = () => document.getElementById("view");
@@ -12,7 +12,11 @@ const SCORE_LABEL = {passYd: "Pass yd", passTd: "Pass TD", intr: "INT", rushYd: 
 const koDate = iso => iso ? new Date(iso) : null;
 const started = iso => { const d = koDate(iso); return d ? d.getTime() <= Date.now() : false; };
 const koLabel = iso => { const d = koDate(iso); return d ? d.toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit"}) : ""; };
-const calcFor = p => FB.calcCfb(p, OVR[p.id], CFG.scoring);
+const calcFor = p => {
+  const c = FB.calcCfb(p, OVR[p.id], CFG.scoring);
+  c.shown = c.pts * (CFG.mean ? D.meta.mean_factor : 1);          // Proj Pts is a MEDIAN; Mean = median x the college mean factor
+  return c;
+};
 const proj = () => D.projections.map(p => ({...p, c: calcFor(p)}));
 const siteTag = r => r.site === "N" ? "vs " + esc(r.opp) + " (neutral)" : (r.site === "vs" ? "vs " : "@ ") + esc(r.opp);
 const nameCols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}];
@@ -57,9 +61,9 @@ const pages = {
       {k: "crtd", h: "Rush TD", v: r => r.c.rushTD, f: r => num(r.c.rushTD, 2)}, {k: "crectd", h: "Rec TD", v: r => r.c.recTD, f: r => num(r.c.recTD, 2)},
       {k: "cptd", h: "Pass TD", v: r => r.c.passTD, f: r => r.c.att > 0 ? num(r.c.passTD, 2) : ""},
       ...(det ? [{k: "cint", h: "INT", v: r => r.c.int, f: r => r.c.att > 0 ? num(r.c.int, 2) : ""}, {k: "cfum", h: "Fum", v: r => r.c.fum, f: r => num(r.c.fum, 2)}] : []),
-      {k: "cpts", h: "Proj Pts", v: r => r.c.pts, f: r => `<b>${num(r.c.pts)}</b>`}];
+      {k: "cpts", h: CFG.mean ? "Mean Pts" : "Proj Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`}];
     return `<h2>College Projections — Week ${D.meta.week}</h2>
-      <p class="sub">Median points for every FBS player with an unplayed game this week and at least ${D.meta.min_opps ?? 8} touches or attempts this season. Shaded <b>OVR</b> boxes are yours; everything recalculates instantly (teammates are not re-scaled). Scoring: ${esc(CFG.preset)}. College has no injury report: availability is on you.</p>
+      <p class="sub">${CFG.mean ? "Mean" : "Median"} points for every FBS player with an unplayed game this week and at least ${D.meta.min_opps ?? 8} touches or attempts this season. Shaded <b>OVR</b> boxes are yours; everything recalculates instantly (teammates are not re-scaled). Scoring: ${esc(CFG.preset)}. College has no injury report: availability is on you.</p>
       ${filters(`<label><input type="checkbox" id="hidestarted" ${F.hideStarted ? "checked" : ""}> hide games already started</label>
         <label><input type="checkbox" id="detail" ${CFG.detail ? "checked" : ""}> more columns</label><button id="clr">Clear overrides</button>`)}
       ${table(cols, rows, {id: "proj" + (det ? "d" : ""), sort: {key: "cpts"}, rowClass: r => started(r.ko) ? "started" : ""})}`;
@@ -75,8 +79,8 @@ const pages = {
       const cols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "ccar", h: "Car", v: r => r.c.car, f: r => num(r.c.car)}, {k: "cry", h: "Rush", v: r => r.c.rushY, f: r => num(r.c.rushY, 0)},
         {k: "crec", h: "Rec", v: r => r.c.rec, f: r => num(r.c.rec)}, {k: "crecy", h: "Rec Yds", v: r => r.c.recY, f: r => num(r.c.recY, 0)},
         {k: "catt", h: "Att", v: r => r.c.att, f: r => r.c.att > 0 ? num(r.c.att) : ""}, {k: "cpy", h: "Pass Yds", v: r => r.c.passY, f: r => r.c.att > 0 ? num(r.c.passY, 0) : ""},
-        {k: "ctd", h: "TD", v: r => r.c.rushTD + r.c.recTD + r.c.passTD, f: r => num(r.c.rushTD + r.c.recTD + r.c.passTD, 2)}, {k: "cpts", h: "Pts", v: r => r.c.pts, f: r => `<b>${num(r.c.pts)}</b>`}];
-      return `<div><h3>${esc(t)} <span class="mut">· ${num(rows.reduce((a, r) => a + r.c.pts, 0))} projected pts across ${rows.length} players</span></h3>${table(cols, rows, {id: "gb" + t, sort: {key: "cpts"}})}</div>`;
+        {k: "ctd", h: "TD", v: r => r.c.rushTD + r.c.recTD + r.c.passTD, f: r => num(r.c.rushTD + r.c.recTD + r.c.passTD, 2)}, {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`}];
+      return `<div><h3>${esc(t)} <span class="mut">· ${num(rows.reduce((a, r) => a + r.c.shown, 0))} projected pts across ${rows.length} players</span></h3>${table(cols, rows, {id: "gb" + t, sort: {key: "cpts"}})}</div>`;
     };
     return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected points.</p>
       <div class="bar"><label>Game <select id="game">${games.map(x => `<option value="${esc(x.game)}" ${x.game === g.game ? "selected" : ""}>${esc(x.game)} · ${esc(koLabel(x.ko))}${started(x.ko) ? " (started)" : ""}</option>`).join("")}</select></label></div>
@@ -86,7 +90,7 @@ const pages = {
 
   Leaders() {
     const rows = proj();
-    const CATS = [["Projected points", r => r.c.pts, 1], ["Rushing yards", r => r.c.rushY, 1], ["Receiving yards", r => r.c.recY, 1], ["Passing yards", r => r.c.passY, 1],
+    const CATS = [["Projected points", r => r.c.shown, 1], ["Rushing yards", r => r.c.rushY, 1], ["Receiving yards", r => r.c.recY, 1], ["Passing yards", r => r.c.passY, 1],
       ["Receptions", r => r.c.rec, 1], ["Carries", r => r.c.car, 1], ["Pass attempts", r => r.c.att, 1], ["Completions", r => r.c.comp, 1], ["Total TDs", r => r.c.rushTD + r.c.recTD + r.c.passTD, 2]];
     return `<h2>Projected Leaders — Week ${D.meta.week}</h2><p class="sub">Top 15 by projected output for the week ahead, not season totals.</p>${filters()}
       <div class="lead">${CATS.map(([label, f, dp]) => `<div class="card"><h4>${label}</h4><ol>${rows.filter(passes).map(r => ({r, v: f(r)})).filter(x => x.v > 0).sort((a, b) => b.v - a.v).slice(0, 15)
@@ -135,8 +139,10 @@ const pages = {
 
   Config() {
     const sc = CFG.scoring;
-    return `<h2>Config</h2><p class="sub">Saved on this device. Scoring only changes how stat lines are valued. College has no 2-point term and no mean/median switch (the median-to-mean factor was measured on the NFL only).</p>
-      <div class="bar"><label>Scoring preset <select id="preset">${[...Object.keys(FB.SCORING), "Custom"].map(p => `<option ${CFG.preset === p ? "selected" : ""}>${p}</option>`).join("")}</select></label></div>
+    return `<h2>Config</h2><p class="sub">Saved on this device. Scoring only changes how stat lines are valued. College has no 2-point term.</p>
+      <div class="bar"><label>Scoring preset <select id="preset">${[...Object.keys(FB.SCORING), "Custom"].map(p => `<option ${CFG.preset === p ? "selected" : ""}>${p}</option>`).join("")}</select></label>
+        <label>Show <select id="mean"><option value="0" ${CFG.mean ? "" : "selected"}>Median (compare to lines)</option><option value="1" ${CFG.mean ? "selected" : ""}>Mean (season-long value)</option></select></label></div>
+      <p class="mut">Projected points land on the <b>median</b> outcome (a few big games pull the average above the typical one). <b>Mean</b> multiplies points by ${D.meta.mean_factor}: the ratio of actual to projected points in the college walk-forward backtest (the NFL's is 1.17). It was measured on weeks 2-7 only, so treat it as rough.</p>
       <div class="bar">${Object.entries(SCORE_LABEL).map(([k, l]) => `<label>${l} <input data-sc="${k}" type="number" step="0.01" style="width:70px" value="${sc[k]}"></label>`).join("")}</div>
       <p><button id="clr">Clear all volume overrides</button></p>`;
   },
@@ -145,7 +151,7 @@ const pages = {
     return `<div class="doc"><h2>College methodology</h2>
 <p>The same engine as the NFL page, fed by <a href="https://collegefootballdata.com">CollegeFootballData</a> box scores (one call per played week, FBS only). What is different is what the data allows:</p>
 <h3>No targets</h3><p>CFBD reports receptions, not targets, so there is no catch rate. Receptions are projected directly, receiving touchdowns are per reception, and "Rec %" is a share of the team's projected receptions.</p>
-<h3>Team volume is shared over the whole roster</h3><p>A team's projected carries, receptions and attempts are rescaled to a realistic team game (by at most ±20%). That rescale now divides over every player on the roster, not just the ones selected for projection. Before, the selected few were scaled up to the whole team's baseline, which handed them the receptions that depth-chart players below the minimum really take: projected receptions per team ran about 14-17 against only 10-12 actually caught by those same players. Fixing it cut points error from 4.0% to 10.3% better than a season average, turned receptions and receiving yards from worse than baseline to better, and moved the points over-rate from 38% to 48% (target 50). It was tuned on the first five weeks only, so treat the size of the gain with caution; the Backtest tab keeps the walk-forward honest as weeks accrue.</p><h3>Quarterbacks run differently</h3><p>The NCAA charges a sack as a rushing attempt with the yardage lost, which the NFL does not. Across the 2026 fixture weeks college QBs ran 3.03 yards a carry against 4.73 for everyone else, and 29 of 166 qualifying QBs finished with negative rushing yards. So rushing gets its own baseline per group (quarterbacks vs everyone else), measured from the season's own data, and a quarterback regresses toward what quarterbacks do rather than toward ball carriers.</p>
+<h3>Team volume is shared over the whole roster</h3><p>A team's projected carries, receptions and attempts are rescaled to a realistic team game (by at most ±20%). That rescale now divides over every player on the roster, not just the ones selected for projection. Before, the selected few were scaled up to the whole team's baseline, which handed them the receptions that depth-chart players below the minimum really take: projected receptions per team ran about 14-17 against only 10-12 actually caught by those same players. Fixing it cut points error from 4.0% to 10.3% better than a season average, turned receptions and receiving yards from worse than baseline to better, and moved the points over-rate from 38% to 48% (target 50). It was tuned on the first five weeks only, so treat the size of the gain with caution; the Backtest tab keeps the walk-forward honest as weeks accrue.</p><h3>Pass attempts are shared by who actually throws</h3><p>The same participation weighting as the NFL model: a team's pass attempts are divided among everyone who might throw them, weighting each player by how often he has thrown in the team's last six games (regressed, prior 0.1). Without it a backup who threw once counted as a full passer, projected attempts ran 4-10% low, the actual beat the projected passing yards 57% of the time and completions 56%, and the starter was pulled down. With it the over-rates are 49% and 46% (target 50) and passing error against a season average improved from 2.4% to 4.0% better. Tuned on the first weeks only.</p><h3>Quarterbacks run differently</h3><p>The NCAA charges a sack as a rushing attempt with the yardage lost, which the NFL does not. Across the 2026 fixture weeks college QBs ran 3.03 yards a carry against 4.73 for everyone else, and 29 of 166 qualifying QBs finished with negative rushing yards. So rushing gets its own baseline per group (quarterbacks vs everyone else), measured from the season's own data, and a quarterback regresses toward what quarterbacks do rather than toward ball carriers.</p>
 <h3>Opponent adjustments</h3><p>Each defence is rated on rushing, yards per reception, yards per attempt and completion rate allowed, regressed by plays faced (50, 45 and 60) and capped at ±15%. These are applied <b>in full</b>, unlike the NFL page where only a measured share arrives. Touchdown matchups are derived from the yardage matchup at the NFL's measured shares (60% rushing, 77% receiving, 78% passing).</p>
 <h3>Not in the data</h3><p>No injury report at any tier, no 2-point conversions, no weather feed, no sack projection and no betting lines on this page. A neutral-site game has no home team, so it takes no home-field bump.</p>
 <h3>Scorecard and backtest</h3><p>Same discipline as the NFL: projections are logged before kickoff and never rewritten, with a settings stamp. The two leagues are never pooled. College is about six times the sample (roughly 1,265 scoreable player-games a week against the NFL's 201), so a couple of weeks clear the 400-row calibration bar, but it does not calibrate the NFL model.</p></div>`;
@@ -179,6 +185,7 @@ document.addEventListener("change", e => {
   else if (t.id === "game") { F.game = t.value; render(); } else if (t.id === "year") { F.year = t.value; render(); }
   else if (t.id === "hidestarted") { F.hideStarted = t.checked; render(true); } else if (t.id === "detail") { CFG.detail = t.checked; store.set("cfg", CFG); render(true); }
   else if (t.id === "preset") { CFG.preset = t.value; if (FB.SCORING[t.value]) CFG.scoring = {...FB.SCORING[t.value]}; store.set("cfg", CFG); render(); }
+  else if (t.id === "mean") { CFG.mean = t.value === "1"; store.set("cfg", CFG); render(); }
   else if (t.dataset.sc) { CFG.scoring[t.dataset.sc] = +t.value || 0; CFG.preset = "Custom"; store.set("cfg", CFG); render(); }
 });
 document.addEventListener("click", e => { if (e.target.id === "clr") { OVR = {}; store.set("ovr", OVR); render(); } });
