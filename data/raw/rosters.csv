@@ -14,7 +14,6 @@ pid,name,team
 4280151,Corey Kispert,ATL
 3146557,Jock Landale,ATL
 2490149,CJ McCollum,ATL
-4712845,Isaac McKneely,ATL
 4873201,Asa Newell,ATL
 4431680,Onyeka Okongwu,ATL
 5105571,Henri Veesaar,ATL
@@ -42,10 +41,8 @@ pid,name,team
 3078576,Derrick White,BOS
 4702745,Amari Williams,BOS
 5105626,Tyler Bilodeau,BKN
-5107242,Dion Brown,BKN
 5101761,Mikel Brown Jr.,BKN
 4712896,Noah Clowney,BKN
-4432189,Dain Dainja,BKN
 5175643,Egor Demin,BKN
 4702177,Keon Ellis,BKN
 4870564,Joshua Jefferson,BKN
@@ -186,13 +183,13 @@ pid,name,team
 4684742,Ausar Thompson,DET
 4592843,Brice Williams,DET
 4397886,Charles Bassey,GS
+4431914,Tyler Burton,GS
 6430,Jimmy Butler III,GS
 4433149,LJ Cryer,GS
 3975,Stephen Curry,GS
 6589,Draymond Green,GS
 3213,Al Horford,GS
 4703396,Graham Ike,GS
-4696317,Miles Kelly,GS
 5175737,Yaxel Lendeborg,GS
 4897449,Malevy Leons,GS
 4066436,De'Anthony Melton,GS
@@ -251,7 +248,6 @@ pid,name,team
 3913176,Brandon Ingram,LAC
 4432170,Isaiah Jackson,LAC
 3936099,Derrick Jones Jr.,LAC
-5159895,Yuki Kawamura,LAC
 3448,Brook Lopez,LAC
 5105853,Fletcher Loyer,LAC
 5105832,Nick Martinelli,LAC
@@ -273,6 +269,7 @@ pid,name,team
 4433599,Arthur Kaluma,LAL
 4433136,Walker Kessler,LAL
 4897943,Dalton Knecht,LAL
+5107258,William Kyle III,LAL
 4592691,Jake LaRavia,LAL
 3155535,Kevon Looney,LAL
 4278580,Sandro Mamukelashvili,LAL
@@ -525,6 +522,7 @@ pid,name,team
 4397654,Adam Flagler,SAC
 4065732,De'Andre Hunter,SAC
 4917149,Alex Karaban,SAC
+4701192,Viktor Lakhin,SAC
 3064440,Zach LaVine,SAC
 5107897,Jonathan Mogbo,SAC
 4066262,Malik Monk,SAC
@@ -541,7 +539,6 @@ pid,name,team
 5061568,Carter Bryant,SA
 4845367,Stephon Castle,SA
 4592479,Julian Champagnie,SA
-4433176,RJ Davis,SA
 3155937,Jon Elmore,SA
 4066259,De'Aaron Fox,SA
 5107968,Ja'Kobi Gillespie,SA
@@ -575,6 +572,7 @@ pid,name,team
 5093267,Collin Murray-Boyles,TOR
 3134908,Jakob Poeltl,TOR
 4395724,Immanuel Quickley,TOR
+4897696,Jamarion Sharp,TOR
 4432241,Jamal Shead,TOR
 4397784,Malachi Smith,TOR
 4684272,Ja'Kobe Walter,TOR
@@ -599,7 +597,6 @@ pid,name,team
 4065663,Josh Okogie,UTAH
 5041955,Darryn Peterson,UTAH
 5105839,Brice Sensabaugh,UTAH
-5106293,Mohamed Wague,UTAH
 4278129,Deandre Ayton,WSH
 4432187,Reece Beekman,WSH
 4845374,Bub Carrington,WSH
