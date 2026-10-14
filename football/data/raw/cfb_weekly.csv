@@ -10549,3 +10549,43 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 6,5387611,Jaylen Andrews,WR,Buffalo,Mid-American,Toledo,0,0.0,0.0,0.0,2.0,28.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 6,5387612,Clint Walker,TE,Buffalo,Mid-American,Toledo,0,0.0,0.0,0.0,2.0,28.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 6,-5463, Team,,Buffalo,Mid-American,Toledo,0,2.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4680024,Da'Wain Lofton,WR,Delaware,Conference USA,Middle Tennessee,0,0.0,0.0,0.0,3.0,40.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4887640,Kaderris Roberts,RB,Delaware,Conference USA,Middle Tennessee,0,3.0,14.0,1.0,3.0,45.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5086952,Jo'Nathan Silver,RB,Delaware,Conference USA,Middle Tennessee,0,6.0,19.0,0.0,1.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5153870,Donovan Lewis,WR,Delaware,Conference USA,Middle Tennessee,0,0.0,0.0,0.0,6.0,83.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5157266,Bryson Graves,WR,Delaware,Conference USA,Middle Tennessee,0,0.0,0.0,0.0,2.0,44.0,0.0,1.0,1.0,15.0,1.0,0.0,0.0
+7,5161800,Viron Ellison Jr.,RB,Delaware,Conference USA,Middle Tennessee,0,4.0,19.0,0.0,2.0,14.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5224764,Sean Wilson,WR,Delaware,Conference USA,Middle Tennessee,0,0.0,0.0,0.0,4.0,35.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5289314,Tyler Bell,QB,Delaware,Conference USA,Middle Tennessee,0,17.0,18.0,0.0,1.0,15.0,1.0,22.0,36.0,306.0,2.0,1.0,0.0
+7,5295765,Josh Humes,TE,Delaware,Conference USA,Middle Tennessee,0,0.0,0.0,0.0,1.0,33.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4565180,Peter Costelli,QB,Middle Tennessee,Conference USA,Delaware,1,1.0,-3.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
+7,4603185,Markus Allen,WR,Middle Tennessee,Conference USA,Delaware,1,0.0,0.0,0.0,1.0,36.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4685436,Antonio Martin,RB,Middle Tennessee,Conference USA,Delaware,1,11.0,48.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5091830,Cam'Ron Lacy,WR,Middle Tennessee,Conference USA,Delaware,1,0.0,0.0,0.0,4.0,34.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5194626,Roman Gagliano,QB,Middle Tennessee,Conference USA,Delaware,1,4.0,22.0,1.0,0.0,0.0,0.0,22.0,32.0,291.0,3.0,1.0,0.0
+7,5217200,Neo Clifton,WR,Middle Tennessee,Conference USA,Delaware,1,0.0,0.0,0.0,4.0,64.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5291778,Ziyon Butler,WR,Middle Tennessee,Conference USA,Delaware,1,0.0,0.0,0.0,3.0,28.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5306988,Terrence Brown Jr.,,Middle Tennessee,Conference USA,Delaware,1,7.0,40.0,0.0,6.0,26.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5383058,Koraun Perdue,TE,Middle Tennessee,Conference USA,Delaware,1,0.0,0.0,0.0,4.0,103.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,-6654, Team,,Middle Tennessee,Conference USA,Delaware,1,2.0,-2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5069231,Deondre Johnson,WR,Jacksonville State,Conference USA,Florida International,1,0.0,0.0,0.0,4.0,93.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5087930,Jamill Williams,WR,Jacksonville State,Conference USA,Florida International,1,1.0,-3.0,0.0,4.0,18.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5122157,Caden Creel,QB,Jacksonville State,Conference USA,Florida International,1,19.0,95.0,0.0,0.0,0.0,0.0,16.0,22.0,214.0,2.0,1.0,0.0
+7,5160197,Darius Cannon,WR,Jacksonville State,Conference USA,Florida International,1,0.0,0.0,0.0,3.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5161162,Ronnel Johnson,WR,Jacksonville State,Conference USA,Florida International,1,0.0,0.0,0.0,1.0,34.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5176911,Justus Savage,RB,Jacksonville State,Conference USA,Florida International,1,7.0,44.0,1.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5226550,Khristian Lando,RB,Jacksonville State,Conference USA,Florida International,1,2.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5257214,Lucas Farrington,RB,Jacksonville State,Conference USA,Florida International,1,2.0,26.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5265478,Luke Gilbert,TE,Jacksonville State,Conference USA,Florida International,1,0.0,0.0,0.0,3.0,55.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5265499,Jameson Scissum,TE,Jacksonville State,Conference USA,Florida International,1,1.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4685356,Greg Gaines III,WR,Florida International,Conference USA,Jacksonville State,0,0.0,0.0,0.0,1.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4870883,J.J. Kohl,QB,Florida International,Conference USA,Jacksonville State,0,5.0,16.0,0.0,0.0,0.0,0.0,24.0,38.0,278.0,2.0,0.0,0.0
+7,4879999,Maguire Anderson,WR,Florida International,Conference USA,Jacksonville State,0,1.0,5.0,0.0,8.0,133.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5079372,Anthony Carrie,RB,Florida International,Conference USA,Jacksonville State,0,10.0,26.0,0.0,2.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5079684,James Resar,TE,Florida International,Conference USA,Jacksonville State,0,1.0,4.0,0.0,5.0,46.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5121664,Kyle Mcneal,WR,Florida International,Conference USA,Jacksonville State,0,0.0,0.0,0.0,4.0,33.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5125595,Eric Nelson,WR,Florida International,Conference USA,Jacksonville State,0,0.0,0.0,0.0,1.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5146722,Devonte Lyons,RB,Florida International,Conference USA,Jacksonville State,0,15.0,73.0,1.0,2.0,26.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5153845,Zach Marker,QB,Florida International,Conference USA,Jacksonville State,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
+7,5236210,Jackson Verdugo,TE,Florida International,Conference USA,Jacksonville State,0,0.0,0.0,0.0,2.0,14.0,0.0,1.0,1.0,2.0,0.0,0.0,0.0
+7,-14550, Team,,Florida International,Conference USA,Jacksonville State,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
