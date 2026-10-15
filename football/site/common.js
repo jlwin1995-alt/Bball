@@ -42,3 +42,23 @@ const plainSigned = x => x == null ? "" : (x > 0 ? "+" : "") + num(x, 1);
 // change in error against a baseline: negative means the model made smaller misses, so negative is the good colour
 const vsBase = x => x == null ? "" : `<span class="${x < 0 ? "good" : x > 0 ? "bad" : "mut"}">${x > 0 ? "+" : ""}${num(x, 1)}%</span>`;
 const pc1 = (h, n) => n ? `${(h / n * 100).toFixed(1)}% <span class="mut">(${h}/${n})</span>` : "—";
+
+// Side-by-side team comparison (away left, home right): one row per stat with both values, rank in the league, and a bar split by the two values.
+// The better side of each row is highlighted (higher for what a team gains, lower for what it allows and for turnovers).
+function compareCard(T, away, home) {
+  const a = T?.teams?.[away], h = T?.teams?.[home];
+  if (!a || !h) return "";
+  const row = r => {
+    const x = a[r.k], y = h[r.k];
+    if (x == null || y == null) return "";
+    const tot = Math.abs(x) + Math.abs(y), pa = tot ? Math.abs(x) / tot * 100 : 50;
+    const better = x === y ? 0 : ((x > y) === r.higher ? -1 : 1);       // -1 = away side better, 1 = home side better
+    const cell = (v, rk, win) => `<b class="${win ? "win" : ""}">${num(v, r.dp)}</b> <span class="mut">#${rk}</span>`;
+    return `<div class="cmp"><div class="cmpv l">${cell(x, a[r.k + "_rk"], better === -1)}</div><div class="cmpl">${esc(r.label)}
+      <div class="cmpbar"><i class="${better === -1 ? "win" : ""}" style="width:${pa.toFixed(1)}%"></i><i class="${better === 1 ? "win" : ""}" style="width:${(100 - pa).toFixed(1)}%"></i></div></div>
+      <div class="cmpv r">${cell(y, h[r.k + "_rk"], better === 1)}</div></div>`;
+  };
+  return `<div class="cmpcard"><h3>Team comparison <span class="mut">· per game, ${a.g} and ${h.g} games · #rank of ${T.n} (1 = best)</span></h3>
+    <div class="cmphead"><span>${esc(away)}</span><span>${esc(home)}</span></div>${T.rows.map(row).join("")}
+    <p class="mut cmpnote">${T.note || ""}</p></div>`;
+}

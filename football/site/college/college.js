@@ -85,7 +85,8 @@ const pages = {
     return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected points.</p>
       <div class="bar"><label>Game <select id="game">${games.map(x => `<option value="${esc(x.game)}" ${x.game === g.game ? "selected" : ""}>${esc(x.game)} · ${esc(koLabel(x.ko))}${started(x.ko) ? " (started)" : ""}</option>`).join("")}</select></label></div>
       <div class="gamehead"><div><span>Kickoff</span><b>${esc(koLabel(g.ko))}</b></div><div><span>Conferences</span><b>${esc(g.conf[0] || "-")} / ${esc(g.conf[1] || "-")}</b></div>${g.neutral ? `<div><span>Site</span><b>Neutral</b></div>` : ""}${g.spread == null && g.total == null ? "" : `<div><span>Line (The Odds API)</span><b>${g.spread == null ? "" : g.spread > 0 ? esc(g.home) + " -" + num(g.spread) : g.spread < 0 ? esc(g.away) + " -" + num(-g.spread) : "pick'em"}${g.total == null ? "" : " · O/U " + num(g.total)}</b></div>`}${g.home_imp == null ? "" : `<div><span>Implied total</span><b>${esc(g.away)} ${num(g.away_imp)} – ${esc(g.home)} ${num(g.home_imp)}</b></div>`}</div>
-      <div class="two">${mk(g.away)}${mk(g.home)}</div>`;
+      ${compareCard({...D.teams, note: "Completed games only, FBS teams ranked (games against FCS teams count in a team's numbers). College rushing has sacks subtracted, as the NCAA books them. Third/fourth down, red zone and first downs are not in the box-score feed."}, g.away, g.home)}
+      <div class="stack">${mk(g.away)}${mk(g.home)}</div>`;
   },
 
   Leaders() {
@@ -193,7 +194,7 @@ document.addEventListener("click", e => { if (e.target.id === "clr") { OVR = {};
 async function boot() {
   CFG = {...CFG, ...store.get("cfg", {})}; OVR = store.get("ovr", {});
   if (!CFG.scoring || Object.keys(CFG.scoring).some(k => !(k in SCORE_LABEL) && k !== "two")) CFG = {...CFG, preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}};
-  await Promise.all(["projections", "games", "matchups", "scorecard", "meta"].map(async n => { try { const r = await fetch(`../data/cfb/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
+  await Promise.all(["projections", "games", "teams", "matchups", "scorecard", "meta"].map(async n => { try { const r = await fetch(`../data/cfb/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   if (!D.projections || !D.meta) {
     view().innerHTML = `<div class="doc"><h2>No college data yet</h2><p>College football needs a free CollegeFootballData key. Get one at <a href="https://collegefootballdata.com/key">collegefootballdata.com/key</a>, add it as the <code>CFBD_API_KEY</code> repository secret (Settings → Secrets and variables → Actions), and run the "Football refresh data and deploy" workflow. College data appears here once it has run during the college season.</p></div>`;
     return;
