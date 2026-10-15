@@ -54,6 +54,11 @@ Lines come from [The Odds API](https://the-odds-api.com) (`pipeline/fetch_odds.p
 `python -m pipeline.selftest` checks the response parser, name matching (two Josh Allens) and the consensus maths offline.
 `node site/test/lines.mjs` checks the probability maths the Lines tab uses.
 
+**Leans.** A *lean* is the model disagreeing with the consensus line, in units of that market's spread (z = (projection - line) / sd). At 0.25 sd or more
+it is shown as a LEAN, at 0.5 or more as STRONG, on the Game Board (strongest lean per player, row marked), the Projections tab and the Lines tab
+(*strong leans only* filter). On week 5's 380 lines the model's side won 43% under 0.1 sd, 50% at 0.1-0.25, 55% at 0.25-0.5 and 54% over 0.5: small samples,
+so the tiers are a way to sort, not a promise. Thresholds are `LEAN` in `site/app.js`.
+
 ### Results
 
 Each pull keeps the **last pregame** consensus and PrizePicks line per game, player and market in `data/log/lines_log.csv` (overwritten while a game

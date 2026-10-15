@@ -32,7 +32,7 @@ function calcFor(p) {
 const proj = () => D.projections.map(p => ({...p, c: calcFor(p)}));
 
 const nameCols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}];
-const F = {q: "", pos: "", team: "", hideStarted: false, game: "", effView: "QB", year: "", minG: 0, lstat: "", lgame: "", lpicks: false, rweek: "", rmkt: "pts", rlines: false, rpicks: false};
+const F = {q: "", pos: "", team: "", hideStarted: false, game: "", effView: "QB", year: "", minG: 0, lstat: "", lgame: "", lpicks: false, lstrong: false, rweek: "", rmkt: "pts", rlines: false, rpicks: false};
 function teams() { return [...new Set(D.projections.map(p => p.team))].sort(); }
 function filters(extra = "", {team = false} = {}) {
   return `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}">
@@ -59,22 +59,37 @@ function spark(a) {
 const ovrCell = (r, key, shown) => `<input class="ovr" data-id="${esc(r.id)}" data-key="${key}" value="${OVR[r.id]?.[key] ?? ""}" placeholder="${num(shown)}">`;
 
 // Posted lines for one player (from the last odds pull), each scored against the model's current median projection
+// A "lean" is the model disagreeing with the consensus line, in units of that market's spread: z = (projection - line) / sd. Graded on week 5 (380 lines):
+// under 0.1 sd the model's side won 43%, 0.1-0.25 50%, 0.25-0.5 55%, over 0.5 54%. Small samples, so the tiers are a way to sort, not a promise.
+const LEAN = {lean: 0.25, strong: 0.5};
+const zOf = (spec, m, line) => (m - line) / (spec.law === "poisson" ? Math.max(Math.sqrt(Math.max(m, 0)), 0.5) : FB.sigmaFor(spec, m));
+const leanTier = z => Math.abs(z) >= LEAN.strong ? "strong" : Math.abs(z) >= LEAN.lean ? "lean" : "";
+const leanTip = "Model vs consensus line in standard deviations of the market. Under 0.1 the model's side won 43% of lines so far, 0.1-0.25 50%, 0.25-0.5 55%, over 0.5 54% (week 5, 380 lines): a way to sort, not a promise.";
+
+// Posted lines for one player (from the last odds pull), each scored against the model's current median projection
 function playerLines(p) {
   const L = D.lines;
   if (!L || !L.rows) return [];
   return L.rows.filter(r => r.id === p.id).map(r => {
     const spec = mktSpec(r.stat), m = p.c[MKT[r.stat]], c = r.cons, sd = c ? FB.sides(c.line, m, spec) : null;
-    return {r, spec, m, c, po: sd?.o, edge: sd ? (sd.o - c.p_over) * 100 : null, pp: r.dfs.prizepicks, ud: r.dfs.underdog ?? r.dfs.pick6, started: Date.now() >= Date.parse(r.commence)};
-  }).sort((a, b) => Math.abs(b.edge ?? 0) - Math.abs(a.edge ?? 0));
+    const started = Date.now() >= Date.parse(r.commence), live = !started && !isOut(p.status);
+    const z = c ? zOf(spec, m, c.line) : null;
+    return {r, spec, m, c, po: sd?.o, edge: sd ? (sd.o - c.p_over) * 100 : null, pp: r.dfs.prizepicks, ud: r.dfs.underdog ?? r.dfs.pick6, started, z,
+      tier: live && z != null ? leanTier(z) : "", side: z == null ? null : z > 0 ? "OVER" : "UNDER"};
+  }).sort((a, b) => Math.abs(b.z ?? 0) - Math.abs(a.z ?? 0));
 }
+// The strongest lean on a player, if any clears the bar (not for started games or players ruled out)
+const bestLean = p => { const b = playerLines(p)[0]; return b && b.tier ? b : null; };
+const leanPill = l => l ? `<span class="pill lean-${l.tier}" title="${esc(leanTip)}">${l.tier === "strong" ? "STRONG " : ""}${l.side} ${esc(l.spec.label)} ${l.c.line} <span class="zs">${l.z > 0 ? "+" : ""}${num(l.z, 2)}σ</span></span>` : "";
 function linesCell(p) {
   const ls = playerLines(p);
   if (!ls.length) return `<span class="mut">${D.lines?.rows?.length ? "no props" : "no lines pulled yet"}</span>`;
   const b = ls[0], pick = b.edge != null && !b.started && !isOut(p.status) && Math.abs(b.edge) >= CFG.edgeMin;
-  const head = b.c ? `${esc(b.spec.label)} ${b.edge >= 0 ? "o" : "u"}${b.c.line} <span class="${b.edge > 0 ? "good" : "bad"}">${b.edge > 0 ? "+" : ""}${num(b.edge)}</span>` : `${esc(b.spec.label)} PP ${b.pp ?? ""}`;
-  const rows = ls.map(x => `<div>${esc(x.spec.label)}: proj ${num(x.m)} · ${x.c ? `cons ${x.c.line} (${num(x.c.p_over * 100)}% over, ${FB.amer(x.c.p_over)}/${FB.amer(1 - x.c.p_over)}) · model ${num(x.po * 100)}% · <b class="${x.edge > 0 ? "good" : "bad"}">${x.edge > 0 ? "+" : ""}${num(x.edge)}pp</b>` : ""}${x.pp != null ? ` · PrizePicks ${x.pp}` : ""}${x.ud != null ? ` · UD/Pick6 ${x.ud}` : ""}<br><span class="mut">${x.r.books.map(k => `${esc(k.b)} ${k.line} (${k.over ?? "-"}/${k.under ?? "-"})`).join(" · ")}</span></div>`).join("");
+  const head = b.c ? `${b.tier ? leanPill(b) : `${esc(b.spec.label)} ${b.z >= 0 ? "o" : "u"}${b.c.line} <span class="mut">${b.z > 0 ? "+" : ""}${num(b.z, 2)}σ</span>`} <span class="${b.edge > 0 ? "good" : "bad"}">${b.edge > 0 ? "+" : ""}${num(b.edge)}pp</span>` : `${esc(b.spec.label)} PP ${b.pp ?? ""}`;
+  const rows = ls.map(x => `<div>${esc(x.spec.label)}: proj ${num(x.m)} · ${x.c ? `cons ${x.c.line} (${num(x.c.p_over * 100)}% over, ${FB.amer(x.c.p_over)}/${FB.amer(1 - x.c.p_over)}) · lean <b>${x.z > 0 ? "+" : ""}${num(x.z, 2)}σ</b> ${x.tier ? `<span class="pill lean-${x.tier}">${x.tier === "strong" ? "STRONG " : ""}${x.side}</span>` : ""} · model ${num(x.po * 100)}% · <b class="${x.edge > 0 ? "good" : "bad"}">${x.edge > 0 ? "+" : ""}${num(x.edge)}pp</b>` : ""}${x.pp != null ? ` · PrizePicks ${x.pp}` : ""}${x.ud != null ? ` · UD/Pick6 ${x.ud}` : ""}<br><span class="mut">${x.r.books.map(k => `${esc(k.b)} ${k.line} (${k.over ?? "-"}/${k.under ?? "-"})`).join(" · ")}</span></div>`).join("");
   return `<details><summary>${head}${pick ? ` <b>${b.edge > 0 ? "OVER" : "UNDER"}</b>` : ""}${b.started ? ` <span class="pill hot">LIVE</span>` : ""}</summary><div class="lines-pop">${rows}</div></details>`;
 }
+const leanRow = r => { const b = bestLean(r); return b ? "lean-" + b.tier + "-row" : ""; };
 
 // The Google-Sheet model's own pre-kickoff log (same model, weeks played before this site existed), scored on points
 function legacyBlock(L, wc, pc) {
@@ -122,13 +137,14 @@ const pages = {
       {k: "cptd", h: "Pass TD", v: r => r.c.passTD, f: r => r.c.att > 0 ? num(r.c.passTD, 2) : ""},
       ...(det ? [{k: "cint", h: "INT", v: r => r.c.int, f: r => r.c.att > 0 ? num(r.c.int, 2) : ""}, {k: "cfum", h: "Fum", v: r => r.c.fum, f: r => num(r.c.fum, 2)}] : []),
       {k: "cpts", h: CFG.mean ? "Mean Pts" : "Proj Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`},
+      {k: "lean", h: "Lean", l: 1, t: leanTip, v: r => { const b = playerLines(r)[0]; return b?.z == null ? null : Math.abs(b.z); }, f: r => { const b = bestLean(r); return b ? leanPill(b) : ""; }},
       {k: "ovp", h: "Opp vs Pos", t: "What the opponent gives up to this player's position group on his main market (rate-based, defence only), and where it ranks among the slate's defences (1 = most generous)",
         v: r => r.ovp, f: r => r.ovp == null ? "" : `${signed(r.ovp)}% <span class="mut">${esc(r.ork || "")}</span>`}];
     return `<h2>Projections — Week ${D.meta.week}</h2>
       <p class="sub">${CFG.mean ? "Mean" : "Median"} points for every player with a game this week. Shaded <b>OVR</b> boxes are yours; everything recalculates instantly (teammates are not re-scaled). Scoring: ${esc(CFG.preset)}.</p>
       ${filters(`<label><input type="checkbox" id="hidestarted" ${F.hideStarted ? "checked" : ""}> hide games already started</label>
         <label><input type="checkbox" id="detail" ${CFG.detail ? "checked" : ""}> more columns</label><button id="clr">Clear overrides</button>`, {team: true})}
-      ${table(cols, rows, {id: "proj" + (det ? "d" : ""), sort: {key: "cpts"}, rowClass: r => isOut(r.status) ? "out" : started(r.ko) ? "started" : ""})}`;
+      ${table(cols, rows, {id: "proj" + (det ? "d" : ""), sort: {key: "cpts"}, rowClass: r => isOut(r.status) ? "out" : started(r.ko) ? "started" : leanRow(r)})}`;
   },
 
   "Game Board"() {
@@ -146,10 +162,10 @@ const pages = {
         {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`},
         {k: "ovp", h: "Opp vs Pos", t: "What the opponent gives up to this player's position group, and where it ranks among this week's defences (1 = most generous)", v: r => r.ovp,
           f: r => r.ovp == null ? "" : `${signed(r.ovp)}% <span class="mut">${esc(r.ork || "")}</span>`},
-        {k: "lines", h: "Lines · best edge", l: 1, t: "Click to open every posted line for this player", v: r => { const b = playerLines(r)[0]; return b?.edge == null ? null : Math.abs(b.edge); }, f: linesCell}];
+        {k: "lines", h: "Lines · strongest lean", l: 1, t: "Click to open every posted line for this player", v: r => { const b = playerLines(r)[0]; return b?.z == null ? null : Math.abs(b.z); }, f: linesCell}];
       const live = rows.filter(r => !isOut(r.status)), nOut = rows.length - live.length;
       const tot = live.reduce((a, r) => a + r.c.shown, 0);
-      return `<div><h3>${esc(t)} <span class="mut">· ${num(tot)} projected pts across ${live.length} players${nOut ? ` (${nOut} listed out, not counted)` : ""}</span></h3>${table(cols, rows, {id: "gb" + t, sort: {key: "cpts"}})}</div>`;
+      return `<div><h3>${esc(t)} <span class="mut">· ${num(tot)} projected pts across ${live.length} players${nOut ? ` (${nOut} listed out, not counted)` : ""}</span></h3>${table(cols, rows, {id: "gb" + t, sort: {key: "cpts"}, rowClass: leanRow})}</div>`;
     };
     const wx = g.src === "indoor" || g.roof === "indoor" ? "indoors" : g.wind != null ? `${num(g.wind, 0)} mph wind${g.temp != null ? `, ${num(g.temp, 0)}°F` : ""} <span class="mut">(${esc(g.src)})</span>` : "weather unknown";
     const sp = g.spread == null ? "" : g.spread > 0 ? `${g.home} -${num(g.spread)}` : g.spread < 0 ? `${g.away} -${num(-g.spread)}` : "pick'em";
@@ -289,13 +305,14 @@ const pages = {
         const spec = mktSpec(r.stat), m = p.c[MKT[r.stat]], c = r.cons, pp = r.dfs.prizepicks;
         const st = Date.now() >= Date.parse(r.commence), outp = isOut(p.status);
         const o = {started: st, name: p.name, pos: p.pos, team: p.team, game: r.game, stat: r.stat, m, c, r, pp, ud: r.dfs.underdog ?? r.dfs.pick6};
-        if (c) { const sd = FB.sides(c.line, m, spec); o.po = sd.o; o.edge = (sd.o - c.p_over) * 100; o.pick = st ? "LIVE" : outp ? "OUT" : Math.abs(o.edge) >= CFG.edgeMin ? (o.edge > 0 ? "OVER" : "UNDER") : ""; }
+        if (c) { const sd = FB.sides(c.line, m, spec); o.po = sd.o; o.edge = (sd.o - c.p_over) * 100; o.z = zOf(spec, m, c.line); o.tier = st || outp ? "" : leanTier(o.z); o.pick = st ? "LIVE" : outp ? "OUT" : Math.abs(o.edge) >= CFG.edgeMin ? (o.edge > 0 ? "OVER" : "UNDER") : ""; }
         if (pp != null) { const sd = FB.sides(pp, m, spec); o.side = sd.o >= sd.u ? "OVER" : "UNDER"; o.pw = Math.max(sd.o, sd.u); o.ppEdge = (o.pw - BE) * 100;
           o.ppPick = st ? "LIVE" : outp ? "OUT" : o.ppEdge >= CFG.edgeMin ? "PP " + o.side : ""; o.gap = c ? pp - c.line : null; }
         return o;
       }).filter(Boolean).filter(passes);
       if (F.lstat) rows = rows.filter(r => r.stat === F.lstat);
       if (F.lgame) rows = rows.filter(r => r.game === F.lgame);
+      if (F.lstrong) rows = rows.filter(r => r.tier === "strong");
       if (F.lpicks) rows = rows.filter(r => (r.pick && r.pick !== "OUT" && r.pick !== "LIVE") || (r.ppPick && r.ppPick !== "OUT" && r.ppPick !== "LIVE"));
       const tip = r => r.r.books.map(b => `${b.b} ${b.line} (${b.over ?? "-"}/${b.under ?? "-"})`).join("\n");
       const cols = [{k: "name", h: "Player", l: 1}, {k: "team", h: "Team", l: 1},
@@ -305,6 +322,7 @@ const pages = {
         {k: "cp", h: "Cons P(over)", t: "Average vig-free P(over) of the books at the consensus line", v: r => r.c?.p_over, f: r => r.c ? num(r.c.p_over * 100) + "%" : ""},
         {k: "fo", h: "Fair odds", t: "Over / under, from the consensus probability", v: r => r.c?.p_over, f: r => r.c ? `${FB.amer(r.c.p_over)} / ${FB.amer(1 - r.c.p_over)}` : ""},
         {k: "po", h: "Model P(over)", v: r => r.po, f: r => r.po == null ? "" : num(r.po * 100) + "%"},
+        {k: "z", h: "Lean σ", t: leanTip, v: r => r.z == null ? null : Math.abs(r.z), f: r => r.z == null ? "" : `${r.tier ? `<span class="pill lean-${r.tier}">${r.tier === "strong" ? "STRONG " : ""}${r.z > 0 ? "OVER" : "UNDER"}</span> ` : ""}<span class="mut">${r.z > 0 ? "+" : ""}${num(r.z, 2)}</span>`},
         {k: "edge", h: "Edge pp", v: r => r.edge, f: r => r.edge == null ? "" : `<span class="${r.edge > 0 ? "good" : "bad"}">${num(r.edge)}</span>`},
         {k: "pick", h: "Pick", l: 1, f: r => r.pick ? `<b>${r.pick}</b>${r.pick === "OUT" || r.pick === "LIVE" ? "" : warn(r.edge)}` : ""},
         {k: "pp", h: "PrizePicks", v: r => r.pp, f: r => r.pp ?? ""},
@@ -316,7 +334,7 @@ const pages = {
       const games = [...new Set(L.rows.map(r => r.game))].sort(), stats = [...new Set(L.rows.map(r => r.stat))];
       const extra = `<label>Market <select id="lstat"><option value="">All</option>${stats.map(x => `<option value="${x}" ${F.lstat === x ? "selected" : ""}>${esc(mktSpec(x).label)}</option>`).join("")}</select></label>
         <label>Game <select id="lgame"><option value="">All</option>${games.map(g => `<option ${F.lgame === g ? "selected" : ""}>${esc(g)}</option>`).join("")}</select></label>
-        <label><input type="checkbox" id="lpicks" ${F.lpicks ? "checked" : ""}> picks only</label>`;
+        <label><input type="checkbox" id="lstrong" ${F.lstrong ? "checked" : ""}> strong leans only</label><label><input type="checkbox" id="lpicks" ${F.lpicks ? "checked" : ""}> picks only</label>`;
       live = `<p class="sub">Sportsbook consensus (median line; vig removed) beside PrizePicks / Underdog, with the model's edge against each${credits}. Updated ${mins < 90 ? mins + " min" : Math.round(mins / 60) + " h"} ago${mins > 360 ? " — <b>stale, lines move</b>" : ""}. DFS prices are nominal, so PrizePicks edge is measured against your break-even (Config) rather than odds. A k-pick entry paying M× needs M^(−1/k) per leg.</p>
         ${filters(extra)}${table(cols, rows, {id: "live", sort: {key: "edge"}})}`;
     }
@@ -507,6 +525,7 @@ document.addEventListener("change", e => {
   else if (t.id === "lstat") { F.lstat = t.value; render(); }
   else if (t.id === "lgame") { F.lgame = t.value; render(); }
   else if (t.id === "lpicks") { F.lpicks = t.checked; render(); }
+  else if (t.id === "lstrong") { F.lstrong = t.checked; render(); }
   else if (t.id === "edge") { CFG.edgeMin = +t.value || 0; store.set("cfg", CFG); }
   else if (t.id === "ppbe") { CFG.ppBE = +t.value || 57.7; store.set("cfg", CFG); render(); }
   else if (t.classList.contains("ln")) { LINES[+t.dataset.i][t.dataset.f] = t.value; store.set("lines", LINES); render(); }
