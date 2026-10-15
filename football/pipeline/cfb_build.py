@@ -9,7 +9,7 @@ from .cfb_model import cfb_core, derive, load_rows, actual_pts, STATS as RAWSTAT
 from .cfb_data import read_csv
 from .model import params, rnd, nsum
 from .scorecard import read_tag
-from . import cfb_lines
+from . import cfb_lines, teamstats
 
 LOG = "data/log/cfb_log.csv"
 # market key -> (label, actual field, floor): `floor` is the projection size below which a player is not counted in that row
@@ -297,6 +297,7 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
         dr.append(dict(team=t, conf=s["conf"].get(t, ""), car=a["car"], ypc=r(a["ry"] / a["car"], 2) if a["car"] else None, rush=r(core["def_rush"].get(t, 1.0)),
                        rec=a["rec"], ypr_a=r(a["recy"] / a["rec"], 2) if a["rec"] else None, recadj=r(core["def_rec"].get(t, 1.0)), pass_=r(core["def_pass"].get(t, 1.0)),
                        comp=r(core["def_comp"].get(t, 1.0)), faces=", ".join(sorted(faces.get(t, [])))))
+    json.dump(teamstats.build(teamstats.cfb_team_games(rows, games), keep=teamstats.fbs_teams(games)), open(f"{out}/teams.json", "w"), separators=(",", ":"))
     json.dump(proj, open(f"{out}/projections.json", "w"), separators=(",", ":"))
     json.dump(games_out, open(f"{out}/games.json", "w"), separators=(",", ":"))
     json.dump(dict(week=week, rows=dr, lg=dict(ypc=r(core["LG_YPC"], 3), ypr=r(core["LG_YPR"], 3), ypa=r(core["LG_YPA"], 3),

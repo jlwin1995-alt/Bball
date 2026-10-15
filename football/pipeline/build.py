@@ -3,7 +3,7 @@
     python -m pipeline.build [--raw data/raw] [--out site/data] [--no-log] [--no-weather] [--week N]
 """
 import argparse, datetime as dt, json, os, sys
-from . import config as C, analysis, scorecard, weather, results, legacy, lines as lines_mod
+from . import config as C, analysis, scorecard, weather, results, legacy, teamstats, lines as lines_mod
 from .model import (load_weekly, nfl_core, derive, params, rnd, td_adj, td_base, opp_pos_factor, pos_group, REC_POS, num)
 from .slate import load_csv, target_week, matchups, kickoffs, statuses, week_games, game_label, history_gaps
 
@@ -160,6 +160,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     dump(analysis.usage(Pl), out, "usage.json")
     dump(analysis.trends(Pl), out, "trends.json")
     dump(analysis.coverage(team_week, live), out, "coverage.json")
+    dump(teamstats.build(teamstats.nfl_team_games(rows, sched)), out, "teams.json")
 
     # --- Accuracy log (written ONCE per week, before the games) and its scorecard --------------------------------------------------------
     gaps = history_gaps(rows, sched, week)
