@@ -102,9 +102,9 @@ ODDS_BOOKS = ["draftkings", "fanduel", "betmgm", "williamhill_us", "betrivers", 
 DFS_BOOKS = ["prizepicks", "underdog", "pick6", "dabble_us_dfs"]     # nominal-price books: shown beside, never in the consensus
 ODDS_MARKETS = {                                                    # Odds API market key -> our stat key
     "player_points": "pts", "player_rebounds": "reb", "player_assists": "ast", "player_threes": "fg3m",
-    "player_points_rebounds_assists": "pra",
-    # add more here (each costs credits per game): "player_steals": "stl", "player_blocks": "blk", "player_turnovers": "tov",
-    # "player_points_rebounds": "pr", "player_points_assists": "pa", "player_rebounds_assists": "ra"
+    "player_points_rebounds_assists": "pra", "player_points_rebounds": "pr", "player_points_assists": "pa", "player_rebounds_assists": "ra",
+    # each market costs 1 credit per game per pull (10 books = 1 bookmaker group). Optional extras, ~+1 credit per game each:
+    # "player_steals": "stl", "player_blocks": "blk", "player_turnovers": "tov"
 }
 ODDS_HORIZON_HOURS = 18            # only games starting within this window are pulled (props for tomorrow's games are rarely up yet)
 ODDS_MIN_INTERVAL_MIN = 90         # a scheduled pull is skipped if the previous check was this recent, so backup runs cost no credits

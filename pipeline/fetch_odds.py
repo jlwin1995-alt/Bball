@@ -31,6 +31,33 @@ TEAM_ABBR = {
 }
 
 
+def event_odds(s, sport, ev_id, key):
+    """One game's props. If the API rejects the market list (400/422: a key it does not know), retry market by market and skip the
+    unknown ones, so a single bad market name can never fail the whole pull. Returns (json, credits_remaining, calls)."""
+    url = f"{BASE}/sports/{sport}/events/{ev_id}/odds"
+    base = {"apiKey": key, "bookmakers": ",".join(C.ODDS_BOOKS), "oddsFormat": "american", "dateFormat": "iso"}
+    r = s.get(url, timeout=30, params={**base, "markets": ",".join(C.ODDS_MARKETS)})
+    if r.status_code in (401, 429):
+        raise SystemExit(f"Odds API {r.status_code}: {r.text[:200]}")
+    if r.status_code not in (400, 422):
+        r.raise_for_status()
+        return r.json(), float(r.headers.get("x-requests-remaining", "nan")), 1
+    left, calls, by_book = float("nan"), 1, {}
+    for mk in C.ODDS_MARKETS:
+        rr = s.get(url, timeout=30, params={**base, "markets": mk})
+        calls += 1
+        if rr.status_code in (400, 422):
+            print(f"  skipping market {mk}: the API does not accept it ({rr.status_code})")
+            continue
+        if rr.status_code in (401, 429):
+            raise SystemExit(f"Odds API {rr.status_code}: {rr.text[:200]}")
+        rr.raise_for_status()
+        left = float(rr.headers.get("x-requests-remaining", "nan"))
+        for bk in rr.json().get("bookmakers", []):
+            by_book.setdefault(bk["key"], {**bk, "markets": []})["markets"] += bk.get("markets", [])
+    return {"bookmakers": list(by_book.values())}, left, calls
+
+
 def parse_event(ev, odds, now_iso):
     """Flatten one /events/{id}/odds response into rows."""
     away, home = TEAM_ABBR.get(ev["away_team"], ev["away_team"]), TEAM_ABBR.get(ev["home_team"], ev["home_team"])
@@ -125,7 +152,8 @@ def main(session=None, force=False):
     except requests.RequestException as e:
         print("could not list sports:", e)
     prev_rows = pd.read_csv(f"{RAW}/odds.csv") if os.path.exists(f"{RAW}/odds.csv") else pd.DataFrame()
-    rows, remaining, resp, n_games, info = [], None, None, 0, []
+    rows, remaining, n_games, n_calls, info = [], None, 0, 0, []
+    credits_start = None
     for sport in C.ODDS_SPORTS:
         r = s.get(f"{BASE}/sports/{sport}/events", params={"apiKey": key, "dateFormat": "iso"}, timeout=30)
         if r.status_code in (404, 422):
@@ -135,19 +163,16 @@ def main(session=None, force=False):
             raise SystemExit(f"Odds API {r.status_code}: {r.text[:200]}")
         r.raise_for_status()
         remaining = float(r.headers.get("x-requests-remaining", "nan"))
+        credits_start = remaining if credits_start is None else credits_start
         events = [e for e in r.json() if now < datetime.fromisoformat(e["commence_time"].replace("Z", "+00:00")) <= horizon]
         print(f"{sport}: {len(events)} games start in the next {C.ODDS_HORIZON_HOURS}h (events endpoint is free); credits remaining {remaining}")
         for ev in events:
             if remaining is not None and remaining < C.ODDS_MIN_CREDITS:
                 print(f"stopping: only {remaining} credits left (ODDS_MIN_CREDITS={C.ODDS_MIN_CREDITS})")
                 break
-            resp = s.get(f"{BASE}/sports/{sport}/events/{ev['id']}/odds", timeout=30, params={
-                "apiKey": key, "bookmakers": ",".join(C.ODDS_BOOKS), "markets": ",".join(C.ODDS_MARKETS), "oddsFormat": "american", "dateFormat": "iso"})
-            if resp.status_code in (401, 429):
-                raise SystemExit(f"Odds API {resp.status_code}: {resp.text[:200]}")
-            resp.raise_for_status()
-            remaining = float(resp.headers.get("x-requests-remaining", "nan"))
-            got = parse_event(ev, resp.json(), now.isoformat(timespec="seconds"))
+            payload, remaining, ncalls = event_odds(s, sport, ev['id'], key)
+            n_calls += ncalls
+            got = parse_event(ev, payload, now.isoformat(timespec="seconds"))
             n_games += 1
             info.append(dict(feed=sport, game=f"{TEAM_ABBR.get(ev['away_team'], ev['away_team'])} @ {TEAM_ABBR.get(ev['home_team'], ev['home_team'])}",
                              commence=ev["commence_time"], props=len(got)))
@@ -171,6 +196,15 @@ def main(session=None, force=False):
     json.dump(dict(ts=now.isoformat(timespec="seconds"), credits=None if remaining is None or remaining != remaining else remaining,
                    games=info, feeds=[f for f in C.ODDS_SPORTS]), open(f"{RAW}/odds_meta.json", "w"))
     print(f"odds.csv: {len(rows)} lines across {n_games} games; credits remaining: {remaining}")
+    if n_games and credits_start == credits_start and remaining == remaining:         # credit log: verifies cost per game, projects the month
+        os.makedirs("data/log", exist_ok=True)
+        lg = "data/log/odds_credits.csv"
+        fresh = not os.path.exists(lg)
+        used = credits_start - remaining
+        with open(lg, "a") as f:
+            if fresh:
+                f.write("ts,games,calls,credits_before,credits_after,used,per_game\n")
+            f.write(f"{now.isoformat(timespec='seconds')},{n_games},{n_calls},{credits_start:.0f},{remaining:.0f},{used:.0f},{used / n_games:.1f}\n")
 
 
 if __name__ == "__main__":
