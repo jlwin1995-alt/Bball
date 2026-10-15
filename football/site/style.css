@@ -53,3 +53,6 @@ details summary{cursor:pointer;list-style:none}details summary::-webkit-details-
 .cmpl{text-align:center;color:var(--mut);font-size:12px}.cmpbar{display:flex;gap:2px;margin-top:3px;height:6px}.cmpbar i{display:block;background:var(--line);height:100%}
 .cmpbar i:first-child{border-radius:3px 0 0 3px}.cmpbar i:last-child{border-radius:0 3px 3px 0}.cmpbar i.win{background:var(--acc)}.cmpnote{font-size:11px;margin:6px 0 0}
 @media (max-width:640px){.cmp{grid-template-columns:78px 1fr 78px}}
+.pill.lean-strong{background:var(--acc);color:#fff;border-color:var(--acc);font-weight:650}.pill.lean-lean{color:var(--acc);border-color:var(--acc)}
+@media (prefers-color-scheme:dark){.pill.lean-strong{color:#0b1a0d}}.pill .zs{opacity:.8;font-weight:400}
+tr.lean-strong-row td:first-child{box-shadow:inset 3px 0 0 var(--acc)}tr.lean-lean-row td:first-child{box-shadow:inset 3px 0 0 var(--line)}
