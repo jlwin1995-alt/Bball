@@ -94,7 +94,7 @@ def build_lines(odds, players):
                 unmatched=sorted(unmatched)[:25], rows=rows)
 
 
-def snapshot_pregame(res, log=None, now=None):
+def snapshot_pregame(res, log=None, now=None, week=None):
     """Keep the LAST PRE-GAME consensus / PrizePicks line for every (game, player, stat).
 
     Each pull overwrites that key while the game has not started; once it kicks off the key is never touched again, so the row left in
@@ -110,10 +110,11 @@ def snapshot_pregame(res, log=None, now=None):
         c = r.get("cons") or {}
         rows.append(dict(commence=r["commence"], game=r["game"], player_id=r["id"], name=r["name"], team=r["team"], stat=r["stat"],
                          cons_line=c.get("line", ""), cons_p_over=c.get("p_over", ""), n_books=c.get("n", ""),
-                         pp_line=r["dfs"].get("prizepicks", ""), ud_line=r["dfs"].get("underdog", r["dfs"].get("pick6", "")), ts=res.get("updated")))
+                         pp_line=r["dfs"].get("prizepicks", ""), ud_line=r["dfs"].get("underdog", r["dfs"].get("pick6", "")), ts=res.get("updated"),
+                         **({} if week is None else dict(week=week))))
     if not rows:
         return 0
-    cols = ["commence", "game", "player_id", "name", "team", "stat", "cons_line", "cons_p_over", "n_books", "pp_line", "ud_line", "ts"]
+    cols = ["commence", "game", "player_id", "name", "team", "stat", "cons_line", "cons_p_over", "n_books", "pp_line", "ud_line", "ts"] + ([] if week is None else ["week"])
     key = lambda d: f"{d['game']}|{d['player_id']}|{d['stat']}"
     fresh = {key(x) for x in rows}
     old = []
@@ -128,7 +129,7 @@ def snapshot_pregame(res, log=None, now=None):
     return len(rows)
 
 
-def main(raw="data/raw", out="site/data", games=None, odds_file="odds.csv", meta_file="odds_meta.json", snapshot=True, extra=None):
+def main(raw="data/raw", out="site/data", games=None, odds_file="odds.csv", meta_file="odds_meta.json", snapshot=True, extra=None, log_name="lines_log.csv", week=None):
     """games: this week's "AWAY @ HOME" labels. Odds rows for any other game (last week's, if no pull has cleaned them out) are ignored."""
     p = f"{raw}/{odds_file}"
     if not os.path.exists(p):
@@ -147,7 +148,7 @@ def main(raw="data/raw", out="site/data", games=None, odds_file="odds.csv", meta
     os.makedirs(out, exist_ok=True)
     json.dump(res, open(f"{out}/lines.json", "w"), separators=(",", ":"))
     if snapshot:
-        snapshot_pregame(res, log=os.path.join(os.path.dirname(os.path.abspath(raw)), "log", "lines_log.csv"))
+        snapshot_pregame(res, log=os.path.join(os.path.dirname(os.path.abspath(raw)), "log", log_name), week=week)
     print(f"lines.json: {res['n']} player-market lines, {len(res['games'])} games, {len(res['unmatched'])} unmatched names")
     if res["unmatched"]:
         print("  unmatched (check name spellings or the player is not projected this week):", ", ".join(res["unmatched"][:10]))
