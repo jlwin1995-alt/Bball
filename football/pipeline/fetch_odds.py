@@ -134,11 +134,15 @@ def probe(session=None, base=None):
     print(f"{len(evs)} upcoming events")
     if not evs:
         return
-    ev = sorted(evs, key=lambda e: e['commence_time'])[0]
+    now_iso = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+    evs = sorted((e for e in evs if e['commence_time'] > now_iso), key=lambda e: e['commence_time'])
+    if not evs:
+        print('no game that has not started'); return
+    ev = evs[0]
     print(f"probing {ev['away_team']} @ {ev['home_team']} ({ev['commence_time']})")
     j = s.get(f"{base}/events/{ev['id']}/markets", params={"apiKey": key, "regions": "us,us_dfs"}, timeout=30).json()
     for bk in j.get("bookmakers", []):
-        print(f"  {bk['key']:<18} {', '.join(sorted(m['key'] for m in bk.get('markets', [])))[:150]}")
+        print(f"  {bk['key']:<18} {', '.join(sorted(m['key'] for m in bk.get('markets', [])))[:400]}")
     mk = ",".join(C.ODDS_MARKETS)
     if base == CFB_BASE:                                    # college: the NFL player-prop names, plus the college-only ones the API lists
         mk = ",".join(dict.fromkeys(list(C.ODDS_MARKETS) + ["player_pass_yds", "player_rush_yds", "player_reception_yds", "player_receptions", "player_anytime_td"]))
