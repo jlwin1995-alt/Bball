@@ -1,7 +1,7 @@
 "use strict";
 // College football. Same engine and look as the NFL page, with what CollegeFootballData actually reports: no targets (receptions are projected
-// directly), no sacks, no weather, no injury report, no 2-point conversions and no betting lines.
-const TABS = ["Projections", "Game Board", "Leaders", "Matchups", "Scorecard", "Backtest", "Config", "Methodology"];
+// directly), no sacks, no weather, no injury report and no 2-point conversions. Player-prop lines (when books post them) give leans, as on the NFL page.
+const TABS = ["Projections", "Game Board", "Lines", "Leaders", "Matchups", "Scorecard", "Backtest", "Config", "Methodology"];
 const D = {};
 const store = makeStore("gmc_");
 let CFG = {preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}, detail: false, mean: false};
@@ -22,6 +22,33 @@ const siteTag = r => r.site === "N" ? "vs " + esc(r.opp) + " (neutral)" : (r.sit
 const nameCols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}];
 const F = {q: "", pos: "", team: "", conf: "", hideStarted: false, game: "", year: ""};
 const ovrCell = (r, key, shown) => `<input class="ovr" data-id="${esc(r.id)}" data-key="${key}" value="${OVR[r.id]?.[key] ?? ""}" placeholder="${num(shown)}">`;
+
+// Player-prop lines for college (The Odds API; thin: mostly each team's top few players, and posted late). A lean is the model vs the consensus
+// line in standard deviations of that market, with the college sigma fitted by the backtest (NFL fit while a market has too few college rows).
+const LEAN = {lean: 0.25, strong: 0.5};
+const leanTier = z => Math.abs(z) >= LEAN.strong ? "strong" : Math.abs(z) >= LEAN.lean ? "lean" : "";
+const leanTip = "Model vs the consensus line, in standard deviations of the market. Tiers are borrowed from the NFL page (STRONG at 0.5 or more); the college record under this model is still too small to grade them.";
+const specOf = stat => D.lines?.specs?.[stat];
+const zOf = (spec, m, line) => (m - line) / FB.sigmaFor(spec, m);
+function playerLines(p) {
+  const L = D.lines;
+  if (!L?.rows) return [];
+  return L.rows.filter(r => r.id === p.id && specOf(r.stat)).map(r => {
+    const spec = specOf(r.stat), m = p.c[r.stat], c = r.cons, sd = c ? FB.sides(c.line, m, spec) : null, st = Date.now() >= Date.parse(r.commence);
+    const z = c ? zOf(spec, m, c.line) : null;
+    return {r, spec, m, c, po: sd?.o, edge: sd ? (sd.o - c.p_over) * 100 : null, pp: r.dfs.prizepicks, ud: r.dfs.underdog ?? r.dfs.pick6, started: st, z,
+      tier: !st && z != null && m > 0 ? leanTier(z) : "", side: z == null ? null : z > 0 ? "OVER" : "UNDER"};
+  }).sort((a, b) => Math.abs(b.z ?? 0) - Math.abs(a.z ?? 0));
+}
+const bestLean = p => { const b = playerLines(p)[0]; return b && b.tier ? b : null; };
+const leanPill = l => l ? `<span class="pill lean-${l.tier}" title="${esc(leanTip)}">${l.tier === "strong" ? "STRONG " : ""}${l.side} ${esc(l.spec.label)} ${l.c.line} <span class="zs">${l.z > 0 ? "+" : ""}${num(l.z, 2)}σ</span></span>` : "";
+const leanRow = r => { const b = bestLean(r); return b ? "lean-" + b.tier + "-row" : ""; };
+const rowCls = r => [started(r.ko) ? "started" : "", leanRow(r)].filter(Boolean).join(" ");
+const leanCol = {k: "lean", h: "Lean", l: 1, t: leanTip, v: r => { const b = playerLines(r)[0]; return b?.z == null ? null : Math.abs(b.z); },
+  f: r => { const ls = playerLines(r); if (!ls.length) return ""; const b = ls[0];
+    const rows = ls.map(x => `<div>${esc(x.spec.label)}: proj ${num(x.m)} · ${x.c ? `cons ${x.c.line} (${num(x.c.p_over * 100)}% over, ${FB.amer(x.c.p_over)}/${FB.amer(1 - x.c.p_over)}) · lean <b>${x.z > 0 ? "+" : ""}${num(x.z, 2)}σ</b> ${x.tier ? `<span class="pill lean-${x.tier}">${x.tier === "strong" ? "STRONG " : ""}${x.side}</span>` : ""} · model ${num(x.po * 100)}%` : ""}${x.pp != null ? ` · PrizePicks ${x.pp}` : ""}${x.ud != null ? ` · UD/Pick6 ${x.ud}` : ""}<br><span class="mut">${x.r.books.map(k => `${esc(k.b)} ${k.line} (${k.over ?? "-"}/${k.under ?? "-"})`).join(" · ")}</span></div>`).join("");
+    const head = b.c ? (b.tier ? leanPill(b) : `${esc(b.spec.label)} ${b.z >= 0 ? "o" : "u"}${b.c.line} <span class="mut">${b.z > 0 ? "+" : ""}${num(b.z, 2)}σ</span>`) : `${esc(b.spec.label)} PP ${b.pp ?? ""}`;
+    return `<details><summary>${head}${b.started ? ` <span class="pill hot">LIVE</span>` : ""}</summary><div class="lines-pop">${rows}</div></details>`; }};
 function passes(r) {
   if (F.pos && r.pos !== F.pos) return false;
   if (F.conf && r.conf !== F.conf) return false;
@@ -61,12 +88,12 @@ const pages = {
       {k: "crtd", h: "Rush TD", v: r => r.c.rushTD, f: r => num(r.c.rushTD, 2)}, {k: "crectd", h: "Rec TD", v: r => r.c.recTD, f: r => num(r.c.recTD, 2)},
       {k: "cptd", h: "Pass TD", v: r => r.c.passTD, f: r => r.c.att > 0 ? num(r.c.passTD, 2) : ""},
       ...(det ? [{k: "cint", h: "INT", v: r => r.c.int, f: r => r.c.att > 0 ? num(r.c.int, 2) : ""}, {k: "cfum", h: "Fum", v: r => r.c.fum, f: r => num(r.c.fum, 2)}] : []),
-      {k: "cpts", h: CFG.mean ? "Mean Pts" : "Proj Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`}];
+      {k: "cpts", h: CFG.mean ? "Mean Pts" : "Proj Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`}, ...(D.lines?.rows?.length ? [leanCol] : [])];
     return `<h2>College Projections — Week ${D.meta.week}</h2>
       <p class="sub">${CFG.mean ? "Mean" : "Median"} points for every FBS player with an unplayed game this week and at least ${D.meta.min_opps ?? 8} touches or attempts this season. Shaded <b>OVR</b> boxes are yours; everything recalculates instantly (teammates are not re-scaled). Scoring: ${esc(CFG.preset)}. College has no injury report: availability is on you.</p>
       ${filters(`<label><input type="checkbox" id="hidestarted" ${F.hideStarted ? "checked" : ""}> hide games already started</label>
         <label><input type="checkbox" id="detail" ${CFG.detail ? "checked" : ""}> more columns</label><button id="clr">Clear overrides</button>`)}
-      ${table(cols, rows, {id: "proj" + (det ? "d" : ""), sort: {key: "cpts"}, rowClass: r => started(r.ko) ? "started" : ""})}`;
+      ${table(cols, rows, {id: "proj" + (det ? "d" : ""), sort: {key: "cpts"}, rowClass: rowCls})}`;
   },
 
   "Game Board"() {
@@ -79,14 +106,41 @@ const pages = {
       const cols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "ccar", h: "Car", v: r => r.c.car, f: r => num(r.c.car)}, {k: "cry", h: "Rush", v: r => r.c.rushY, f: r => num(r.c.rushY, 0)},
         {k: "crec", h: "Rec", v: r => r.c.rec, f: r => num(r.c.rec)}, {k: "crecy", h: "Rec Yds", v: r => r.c.recY, f: r => num(r.c.recY, 0)},
         {k: "catt", h: "Att", v: r => r.c.att, f: r => r.c.att > 0 ? num(r.c.att) : ""}, {k: "cpy", h: "Pass Yds", v: r => r.c.passY, f: r => r.c.att > 0 ? num(r.c.passY, 0) : ""},
-        {k: "ctd", h: "TD", v: r => r.c.rushTD + r.c.recTD + r.c.passTD, f: r => num(r.c.rushTD + r.c.recTD + r.c.passTD, 2)}, {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`}];
-      return `<div><h3>${esc(t)} <span class="mut">· ${num(rows.reduce((a, r) => a + r.c.shown, 0))} projected pts across ${rows.length} players</span></h3>${table(cols, rows, {id: "gb" + t, sort: {key: "cpts"}})}</div>`;
+        {k: "ctd", h: "TD", v: r => r.c.rushTD + r.c.recTD + r.c.passTD, f: r => num(r.c.rushTD + r.c.recTD + r.c.passTD, 2)}, {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`}, ...(D.lines?.rows?.length ? [leanCol] : [])];
+      return `<div><h3>${esc(t)} <span class="mut">· ${num(rows.reduce((a, r) => a + r.c.shown, 0))} projected pts across ${rows.length} players</span></h3>${table(cols, rows, {id: "gb" + t, sort: {key: "cpts"}, rowClass: leanRow})}</div>`;
     };
     return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected points.</p>
       <div class="bar"><label>Game <select id="game">${games.map(x => `<option value="${esc(x.game)}" ${x.game === g.game ? "selected" : ""}>${esc(x.game)} · ${esc(koLabel(x.ko))}${started(x.ko) ? " (started)" : ""}</option>`).join("")}</select></label></div>
       <div class="gamehead"><div><span>Kickoff</span><b>${esc(koLabel(g.ko))}</b></div><div><span>Conferences</span><b>${esc(g.conf[0] || "-")} / ${esc(g.conf[1] || "-")}</b></div>${g.neutral ? `<div><span>Site</span><b>Neutral</b></div>` : ""}${g.spread == null && g.total == null ? "" : `<div><span>Line (The Odds API)</span><b>${g.spread == null ? "" : g.spread > 0 ? esc(g.home) + " -" + num(g.spread) : g.spread < 0 ? esc(g.away) + " -" + num(-g.spread) : "pick'em"}${g.total == null ? "" : " · O/U " + num(g.total)}</b></div>`}${g.home_imp == null ? "" : `<div><span>Implied total</span><b>${esc(g.away)} ${num(g.away_imp)} – ${esc(g.home)} ${num(g.home_imp)}</b></div>`}</div>
       ${compareCard({...D.teams, note: "Completed games only, FBS teams ranked (games against FCS teams count in a team's numbers). College rushing has sacks subtracted, as the NCAA books them. Third/fourth down, red zone and first downs are not in the box-score feed."}, g.away, g.home)}
       <div class="stack">${mk(g.away)}${mk(g.home)}</div>`;
+  },
+
+  Lines() {
+    const L = D.lines;
+    if (!L || !L.rows?.length) {
+      const M = L?.meta || D.oddsmeta, games = (M?.games || []).map(g => `<li>${esc(g.game)} — kickoff ${koLabel(g.commence)}: ${g.props ? g.props + " props posted" : "<b>no player props posted yet</b>"}</li>`).join("");
+      return `<h2>College Lines</h2><p class="sub">No college player props pulled yet. Books post them late, often the day before: the odds workflow pulls games starting in the next ${D.meta.props_horizon ?? 30} hours and fills this page in on its own.</p>${games ? `<ul class="sub">${games}</ul>` : ""}`;
+    }
+    const byId = Object.fromEntries(proj().map(p => [p.id, p]));
+    const rows = L.rows.map(r => {
+      const p = byId[r.id], spec = specOf(r.stat);
+      if (!p || !spec) return null;
+      const m = p.c[r.stat], c = r.cons, st = Date.now() >= Date.parse(r.commence), z = c ? zOf(spec, m, c.line) : null, sd = c ? FB.sides(c.line, m, spec) : null;
+      return {name: p.name, pos: p.pos, team: p.team, game: r.game, label: spec.label, m, c, z, st, pp: r.dfs.prizepicks, ud: r.dfs.underdog ?? r.dfs.pick6,
+        tier: st || z == null || m <= 0 ? "" : leanTier(z), side: z == null ? null : z > 0 ? "OVER" : "UNDER", edge: sd ? (sd.o - c.p_over) * 100 : null, ko: r.commence};
+    }).filter(Boolean).filter(r => (!F.q || (r.name + " " + r.team).toLowerCase().includes(F.q.trim().toLowerCase())) && (!F.pos || r.pos === F.pos));
+    const upd = /[zZ]|[+-]\d\d:?\d\d$/.test(L.updated) ? L.updated : L.updated + "Z", mins = Math.max(0, Math.round((Date.now() - Date.parse(upd)) / 60000));
+    const cols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}, {k: "label", h: "Market", l: 1},
+      {k: "m", h: "Proj", f: r => num(r.m)}, {k: "line", h: "Line", v: r => r.c?.line, f: r => r.c ? r.c.line : ""},
+      {k: "po", h: "Book %over", v: r => r.c?.p_over, f: r => r.c ? num(r.c.p_over * 100) : ""},
+      {k: "z", h: "Lean σ", t: leanTip, v: r => r.z == null ? null : Math.abs(r.z), f: r => r.z == null ? "" : `${r.z > 0 ? "+" : ""}${num(r.z, 2)}`},
+      {k: "pick", h: "Lean", l: 1, v: r => r.tier ? Math.abs(r.z) : 0, f: r => r.st ? `<span class="pill hot">LIVE</span>` : r.tier ? `<span class="pill lean-${r.tier}">${r.tier === "strong" ? "STRONG " : ""}${r.side}</span>` : ""},
+      {k: "pp", h: "PrizePicks", f: r => r.pp ?? ""}, {k: "ud", h: "UD/Pick6", f: r => r.ud ?? ""}, {k: "game", h: "Game", l: 1}];
+    const strong = rows.filter(r => r.tier === "strong").length, lean = rows.filter(r => r.tier === "lean").length;
+    return `<h2>College Lines</h2><p class="sub">${rows.length} player props across ${L.games.length} games, last pulled ${mins < 90 ? mins + " min" : Math.round(mins / 60) + " h"} ago. Consensus is the median sportsbook line with the vig removed; the lean is the model's median projection against it, in standard deviations of the market (college sigma fitted by the backtest: ${Object.values(L.specs).map(x => x.label + (x.src === "college" ? "" : "*")).join(", ")}; * = NFL fit until enough college rows). <b>${strong}</b> strong, <b>${lean}</b> lean. Books post college props for only the top few players per team, so most players have no line. The college record under this model is still small, so treat leans as a way to sort, not a promise.</p>
+      <div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}"><label>Pos <select id="pos">${["", ...POS].map(p => `<option ${F.pos === p ? "selected" : ""} value="${p}">${p || "All"}</option>`).join("")}</select></label></div>
+      ${table(cols, rows, {id: "cl", sort: {key: "z"}, rowClass: r => r.st ? "started" : r.tier ? "lean-" + r.tier + "-row" : ""})}`;
   },
 
   Leaders() {
@@ -154,7 +208,7 @@ const pages = {
 <h3>No targets</h3><p>CFBD reports receptions, not targets, so there is no catch rate. Receptions are projected directly, receiving touchdowns are per reception, and "Rec %" is a share of the team's projected receptions.</p>
 <h3>Team volume is shared over the whole roster</h3><p>A team's projected carries, receptions and attempts are rescaled to a realistic team game (by at most ±20%). That rescale now divides over every player on the roster, not just the ones selected for projection. Before, the selected few were scaled up to the whole team's baseline, which handed them the receptions that depth-chart players below the minimum really take: projected receptions per team ran about 14-17 against only 10-12 actually caught by those same players. Fixing it cut points error from 4.0% to 10.3% better than a season average, turned receptions and receiving yards from worse than baseline to better, and moved the points over-rate from 38% to 48% (target 50). It was tuned on the first five weeks only, so treat the size of the gain with caution; the Backtest tab keeps the walk-forward honest as weeks accrue.</p><h3>Pass attempts are shared by who actually throws</h3><p>The same participation weighting as the NFL model: a team's pass attempts are divided among everyone who might throw them, weighting each player by how often he has thrown in the team's last six games (regressed, prior 0.1). Without it a backup who threw once counted as a full passer, projected attempts ran 4-10% low, the actual beat the projected passing yards 57% of the time and completions 56%, and the starter was pulled down. With it the over-rates are 49% and 46% (target 50) and passing error against a season average improved from 2.4% to 4.0% better. Tuned on the first weeks only.</p><h3>Quarterbacks run differently</h3><p>The NCAA charges a sack as a rushing attempt with the yardage lost, which the NFL does not. Across the 2026 fixture weeks college QBs ran 3.03 yards a carry against 4.73 for everyone else, and 29 of 166 qualifying QBs finished with negative rushing yards. So rushing gets its own baseline per group (quarterbacks vs everyone else), measured from the season's own data, and a quarterback regresses toward what quarterbacks do rather than toward ball carriers.</p>
 <h3>Opponent adjustments</h3><p>Each defence is rated on rushing, yards per reception, yards per attempt and completion rate allowed, regressed by plays faced (50, 45 and 60) and capped at ±15%. These are applied <b>in full</b>, unlike the NFL page where only a measured share arrives. Touchdown matchups are derived from the yardage matchup at the NFL's measured shares (60% rushing, 77% receiving, 78% passing).</p>
-<h3>Not in the data</h3><p>No injury report at any tier, no 2-point conversions, no weather feed, no sack projection and no betting lines on this page. A neutral-site game has no home team, so it takes no home-field bump.</p>
+<h3>Not in the data</h3><p>No injury report at any tier, no 2-point conversions, no weather feed and no sack projection. Player-prop lines come from The Odds API when books post them (thin for college: mostly each team's top few players, posted late); the Lines tab and the Lean column turn them into leans against the market, using a college spread fitted by the backtest. A neutral-site game has no home team, so it takes no home-field bump.</p>
 <h3>Scorecard and backtest</h3><p>Same discipline as the NFL: projections are logged before kickoff and never rewritten, with a settings stamp. The two leagues are never pooled. College is about six times the sample (roughly 1,265 scoreable player-games a week against the NFL's 201), so a couple of weeks clear the 400-row calibration bar, but it does not calibrate the NFL model.</p></div>`;
   },
 };
@@ -199,6 +253,7 @@ async function boot() {
     view().innerHTML = `<div class="doc"><h2>No college data yet</h2><p>College football needs a free CollegeFootballData key. Get one at <a href="https://collegefootballdata.com/key">collegefootballdata.com/key</a>, add it as the <code>CFBD_API_KEY</code> repository secret (Settings → Secrets and variables → Actions), and run the "Football refresh data and deploy" workflow. College data appears here once it has run during the college season.</p></div>`;
     return;
   }
+  try { const r = await fetch("../data/cfb/lines.json", {cache: "no-cache"}); if (r.ok) D.lines = await r.json(); } catch (e) {}
   D.backtest = {};
   await Promise.all((D.meta.backtests || []).map(async y => { try { const r = await fetch(`../data/cfb/backtest_${y}.json`, {cache: "no-cache"}); if (r.ok) D.backtest[y] = await r.json(); } catch (e) {} }));
   document.getElementById("asof").textContent = `Week ${D.meta.week} · data through week ${D.meta.asof_week} · built ${new Date(D.meta.generated).toLocaleString(undefined, {month: "short", day: "numeric", hour: "numeric", minute: "2-digit"})}`;

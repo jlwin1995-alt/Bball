@@ -180,6 +180,13 @@ ODDS_MARKETS = {
     "player_pass_completions": ("comp", "Completions", 13.44, -0.341, "normal"),
     "player_sacks": ("sacks", "Sacks", 0.997, 0.308, "poisson"),
 }
+# College player props: the same book list, only the four yardage/reception markets (completions are not posted for college). A pull costs
+# (markets x 1 bookmaker group) credits per game, about 4, so a 45-game Saturday is roughly 180 per pull. Props appear late for college, so the
+# window is short and a game is not pulled again within CFB_PROPS_MIN_HOURS.
+CFB_ODDS_MARKETS = ["player_pass_yds", "player_rush_yds", "player_reception_yds", "player_receptions"]
+CFB_PROPS_HORIZON_HOURS = float(__import__("os").environ.get("CFB_PROPS_HORIZON_HOURS") or 30)
+CFB_PROPS_MIN_HOURS = 3
+CFB_SPREAD_STAT = {"Rushing yards": "rushY", "Receiving yards": "recY", "Receptions": "rec", "Passing yards": "passY", "Completions": "comp"}   # backtest label -> stat key
 ODDS_HORIZON_HOURS = float(__import__("os").environ.get("ODDS_HORIZON_HOURS") or 72)   # only games starting within this many hours are pulled (the workflow's manual "hours" box overrides it)
 ODDS_MIN_INTERVAL_MIN = 90         # a scheduled pull is skipped if the previous check was this recent, so backup runs cost no credits
 ODDS_MIN_CREDITS = 500             # stop pulling when the API reports fewer credits than this remaining

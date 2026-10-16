@@ -20,18 +20,19 @@ RAW = "data/raw"
 COLS = ["ts", "event", "commence", "game", "home", "away", "player", "stat", "book", "line", "over", "under"]
 
 
-def parse_event(ev, odds, now_iso):
+def parse_event(ev, odds, now_iso, markets=None, teams=None):
     """Flatten one /events/{id}/odds response into rows.
 
     Names are not unique across the league (Josh Allen is a quarterback in Buffalo and an edge rusher in Jacksonville). If one book posts two
     different lines for the same name and market in one event, one of them belongs to somebody else and there is no way from here to tell which:
     guessing would price the wrong man, so those rows are dropped.
     """
-    away, home = C.TEAM_ABBR.get(ev["away_team"], ev["away_team"]), C.TEAM_ABBR.get(ev["home_team"], ev["home_team"])
+    markets = markets or C.ODDS_MARKETS
+    away, home = teams or (C.TEAM_ABBR.get(ev["away_team"], ev["away_team"]), C.TEAM_ABBR.get(ev["home_team"], ev["home_team"]))
     rows, dropped = [], 0
     for bk in odds.get("bookmakers", []):
         for mk in bk.get("markets", []):
-            spec = C.ODDS_MARKETS.get(mk["key"])
+            spec = markets.get(mk["key"])
             if not spec:
                 continue
             by_player, conflict = {}, set()
@@ -115,13 +116,84 @@ def fetch_cfb_lines(s, key, now):
         print(f"::warning::college lines failed: {e}")
 
 
-def probe(session=None):
-    """Diagnostic (costs a handful of credits): which bookmakers and markets does the API have for the next NFL game?"""
+def fetch_cfb_props(s, key, now, force=False, raw=RAW):
+    """College player props. Only FBS games that are on the site's college schedule (so FCS and unmatched games cost nothing), only games
+    starting inside CFB_PROPS_HORIZON_HOURS, and a game is not pulled again within CFB_PROPS_MIN_HOURS. Never lets a failure stop the NFL pull."""
+    from . import cfb_lines
+    try:
+        gp = "site/data/cfb/games.json"
+        if not os.path.exists(gp):
+            print("college props: no college schedule yet; skipping")
+            return
+        games = json.load(open(gp))
+        names = sorted({g["home"] for g in games} | {g["away"] for g in games})
+        specs = {k: C.ODDS_MARKETS[k] for k in C.CFB_ODDS_MARKETS}
+        mp = f"{raw}/cfb_odds_meta.json"
+        meta = json.load(open(mp)) if os.path.exists(mp) else {}
+        pulled = meta.get("pulled", {})
+        prev = read_rows(f"{raw}/cfb_odds.csv")
+        r = s.get(f"{CFB_BASE}/events", params={"apiKey": key, "dateFormat": "iso"}, timeout=30)
+        if r.status_code != 200:
+            print(f"college props: events HTTP {r.status_code}")
+            return
+        horizon = now + timedelta(hours=C.CFB_PROPS_HORIZON_HOURS)
+        rows, info, remaining, calls, skipped = [], [], None, 0, 0
+        fresh = set()
+        for ev in r.json():
+            ko = datetime.fromisoformat(ev["commence_time"].replace("Z", "+00:00"))
+            if not now < ko <= horizon:
+                continue
+            h, a = cfb_lines.resolve(ev["home_team"], names), cfb_lines.resolve(ev["away_team"], names)
+            if not (h or a) or not any({h, a} & {g["home"], g["away"]} for g in games):
+                continue
+            last = pulled.get(ev["id"])
+            if not force and last and (now - datetime.fromisoformat(last)).total_seconds() < C.CFB_PROPS_MIN_HOURS * 3600:
+                skipped += 1
+                continue
+            if remaining is not None and remaining < C.ODDS_MIN_CREDITS:
+                print(f"college props: stopping, only {remaining} credits left")
+                break
+            resp = s.get(f"{CFB_BASE}/events/{ev['id']}/odds", timeout=30, params={"apiKey": key, "bookmakers": ",".join(C.ODDS_BOOKS),
+                         "markets": ",".join(C.CFB_ODDS_MARKETS), "oddsFormat": "american", "dateFormat": "iso"})
+            if resp.status_code != 200:
+                print(f"college props: {ev['away_team']} @ {ev['home_team']} HTTP {resp.status_code} {resp.text[:100]}")
+                if resp.status_code in (401, 429):
+                    break
+                continue
+            remaining = float(resp.headers.get("x-requests-remaining", "nan"))
+            got = parse_event(ev, resp.json(), now.isoformat(timespec="seconds"), markets=specs, teams=(a or ev["away_team"], h or ev["home_team"]))
+            calls += 1
+            fresh.add(ev["id"])
+            pulled[ev["id"]] = now.isoformat(timespec="seconds")
+            rows += got
+            info.append(dict(event=ev["id"], game=f"{a or ev['away_team']} @ {h or ev['home_team']}", commence=ev["commence_time"], props=len(got)))
+            time.sleep(0.2)
+        cutoff = now - timedelta(hours=C.ODDS_KEEP_STARTED_HOURS)
+        keep = lambda c: datetime.fromisoformat(str(c).replace("Z", "+00:00")) >= cutoff
+        rows += [x for x in prev if x["event"] not in fresh and keep(x["commence"])]
+        have = {g["event"] for g in info}
+        info += [g for g in meta.get("games", []) if g["event"] not in have and keep(g["commence"])]
+        write_rows(f"{raw}/cfb_odds.csv", rows)
+        pulled = {k: v for k, v in pulled.items() if k in {g["event"] for g in info}}
+        json.dump(dict(ts=now.isoformat(timespec="seconds"), credits=remaining if remaining is not None and remaining == remaining else meta.get("credits"),
+                       games=info, pulled=pulled), open(mp, "w"))
+        print(f"college props: pulled {calls} games ({skipped} skipped as recent), {len(rows)} lines kept; credits remaining {remaining}")
+    except Exception as e:                                       # noqa: BLE001
+        print(f"::warning::college props failed: {e}")
+
+
+def probe(session=None, base=None):
+    """Diagnostic (costs a handful of credits): which bookmakers and markets does the API have for the next game? Runs for NFL, then college."""
+    if base is None:
+        probe(session, BASE)
+        print("\n=== college ===")
+        return probe(session, CFB_BASE)
+    # (below uses `base`)
     key = os.environ.get("ODDS_API_KEY")
     if not key:
         raise SystemExit("ODDS_API_KEY is not set")
     s = session or requests.Session()
-    r = s.get(f"{BASE}/events", params={"apiKey": key, "dateFormat": "iso"}, timeout=30)
+    r = s.get(f"{base}/events", params={"apiKey": key, "dateFormat": "iso"}, timeout=30)
     print("events HTTP", r.status_code)
     if r.status_code != 200:
         print(r.text[:200]); return
@@ -129,12 +201,22 @@ def probe(session=None):
     print(f"{len(evs)} upcoming events")
     if not evs:
         return
+    now_iso = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+    evs = sorted((e for e in evs if e['commence_time'] > now_iso), key=lambda e: e['commence_time'])
+    if not evs:
+        print('no game that has not started'); return
     ev = evs[0]
     print(f"probing {ev['away_team']} @ {ev['home_team']} ({ev['commence_time']})")
-    j = s.get(f"{BASE}/events/{ev['id']}/markets", params={"apiKey": key, "regions": "us,us_dfs"}, timeout=30).json()
+    j = s.get(f"{base}/events/{ev['id']}/markets", params={"apiKey": key, "regions": "us,us_dfs"}, timeout=30).json()
     for bk in j.get("bookmakers", []):
-        print(f"  {bk['key']:<18} {', '.join(sorted(m['key'] for m in bk.get('markets', [])))[:150]}")
-    resp = s.get(f"{BASE}/events/{ev['id']}/odds", timeout=30, params={"apiKey": key, "bookmakers": ",".join(C.ODDS_BOOKS), "markets": ",".join(C.ODDS_MARKETS), "oddsFormat": "american"})
+        print(f"  {bk['key']:<18} {', '.join(sorted(m['key'] for m in bk.get('markets', [])))[:400]}")
+    mk = ",".join(C.ODDS_MARKETS)
+    if base == CFB_BASE:                                    # college: the NFL player-prop names, plus the college-only ones the API lists
+        mk = ",".join(dict.fromkeys(list(C.ODDS_MARKETS) + ["player_pass_yds", "player_rush_yds", "player_reception_yds", "player_receptions", "player_anytime_td"]))
+    resp = s.get(f"{base}/events/{ev['id']}/odds", timeout=30, params={"apiKey": key, "bookmakers": ",".join(C.ODDS_BOOKS), "markets": mk, "oddsFormat": "american"})
+    if resp.status_code != 200:
+        print("odds HTTP", resp.status_code, resp.text[:200])
+        return
     print("odds HTTP", resp.status_code, "credits left", resp.headers.get("x-requests-remaining"))
     for bk in resp.json().get("bookmakers", []):
         print(f"  {bk['key']:<18} " + ", ".join(f"{m['key']}: {len(m.get('outcomes', []))}" for m in bk.get("markets", [])))
@@ -153,6 +235,7 @@ def main(session=None, force=False):
             print(f"last check was {age:.0f} min ago (< {C.ODDS_MIN_INTERVAL_MIN}); skipping so backup runs do not spend credits. Use --force to override.")
             return
     fetch_cfb_lines(s, key, now)
+    fetch_cfb_props(s, key, now, force=force)
     horizon = now + timedelta(hours=C.ODDS_HORIZON_HOURS)
     prev_rows = read_rows(f"{RAW}/odds.csv")
     rows, remaining, n_games, info = [], None, 0, []

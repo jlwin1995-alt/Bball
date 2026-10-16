@@ -5,7 +5,7 @@
 3. Consensus maths: de-vigged probability, median line snapped to a posted line, DFS books kept out of the consensus.
 """
 import json, os, tempfile
-from . import fetch_odds, lines
+from . import config as C, fetch_odds, lines
 
 
 def stub(ev_id="e1", away="Buffalo Bills", home="Los Angeles Rams"):
@@ -100,6 +100,23 @@ def cfb_lines_checks():
     games = [dict(home="Ohio State", away="Texas", ko="2026-10-17T16:00:00Z")]       # neutral site: CFBD calls the other team "home"
     assert L.attach(games, lines) == [] and games[0]["spread"] == -4.0 and games[0]["away_imp"] > games[0]["home_imp"], games
     print("college lines ok")
+    cfb_props_checks()
+
+
+def cfb_props_checks():
+    """College props: market subset, CFBD team names on the rows, and the lines builder matching a college player to the right team."""
+    from . import lines
+    ev = dict(id="c1", commence_time="2026-10-17T16:00:00Z", home_team="Tulane Green Wave", away_team="Memphis Tigers")
+    odds = dict(bookmakers=[
+        dict(key="fanduel", markets=[dict(key="player_rush_yds", outcomes=[dict(name="Over", description="Sutton Smith", point=62.5, price=-115), dict(name="Under", description="Sutton Smith", point=62.5, price=-105)]),
+                                     dict(key="player_anytime_td", outcomes=[dict(name="Yes", description="Sutton Smith", price=100)])]),
+        dict(key="prizepicks", markets=[dict(key="player_rush_yds", outcomes=[dict(name="Over", description="Sutton Smith", point=60.5, price=-119), dict(name="Under", description="Sutton Smith", point=60.5, price=-119)])])])
+    specs = {k: C.ODDS_MARKETS[k] for k in C.CFB_ODDS_MARKETS}
+    rows = fetch_odds.parse_event(ev, odds, "2026-10-16T12:00:00", markets=specs, teams=("Memphis", "Tulane"))
+    assert len(rows) == 2 and {r["book"] for r in rows} == {"fanduel", "prizepicks"} and rows[0]["home"] == "Tulane" and rows[0]["stat"] == "rushY", rows
+    res = lines.build_lines(rows, [dict(id="9", name="Sutton Smith", team="Tulane", pos="RB"), dict(id="8", name="Sutton Smith", team="Ohio", pos="RB")])
+    assert res["n"] == 1 and res["rows"][0]["id"] == "9" and res["rows"][0]["cons"]["line"] == 62.5 and res["rows"][0]["dfs"]["prizepicks"] == 60.5, res
+    print("college props ok")
 
 
 def fair_ok(x):

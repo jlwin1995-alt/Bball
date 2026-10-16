@@ -128,9 +128,9 @@ def snapshot_pregame(res, log=None, now=None):
     return len(rows)
 
 
-def main(raw="data/raw", out="site/data", games=None):
+def main(raw="data/raw", out="site/data", games=None, odds_file="odds.csv", meta_file="odds_meta.json", snapshot=True, extra=None):
     """games: this week's "AWAY @ HOME" labels. Odds rows for any other game (last week's, if no pull has cleaned them out) are ignored."""
-    p = f"{raw}/odds.csv"
+    p = f"{raw}/{odds_file}"
     if not os.path.exists(p):
         print("no odds.csv; skipping lines.json")
         return
@@ -140,12 +140,14 @@ def main(raw="data/raw", out="site/data", games=None):
         odds = [r for r in odds if frozenset((r["away"], r["home"])) in ids]
     players = json.load(open(f"{out}/projections.json"))
     res = build_lines(odds, players) if odds else dict(updated=None, n=0, games=[], unmatched=[], rows=[])
-    mp = f"{raw}/odds_meta.json"
+    mp = f"{raw}/{meta_file}"
     if os.path.exists(mp):
         res["meta"] = json.load(open(mp))                       # when we last looked, which games exist, credits left
+    res.update(extra or {})
     os.makedirs(out, exist_ok=True)
     json.dump(res, open(f"{out}/lines.json", "w"), separators=(",", ":"))
-    snapshot_pregame(res, log=os.path.join(os.path.dirname(os.path.abspath(raw)), "log", "lines_log.csv"))
+    if snapshot:
+        snapshot_pregame(res, log=os.path.join(os.path.dirname(os.path.abspath(raw)), "log", "lines_log.csv"))
     print(f"lines.json: {res['n']} player-market lines, {len(res['games'])} games, {len(res['unmatched'])} unmatched names")
     if res["unmatched"]:
         print("  unmatched (check name spellings or the player is not projected this week):", ", ".join(res["unmatched"][:10]))
