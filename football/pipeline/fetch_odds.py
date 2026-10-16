@@ -115,13 +115,18 @@ def fetch_cfb_lines(s, key, now):
         print(f"::warning::college lines failed: {e}")
 
 
-def probe(session=None):
-    """Diagnostic (costs a handful of credits): which bookmakers and markets does the API have for the next NFL game?"""
+def probe(session=None, base=None):
+    """Diagnostic (costs a handful of credits): which bookmakers and markets does the API have for the next game? Runs for NFL, then college."""
+    if base is None:
+        probe(session, BASE)
+        print("\n=== college ===")
+        return probe(session, CFB_BASE)
+    # (below uses `base`)
     key = os.environ.get("ODDS_API_KEY")
     if not key:
         raise SystemExit("ODDS_API_KEY is not set")
     s = session or requests.Session()
-    r = s.get(f"{BASE}/events", params={"apiKey": key, "dateFormat": "iso"}, timeout=30)
+    r = s.get(f"{base}/events", params={"apiKey": key, "dateFormat": "iso"}, timeout=30)
     print("events HTTP", r.status_code)
     if r.status_code != 200:
         print(r.text[:200]); return
@@ -129,12 +134,18 @@ def probe(session=None):
     print(f"{len(evs)} upcoming events")
     if not evs:
         return
-    ev = evs[0]
+    ev = sorted(evs, key=lambda e: e['commence_time'])[0]
     print(f"probing {ev['away_team']} @ {ev['home_team']} ({ev['commence_time']})")
-    j = s.get(f"{BASE}/events/{ev['id']}/markets", params={"apiKey": key, "regions": "us,us_dfs"}, timeout=30).json()
+    j = s.get(f"{base}/events/{ev['id']}/markets", params={"apiKey": key, "regions": "us,us_dfs"}, timeout=30).json()
     for bk in j.get("bookmakers", []):
         print(f"  {bk['key']:<18} {', '.join(sorted(m['key'] for m in bk.get('markets', [])))[:150]}")
-    resp = s.get(f"{BASE}/events/{ev['id']}/odds", timeout=30, params={"apiKey": key, "bookmakers": ",".join(C.ODDS_BOOKS), "markets": ",".join(C.ODDS_MARKETS), "oddsFormat": "american"})
+    mk = ",".join(C.ODDS_MARKETS)
+    if base == CFB_BASE:                                    # college: the NFL player-prop names, plus the college-only ones the API lists
+        mk = ",".join(dict.fromkeys(list(C.ODDS_MARKETS) + ["player_pass_yds", "player_rush_yds", "player_reception_yds", "player_receptions", "player_anytime_td"]))
+    resp = s.get(f"{base}/events/{ev['id']}/odds", timeout=30, params={"apiKey": key, "bookmakers": ",".join(C.ODDS_BOOKS), "markets": mk, "oddsFormat": "american"})
+    if resp.status_code != 200:
+        print("odds HTTP", resp.status_code, resp.text[:200])
+        return
     print("odds HTTP", resp.status_code, "credits left", resp.headers.get("x-requests-remaining"))
     for bk in resp.json().get("bookmakers", []):
         print(f"  {bk['key']:<18} " + ", ".join(f"{m['key']}: {len(m.get('outcomes', []))}" for m in bk.get("markets", [])))
