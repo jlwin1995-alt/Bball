@@ -5,7 +5,7 @@
 import argparse, datetime as dt, json, os, sys
 from . import config as C, analysis, scorecard, weather, results, legacy, teamstats, lines as lines_mod
 from .model import (load_weekly, nfl_core, derive, params, rnd, td_adj, td_base, opp_pos_factor, pos_group, REC_POS, num)
-from .slate import load_csv, target_week, matchups, kickoffs, statuses, week_games, game_label, history_gaps
+from .slate import load_csv, target_week, matchups, kickoffs, statuses, depth_map, week_games, game_label, history_gaps
 
 
 def dump(obj, out, name):
@@ -107,6 +107,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     by_team_wx, wx_rows = weather.week_weather(sched, week, P, weather.load_overrides(), fetch=fetch_wx)
     core = nfl_core(hist, mu, by_team_wx, P)
     status = statuses(inj, week)
+    dpt = depth_map(load_csv(f"{raw}/depth.csv")) if os.path.exists(f"{raw}/depth.csv") else {}
     kick = kickoffs(sched, week)
 
     # rank each opponent within the position group it is being judged on, so "+4.7%" carries the context that makes it readable
@@ -127,7 +128,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
         k0 = kick.get(pl["team"])
         proj.append(dict(
             id=pl["id"], name=pl["name"], pos=pl["pos"], grp=pl["grp"], team=pl["team"], opp=pl["opp"], home=int(pl["siteTag"] == "vs"),
-            game=game_label(away, home), ko=utc(k0), status=status.get(pl["id"], ""), g=pl["g"], rest=pl["rest"],
+            game=game_label(away, home), ko=utc(k0), status=status.get(pl["id"], ""), depth=dpt.get(pl["id"]), g=pl["g"], rest=pl["rest"],
             wind=r(pl["wind"], 1) if pl["wind"] != "" else None,
             # volumes (rounded to one decimal, as displayed) and the rates the browser multiplies them by when you override a volume
             car=d["car"], tgt=d["tgt"], att=d["att"], ypc=r(pl["ypc"], 4), cr=r(pl["cr"], 4), ypr=r(pl["ypr"], 4), ypa=r(pl["ypa"], 4), cmp=r(pl["compRate"], 4),
@@ -182,6 +183,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
               weather=dict(on=P["WEATHER_ON"], threshold=P["WX_WIND_THRESHOLD"]),
               edge_min=C.EDGE_MIN * 100, pp_breakeven=C.PP_BREAKEVEN * 100,
               markets={v[0]: dict(label=v[1], a=v[2], b=v[3], law=v[4]) for v in C.ODDS_MARKETS.values()},
+              depth_ts=(load_csv(f"{raw}/depth.csv")[0]["dt"] if os.path.exists(f"{raw}/depth.csv") and load_csv(f"{raw}/depth.csv") else None),
               first_kick=min((g["ko"] for g in games if g["ko"]), default=None),
               backtests=sorted(f[len("backtest_"):-5] for f in os.listdir(out) if f.startswith("backtest_") and f.endswith(".json"))),
          out, "meta.json")

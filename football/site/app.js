@@ -110,7 +110,7 @@ const pages = {
     if (F.hideStarted) rows = rows.filter(r => !started(r.ko));
     const det = CFG.detail;
     const cols = [...nameCols, {k: "opp", h: "Opp", l: 1, f: vsOpp, v: r => r.opp},
-      {k: "status", h: "Status", l: 1, f: r => statusPill(r.status)},
+      {k: "status", h: "Status", l: 1, f: r => statusPill(r.status)}, depthCol(depthTip(false, D.meta.depth_ts)),
       ...(det ? [{k: "g", h: "G", t: "Games in this season's sample"}, {k: "rest", h: "Rest", t: "Days since the team's last game"},
         {k: "wind", h: "Wind", t: "mph at kickoff (recorded, forecast, or blank = indoor/unknown)", f: r => num(r.wind)}] : []),
       {k: "caro", h: "Car OVR", t: "Type carries to override. Teammates are NOT re-scaled. Saved on this device.", v: r => OVR[r.id]?.car, f: r => ovrCell(r, "car", r.car)},
@@ -154,7 +154,7 @@ const pages = {
     const all = proj();
     const mk = t => {
       const rows = all.filter(p => p.team === t && p.game === g.game);
-      const cols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "status", h: "Status", l: 1, f: r => statusPill(r.status)},
+      const cols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "status", h: "Status", l: 1, f: r => statusPill(r.status)}, depthCol(depthTip(false, D.meta.depth_ts)),
         {k: "ccar", h: "Car", v: r => r.c.car, f: r => num(r.c.car)}, {k: "cry", h: "Rush", v: r => r.c.rushY, f: r => num(r.c.rushY, 0)},
         {k: "crec", h: "Rec", v: r => r.c.rec, f: r => num(r.c.rec)}, {k: "crecy", h: "Rec Yds", v: r => r.c.recY, f: r => num(r.c.recY, 0)},
         {k: "catt", h: "Att", v: r => r.c.att, f: r => r.c.att > 0 ? num(r.c.att) : ""}, {k: "cpy", h: "Pass Yds", v: r => r.c.passY, f: r => r.c.att > 0 ? num(r.c.passY, 0) : ""},

@@ -78,6 +78,35 @@ def excluded_games(games):
     return out
 
 
+def roles(rows, proj):
+    """Inferred depth role per projected player. CFBD has no depth chart, so this is who has actually been used: over the team's last three
+    games, rank each position group by passing attempts (QB), carries (RB), receptions (WR, TE; yards break ties). A starter is rank 1 at QB, RB and TE
+    and ranks 1-3 at WR. Returns id -> dict(slot, rank, st, share) where share is the player's fraction of the group's last-three-game volume."""
+    wk = {}
+    for x in rows:
+        wk.setdefault(x["team"], set()).add(int(x["week"]))
+    last = {t: sorted(w)[-3:] for t, w in wk.items()}
+    use = {}
+    for x in rows:
+        if int(x["week"]) in last.get(x["team"], ()):
+            u = use.setdefault((x["team"], x["playerId"]), [0.0, 0.0, 0.0, 0.0])
+            u[0] += x["attempts"]; u[1] += x["carries"]; u[2] += x["receptions"]; u[3] += x["receiving_yards"]
+    key = {"QB": lambda u: (u[0], 0), "RB": lambda u: (u[1], 0), "WR": lambda u: (u[2], u[3]), "TE": lambda u: (u[2], u[3])}
+    grp = {}
+    for p in proj:
+        if p["pos"] in key:
+            grp.setdefault((p["team"], p["pos"]), []).append(p)
+    out = {}
+    for (team, pos), ps in grp.items():
+        # rank against EVERY player of that position on the team, not only the projected ones
+        ids = {x["playerId"] for x in rows if x["team"] == team and x["position"] == pos and int(x["week"]) in last.get(team, ())} | {p["id"] for p in ps}
+        scored = sorted(((i, key[pos](use.get((team, i), [0.0] * 4))) for i in ids), key=lambda t: t[1], reverse=True)
+        tot = sum(v[0] for _, v in scored) or 0.0
+        for rank, (i, v) in enumerate(scored, 1):
+            out[i] = dict(slot=f"{pos}{rank}", rank=rank, st=int(rank <= (3 if pos == "WR" else 1) and v[0] > 0), share=r(v[0] / tot, 3) if tot else None)
+    return out
+
+
 def props_lines(raw, out, season):
     """cfb_odds.csv + this week's projections -> out/lines.json (consensus, DFS lines), with the college sigma per market fitted by the backtest
     (a + b x projection; the NFL fit is the fallback while a market has too few college rows)."""
@@ -322,6 +351,9 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
                          ry=r(x["rushY"], 2), recy=r(x["recY"], 2), py=r(x["passY"], 2), comp=r(x["comp"], 3), rtd=r(x["rushTD"], 4), rectd=r(x["recTD"], 4),
                          ptd=r(x["passTD"], 4), int=r(x["int"], 4), fum=r(x["fum"], 4), pts=r(x["pts"], 2)))
     proj.sort(key=lambda x: -(x["car"] + x["rec"] + x["att"] * 0.5))
+    rl = roles(rows, proj)
+    for x in proj:
+        x["depth"] = rl.get(x["id"])
     games_out = []
     for g in s["games"]:
         games_out.append(dict(game=label(g["homeTeam"], g["awayTeam"], "N" if g["neutral"] else "vs"), away=g["awayTeam"], home=g["homeTeam"], neutral=g["neutral"],

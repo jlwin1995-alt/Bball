@@ -62,3 +62,8 @@ function compareCard(T, away, home) {
     <div class="cmphead"><span>${esc(away)}</span><span>${esc(home)}</span></div>${T.rows.map(row).join("")}
     <p class="mut cmpnote">${T.note || ""}</p></div>`;
 }
+
+// Depth-chart role: {slot: "WR2", rank, st: 1 if a starter, share?}. NFL = the ESPN depth chart (via nflverse); college = inferred from the last three games' usage.
+const depthTip = (inferred, ts) => inferred ? "Inferred from who has actually been used in the team's last three games (college has no depth-chart feed). Share = fraction of the group's recent volume." : `ESPN depth chart as of ${ts ? new Date(ts).toLocaleString(undefined, {month: "short", day: "numeric", hour: "numeric", minute: "2-digit"}) : "the last update"}. Starter = QB/RB/TE rank 1, WR ranks 1-3. Teams can change it before kickoff: check the inactive list 90 minutes out.`;
+const depthPill = (d, tip) => d ? `<span class="pill ${d.st ? "start" : "bkp"}" title="${esc(tip)}">${d.st ? "★ " : ""}${esc(d.slot)}${d.share != null ? ` <span class="zs">${Math.round(d.share * 100)}%</span>` : ""}</span>` : `<span class="mut" title="${esc(tip)}">—</span>`;
+const depthCol = (tip, inferred) => ({k: "depth", h: "Depth", l: 1, t: tip, v: r => r.depth ? (r.depth.st ? 0 : 1) * 100 + r.depth.rank : 999, f: r => depthPill(r.depth, tip)});

@@ -58,6 +58,26 @@ def simple(url, out, season=None):
     return len(t) - 1
 
 
+def depth(path, season):
+    """nflverse's ESPN depth charts: one snapshot per day, all season long (60+ MB). Keep only the NEWEST snapshot's offensive skill rows."""
+    import requests
+    url = f"{C.NFLVERSE}/depth_charts/depth_charts_{season}.csv"
+    cols = ["dt", "team", "player_name", "gsis_id", "pos_abb", "pos_slot", "pos_rank"]
+    best, rows = "", []
+    with requests.get(url, stream=True, timeout=120) as r:
+        r.raise_for_status()
+        rd = csv.DictReader(l.decode("utf-8", "replace") for l in r.iter_lines())
+        for x in rd:
+            if x["pos_abb"] not in ("QB", "RB", "FB", "WR", "TE"):
+                continue
+            if x["dt"] > best:
+                best, rows = x["dt"], []
+            if x["dt"] == best:
+                rows.append([x[c] for c in cols])
+    write(path, cols, rows)
+    return len(rows), best
+
+
 def resolve_season(raw="data/raw"):
     """The newest season nflverse has published weekly stats for (this calendar year's once Week 1 has been played, otherwise last year's).
     Written to data/raw/season.txt so config.SEASON follows it: the site rolls over by itself in September and stays on last season through
@@ -93,6 +113,10 @@ def main(season=None, raw="data/raw"):
                 print(f"{name}: {simple(url, f'{d}/{name}.csv')} rows")
             except Exception as e:
                 print(f"::warning::{name} unavailable ({e}); keeping the previous file", file=sys.stderr)
+        try:
+            print("depth chart: %d rows, snapshot %s" % depth(f"{d}/depth.csv", season))
+        except Exception as e:
+            print(f"::warning::depth chart unavailable ({e}); keeping the previous file", file=sys.stderr)
 
 
 if __name__ == "__main__":

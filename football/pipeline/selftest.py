@@ -101,6 +101,16 @@ def cfb_lines_checks():
     assert L.attach(games, lines) == [] and games[0]["spread"] == -4.0 and games[0]["away_imp"] > games[0]["home_imp"], games
     print("college lines ok")
     cfb_props_checks()
+    depth_checks()
+
+
+def depth_checks():
+    from .slate import depth_map
+    rows = [dict(team="KC", gsis_id=g, pos_abb=p, pos_slot="1", pos_rank=str(r)) for g, p, r in
+            [("a", "QB", 1), ("b", "QB", 2), ("c", "WR", 1), ("d", "WR", 3), ("e", "WR", 4), ("f", "RB", 1), ("f", "RB", 2)]]
+    m = depth_map(rows)
+    assert m["a"]["st"] == 1 and m["b"]["st"] == 0 and m["d"]["st"] == 1 and m["e"]["st"] == 0 and m["d"]["slot"] == "WR3" and m["f"]["rank"] == 1, m
+    print("depth chart ok")
 
 
 def cfb_props_checks():

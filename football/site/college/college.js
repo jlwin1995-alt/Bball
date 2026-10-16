@@ -20,6 +20,7 @@ const calcFor = p => {
 const proj = () => D.projections.map(p => ({...p, c: calcFor(p)}));
 const siteTag = r => r.site === "N" ? "vs " + esc(r.opp) + " (neutral)" : (r.site === "vs" ? "vs " : "@ ") + esc(r.opp);
 const nameCols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}];
+const roleCol = () => depthCol(depthTip(true), true);
 const F = {q: "", pos: "", team: "", conf: "", hideStarted: false, game: "", year: ""};
 const ovrCell = (r, key, shown) => `<input class="ovr" data-id="${esc(r.id)}" data-key="${key}" value="${OVR[r.id]?.[key] ?? ""}" placeholder="${num(shown)}">`;
 
@@ -70,7 +71,7 @@ const pages = {
     let rows = proj().filter(passes);
     if (F.hideStarted) rows = rows.filter(r => !started(r.ko));
     const det = CFG.detail;
-    const cols = [...nameCols, {k: "conf", h: "Conf", l: 1}, {k: "opp", h: "Opp", l: 1, f: siteTag, v: r => r.opp},
+    const cols = [...nameCols, roleCol(), {k: "conf", h: "Conf", l: 1}, {k: "opp", h: "Opp", l: 1, f: siteTag, v: r => r.opp},
       ...(det ? [{k: "g", h: "G", t: "Games in this season's sample"}] : []),
       {k: "caro", h: "Car OVR", t: "Type carries to override. Teammates are NOT re-scaled. Saved on this device.", v: r => OVR[r.id]?.car, f: r => ovrCell(r, "car", r.car)},
       {k: "ccar", h: "Car", v: r => r.c.car, f: r => num(r.c.car)},
@@ -103,7 +104,7 @@ const pages = {
     const g = games.find(x => x.game === F.game), all = proj().filter(p => p.game === g.game);
     const mk = t => {
       const rows = all.filter(p => p.team === t);
-      const cols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "ccar", h: "Car", v: r => r.c.car, f: r => num(r.c.car)}, {k: "cry", h: "Rush", v: r => r.c.rushY, f: r => num(r.c.rushY, 0)},
+      const cols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, roleCol(), {k: "ccar", h: "Car", v: r => r.c.car, f: r => num(r.c.car)}, {k: "cry", h: "Rush", v: r => r.c.rushY, f: r => num(r.c.rushY, 0)},
         {k: "crec", h: "Rec", v: r => r.c.rec, f: r => num(r.c.rec)}, {k: "crecy", h: "Rec Yds", v: r => r.c.recY, f: r => num(r.c.recY, 0)},
         {k: "catt", h: "Att", v: r => r.c.att, f: r => r.c.att > 0 ? num(r.c.att) : ""}, {k: "cpy", h: "Pass Yds", v: r => r.c.passY, f: r => r.c.att > 0 ? num(r.c.passY, 0) : ""},
         {k: "ctd", h: "TD", v: r => r.c.rushTD + r.c.recTD + r.c.passTD, f: r => num(r.c.rushTD + r.c.recTD + r.c.passTD, 2)}, {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`}, ...(D.lines?.rows?.length ? [leanCol] : [])];
