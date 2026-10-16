@@ -10549,6 +10549,29 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 6,5387611,Jaylen Andrews,WR,Buffalo,Mid-American,Toledo,0,0.0,0.0,0.0,2.0,28.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 6,5387612,Clint Walker,TE,Buffalo,Mid-American,Toledo,0,0.0,0.0,0.0,2.0,28.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 6,-5463, Team,,Buffalo,Mid-American,Toledo,0,2.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4433829,Mitch Griffis,QB,East Carolina,American Athletic,UAB,0,1.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4685237,Michael Allen,RB,East Carolina,American Athletic,UAB,0,1.0,13.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+7,4869324,Tyler Johnson,WR,East Carolina,American Athletic,UAB,0,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4870770,Nathaniel Joseph,WR,East Carolina,American Athletic,UAB,0,1.0,0.0,0.0,4.0,5.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5075800,Emory Williams,QB,East Carolina,American Athletic,UAB,0,12.0,40.0,0.0,0.0,0.0,0.0,18.0,27.0,126.0,2.0,1.0,0.0
+7,5079419,TJ Engleman,RB,East Carolina,American Athletic,UAB,0,26.0,104.0,0.0,3.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5122006,Landon Sides,WR,East Carolina,American Athletic,UAB,0,0.0,0.0,0.0,2.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5125012,Ismael Smith Flores,,East Carolina,American Athletic,UAB,0,0.0,0.0,0.0,2.0,22.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5145453,Jeremiah Melvin,WR,East Carolina,American Athletic,UAB,0,0.0,0.0,0.0,1.0,21.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5159027,Dawson Quarterman,WR,East Carolina,American Athletic,UAB,0,0.0,0.0,0.0,2.0,13.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5194306,Ashton Gray,RB,East Carolina,American Athletic,UAB,0,9.0,26.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5226083,Jason Dickerson,WR,East Carolina,American Athletic,UAB,0,0.0,0.0,0.0,3.0,26.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4685283,Kaleb Brown,WR,UAB,American Athletic,East Carolina,1,0.0,0.0,0.0,1.0,32.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4711421,C.J. Smith,WR,UAB,American Athletic,East Carolina,1,1.0,22.0,0.0,8.0,119.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4897730,Braylon McReynolds,RB,UAB,American Athletic,East Carolina,1,9.0,19.0,0.0,2.0,19.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4918110,Roderick Robinson II,RB,UAB,American Athletic,East Carolina,1,8.0,33.0,0.0,2.0,22.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5057381,Ryder Burton,QB,UAB,American Athletic,East Carolina,1,7.0,-16.0,0.0,0.0,0.0,0.0,19.0,37.0,262.0,2.0,0.0,0.0
+7,5092470,Tiaquelin Mims,WR,UAB,American Athletic,East Carolina,1,0.0,0.0,0.0,3.0,47.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5157261,Ja'Vin Simpkins,RB,UAB,American Athletic,East Carolina,1,4.0,31.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5197123,Nate Rogers,QB,UAB,American Athletic,East Carolina,1,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5219011,EJ Reid,WR,UAB,American Athletic,East Carolina,1,1.0,3.0,0.0,2.0,14.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5295450,Sean Persson,TE,UAB,American Athletic,East Carolina,1,0.0,0.0,0.0,1.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5393808,JR Mosley,,UAB,American Athletic,East Carolina,1,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 7,4568237,Matt Smith,TE,Sam Houston,Conference USA,Western Kentucky,1,0.0,0.0,0.0,1.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 7,4680018,Alton McCaskill,RB,Sam Houston,Conference USA,Western Kentucky,1,3.0,10.0,0.0,1.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 7,4895711,Chris Reed,WR,Sam Houston,Conference USA,Western Kentucky,1,0.0,0.0,0.0,3.0,51.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
@@ -10571,6 +10594,50 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 7,5290447,Le'Kamren Meadows,RB,Western Kentucky,Conference USA,Sam Houston,0,1.0,32.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 7,5290902,Jonathan Stafford Jr.,WR,Western Kentucky,Conference USA,Sam Houston,0,0.0,0.0,0.0,5.0,37.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 7,-7905, Team,,Western Kentucky,Conference USA,Sam Houston,0,1.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4870645,Rickie Collins,QB,Kennesaw State,Conference USA,Missouri State,0,9.0,25.0,1.0,0.0,0.0,0.0,26.0,34.0,260.0,1.0,0.0,0.0
+7,5081089,Dylan Gary,WR,Kennesaw State,Conference USA,Missouri State,0,0.0,0.0,0.0,10.0,135.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5083103,Davis Bryson,WR,Kennesaw State,Conference USA,Missouri State,0,1.0,1.0,0.0,1.0,2.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
+7,5147191,Javon Rogers,WR,Kennesaw State,Conference USA,Missouri State,0,0.0,0.0,0.0,6.0,79.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5154227,Navelle Dean,WR,Kennesaw State,Conference USA,Missouri State,0,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5220641,Alan Woods III,RB,Kennesaw State,Conference USA,Missouri State,0,13.0,47.0,1.0,6.0,36.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5224714,Latrelle Murrell,RB,Kennesaw State,Conference USA,Missouri State,0,2.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5232359,Keon Davis,,Kennesaw State,Conference USA,Missouri State,0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5234086,Triston Morgan,RB,Kennesaw State,Conference USA,Missouri State,0,2.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5265450,Jamari Harrold,TE,Kennesaw State,Conference USA,Missouri State,0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,-109170, Team,,Kennesaw State,Conference USA,Missouri State,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
+7,4602895,Makai Cope,WR,Missouri State,Conference USA,Kennesaw State,1,0.0,0.0,0.0,1.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4685252,Henry Belin IV,QB,Missouri State,Conference USA,Kennesaw State,1,9.0,24.0,0.0,0.0,0.0,0.0,28.0,39.0,300.0,2.0,1.0,0.0
+7,4837193,Jmariyae Robinson,WR,Missouri State,Conference USA,Kennesaw State,1,0.0,0.0,0.0,8.0,77.0,0.0,1.0,1.0,3.0,0.0,0.0,0.0
+7,5085729,Connor Lair,RB,Missouri State,Conference USA,Kennesaw State,1,14.0,65.0,0.0,3.0,19.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5128052,Dillon Hipp,TE,Missouri State,Conference USA,Kennesaw State,1,0.0,0.0,0.0,3.0,38.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5154284,Ramone Green Jr.,RB,Missouri State,Conference USA,Kennesaw State,1,5.0,18.0,0.0,3.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5164337,King Davis,RB,Missouri State,Conference USA,Kennesaw State,1,3.0,15.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5219476,Isaiah Myers,,Missouri State,Conference USA,Kennesaw State,1,0.0,0.0,0.0,7.0,135.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5227784,Jeron Askren,TE,Missouri State,Conference USA,Kennesaw State,1,0.0,0.0,0.0,3.0,18.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,-7567, Team,,Missouri State,Conference USA,Kennesaw State,1,2.0,-4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4832875,Leon Haughton Jr.,TE,Old Dominion,Sun Belt,Georgia Southern,1,0.0,0.0,0.0,3.0,34.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4922993,Devin Roche,RB,Old Dominion,Sun Belt,Georgia Southern,1,15.0,25.0,0.0,2.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+7,5153408,Kendall Harris,WR,Old Dominion,Sun Belt,Georgia Southern,1,0.0,0.0,0.0,4.0,47.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5193346,Quinn Henicle,QB,Old Dominion,Sun Belt,Georgia Southern,1,6.0,16.0,0.0,0.0,0.0,0.0,6.0,10.0,86.0,1.0,0.0,0.0
+7,5193349,Maurki James,RB,Old Dominion,Sun Belt,Georgia Southern,1,4.0,29.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5294446,Trey Hall,RB,Old Dominion,Sun Belt,Georgia Southern,1,2.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5295919,Ryan Huff,QB,Old Dominion,Sun Belt,Georgia Southern,1,5.0,-10.0,0.0,0.0,0.0,0.0,9.0,14.0,115.0,1.0,0.0,1.0
+7,5295921,Josh Rodriguez,WR,Old Dominion,Sun Belt,Georgia Southern,1,0.0,0.0,0.0,3.0,28.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5295923,TJ Johnson,WR,Old Dominion,Sun Belt,Georgia Southern,1,0.0,0.0,0.0,2.0,83.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5295939,Chris Warren,TE,Old Dominion,Sun Belt,Georgia Southern,1,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4685348,Terrance Gibbs,,Georgia Southern,Sun Belt,Old Dominion,0,6.0,44.0,1.0,2.0,18.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4685364,Andre Greene Jr.,,Georgia Southern,Sun Belt,Old Dominion,0,0.0,0.0,0.0,7.0,61.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4685740,Max Johnson,QB,Georgia Southern,Sun Belt,Old Dominion,0,1.0,2.0,0.0,0.0,0.0,0.0,6.0,8.0,29.0,0.0,0.0,0.0
+7,4698179,River Helms,TE,Georgia Southern,Sun Belt,Old Dominion,0,0.0,0.0,0.0,4.0,57.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4838527,Josh Dallas,WR,Georgia Southern,Sun Belt,Old Dominion,0,1.0,1.0,0.0,4.0,33.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4912238,Turner Helton,QB,Georgia Southern,Sun Belt,Old Dominion,0,1.0,2.0,0.0,0.0,0.0,0.0,23.0,30.0,205.0,1.0,1.0,0.0
+7,5079736,Alex Taylor,WR,Georgia Southern,Sun Belt,Old Dominion,0,0.0,0.0,0.0,7.0,75.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5123988,Taylor Bradshaw,WR,Georgia Southern,Sun Belt,Old Dominion,0,0.0,0.0,0.0,2.0,6.0,0.0,1.0,1.0,32.0,0.0,0.0,0.0
+7,5151111,Jamarian Samuel,RB,Georgia Southern,Sun Belt,Old Dominion,0,1.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5155780,Taeo Todd,RB,Georgia Southern,Sun Belt,Old Dominion,0,1.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5212641,Weston Bryan,QB,Georgia Southern,Sun Belt,Old Dominion,0,7.0,6.0,0.0,0.0,0.0,0.0,2.0,2.0,6.0,0.0,0.0,0.0
+7,5390044,Tyrese Woodgett,RB,Georgia Southern,Sun Belt,Old Dominion,0,16.0,77.0,0.0,6.0,22.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,-6034, Team,,Georgia Southern,Sun Belt,Old Dominion,0,1.0,-5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 7,4680024,Da'Wain Lofton,WR,Delaware,Conference USA,Middle Tennessee,0,0.0,0.0,0.0,3.0,40.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 7,4887640,Kaderris Roberts,RB,Delaware,Conference USA,Middle Tennessee,0,3.0,14.0,1.0,3.0,45.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
 7,5086952,Jo'Nathan Silver,RB,Delaware,Conference USA,Middle Tennessee,0,6.0,19.0,0.0,1.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
@@ -10590,27 +10657,32 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 7,5306988,Terrence Brown Jr.,,Middle Tennessee,Conference USA,Delaware,1,7.0,40.0,0.0,6.0,26.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 7,5383058,Koraun Perdue,TE,Middle Tennessee,Conference USA,Delaware,1,0.0,0.0,0.0,4.0,103.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
 7,-6654, Team,,Middle Tennessee,Conference USA,Delaware,1,2.0,-2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-7,4602895,Makai Cope,WR,Missouri State,Conference USA,Kennesaw State,1,0.0,0.0,0.0,1.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-7,4685252,Henry Belin IV,QB,Missouri State,Conference USA,Kennesaw State,1,9.0,24.0,0.0,0.0,0.0,0.0,28.0,39.0,300.0,2.0,1.0,0.0
-7,4837193,Jmariyae Robinson,WR,Missouri State,Conference USA,Kennesaw State,1,0.0,0.0,0.0,8.0,77.0,0.0,1.0,1.0,3.0,0.0,0.0,0.0
-7,5085729,Connor Lair,RB,Missouri State,Conference USA,Kennesaw State,1,14.0,65.0,0.0,3.0,19.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-7,5128052,Dillon Hipp,TE,Missouri State,Conference USA,Kennesaw State,1,0.0,0.0,0.0,3.0,38.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-7,5154284,Ramone Green Jr.,RB,Missouri State,Conference USA,Kennesaw State,1,5.0,18.0,0.0,3.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-7,5164337,King Davis,RB,Missouri State,Conference USA,Kennesaw State,1,3.0,15.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-7,5219476,Isaiah Myers,,Missouri State,Conference USA,Kennesaw State,1,0.0,0.0,0.0,7.0,135.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0
-7,5227784,Jeron Askren,TE,Missouri State,Conference USA,Kennesaw State,1,0.0,0.0,0.0,3.0,18.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-7,-7567, Team,,Missouri State,Conference USA,Kennesaw State,1,2.0,-4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-7,4870645,Rickie Collins,QB,Kennesaw State,Conference USA,Missouri State,0,9.0,25.0,1.0,0.0,0.0,0.0,26.0,34.0,260.0,1.0,0.0,0.0
-7,5081089,Dylan Gary,WR,Kennesaw State,Conference USA,Missouri State,0,0.0,0.0,0.0,10.0,135.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
-7,5083103,Davis Bryson,WR,Kennesaw State,Conference USA,Missouri State,0,1.0,1.0,0.0,1.0,2.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
-7,5147191,Javon Rogers,WR,Kennesaw State,Conference USA,Missouri State,0,0.0,0.0,0.0,6.0,79.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-7,5154227,Navelle Dean,WR,Kennesaw State,Conference USA,Missouri State,0,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-7,5220641,Alan Woods III,RB,Kennesaw State,Conference USA,Missouri State,0,13.0,47.0,1.0,6.0,36.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-7,5224714,Latrelle Murrell,RB,Kennesaw State,Conference USA,Missouri State,0,2.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-7,5232359,Keon Davis,,Kennesaw State,Conference USA,Missouri State,0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-7,5234086,Triston Morgan,RB,Kennesaw State,Conference USA,Missouri State,0,2.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-7,5265450,Jamari Harrold,TE,Kennesaw State,Conference USA,Missouri State,0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-7,-109170, Team,,Kennesaw State,Conference USA,Missouri State,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
+7,4894661,Durell Robinson,RB,Colorado State,Pac-12,Texas State,0,7.0,31.0,2.0,2.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4899418,Javonte Vereen,TE,Colorado State,Pac-12,Texas State,0,0.0,0.0,0.0,3.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5077803,Jackson Harper,WR,Colorado State,Pac-12,Texas State,0,0.0,0.0,0.0,5.0,91.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5095078,Jayden Brown,RB,Colorado State,Pac-12,Texas State,0,6.0,22.0,0.0,4.0,35.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5121898,Nader Chirchi,TE,Colorado State,Pac-12,Texas State,0,0.0,0.0,0.0,2.0,33.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5193168,Terrence Smith Jr.,WR,Colorado State,Pac-12,Texas State,0,0.0,0.0,0.0,2.0,42.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5193222,Oliver Lundberg-Coleman,,Colorado State,Pac-12,Texas State,0,7.0,46.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5212610,Ksaan Farrar,QB,Colorado State,Pac-12,Texas State,0,6.0,26.0,0.0,0.0,0.0,0.0,26.0,41.0,282.0,2.0,0.0,0.0
+7,5219136,Tommy Maher,WR,Colorado State,Pac-12,Texas State,0,0.0,0.0,0.0,4.0,66.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5250657,D'Angelo Hagans Jr.,,Colorado State,Pac-12,Texas State,0,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5289653,Jayden Fox,RB,Colorado State,Pac-12,Texas State,0,1.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5290862,Cedric Ross,RB,Colorado State,Pac-12,Texas State,0,1.0,3.0,0.0,2.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5295193,Elijah Brown,,Colorado State,Pac-12,Texas State,0,0.0,0.0,0.0,1.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5296864,Malichi Greaves,RB,Colorado State,Pac-12,Texas State,0,3.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,4916885,Jaylen Jenkins,RB,Texas State,Pac-12,Colorado State,1,10.0,78.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5077873,Chris Dawn Jr.,WR,Texas State,Pac-12,Colorado State,1,0.0,0.0,0.0,5.0,44.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5085497,Ty Stamey,TE,Texas State,Pac-12,Colorado State,1,0.0,0.0,0.0,2.0,39.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5088888,Torrance Burgess Jr.,RB,Texas State,Pac-12,Colorado State,1,24.0,224.0,4.0,3.0,52.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5138042,Zechariah Sample,WR,Texas State,Pac-12,Colorado State,1,0.0,0.0,0.0,1.0,14.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5147756,Taji Atkins,RB,Texas State,Pac-12,Colorado State,1,2.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5148803,Brad Jackson,QB,Texas State,Pac-12,Colorado State,1,13.0,181.0,3.0,0.0,0.0,0.0,14.0,19.0,213.0,1.0,0.0,0.0
+7,5152414,Beau Sparks,WR,Texas State,Pac-12,Colorado State,1,0.0,0.0,0.0,2.0,57.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5258487,Cole Pryor,RB,Texas State,Pac-12,Colorado State,1,1.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5269148,Juntavious Harris,RB,Texas State,Pac-12,Colorado State,1,3.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,5277007,LaKeyleon Graves,WR,Texas State,Pac-12,Colorado State,1,0.0,0.0,0.0,1.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+7,-7576, Team,,Texas State,Pac-12,Colorado State,1,2.0,-3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 7,5069231,Deondre Johnson,WR,Jacksonville State,Conference USA,Florida International,1,0.0,0.0,0.0,4.0,93.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
 7,5087930,Jamill Williams,WR,Jacksonville State,Conference USA,Florida International,1,1.0,-3.0,0.0,4.0,18.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 7,5122157,Caden Creel,QB,Jacksonville State,Conference USA,Florida International,1,19.0,95.0,0.0,0.0,0.0,0.0,16.0,22.0,214.0,2.0,1.0,0.0
