@@ -197,6 +197,8 @@ def backtest(rows, games, W, P, from_week=None):
         if wk < from_week or wk not in sched:
             continue
         hist = [x for x in rows if x["week"] < wk]
+        if C.CFB_TRAIN_EXCL:
+            hist = [x for x in hist if (x["team"], int(x["week"])) not in skip]
         now = [x for x in rows if x["week"] == wk]
         if len(hist) < 200 or not now:
             continue

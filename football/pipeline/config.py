@@ -225,6 +225,7 @@ CFB_BACKTEST_FROM_WEEK = 2
 # games left out of the college scorecard and backtest (projections are still made and logged for them): mismatches skew the error and over rates
 CFB_SCORE_EXCL_FCS = True          # any game against an FCS team
 CFB_SCORE_EXCL_TIER_GAP = True     # non-conference game between a Power 4 team and a Group of 5 / independent team
+CFB_TRAIN_EXCL = False            # also leave those games out of the history the model learns from: tested, worse on every market (README), so off
 CFB_POWER_CONFS = {"SEC", "Big Ten", "Big 12", "ACC"}
 CFB_POWER_INDEPENDENTS = {"Notre Dame"}
 CFB_MODEL_KEYS = [
