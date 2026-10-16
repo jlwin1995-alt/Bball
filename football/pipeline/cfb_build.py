@@ -78,6 +78,22 @@ def excluded_games(games):
     return out
 
 
+def props_lines(raw, out, season):
+    """cfb_odds.csv + this week's projections -> out/lines.json (consensus, DFS lines), with the college sigma per market fitted by the backtest
+    (a + b x projection; the NFL fit is the fallback while a market has too few college rows)."""
+    from . import lines as L
+    specs = {}
+    for k, (stat, label_, a, b, law) in ((k, C.ODDS_MARKETS[k]) for k in C.CFB_ODDS_MARKETS):
+        specs[stat] = dict(label=label_, a=a, b=b, law=law, src="nfl")
+    bp = f"{out}/backtest_{season}.json"
+    if os.path.exists(bp):
+        for sp in json.load(open(bp)).get("spread", []):
+            st = C.CFB_SPREAD_STAT.get(sp["label"])
+            if st in specs and sp.get("a") is not None and sp.get("b") is not None and sp["n"] >= 300:
+                specs[st].update(a=sp["a"], b=sp["b"], src="college", n=sp["n"])
+    L.main(raw, out, odds_file="cfb_odds.csv", meta_file="cfb_odds_meta.json", snapshot=False, extra=dict(specs=specs))
+
+
 def label(team, opp, site):
     if site == "N":                          # a neutral game has no home team: order the names so both sides build the same label
         a, h = (team, opp) if team < opp else (opp, team)
@@ -330,6 +346,7 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
     json.dump(teamstats.build(teamstats.cfb_team_games(rows, games), keep=teamstats.fbs_teams(games)), open(f"{out}/teams.json", "w"), separators=(",", ":"))
     json.dump(proj, open(f"{out}/projections.json", "w"), separators=(",", ":"))
     json.dump(games_out, open(f"{out}/games.json", "w"), separators=(",", ":"))
+    props_lines(raw, out, season)
     json.dump(dict(week=week, rows=dr, lg=dict(ypc=r(core["LG_YPC"], 3), ypr=r(core["LG_YPR"], 3), ypa=r(core["LG_YPA"], 3),
                                                  qb=dict(ypc=r(core["rush_base"]["QB"]["ypc"], 2), other=r(core["rush_base"]["OTHER"]["ypc"], 2)))),
               open(f"{out}/matchups.json", "w"), separators=(",", ":"))
@@ -342,7 +359,7 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
     json.dump(sc, open(f"{out}/scorecard.json", "w"), separators=(",", ":"))
     bts = sorted(f[len("backtest_"):-5] for f in os.listdir(out) if f.startswith("backtest_") and f.endswith(".json"))
     json.dump(dict(season=season, week=week, generated=dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), stamp=stamp(P), default_scoring=W,
-                   players=len(proj), games=len(games_out), lines_ts=lines_ts, mean_factor=C.CFB_MEAN_FACTOR, history_rows=len(rows), history_gaps=sorted(gaps)[:6], backtests=bts,
+                   players=len(proj), games=len(games_out), lines_ts=lines_ts, mean_factor=C.CFB_MEAN_FACTOR, props_horizon=C.CFB_PROPS_HORIZON_HOURS, history_rows=len(rows), history_gaps=sorted(gaps)[:6], backtests=bts,
                    asof_week=int(max(x["week"] for x in rows))), open(f"{out}/meta.json", "w"), separators=(",", ":"))
     print(f"college week {week}: projected {len(proj)} players in {len(games_out)} games; logged {logged}; scorecard has {sc['scored']} scored")
     return len(proj)
