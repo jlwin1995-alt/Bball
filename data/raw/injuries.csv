@@ -23,10 +23,10 @@ None,Nae'Qwan Tomlin,CLE,Day-To-Day
 None,Sam Merrill,CLE,Day-To-Day
 None,Khalifa Diop,CLE,Day-To-Day
 None,Moussa Cisse,DAL,Day-To-Day
-None,Jett Howard,DAL,Day-To-Day
-None,Marcus Sasser,DAL,Day-To-Day
-None,Dereck Lively II,DAL,Day-To-Day
 None,Santi Aldama,DAL,Day-To-Day
+None,Marcus Sasser,DAL,Day-To-Day
+None,Jett Howard,DAL,Day-To-Day
+None,Dereck Lively II,DAL,Day-To-Day
 None,Morez Johnson Jr.,DAL,Day-To-Day
 None,Daniel Gafford,DAL,Day-To-Day
 None,Cooper Flagg,DAL,Day-To-Day
@@ -40,12 +40,9 @@ None,Al Horford,GS,Day-To-Day
 None,Jimmy Butler III,GS,Out
 None,Moses Moody,GS,Out
 None,Steven Adams,HOU,Day-To-Day
-None,Alperen Sengun,HOU,Day-To-Day
-None,Fred VanVleet,HOU,Day-To-Day
-None,Kevin Durant,HOU,Day-To-Day
+None,Aaron Nesmith,IND,Day-To-Day
 None,T.J. McConnell,IND,Day-To-Day
 None,Jarace Walker,IND,Day-To-Day
-None,Aaron Nesmith,IND,Day-To-Day
 None,Andrew Nembhard,IND,Day-To-Day
 None,Johnny Furphy,IND,Out
 None,Kris Dunn,LAC,Day-To-Day
@@ -57,8 +54,8 @@ None,Brandon Ingram,TOR,Out
 None,Jordan Miller,LAC,Out
 None,Cameron Carr,LAL,Day-To-Day
 None,Collin Sexton,LAL,Day-To-Day
-None,Adou Thiero,LAL,Day-To-Day
 None,Ziaire Williams,LAL,Day-To-Day
+None,Adou Thiero,LAL,Day-To-Day
 None,Luka Doncic,LAL,Day-To-Day
 None,Micah Peavy,MEM,Day-To-Day
 None,Isaiah Stewart,MEM,Out
@@ -75,34 +72,32 @@ None,Tyler Herro,MIL,Day-To-Day
 None,Kyle Kuzma,MIL,Day-To-Day
 None,Jaime Jaquez Jr.,MIL,Day-To-Day
 None,Gary Trent Jr.,MIL,Day-To-Day
+None,Ayo Dosunmu,MIN,Day-To-Day
 None,Rocco Zikarsky,MIN,Day-To-Day
 None,Enrique Freeman,MIN,Day-To-Day
 None,Donte DiVincenzo,MIN,Out
 None,Dejounte Murray,NO,Day-To-Day
-None,Karl-Anthony Towns,NY,Day-To-Day
-None,Mikal Bridges,NY,Day-To-Day
 None,Josh Hart,NY,Day-To-Day
-None,OG Anunoby,NY,Day-To-Day
-None,Jalen Brunson,NY,Day-To-Day
-None,Otega Oweh,OKC,Out
-None,Jaylin Williams,OKC,Day-To-Day
-None,Chet Holmgren,OKC,Day-To-Day
-None,Ajay Mitchell,OKC,Day-To-Day
 None,Thomas Sorber,OKC,Day-To-Day
+None,Jaylin Williams,OKC,Day-To-Day
+None,Cason Wallace,OKC,Day-To-Day
 None,Nikola Topic,OKC,Day-To-Day
+None,Chet Holmgren,OKC,Day-To-Day
+None,Otega Oweh,OKC,Out
 None,Jonathan Isaac,ORL,Day-To-Day
 None,Anthony Black,ORL,Day-To-Day
 None,Nikola Vucevic,ORL,Day-To-Day
 None,Izaiyah Nelson,ORL,Out
-None,Dominick Barlow,PHI,Day-To-Day
-None,Adem Bona,PHI,Day-To-Day
 None,Anfernee Simons,PHI,Day-To-Day
+None,Adem Bona,PHI,Day-To-Day
+None,Dominick Barlow,PHI,Day-To-Day
 None,LeBron James,PHI,Day-To-Day
 None,Kentavious Caldwell-Pope,PHI,Day-To-Day
 None,Jaylen Brown,PHI,Day-To-Day
 None,Joel Embiid,PHI,Day-To-Day
 None,Ariel Hukporti,PHI,Out
 None,Tacko Fall,PHI,Day-To-Day
+None,Luke Kennard,PHX,Day-To-Day
 None,Oso Ighodaro,PHX,Day-To-Day
 None,Collin Gillespie,PHX,Day-To-Day
 None,Miles Bridges,PHX,Day-To-Day
@@ -127,6 +122,7 @@ None,Julian Champagnie,SA,Day-To-Day
 None,Jayden Quaintance,SA,Out
 None,Tobias Harris,SA,Day-To-Day
 None,Nate Bittle,TOR,Day-To-Day
+None,Chucky Hepburn,TOR,Day-To-Day
 None,Blake Hinson,UTAH,Day-To-Day
 None,Kyle Filipowski,UTAH,Day-To-Day
 None,Jusuf Nurkic,UTAH,Out
