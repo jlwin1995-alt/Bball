@@ -13,9 +13,17 @@ def norm(s):
     return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9 ]", "", s.lower())).strip()
 
 
+# Odds API name (prefix) -> CFBD name, where CFBD abbreviates or renames
+ALIASES = {"appalachian state": "App State", "louisiana monroe": "UL Monroe", "connecticut": "UConn", "southern mississippi": "Southern Miss",
+           "hawaii": "Hawai'i", "san jose state": "San José State", "texas san antonio": "UT San Antonio", "ut san antonio": "UT San Antonio"}
+
+
 def resolve(odds_name, cfbd_names):
     """The CFBD team an Odds API team name refers to, or None."""
     o = norm(odds_name)
+    for k, v in ALIASES.items():
+        if (o == k or o.startswith(k + " ")) and v in cfbd_names:
+            return v
     best = None
     for n in cfbd_names:
         k = norm(n)
