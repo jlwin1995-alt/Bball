@@ -88,3 +88,17 @@ def history_gaps(rows, sched, week):
         if (g["away_team"], w) not in seen or (g["home_team"], w) not in seen:
             gaps.append(f"{g['away_team']} @ {g['home_team']} (wk {w})")
     return gaps
+
+
+def depth_map(rows):
+    """data/raw/depth.csv rows -> gsis_id -> dict(slot, rank, st): the player's best (lowest) depth-chart rank in his position group, e.g. RB2 or WR3.
+    A starter is rank 1 at QB, RB, TE and FB, and ranks 1-3 at WR (the chart lists wide receivers as one ranked group across the three receiver slots)."""
+    out = {}
+    for r in rows:
+        gid, rank = r.get("gsis_id"), int(num(r["pos_rank"]))
+        if not gid or not rank:
+            continue
+        pos = r["pos_abb"]
+        if gid not in out or rank < out[gid]["rank"]:
+            out[gid] = dict(slot=f"{pos}{rank}", rank=rank, st=int(rank <= (3 if pos == "WR" else 1)))
+    return out

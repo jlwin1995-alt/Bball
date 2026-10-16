@@ -56,3 +56,5 @@ details summary{cursor:pointer;list-style:none}details summary::-webkit-details-
 .pill.lean-strong{background:var(--acc);color:#fff;border-color:var(--acc);font-weight:650}.pill.lean-lean{color:var(--acc);border-color:var(--acc)}
 @media (prefers-color-scheme:dark){.pill.lean-strong{color:#0b1a0d}}.pill .zs{opacity:.8;font-weight:400}
 tr.lean-strong-row td:first-child{box-shadow:inset 3px 0 0 var(--acc)}tr.lean-lean-row td:first-child{box-shadow:inset 3px 0 0 var(--line)}
+
+.pill.start{color:var(--acc);border-color:var(--acc);font-weight:600}.pill.bkp{color:var(--mut)}
