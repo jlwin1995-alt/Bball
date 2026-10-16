@@ -41,6 +41,14 @@ function playerLines(p) {
       tier: !st && z != null && m > 0 ? leanTier(z) : "", side: z == null ? null : z > 0 ? "OVER" : "UNDER"};
   }).sort((a, b) => Math.abs(b.z ?? 0) - Math.abs(a.z ?? 0));
 }
+function leanBlock(L) {
+  if (!L) return "";
+  const N = {strong: "STRONG (0.5σ or more)", lean: "LEAN (0.25–0.5σ)", none: "Under 0.25σ"};
+  const row = r => ({tier: N[r.tier], n: r.n, hit: r.hit, pct: r.n ? r.hit / r.n * 100 : null});
+  const tc = [{k: "tier", h: "Lean tier", l: 1}, {k: "n", h: "Lines graded"}, {k: "hit", h: "Model side won"}, {k: "pct", h: "Hit rate", v: r => r.pct, f: r => r.pct == null ? "" : num(r.pct, 1) + "%"}];
+  return `<h3>Lean record (player props)</h3><p class="sub">The model's side (its frozen projection vs the last pre-game consensus line) graded against the box score; a result equal to the line is a push and is left out. ${L.graded} lines graded, ${L.waiting} waiting on games. Break-even is about 52.4% at standard prices, and a few dozen lines say very little.</p>
+    ${L.graded ? table(tc, L.tiers.map(row), {id: "lt"}) : `<p class="mut">Nothing graded yet: college props are only posted close to kickoff, and the pre-game lines are logged from now on.</p>`}`;
+}
 const bestLean = p => { const b = playerLines(p)[0]; return b && b.tier ? b : null; };
 const leanPill = l => l ? `<span class="pill lean-${l.tier}" title="${esc(leanTip)}">${l.tier === "strong" ? "STRONG " : ""}${l.side} ${esc(l.spec.label)} ${l.c.line} <span class="zs">${l.z > 0 ? "+" : ""}${num(l.z, 2)}σ</span></span>` : "";
 const leanRow = r => { const b = bestLean(r); return b ? "lean-" + b.tier + "-row" : ""; };
@@ -173,7 +181,7 @@ const pages = {
       {k: "over", h: "Over %", f: r => r.over == null ? "" : `${num(r.over)} ± ${num(r.band)}`}, {k: "read", h: "Read", l: 1}];
     const pc = [{k: "pos", h: "Pos", l: 1}, {k: "n", h: "n"}, {k: "mae", h: "Pts MAE", f: r => num(r.mae, 2)}, {k: "over", h: "Over %", f: r => `${num(r.over)} ± ${num(r.band)}`}, {k: "bias", h: "Bias %", f: r => plainSigned(r.bias)}, {k: "read", h: "Read", l: 1}];
     const wc = [{k: "week", h: "Week"}, {k: "n", h: "n"}, {k: "model", h: "Model", f: r => `<b>${num(r.model, 2)}</b>`}, {k: "season", h: "Season avg", f: r => num(r.season, 2)}, {k: "last3", h: "Last-3", f: r => num(r.last3, 2)}];
-    return `<h2>College Scorecard</h2><p class="sub">Live record under model <code>${esc(s.stamp)}</code> (full-PPR points).</p>${cards}<h3>By market</h3>${table(mc, s.markets, {id: "scm"})}<h3>By position (points)</h3>${table(pc, s.pos, {id: "scp"})}<h3>By week</h3>${table(wc, s.weeks, {id: "scw"})}
+    return `<h2>College Scorecard</h2><p class="sub">Live record under model <code>${esc(s.stamp)}</code> (full-PPR points).</p>${cards}<h3>By market</h3>${table(mc, s.markets, {id: "scm"})}<h3>By position (points)</h3>${table(pc, s.pos, {id: "scp"})}<h3>By week</h3>${table(wc, s.weeks, {id: "scw"})}${leanBlock(s.leans)}
       <div class="doc"><p class="mut">Never pooled with the NFL record: college scatters about 6-10% wider relative to its own mean and players sit much further apart. A miss can be spotted from about 100 rows, but "calibrated" is held back until 400.</p></div>`;
   },
 

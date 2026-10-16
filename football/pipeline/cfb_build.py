@@ -107,12 +107,11 @@ def roles(rows, proj):
     return out
 
 
-def props_lines(raw, out, season):
-    """cfb_odds.csv + this week's projections -> out/lines.json (consensus, DFS lines), with the college sigma per market fitted by the backtest
-    (a + b x projection; the NFL fit is the fallback while a market has too few college rows)."""
-    from . import lines as L
+def line_specs(out, season):
+    """Odds-market specs for college: the NFL fit as the fallback, the college backtest's sigma (a + b x projection) once a market has 300 rows."""
     specs = {}
-    for k, (stat, label_, a, b, law) in ((k, C.ODDS_MARKETS[k]) for k in C.CFB_ODDS_MARKETS):
+    for k in C.CFB_ODDS_MARKETS:
+        stat, label_, a, b, law = C.ODDS_MARKETS[k]
         specs[stat] = dict(label=label_, a=a, b=b, law=law, src="nfl")
     bp = f"{out}/backtest_{season}.json"
     if os.path.exists(bp):
@@ -120,7 +119,56 @@ def props_lines(raw, out, season):
             st = C.CFB_SPREAD_STAT.get(sp["label"])
             if st in specs and sp.get("a") is not None and sp.get("b") is not None and sp["n"] >= 300:
                 specs[st].update(a=sp["a"], b=sp["b"], src="college", n=sp["n"])
-    L.main(raw, out, odds_file="cfb_odds.csv", meta_file="cfb_odds_meta.json", snapshot=False, extra=dict(specs=specs))
+    return specs
+
+
+def props_lines(raw, out, season, week=None):
+    """cfb_odds.csv + this week's projections -> out/lines.json (consensus, DFS lines). The last PRE-GAME consensus per player and market is also
+    kept in data/log/cfb_lines_log.csv (never touched after kickoff) so the leans can be graded once the games are final."""
+    from . import lines as L
+    L.main(raw, out, odds_file="cfb_odds.csv", meta_file="cfb_odds_meta.json", snapshot=week is not None, extra=dict(specs=line_specs(out, season)),
+           log_name="cfb_lines_log.csv", week=week)
+
+
+LEAN_FIELD = {"rushY": "rushing_yards", "recY": "receiving_yards", "rec": "receptions", "passY": "passing_yards"}
+
+
+def lean_record(rows, played, skip, specs, P, lines_log="data/log/cfb_lines_log.csv", log=LOG):
+    """Grade the leans: for every logged pre-game consensus line, the model's side is its FROZEN projection (cfb_log, current model, logged before
+    kickoff) against the line, and the lean is (projection - line) / sigma. Hit = the model's side won; a result equal to the line is a push and is
+    left out. FCS / tier-gap games are left out as in the rest of the college record."""
+    cur = stamp(P)
+    proj = {(x["player_id"], str(x["week"])): x for x in read_csv(log) if x["stamp"] == cur and str(x["late"]) != "1"}
+    act = {(x["playerId"], int(x["week"])): x for x in rows}
+    tiers = {t: dict(n=0, hit=0) for t in ("strong", "lean", "none")}
+    by_mkt = {}
+    graded = waiting = 0
+    for x in read_csv(lines_log):
+        pr = proj.get((x["player_id"], str(x.get("week", ""))))
+        st = x["stat"]
+        if not pr or st not in LEAN_FIELD or x.get("cons_line") in ("", None) or pr.get(f"p_{st}") in ("", None):
+            continue
+        wk = int(x["week"])
+        if (x["team"], wk) in skip:
+            continue
+        a = act.get((x["player_id"], wk))
+        if (x["team"], wk) not in played:
+            waiting += 1
+            continue
+        if a is None:
+            continue                                            # did not play
+        line, m, res = float(x["cons_line"]), float(pr[f"p_{st}"]), a[LEAN_FIELD[st]]
+        if res == line or m <= 0:
+            continue
+        sp = specs[st]
+        z = (m - line) / max(sp["a"] + sp["b"] * m, max(0.12 * m, 0.5))
+        t = "strong" if abs(z) >= 0.5 else "lean" if abs(z) >= 0.25 else "none"
+        hit = (res > line) == (m > line)
+        graded += 1
+        for d in (tiers[t], by_mkt.setdefault((sp["label"], t), dict(n=0, hit=0))):
+            d["n"] += 1; d["hit"] += hit
+    return dict(graded=graded, waiting=waiting, tiers=[dict(tier=t, **d) for t, d in tiers.items()],
+                markets=[dict(label=k[0], tier=k[1], **v) for k, v in sorted(by_mkt.items())])
 
 
 def label(team, opp, site):
@@ -378,7 +426,7 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
     json.dump(teamstats.build(teamstats.cfb_team_games(rows, games), keep=teamstats.fbs_teams(games)), open(f"{out}/teams.json", "w"), separators=(",", ":"))
     json.dump(proj, open(f"{out}/projections.json", "w"), separators=(",", ":"))
     json.dump(games_out, open(f"{out}/games.json", "w"), separators=(",", ":"))
-    props_lines(raw, out, season)
+    props_lines(raw, out, season, week)
     json.dump(dict(week=week, rows=dr, lg=dict(ypc=r(core["LG_YPC"], 3), ypr=r(core["LG_YPR"], 3), ypa=r(core["LG_YPA"], 3),
                                                  qb=dict(ypc=r(core["rush_base"]["QB"]["ypc"], 2), other=r(core["rush_base"]["OTHER"]["ypc"], 2)))),
               open(f"{out}/matchups.json", "w"), separators=(",", ":"))
@@ -387,7 +435,9 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
         print(f"::warning::college history incomplete (weeks {sorted(gaps)} not fully fetched); showing projections but NOT logging them")
     logged = log_week(season, week, core, hist, kick, P, W) if (log and not gaps) else 0
     played = {(x["team"], int(x["week"])) for x in rows}
-    sc = score(rows, played, P, W, skip=excluded_games(games))
+    skip = excluded_games(games)
+    sc = score(rows, played, P, W, skip=skip)
+    sc["leans"] = lean_record(rows, played, skip, line_specs(out, season), P)
     json.dump(sc, open(f"{out}/scorecard.json", "w"), separators=(",", ":"))
     bts = sorted(f[len("backtest_"):-5] for f in os.listdir(out) if f.startswith("backtest_") and f.endswith(".json"))
     json.dump(dict(season=season, week=week, generated=dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), stamp=stamp(P), default_scoring=W,
