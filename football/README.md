@@ -122,3 +122,5 @@ first, then run the workflow once from the Actions tab. All deploys (basketball,
   The sheet has no live in-game view either, so there is no Live tab.
 - The model only uses the current season's games (as the sheet does), so Week 1-3 projections are thin by design: priors do the work.
 - Season constants (`SEASON` in `config.py`) need updating each year.
+
+**College: FCS / tier-gap games.** They are left out of the college scorecard and backtest (`CFB_SCORE_EXCL_*`). Also dropping them from the history the model learns from (`CFB_TRAIN_EXCL`) was tested on the same 2,416-player scored set and was worse on every market (points MAE +4.5%, receiving yards +12.9%, receptions +13.6%), because it throws away real snaps and shrinks each player's sample. Left off.

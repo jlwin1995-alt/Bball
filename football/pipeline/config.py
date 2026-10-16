@@ -222,6 +222,12 @@ CFB_CONCENTRATE_ATT = True         # weight a team's pass attempts by how often 
 CFB_PLAY_PRIOR = 0.1               # regression on that judgement for college (the NFL uses PLAY_PRIOR = 0.25; 0.1 was best on the college backtest)
 CFB_MEAN_FACTOR = 1.08             # mean points / median points for college: sum of actual over sum of projected in the walk-forward backtest (NFL: 1.17); five weeks
 CFB_BACKTEST_FROM_WEEK = 2
+# games left out of the college scorecard and backtest (projections are still made and logged for them): mismatches skew the error and over rates
+CFB_SCORE_EXCL_FCS = True          # any game against an FCS team
+CFB_SCORE_EXCL_TIER_GAP = True     # non-conference game between a Power 4 team and a Group of 5 / independent team
+CFB_TRAIN_EXCL = False            # also leave those games out of the history the model learns from: tested, worse on every market (README), so off
+CFB_POWER_CONFS = {"SEC", "Big Ten", "Big 12", "ACC"}
+CFB_POWER_INDEPENDENTS = {"Notre Dame"}
 CFB_MODEL_KEYS = [
     "ROLLING_WINDOW", "DEF_ADJ_CAP", "CATCH_CAP_FRACTION", "RECENT_WEIGHT", "RECENT_WEIGHT_ATT", "PRIOR_FUMBLES", "LAMBDA_RUSH_TD", "LAMBDA_REC_TD",
     "LAMBDA_PASS_TD", "LG_PASS_TD", "LG_INT", "CFB_CONFERENCE", "CFB_MIN_OPPS", "CFB_QB_MIN_ATT", "CFB_PRIOR_CAR", "CFB_PRIOR_REC", "CFB_PRIOR_ATT",

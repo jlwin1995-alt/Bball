@@ -57,6 +57,27 @@ def schedule(games):
     return by
 
 
+def excluded_games(games):
+    """(team, week) -> reason, for games kept out of the scorecard and backtest: an FCS opponent, or a non-conference Power 4 vs lower-tier game."""
+    out = {}
+    for g in games:
+        try:
+            w = int(float(g["week"]))
+        except ValueError:
+            continue
+        hm, aw, hc, ac = g["homeTeam"], g["awayTeam"], g["homeConference"], g["awayConference"]
+        why = None
+        if C.CFB_SCORE_EXCL_FCS and not (hc in teamstats.FBS_CONFERENCES and ac in teamstats.FBS_CONFERENCES):
+            why = "fcs"
+        elif C.CFB_SCORE_EXCL_TIER_GAP and hc != ac:
+            pw = lambda t, c: c in C.CFB_POWER_CONFS or t in C.CFB_POWER_INDEPENDENTS
+            if pw(hm, hc) != pw(aw, ac):
+                why = "tier"
+        if why:
+            out[(hm, w)] = out[(aw, w)] = why
+    return out
+
+
 def label(team, opp, site):
     if site == "N":                          # a neutral game has no home team: order the names so both sides build the same label
         a, h = (team, opp) if team < opp else (opp, team)
@@ -110,14 +131,17 @@ def actuals(x, W):
     return a
 
 
-def score(rows, played, P, W, path=LOG):
+def score(rows, played, P, W, path=LOG, skip=None):
     """played: {(team, week)} whose game has been fetched. -> scorecard dict (current stamp only; late rows never scored)."""
     cur, log = stamp(P), read_csv(path)
     act = {(x["playerId"], int(x["week"])): x for x in rows}
-    scored, waiting, late, dnp, other = [], 0, 0, 0, 0
+    skip = skip or {}
+    scored, waiting, late, dnp, other, excl = [], 0, 0, 0, 0, 0
     for x in log:
         if x["stamp"] != cur:
             other += 1
+        elif (x["team"], int(x["week"])) in skip:
+            excl += 1
         elif str(x["late"]) == "1":
             late += 1
         elif (x["team"], int(x["week"])) not in played:
@@ -157,7 +181,7 @@ def score(rows, played, P, W, path=LOG):
         band = math.sqrt(0.25 / c["n"]) * 100 * 1.96
         pos.append(dict(pos=g, n=c["n"], mae=rnd(c["ae"] / c["n"], 3), over=rnd(o, 1), band=rnd(band, 1),
                         bias=rnd((c["pred"] / c["act"] - 1) * 100, 1) if c["act"] else None, read=read_tag(c["n"], o, band)))
-    return dict(stamp=cur, scored=len(scored), waiting=waiting, late=late, dnp=dnp, other_models=other, logged=len(log), markets=markets, pos=pos,
+    return dict(stamp=cur, scored=len(scored), waiting=waiting, late=late, dnp=dnp, excluded=excl, other_models=other, logged=len(log), markets=markets, pos=pos,
                 weeks=[dict(week=w, n=c["n"], model=rnd(c["m"] / c["n"], 3), season=rnd(c["s"] / c["n"], 3), last3=rnd(c["l"] / c["n"], 3)) for w, c in sorted(weeks.items())])
 
 
@@ -167,11 +191,14 @@ def backtest(rows, games, W, P, from_week=None):
     from_week = max(2, from_week or C.CFB_BACKTEST_FROM_WEEK)
     wks = sorted({int(x["week"]) for x in rows})
     acc = {k: dict(ae=0.0, se=0.0, n=0, sAe=0.0, lAe=0.0, over=0, pred=0.0, act=0.0) for k in KEYS}
-    resid, used, nscored = [], [], 0
+    skip = excluded_games(games)
+    resid, used, nscored, nskip = [], [], 0, 0
     for wk in wks:
         if wk < from_week or wk not in sched:
             continue
         hist = [x for x in rows if x["week"] < wk]
+        if C.CFB_TRAIN_EXCL:
+            hist = [x for x in hist if (x["team"], int(x["week"])) not in skip]
         now = [x for x in rows if x["week"] == wk]
         if len(hist) < 200 or not now:
             continue
@@ -191,6 +218,9 @@ def backtest(rows, games, W, P, from_week=None):
             h = hist_by.get(pl["id"], [])
             if a is None or not h:
                 continue                                  # did not play: availability, not accuracy
+            if (pl["team"], wk) in skip:
+                nskip += 1
+                continue                                  # FCS / tier-gap game: left out of the record
             d = derive(pl, W)
             pts_h = [actual_pts(x, W) for x in h]
             for k, label_, act, floor in MKT:
@@ -232,7 +262,7 @@ def backtest(rows, games, W, P, from_week=None):
         b = (sd_hi - sd_lo) / max(0.001, p_hi - p_lo)
         spread.append(dict(label=label_, n=len(mine), a=rnd(sd_lo - b * p_lo, 3), b=rnd(b, 4)))
     pa = acc["pts"]
-    return dict(weeks=used, scored=nscored, thin=len(used) < 3, table=table, spread=spread, mean_factor=rnd(pa["act"] / pa["pred"], 3) if pa["pred"] else None)
+    return dict(weeks=used, scored=nscored, excluded=nskip, thin=len(used) < 3, table=table, spread=spread, mean_factor=rnd(pa["act"] / pa["pred"], 3) if pa["pred"] else None)
 
 
 def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, season=None):
@@ -308,7 +338,7 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
         print(f"::warning::college history incomplete (weeks {sorted(gaps)} not fully fetched); showing projections but NOT logging them")
     logged = log_week(season, week, core, hist, kick, P, W) if (log and not gaps) else 0
     played = {(x["team"], int(x["week"])) for x in rows}
-    sc = score(rows, played, P, W)
+    sc = score(rows, played, P, W, skip=excluded_games(games))
     json.dump(sc, open(f"{out}/scorecard.json", "w"), separators=(",", ":"))
     bts = sorted(f[len("backtest_"):-5] for f in os.listdir(out) if f.startswith("backtest_") and f.endswith(".json"))
     json.dump(dict(season=season, week=week, generated=dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), stamp=stamp(P), default_scoring=W,
