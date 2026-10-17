@@ -73,6 +73,7 @@ def relearn(raw="data/raw"):
     if not (os.path.exists(g) and (os.path.exists(prior) or os.path.exists(cur))):
         return None
     reg = pd.read_csv(g, dtype={"pid": str})
+    reg = reg[reg["season"] == reg["season"].max()]                    # games.csv also holds the season before last; usual minutes stay on the latest
     rd = lambda p: pd.read_csv(p, dtype={"pid": str, "event": str}) if os.path.exists(p) else pd.DataFrame(columns=["pid", "min"])
     p25, p26 = rd(prior), rd(cur)
     lin = fit_lin([p25, p26], [1.0, C.PRESEASON_CUR_WEIGHT], reg)

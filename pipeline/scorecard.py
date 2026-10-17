@@ -28,6 +28,7 @@ def log_slate(P, games, today=None, preseason=False):
     if not len(P):
         return 0
     g = _prep(games)
+    g = g[g["recent"]]                                     # baselines stay on this and last season, as before
     day = P["date"].iloc[0]
     today = pd.Timestamp(today) if today is not None else pd.Timestamp(datetime.now(ZoneInfo("America/New_York")).date())
     if day > today + pd.Timedelta(days=1):

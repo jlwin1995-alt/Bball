@@ -46,6 +46,7 @@ def parse_shots(event_id, ev_date, summary):
 def main(raw=E.RAW, limit=None):
     games = pd.read_csv(f"{raw}/games.csv", dtype={"event": str})
     ev = games.drop_duplicates("event")[["event", "date"]].dropna()
+    ev = ev[ev["date"] >= E.C.PRIOR_START]                               # games.csv also holds the season before last (player rates only)
     old = pd.read_csv(PATH, dtype={"pid": str, "event": str}) if os.path.exists(PATH) else pd.DataFrame(columns=COLS)
     todo = ev[~ev["event"].isin(set(old["event"]))]
     if limit:
