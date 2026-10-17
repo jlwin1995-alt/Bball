@@ -409,6 +409,20 @@ const pages = {
   },
 
   "Game Board"() {
+    const sp = D.spread || D.meta.spread, BE = CFG.ppBE / 100, lineRow = {};
+    for (const r of (D.lines?.rows || [])) lineRow[r.pid + "|" + r.stat] = r;
+    const cellVal = (r, s) => s === "pra" ? r.c.pts + r.c.reb + r.c.ast : r.c[s];
+    const boardCell = (r, s) => {
+      const m = cellVal(r, s), L = lineRow[r.pid + "|" + s];
+      if (!L || r.c.min === 0 || Date.now() >= Date.parse(L.commence)) return num(m);
+      const [a, b] = sp[s] || [1, 0.3], sd = Math.max(a + b * m, 0.1), c = L.cons, pp = L.dfs?.prizepicks;
+      let line = c ? c.line : pp, lean = "";
+      if (c) { const q = sides(c.line, m, sd).o, e = (q - c.p_over) * 100; if (Math.abs(e) >= CFG.edgeMin) lean = e > 0 ? "O" : "U"; }
+      else if (pp != null) { const q = sides(pp, m, sd), w = Math.max(q.o, q.u); if ((w - BE) * 100 >= CFG.edgeMin) lean = q.o >= q.u ? "O" : "U"; }
+      if (line == null) return num(m);
+      const tip = [...(L.books || []).map(x => `${x.b} ${x.line}`), ...Object.entries(L.dfs || {}).map(([k, v]) => `${k} ${v}`)].join("\n");
+      return `<span title="${esc(tip)}">${num(m)} <span class="mut">[${line}]</span>${lean ? ` <b class="${lean === "O" ? "good" : "bad"}">${lean}</b>` : ""}</span>`;
+    };
     const games = [...new Set(D.projections.filter(p => p.home).map(p => p.team + "|" + p.opp))].sort();
     F.game = F.game && games.includes(F.game) ? F.game : games[0];
     const [home, away] = (F.game || "|").split("|");
@@ -416,13 +430,14 @@ const pages = {
       const rows = proj().filter(p => p.team === t);
       const cols = [...nameCols.slice(0, 2), {k: "status", h: "Status", l: 1, f: r => statusPill(r.status)},
         {k: "cmin", h: "Min", v: r => r.c.min, f: r => num(r.c.min)},
-        ...["pts", "reb", "ast", "fg3m"].map(s => ({k: "c" + s, h: LABEL[s], v: r => r.c[s], f: r => num(r.c[s])})),
+        ...["pts", "reb", "ast", "fg3m", "pra"].map(s => ({k: "c" + s, h: LABEL[s], t: "Projection [posted line]. Line = sportsbook consensus, else PrizePicks. Green O / orange U = the model is past your edge threshold (Config) on that side; hover for each book's line.",
+          v: r => cellVal(r, s), f: r => boardCell(r, s)})),
         {k: "cfp", h: "FP", v: r => r.c.fp, f: r => `<b>${num(r.c.fp)}</b>`}];
       return `<div><h3>${esc(t)} ${t === home ? "(home)" : "(away)"}</h3>${table(cols, rows, {id: "gb" + t, sort: {key: "cfp"}, rowClass: r => r.c.min === 0 ? "out" : ""})}</div>`;
     };
     const h0 = D.projections.find(p => p.team === home && p.exp_margin != null);
     const env = h0 ? ` Expected margin ${esc(home)} ${h0.exp_margin >= 0 ? "+" : ""}${num(h0.exp_margin)} (from each team's average point differential, a stand-in for the spread); pace ${h0.pace_f >= 1 ? "+" : ""}${num((h0.pace_f - 1) * 100)}% vs league.` : "";
-    return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected fantasy points.${env}</p>
+    return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected fantasy points. Posted lines are in brackets next to the projection (consensus, else PrizePicks) once books have them; <b class="good">O</b> / <b class="bad">U</b> marks a side past your edge threshold.${env}</p>
       <div class="bar"><select id="game">${games.map(g => `<option value="${g}" ${g === F.game ? "selected" : ""}>${g.split("|")[1]} @ ${g.split("|")[0]}</option>`).join("")}</select></div>
       <div class="two">${mk(away)}${mk(home)}</div>`;
   },
