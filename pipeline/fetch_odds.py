@@ -143,7 +143,7 @@ def main(session=None, force=False):
         if age < C.ODDS_MIN_INTERVAL_MIN:
             print(f"last check was {age:.0f} min ago (< {C.ODDS_MIN_INTERVAL_MIN}); skipping so backup runs do not spend credits. Use --force to override.")
             return
-    horizon = now + timedelta(hours=C.ODDS_HORIZON_HOURS)
+    horizon = now + timedelta(hours=float(os.environ.get("ODDS_HORIZON_HOURS") or C.ODDS_HORIZON_HOURS))   # manual runs can look further ahead
     try:                                                   # free call: which basketball feeds does this key see?
         sp = s.get(f"{BASE}/sports", params={"apiKey": key, "all": "true"}, timeout=30)
         if sp.status_code == 200:
