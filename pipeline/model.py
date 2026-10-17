@@ -18,12 +18,16 @@ def _prep(games):
     g = games[games["min"] > 0].copy()
     g["date"] = pd.to_datetime(g["date"])
     g["pos"] = g["pos"].map(norm_pos)
-    g["w"] = np.where(g["season"] == C.SEASON, 1.0, C.PRIOR_SEASON_WEIGHT)
+    age = C.SEASON - g["season"]
+    g["w"] = np.select([age <= 0, age == 1, age == 2], [1.0, C.PRIOR_SEASON_WEIGHT, C.PRIOR2_SEASON_WEIGHT], 0.0)   # two seasons back only backs up players' own rates
+    g = g[g["w"] > 0]
+    g["recent"] = age <= 1
     return g.sort_values("date")
 
 
 def defence_table(g):
     """Per-team opponent multipliers by stat: what each defence allowed vs league, regressed and damped."""
+    g = g[g["recent"]]                                              # rosters turn over: defences and pace use this and last season only
     tg = g.groupby(["opp", "date", "w"])[C.STATS].sum().reset_index()
     out = {}
     lg = {s: np.average(tg[s], weights=tg["w"]) for s in C.STATS}
@@ -42,7 +46,7 @@ def defence_table(g):
 
 def team_env(g):
     """Per-team shrunk pace (possessions per game, both sides) and average point margin, plus the league pace. Box scores only."""
-    g = g.assign(poss=g["fga"] + 0.44 * g["fta"] + g["tov"])
+    g = g[g["recent"]].assign(poss=g["fga"] + 0.44 * g["fta"] + g["tov"])
     tg = g.groupby(["team", "opp", "date", "w"], as_index=False)[["poss", "pts"]].sum()
     o = tg.rename(columns={"team": "opp", "opp": "team", "pts": "pts_o", "poss": "poss_o"})[["team", "opp", "date", "pts_o", "poss_o"]]
     tg = tg.merge(o, on=["team", "opp", "date"])

@@ -56,6 +56,7 @@ def main(raw="data/raw", out="site/data"):
     fb = pd.read_csv(fbp, dtype={"pid": str}) if os.path.exists(fbp) else None
     P, D = project(games, sched, inj, rosters=ros, minute_mult=mult, fallback=fb)
     g = _prep(games)
+    g = g[g["recent"]]                                                   # display tabs: this and last season only (two seasons back just backs up player rates)
 
     # --- Projections / Game Board ------------------------------------------------
     cols = ["pid", "name", "pos", "team", "opp", "home", "rest", "status", "g", "min", "min_s", "min_r"]

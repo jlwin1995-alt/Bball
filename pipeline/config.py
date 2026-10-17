@@ -13,6 +13,7 @@ PRIOR_END = "2026-04-13"
 STATS = ["pts", "reb", "ast", "fg3m", "stl", "blk", "tov"]
 
 ROLLING_WINDOW = 5                 # games in the recent-form window
+PRIOR2_SEASON_WEIGHT = 0.25       # games from two seasons back (only player rates and minutes use them); backs up players who missed most of last season
 PRIOR_SEASON_WEIGHT = 0.5          # last season's games count this much; fades as games pile up
 MIN_GAMES = 3                      # weighted games needed before a player is projected
 # Players with no NBA regular-season history (rookies, veterans who missed last season) are projected from their PRESEASON box scores
