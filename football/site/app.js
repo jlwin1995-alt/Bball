@@ -166,7 +166,7 @@ const pages = {
       const live = rows.filter(r => !isOut(r.status)), nOut = rows.length - live.length;
       const tot = live.reduce((a, r) => a + r.c.shown, 0);
       const outs = rows.filter(starterOut);
-      return `<div><h3>${esc(t)} <span class="mut">· ${num(tot)} projected pts across ${live.length} players${nOut ? ` (${nOut} listed out, not counted)` : ""}</span></h3>${outs.length ? `<p class="banner">⚠ Projected starter${outs.length > 1 ? "s" : ""} on the injury report: ${outs.map(r => `<b>${esc(r.name)}</b> (${esc(r.depth.slot)}, ${esc(outFlag(r.status))})`).join(", ")}. The model does not hand his volume to teammates, so check the next man up before trusting their numbers.</p>` : ""}${table(cols, rows, {id: "gb" + t, sort: {key: "cpts"}, rowClass: leanRow})}</div>`;
+      return `<div><h3>${esc(t)} <span class="mut">· ${num(tot)} projected pts across ${live.length} players${nOut ? ` (${nOut} listed out, not counted)` : ""}</span></h3>${outs.length ? `<p class="banner">⚠ Projected starter${outs.length > 1 ? "s" : ""} on the injury report: ${outs.map(r => `<b>${esc(r.name)}</b> (${esc(r.depth.slot)}, ${esc(outFlag(r.status))})`).join(", ")}. The model does not hand his volume to teammates, so check the next man up before trusting their numbers.</p>` : ""}${table(cols, rows, {id: "gb" + t, sort: {key: "cpts"}, rowClass: r => [leanRow(r), focusRow(r)].filter(Boolean).join(" ")})}</div>`;
     };
     const wx = g.src === "indoor" || g.roof === "indoor" ? "indoors" : g.wind != null ? `${num(g.wind, 0)} mph wind${g.temp != null ? `, ${num(g.temp, 0)}°F` : ""} <span class="mut">(${esc(g.src)})</span>` : "weather unknown";
     const sp = g.spread == null ? "" : g.spread > 0 ? `${g.home} -${num(g.spread)}` : g.spread < 0 ? `${g.away} -${num(-g.spread)}` : "pick'em";
@@ -305,7 +305,7 @@ const pages = {
         const p = byId[r.id]; if (!p) return null;
         const spec = mktSpec(r.stat), m = p.c[MKT[r.stat]], c = r.cons, pp = r.dfs.prizepicks;
         const st = Date.now() >= Date.parse(r.commence), outp = isOut(p.status);
-        const o = {started: st, name: p.name, pos: p.pos, team: p.team, game: r.game, stat: r.stat, m, c, r, pp, ud: r.dfs.underdog ?? r.dfs.pick6};
+        const o = {started: st, pid: p.id, gb: p.game, name: p.name, pos: p.pos, team: p.team, game: r.game, stat: r.stat, m, c, r, pp, ud: r.dfs.underdog ?? r.dfs.pick6};
         if (c) { const sd = FB.sides(c.line, m, spec); o.po = sd.o; o.edge = (sd.o - c.p_over) * 100; o.z = zOf(spec, m, c.line); o.tier = st || outp ? "" : leanTier(o.z); o.pick = st ? "LIVE" : outp ? "OUT" : Math.abs(o.edge) >= CFG.edgeMin ? (o.edge > 0 ? "OVER" : "UNDER") : ""; }
         if (pp != null) { const sd = FB.sides(pp, m, spec); o.side = sd.o >= sd.u ? "OVER" : "UNDER"; o.pw = Math.max(sd.o, sd.u); o.ppEdge = (o.pw - BE) * 100;
           o.ppPick = st ? "LIVE" : outp ? "OUT" : o.ppEdge >= CFG.edgeMin ? "PP " + o.side : ""; o.gap = c ? pp - c.line : null; }
@@ -316,7 +316,7 @@ const pages = {
       if (F.lstrong) rows = rows.filter(r => r.tier === "strong");
       if (F.lpicks) rows = rows.filter(r => (r.pick && r.pick !== "OUT" && r.pick !== "LIVE") || (r.ppPick && r.ppPick !== "OUT" && r.ppPick !== "LIVE"));
       const tip = r => r.r.books.map(b => `${b.b} ${b.line} (${b.over ?? "-"}/${b.under ?? "-"})`).join("\n");
-      const cols = [{k: "name", h: "Player", l: 1}, {k: "team", h: "Team", l: 1},
+      const cols = [{k: "name", h: "Player", l: 1, f: r => gbLink(r.name, r.gb, r.pid)}, {k: "team", h: "Team", l: 1},
         {k: "game", h: "Game", l: 1, f: r => esc(r.game) + (r.started ? ` <span class="pill hot" title="Kicked off: these are the last PRE-game lines. The model's pregame probability no longer applies, so no pick is shown.">LIVE</span>` : "")},
         {k: "stat", h: "Market", l: 1, f: r => esc(mktSpec(r.stat).label)}, {k: "m", h: "Proj", t: "Median projection, with your volume overrides", f: r => num(r.m)},
         {k: "cl", h: "Cons line", t: "Median sportsbook line; hover for every book", v: r => r.c?.line, f: r => r.c ? `<span title="${esc(tip(r))}">${r.c.line} <span class="mut">${r.c.n}/${r.c.n_books}</span></span>` : ""},
@@ -481,6 +481,8 @@ let page = "Projections";
 function render(keepFocus, focusId) {
   const act = document.activeElement, id = focusId || act?.id, pos = act?.selectionStart;
   view().innerHTML = pages[page]();
+  const fr = document.querySelector("tr.focus");
+  if (fr) { fr.scrollIntoView({block: "center"}); F.focus = null; }
   if (keepFocus && id) { const el = document.getElementById(id); if (el) { el.focus(); try { el.setSelectionRange(pos, pos); } catch (e) {} } }
 }
 function nav() {

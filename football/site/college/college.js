@@ -116,7 +116,7 @@ const pages = {
         {k: "crec", h: "Rec", v: r => r.c.rec, f: r => num(r.c.rec)}, {k: "crecy", h: "Rec Yds", v: r => r.c.recY, f: r => num(r.c.recY, 0)},
         {k: "catt", h: "Att", v: r => r.c.att, f: r => r.c.att > 0 ? num(r.c.att) : ""}, {k: "cpy", h: "Pass Yds", v: r => r.c.passY, f: r => r.c.att > 0 ? num(r.c.passY, 0) : ""},
         {k: "ctd", h: "TD", v: r => r.c.rushTD + r.c.recTD + r.c.passTD, f: r => num(r.c.rushTD + r.c.recTD + r.c.passTD, 2)}, {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`}, ...(D.lines?.rows?.length ? [leanCol] : [])];
-      return `<div><h3>${esc(t)} <span class="mut">· ${num(rows.reduce((a, r) => a + r.c.shown, 0))} projected pts across ${rows.length} players</span></h3>${table(cols, rows, {id: "gb" + t, sort: {key: "cpts"}, rowClass: leanRow})}</div>`;
+      return `<div><h3>${esc(t)} <span class="mut">· ${num(rows.reduce((a, r) => a + r.c.shown, 0))} projected pts across ${rows.length} players</span></h3>${table(cols, rows, {id: "gb" + t, sort: {key: "cpts"}, rowClass: r => [leanRow(r), focusRow(r)].filter(Boolean).join(" ")})}</div>`;
     };
     return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected points.</p>
       <div class="bar"><label>Game <select id="game">${games.map(x => `<option value="${esc(x.game)}" ${x.game === g.game ? "selected" : ""}>${esc(x.game)} · ${esc(koLabel(x.ko))}${started(x.ko) ? " (started)" : ""}</option>`).join("")}</select></label></div>
@@ -136,11 +136,11 @@ const pages = {
       const p = byId[r.id], spec = specOf(r.stat);
       if (!p || !spec) return null;
       const m = p.c[r.stat], c = r.cons, st = Date.now() >= Date.parse(r.commence), z = c ? zOf(spec, m, c.line) : null, sd = c ? FB.sides(c.line, m, spec) : null;
-      return {name: p.name, pos: p.pos, team: p.team, game: r.game, label: spec.label, m, c, z, st, pp: r.dfs.prizepicks, ud: r.dfs.underdog ?? r.dfs.pick6,
+      return {pid: p.id, gb: p.game, name: p.name, pos: p.pos, team: p.team, game: r.game, label: spec.label, m, c, z, st, pp: r.dfs.prizepicks, ud: r.dfs.underdog ?? r.dfs.pick6,
         tier: st || z == null || m <= 0 ? "" : leanTier(z), side: z == null ? null : z > 0 ? "OVER" : "UNDER", edge: sd ? (sd.o - c.p_over) * 100 : null, ko: r.commence};
     }).filter(Boolean).filter(r => (!F.q || (r.name + " " + r.team).toLowerCase().includes(F.q.trim().toLowerCase())) && (!F.pos || r.pos === F.pos));
     const upd = /[zZ]|[+-]\d\d:?\d\d$/.test(L.updated) ? L.updated : L.updated + "Z", mins = Math.max(0, Math.round((Date.now() - Date.parse(upd)) / 60000));
-    const cols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}, {k: "label", h: "Market", l: 1},
+    const cols = [{k: "name", h: "Player", l: 1, f: r => gbLink(r.name, r.gb, r.pid)}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}, {k: "label", h: "Market", l: 1},
       {k: "m", h: "Proj", f: r => num(r.m)}, {k: "line", h: "Line", v: r => r.c?.line, f: r => r.c ? r.c.line : ""},
       {k: "po", h: "Book %over", v: r => r.c?.p_over, f: r => r.c ? num(r.c.p_over * 100) : ""},
       {k: "z", h: "Lean σ", t: leanTip, v: r => r.z == null ? null : Math.abs(r.z), f: r => r.z == null ? "" : `${r.z > 0 ? "+" : ""}${num(r.z, 2)}`},
@@ -226,6 +226,8 @@ let page = "Projections";
 function render(keepFocus, focusId) {
   const act = document.activeElement, id = focusId || act?.id, pos = act?.selectionStart;
   view().innerHTML = pages[page]();
+  const fr = document.querySelector("tr.focus");
+  if (fr) { fr.scrollIntoView({block: "center"}); F.focus = null; }
   if (keepFocus && id) { const el = document.getElementById(id); if (el) { el.focus(); try { el.setSelectionRange(pos, pos); } catch (e) {} } }
 }
 function route() {
