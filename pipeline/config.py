@@ -38,8 +38,9 @@ QUESTIONABLE_MIN_MULT = 0.90       # Questionable/Day-To-Day minutes haircut; Ou
 
 # --- rates ---------------------------------------------------------------
 # Prior strength in MINUTES: how long before a player's own rate outweighs the position average.
-RATE_PRIOR_MIN = {"pts": 300, "reb": 350, "ast": 350, "fg3m": 500, "stl": 900, "blk": 900, "tov": 500}
-RECENT_EXTRA = 0.5                 # extra weight on the rolling window when estimating rates
+# Halved from 300/350/350/500/900/900/500. pipeline.tune found it on 2024-25; it also helped on 2025-26 (late season and the first 15 and 30 game days)
+RATE_PRIOR_MIN = {"pts": 150, "reb": 175, "ast": 175, "fg3m": 250, "stl": 450, "blk": 450, "tov": 250}
+RECENT_EXTRA = 2.0                 # (was 0.5; same evidence as RATE_PRIOR_MIN) extra weight on the rolling window when estimating rates
 
 # --- matchups ------------------------------------------------------------
 DEF_PRIOR_GAMES = 12               # defence regressed toward league by games / (games + this)
