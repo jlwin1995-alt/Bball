@@ -2,14 +2,10 @@ pid,name,team,status
 None,Henri Veesaar,ATL,Out
 None,Mouhamed Gueye,ATL,Day-To-Day
 None,Sam Hauser,BOS,Day-To-Day
-None,Devin Carter,BOS,Day-To-Day
 None,Mitchell Robinson,BOS,Day-To-Day
 None,Neemias Queta,BOS,Day-To-Day
-None,Paul George,BOS,Day-To-Day
 None,Payton Pritchard,BOS,Day-To-Day
-None,Mike Conley,BOS,Day-To-Day
 None,Derrick White,BOS,Day-To-Day
-None,Jayson Tatum,BOS,Day-To-Day
 None,Joshua Jefferson,BKN,Out
 None,Grayson Allen,CHA,Day-To-Day
 None,Moussa Diabate,CHA,Day-To-Day
@@ -21,8 +17,8 @@ None,Tobe Awaka,CHI,Day-To-Day
 None,Isaac Okoro,CHI,Day-To-Day
 None,Zach Collins,CHI,Day-To-Day
 None,Nic Claxton,CHI,Day-To-Day
-None,Nae'Qwan Tomlin,CLE,Day-To-Day
 None,Sam Merrill,CLE,Day-To-Day
+None,Nae'Qwan Tomlin,CLE,Day-To-Day
 None,Khalifa Diop,CLE,Day-To-Day
 None,Max Christie,DAL,Day-To-Day
 None,Tarik Biberovic,DAL,Day-To-Day
@@ -35,7 +31,6 @@ None,Spencer Jones,DEN,Day-To-Day
 None,Moses Moody,GS,Out
 None,Jimmy Butler III,GS,Out
 None,Kristaps Porzingis,GS,Out
-None,Al Horford,GS,Day-To-Day
 None,Steven Adams,HOU,Day-To-Day
 None,Jarace Walker,IND,Day-To-Day
 None,T.J. McConnell,IND,Day-To-Day
@@ -116,7 +111,6 @@ None,RJ Barrett,TOR,Day-To-Day
 None,Immanuel Quickley,TOR,Day-To-Day
 None,Kawhi Leonard,TOR,Day-To-Day
 None,Scottie Barnes,TOR,Day-To-Day
-None,Nate Bittle,TOR,Day-To-Day
 None,Chucky Hepburn,TOR,Day-To-Day
 None,Blake Hinson,UTAH,Day-To-Day
 None,Trey Alexander,UTAH,Day-To-Day
