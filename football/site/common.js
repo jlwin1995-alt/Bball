@@ -73,3 +73,11 @@ const depthPill = (d, tip, status) => {
   return d ? `<span class="pill ${f ? "bad" : d.st ? "start" : "bkp"}" title="${esc(f ? `Listed ${f} on the injury report. ${tip}` : tip)}">${d.st ? "★ " : ""}${esc(d.slot)}${f ? ` · ${f}` : ""}${!f && d.share != null ? ` <span class="zs">${Math.round(d.share * 100)}%</span>` : ""}</span>` : `<span class="mut" title="${esc(tip)}">—</span>`;
 };
 const depthCol = (tip, inferred) => ({k: "depth", h: "Depth", l: 1, t: tip, v: r => r.depth ? (starterOut(r) ? -1 : (r.depth.st ? 0 : 1) * 100 + r.depth.rank) : 999, f: r => depthPill(r.depth, tip, r.status)});
+
+// A player's name that opens his game on the Game Board (Lines tab): sets the board's game and highlights his row.
+const gbLink = (name, game, id) => `<a href="#Game-Board" class="plink" data-game="${esc(game)}" data-pid="${esc(id)}" title="Open this player's game on the Game Board">${esc(name)}</a>`;
+document.addEventListener("click", e => {
+  const a = e.target.closest?.("a.plink");
+  if (a && typeof F !== "undefined") { F.game = a.dataset.game; F.focus = a.dataset.pid; }
+});
+const focusRow = r => typeof F !== "undefined" && F.focus && r.id === F.focus ? "focus" : "";

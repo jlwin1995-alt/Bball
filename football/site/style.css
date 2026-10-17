@@ -58,3 +58,5 @@ details summary{cursor:pointer;list-style:none}details summary::-webkit-details-
 tr.lean-strong-row td:first-child{box-shadow:inset 3px 0 0 var(--acc)}tr.lean-lean-row td:first-child{box-shadow:inset 3px 0 0 var(--line)}
 
 .pill.start{color:var(--acc);border-color:var(--acc);font-weight:600}.pill.bkp{color:var(--mut)}
+
+a.plink{color:inherit;text-decoration:underline dotted;cursor:pointer}a.plink:hover{color:var(--acc)}tr.focus td{background:rgba(46,125,50,.2)}
