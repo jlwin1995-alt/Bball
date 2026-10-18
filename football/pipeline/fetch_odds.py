@@ -222,6 +222,27 @@ def probe(session=None, base=None):
         print(f"  {bk['key']:<18} " + ", ".join(f"{m['key']}: {len(m.get('outcomes', []))}" for m in bk.get("markets", [])))
 
 
+FP_SPEC = {C.FP_MARKET: ("fp", "Fantasy pts", 0, 0, "normal")}
+FP_LOG = "data/log/fp_lines_log.csv"
+FP_COLS = ["ts", "event", "commence", "game", "home", "away", "player", "book", "line", "over", "under"]
+
+
+def snapshot_fp(rows, now, path=FP_LOG):
+    """Keep the LAST PRE-GAME fantasy-points line per (event, player, book): overwritten while the game has not started, never touched after kickoff."""
+    new = [x for x in rows if datetime.fromisoformat(x["commence"].replace("Z", "+00:00")) > now]
+    if not new:
+        return 0
+    key = lambda x: (x["event"], x["player"], x["book"])
+    fresh = {key(x) for x in new}
+    old = [x for x in read_rows(path) if key(x) not in fresh]
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=FP_COLS, extrasaction="ignore")
+        w.writeheader()
+        w.writerows(old + new)
+    return len(new)
+
+
 def main(session=None, force=False):
     key = os.environ.get("ODDS_API_KEY")
     if not key:
@@ -239,6 +260,7 @@ def main(session=None, force=False):
     horizon = now + timedelta(hours=C.ODDS_HORIZON_HOURS)
     prev_rows = read_rows(f"{RAW}/odds.csv")
     rows, remaining, n_games, info = [], None, 0, []
+    fp_rows = []
     r = s.get(f"{BASE}/events", params={"apiKey": key, "dateFormat": "iso"}, timeout=30)
     if r.status_code in (401, 429):
         raise SystemExit(f"Odds API {r.status_code}: {r.text[:200]}")
@@ -251,12 +273,13 @@ def main(session=None, force=False):
             print(f"stopping: only {remaining} credits left (ODDS_MIN_CREDITS={C.ODDS_MIN_CREDITS})")
             break
         resp = s.get(f"{BASE}/events/{ev['id']}/odds", timeout=30, params={
-            "apiKey": key, "bookmakers": ",".join(C.ODDS_BOOKS), "markets": ",".join(C.ODDS_MARKETS), "oddsFormat": "american", "dateFormat": "iso"})
+            "apiKey": key, "bookmakers": ",".join(C.ODDS_BOOKS), "markets": ",".join([*C.ODDS_MARKETS, C.FP_MARKET]), "oddsFormat": "american", "dateFormat": "iso"})
         if resp.status_code in (401, 429):
             raise SystemExit(f"Odds API {resp.status_code}: {resp.text[:200]}")
         resp.raise_for_status()
         remaining = float(resp.headers.get("x-requests-remaining", "nan"))
         got = parse_event(ev, resp.json(), now.isoformat(timespec="seconds"))
+        fp_rows += [x for x in parse_event(ev, resp.json(), now.isoformat(timespec="seconds"), markets=FP_SPEC) if x["book"] == C.FP_BOOK]
         n_games += 1
         info.append(dict(game=f"{C.TEAM_ABBR.get(ev['away_team'], ev['away_team'])} @ {C.TEAM_ABBR.get(ev['home_team'], ev['home_team'])}",
                          commence=ev["commence_time"], props=len(got)))
@@ -273,6 +296,8 @@ def main(session=None, force=False):
     seen_games = {g["game"] for g in info}
     info += [g for g in prev_meta.get("games", []) if started(g["commence"]) and g["game"] not in seen_games]
     write_rows(f"{RAW}/odds.csv", rows)
+    n_fp = snapshot_fp(fp_rows, now)
+    print(f"fantasy-points lines ({C.FP_BOOK}): {len(fp_rows)} seen, {n_fp} kept in the log")
     json.dump(dict(ts=now.isoformat(timespec="seconds"), credits=None if remaining is None or remaining != remaining else remaining, games=info),
               open(f"{RAW}/odds_meta.json", "w"))
     print(f"odds.csv: {len(rows)} lines across {n_games} games; credits remaining: {remaining}")

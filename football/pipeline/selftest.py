@@ -102,6 +102,24 @@ def cfb_lines_checks():
     print("college lines ok")
     cfb_props_checks()
     depth_checks()
+    fp_checks()
+
+
+def fp_checks():
+    import datetime as dt, tempfile
+    ev = dict(id="f1", commence_time="2099-10-20T00:20:00Z", home_team="Green Bay Packers", away_team="Dallas Cowboys")
+    odds = dict(bookmakers=[dict(key="prizepicks", markets=[dict(key="player_fantasy_points", outcomes=[
+        dict(name="Over", description="Jordan Love", point=19.5, price=-119), dict(name="Under", description="Jordan Love", point=19.5, price=-119)])]),
+        dict(key="underdog", markets=[dict(key="player_fantasy_points", outcomes=[dict(name="Over", description="Jordan Love", point=20.5, price=-110)])])])
+    rows = [x for x in fetch_odds.parse_event(ev, odds, "2026-10-18T22:00:00", markets=fetch_odds.FP_SPEC) if x["book"] == C.FP_BOOK]
+    assert len(rows) == 1 and rows[0]["stat"] == "fp" and rows[0]["line"] == 19.5, rows
+    assert fetch_odds.parse_event(ev, odds, "t") == [], "the fantasy market must not leak into the prop rows"
+    p = tempfile.mkdtemp() + "/fp.csv"
+    assert fetch_odds.snapshot_fp(rows, dt.datetime(2026, 10, 18, tzinfo=dt.timezone.utc), p) == 1
+    rows[0]["line"] = 20.5
+    assert fetch_odds.snapshot_fp(rows, dt.datetime(2026, 10, 18, tzinfo=dt.timezone.utc), p) == 1 and len(fetch_odds.read_rows(p)) == 1
+    assert fetch_odds.snapshot_fp(rows, dt.datetime(2099, 10, 21, tzinfo=dt.timezone.utc), p) == 0                     # started: untouched
+    print("fantasy-points log ok")
 
 
 def depth_checks():
