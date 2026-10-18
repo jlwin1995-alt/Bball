@@ -6,7 +6,7 @@
 Runs the same nfl_core / derive the site uses. Two naive baselines run alongside - the player's season average and his last three
 games - because the number that matters is not "how big is the error" but "is this beating not bothering".
 """
-import argparse, json, math, os
+import argparse, csv, json, math, os
 from . import config as C
 from .model import load_weekly, nfl_core, derive, params, num
 from .slate import load_csv, matchups, recorded_wx
@@ -30,9 +30,21 @@ def actual(r, W):
     return a
 
 
+INJ = {}
+
+
+def load_inj(season, raw="data/raw"):
+    p = f"{raw}/history/injuries_{season}.csv" if season != C.SEASON else f"{raw}/injuries.csv"
+    if os.path.exists(p):
+        with open(p, newline="") as f:
+            INJ[season] = list(csv.DictReader(f))
+
+
 def run(season, raw="data/raw", W=None, P=None, from_week=None, min_pts=None, quiet=False):
     W = W or C.DEFAULT_SCORING
     P = P or params()
+    if season not in INJ:
+        load_inj(season, raw)
     from_week = max(2, from_week or C.BACKTEST_FROM_WEEK)
     min_pts = C.BACKTEST_MIN_PTS if min_pts is None else min_pts
     cur = season == C.SEASON
@@ -60,7 +72,10 @@ def run(season, raw="data/raw", W=None, P=None, from_week=None, min_pts=None, qu
         if not hist:
             continue
         # weather for a played week is not a forecast: nflverse backfills the wind that blew, so the backtest's weather gain is a ceiling
-        core = nfl_core(hist, mu, recorded_wx(sched, wk, P), P)
+        Pw = P
+        if P.get("OUT_RB") and INJ.get(season):
+            Pw = dict(P, OUT_IDS={r["gsis_id"] for r in INJ[season] if int(float(r["week"] or 0)) == wk and r["report_status"] in P.get("OUT_STATUS", ("Out",))})
+        core = nfl_core(hist, mu, recorded_wx(sched, wk, Pw), Pw)
         seen = {}
         for r in hist:
             seen.setdefault(r["player_id"], []).append(actual(r, W))

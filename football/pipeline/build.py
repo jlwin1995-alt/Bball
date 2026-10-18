@@ -2,7 +2,7 @@
 
     python -m pipeline.build [--raw data/raw] [--out site/data] [--no-log] [--no-weather] [--week N]
 """
-import argparse, datetime as dt, json, os, sys
+import argparse, datetime as dt, json, os, re, sys
 from . import config as C, analysis, scorecard, weather, results, legacy, teamstats, lines as lines_mod
 from .model import (load_weekly, nfl_core, derive, params, rnd, td_adj, td_base, opp_pos_factor, pos_group, REC_POS, num)
 from .slate import load_csv, target_week, matchups, kickoffs, statuses, depth_map, week_games, game_label, history_gaps
@@ -105,8 +105,9 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
         print(f"held back {held} rows from week {week} or later so the projection cannot see its own answers")
 
     by_team_wx, wx_rows = weather.week_weather(sched, week, P, weather.load_overrides(), fetch=fetch_wx)
-    core = nfl_core(hist, mu, by_team_wx, P)
     status = statuses(inj, week)
+    out_ids = {i for i, st in status.items() if re.match(r"(out|ir)", st, re.I)}
+    core = nfl_core(hist, mu, by_team_wx, dict(P, OUT_IDS=out_ids))
     dpt = depth_map(load_csv(f"{raw}/depth.csv")) if os.path.exists(f"{raw}/depth.csv") else {}
     kick = kickoffs(sched, week)
 
@@ -148,6 +149,15 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     dump(proj, out, "projections.json")
 
     games = game_rows(sched, week, wx_rows)
+    # starters (depth chart rank 1, WR 1-3) the injury report lists Out or Doubtful, by team, for the Game Board warning
+    outs = {}
+    for x in inj:
+        st = x.get("report_status") or ""
+        d = dpt.get(x.get("gsis_id"))
+        if int(num(x.get("week"))) == week and d and d["st"] and re.match(r"(out|ir|doubt)", st, re.I):
+            outs.setdefault(x["team"], []).append(dict(name=x["full_name"], pos=x["position"], slot=d["slot"], status=st, id=x["gsis_id"]))
+    for g in games:
+        g["outs"] = {t: outs[t] for t in (g["away"], g["home"]) if t in outs}
     dump(games, out, "games.json")
     lines_mod.main(raw, out, {g["game"] for g in games})        # live lines + consensus, if odds.csv exists
     dump(wx_rows, out, "weather.json")
