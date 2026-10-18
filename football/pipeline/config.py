@@ -191,6 +191,9 @@ CFB_ODDS_MARKETS = ["player_pass_yds", "player_rush_yds", "player_reception_yds"
 CFB_PROPS_HORIZON_HOURS = float(__import__("os").environ.get("CFB_PROPS_HORIZON_HOURS") or 30)
 CFB_PROPS_MIN_HOURS = 3
 CFB_SPREAD_STAT = {"Rushing yards": "rushY", "Receiving yards": "recY", "Receptions": "rec", "Passing yards": "passY", "Completions": "comp"}   # backtest label -> stat key
+# Fantasy-points prop (PrizePicks only for now): collected into data/log/fp_lines_log.csv, NOT shown on the site until PrizePicks' scoring and a sigma for points are fitted.
+FP_MARKET = "player_fantasy_points"
+FP_BOOK = "prizepicks"
 ODDS_HORIZON_HOURS = float(__import__("os").environ.get("ODDS_HORIZON_HOURS") or 72)   # only games starting within this many hours are pulled (the workflow's manual "hours" box overrides it)
 ODDS_MIN_INTERVAL_MIN = 90         # a scheduled pull is skipped if the previous check was this recent, so backup runs cost no credits
 ODDS_MIN_CREDITS = 500             # stop pulling when the API reports fewer credits than this remaining
