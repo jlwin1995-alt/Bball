@@ -27,8 +27,9 @@ const ovrCell = (r, key, shown) => `<input class="ovr" data-id="${esc(r.id)}" da
 // Player-prop lines for college (The Odds API; thin: mostly each team's top few players, and posted late). A lean is the model vs the consensus
 // line in standard deviations of that market, with the college sigma fitted by the backtest (NFL fit while a market has too few college rows).
 const LEAN = {lean: 0.25, strong: 0.5};
-const leanTier = z => Math.abs(z) >= LEAN.strong ? "strong" : Math.abs(z) >= LEAN.lean ? "lean" : "";
-const leanTip = "Model vs the consensus line, in standard deviations of the market. Tiers are borrowed from the NFL page (STRONG at 0.5 or more); the college record under this model is still too small to grade them.";
+// College shows STRONG only. Graded on week 7 (509 lines): STRONG (0.5σ or more) won 47 of 63 (75%); LEAN (0.25-0.5σ) won 77 of 156 (49%), no better than the lines with no lean, so it is no longer flagged.
+const leanTier = z => Math.abs(z) >= LEAN.strong ? "strong" : "";
+const leanTip = "Model vs the consensus line, in standard deviations of the market. Only STRONG (0.5 or more) is flagged for college: it won 47 of 63 lines (75%) on week 7; smaller gaps won about half. One slate, so treat the size of the edge with caution.";
 const specOf = stat => D.lines?.specs?.[stat];
 const zOf = (spec, m, line) => (m - line) / FB.sigmaFor(spec, m);
 function playerLines(p) {
@@ -146,8 +147,8 @@ const pages = {
       {k: "z", h: "Lean σ", t: leanTip, v: r => r.z == null ? null : Math.abs(r.z), f: r => r.z == null ? "" : `${r.z > 0 ? "+" : ""}${num(r.z, 2)}`},
       {k: "pick", h: "Lean", l: 1, v: r => r.tier ? Math.abs(r.z) : 0, f: r => r.st ? `<span class="pill hot">LIVE</span>` : r.tier ? `<span class="pill lean-${r.tier}">${r.tier === "strong" ? "STRONG " : ""}${r.side}</span>` : ""},
       {k: "pp", h: "PrizePicks", f: r => r.pp ?? ""}, {k: "ud", h: "UD/Pick6", f: r => r.ud ?? ""}, {k: "game", h: "Game", l: 1}];
-    const strong = rows.filter(r => r.tier === "strong").length, lean = rows.filter(r => r.tier === "lean").length;
-    return `<h2>College Lines</h2><p class="sub">${rows.length} player props across ${L.games.length} games, last pulled ${mins < 90 ? mins + " min" : Math.round(mins / 60) + " h"} ago. Consensus is the median sportsbook line with the vig removed; the lean is the model's median projection against it, in standard deviations of the market (college sigma fitted by the backtest: ${Object.values(L.specs).map(x => x.label + (x.src === "college" ? "" : "*")).join(", ")}; * = NFL fit until enough college rows). <b>${strong}</b> strong, <b>${lean}</b> lean. Books post college props for only the top few players per team, so most players have no line. The college record under this model is still small, so treat leans as a way to sort, not a promise.</p>
+    const strong = rows.filter(r => r.tier === "strong").length;
+    return `<h2>College Lines</h2><p class="sub">${rows.length} player props across ${L.games.length} games, last pulled ${mins < 90 ? mins + " min" : Math.round(mins / 60) + " h"} ago. Consensus is the median sportsbook line with the vig removed; the lean is the model's median projection against it, in standard deviations of the market (college sigma fitted by the backtest: ${Object.values(L.specs).map(x => x.label + (x.src === "college" ? "" : "*")).join(", ")}; * = NFL fit until enough college rows). <b>${strong}</b> strong. Books post college props for only the top few players per team, so most players have no line. Only STRONG leans are flagged: on week 7 they won 47 of 63 (75%) while smaller gaps won about half. That is one slate, so treat the size of the edge with caution.</p>
       <div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}"><label>Pos <select id="pos">${["", ...POS].map(p => `<option ${F.pos === p ? "selected" : ""} value="${p}">${p || "All"}</option>`).join("")}</select></label></div>
       ${table(cols, rows, {id: "cl", sort: {key: "z"}, rowClass: r => r.st ? "started" : r.tier ? "lean-" + r.tier + "-row" : ""})}`;
   },
