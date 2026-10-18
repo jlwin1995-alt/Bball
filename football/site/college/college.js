@@ -39,7 +39,7 @@ function playerLines(p) {
     const spec = specOf(r.stat), m = p.c[r.stat], c = r.cons, sd = c ? FB.sides(c.line, m, spec) : null, st = Date.now() >= Date.parse(r.commence);
     const z = c ? zOf(spec, m, c.line) : null;
     return {r, spec, m, c, po: sd?.o, edge: sd ? (sd.o - c.p_over) * 100 : null, pp: r.dfs.prizepicks, ud: r.dfs.underdog ?? r.dfs.pick6, started: st, z,
-      tier: !st && z != null && m > 0 ? leanTier(z) : "", side: z == null ? null : z > 0 ? "OVER" : "UNDER"};
+      tier: !st && z != null && m > 0 && !isThin(p) ? leanTier(z) : "", side: z == null ? null : z > 0 ? "OVER" : "UNDER"};
   }).sort((a, b) => Math.abs(b.z ?? 0) - Math.abs(a.z ?? 0));
 }
 function leanBlock(L) {
@@ -138,7 +138,7 @@ const pages = {
       if (!p || !spec) return null;
       const m = p.c[r.stat], c = r.cons, st = Date.now() >= Date.parse(r.commence), z = c ? zOf(spec, m, c.line) : null, sd = c ? FB.sides(c.line, m, spec) : null;
       return {pid: p.id, gb: p.game, name: p.name, pos: p.pos, team: p.team, game: r.game, label: spec.label, m, c, z, st, pp: r.dfs.prizepicks, ud: r.dfs.underdog ?? r.dfs.pick6,
-        tier: st || z == null || m <= 0 ? "" : leanTier(z), side: z == null ? null : z > 0 ? "OVER" : "UNDER", edge: sd ? (sd.o - c.p_over) * 100 : null, ko: r.commence};
+        tier: st || z == null || m <= 0 || isThin(p) ? "" : leanTier(z), side: z == null ? null : z > 0 ? "OVER" : "UNDER", edge: sd ? (sd.o - c.p_over) * 100 : null, ko: r.commence};
     }).filter(Boolean).filter(r => (!F.q || (r.name + " " + r.team).toLowerCase().includes(F.q.trim().toLowerCase())) && (!F.pos || r.pos === F.pos));
     const upd = /[zZ]|[+-]\d\d:?\d\d$/.test(L.updated) ? L.updated : L.updated + "Z", mins = Math.max(0, Math.round((Date.now() - Date.parse(upd)) / 60000));
     const cols = [{k: "name", h: "Player", l: 1, f: r => gbLink(r.name, r.gb, r.pid)}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}, {k: "label", h: "Market", l: 1},
