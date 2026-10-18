@@ -72,7 +72,11 @@ const depthPill = (d, tip, status) => {
   const f = d?.st ? outFlag(status) : "";
   return d ? `<span class="pill ${f ? "bad" : d.st ? "start" : "bkp"}" title="${esc(f ? `Listed ${f} on the injury report. ${tip}` : tip)}">${d.st ? "★ " : ""}${esc(d.slot)}${f ? ` · ${f}` : ""}${!f && d.share != null ? ` <span class="zs">${Math.round(d.share * 100)}%</span>` : ""}</span>` : `<span class="mut" title="${esc(tip)}">—</span>`;
 };
-const depthCol = (tip, inferred) => ({k: "depth", h: "Depth", l: 1, t: tip, v: r => r.depth ? (starterOut(r) ? -1 : (r.depth.st ? 0 : 1) * 100 + r.depth.rank) : 999, f: r => depthPill(r.depth, tip, r.status)});
+// A player with fewer than THIN_G games of history is a thin sample: his projection is mostly the prior, so no lean is flagged for him (the sigma is still shown).
+const THIN_G = 3;
+const isThin = p => p.g != null && p.g < THIN_G;
+const thinTag = p => isThin(p) ? ` <span class="pill bkp" title="Only ${p.g} game${p.g === 1 ? "" : "s"} of history: the projection is mostly the league prior, so no lean is flagged.">thin</span>` : "";
+const depthCol = (tip, inferred) => ({k: "depth", h: "Depth", l: 1, t: tip, v: r => r.depth ? (starterOut(r) ? -1 : (r.depth.st ? 0 : 1) * 100 + r.depth.rank) : 999, f: r => depthPill(r.depth, tip, r.status) + thinTag(r)});
 
 // A player's name that opens his game on the Game Board (Lines tab): sets the board's game and highlights his row.
 const gbLink = (name, game, id) => `<a href="#Game-Board" class="plink" data-game="${esc(game)}" data-pid="${esc(id)}" title="Open this player's game on the Game Board">${esc(name)}</a>`;

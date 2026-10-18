@@ -75,7 +75,7 @@ function playerLines(p) {
     const started = Date.now() >= Date.parse(r.commence), live = !started && !isOut(p.status);
     const z = c ? zOf(spec, m, c.line) : null;
     return {r, spec, m, c, po: sd?.o, edge: sd ? (sd.o - c.p_over) * 100 : null, pp: r.dfs.prizepicks, ud: r.dfs.underdog ?? r.dfs.pick6, started, z,
-      tier: live && z != null ? leanTier(z) : "", side: z == null ? null : z > 0 ? "OVER" : "UNDER"};
+      tier: live && z != null && !isThin(p) ? leanTier(z) : "", side: z == null ? null : z > 0 ? "OVER" : "UNDER"};
   }).sort((a, b) => Math.abs(b.z ?? 0) - Math.abs(a.z ?? 0));
 }
 // The strongest lean on a player, if any clears the bar (not for started games or players ruled out)
@@ -166,7 +166,7 @@ const pages = {
       const live = rows.filter(r => !isOut(r.status)), nOut = rows.length - live.length;
       const tot = live.reduce((a, r) => a + r.c.shown, 0);
       const outs = g.outs?.[t] || [];
-      return `<div><h3>${esc(t)} <span class="mut">· ${num(tot)} projected pts across ${live.length} players${nOut ? ` (${nOut} listed out, not counted)` : ""}</span></h3>${outs.length ? `<p class="banner">⚠ Projected starter${outs.length > 1 ? "s" : ""} on the injury report: ${outs.map(o => `<b>${esc(o.name)}</b> (${esc(o.slot)}, ${esc(o.status)})`).join(", ")}. ${outs.some(o => o.pos === "RB" && /^(out|ir)/i.test(o.status)) ? "A back who is OUT is removed and his carries go to the next men up. " : ""}${outs.some(o => !(o.pos === "RB" && /^(out|ir)/i.test(o.status))) ? "Other volume is not handed to teammates, so check the next man up before trusting their numbers." : ""}</p>` : ""}${table(cols, rows, {id: "gb" + t, sort: {key: "cpts"}, rowClass: r => [leanRow(r), focusRow(r)].filter(Boolean).join(" ")})}</div>`;
+      return `<div><h3>${esc(t)} <span class="mut">· ${num(tot)} projected pts across ${live.length} players${nOut ? ` (${nOut} listed out, not counted)` : ""}</span></h3>${outs.length ? `<p class="banner">⚠ Projected starter${outs.length > 1 ? "s" : ""} on the injury report: ${outs.map(o => `<b>${esc(o.name)}</b> (${esc(o.slot)}, ${esc(o.status)})`).join(", ")}. ${outs.some(o => (o.pos === "RB" || o.pos === "WR") && /^(out|ir)/i.test(o.status)) ? "A back or receiver who is OUT is removed and his carries or targets go to the players who remain. " : ""}${outs.some(o => !((o.pos === "RB" || o.pos === "WR") && /^(out|ir)/i.test(o.status))) ? "Other volume is not handed to teammates, so check the next man up before trusting their numbers." : ""}</p>` : ""}${table(cols, rows, {id: "gb" + t, sort: {key: "cpts"}, rowClass: r => [leanRow(r), focusRow(r)].filter(Boolean).join(" ")})}</div>`;
     };
     const wx = g.src === "indoor" || g.roof === "indoor" ? "indoors" : g.wind != null ? `${num(g.wind, 0)} mph wind${g.temp != null ? `, ${num(g.temp, 0)}°F` : ""} <span class="mut">(${esc(g.src)})</span>` : "weather unknown";
     const sp = g.spread == null ? "" : g.spread > 0 ? `${g.home} -${num(g.spread)}` : g.spread < 0 ? `${g.away} -${num(-g.spread)}` : "pick'em";
@@ -306,7 +306,7 @@ const pages = {
         const spec = mktSpec(r.stat), m = p.c[MKT[r.stat]], c = r.cons, pp = r.dfs.prizepicks;
         const st = Date.now() >= Date.parse(r.commence), outp = isOut(p.status);
         const o = {started: st, pid: p.id, gb: p.game, name: p.name, pos: p.pos, team: p.team, game: r.game, stat: r.stat, m, c, r, pp, ud: r.dfs.underdog ?? r.dfs.pick6};
-        if (c) { const sd = FB.sides(c.line, m, spec); o.po = sd.o; o.edge = (sd.o - c.p_over) * 100; o.z = zOf(spec, m, c.line); o.tier = st || outp ? "" : leanTier(o.z); o.pick = st ? "LIVE" : outp ? "OUT" : Math.abs(o.edge) >= CFG.edgeMin ? (o.edge > 0 ? "OVER" : "UNDER") : ""; }
+        if (c) { const sd = FB.sides(c.line, m, spec); o.po = sd.o; o.edge = (sd.o - c.p_over) * 100; o.z = zOf(spec, m, c.line); o.tier = st || outp || isThin(p) ? "" : leanTier(o.z); o.pick = st ? "LIVE" : outp ? "OUT" : Math.abs(o.edge) >= CFG.edgeMin ? (o.edge > 0 ? "OVER" : "UNDER") : ""; }
         if (pp != null) { const sd = FB.sides(pp, m, spec); o.side = sd.o >= sd.u ? "OVER" : "UNDER"; o.pw = Math.max(sd.o, sd.u); o.ppEdge = (o.pw - BE) * 100;
           o.ppPick = st ? "LIVE" : outp ? "OUT" : o.ppEdge >= CFG.edgeMin ? "PP " + o.side : ""; o.gap = c ? pp - c.line : null; }
         return o;
