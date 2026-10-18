@@ -1,7 +1,5 @@
 pid,name,team
 4278039,Nickeil Alexander-Walker,ATL
-4397003,Giorgi Bezhanishvili,ATL
-4712902,Cameron Corhen,ATL
 4869342,Dyson Daniels,ATL
 4431941,RayJ Dennis,ATL
 4397020,Luguentz Dort,ATL
@@ -11,11 +9,9 @@ pid,name,team
 4585618,Keshon Gilbert,ATL
 4712863,Mouhamed Gueye,ATL
 4701230,Jalen Johnson,ATL
-4683857,Kobe Johnson,ATL
 4280151,Corey Kispert,ATL
 3146557,Jock Landale,ATL
 2490149,CJ McCollum,ATL
-4712845,Isaac McKneely,ATL
 4873201,Asa Newell,ATL
 4431680,Onyeka Okongwu,ATL
 5105571,Henri Veesaar,ATL
@@ -24,21 +20,17 @@ pid,name,team
 4433188,Devin Carter,BOS
 5142621,Chris Cenac Jr.,BOS
 3195,Mike Conley,BOS
-4837238,Tucker DeVries,BOS
 4277951,Luka Garza,BOS
 4251,Paul George,BOS
 5175647,Hugo Gonzalez,BOS
-5176420,Hayden Gray,BOS
 4397251,Ron Harper Jr.,BOS
 4065804,Sam Hauser,BOS
-4398356,Gabe McGlothan,BOS
 5106283,Dillon Mitchell,BOS
 4066354,Payton Pritchard,BOS
 4397424,Neemias Queta,BOS
 4351852,Mitchell Robinson,BOS
 4593841,Baylor Scheierman,BOS
 4065648,Jayson Tatum,BOS
-5106272,Milos Uzan,BOS
 4683689,Jordan Walsh,BOS
 3078576,Derrick White,BOS
 4702745,Amari Williams,BOS
@@ -64,10 +56,8 @@ pid,name,team
 5060701,Christian Anderson,CHA
 4684269,Kylan Boswell,CHA
 4433249,Moussa Diabate,CHA
-4897504,Wyatt Fricks,CHA
 4701225,PJ Hall,CHA
 4602025,Sion James,CHA
-4278729,Jarkel Joiner,CHA
 4576060,Ryan Kalkbrenner,CHA
 5061575,Kon Knueppel,CHA
 5239590,Liam McNeeley,CHA
@@ -79,10 +69,7 @@ pid,name,team
 5281370,Hannes Steinbach,CHA
 4395651,Coby White,CHA
 4066218,Grant Williams,CHA
-4702484,Latrell Wrightsell Jr.,CHA
 5105555,Tobe Awaka,CHI
-4432162,Brandon Boston Jr.,CHI
-4432946,Jalen Bridges,CHI
 4711294,Matas Buzelis,CHI
 4278067,Nic Claxton,CHI
 4066650,Zach Collins,CHI
@@ -93,37 +80,30 @@ pid,name,team
 4395626,Tre Jones,CHI
 5044385,Leonard Miller,CHI
 4432822,Isaac Okoro,CHI
-4397689,Drew Peterson,CHI
 2595516,Norman Powell,CHI
-4593049,Orlando Robinson,CHI
 4898010,Jaylin Sellers,CHI
 4397189,Jalen Smith,CHI
 4432117,Isaiah Stevens,CHI
 4848625,Dailyn Swain,CHI
 4431687,Patrick Williams,CHI
 5095151,Caleb Wilson,CHI
-4593815,Rashaun Agee,CLE
 4066328,Jarrett Allen,CLE
-4702099,Zack Austin,CLE
 3934723,Thomas Bryant,CLE
 4997530,Khalifa Diop,CLE
 4431734,Tristan Enaruna,CLE
 3992,James Harden,CLE
 2995706,Mario Hezonja,CLE
-4898369,Curtis Jones,CLE
 4066757,Sam Merrill,CLE
 5177362,Riley Minix,CLE
 3908809,Donovan Mitchell,CLE
 4432158,Evan Mobley,CLE
 4701233,Craig Porter Jr.,CLE
 5023693,Tyrese Proctor,CLE
-4701845,Kadary Richmond,CLE
 5041951,Meleek Thomas,CLE
 5106268,Nae'Qwan Tomlin,CLE
 4683747,Jaylon Tyson,CLE
 5106261,Ernest Udeh Jr.,CLE
 4576087,Peyton Watson,CLE
-5457832,Noam Yaacov,CLE
 6576,Quincy Acy,DAL
 4593125,Santi Aldama,DAL
 5148538,Tarik Biberovic,DAL
@@ -137,10 +117,8 @@ pid,name,team
 4873153,Morez Johnson Jr.,DAL
 5106040,Tobi Lawal,DAL
 4683688,Dereck Lively II,DAL
-4431775,Seth Lundy,DAL
 4278594,Naji Marshall,DAL
 3138160,Caleb Martin,DAL
-4898238,John Poulakidas,DAL
 2531367,Dwight Powell,DAL
 5211175,Zaccharie Risacher,DAL
 4432107,Marcus Sasser,DAL
@@ -148,24 +126,19 @@ pid,name,team
 4277848,Marvin Bagley III,DEN
 4431767,Christian Braun,DEN
 4698719,Trevon Brazile,DEN
-4588201,Steven Crowl,DEN
 3978,DeMar DeRozan,DEN
 4065813,Alpha Diallo,DEN
-4395667,Dane Goodwin,DEN
 3064290,Aaron Gordon,DEN
-4432976,Coleman Hawkins,DEN
 4433607,DaRon Holmes II,DEN
 4565698,Bryce Hopkins,DEN
 3138196,Cameron Johnson,DEN
 3112335,Nikola Jokic,DEN
 4592427,Spencer Jones,DEN
 3135046,Tyus Jones,DEN
-4432872,Emanuel Miller,DEN
 3936299,Jamal Murray,DEN
 4433629,Ryan Nembhard,DEN
 4431690,Zeke Nnaji,DEN
 4432181,Julian Strawther,DEN
-4277890,Lonnie Walker IV,DEN
 5105592,Cam Whitmore,DEN
 3908845,John Collins,DET
 4432166,Cade Cunningham,DET
@@ -185,16 +158,13 @@ pid,name,team
 3157465,Duncan Robinson,DET
 4397882,Tolu Smith,DET
 4684742,Ausar Thompson,DET
-4592843,Brice Williams,DET
 4397886,Charles Bassey,GS
-4431914,Tyler Burton,GS
 6430,Jimmy Butler III,GS
 4433149,LJ Cryer,GS
 3975,Stephen Curry,GS
 6589,Draymond Green,GS
 3213,Al Horford,GS
 4703396,Graham Ike,GS
-4696317,Miles Kelly,GS
 5175737,Yaxel Lendeborg,GS
 4897449,Malevy Leons,GS
 4066436,De'Anthony Melton,GS
@@ -205,8 +175,6 @@ pid,name,team
 3102531,Kristaps Porzingis,GS
 4897262,Will Richard,GS
 4997536,Gui Santos,GS
-4433159,Dalen Terry,GS
-5170949,Alex Toohey,GS
 4397040,Brandon Williams,GS
 2991235,Steven Adams,HOU
 3037789,Bogdan Bogdanovic,HOU
@@ -216,7 +184,6 @@ pid,name,team
 4592857,Isaiah Crawford,HOU
 3202,Kevin Durant,HOU
 4433192,Tari Eason,HOU
-4432394,Cameron Matthews,HOU
 4709131,Sean Pedulla,HOU
 5105553,Julian Phillips,HOU
 4871144,Alperen Sengun,HOU
@@ -233,7 +200,6 @@ pid,name,team
 4396993,Tyrese Haliburton,IND
 4065731,Jay Huff,IND
 4592829,Quenton Jackson,IND
-3999,James Johnson,IND
 2530530,T.J. McConnell,IND
 2580365,Larry Nance Jr.,IND
 4395712,Andrew Nembhard,IND
@@ -255,9 +221,7 @@ pid,name,team
 3913176,Brandon Ingram,LAC
 4432170,Isaiah Jackson,LAC
 3936099,Derrick Jones Jr.,LAC
-5159895,Yuki Kawamura,LAC
 3448,Brook Lopez,LAC
-5105853,Fletcher Loyer,LAC
 5105832,Nick Martinelli,LAC
 5075626,Baba Miller,LAC
 4396818,Jordan Miller,LAC
@@ -265,12 +229,8 @@ pid,name,team
 4398390,Jalen Pickett,LAC
 4702352,Kobe Sanders,LAC
 4065778,Max Strus,LAC
-4702785,Jahmyl Telfort,LAC
 5254165,Keaton Wagler,LAC
-4683935,Blake Wesley,LAC
-4397355,DeAndre Williams,LAC
 5113969,Cameron Carr,LAL
-4684443,Rafael Castro,LAL
 3945274,Luka Doncic,LAL
 4397014,Quentin Grimes,LAL
 4868423,Jaden Hardy,LAL
@@ -278,7 +238,6 @@ pid,name,team
 4433599,Arthur Kaluma,LAL
 4433136,Walker Kessler,LAL
 4897943,Dalton Knecht,LAL
-5107258,William Kyle III,LAL
 4592691,Jake LaRavia,LAL
 3155535,Kevon Looney,LAL
 4278580,Sandro Mamukelashvili,LAL
@@ -286,14 +245,12 @@ pid,name,team
 5114350,AK Okereke,LAL
 4066457,Austin Reaves,LAL
 4277811,Collin Sexton,LAL
-4711203,Aniwaniwa Tait-Jones,LAL
 5060631,Adou Thiero,LAL
 3907498,Matisse Thybulle,LAL
 4278077,Jarred Vanderbilt,LAL
 4433137,Ziaire Williams,LAL
 5041935,Cameron Boozer,MEM
 4896372,Walter Clayton Jr.,MEM
-5107069,Zach Cleveland,MEM
 5105817,Carson Cooper,MEM
 4903027,Cedric Coward,MEM
 4600663,Zach Edey,MEM
@@ -328,13 +285,11 @@ pid,name,team
 3064482,Bobby Portis,MIA
 4431720,Lester Quinones,MIA
 4278076,Nick Richards,MIA
-4693954,Ian Schieffelin,MIA
 4066993,Dru Smith,MIA
 4065697,Dennis Smith Jr.,MIA
 6475,Klay Thompson,MIA
 3059319,Andrew Wiggins,MIA
 5164559,Nate Ament,MIL
-4433569,Johni Broome,MIL
 5082206,Brayden Burries,MIL
 4432588,John Butler Jr.,MIL
 4997526,Ousmane Dieng,MIL
@@ -346,12 +301,10 @@ pid,name,team
 3134907,Kyle Kuzma,MIL
 2991043,Caris LeVert,MIL
 5214989,Bogoljub Markovic,MIL
-4397233,Pete Nance,MIL
 4397140,Kevin Porter Jr.,MIL
 4591725,Ryan Rollins,MIL
 4397114,Cormac Ryan,MIL
 4277922,Jericho Sims,MIL
-4398257,Jake Stephens,MIL
 4277843,Gary Trent Jr.,MIL
 3133628,Myles Turner,MIL
 5105623,Kel'el Ware,MIL
@@ -362,22 +315,16 @@ pid,name,team
 4397002,Ayo Dosunmu,MIN
 4594268,Anthony Edwards,MIN
 5061585,Isaiah Evans,MIN
-4592699,Enrique Freeman,MIN
 3032976,Rudy Gobert,MIN
 4592492,Bones Hyland,MIN
 4433247,Jonathan Kuminga,MIN
 3136196,Trey Lyles,MIN
-4431828,KJ Martin,MIN
 4431671,Jaden McDaniels,MIN
-4702134,Norchad Omier,MIN
 4592979,Zyon Pullin,MIN
-4592686,Antonio Reeves,MIN
 4432847,Terrence Shannon Jr.,MIN
-4431695,Drew Timme,MIN
 4895758,Cody Williams,MIN
 5157587,Rocco Zikarsky,MIN
 4397136,Saddiq Bey,NO
-4683736,Kobe Bufkin,NO
 4712862,Malik Dia,NO
 5144091,Jeremiah Fears,NO
 5170947,AJ Johnson,NO
@@ -388,7 +335,6 @@ pid,name,team
 4997538,Karlo Matkovic,NO
 4576086,Bryce McGowens,NO
 5061589,Yves Missi,NO
-4701819,Jalon Moore,NO
 4397688,Trey Murphy III,NO
 3907497,Dejounte Murray,NO
 4703115,Jaron Pierre Jr.,NO
@@ -397,19 +343,15 @@ pid,name,team
 4683742,Julian Reese,NO
 4431675,Trendon Watford,NO
 4395628,Zion Williamson,NO
-4397018,Ochai Agbaji,NY
 4683730,Jaden Akins,NY
 4277869,Jose Alvarado,NY
 3934719,OG Anunoby,NY
-4065673,Tony Bradley,NY
 3147657,Mikal Bridges,NY
-4065670,Bruce Brown,NY
 3934672,Jalen Brunson,NY
 2528426,Jordan Clarkson,NY
 5211983,Pacome Dadiet,NY
 5289900,Mohamed Diawara,NY
 6585,Andre Drummond,NY
-3914285,Drew Eubanks,NY
 3062679,Josh Hart,NY
 4433225,Tyler Kolek,NY
 4431823,Miles McBride,NY
@@ -431,7 +373,6 @@ pid,name,team
 5106270,Otega Oweh,OKC
 5061603,Thomas Sorber,OKC
 5241364,Bennett Stirtz,OKC
-5109790,Christoph Tilly,OKC
 5159925,Nikola Topic,OKC
 4683692,Cason Wallace,OKC
 4593803,Jalen Williams,OKC
@@ -459,23 +400,17 @@ pid,name,team
 5105637,Adem Bona,PHI
 3917376,Jaylen Brown,PHI
 2581018,Kentavious Caldwell-Pope,PHI
-5241706,Cris Carroll,PHI
 5124612,VJ Edgecombe,PHI
 4711297,Justin Edwards,PHI
 3059318,Joel Embiid,PHI
 3904625,Tacko Fall,PHI
-5239799,Taye Fields,PHI
 4871141,Ariel Hukporti,PHI
 1966,LeBron James,PHI
-4702159,Dillon Jones,PHI
 4433144,Caleb Love,PHI
 4431678,Tyrese Maxey,PHI
-4702049,Duke Miles,PHI
-4592444,Jameer Nelson Jr.,PHI
 4873090,Labaron Philon Jr.,PHI
 5099752,Rayan Rupert,PHI
 4351851,Anfernee Simons,PHI
-4897471,Saint Thomas,PHI
 3912848,Dean Wade,PHI
 4432446,Jabari Walker,PHI
 3136193,Devin Booker,PHX
@@ -483,13 +418,11 @@ pid,name,team
 4591259,Koby Brea,PHX
 4066383,Miles Bridges,PHX
 3155526,Dillon Brooks,PHX
-4432646,Kennedy Chandler,PHX
 4888725,Ryan Dunn,PHX
 5105977,Rasheer Fleming,PHX
 4278585,Collin Gillespie,PHX
 4278402,Jordan Goodwin,PHX
 4437244,Jalen Green,PHX
-4291678,Haywood Highsmith,PHX
 4702602,CJ Huntley,PHX
 4601023,Oso Ighodaro,PHX
 3913174,Luke Kennard,PHX
@@ -497,7 +430,6 @@ pid,name,team
 5041953,Koa Peat,PHX
 4066268,Duop Reath,PHX
 4592714,Pat Spencer,PHX
-4909710,Phillip Wheeler,PHX
 4701232,Mark Williams,PHX
 4683021,Deni Avdija,POR
 4431736,Toumani Camara,POR
@@ -514,7 +446,6 @@ pid,name,team
 4279888,Ja Morant,POR
 4066399,Micah Potter,POR
 4914336,Shaedon Sharpe,POR
-4610139,Jeremy Sochan,POR
 4593043,John Tonje,POR
 4066211,Robert Williams III,POR
 4706557,Chris Youngblood,POR
@@ -526,13 +457,10 @@ pid,name,team
 4397654,Adam Flagler,SAC
 4065732,De'Andre Hunter,SAC
 4917149,Alex Karaban,SAC
-4701192,Viktor Lakhin,SAC
 3064440,Zach LaVine,SAC
 5107897,Jonathan Mogbo,SAC
 4066262,Malik Monk,SAC
 4594327,Keegan Murray,SAC
-4592965,Tristen Newton,SAC
-2583639,Elfrid Payton,SAC
 4279318,Daeqwon Plowden,SAC
 4898371,Maxime Raynaud,SAC
 3155942,Domantas Sabonis,SAC
@@ -561,32 +489,23 @@ pid,name,team
 4431893,Jamison Battle,TOR
 4432586,Nate Bittle,TOR
 4432737,Jaden Bradley,TOR
-4433138,Nimari Burnett,TOR
-4898260,Tyson Degenhart,TOR
 5149115,Allen Graves,TOR
-4590360,Chucky Hepburn,TOR
-4432190,Andre Jackson Jr.,TOR
 4431684,Trayce Jackson-Davis,TOR
-4395623,Trey Jemison III,TOR
-4279143,Tyreke Key,TOR
 6450,Kawhi Leonard,TOR
 4702656,Alijah Martin,TOR
 5093267,Collin Murray-Boyles,TOR
 3134908,Jakob Poeltl,TOR
 4395724,Immanuel Quickley,TOR
-4897696,Jamarion Sharp,TOR
 4432241,Jamal Shead,TOR
 4397784,Malachi Smith,TOR
 4684272,Ja'Kobe Walter,TOR
-4684682,Jonas Aidoo,UTAH
 4433268,Trey Alexander,UTAH
 4873138,Ace Bailey,UTAH
 4277919,Mo Bamba,UTAH
-4683933,Tamar Bates,UTAH
+4065673,Tony Bradley,UTAH
 4395997,Terrell Brown Jr.,UTAH
 4683766,Isaiah Collier,UTAH
 4684793,Kyle Filipowski,UTAH
-4278395,Taylor Funk,UTAH
 4433627,Keyonte George,UTAH
 4432811,Josh Green,UTAH
 4397077,Jaxson Hayes,UTAH
@@ -610,9 +529,6 @@ pid,name,team
 2581184,Anthony Gill,WSH
 4708972,Jazian Gortman,WSH
 5238230,Tre Johnson,WSH
-4432645,Trevor Keels,WSH
-3936296,Skal Labissiere,WSH
-4433622,Chris Livingston,WSH
 4432819,Tre Mann,WSH
 6609,Khris Middleton,WSH
 5105841,Felix Okpara,WSH
@@ -621,5 +537,4 @@ pid,name,team
 4704043,Steve Settle III,WSH
 4997537,Tristan Vukcevic,WSH
 4606840,Jamir Watkins,WSH
-4592216,Alondes Williams,WSH
 4277905,Trae Young,WSH
