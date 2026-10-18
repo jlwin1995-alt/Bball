@@ -75,7 +75,7 @@ function playerLines(p) {
     const started = Date.now() >= Date.parse(r.commence), live = !started && !isOut(p.status);
     const z = c ? zOf(spec, m, c.line) : null;
     return {r, spec, m, c, po: sd?.o, edge: sd ? (sd.o - c.p_over) * 100 : null, pp: r.dfs.prizepicks, ud: r.dfs.underdog ?? r.dfs.pick6, started, z,
-      tier: live && z != null && !isThin(p) ? leanTier(z) : "", side: z == null ? null : z > 0 ? "OVER" : "UNDER"};
+      tier: live && z != null && !noLean(p) ? leanTier(z) : "", side: z == null ? null : z > 0 ? "OVER" : "UNDER"};
   }).sort((a, b) => Math.abs(b.z ?? 0) - Math.abs(a.z ?? 0));
 }
 // The strongest lean on a player, if any clears the bar (not for started games or players ruled out)
@@ -306,7 +306,7 @@ const pages = {
         const spec = mktSpec(r.stat), m = p.c[MKT[r.stat]], c = r.cons, pp = r.dfs.prizepicks;
         const st = Date.now() >= Date.parse(r.commence), outp = isOut(p.status);
         const o = {started: st, pid: p.id, gb: p.game, name: p.name, pos: p.pos, team: p.team, game: r.game, stat: r.stat, m, c, r, pp, ud: r.dfs.underdog ?? r.dfs.pick6};
-        if (c) { const sd = FB.sides(c.line, m, spec); o.po = sd.o; o.edge = (sd.o - c.p_over) * 100; o.z = zOf(spec, m, c.line); o.tier = st || outp || isThin(p) ? "" : leanTier(o.z); o.pick = st ? "LIVE" : outp ? "OUT" : Math.abs(o.edge) >= CFG.edgeMin ? (o.edge > 0 ? "OVER" : "UNDER") : ""; }
+        if (c) { const sd = FB.sides(c.line, m, spec); o.po = sd.o; o.edge = (sd.o - c.p_over) * 100; o.z = zOf(spec, m, c.line); o.tier = st || outp || noLean(p) ? "" : leanTier(o.z); o.pick = st ? "LIVE" : outp ? "OUT" : Math.abs(o.edge) >= CFG.edgeMin ? (o.edge > 0 ? "OVER" : "UNDER") : ""; }
         if (pp != null) { const sd = FB.sides(pp, m, spec); o.side = sd.o >= sd.u ? "OVER" : "UNDER"; o.pw = Math.max(sd.o, sd.u); o.ppEdge = (o.pw - BE) * 100;
           o.ppPick = st ? "LIVE" : outp ? "OUT" : o.ppEdge >= CFG.edgeMin ? "PP " + o.side : ""; o.gap = c ? pp - c.line : null; }
         return o;

@@ -75,8 +75,13 @@ const depthPill = (d, tip, status) => {
 // A player with fewer than THIN_G games of history is a thin sample: his projection is mostly the prior, so no lean is flagged for him (the sigma is still shown).
 const THIN_G = 3;
 const isThin = p => p.g != null && p.g < THIN_G;
+// A teammate of a starter the injury report lists OUT (same position, RB or WR): his projected volume is the model's re-spread, not an observation, and it
+// is still low on average (WR teammates 4.3 targets projected vs 5.2 actual), which would bias leans toward the UNDER. No lean is flagged for him.
+const isShift = p => !!p.shift;
+const noLean = p => isThin(p) || isShift(p);
+const shiftTag = p => isShift(p) ? ` <span class="pill bkp" title="A starter at his position is listed OUT. His volume is the model's re-spread of that starter's share, so no lean is flagged.">role shift</span>` : "";
 const thinTag = p => isThin(p) ? ` <span class="pill bkp" title="Only ${p.g} game${p.g === 1 ? "" : "s"} of history: the projection is mostly the league prior, so no lean is flagged.">thin</span>` : "";
-const depthCol = (tip, inferred) => ({k: "depth", h: "Depth", l: 1, t: tip, v: r => r.depth ? (starterOut(r) ? -1 : (r.depth.st ? 0 : 1) * 100 + r.depth.rank) : 999, f: r => depthPill(r.depth, tip, r.status) + thinTag(r)});
+const depthCol = (tip, inferred) => ({k: "depth", h: "Depth", l: 1, t: tip, v: r => r.depth ? (starterOut(r) ? -1 : (r.depth.st ? 0 : 1) * 100 + r.depth.rank) : 999, f: r => depthPill(r.depth, tip, r.status) + thinTag(r) + shiftTag(r)});
 
 // A player's name that opens his game on the Game Board (Lines tab): sets the board's game and highlights his row.
 const gbLink = (name, game, id) => `<a href="#Game-Board" class="plink" data-game="${esc(game)}" data-pid="${esc(id)}" title="Open this player's game on the Game Board">${esc(name)}</a>`;
