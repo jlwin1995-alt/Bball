@@ -105,6 +105,11 @@ def main(season=None, raw="data/raw"):
     print(f"weekly {season}: {n} player-weeks")
     n = schedule(season, f"{d}/schedule{sfx}.csv")
     print(f"schedule {season}: {n} games")
+    if not cur:
+        try:
+            print(f"injuries {season}: {simple(f'{C.NFLVERSE}/injuries/injuries_{season}.csv', f'{d}/injuries{sfx}.csv')} rows")
+        except Exception as e:
+            print(f"::warning::injuries {season} unavailable ({e})", file=sys.stderr)
     if cur:
         # Snap counts and injuries lag early in a week; never let them block a refresh.
         for name, url in (("snaps", f"{C.NFLVERSE}/snap_counts/snap_counts_{season}.csv"),

@@ -71,6 +71,8 @@ CONCENTRATE_CARRIES = 0
 CONCENTRATE_TARGETS = 0
 PLAY_WINDOW = 6
 PLAY_PRIOR = 0.25
+OUT_RB = True                     # a running back the injury report lists OUT is removed from the pool and his carries go to the next men up (backtest 2024-26: teammates' carries MAE 5.13 -> 4.24, rushing yards MAE 23.7 -> 20.7)
+OUT_CAP = 1.0                     # how far (as a fraction) a team's carry rescale may rise when a back is out; 1.0 = up to double (3.0 and 6.0 tested, no difference)
 MEAN_FACTOR = 1.17                 # Proj Pts is a MEDIAN; x this gives the mean (scoring is right-skewed)
 
 # Every setting that changes a projection. If one of these moves, rows logged before and after are not the same model's work and must not
@@ -81,7 +83,7 @@ MODEL_KEYS = [
     "K_DEF_POS_WR", "K_DEF_POS_TE", "K_DEF_POS_RB", "K_TEAM_VOL", "TEAM_SCALE_CAP", "DEF_STRENGTH_RUSH", "DEF_STRENGTH_YPR", "DEF_STRENGTH_CATCH",
     "DEF_STRENGTH_PASS", "DEF_STRENGTH_COMP", "TEAM_TD_WEIGHT", "K_TEAM_TD", "EXPL_RUSH_WEIGHT", "EXPL_RUSH_SCALE", "CAL_PASS_SLOPE", "CAL_COMP_SLOPE",
     "LAMBDA_RUSH_TD", "LAMBDA_REC_TD", "LAMBDA_PASS_TD", "CONCENTRATE_ATTEMPTS", "CONCENTRATE_CARRIES", "CONCENTRATE_TARGETS", "PLAY_WINDOW",
-    "PLAY_PRIOR", "LG_PASS_TD", "LG_INT", "LG_YPA", "WEATHER_ON", "WX_WIND_THRESHOLD", "WX_WIND_SLOPE", "WX_WIND_FLOOR", "WX_REC_DAMP", "WX_RUSH_SLOPE",
+    "PLAY_PRIOR", "OUT_RB", "OUT_CAP", "LG_PASS_TD", "LG_INT", "LG_YPA", "WEATHER_ON", "WX_WIND_THRESHOLD", "WX_WIND_SLOPE", "WX_WIND_FLOOR", "WX_REC_DAMP", "WX_RUSH_SLOPE",
     "DEFAULT_SCORING",
 ]
 

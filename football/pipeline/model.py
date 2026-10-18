@@ -250,7 +250,10 @@ def nfl_core(rows, matchup, wx=None, P=None):
         rw = P["RECENT_WEIGHT_ATT"] if key == "att" else P["RECENT_WEIGHT"]
         return rw * (nsum(x[key] for x in recent) / len(recent)) + (1 - rw) * season
 
-    ids = [i for i in PL if PL[i]["team"] in matchup]
+    out_ids = P.get("OUT_IDS") or set()
+    out_rb = {i for i in out_ids if i in PL and PL[i]["team"] in matchup and (PL[i]["grp"] == "RB" or PL[i]["pos"] in ("RB", "FB"))} if P.get("OUT_RB") else set()
+    ids = [i for i in PL if PL[i]["team"] in matchup and i not in out_rb]
+    out_rb_teams = {PL[i]["team"] for i in out_rb}
     raw = {i: dict(car=blend(PL[i], "car"), tgt=blend(PL[i], "tgt"), att=blend(PL[i], "att")) for i in ids}
 
     # --- participation weighting (attempts only): a backup who threw in one of the last six games stops absorbing a fifth of the offence
@@ -281,7 +284,8 @@ def nfl_core(rows, matchup, wx=None, P=None):
         for k in ("car", "tgt", "att"):
             tot = nsum(raw[i][k] * (p_play[i][k] if use_w[k] else 1) for i in ids if PL[i]["team"] == t)
             if tot > 0:
-                scale[t][k] = max(1 - P["TEAM_SCALE_CAP"], min(1 + P["TEAM_SCALE_CAP"], team_base[t][k] / tot))
+                hi = (P.get("OUT_CAP") or P["TEAM_SCALE_CAP"]) if (k == "car" and t in out_rb_teams) else P["TEAM_SCALE_CAP"]
+                scale[t][k] = max(1 - P["TEAM_SCALE_CAP"], min(1 + hi, team_base[t][k] / tot))
 
     def td_target(p, kind):
         """The rate a touchdown rate is shrunk toward: a blend of his own offence (EXCLUDING him) and the league."""
