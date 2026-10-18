@@ -109,6 +109,15 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     out_ids = {i for i, st in status.items() if re.match(r"(out|ir)", st, re.I)}
     core = nfl_core(hist, mu, by_team_wx, dict(P, OUT_IDS=out_ids))
     dpt = depth_map(load_csv(f"{raw}/depth.csv")) if os.path.exists(f"{raw}/depth.csv") else {}
+    # starters (depth chart rank 1, WR 1-3) the injury report lists Out or Doubtful, by team, for the Game Board warning
+    outs = {}
+    for x in inj:
+        st = x.get("report_status") or ""
+        d = dpt.get(x.get("gsis_id"))
+        if int(num(x.get("week"))) == week and d and d["st"] and re.match(r"(out|ir|doubt)", st, re.I):
+            outs.setdefault(x["team"], []).append(dict(name=x["full_name"], pos=x["position"], slot=d["slot"], status=st, id=x["gsis_id"]))
+    # teammates at the position of a starter who is OUT: their volume is an assumption (the model re-spreads it), not an observation, so no lean is flagged for them
+    shift = {(t, o["pos"]) for t, v in outs.items() for o in v if re.match(r"(out|ir)", o["status"], re.I) and o["pos"] in ("RB", "WR")}
     kick = kickoffs(sched, week)
 
     # rank each opponent within the position group it is being judged on, so "+4.7%" carries the context that makes it readable
@@ -129,7 +138,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
         k0 = kick.get(pl["team"])
         proj.append(dict(
             id=pl["id"], name=pl["name"], pos=pl["pos"], grp=pl["grp"], team=pl["team"], opp=pl["opp"], home=int(pl["siteTag"] == "vs"),
-            game=game_label(away, home), ko=utc(k0), status=status.get(pl["id"], ""), depth=dpt.get(pl["id"]), g=pl["g"], rest=pl["rest"],
+            game=game_label(away, home), ko=utc(k0), status=status.get(pl["id"], ""), depth=dpt.get(pl["id"]), shift=int((pl["team"], pl["pos"]) in shift and pl["id"] not in out_ids), g=pl["g"], rest=pl["rest"],
             wind=r(pl["wind"], 1) if pl["wind"] != "" else None,
             # volumes (rounded to one decimal, as displayed) and the rates the browser multiplies them by when you override a volume
             car=d["car"], tgt=d["tgt"], att=d["att"], ypc=r(pl["ypc"], 4), cr=r(pl["cr"], 4), ypr=r(pl["ypr"], 4), ypa=r(pl["ypa"], 4), cmp=r(pl["compRate"], 4),
@@ -149,13 +158,6 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     dump(proj, out, "projections.json")
 
     games = game_rows(sched, week, wx_rows)
-    # starters (depth chart rank 1, WR 1-3) the injury report lists Out or Doubtful, by team, for the Game Board warning
-    outs = {}
-    for x in inj:
-        st = x.get("report_status") or ""
-        d = dpt.get(x.get("gsis_id"))
-        if int(num(x.get("week"))) == week and d and d["st"] and re.match(r"(out|ir|doubt)", st, re.I):
-            outs.setdefault(x["team"], []).append(dict(name=x["full_name"], pos=x["position"], slot=d["slot"], status=st, id=x["gsis_id"]))
     for g in games:
         g["outs"] = {t: outs[t] for t in (g["away"], g["home"]) if t in outs}
     dump(games, out, "games.json")
