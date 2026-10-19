@@ -102,6 +102,7 @@ def cfb_lines_checks():
     print("college lines ok")
     cfb_props_checks()
     depth_checks()
+    fp_lean_checks()
     partial_checks()
     fp_checks()
 
@@ -145,6 +146,31 @@ def partial_checks():
     got = partial_games(p, rows, pbp_path=pb)
     assert list(got) == [("a", 4)] and got[("a", 4)]["pct"] == 0.2 and got[("a", 4)]["last_q"] == 2 and got[("a", 4)]["void"] == "likely" and got[("a", 4)]["team_h1"] == 16, got
     print("partial games ok")
+
+
+def fp_lean_checks():
+    import random, tempfile
+    from . import fp
+    random.seed(3)
+    pairs = []
+    for _ in range(600):
+        med = random.uniform(4, 22)
+        mean = 2.0 + 0.9 * med
+        pairs.append((med, mean + random.gauss(0, 4.0 + 0.25 * mean)))
+    f = fp.fit(pairs)
+    assert f and abs(f["mean"][1] - 0.9) < 0.12 and f["sigma"][1] > 0.05 and f["n"] == 600, f
+    assert fp.fit(pairs[:50]) is None
+    d = tempfile.mkdtemp()
+    log = d + "/fp.csv"
+    fetch_odds.write_rows  # noqa: B018 (module imported above)
+    import csv as _csv
+    with open(log, "w", newline="") as fh:
+        w = _csv.DictWriter(fh, fieldnames=fetch_odds.FP_COLS); w.writeheader()
+        w.writerow(dict(ts="t", event="e", commence="2099-01-01T00:00:00Z", game="A @ B", home="B", away="A", player="Dak Prescott", book="prizepicks", line="19", over="-137", under="-137"))
+        w.writerow(dict(ts="t", event="e", commence="2099-01-01T00:00:00Z", game="A @ B", home="B", away="A", player="Dak Prescott", book="prizepicks", line="19", over="-137", under="-137"))
+    n = fp.build(log, [dict(id="1", name="Dak Prescott", team="B", pos="QB", game="A @ B"), dict(id="2", name="Dak Prescott", team="Z", pos="QB")], d + "/o.json", dict(mean=[2, 0.9], sigma=[4, 0.25]))
+    assert n == 2 and json.load(open(d + "/o.json"))["rows"][0]["id"] == "1", n      # matched by name AND a team in the game
+    print("fantasy-points lean ok")
 
 
 def depth_checks():

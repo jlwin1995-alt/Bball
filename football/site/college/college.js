@@ -223,6 +223,8 @@ const pages = {
   },
 };
 
+{ const base = pages.Lines;
+  pages.Lines = () => base() + fpSection(D.fp_lines, Object.fromEntries(proj().map(p => [p.id, p])), p => FB.calcCfb(p, OVR[p.id], FB.SCORING["PrizePicks"]).pts, F); }
 let page = "Projections";
 function render(keepFocus, focusId) {
   const act = document.activeElement, id = focusId || act?.id, pos = act?.selectionStart;
@@ -266,6 +268,7 @@ async function boot() {
     return;
   }
   try { const r = await fetch("../data/cfb/lines.json", {cache: "no-cache"}); if (r.ok) D.lines = await r.json(); } catch (e) {}
+  try { const r = await fetch("../data/cfb/fp_lines.json", {cache: "no-cache"}); if (r.ok) D.fp_lines = await r.json(); } catch (e) {}
   D.backtest = {};
   await Promise.all((D.meta.backtests || []).map(async y => { try { const r = await fetch(`../data/cfb/backtest_${y}.json`, {cache: "no-cache"}); if (r.ok) D.backtest[y] = await r.json(); } catch (e) {} }));
   document.getElementById("asof").textContent = `Week ${D.meta.week} · data through week ${D.meta.asof_week} · built ${new Date(D.meta.generated).toLocaleString(undefined, {month: "short", day: "numeric", hour: "numeric", minute: "2-digit"})}`;

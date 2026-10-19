@@ -193,6 +193,12 @@ CFB_PROPS_MIN_HOURS = 3
 CFB_SPREAD_STAT = {"Rushing yards": "rushY", "Receiving yards": "recY", "Receptions": "rec", "Passing yards": "passY", "Completions": "comp"}   # backtest label -> stat key
 # Fantasy-points prop (PrizePicks only for now): collected into data/log/fp_lines_log.csv, NOT shown on the site until PrizePicks' scoring and a sigma for points are fitted.
 FP_MARKET = "player_fantasy_points"
+PP_SCORING = {"passYd": 0.04, "passTd": 4, "intr": -1, "rushYd": 0.1, "rushTd": 6, "recYd": 0.1, "recTd": 6, "rec": 1, "fum": -1, "two": 0}   # PrizePicks' official chart
+# NFL fantasy-points lean, fitted on the 2024-26 walk-forward backtests (6,364 player-games with a 4+ point projection), PrizePicks scoring:
+# the projection is a MEDIAN, so the mean-adjusted projection is MEAN = a + b x median (a flat x1.113 over-adjusts the top fifth by 1.8 points), and
+# the spread of actual around it is SIGMA = a + b x MEAN. The college fit comes from the college backtest (backtest_<season>.json: pts_fit).
+FP_MEAN = (1.988, 0.916)
+FP_SIGMA = (4.386, 0.2455)
 FP_BOOK = "prizepicks"
 ODDS_HORIZON_HOURS = float(__import__("os").environ.get("ODDS_HORIZON_HOURS") or 72)   # only games starting within this many hours are pulled (the workflow's manual "hours" box overrides it)
 ODDS_MIN_INTERVAL_MIN = 90         # a scheduled pull is skipped if the previous check was this recent, so backup runs cost no credits

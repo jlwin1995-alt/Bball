@@ -128,6 +128,14 @@ def props_lines(raw, out, season, week=None):
     from . import lines as L
     L.main(raw, out, odds_file="cfb_odds.csv", meta_file="cfb_odds_meta.json", snapshot=week is not None, extra=dict(specs=line_specs(out, season)),
            log_name="cfb_lines_log.csv", week=week)
+    # PrizePicks fantasy-points lines (college): the lean's mean-adjustment and sigma come from the college backtest (none until it has enough rows)
+    from . import fp as FP
+    cfg = None
+    bp = f"{out}/backtest_{season}.json"
+    if os.path.exists(bp):
+        cfg = json.load(open(bp)).get("pts_fit")
+    proj = json.load(open(f"{out}/projections.json")) if os.path.exists(f"{out}/projections.json") else []
+    FP.build("data/log/cfb_fp_lines_log.csv", proj, f"{out}/fp_lines.json", cfg)
 
 
 LEAN_FIELD = {"rushY": "rushing_yards", "recY": "receiving_yards", "rec": "receptions", "passY": "passing_yards"}
@@ -355,7 +363,9 @@ def backtest(rows, games, W, P, from_week=None):
         b = (sd_hi - sd_lo) / max(0.001, p_hi - p_lo)
         spread.append(dict(label=label_, n=len(mine), a=rnd(sd_lo - b * p_lo, 3), b=rnd(b, 4)))
     pa = acc["pts"]
-    return dict(weeks=used, scored=nscored, excluded=nskip, thin=len(used) < 3, table=table, spread=spread, mean_factor=rnd(pa["act"] / pa["pred"], 3) if pa["pred"] else None)
+    from . import fp as FP
+    pts_fit = FP.fit([(pj, pj + r) for k, pj, r in resid if k == "pts" and pj >= 4])
+    return dict(pts_fit=pts_fit, weeks=used, scored=nscored, excluded=nskip, thin=len(used) < 3, table=table, spread=spread, mean_factor=rnd(pa["act"] / pa["pred"], 3) if pa["pred"] else None)
 
 
 def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, season=None):
