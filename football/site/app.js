@@ -91,6 +91,15 @@ function linesCell(p) {
 }
 const leanRow = r => { const b = bestLean(r); return b ? "lean-" + b.tier + "-row" : ""; };
 
+// Skill players who played well under their usual share of the offence (an injury, or benched in a blowout: the snap data cannot say which)
+function partialBlock(s) {
+  if (!s.partial_list?.length) return "";
+  const cols = [{k: "name", h: "Player", l: 1}, {k: "team", h: "Team", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "week", h: "Wk"}, {k: "proj", h: "Proj pts", f: r => num(r.proj)}, {k: "act", h: "Actual", f: r => num(r.act)},
+    {k: "avg", h: "Usual snap %", f: r => num(r.avg * 100, 0) + "%"}, {k: "pct", h: "This game", f: r => num(r.pct * 100, 0) + "%"},
+    {k: "first_half", h: "Left in 1st half (est.)", t: "ESTIMATE from play-by-play: his last involvement in a play was in the 1st half. Snap counts have no halves, and a player can miss time without a touch. PrizePicks voids MORE picks (not LESS) for a first-half exit without a return.", f: r => r.last_q ? (r.first_half ? "likely" : "no (last play Q" + r.last_q + ")") : "unknown"}];
+  return `<h3>Partial games (not scored)</h3><p class="sub">${s.partial} skill players played under half of their usual snap share, so they are left out of the accuracy numbers above (like a player who did not play). The lean record keeps them: a bet on a player who gets hurt still loses. It cannot tell an injury from a benching in a blowout.</p>${table(cols, s.partial_list, {id: "part"})}`;
+}
+
 // The Google-Sheet model's own pre-kickoff log (same model, weeks played before this site existed), scored on points
 function legacyBlock(L, wc, pc) {
   if (!L || !L.scored) return "";
@@ -411,7 +420,7 @@ const pages = {
   Scorecard() {
     const s = D.scorecard;
     const cards = `<div class="cards"><div class="card"><b>${s.scored}</b><span>player-weeks scored</span></div><div class="card"><b>${s.waiting}</b><span>logged, games not in yet</span></div>
-      <div class="card"><b>${s.logged}</b><span>rows in the log</span></div><div class="card"><b>${s.late}</b><span>logged after kickoff (never scored)</span></div>
+      <div class="card"><b>${s.logged}</b><span>rows in the log</span></div><div class="card"><b>${s.late}</b><span>logged after kickoff (never scored)</span></div>${s.partial != null ? `<div class="card"><b>${s.partial}</b><span>partial games (not scored)</span></div>` : ""}
       <div class="card"><b>${s.other_models}</b><span>from earlier model settings (not counted)</span></div></div>`;
     if (!s.markets.length) return `<h2>Scorecard</h2><p class="sub">Projections are written to the log <b>before</b> each week's games and never rewritten, then scored against two baselines: the player's season average and his last three games, as of that week.</p>${cards}
       <p class="banner">Nothing scored yet under model <code>${esc(s.stamp)}</code>. The first scores appear once a logged week's games are final (the nightly refresh picks them up).</p>${legacyBlock(s.legacy, [{k: "week", h: "Week"}, {k: "n", h: "n"}, {k: "model", h: "Model", f: r => `<b>${num(r.model, 2)}</b>`}, {k: "season", h: "Season avg", f: r => num(r.season, 2)}, {k: "last3", h: "Last-3", f: r => num(r.last3, 2)}], [{k: "pos", h: "Pos", l: 1}, {k: "n", h: "n"}, {k: "mae", h: "Pts MAE", f: r => num(r.mae, 2)}, {k: "over", h: "Over %", f: r => `${num(r.over)} ± ${num(r.band)}`}, {k: "bias", h: "Bias %", f: r => plainSigned(r.bias)}, {k: "read", h: "Read", l: 1}])}`;
@@ -423,7 +432,7 @@ const pages = {
     const pc = [{k: "pos", h: "Pos", l: 1}, {k: "n", h: "n"}, {k: "mae", h: "Pts MAE", f: r => num(r.mae, 2)}, {k: "over", h: "Over %", f: r => `${num(r.over)} ± ${num(r.band)}`}, {k: "bias", h: "Bias %", f: r => plainSigned(r.bias)}, {k: "read", h: "Read", l: 1}];
     const wc = [{k: "week", h: "Week"}, {k: "n", h: "n"}, {k: "model", h: "Model", f: r => `<b>${num(r.model, 2)}</b>`}, {k: "season", h: "Season avg", f: r => num(r.season, 2)}, {k: "last3", h: "Last-3", f: r => num(r.last3, 2)}];
     return `<h2>Scorecard</h2><p class="sub">Live record under model <code>${esc(s.stamp)}</code> (full-PPR points). Change any knob and the stamp changes, starting a fresh record instead of blending into the old one.</p>${cards}
-      <h3>By market</h3>${table(mc, s.markets, {id: "scm"})}<h3>By position (points)</h3>${table(pc, s.pos, {id: "scp"})}<h3>By week (points MAE)</h3>${table(wc, s.weeks, {id: "scw"})}
+      <h3>By market</h3>${table(mc, s.markets, {id: "scm"})}<h3>By position (points)</h3>${table(pc, s.pos, {id: "scp"})}<h3>By week (points MAE)</h3>${table(wc, s.weeks, {id: "scw"})}${partialBlock(s)}
       ${legacyBlock(s.legacy, wc, pc)}
       <div class="doc"><p class="mut">MAE is the raw average miss, so it is comparable with the baselines in the same row but not between markets. A miss can be spotted from about 100 rows, but <i>no miss detected</i> is not <i>calibrated</i>: the word is held back until 400. Players who did not play are not scored.</p></div>`;
   },

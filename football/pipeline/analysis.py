@@ -27,6 +27,45 @@ def load_snaps(path):
     return m
 
 
+def partial_games(snaps_path, rows, frac=0.5, min_avg=0.35, min_prev=2, pbp_path=None):
+    """(player_id, week) -> dict(avg, pct, snaps) for skill players who played well under his usual share of the offence: this game's offensive snap share
+    is under `frac` of the average of his previous (up to 3) games, those averaging at least `min_avg` over at least `min_prev` games. It cannot tell an
+    injury from a benching in a blowout, so it is a 'partial game', not an 'injury'. Snap counts post about a day after the game."""
+    by = {}
+    try:
+        with open(snaps_path, newline="") as f:
+            for r in csv.DictReader(f):
+                if r.get("offense_pct", "") != "" and r.get("position") in ("QB", "RB", "FB", "WR", "TE"):
+                    by.setdefault((name_key(r["player"]), r["team"]), {})[int(num(r["week"]))] = (num(r["offense_pct"]), int(num(r["offense_snaps"])))
+    except FileNotFoundError:
+        return {}
+    ids = {(name_key(r["player_display_name"]), r["team"], int(num(r["week"]))): r["player_id"] for r in rows}
+    last_q = {}
+    if pbp_path:
+        try:
+            with open(pbp_path, newline="") as f:
+                for r in csv.DictReader(f):
+                    for col in ("passer_player_id", "rusher_player_id", "receiver_player_id"):
+                        if r[col]:
+                            k = (r[col], int(num(r["week"])))
+                            last_q[k] = max(last_q.get(k, 0), int(num(r["qtr"])))
+        except FileNotFoundError:
+            pass
+    out = {}
+    for (nk, team), d in by.items():
+        for wk, (pct, n) in d.items():
+            prev = [d[w][0] for w in sorted(d) if w < wk][-3:]
+            if len(prev) < min_prev:
+                continue
+            avg = sum(prev) / len(prev)
+            pid = ids.get((nk, team, wk))
+            if pid and avg >= min_avg and pct < frac * avg:
+                q = last_q.get((pid, wk), 0)
+                # ESTIMATE: his last involvement in a play was in the 1st half (the snap counts have no halves; a player can miss time without a touch)
+                out[(pid, wk)] = dict(avg=round(avg, 2), pct=round(pct, 2), snaps=n, last_q=q, first_half=int(0 < q <= 2))
+    return out
+
+
 def div(n, d):
     return n / d if d else None
 

@@ -84,13 +84,15 @@ def read_tag(n, over, band):
     return "no miss detected" if n < 400 else "calibrated"
 
 
-def score(season_rows, live, path=LOG, P=None, W=None, stamp_override=None):
+def score(season_rows, live, path=LOG, P=None, W=None, stamp_override=None, partial=None):
     """season_rows: this season's weekly rows. live: {(team, week): bool} from analysis.aggregate. -> scorecard dict."""
     W = W or C.DEFAULT_SCORING
     cur = stamp_override or stamp(P)
     log = read_log(path)
     act = {(r["player_id"], int(r["week"])): actual(r, W) for r in season_rows}
     scored, waiting, late, dnp, other = [], 0, 0, 0, 0
+    partial = partial or {}
+    part = []
     for r in log:
         if r["stamp"] != cur:
             other += 1
@@ -105,6 +107,10 @@ def score(season_rows, live, path=LOG, P=None, W=None, stamp_override=None):
         a = act.get((r["player_id"], wk))
         if a is None:
             dnp += 1
+            continue
+        pg = partial.get((r["player_id"], wk))
+        if pg:                                              # played well under his usual share of the offence: availability, not accuracy
+            part.append(dict(name=r["name"], team=r["team"], pos=r["pos"], week=wk, proj=round(float(r["p_pts"]), 1), act=round(a["pts"], 1), **pg))
             continue
         scored.append((r, a))
 
@@ -146,5 +152,5 @@ def score(season_rows, live, path=LOG, P=None, W=None, stamp_override=None):
                         bias=round((c["pred"] / c["act"] - 1) * 100, 1) if c["act"] else None, read=read_tag(c["n"], o, band)))
     weeks = [dict(week=w, n=c["n"], model=round(c["m"] / c["n"], 3), season=round(c["s"] / c["n"], 3), last3=round(c["l"] / c["n"], 3))
              for w, c in sorted(by_week.items())]
-    return dict(stamp=cur, scored=len(scored), waiting=waiting, late=late, dnp=dnp, other_models=other,
+    return dict(stamp=cur, scored=len(scored), waiting=waiting, late=late, dnp=dnp, partial=len(part), partial_list=sorted(part, key=lambda x: -abs(x["proj"] - x["act"]))[:15], other_models=other,
                 logged=len(log), markets=markets, pos=pos, weeks=weeks)
