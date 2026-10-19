@@ -7,14 +7,14 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401762522,1,2025-08-28T21:30:00.000Z,True,False,South Florida,American Athletic,34,Boise State,Mountain West,7
 401752794,1,2025-08-28T22:00:00.000Z,True,False,Rutgers,Big Ten,34,Ohio,Mid-American,31
 401762790,1,2025-08-28T22:00:00.000Z,True,False,Bowling Green,Mid-American,26,Lafayette,Patriot,7
-401757219,1,2025-08-28T23:00:00.000Z,True,False,Delaware,Conference USA,35,Delaware State,MEAC,17
-401762789,1,2025-08-28T23:00:00.000Z,True,False,Akron,Mid-American,0,Wyoming,Mountain West,10
-401756848,1,2025-08-28T23:00:00.000Z,True,False,UCF,Big 12,17,Jacksonville State,Conference USA,10
-401761588,1,2025-08-28T23:00:00.000Z,True,False,UL Monroe,Sun Belt,29,Saint Francis,NEC,0
 401754373,1,2025-08-28T23:00:00.000Z,True,False,NC State,ACC,24,East Carolina,American Athletic,17
+401756848,1,2025-08-28T23:00:00.000Z,True,False,UCF,Big 12,17,Jacksonville State,Conference USA,10
+401762789,1,2025-08-28T23:00:00.000Z,True,False,Akron,Mid-American,0,Wyoming,Mountain West,10
+401761588,1,2025-08-28T23:00:00.000Z,True,False,UL Monroe,Sun Belt,29,Saint Francis,NEC,0
+401757219,1,2025-08-28T23:00:00.000Z,True,False,Delaware,Conference USA,35,Delaware State,MEAC,17
 401756876,1,2025-08-28T23:30:00.000Z,True,False,Oklahoma State,Big 12,27,UT Martin,OVC-Big South,7
-401752674,1,2025-08-28T23:30:00.000Z,True,False,Missouri,SEC,61,Central Arkansas,UAC,6
 401754517,1,2025-08-28T23:30:00.000Z,True,False,Duke,ACC,45,Elon,Coastal Athletic,17
+401752674,1,2025-08-28T23:30:00.000Z,True,False,Missouri,SEC,61,Central Arkansas,UAC,6
 401752793,1,2025-08-29T00:00:00.000Z,True,False,Minnesota,Big Ten,23,Buffalo,Mid-American,10
 401756852,1,2025-08-29T00:00:00.000Z,True,False,Houston,Big 12,27,Stephen F. Austin,Southland,0
 401762430,1,2025-08-29T00:30:00.000Z,True,False,UAB,American Athletic,52,Alabama State,SWAC,42
@@ -22,76 +22,76 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401762791,1,2025-08-29T01:00:00.000Z,True,False,Wisconsin,Big Ten,17,Miami (OH),Mid-American,0
 401760357,1,2025-08-29T02:00:00.000Z,True,False,San Diego State,Mountain West,42,Stony Brook,Coastal Athletic,0
 401762432,1,2025-08-29T22:00:00.000Z,True,False,Army,American Athletic,27,Tarleton State,UAC,30
-401752802,1,2025-08-29T23:00:00.000Z,True,False,Michigan State,Big Ten,23,Western Michigan,Mid-American,6
 401754374,1,2025-08-29T23:00:00.000Z,True,False,Wake Forest,ACC,10,Kennesaw State,Conference USA,9
-401761589,1,2025-08-29T23:00:00.000Z,True,True,Charlotte,American Athletic,11,App State,Sun Belt,34
 401766898,1,2025-08-29T23:00:00.000Z,True,False,Florida International,Conference USA,42,Bethune-Cookman,SWAC,9
-401752795,1,2025-08-29T23:30:00.000Z,True,False,Illinois,Big Ten,52,Western Illinois,OVC-Big South,3
+401752802,1,2025-08-29T23:00:00.000Z,True,False,Michigan State,Big Ten,23,Western Michigan,Mid-American,6
+401761589,1,2025-08-29T23:00:00.000Z,True,True,Charlotte,American Athletic,11,App State,Sun Belt,34
 401756854,1,2025-08-29T23:30:00.000Z,True,False,Kansas,Big 12,46,Wagner,NEC,7
-401754375,1,2025-08-30T00:00:00.000Z,True,False,Colorado,Big 12,20,Georgia Tech,ACC,27
+401752795,1,2025-08-29T23:30:00.000Z,True,False,Illinois,Big Ten,52,Western Illinois,OVC-Big South,3
 401752667,1,2025-08-30T00:00:00.000Z,True,False,Baylor,Big 12,24,Auburn,SEC,38
+401754375,1,2025-08-30T00:00:00.000Z,True,False,Colorado,Big 12,20,Georgia Tech,ACC,27
 401757224,1,2025-08-30T01:30:00.000Z,True,True,Sam Houston,Conference USA,21,UNLV,Mountain West,38
 401760358,1,2025-08-30T02:30:00.000Z,True,False,San José State,Mountain West,14,Central Michigan,Mid-American,16
+401752676,1,2025-08-30T16:00:00.000Z,True,True,Tennessee,SEC,45,Syracuse,ACC,26
+401752797,1,2025-08-30T16:00:00.000Z,True,False,Maryland,Big Ten,39,Florida Atlantic,American Athletic,7
+401752801,1,2025-08-30T16:00:00.000Z,True,False,Purdue,Big Ten,31,Ball State,Mid-American,0
 401752677,1,2025-08-30T16:00:00.000Z,True,False,Ohio State,Big Ten,14,Texas,SEC,7
 401762434,1,2025-08-30T16:00:00.000Z,True,False,Navy,American Athletic,52,VMI,Southern,7
 401752803,1,2025-08-30T16:00:00.000Z,True,False,Tulane,American Athletic,23,Northwestern,Big Ten,3
-401754520,1,2025-08-30T16:00:00.000Z,True,False,Pittsburgh,ACC,61,Duquesne,NEC,9
-401752797,1,2025-08-30T16:00:00.000Z,True,False,Maryland,Big Ten,39,Florida Atlantic,American Athletic,7
-401762792,1,2025-08-30T16:00:00.000Z,True,False,Kent State,Mid-American,21,Merrimack,FCS Independents,17
 401752673,1,2025-08-30T16:00:00.000Z,True,False,Southern Miss,Sun Belt,17,Mississippi State,SEC,34
-401752676,1,2025-08-30T16:00:00.000Z,True,True,Tennessee,SEC,45,Syracuse,ACC,26
-401752801,1,2025-08-30T16:00:00.000Z,True,False,Purdue,Big Ten,31,Ball State,Mid-American,0
+401762792,1,2025-08-30T16:00:00.000Z,True,False,Kent State,Mid-American,21,Merrimack,FCS Independents,17
+401754520,1,2025-08-30T16:00:00.000Z,True,False,Pittsburgh,ACC,61,Duquesne,NEC,9
 401752670,1,2025-08-30T16:45:00.000Z,True,False,Kentucky,SEC,24,Toledo,Mid-American,16
-401757167,1,2025-08-30T18:00:00.000Z,True,False,UConn,FBS Independents,59,Central Connecticut,NEC,13
 401756878,1,2025-08-30T18:00:00.000Z,True,False,West Virginia,Big 12,45,Robert Morris,NEC,3
 401754518,1,2025-08-30T18:00:00.000Z,True,False,Boston College,ACC,66,Fordham,Patriot,10
+401757167,1,2025-08-30T18:00:00.000Z,True,False,UConn,FBS Independents,59,Central Connecticut,NEC,13
 401752806,1,2025-08-30T18:30:00.000Z,True,False,Indiana,Big Ten,27,Old Dominion,Sun Belt,14
 401754519,1,2025-08-30T19:00:00.000Z,True,False,Louisville,ACC,51,Eastern Kentucky,UAC,17
-401762793,1,2025-08-30T19:30:00.000Z,True,False,Northern Illinois,Mid-American,19,Holy Cross,Patriot,17
-401752669,1,2025-08-30T19:30:00.000Z,True,False,Georgia,SEC,45,Marshall,Sun Belt,7
-401752665,1,2025-08-30T19:30:00.000Z,True,False,Florida State,ACC,31,Alabama,SEC,17
-401760359,1,2025-08-30T19:30:00.000Z,True,False,Air Force,Mountain West,49,Bucknell,Patriot,13
 401762456,1,2025-08-30T19:30:00.000Z,True,False,Massachusetts,Mid-American,10,Temple,American Athletic,42
-401756853,1,2025-08-30T19:30:00.000Z,True,False,Iowa State,Big 12,55,South Dakota,MVFC,7
 401752807,1,2025-08-30T19:30:00.000Z,True,False,Penn State,Big Ten,46,Nevada,Mountain West,11
-401757220,1,2025-08-30T20:00:00.000Z,True,False,Liberty,Conference USA,28,Maine,Coastal Athletic,7
+401756853,1,2025-08-30T19:30:00.000Z,True,False,Iowa State,Big 12,55,South Dakota,MVFC,7
+401752669,1,2025-08-30T19:30:00.000Z,True,False,Georgia,SEC,45,Marshall,Sun Belt,7
+401760359,1,2025-08-30T19:30:00.000Z,True,False,Air Force,Mountain West,49,Bucknell,Patriot,13
+401752665,1,2025-08-30T19:30:00.000Z,True,False,Florida State,ACC,31,Alabama,SEC,17
+401762793,1,2025-08-30T19:30:00.000Z,True,False,Northern Illinois,Mid-American,19,Holy Cross,Patriot,17
 401752804,1,2025-08-30T20:00:00.000Z,True,False,Oregon,Big Ten,59,Montana State,Big Sky,13
+401757220,1,2025-08-30T20:00:00.000Z,True,False,Liberty,Conference USA,28,Maine,Coastal Athletic,7
 401752666,1,2025-08-30T20:15:00.000Z,True,False,Arkansas,SEC,52,Alabama A&M,SWAC,7
 401762433,1,2025-08-30T20:30:00.000Z,True,False,Memphis,American Athletic,45,Chattanooga,Southern,10
-401752799,1,2025-08-30T22:00:00.000Z,True,False,Iowa,Big Ten,34,UAlbany,Coastal Athletic,7
-401761590,1,2025-08-30T22:00:00.000Z,True,False,James Madison,Sun Belt,45,Weber State,Big Sky,10
-401754616,1,2025-08-30T22:00:00.000Z,True,False,Virginia,ACC,48,Coastal Carolina,Sun Belt,7
 401752675,1,2025-08-30T22:00:00.000Z,True,False,Oklahoma,SEC,35,Illinois State,MVFC,3
-401752679,1,2025-08-30T23:00:00.000Z,True,False,Vanderbilt,SEC,45,Charleston Southern,OVC-Big South,3
-401757222,1,2025-08-30T23:00:00.000Z,True,False,Middle Tennessee,Conference USA,14,Austin Peay,UAC,34
-401752668,1,2025-08-30T23:00:00.000Z,True,False,Florida,SEC,55,Long Island University,NEC,0
+401761590,1,2025-08-30T22:00:00.000Z,True,False,James Madison,Sun Belt,45,Weber State,Big Sky,10
+401752799,1,2025-08-30T22:00:00.000Z,True,False,Iowa,Big Ten,34,UAlbany,Coastal Athletic,7
+401754616,1,2025-08-30T22:00:00.000Z,True,False,Virginia,ACC,48,Coastal Carolina,Sun Belt,7
+401752678,1,2025-08-30T23:00:00.000Z,True,False,Texas A&M,SEC,42,UTSA,American Athletic,24
 401757226,1,2025-08-30T23:00:00.000Z,True,False,Western Kentucky,Conference USA,55,North Alabama,UAC,6
 401761591,1,2025-08-30T23:00:00.000Z,True,False,Arkansas State,Sun Belt,42,Southeast Missouri State,OVC-Big South,24
-401752678,1,2025-08-30T23:00:00.000Z,True,False,Texas A&M,SEC,42,UTSA,American Athletic,24
-401756855,1,2025-08-30T23:00:00.000Z,True,False,Kansas State,Big 12,38,North Dakota,MVFC,35
 401761593,1,2025-08-30T23:00:00.000Z,True,False,South Alabama,Sun Belt,38,Morgan State,MEAC,21
+401756855,1,2025-08-30T23:00:00.000Z,True,False,Kansas State,Big 12,38,North Dakota,MVFC,35
 401761595,1,2025-08-30T23:00:00.000Z,True,False,Troy,Sun Belt,38,Nicholls,Southland,20
-401752671,1,2025-08-30T23:30:00.000Z,True,False,Clemson,ACC,10,LSU,SEC,17
-401757221,1,2025-08-30T23:30:00.000Z,True,False,Louisiana Tech,Conference USA,24,SE Louisiana,Southland,0
+401757222,1,2025-08-30T23:00:00.000Z,True,False,Middle Tennessee,Conference USA,14,Austin Peay,UAC,34
+401752668,1,2025-08-30T23:00:00.000Z,True,False,Florida,SEC,55,Long Island University,NEC,0
+401752679,1,2025-08-30T23:00:00.000Z,True,False,Vanderbilt,SEC,45,Charleston Southern,OVC-Big South,3
 401752798,1,2025-08-30T23:30:00.000Z,True,False,USC,Big Ten,73,Missouri State,Conference USA,13
+401757221,1,2025-08-30T23:30:00.000Z,True,False,Louisiana Tech,Conference USA,24,SE Louisiana,Southland,0
 401756877,1,2025-08-30T23:30:00.000Z,True,False,Texas Tech,Big 12,67,Arkansas-Pine Bluff,SWAC,7
-401757225,1,2025-08-30T23:30:00.000Z,True,False,Utah State,Mountain West,28,UTEP,Conference USA,16
 401752808,1,2025-08-30T23:30:00.000Z,True,False,Michigan,Big Ten,34,New Mexico,Mountain West,17
+401757225,1,2025-08-30T23:30:00.000Z,True,False,Utah State,Mountain West,28,UTEP,Conference USA,16
+401752671,1,2025-08-30T23:30:00.000Z,True,False,Clemson,ACC,10,LSU,SEC,17
 401752672,1,2025-08-30T23:45:00.000Z,True,False,Ole Miss,SEC,63,Georgia State,Sun Belt,7
+401756851,1,2025-08-31T00:00:00.000Z,True,False,BYU,Big 12,69,Portland State,Big Sky,0
+401761592,1,2025-08-31T00:00:00.000Z,True,False,Louisiana,Sun Belt,12,Rice,American Athletic,14
 401762435,1,2025-08-31T00:00:00.000Z,True,False,North Texas,American Athletic,51,Lamar,Southland,0
 401761594,1,2025-08-31T00:00:00.000Z,True,False,Texas State,Sun Belt,52,Eastern Michigan,Mid-American,27
 401762457,1,2025-08-31T00:00:00.000Z,True,False,Tulsa,American Athletic,35,Abilene Christian,UAC,7
-401756851,1,2025-08-31T00:00:00.000Z,True,False,BYU,Big 12,69,Portland State,Big Sky,0
-401761592,1,2025-08-31T00:00:00.000Z,True,False,Louisiana,Sun Belt,12,Rice,American Athletic,14
-401757223,1,2025-08-31T01:00:00.000Z,True,False,New Mexico State,Conference USA,19,Bryant,Coastal Athletic,3
 401754521,1,2025-08-31T01:00:00.000Z,True,False,SMU,ACC,42,East Texas A&M,Southland,13
+401757223,1,2025-08-31T01:00:00.000Z,True,False,New Mexico State,Conference USA,19,Bryant,Coastal Athletic,3
 401760361,1,2025-08-31T01:30:00.000Z,True,False,Fresno State,Mountain West,42,Georgia Southern,Sun Belt,14
-401752947,1,2025-08-31T02:00:00.000Z,True,False,Washington State,Pac-12,13,Idaho,Big Sky,10
 401756850,1,2025-08-31T02:00:00.000Z,True,False,Arizona State,Big 12,38,Northern Arizona,Big Sky,19
+401752947,1,2025-08-31T02:00:00.000Z,True,False,Washington State,Pac-12,13,Idaho,Big Sky,10
 401752936,1,2025-08-31T02:30:00.000Z,True,False,Oregon State,Pac-12,15,California,ACC,34
 401756849,1,2025-08-31T02:30:00.000Z,True,False,Arizona,Big 12,40,Hawai'i,Mountain West,6
-401752800,1,2025-08-31T03:00:00.000Z,True,False,UCLA,Big Ten,10,Utah,Big 12,43
 401752805,1,2025-08-31T03:00:00.000Z,True,False,Washington,Big Ten,38,Colorado State,Mountain West,21
+401752800,1,2025-08-31T03:00:00.000Z,True,False,UCLA,Big Ten,10,Utah,Big 12,43
 401752680,1,2025-08-31T19:00:00.000Z,True,True,South Carolina,SEC,24,Virginia Tech,ACC,11
 401754522,1,2025-08-31T23:30:00.000Z,True,False,Miami,ACC,27,Notre Dame,FBS Independents,24
 401754523,1,2025-09-02T00:00:00.000Z,True,False,North Carolina,ACC,14,TCU,Big 12,48
@@ -99,78 +99,78 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401752826,2,2025-09-05T23:30:00.000Z,True,False,Maryland,Big Ten,20,Northern Illinois,Mid-American,9
 401752817,2,2025-09-05T23:30:00.000Z,True,False,Northwestern,Big Ten,42,Western Illinois,OVC-Big South,7
 401760363,2,2025-09-06T01:00:00.000Z,True,False,Boise State,Mountain West,51,Eastern Washington,Big Sky,14
-401752693,2,2025-09-06T16:00:00.000Z,True,False,Texas,SEC,38,San José State,Mountain West,7
-401752813,2,2025-09-06T16:00:00.000Z,True,False,Minnesota,Big Ten,66,Northwestern State,Southland,0
-401754618,2,2025-09-06T16:00:00.000Z,True,False,Syracuse,ACC,27,UConn,FBS Independents,20
-401752822,2,2025-09-06T16:00:00.000Z,True,False,Iowa State,Big 12,16,Iowa,Big Ten,13
-401756885,2,2025-09-06T16:00:00.000Z,True,False,Texas Tech,Big 12,62,Kent State,Mid-American,14
-401754524,2,2025-09-06T16:00:00.000Z,True,False,NC State,ACC,35,Virginia,ACC,31
 401752825,2,2025-09-06T16:00:00.000Z,True,False,Duke,ACC,19,Illinois,Big Ten,45
-401757227,2,2025-09-06T16:00:00.000Z,True,False,Jacksonville State,Conference USA,34,Liberty,Conference USA,24
+401754621,2,2025-09-06T16:00:00.000Z,True,False,Florida State,ACC,77,East Texas A&M,Southland,3
+401752813,2,2025-09-06T16:00:00.000Z,True,False,Minnesota,Big Ten,66,Northwestern State,Southland,0
+401752812,2,2025-09-06T16:00:00.000Z,True,False,Indiana,Big Ten,56,Kennesaw State,Conference USA,9
 401754529,2,2025-09-06T16:00:00.000Z,True,False,Pittsburgh,ACC,45,Central Michigan,Mid-American,17
+401757227,2,2025-09-06T16:00:00.000Z,True,False,Jacksonville State,Conference USA,34,Liberty,Conference USA,24
+401754524,2,2025-09-06T16:00:00.000Z,True,False,NC State,ACC,35,Virginia,ACC,31
 401752811,2,2025-09-06T16:00:00.000Z,True,False,Penn State,Big Ten,34,Florida International,Conference USA,0
 401754525,2,2025-09-06T16:00:00.000Z,True,False,SMU,ACC,45,Baylor,Big 12,48
-401754621,2,2025-09-06T16:00:00.000Z,True,False,Florida State,ACC,77,East Texas A&M,Southland,3
-401752812,2,2025-09-06T16:00:00.000Z,True,False,Indiana,Big Ten,56,Kennesaw State,Conference USA,9
+401754618,2,2025-09-06T16:00:00.000Z,True,False,Syracuse,ACC,27,UConn,FBS Independents,20
+401752693,2,2025-09-06T16:00:00.000Z,True,False,Texas,SEC,38,San José State,Mountain West,7
+401752822,2,2025-09-06T16:00:00.000Z,True,False,Iowa State,Big 12,16,Iowa,Big Ten,13
+401756885,2,2025-09-06T16:00:00.000Z,True,False,Texas Tech,Big 12,62,Kent State,Mid-American,14
 401752694,2,2025-09-06T16:45:00.000Z,True,False,Texas A&M,SEC,44,Utah State,Mountain West,22
-401754620,2,2025-09-06T18:00:00.000Z,True,False,Wake Forest,ACC,42,Western Carolina,Southern,10
 401762462,2,2025-09-06T18:00:00.000Z,True,False,Temple,American Athletic,55,Howard,MEAC,7
+401754620,2,2025-09-06T18:00:00.000Z,True,False,Wake Forest,ACC,42,Western Carolina,Southern,10
 401760366,2,2025-09-06T19:00:00.000Z,True,False,New Mexico,Mountain West,32,Idaho State,Big Sky,22
-401752685,2,2025-09-06T19:30:00.000Z,True,False,Georgia,SEC,28,Austin Peay,UAC,6
-401762461,2,2025-09-06T19:30:00.000Z,True,False,Western Michigan,Mid-American,30,North Texas,American Athletic,33
 401752824,2,2025-09-06T19:30:00.000Z,True,False,Oregon,Big Ten,69,Oklahoma State,Big 12,3
-401761596,2,2025-09-06T19:30:00.000Z,True,False,App State,Sun Belt,20,Lindenwood,OVC-Big South,13
-401762794,2,2025-09-06T19:30:00.000Z,True,False,Buffalo,Mid-American,45,Saint Francis,NEC,6
-401752692,2,2025-09-06T19:30:00.000Z,True,False,Tennessee,SEC,72,East Tennessee State,Southern,17
-401752937,2,2025-09-06T19:30:00.000Z,True,False,Oregon State,Pac-12,27,Fresno State,Mountain West,36
-401752686,2,2025-09-06T19:30:00.000Z,True,False,Kentucky,SEC,23,Ole Miss,SEC,30
-401754637,2,2025-09-06T19:30:00.000Z,True,False,Clemson,ACC,27,Troy,Sun Belt,16
-401756880,2,2025-09-06T19:30:00.000Z,True,False,Cincinnati,Big 12,34,Bowling Green,Mid-American,20
-401752815,2,2025-09-06T19:30:00.000Z,True,False,Ohio State,Big Ten,70,Grambling,SWAC,0
+401752685,2,2025-09-06T19:30:00.000Z,True,False,Georgia,SEC,28,Austin Peay,UAC,6
 401756881,2,2025-09-06T19:30:00.000Z,True,False,Colorado,Big 12,31,Delaware,Conference USA,7
-401752818,2,2025-09-06T19:30:00.000Z,True,False,Rutgers,Big Ten,45,Miami (OH),Mid-American,17
+401756880,2,2025-09-06T19:30:00.000Z,True,False,Cincinnati,Big 12,34,Bowling Green,Mid-American,20
 401762458,2,2025-09-06T19:30:00.000Z,True,False,Navy,American Athletic,38,UAB,American Athletic,24
-401754622,2,2025-09-06T19:30:00.000Z,True,False,Georgia Tech,ACC,59,Gardner-Webb,OVC-Big South,12
-401752689,2,2025-09-06T19:30:00.000Z,True,False,Missouri,SEC,42,Kansas,Big 12,31
+401761596,2,2025-09-06T19:30:00.000Z,True,False,App State,Sun Belt,20,Lindenwood,OVC-Big South,13
+401762461,2,2025-09-06T19:30:00.000Z,True,False,Western Michigan,Mid-American,30,North Texas,American Athletic,33
+401754637,2,2025-09-06T19:30:00.000Z,True,False,Clemson,ACC,27,Troy,Sun Belt,16
+401752686,2,2025-09-06T19:30:00.000Z,True,False,Kentucky,SEC,23,Ole Miss,SEC,30
 401762816,2,2025-09-06T19:30:00.000Z,True,False,Massachusetts,Mid-American,26,Bryant,Coastal Athletic,27
+401752692,2,2025-09-06T19:30:00.000Z,True,False,Tennessee,SEC,72,East Tennessee State,Southern,17
+401752689,2,2025-09-06T19:30:00.000Z,True,False,Missouri,SEC,42,Kansas,Big 12,31
 401761603,2,2025-09-06T19:30:00.000Z,True,False,UTSA,American Athletic,36,Texas State,Sun Belt,43
+401754622,2,2025-09-06T19:30:00.000Z,True,False,Georgia Tech,ACC,59,Gardner-Webb,OVC-Big South,12
+401752937,2,2025-09-06T19:30:00.000Z,True,False,Oregon State,Pac-12,27,Fresno State,Mountain West,36
+401762794,2,2025-09-06T19:30:00.000Z,True,False,Buffalo,Mid-American,45,Saint Francis,NEC,6
+401752818,2,2025-09-06T19:30:00.000Z,True,False,Rutgers,Big Ten,45,Miami (OH),Mid-American,17
+401752815,2,2025-09-06T19:30:00.000Z,True,False,Ohio State,Big Ten,70,Grambling,SWAC,0
 401752820,2,2025-09-06T20:00:00.000Z,True,False,Wisconsin,Big Ten,42,Middle Tennessee,Conference USA,10
-401756883,2,2025-09-06T20:00:00.000Z,True,False,Ohio,Mid-American,17,West Virginia,Big 12,10
 401760367,2,2025-09-06T20:00:00.000Z,True,False,Wyoming,Mountain West,31,Northern Iowa,MVFC,7
+401756883,2,2025-09-06T20:00:00.000Z,True,False,Ohio,Mid-American,17,West Virginia,Big 12,10
 401752684,2,2025-09-06T20:15:00.000Z,True,False,Florida,SEC,16,South Florida,American Athletic,18
+401760365,2,2025-09-06T21:00:00.000Z,True,False,Nevada,Mountain West,20,Sacramento State,Big Sky,17
 401761602,2,2025-09-06T21:00:00.000Z,True,False,Southern Miss,Sun Belt,38,Jackson State,SWAC,20
 401752682,2,2025-09-06T21:00:00.000Z,True,True,Arkansas,SEC,56,Arkansas State,Sun Belt,14
-401760365,2,2025-09-06T21:00:00.000Z,True,False,Nevada,Mountain West,20,Sacramento State,Big Sky,17
+401761599,2,2025-09-06T22:00:00.000Z,True,False,Old Dominion,Sun Belt,54,North Carolina Central,MEAC,6
 401762460,2,2025-09-06T22:00:00.000Z,True,False,Florida Atlantic,American Athletic,56,Florida A&M,SWAC,14
-401756887,2,2025-09-06T22:00:00.000Z,True,False,Utah,Big 12,63,Cal Poly,Big Sky,9
-401757228,2,2025-09-06T22:00:00.000Z,True,False,Marshall,Sun Belt,20,Missouri State,Conference USA,21
 401754530,2,2025-09-06T22:00:00.000Z,True,False,California,ACC,35,Texas Southern,SWAC,3
 401762459,2,2025-09-06T22:00:00.000Z,True,False,East Carolina,American Athletic,56,Campbell,Coastal Athletic,3
-401761599,2,2025-09-06T22:00:00.000Z,True,False,Old Dominion,Sun Belt,54,North Carolina Central,MEAC,6
-401754641,2,2025-09-06T23:00:00.000Z,True,False,Miami,ACC,45,Bethune-Cookman,SWAC,3
-401757232,2,2025-09-06T23:00:00.000Z,True,False,Toledo,Mid-American,45,Western Kentucky,Conference USA,21
-401756886,2,2025-09-06T23:00:00.000Z,True,False,UCF,Big 12,68,North Carolina A&T,Coastal Athletic,7
-401760364,2,2025-09-06T23:00:00.000Z,True,False,Colorado State,Mountain West,21,Northern Colorado,Big Sky,17
-401762795,2,2025-09-06T23:00:00.000Z,True,False,Eastern Michigan,Mid-American,23,Long Island University,NEC,28
-401756884,2,2025-09-06T23:00:00.000Z,True,False,Rice,American Athletic,9,Houston,Big 12,35
-401752691,2,2025-09-06T23:00:00.000Z,True,False,South Carolina,SEC,38,South Carolina State,MEAC,10
-401756882,2,2025-09-06T23:00:00.000Z,True,False,Kansas State,Big 12,21,Army,American Athletic,24
-401761598,2,2025-09-06T23:00:00.000Z,True,False,Georgia State,Sun Belt,16,Memphis,American Athletic,38
+401756887,2,2025-09-06T22:00:00.000Z,True,False,Utah,Big 12,63,Cal Poly,Big Sky,9
+401757228,2,2025-09-06T22:00:00.000Z,True,False,Marshall,Sun Belt,20,Missouri State,Conference USA,21
 401761601,2,2025-09-06T23:00:00.000Z,True,False,South Alabama,Sun Belt,31,Tulane,American Athletic,33
 401754527,2,2025-09-06T23:00:00.000Z,True,False,Charlotte,American Athletic,3,North Carolina,ACC,20
-401752683,2,2025-09-06T23:30:00.000Z,True,False,Auburn,SEC,42,Ball State,Mid-American,3
-401752810,2,2025-09-06T23:30:00.000Z,True,False,Nebraska,Big Ten,68,Akron,Mid-American,0
-401761597,2,2025-09-06T23:30:00.000Z,True,False,Coastal Carolina,Sun Belt,13,Charleston Southern,OVC-Big South,0
-401752687,2,2025-09-06T23:30:00.000Z,True,False,LSU,SEC,23,Louisiana Tech,Conference USA,7
-401752690,2,2025-09-06T23:30:00.000Z,True,False,Oklahoma,SEC,24,Michigan,Big Ten,13
-401752695,2,2025-09-06T23:30:00.000Z,True,False,Virginia Tech,ACC,20,Vanderbilt,SEC,44
-401752814,2,2025-09-06T23:30:00.000Z,True,False,USC,Big Ten,59,Georgia Southern,Sun Belt,20
-401752688,2,2025-09-06T23:30:00.000Z,True,False,Mississippi State,SEC,24,Arizona State,Big 12,20
+401756886,2,2025-09-06T23:00:00.000Z,True,False,UCF,Big 12,68,North Carolina A&T,Coastal Athletic,7
+401756882,2,2025-09-06T23:00:00.000Z,True,False,Kansas State,Big 12,21,Army,American Athletic,24
+401757232,2,2025-09-06T23:00:00.000Z,True,False,Toledo,Mid-American,45,Western Kentucky,Conference USA,21
+401756884,2,2025-09-06T23:00:00.000Z,True,False,Rice,American Athletic,9,Houston,Big 12,35
+401760364,2,2025-09-06T23:00:00.000Z,True,False,Colorado State,Mountain West,21,Northern Colorado,Big Sky,17
+401752691,2,2025-09-06T23:00:00.000Z,True,False,South Carolina,SEC,38,South Carolina State,MEAC,10
+401754641,2,2025-09-06T23:00:00.000Z,True,False,Miami,ACC,45,Bethune-Cookman,SWAC,3
+401761598,2,2025-09-06T23:00:00.000Z,True,False,Georgia State,Sun Belt,16,Memphis,American Athletic,38
+401762795,2,2025-09-06T23:00:00.000Z,True,False,Eastern Michigan,Mid-American,23,Long Island University,NEC,28
 401752819,2,2025-09-06T23:30:00.000Z,True,False,Purdue,Big Ten,34,Southern Illinois,MVFC,17
+401752688,2,2025-09-06T23:30:00.000Z,True,False,Mississippi State,SEC,24,Arizona State,Big 12,20
+401752810,2,2025-09-06T23:30:00.000Z,True,False,Nebraska,Big Ten,68,Akron,Mid-American,0
 401752816,2,2025-09-06T23:30:00.000Z,True,False,Michigan State,Big Ten,42,Boston College,ACC,40
+401752814,2,2025-09-06T23:30:00.000Z,True,False,USC,Big Ten,59,Georgia Southern,Sun Belt,20
+401752683,2,2025-09-06T23:30:00.000Z,True,False,Auburn,SEC,42,Ball State,Mid-American,3
+401752687,2,2025-09-06T23:30:00.000Z,True,False,LSU,SEC,23,Louisiana Tech,Conference USA,7
+401752695,2,2025-09-06T23:30:00.000Z,True,False,Virginia Tech,ACC,20,Vanderbilt,SEC,44
+401752690,2,2025-09-06T23:30:00.000Z,True,False,Oklahoma,SEC,24,Michigan,Big Ten,13
+401761597,2,2025-09-06T23:30:00.000Z,True,False,Coastal Carolina,Sun Belt,13,Charleston Southern,OVC-Big South,0
 401752681,2,2025-09-06T23:45:00.000Z,True,False,Alabama,SEC,73,UL Monroe,Sun Belt,0
-401761600,2,2025-09-07T00:00:00.000Z,True,False,Louisiana,Sun Belt,34,McNeese,Southland,10
 401752823,2,2025-09-07T00:00:00.000Z,True,False,UNLV,Mountain West,30,UCLA,Big Ten,23
+401761600,2,2025-09-07T00:00:00.000Z,True,False,Louisiana,Sun Belt,34,McNeese,Southland,10
 401757231,2,2025-09-07T01:00:00.000Z,True,False,UTEP,Conference USA,42,UT Martin,OVC-Big South,17
 401757229,2,2025-09-07T01:00:00.000Z,True,False,New Mexico State,Conference USA,21,Tulsa,American Athletic,14
 401756879,2,2025-09-07T02:00:00.000Z,True,False,Arizona,Big 12,48,Weber State,Big Sky,3
@@ -184,126 +184,126 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401756893,3,2025-09-12T23:30:00.000Z,True,False,Houston,Big 12,36,Colorado,Big 12,20
 401756888,3,2025-09-13T01:00:00.000Z,True,False,Arizona,Big 12,23,Kansas State,Big 12,17
 401752837,3,2025-09-13T02:00:00.000Z,True,False,UCLA,Big Ten,10,New Mexico,Mountain West,35
-401762817,3,2025-09-13T16:00:00.000Z,True,False,Kent State,Mid-American,28,Buffalo,Mid-American,31
-401752831,3,2025-09-13T16:00:00.000Z,True,False,Northwestern,Big Ten,14,Oregon,Big Ten,34
-401754623,3,2025-09-13T16:00:00.000Z,True,False,Georgia Tech,ACC,24,Clemson,ACC,21
-401752838,3,2025-09-13T16:00:00.000Z,True,False,Maryland,Big Ten,44,Towson,Coastal Athletic,17
-401752828,3,2025-09-13T16:00:00.000Z,True,False,Nebraska,Big Ten,59,Houston Christian,Southland,7
-401752703,3,2025-09-13T16:00:00.000Z,True,False,Temple,American Athletic,3,Oklahoma,SEC,42
-401752696,3,2025-09-13T16:00:00.000Z,True,False,Alabama,SEC,38,Wisconsin,Big Ten,14
-401752839,3,2025-09-13T16:00:00.000Z,True,False,Michigan,Big Ten,63,Central Michigan,Mid-American,3
 401761608,3,2025-09-13T16:00:00.000Z,True,False,Troy,Sun Belt,7,Memphis,American Athletic,28
-401756891,3,2025-09-13T16:00:00.000Z,True,False,Baylor,Big 12,42,Samford,Southern,7
+401752839,3,2025-09-13T16:00:00.000Z,True,False,Michigan,Big Ten,63,Central Michigan,Mid-American,3
+401762817,3,2025-09-13T16:00:00.000Z,True,False,Kent State,Mid-American,28,Buffalo,Mid-American,31
+401752828,3,2025-09-13T16:00:00.000Z,True,False,Nebraska,Big Ten,59,Houston Christian,Southland,7
+401752831,3,2025-09-13T16:00:00.000Z,True,False,Northwestern,Big Ten,14,Oregon,Big Ten,34
+401752703,3,2025-09-13T16:00:00.000Z,True,False,Temple,American Athletic,3,Oklahoma,SEC,42
+401752838,3,2025-09-13T16:00:00.000Z,True,False,Maryland,Big Ten,44,Towson,Coastal Athletic,17
+401752696,3,2025-09-13T16:00:00.000Z,True,False,Alabama,SEC,38,Wisconsin,Big Ten,14
 401754619,3,2025-09-13T16:00:00.000Z,True,False,Virginia,ACC,55,William & Mary,Coastal Athletic,16
+401756891,3,2025-09-13T16:00:00.000Z,True,False,Baylor,Big 12,42,Samford,Southern,7
+401754623,3,2025-09-13T16:00:00.000Z,True,False,Georgia Tech,ACC,24,Clemson,ACC,21
 401752697,3,2025-09-13T16:45:00.000Z,True,False,Auburn,SEC,31,South Alabama,Sun Belt,15
 401752702,3,2025-09-13T17:00:00.000Z,True,False,Missouri,SEC,52,Louisiana,Sun Belt,10
 401762818,3,2025-09-13T18:00:00.000Z,True,False,Ball State,Mid-American,34,New Hampshire,Coastal Athletic,29
 401757168,3,2025-09-13T19:00:00.000Z,True,False,Delaware,Conference USA,44,UConn,FBS Independents,41
+401752938,3,2025-09-13T19:30:00.000Z,True,False,Texas Tech,Big 12,45,Oregon State,Pac-12,14
+401754615,3,2025-09-13T19:30:00.000Z,True,False,Missouri State,Conference USA,10,SMU,ACC,28
+401762819,3,2025-09-13T19:30:00.000Z,True,False,Toledo,Mid-American,60,Morgan State,MEAC,0
+401762467,3,2025-09-13T19:30:00.000Z,True,False,UTSA,American Athletic,48,Incarnate Word,Southland,20
+401752949,3,2025-09-13T19:30:00.000Z,True,False,North Texas,American Athletic,59,Washington State,Pac-12,10
+401752833,3,2025-09-13T19:30:00.000Z,True,False,Rutgers,Big Ten,60,Norfolk State,MEAC,10
+401752832,3,2025-09-13T19:30:00.000Z,True,False,Purdue,Big Ten,17,USC,Big Ten,33
+401752834,3,2025-09-13T19:30:00.000Z,True,False,Michigan State,Big Ten,41,Youngstown State,MVFC,24
+401756892,3,2025-09-13T19:30:00.000Z,True,False,Cincinnati,Big 12,70,Northwestern State,Southland,0
 401754639,3,2025-09-13T19:30:00.000Z,True,False,North Carolina,ACC,41,Richmond,Patriot,6
 401754638,3,2025-09-13T19:30:00.000Z,True,False,West Virginia,Big 12,31,Pittsburgh,ACC,24
 401752705,3,2025-09-13T19:30:00.000Z,True,False,Tennessee,SEC,41,Georgia,SEC,44
-401754615,3,2025-09-13T19:30:00.000Z,True,False,Missouri State,Conference USA,10,SMU,ACC,28
-401752832,3,2025-09-13T19:30:00.000Z,True,False,Purdue,Big Ten,17,USC,Big Ten,33
-401752834,3,2025-09-13T19:30:00.000Z,True,False,Michigan State,Big Ten,41,Youngstown State,MVFC,24
-401752938,3,2025-09-13T19:30:00.000Z,True,False,Texas Tech,Big 12,45,Oregon State,Pac-12,14
-401762819,3,2025-09-13T19:30:00.000Z,True,False,Toledo,Mid-American,60,Morgan State,MEAC,0
-401762467,3,2025-09-13T19:30:00.000Z,True,False,UTSA,American Athletic,48,Incarnate Word,Southland,20
 401752835,3,2025-09-13T19:30:00.000Z,True,False,Penn State,Big Ten,52,Villanova,Coastal Athletic,6
-401752949,3,2025-09-13T19:30:00.000Z,True,False,North Texas,American Athletic,59,Washington State,Pac-12,10
-401756892,3,2025-09-13T19:30:00.000Z,True,False,Cincinnati,Big 12,70,Northwestern State,Southland,0
-401752833,3,2025-09-13T19:30:00.000Z,True,False,Rutgers,Big Ten,60,Norfolk State,MEAC,10
 401756890,3,2025-09-13T20:00:00.000Z,True,False,Arkansas State,Sun Belt,16,Iowa State,Big 12,24
 401752706,3,2025-09-13T20:15:00.000Z,True,False,Texas,SEC,27,UTEP,Conference USA,10
 401754535,3,2025-09-13T20:30:00.000Z,True,False,Miami,ACC,49,South Florida,American Athletic,12
-401757258,3,2025-09-13T21:00:00.000Z,True,False,Nevada,Mountain West,13,Middle Tennessee,Conference USA,14
 401757256,3,2025-09-13T21:00:00.000Z,True,False,Bowling Green,Mid-American,23,Liberty,Conference USA,13
-401762464,3,2025-09-13T22:00:00.000Z,True,False,Charlotte,American Athletic,42,Monmouth,Coastal Athletic,35
-401761606,3,2025-09-13T22:00:00.000Z,True,False,Marshall,Sun Belt,38,Eastern Kentucky,UAC,7
-401757233,3,2025-09-13T22:00:00.000Z,True,False,Florida International,Conference USA,38,Florida Atlantic,American Athletic,28
+401757258,3,2025-09-13T21:00:00.000Z,True,False,Nevada,Mountain West,13,Middle Tennessee,Conference USA,14
 401757235,3,2025-09-13T22:00:00.000Z,True,False,Kennesaw State,Conference USA,27,Merrimack,FCS Independents,13
 401752701,3,2025-09-13T22:00:00.000Z,True,False,Mississippi State,SEC,63,Alcorn State,SWAC,0
-401761605,3,2025-09-13T23:00:00.000Z,True,False,Georgia State,Sun Belt,37,Murray State,MVFC,21
-401762466,3,2025-09-13T23:00:00.000Z,True,False,Rice,American Athletic,38,Prairie View A&M,SWAC,17
-401752700,3,2025-09-13T23:00:00.000Z,True,False,Ole Miss,SEC,41,Arkansas,SEC,35
+401762464,3,2025-09-13T22:00:00.000Z,True,False,Charlotte,American Athletic,42,Monmouth,Coastal Athletic,35
+401757233,3,2025-09-13T22:00:00.000Z,True,False,Florida International,Conference USA,38,Florida Atlantic,American Athletic,28
+401761606,3,2025-09-13T22:00:00.000Z,True,False,Marshall,Sun Belt,38,Eastern Kentucky,UAC,7
 401754536,3,2025-09-13T23:00:00.000Z,True,False,Virginia Tech,ACC,26,Old Dominion,Sun Belt,45
+401762466,3,2025-09-13T23:00:00.000Z,True,False,Rice,American Athletic,38,Prairie View A&M,SWAC,17
 401761607,3,2025-09-13T23:00:00.000Z,True,False,Southern Miss,Sun Belt,38,App State,Sun Belt,22
-401752829,3,2025-09-13T23:00:00.000Z,True,False,Illinois,Big Ten,38,Western Michigan,Mid-American,0
+401752700,3,2025-09-13T23:00:00.000Z,True,False,Ole Miss,SEC,41,Arkansas,SEC,35
 401752827,3,2025-09-13T23:00:00.000Z,True,False,Ohio State,Big Ten,37,Ohio,Mid-American,9
 401757234,3,2025-09-13T23:00:00.000Z,True,False,Georgia Southern,Sun Belt,41,Jacksonville State,Conference USA,34
-401761604,3,2025-09-13T23:30:00.000Z,True,False,Coastal Carolina,Sun Belt,0,East Carolina,American Athletic,38
-401752830,3,2025-09-13T23:30:00.000Z,True,False,Iowa,Big Ten,47,Massachusetts,Mid-American,7
-401752707,3,2025-09-13T23:30:00.000Z,True,False,Notre Dame,FBS Independents,40,Texas A&M,SEC,41
-401752698,3,2025-09-13T23:30:00.000Z,True,False,Kentucky,SEC,48,Eastern Michigan,Mid-American,23
-401757257,3,2025-09-13T23:30:00.000Z,True,False,Louisiana Tech,Conference USA,49,New Mexico State,Conference USA,14
+401752829,3,2025-09-13T23:00:00.000Z,True,False,Illinois,Big Ten,38,Western Michigan,Mid-American,0
+401761605,3,2025-09-13T23:00:00.000Z,True,False,Georgia State,Sun Belt,37,Murray State,MVFC,21
 401752699,3,2025-09-13T23:30:00.000Z,True,False,LSU,SEC,20,Florida,SEC,10
+401752698,3,2025-09-13T23:30:00.000Z,True,False,Kentucky,SEC,48,Eastern Michigan,Mid-American,23
+401752830,3,2025-09-13T23:30:00.000Z,True,False,Iowa,Big Ten,47,Massachusetts,Mid-American,7
+401757257,3,2025-09-13T23:30:00.000Z,True,False,Louisiana Tech,Conference USA,49,New Mexico State,Conference USA,14
+401752707,3,2025-09-13T23:30:00.000Z,True,False,Notre Dame,FBS Independents,40,Texas A&M,SEC,41
+401761604,3,2025-09-13T23:30:00.000Z,True,False,Coastal Carolina,Sun Belt,0,East Carolina,American Athletic,38
 401752704,3,2025-09-13T23:45:00.000Z,True,False,South Carolina,SEC,7,Vanderbilt,SEC,31
 401756894,3,2025-09-14T00:00:00.000Z,True,False,TCU,Big 12,42,Abilene Christian,UAC,21
+401762465,3,2025-09-14T00:00:00.000Z,True,False,Tulsa,American Athletic,23,Navy,American Athletic,42
 401754534,3,2025-09-14T00:00:00.000Z,True,False,Tulane,American Athletic,34,Duke,ACC,27
 401756895,3,2025-09-14T00:00:00.000Z,True,False,Wyoming,Mountain West,6,Utah,Big 12,31
-401762465,3,2025-09-14T00:00:00.000Z,True,False,Tulsa,American Athletic,23,Navy,American Athletic,42
 401762463,3,2025-09-14T00:30:00.000Z,True,False,UAB,American Athletic,31,Akron,Mid-American,28
 401760368,3,2025-09-14T01:45:00.000Z,True,False,Utah State,Mountain West,49,Air Force,Mountain West,30
 401760369,3,2025-09-14T02:00:00.000Z,True,False,Fresno State,Mountain West,56,Southern,SWAC,7
-401752840,3,2025-09-14T02:30:00.000Z,True,False,California,ACC,27,Minnesota,Big Ten,14
 401756889,3,2025-09-14T02:30:00.000Z,True,False,Arizona State,Big 12,34,Texas State,Sun Belt,15
+401752840,3,2025-09-14T02:30:00.000Z,True,False,California,ACC,27,Minnesota,Big Ten,14
 401754533,3,2025-09-14T02:30:00.000Z,True,False,Stanford,ACC,30,Boston College,ACC,20
 401760370,3,2025-09-14T03:59:00.000Z,True,False,Hawai'i,Mountain West,23,Portland State,Big Sky,3
 401762468,4,2025-09-18T23:30:00.000Z,True,False,Charlotte,American Athletic,17,Rice,American Athletic,28
 401756900,4,2025-09-19T23:30:00.000Z,True,False,Oklahoma State,Big 12,12,Tulsa,American Athletic,19
 401752844,4,2025-09-20T00:00:00.000Z,True,False,Rutgers,Big Ten,28,Iowa,Big Ten,38
-401754617,4,2025-09-20T16:00:00.000Z,True,False,Virginia Tech,ACC,38,Wofford,Southern,6
-401752845,4,2025-09-20T16:00:00.000Z,True,False,Wisconsin,Big Ten,10,Maryland,Big Ten,27
-401754642,4,2025-09-20T16:00:00.000Z,True,False,Louisville,ACC,40,Bowling Green,Mid-American,17
-401752708,4,2025-09-20T16:00:00.000Z,True,False,Memphis,American Athletic,32,Arkansas,SEC,31
+401762469,4,2025-09-20T16:00:00.000Z,True,False,Army,American Athletic,38,North Texas,American Athletic,45
 401756901,4,2025-09-20T16:00:00.000Z,True,False,Utah,Big 12,10,Texas Tech,Big 12,34
+401754636,4,2025-09-20T16:00:00.000Z,True,False,TCU,Big 12,35,SMU,ACC,24
 401760376,4,2025-09-20T16:00:00.000Z,True,False,Miami (OH),Mid-American,38,UNLV,Mountain West,41
 401762470,4,2025-09-20T16:00:00.000Z,True,False,South Florida,American Athletic,63,South Carolina State,MEAC,14
+401754642,4,2025-09-20T16:00:00.000Z,True,False,Louisville,ACC,40,Bowling Green,Mid-American,17
+401754617,4,2025-09-20T16:00:00.000Z,True,False,Virginia Tech,ACC,38,Wofford,Southern,6
+401752845,4,2025-09-20T16:00:00.000Z,True,False,Wisconsin,Big Ten,10,Maryland,Big Ten,27
 401754537,4,2025-09-20T16:00:00.000Z,True,False,Clemson,ACC,21,Syracuse,ACC,34
-401762469,4,2025-09-20T16:00:00.000Z,True,False,Army,American Athletic,38,North Texas,American Athletic,45
-401754636,4,2025-09-20T16:00:00.000Z,True,False,TCU,Big 12,35,SMU,ACC,24
+401752708,4,2025-09-20T16:00:00.000Z,True,False,Memphis,American Athletic,32,Arkansas,SEC,31
 401752715,4,2025-09-20T16:45:00.000Z,True,False,Tennessee,SEC,56,UAB,American Athletic,24
 401762822,4,2025-09-20T17:00:00.000Z,True,False,Central Michigan,Mid-American,49,Wagner,NEC,10
 401752841,4,2025-09-20T19:00:00.000Z,True,False,Oregon,Big Ten,41,Oregon State,Pac-12,7
-401757169,4,2025-09-20T19:30:00.000Z,True,False,UConn,FBS Independents,31,Ball State,Mid-American,25
+401752846,4,2025-09-20T19:30:00.000Z,True,False,Nebraska,Big Ten,27,Michigan,Big Ten,30
+401752714,4,2025-09-20T19:30:00.000Z,True,False,Oklahoma,SEC,24,Auburn,SEC,17
+401761613,4,2025-09-20T19:30:00.000Z,True,False,Buffalo,Mid-American,17,Troy,Sun Belt,21
 401754640,4,2025-09-20T19:30:00.000Z,True,False,UCF,Big 12,34,North Carolina,ACC,9
 401754541,4,2025-09-20T19:30:00.000Z,True,False,Florida State,ACC,66,Kent State,Mid-American,10
-401761613,4,2025-09-20T19:30:00.000Z,True,False,Buffalo,Mid-American,17,Troy,Sun Belt,21
 401762820,4,2025-09-20T19:30:00.000Z,True,False,Western Michigan,Mid-American,14,Toledo,Mid-American,13
-401752714,4,2025-09-20T19:30:00.000Z,True,False,Oklahoma,SEC,24,Auburn,SEC,17
-401761610,4,2025-09-20T19:30:00.000Z,True,False,Eastern Michigan,Mid-American,34,Louisiana,Sun Belt,31
-401752846,4,2025-09-20T19:30:00.000Z,True,False,Nebraska,Big Ten,27,Michigan,Big Ten,30
-401752711,4,2025-09-20T19:30:00.000Z,True,False,Ole Miss,SEC,45,Tulane,American Athletic,10
-401762823,4,2025-09-20T19:30:00.000Z,True,False,Ohio,Mid-American,52,Gardner-Webb,OVC-Big South,35
+401757169,4,2025-09-20T19:30:00.000Z,True,False,UConn,FBS Independents,31,Ball State,Mid-American,25
 401757262,4,2025-09-20T19:30:00.000Z,True,False,Liberty,Conference USA,13,James Madison,Sun Belt,31
+401762823,4,2025-09-20T19:30:00.000Z,True,False,Ohio,Mid-American,52,Gardner-Webb,OVC-Big South,35
+401752711,4,2025-09-20T19:30:00.000Z,True,False,Ole Miss,SEC,45,Tulane,American Athletic,10
+401761610,4,2025-09-20T19:30:00.000Z,True,False,Eastern Michigan,Mid-American,34,Louisiana,Sun Belt,31
 401752848,4,2025-09-20T19:30:00.000Z,True,False,Notre Dame,FBS Independents,56,Purdue,Big Ten,30
 401754538,4,2025-09-20T20:00:00.000Z,True,False,Duke,ACC,45,NC State,ACC,33
 401752712,4,2025-09-20T20:15:00.000Z,True,False,Mississippi State,SEC,38,Northern Illinois,Mid-American,10
 401754542,4,2025-09-20T20:30:00.000Z,True,False,Georgia Tech,ACC,45,Temple,American Athletic,24
 401760375,4,2025-09-20T21:00:00.000Z,True,False,San José State,Mountain West,31,Idaho,Big Sky,28
-401757261,4,2025-09-20T22:00:00.000Z,True,False,Kennesaw State,Conference USA,28,Arkansas State,Sun Belt,21
-401762821,4,2025-09-20T22:00:00.000Z,True,False,Akron,Mid-American,51,Duquesne,NEC,7
 401756899,4,2025-09-20T22:00:00.000Z,True,False,Kansas,Big 12,41,West Virginia,Big 12,10
 401757259,4,2025-09-20T22:00:00.000Z,True,False,Florida International,Conference USA,16,Delaware,Conference USA,38
+401762821,4,2025-09-20T22:00:00.000Z,True,False,Akron,Mid-American,51,Duquesne,NEC,7
+401757261,4,2025-09-20T22:00:00.000Z,True,False,Kennesaw State,Conference USA,28,Arkansas State,Sun Belt,21
+401761611,4,2025-09-20T23:00:00.000Z,True,False,South Alabama,Sun Belt,20,Coastal Carolina,Sun Belt,38
+401757264,4,2025-09-20T23:00:00.000Z,True,False,Middle Tennessee,Conference USA,28,Marshall,Sun Belt,42
+401757265,4,2025-09-20T23:00:00.000Z,True,False,Missouri State,Conference USA,42,UT Martin,OVC-Big South,10
+401760372,4,2025-09-20T23:00:00.000Z,True,False,Air Force,Mountain West,37,Boise State,Mountain West,49
+401757268,4,2025-09-20T23:00:00.000Z,True,False,Western Kentucky,Conference USA,31,Nevada,Mountain West,16
 401761609,4,2025-09-20T23:00:00.000Z,True,False,Georgia Southern,Sun Belt,45,Maine,Coastal Athletic,17
 401752713,4,2025-09-20T23:00:00.000Z,True,False,Missouri,SEC,29,South Carolina,SEC,20
 401757260,4,2025-09-20T23:00:00.000Z,True,False,Jacksonville State,Conference USA,45,Murray State,MVFC,10
-401757268,4,2025-09-20T23:00:00.000Z,True,False,Western Kentucky,Conference USA,31,Nevada,Mountain West,16
-401760372,4,2025-09-20T23:00:00.000Z,True,False,Air Force,Mountain West,37,Boise State,Mountain West,49
-401761611,4,2025-09-20T23:00:00.000Z,True,False,South Alabama,Sun Belt,20,Coastal Carolina,Sun Belt,38
-401757265,4,2025-09-20T23:00:00.000Z,True,False,Missouri State,Conference USA,42,UT Martin,OVC-Big South,10
-401757264,4,2025-09-20T23:00:00.000Z,True,False,Middle Tennessee,Conference USA,28,Marshall,Sun Belt,42
-401757263,4,2025-09-20T23:30:00.000Z,True,False,Louisiana Tech,Conference USA,30,Southern Miss,Sun Belt,20
-401756896,4,2025-09-20T23:30:00.000Z,True,False,Baylor,Big 12,24,Arizona State,Big 12,27
-401752716,4,2025-09-20T23:30:00.000Z,True,False,Vanderbilt,SEC,70,Georgia State,Sun Belt,21
 401754539,4,2025-09-20T23:30:00.000Z,True,False,Virginia,ACC,48,Stanford,ACC,20
+401756896,4,2025-09-20T23:30:00.000Z,True,False,Baylor,Big 12,24,Arizona State,Big 12,27
+401752843,4,2025-09-20T23:30:00.000Z,True,False,Indiana,Big Ten,63,Illinois,Big Ten,10
 401752709,4,2025-09-20T23:30:00.000Z,True,False,Miami,ACC,26,Florida,SEC,7
 401752842,4,2025-09-20T23:30:00.000Z,True,False,Washington State,Pac-12,24,Washington,Big Ten,59
-401752843,4,2025-09-20T23:30:00.000Z,True,False,Indiana,Big Ten,63,Illinois,Big Ten,10
+401757263,4,2025-09-20T23:30:00.000Z,True,False,Louisiana Tech,Conference USA,30,Southern Miss,Sun Belt,20
+401752716,4,2025-09-20T23:30:00.000Z,True,False,Vanderbilt,SEC,70,Georgia State,Sun Belt,21
 401756898,4,2025-09-20T23:30:00.000Z,True,False,East Carolina,American Athletic,13,BYU,Big 12,34
 401752710,4,2025-09-20T23:45:00.000Z,True,False,LSU,SEC,56,SE Louisiana,Southland,10
-401752723,4,2025-09-21T00:00:00.000Z,True,False,Texas,SEC,55,Sam Houston,Conference USA,0
-401761612,4,2025-09-21T00:00:00.000Z,True,False,Texas State,Sun Belt,35,Nicholls,Southland,3
 401760377,4,2025-09-21T00:00:00.000Z,True,False,Utah State,Mountain West,48,McNeese,Southland,7
+401761612,4,2025-09-21T00:00:00.000Z,True,False,Texas State,Sun Belt,35,Nicholls,Southland,3
+401752723,4,2025-09-21T00:00:00.000Z,True,False,Texas,SEC,55,Sam Houston,Conference USA,0
 401757267,4,2025-09-21T01:00:00.000Z,True,False,UTEP,Conference USA,25,UL Monroe,Sun Belt,31
 401760373,4,2025-09-21T01:30:00.000Z,True,False,Colorado State,Mountain West,16,UTSA,American Athletic,17
 401756897,4,2025-09-21T02:15:00.000Z,True,False,Colorado,Big 12,37,Wyoming,Mountain West,20
@@ -314,51 +314,51 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401754543,5,2025-09-26T23:00:00.000Z,True,False,Virginia,ACC,46,Florida State,ACC,38
 401756902,5,2025-09-27T01:00:00.000Z,True,False,Arizona State,Big 12,27,TCU,Big 12,24
 401752939,5,2025-09-27T02:30:00.000Z,True,False,Oregon State,Pac-12,24,Houston,Big 12,27
-401761617,5,2025-09-27T16:00:00.000Z,True,False,North Texas,American Athletic,36,South Alabama,Sun Belt,22
-401754545,5,2025-09-27T16:00:00.000Z,True,False,Syracuse,ACC,3,Duke,ACC,38
+401752849,5,2025-09-27T16:00:00.000Z,True,False,Minnesota,Big Ten,31,Rutgers,Big Ten,28
 401754546,5,2025-09-27T16:00:00.000Z,True,False,Wake Forest,ACC,29,Georgia Tech,ACC,30
+401754545,5,2025-09-27T16:00:00.000Z,True,False,Syracuse,ACC,3,Duke,ACC,38
+401752717,5,2025-09-27T16:00:00.000Z,True,False,Arkansas,SEC,13,Notre Dame,FBS Independents,56
+401761617,5,2025-09-27T16:00:00.000Z,True,False,North Texas,American Athletic,36,South Alabama,Sun Belt,22
+401754547,5,2025-09-27T16:00:00.000Z,True,False,Pittsburgh,ACC,27,Louisville,ACC,34
+401762825,5,2025-09-27T16:00:00.000Z,True,False,Ohio,Mid-American,35,Bowling Green,Mid-American,20
+401756906,5,2025-09-27T16:00:00.000Z,True,False,Kansas State,Big 12,34,UCF,Big 12,20
 401756905,5,2025-09-27T16:00:00.000Z,True,False,Kansas,Big 12,34,Cincinnati,Big 12,37
 401752850,5,2025-09-27T16:00:00.000Z,True,False,Illinois,Big Ten,34,USC,Big Ten,32
-401756906,5,2025-09-27T16:00:00.000Z,True,False,Kansas State,Big 12,34,UCF,Big 12,20
-401752849,5,2025-09-27T16:00:00.000Z,True,False,Minnesota,Big Ten,31,Rutgers,Big Ten,28
-401762825,5,2025-09-27T16:00:00.000Z,True,False,Ohio,Mid-American,35,Bowling Green,Mid-American,20
-401754547,5,2025-09-27T16:00:00.000Z,True,False,Pittsburgh,ACC,27,Louisville,ACC,34
-401752717,5,2025-09-27T16:00:00.000Z,True,False,Arkansas,SEC,13,Notre Dame,FBS Independents,56
 401752725,5,2025-09-27T16:45:00.000Z,True,False,Vanderbilt,SEC,55,Utah State,Mountain West,35
 401762826,5,2025-09-27T17:00:00.000Z,True,False,Central Michigan,Mid-American,24,Eastern Michigan,Mid-American,13
 401761614,5,2025-09-27T17:30:00.000Z,True,False,James Madison,Sun Belt,35,Georgia Southern,Sun Belt,10
 401761616,5,2025-09-27T19:00:00.000Z,True,False,UL Monroe,Sun Belt,28,Arkansas State,Sun Belt,16
-401754544,5,2025-09-27T19:30:00.000Z,True,False,Boston College,ACC,24,California,ACC,28
 401752853,5,2025-09-27T19:30:00.000Z,True,False,Iowa,Big Ten,15,Indiana,Big Ten,20
-401760380,5,2025-09-27T19:30:00.000Z,True,False,Northern Illinois,Mid-American,3,San Diego State,Mountain West,6
-401756908,5,2025-09-27T19:30:00.000Z,True,False,West Virginia,Big 12,14,Utah,Big 12,48
+401762827,5,2025-09-27T19:30:00.000Z,True,False,Miami (OH),Mid-American,38,Lindenwood,OVC-Big South,0
 401756907,5,2025-09-27T19:30:00.000Z,True,False,Oklahoma State,Big 12,27,Baylor,Big 12,45
 401762473,5,2025-09-27T19:30:00.000Z,True,False,Navy,American Athletic,21,Rice,American Athletic,13
-401752851,5,2025-09-27T19:30:00.000Z,True,False,Northwestern,Big Ten,17,UCLA,Big Ten,14
 401752852,5,2025-09-27T19:30:00.000Z,True,False,Washington,Big Ten,6,Ohio State,Big Ten,24
-401757170,5,2025-09-27T19:30:00.000Z,True,False,Buffalo,Mid-American,17,UConn,FBS Independents,20
+401762824,5,2025-09-27T19:30:00.000Z,True,False,Toledo,Mid-American,45,Akron,Mid-American,3
+401754544,5,2025-09-27T19:30:00.000Z,True,False,Boston College,ACC,24,California,ACC,28
+401760380,5,2025-09-27T19:30:00.000Z,True,False,Northern Illinois,Mid-American,3,San Diego State,Mountain West,6
+401752851,5,2025-09-27T19:30:00.000Z,True,False,Northwestern,Big Ten,17,UCLA,Big Ten,14
 401752724,5,2025-09-27T19:30:00.000Z,True,False,Texas A&M,SEC,16,Auburn,SEC,10
 401752719,5,2025-09-27T19:30:00.000Z,True,False,Ole Miss,SEC,24,LSU,SEC,19
-401762827,5,2025-09-27T19:30:00.000Z,True,False,Miami (OH),Mid-American,38,Lindenwood,OVC-Big South,0
-401762824,5,2025-09-27T19:30:00.000Z,True,False,Toledo,Mid-American,45,Akron,Mid-American,3
+401756908,5,2025-09-27T19:30:00.000Z,True,False,West Virginia,Big 12,14,Utah,Big 12,48
+401757170,5,2025-09-27T19:30:00.000Z,True,False,Buffalo,Mid-American,17,UConn,FBS Independents,20
+401760378,5,2025-09-27T20:00:00.000Z,True,False,Air Force,Mountain West,35,Hawai'i,Mountain West,44
 401757274,5,2025-09-27T20:00:00.000Z,True,False,New Mexico,Mountain West,38,New Mexico State,Conference USA,20
 401762474,5,2025-09-27T20:00:00.000Z,True,False,Tulsa,American Athletic,14,Tulane,American Athletic,31
-401760378,5,2025-09-27T20:00:00.000Z,True,False,Air Force,Mountain West,35,Hawai'i,Mountain West,44
 401752720,5,2025-09-27T20:15:00.000Z,True,False,Mississippi State,SEC,34,Tennessee,SEC,41
-401757271,5,2025-09-27T22:00:00.000Z,True,False,Old Dominion,Sun Belt,21,Liberty,Conference USA,7
 401757270,5,2025-09-27T22:00:00.000Z,True,False,Kennesaw State,Conference USA,24,Middle Tennessee,Conference USA,16
+401757271,5,2025-09-27T22:00:00.000Z,True,False,Old Dominion,Sun Belt,21,Liberty,Conference USA,7
 401762828,5,2025-09-27T22:30:00.000Z,True,False,Western Michigan,Mid-American,47,Rhode Island,Coastal Athletic,14
-401756904,5,2025-09-27T23:00:00.000Z,True,False,Iowa State,Big 12,39,Arizona,Big 12,14
+401757269,5,2025-09-27T23:00:00.000Z,True,False,Southern Miss,Sun Belt,42,Jacksonville State,Conference USA,25
 401757273,5,2025-09-27T23:00:00.000Z,True,False,Missouri State,Conference USA,22,Western Kentucky,Conference USA,27
 401754548,5,2025-09-27T23:00:00.000Z,True,False,NC State,ACC,21,Virginia Tech,ACC,23
+401756904,5,2025-09-27T23:00:00.000Z,True,False,Iowa State,Big 12,39,Arizona,Big 12,14
 401762472,5,2025-09-27T23:00:00.000Z,True,False,Florida Atlantic,American Athletic,26,Memphis,American Athletic,55
-401757269,5,2025-09-27T23:00:00.000Z,True,False,Southern Miss,Sun Belt,42,Jacksonville State,Conference USA,25
-401760379,5,2025-09-27T23:30:00.000Z,True,False,Boise State,Mountain West,47,App State,Sun Belt,14
 401752718,5,2025-09-27T23:30:00.000Z,True,False,Georgia,SEC,21,Alabama,SEC,24
-401752854,5,2025-09-27T23:30:00.000Z,True,False,Penn State,Big Ten,24,Oregon,Big Ten,30
-401754549,5,2025-09-27T23:30:00.000Z,True,False,Stanford,ACC,30,San José State,Mountain West,29
 401752721,5,2025-09-27T23:30:00.000Z,True,False,Missouri,SEC,42,Massachusetts,Mid-American,6
 401752950,5,2025-09-27T23:30:00.000Z,True,False,Colorado State,Mountain West,3,Washington State,Pac-12,20
+401754549,5,2025-09-27T23:30:00.000Z,True,False,Stanford,ACC,30,San José State,Mountain West,29
+401760379,5,2025-09-27T23:30:00.000Z,True,False,Boise State,Mountain West,47,App State,Sun Belt,14
+401752854,5,2025-09-27T23:30:00.000Z,True,False,Penn State,Big Ten,24,Oregon,Big Ten,30
 401752722,5,2025-09-27T23:45:00.000Z,True,False,South Carolina,SEC,35,Kentucky,SEC,13
 401761615,5,2025-09-28T00:00:00.000Z,True,False,Louisiana,Sun Belt,54,Marshall,Sun Belt,51
 401757272,5,2025-09-28T01:00:00.000Z,True,False,UTEP,Conference USA,11,Louisiana Tech,Conference USA,30
@@ -367,53 +367,53 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401762475,6,2025-10-03T23:00:00.000Z,True,False,South Florida,American Athletic,54,Charlotte,American Athletic,26
 401757276,6,2025-10-03T23:00:00.000Z,True,False,Delaware,Conference USA,24,Western Kentucky,Conference USA,27
 401760384,6,2025-10-04T02:00:00.000Z,True,False,San José State,Mountain West,35,New Mexico,Mountain West,28
-401756909,6,2025-10-04T02:30:00.000Z,True,False,BYU,Big 12,38,West Virginia,Big 12,24
 401760382,6,2025-10-04T02:30:00.000Z,True,False,San Diego State,Mountain West,45,Colorado State,Mountain West,24
-401752856,6,2025-10-04T16:00:00.000Z,True,False,Michigan,Big Ten,24,Wisconsin,Big Ten,10
-401756912,6,2025-10-04T16:00:00.000Z,True,False,Cincinnati,Big 12,38,Iowa State,Big 12,30
-401754552,6,2025-10-04T16:00:00.000Z,True,False,North Carolina,ACC,10,Clemson,ACC,38
-401762830,6,2025-10-04T16:00:00.000Z,True,False,Ball State,Mid-American,20,Ohio,Mid-American,14
-401752728,6,2025-10-04T16:00:00.000Z,True,False,Georgia,SEC,35,Kentucky,SEC,14
-401760381,6,2025-10-04T16:00:00.000Z,True,False,Navy,American Athletic,34,Air Force,Mountain West,31
+401756909,6,2025-10-04T02:30:00.000Z,True,False,BYU,Big 12,38,West Virginia,Big 12,24
+401762476,6,2025-10-04T16:00:00.000Z,True,False,UAB,American Athletic,13,Army,American Athletic,31
 401756911,6,2025-10-04T16:00:00.000Z,True,False,Baylor,Big 12,35,Kansas State,Big 12,34
 401754550,6,2025-10-04T16:00:00.000Z,True,False,Pittsburgh,ACC,48,Boston College,ACC,7
+401760381,6,2025-10-04T16:00:00.000Z,True,False,Navy,American Athletic,34,Air Force,Mountain West,31
+401754552,6,2025-10-04T16:00:00.000Z,True,False,North Carolina,ACC,10,Clemson,ACC,38
+401752856,6,2025-10-04T16:00:00.000Z,True,False,Michigan,Big Ten,24,Wisconsin,Big Ten,10
+401756912,6,2025-10-04T16:00:00.000Z,True,False,Cincinnati,Big 12,38,Iowa State,Big 12,30
 401752861,6,2025-10-04T16:00:00.000Z,True,False,Purdue,Big Ten,27,Illinois,Big Ten,43
-401762476,6,2025-10-04T16:00:00.000Z,True,False,UAB,American Athletic,13,Army,American Athletic,31
-401762479,6,2025-10-04T17:00:00.000Z,True,False,Temple,American Athletic,27,UTSA,American Athletic,21
+401762830,6,2025-10-04T16:00:00.000Z,True,False,Ball State,Mid-American,20,Ohio,Mid-American,14
+401752728,6,2025-10-04T16:00:00.000Z,True,False,Georgia,SEC,35,Kentucky,SEC,14
 401754556,6,2025-10-04T17:00:00.000Z,True,False,Virginia Tech,ACC,23,Wake Forest,ACC,30
+401762479,6,2025-10-04T17:00:00.000Z,True,False,Temple,American Athletic,27,UTSA,American Athletic,21
 401754557,6,2025-10-04T18:00:00.000Z,True,False,NC State,ACC,56,Campbell,Coastal Athletic,10
 401762832,6,2025-10-04T18:30:00.000Z,True,False,Massachusetts,Mid-American,3,Western Michigan,Mid-American,21
 401756910,6,2025-10-04T19:00:00.000Z,True,False,Arizona,Big 12,41,Oklahoma State,Big 12,13
 401761618,6,2025-10-04T19:30:00.000Z,True,False,Georgia State,Sun Belt,7,James Madison,Sun Belt,14
-401752855,6,2025-10-04T19:30:00.000Z,True,False,UCLA,Big Ten,42,Penn State,Big Ten,37
-401754555,6,2025-10-04T19:30:00.000Z,True,False,SMU,ACC,31,Syracuse,ACC,18
-401762831,6,2025-10-04T19:30:00.000Z,True,False,Buffalo,Mid-American,31,Eastern Michigan,Mid-American,30
-401762873,6,2025-10-04T19:30:00.000Z,True,False,Northern Illinois,Mid-American,14,Miami (OH),Mid-American,25
-401757171,6,2025-10-04T19:30:00.000Z,True,False,UConn,FBS Independents,51,Florida International,Conference USA,10
-401752940,6,2025-10-04T19:30:00.000Z,True,False,App State,Sun Belt,27,Oregon State,Pac-12,23
-401757165,6,2025-10-04T19:30:00.000Z,True,False,Notre Dame,FBS Independents,28,Boise State,Mountain West,7
-401754554,6,2025-10-04T19:30:00.000Z,True,False,Louisville,ACC,27,Virginia,ACC,30
-401752857,6,2025-10-04T19:30:00.000Z,True,False,Maryland,Big Ten,20,Washington,Big Ten,24
 401762829,6,2025-10-04T19:30:00.000Z,True,False,Akron,Mid-American,28,Central Michigan,Mid-American,22
-401752727,6,2025-10-04T19:30:00.000Z,True,False,Florida,SEC,29,Texas,SEC,21
 401752858,6,2025-10-04T19:30:00.000Z,True,False,Northwestern,Big Ten,42,UL Monroe,Sun Belt,7
+401752857,6,2025-10-04T19:30:00.000Z,True,False,Maryland,Big Ten,20,Washington,Big Ten,24
+401757171,6,2025-10-04T19:30:00.000Z,True,False,UConn,FBS Independents,51,Florida International,Conference USA,10
 401752726,6,2025-10-04T19:30:00.000Z,True,False,Alabama,SEC,30,Vanderbilt,SEC,14
-401761620,6,2025-10-04T20:00:00.000Z,True,False,Arkansas State,Sun Belt,31,Texas State,Sun Belt,30
+401752727,6,2025-10-04T19:30:00.000Z,True,False,Florida,SEC,29,Texas,SEC,21
+401762831,6,2025-10-04T19:30:00.000Z,True,False,Buffalo,Mid-American,31,Eastern Michigan,Mid-American,30
+401757165,6,2025-10-04T19:30:00.000Z,True,False,Notre Dame,FBS Independents,28,Boise State,Mountain West,7
+401752855,6,2025-10-04T19:30:00.000Z,True,False,UCLA,Big Ten,42,Penn State,Big Ten,37
+401754554,6,2025-10-04T19:30:00.000Z,True,False,Louisville,ACC,27,Virginia,ACC,30
+401762873,6,2025-10-04T19:30:00.000Z,True,False,Northern Illinois,Mid-American,14,Miami (OH),Mid-American,25
+401754555,6,2025-10-04T19:30:00.000Z,True,False,SMU,ACC,31,Syracuse,ACC,18
+401752940,6,2025-10-04T19:30:00.000Z,True,False,App State,Sun Belt,27,Oregon State,Pac-12,23
 401752860,6,2025-10-04T20:00:00.000Z,True,False,Nebraska,Big Ten,38,Michigan State,Big Ten,27
 401752729,6,2025-10-04T20:00:00.000Z,True,False,Oklahoma,SEC,44,Kent State,Mid-American,0
+401761620,6,2025-10-04T20:00:00.000Z,True,False,Arkansas State,Sun Belt,31,Texas State,Sun Belt,30
 401761619,6,2025-10-04T22:00:00.000Z,True,False,Old Dominion,Sun Belt,47,Coastal Carolina,Sun Belt,7
-401760385,6,2025-10-04T23:00:00.000Z,True,False,Wyoming,Mountain West,17,UNLV,Mountain West,31
-401762477,6,2025-10-04T23:00:00.000Z,True,False,Rice,American Athletic,21,Florida Atlantic,American Athletic,27
 401756913,6,2025-10-04T23:00:00.000Z,True,False,Houston,Big 12,11,Texas Tech,Big 12,35
 401761621,6,2025-10-04T23:00:00.000Z,True,False,Troy,Sun Belt,31,South Alabama,Sun Belt,24
+401760385,6,2025-10-04T23:00:00.000Z,True,False,Wyoming,Mountain West,17,UNLV,Mountain West,31
+401762477,6,2025-10-04T23:00:00.000Z,True,False,Rice,American Athletic,21,Florida Atlantic,American Athletic,27
+401756915,6,2025-10-04T23:30:00.000Z,True,False,UCF,Big 12,20,Kansas,Big 12,27
 401754553,6,2025-10-04T23:30:00.000Z,True,False,Florida State,ACC,22,Miami,ACC,28
 401752859,6,2025-10-04T23:30:00.000Z,True,False,Ohio State,Big Ten,42,Minnesota,Big Ten,3
-401756915,6,2025-10-04T23:30:00.000Z,True,False,UCF,Big 12,20,Kansas,Big 12,27
 401756914,6,2025-10-04T23:30:00.000Z,True,False,TCU,Big 12,35,Colorado,Big 12,21
 401752730,6,2025-10-04T23:30:00.000Z,True,False,Texas A&M,SEC,31,Mississippi State,SEC,9
 401762478,6,2025-10-05T00:00:00.000Z,True,False,Memphis,American Athletic,45,Tulsa,American Athletic,7
-401754551,6,2025-10-05T02:30:00.000Z,True,False,California,ACC,21,Duke,ACC,45
 401760383,6,2025-10-05T02:30:00.000Z,True,False,Fresno State,Mountain West,20,Nevada,Mountain West,17
+401754551,6,2025-10-05T02:30:00.000Z,True,False,California,ACC,21,Duke,ACC,45
 401757278,7,2025-10-08T23:30:00.000Z,True,False,Middle Tennessee,Conference USA,20,Missouri State,Conference USA,22
 401757277,7,2025-10-09T00:00:00.000Z,True,False,UTEP,Conference USA,8,Liberty,Conference USA,19
 401757280,7,2025-10-09T23:00:00.000Z,True,False,Kennesaw State,Conference USA,35,Louisiana Tech,Conference USA,7
@@ -423,49 +423,49 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401762481,7,2025-10-10T23:30:00.000Z,True,False,North Texas,American Athletic,36,South Florida,American Athletic,63
 401760388,7,2025-10-11T01:00:00.000Z,True,False,Colorado State,Mountain West,49,Fresno State,Mountain West,21
 401752862,7,2025-10-11T01:00:00.000Z,True,False,Washington,Big Ten,38,Rutgers,Big Ten,19
-401756917,7,2025-10-11T16:00:00.000Z,True,False,Cincinnati,Big 12,20,UCF,Big 12,11
+401754561,7,2025-10-11T16:00:00.000Z,True,False,SMU,ACC,34,Stanford,ACC,10
 401762483,7,2025-10-11T16:00:00.000Z,True,False,Army,American Athletic,24,Charlotte,American Athletic,7
 401754559,7,2025-10-11T16:00:00.000Z,True,False,Florida State,ACC,31,Pittsburgh,ACC,34
-401761625,7,2025-10-11T16:00:00.000Z,True,False,James Madison,Sun Belt,24,Louisiana,Sun Belt,14
-401754561,7,2025-10-11T16:00:00.000Z,True,False,SMU,ACC,34,Stanford,ACC,10
 401752865,7,2025-10-11T16:00:00.000Z,True,False,Illinois,Big Ten,16,Ohio State,Big Ten,34
+401756917,7,2025-10-11T16:00:00.000Z,True,False,Cincinnati,Big 12,20,UCF,Big 12,11
+401756920,7,2025-10-11T16:00:00.000Z,True,False,Oklahoma State,Big 12,17,Houston,Big 12,39
 401752863,7,2025-10-11T16:00:00.000Z,True,False,Michigan State,Big Ten,13,UCLA,Big Ten,38
+401761625,7,2025-10-11T16:00:00.000Z,True,False,James Madison,Sun Belt,24,Louisiana,Sun Belt,14
 401762835,7,2025-10-11T16:00:00.000Z,True,False,Bowling Green,Mid-American,28,Toledo,Mid-American,23
 401762833,7,2025-10-11T16:00:00.000Z,True,False,Akron,Mid-American,7,Miami (OH),Mid-American,20
-401756920,7,2025-10-11T16:00:00.000Z,True,False,Oklahoma State,Big 12,17,Houston,Big 12,39
 401752734,7,2025-10-11T16:00:00.000Z,True,False,Missouri,SEC,24,Alabama,SEC,27
 401752733,7,2025-10-11T16:45:00.000Z,True,False,Ole Miss,SEC,24,Washington State,Pac-12,21
 401762836,7,2025-10-11T17:00:00.000Z,True,False,Eastern Michigan,Mid-American,16,Northern Illinois,Mid-American,10
 401762837,7,2025-10-11T18:30:00.000Z,True,False,Kent State,Mid-American,42,Massachusetts,Mid-American,6
+401760386,7,2025-10-11T19:30:00.000Z,True,False,UNLV,Mountain West,51,Air Force,Mountain West,48
+401754562,7,2025-10-11T19:30:00.000Z,True,False,Notre Dame,FBS Independents,36,NC State,ACC,7
+401752870,7,2025-10-11T19:30:00.000Z,True,False,Oregon,Big Ten,20,Indiana,Big Ten,30
 401756919,7,2025-10-11T19:30:00.000Z,True,False,Kansas State,Big 12,41,TCU,Big 12,28
 401752867,7,2025-10-11T19:30:00.000Z,True,False,Maryland,Big Ten,31,Nebraska,Big Ten,34
-401754562,7,2025-10-11T19:30:00.000Z,True,False,Notre Dame,FBS Independents,36,NC State,ACC,7
-401760386,7,2025-10-11T19:30:00.000Z,True,False,UNLV,Mountain West,51,Air Force,Mountain West,48
+401754560,7,2025-10-11T19:30:00.000Z,True,False,Georgia Tech,ACC,35,Virginia Tech,ACC,20
+401752866,7,2025-10-11T19:30:00.000Z,True,False,Penn State,Big Ten,21,Northwestern,Big Ten,22
+401752736,7,2025-10-11T19:30:00.000Z,True,True,Texas,SEC,23,Oklahoma,SEC,6
 401754563,7,2025-10-11T19:30:00.000Z,True,False,Oregon State,Pac-12,14,Wake Forest,ACC,39
 401761624,7,2025-10-11T19:30:00.000Z,True,False,Georgia State,Sun Belt,20,App State,Sun Belt,41
-401752870,7,2025-10-11T19:30:00.000Z,True,False,Oregon,Big Ten,20,Indiana,Big Ten,30
-401761626,7,2025-10-11T19:30:00.000Z,True,False,Marshall,Sun Belt,48,Old Dominion,Sun Belt,24
-401756918,7,2025-10-11T19:30:00.000Z,True,False,Colorado,Big 12,24,Iowa State,Big 12,17
-401754560,7,2025-10-11T19:30:00.000Z,True,False,Georgia Tech,ACC,35,Virginia Tech,ACC,20
-401752736,7,2025-10-11T19:30:00.000Z,True,True,Texas,SEC,23,Oklahoma,SEC,6
 401762834,7,2025-10-11T19:30:00.000Z,True,False,Western Michigan,Mid-American,42,Ball State,Mid-American,0
-401752866,7,2025-10-11T19:30:00.000Z,True,False,Penn State,Big Ten,21,Northwestern,Big Ten,22
+401756918,7,2025-10-11T19:30:00.000Z,True,False,Colorado,Big 12,24,Iowa State,Big 12,17
+401761626,7,2025-10-11T19:30:00.000Z,True,False,Marshall,Sun Belt,48,Old Dominion,Sun Belt,24
 401762484,7,2025-10-11T20:00:00.000Z,True,False,Temple,American Athletic,31,Navy,American Athletic,32
 401752735,7,2025-10-11T20:15:00.000Z,True,False,Tennessee,SEC,34,Arkansas,SEC,31
 401762482,7,2025-10-11T22:00:00.000Z,True,False,Florida Atlantic,American Athletic,53,UAB,American Athletic,33
-401761623,7,2025-10-11T23:00:00.000Z,True,False,Coastal Carolina,Sun Belt,23,UL Monroe,Sun Belt,8
-401760391,7,2025-10-11T23:00:00.000Z,True,False,Wyoming,Mountain West,35,San José State,Mountain West,28
 401752869,7,2025-10-11T23:00:00.000Z,True,False,Wisconsin,Big Ten,0,Iowa,Big Ten,37
+401760391,7,2025-10-11T23:00:00.000Z,True,False,Wyoming,Mountain West,35,San José State,Mountain West,28
+401761623,7,2025-10-11T23:00:00.000Z,True,False,Coastal Carolina,Sun Belt,23,UL Monroe,Sun Belt,8
 401752737,7,2025-10-11T23:00:00.000Z,True,False,Texas A&M,SEC,34,Florida,SEC,17
-401752864,7,2025-10-11T23:30:00.000Z,True,False,Minnesota,Big Ten,27,Purdue,Big Ten,20
-401752731,7,2025-10-11T23:30:00.000Z,True,False,Auburn,SEC,10,Georgia,SEC,20
-401752868,7,2025-10-11T23:30:00.000Z,True,False,USC,Big Ten,31,Michigan,Big Ten,13
 401762485,7,2025-10-11T23:30:00.000Z,True,False,UTSA,American Athletic,61,Rice,American Athletic,13
+401752864,7,2025-10-11T23:30:00.000Z,True,False,Minnesota,Big Ten,27,Purdue,Big Ten,20
 401756921,7,2025-10-11T23:30:00.000Z,True,False,Texas Tech,Big 12,42,Kansas,Big 12,17
+401752731,7,2025-10-11T23:30:00.000Z,True,False,Auburn,SEC,10,Georgia,SEC,20
 401754558,7,2025-10-11T23:30:00.000Z,True,False,Boston College,ACC,10,Clemson,ACC,41
+401752868,7,2025-10-11T23:30:00.000Z,True,False,USC,Big Ten,31,Michigan,Big Ten,13
 401752732,7,2025-10-11T23:45:00.000Z,True,False,LSU,SEC,20,South Carolina,SEC,10
-401761627,7,2025-10-12T00:00:00.000Z,True,False,Texas State,Sun Belt,41,Troy,Sun Belt,48
 401756916,7,2025-10-12T00:00:00.000Z,True,False,Arizona,Big 12,27,BYU,Big 12,33
+401761627,7,2025-10-12T00:00:00.000Z,True,False,Texas State,Sun Belt,41,Troy,Sun Belt,48
 401760387,7,2025-10-12T01:45:00.000Z,True,False,Boise State,Mountain West,41,New Mexico,Mountain West,25
 401756922,7,2025-10-12T02:15:00.000Z,True,False,Utah,Big 12,42,Arizona State,Big 12,10
 401760390,7,2025-10-12T02:30:00.000Z,True,False,Nevada,Mountain West,10,San Diego State,Mountain West,44
@@ -480,53 +480,53 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401752872,8,2025-10-18T00:00:00.000Z,True,False,Minnesota,Big Ten,24,Nebraska,Big Ten,6
 401760396,8,2025-10-18T01:00:00.000Z,True,False,Utah State,Mountain West,30,San José State,Mountain West,25
 401754371,8,2025-10-18T02:30:00.000Z,True,False,California,ACC,21,North Carolina,ACC,18
-401756927,8,2025-10-18T16:00:00.000Z,True,False,TCU,Big 12,42,Baylor,Big 12,36
-401762839,8,2025-10-18T16:00:00.000Z,True,False,Bowling Green,Mid-American,6,Central Michigan,Mid-American,27
 401762488,8,2025-10-18T16:00:00.000Z,True,False,Tulane,American Athletic,24,Army,American Athletic,17
-401762841,8,2025-10-18T16:00:00.000Z,True,False,Miami (OH),Mid-American,44,Eastern Michigan,Mid-American,30
 401754566,8,2025-10-18T16:00:00.000Z,True,False,Duke,ACC,18,Georgia Tech,ACC,27
-401752745,8,2025-10-18T16:00:00.000Z,True,False,Vanderbilt,SEC,31,LSU,SEC,24
 401754569,8,2025-10-18T16:00:00.000Z,True,False,Boston College,ACC,23,UConn,FBS Independents,38
-401752873,8,2025-10-18T16:00:00.000Z,True,False,Michigan,Big Ten,24,Washington,Big Ten,7
+401762839,8,2025-10-18T16:00:00.000Z,True,False,Bowling Green,Mid-American,6,Central Michigan,Mid-American,27
 401756925,8,2025-10-18T16:00:00.000Z,True,False,Houston,Big 12,31,Arizona,Big 12,28
+401762841,8,2025-10-18T16:00:00.000Z,True,False,Miami (OH),Mid-American,44,Eastern Michigan,Mid-American,30
+401752873,8,2025-10-18T16:00:00.000Z,True,False,Michigan,Big Ten,24,Washington,Big Ten,7
+401752745,8,2025-10-18T16:00:00.000Z,True,False,Vanderbilt,SEC,31,LSU,SEC,24
+401756927,8,2025-10-18T16:00:00.000Z,True,False,TCU,Big 12,42,Baylor,Big 12,36
 401752744,8,2025-10-18T16:45:00.000Z,True,False,South Carolina,SEC,7,Oklahoma,SEC,26
 401756928,8,2025-10-18T17:00:00.000Z,True,False,UCF,Big 12,45,West Virginia,Big 12,13
 401762842,8,2025-10-18T18:00:00.000Z,True,False,Toledo,Mid-American,45,Kent State,Mid-American,10
 401762840,8,2025-10-18T18:30:00.000Z,True,False,Massachusetts,Mid-American,21,Buffalo,Mid-American,28
-401761633,8,2025-10-18T19:00:00.000Z,True,False,UL Monroe,Sun Belt,14,Troy,Sun Belt,37
 401752874,8,2025-10-18T19:00:00.000Z,True,False,Northwestern,Big Ten,19,Purdue,Big Ten,0
-401762838,8,2025-10-18T19:30:00.000Z,True,False,Ball State,Mid-American,42,Akron,Mid-American,28
-401761632,8,2025-10-18T19:30:00.000Z,True,False,Marshall,Sun Belt,40,Texas State,Sun Belt,37
-401752742,8,2025-10-18T19:30:00.000Z,True,False,Georgia,SEC,43,Ole Miss,SEC,35
+401761633,8,2025-10-18T19:00:00.000Z,True,False,UL Monroe,Sun Belt,14,Troy,Sun Belt,37
 401752739,8,2025-10-18T19:30:00.000Z,True,False,Arkansas,SEC,42,Texas A&M,SEC,45
+401761631,8,2025-10-18T19:30:00.000Z,True,False,James Madison,Sun Belt,63,Old Dominion,Sun Belt,27
+401752742,8,2025-10-18T19:30:00.000Z,True,False,Georgia,SEC,43,Ole Miss,SEC,35
+401761632,8,2025-10-18T19:30:00.000Z,True,False,Marshall,Sun Belt,40,Texas State,Sun Belt,37
+401760393,8,2025-10-18T19:30:00.000Z,True,False,Boise State,Mountain West,56,UNLV,Mountain West,31
+401762838,8,2025-10-18T19:30:00.000Z,True,False,Ball State,Mid-American,42,Akron,Mid-American,28
 401760392,8,2025-10-18T19:30:00.000Z,True,False,Air Force,Mountain West,24,Wyoming,Mountain West,21
 401761629,8,2025-10-18T19:30:00.000Z,True,False,App State,Sun Belt,37,Coastal Carolina,Sun Belt,45
 401762489,8,2025-10-18T19:30:00.000Z,True,False,Charlotte,American Athletic,14,Temple,American Athletic,49
-401762843,8,2025-10-18T19:30:00.000Z,True,False,Ohio,Mid-American,48,Northern Illinois,Mid-American,21
-401752877,8,2025-10-18T19:30:00.000Z,True,False,Wisconsin,Big Ten,0,Ohio State,Big Ten,34
-401754565,8,2025-10-18T19:30:00.000Z,True,False,Clemson,ACC,24,SMU,ACC,35
-401761631,8,2025-10-18T19:30:00.000Z,True,False,James Madison,Sun Belt,63,Old Dominion,Sun Belt,27
 401762491,8,2025-10-18T19:30:00.000Z,True,False,North Texas,American Athletic,55,UTSA,American Athletic,17
-401760393,8,2025-10-18T19:30:00.000Z,True,False,Boise State,Mountain West,56,UNLV,Mountain West,31
+401762843,8,2025-10-18T19:30:00.000Z,True,False,Ohio,Mid-American,48,Northern Illinois,Mid-American,21
 401752878,8,2025-10-18T19:30:00.000Z,True,False,Indiana,Big Ten,38,Michigan State,Big Ten,13
-401756923,8,2025-10-18T20:00:00.000Z,True,False,Arizona State,Big 12,26,Texas Tech,Big 12,22
+401754565,8,2025-10-18T19:30:00.000Z,True,False,Clemson,ACC,24,SMU,ACC,35
+401752877,8,2025-10-18T19:30:00.000Z,True,False,Wisconsin,Big Ten,0,Ohio State,Big Ten,34
 401762487,8,2025-10-18T20:00:00.000Z,True,False,UAB,American Athletic,31,Memphis,American Athletic,24
+401756923,8,2025-10-18T20:00:00.000Z,True,False,Arizona State,Big 12,26,Texas Tech,Big 12,22
 401752741,8,2025-10-18T20:15:00.000Z,True,False,Florida,SEC,23,Mississippi State,SEC,21
 401761668,8,2025-10-18T21:00:00.000Z,True,False,Louisiana,Sun Belt,10,Southern Miss,Sun Belt,22
-401752876,8,2025-10-18T22:30:00.000Z,True,False,Rutgers,Big Ten,10,Oregon,Big Ten,56
 401752951,8,2025-10-18T22:30:00.000Z,True,False,Virginia,ACC,22,Washington State,Pac-12,20
+401752876,8,2025-10-18T22:30:00.000Z,True,False,Rutgers,Big Ten,10,Oregon,Big Ten,56
+401752879,8,2025-10-18T23:00:00.000Z,True,False,UCLA,Big Ten,20,Maryland,Big Ten,17
+401752743,8,2025-10-18T23:00:00.000Z,True,False,Kentucky,SEC,13,Texas,SEC,16
 401761630,8,2025-10-18T23:00:00.000Z,True,False,Georgia Southern,Sun Belt,41,Georgia State,Sun Belt,24
 401760394,8,2025-10-18T23:00:00.000Z,True,False,Colorado State,Mountain West,19,Hawai'i,Mountain West,31
-401752879,8,2025-10-18T23:00:00.000Z,True,False,UCLA,Big Ten,20,Maryland,Big Ten,17
 401752875,8,2025-10-18T23:00:00.000Z,True,False,Iowa,Big Ten,25,Penn State,Big Ten,24
-401752743,8,2025-10-18T23:00:00.000Z,True,False,Kentucky,SEC,13,Texas,SEC,16
-401752738,8,2025-10-18T23:30:00.000Z,True,False,Alabama,SEC,37,Tennessee,SEC,20
 401762490,8,2025-10-18T23:30:00.000Z,True,False,South Florida,American Athletic,48,Florida Atlantic,American Athletic,13
-401752871,8,2025-10-18T23:30:00.000Z,True,False,Notre Dame,FBS Independents,34,USC,Big Ten,24
 401754568,8,2025-10-18T23:30:00.000Z,True,False,Syracuse,ACC,13,Pittsburgh,ACC,30
+401752738,8,2025-10-18T23:30:00.000Z,True,False,Alabama,SEC,37,Tennessee,SEC,20
+401752871,8,2025-10-18T23:30:00.000Z,True,False,Notre Dame,FBS Independents,34,USC,Big Ten,24
 401752740,8,2025-10-18T23:45:00.000Z,True,False,Auburn,SEC,17,Missouri,SEC,23
-401756924,8,2025-10-19T00:00:00.000Z,True,False,BYU,Big 12,24,Utah,Big 12,21
 401756926,8,2025-10-19T00:00:00.000Z,True,False,Oklahoma State,Big 12,17,Cincinnati,Big 12,49
+401756924,8,2025-10-19T00:00:00.000Z,True,False,BYU,Big 12,24,Utah,Big 12,21
 401760395,8,2025-10-19T01:45:00.000Z,True,False,New Mexico,Mountain West,24,Nevada,Mountain West,22
 401752941,8,2025-10-19T02:00:00.000Z,True,False,Oregon State,Pac-12,45,Lafayette,Patriot,13
 401754567,8,2025-10-19T02:30:00.000Z,True,False,Stanford,ACC,20,Florida State,ACC,13
@@ -538,53 +538,53 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401762492,9,2025-10-24T23:00:00.000Z,True,False,Charlotte,American Athletic,20,North Texas,American Athletic,54
 401754372,9,2025-10-24T23:30:00.000Z,True,False,Virginia Tech,ACC,42,California,ACC,34
 401760397,9,2025-10-25T02:00:00.000Z,True,False,Nevada,Mountain West,3,Boise State,Mountain West,24
-401752750,9,2025-10-25T16:00:00.000Z,True,False,Oklahoma,SEC,26,Ole Miss,SEC,34
-401752884,9,2025-10-25T16:00:00.000Z,True,False,Purdue,Big Ten,24,Rutgers,Big Ten,27
-401762848,9,2025-10-25T16:00:00.000Z,True,False,Eastern Michigan,Mid-American,21,Ohio,Mid-American,28
-401754573,9,2025-10-25T16:00:00.000Z,True,False,North Carolina,ACC,16,Virginia,ACC,17
 401756932,9,2025-10-25T16:00:00.000Z,True,False,Kansas,Big 12,17,Kansas State,Big 12,42
-401752885,9,2025-10-25T16:00:00.000Z,True,False,Indiana,Big Ten,56,UCLA,Big Ten,6
 401762494,9,2025-10-25T16:00:00.000Z,True,False,Memphis,American Athletic,34,South Florida,American Athletic,31
-401754571,9,2025-10-25T16:00:00.000Z,True,False,Georgia Tech,ACC,41,Syracuse,ACC,16
-401762846,9,2025-10-25T16:00:00.000Z,True,False,Kent State,Mid-American,24,Bowling Green,Mid-American,21
 401752942,9,2025-10-25T16:00:00.000Z,True,False,Wake Forest,ACC,13,SMU,ACC,12
 401752883,9,2025-10-25T16:00:00.000Z,True,False,Nebraska,Big Ten,28,Northwestern,Big Ten,21
+401754573,9,2025-10-25T16:00:00.000Z,True,False,North Carolina,ACC,16,Virginia,ACC,17
+401752885,9,2025-10-25T16:00:00.000Z,True,False,Indiana,Big Ten,56,UCLA,Big Ten,6
+401762846,9,2025-10-25T16:00:00.000Z,True,False,Kent State,Mid-American,24,Bowling Green,Mid-American,21
+401762848,9,2025-10-25T16:00:00.000Z,True,False,Eastern Michigan,Mid-American,21,Ohio,Mid-American,28
+401752750,9,2025-10-25T16:00:00.000Z,True,False,Oklahoma,SEC,26,Ole Miss,SEC,34
 401761635,9,2025-10-25T16:00:00.000Z,True,False,Old Dominion,Sun Belt,24,App State,Sun Belt,21
+401752884,9,2025-10-25T16:00:00.000Z,True,False,Purdue,Big Ten,24,Rutgers,Big Ten,27
+401754571,9,2025-10-25T16:00:00.000Z,True,False,Georgia Tech,ACC,41,Syracuse,ACC,16
 401752746,9,2025-10-25T16:45:00.000Z,True,False,Arkansas,SEC,24,Auburn,SEC,33
 401762844,9,2025-10-25T17:00:00.000Z,True,False,Buffalo,Mid-American,16,Akron,Mid-American,24
 401760400,9,2025-10-25T19:00:00.000Z,True,False,New Mexico,Mountain West,33,Utah State,Mountain West,14
 401757172,9,2025-10-25T19:00:00.000Z,True,False,Rice,American Athletic,37,UConn,FBS Independents,34
-401762874,9,2025-10-25T19:30:00.000Z,True,False,Miami (OH),Mid-American,26,Western Michigan,Mid-American,17
-401754574,9,2025-10-25T19:30:00.000Z,True,False,Pittsburgh,ACC,53,NC State,ACC,34
-401762847,9,2025-10-25T19:30:00.000Z,True,False,Central Michigan,Mid-American,38,Massachusetts,Mid-American,13
-401752882,9,2025-10-25T19:30:00.000Z,True,False,Iowa,Big Ten,41,Minnesota,Big Ten,3
-401752880,9,2025-10-25T19:30:00.000Z,True,False,Washington,Big Ten,42,Illinois,Big Ten,25
-401752952,9,2025-10-25T19:30:00.000Z,True,False,Washington State,Pac-12,28,Toledo,Mid-American,7
-401752751,9,2025-10-25T19:30:00.000Z,True,False,South Carolina,SEC,22,Alabama,SEC,29
-401762495,9,2025-10-25T19:30:00.000Z,True,False,Tulsa,American Athletic,37,Temple,American Athletic,38
-401762493,9,2025-10-25T19:30:00.000Z,True,False,Navy,American Athletic,42,Florida Atlantic,American Athletic,32
-401756931,9,2025-10-25T19:30:00.000Z,True,False,Iowa State,Big 12,27,BYU,Big 12,41
-401760399,9,2025-10-25T19:30:00.000Z,True,False,Fresno State,Mountain West,0,San Diego State,Mountain West,23
-401752752,9,2025-10-25T19:30:00.000Z,True,False,Vanderbilt,SEC,17,Missouri,SEC,10
 401762845,9,2025-10-25T19:30:00.000Z,True,False,Northern Illinois,Mid-American,21,Ball State,Mid-American,7
+401762874,9,2025-10-25T19:30:00.000Z,True,False,Miami (OH),Mid-American,26,Western Michigan,Mid-American,17
+401752880,9,2025-10-25T19:30:00.000Z,True,False,Washington,Big Ten,42,Illinois,Big Ten,25
+401762847,9,2025-10-25T19:30:00.000Z,True,False,Central Michigan,Mid-American,38,Massachusetts,Mid-American,13
+401752952,9,2025-10-25T19:30:00.000Z,True,False,Washington State,Pac-12,28,Toledo,Mid-American,7
+401762493,9,2025-10-25T19:30:00.000Z,True,False,Navy,American Athletic,42,Florida Atlantic,American Athletic,32
 401761637,9,2025-10-25T19:30:00.000Z,True,False,Southern Miss,Sun Belt,49,UL Monroe,Sun Belt,21
-401756930,9,2025-10-25T20:00:00.000Z,True,False,Cincinnati,Big 12,41,Baylor,Big 12,20
+401752752,9,2025-10-25T19:30:00.000Z,True,False,Vanderbilt,SEC,17,Missouri,SEC,10
+401762495,9,2025-10-25T19:30:00.000Z,True,False,Tulsa,American Athletic,37,Temple,American Athletic,38
+401752882,9,2025-10-25T19:30:00.000Z,True,False,Iowa,Big Ten,41,Minnesota,Big Ten,3
+401754574,9,2025-10-25T19:30:00.000Z,True,False,Pittsburgh,ACC,53,NC State,ACC,34
+401760399,9,2025-10-25T19:30:00.000Z,True,False,Fresno State,Mountain West,0,San Diego State,Mountain West,23
+401756931,9,2025-10-25T19:30:00.000Z,True,False,Iowa State,Big 12,27,BYU,Big 12,41
+401752751,9,2025-10-25T19:30:00.000Z,True,False,South Carolina,SEC,22,Alabama,SEC,29
 401756933,9,2025-10-25T20:00:00.000Z,True,False,Texas Tech,Big 12,42,Oklahoma State,Big 12,0
+401756930,9,2025-10-25T20:00:00.000Z,True,False,Cincinnati,Big 12,41,Baylor,Big 12,20
 401752749,9,2025-10-25T20:15:00.000Z,True,False,Mississippi State,SEC,38,Texas,SEC,45
 401756935,9,2025-10-25T22:00:00.000Z,True,False,West Virginia,Big 12,17,TCU,Big 12,23
+401761636,9,2025-10-25T23:00:00.000Z,True,False,Arkansas State,Sun Belt,34,Georgia Southern,Sun Belt,24
 401754572,9,2025-10-25T23:00:00.000Z,True,False,Miami,ACC,42,Stanford,ACC,7
 401761638,9,2025-10-25T23:00:00.000Z,True,False,Troy,Sun Belt,35,Louisiana,Sun Belt,23
-401761636,9,2025-10-25T23:00:00.000Z,True,False,Arkansas State,Sun Belt,34,Georgia Southern,Sun Belt,24
 401752886,9,2025-10-25T23:00:00.000Z,True,False,Oregon,Big Ten,21,Wisconsin,Big Ten,7
-401752881,9,2025-10-25T23:30:00.000Z,True,False,Michigan State,Big Ten,20,Michigan,Big Ten,31
-401752748,9,2025-10-25T23:30:00.000Z,True,False,LSU,SEC,25,Texas A&M,SEC,49
 401754570,9,2025-10-25T23:30:00.000Z,True,False,Louisville,ACC,38,Boston College,ACC,24
 401760398,9,2025-10-25T23:30:00.000Z,True,False,Wyoming,Mountain West,28,Colorado State,Mountain West,0
+401752881,9,2025-10-25T23:30:00.000Z,True,False,Michigan State,Big Ten,20,Michigan,Big Ten,31
+401752748,9,2025-10-25T23:30:00.000Z,True,False,LSU,SEC,25,Texas A&M,SEC,49
 401752747,9,2025-10-25T23:45:00.000Z,True,False,Kentucky,SEC,34,Tennessee,SEC,56
 401756929,9,2025-10-26T00:00:00.000Z,True,False,Arizona State,Big 12,16,Houston,Big 12,24
 401756934,9,2025-10-26T02:15:00.000Z,True,False,Utah,Big 12,53,Colorado,Big 12,7
-401761639,10,2025-10-29T00:00:00.000Z,True,False,Texas State,Sun Belt,20,James Madison,Sun Belt,52
 401757289,10,2025-10-29T00:00:00.000Z,True,False,Kennesaw State,Conference USA,33,UTEP,Conference USA,20
+401761639,10,2025-10-29T00:00:00.000Z,True,False,Texas State,Sun Belt,20,James Madison,Sun Belt,52
 401757292,10,2025-10-29T23:30:00.000Z,True,False,Middle Tennessee,Conference USA,21,Jacksonville State,Conference USA,24
 401757291,10,2025-10-30T00:00:00.000Z,True,False,Missouri State,Conference USA,28,Florida International,Conference USA,21
 401761640,10,2025-10-30T23:30:00.000Z,True,False,Coastal Carolina,Sun Belt,44,Marshall,Sun Belt,27
@@ -593,95 +593,95 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401754575,10,2025-10-31T23:30:00.000Z,True,False,Syracuse,ACC,10,North Carolina,ACC,27
 401757290,10,2025-11-01T00:00:00.000Z,True,False,Louisiana Tech,Conference USA,55,Sam Houston,Conference USA,14
 401762849,10,2025-11-01T16:00:00.000Z,True,False,Bowling Green,Mid-American,3,Buffalo,Mid-American,28
-401756936,10,2025-11-01T16:00:00.000Z,True,False,Baylor,Big 12,30,UCF,Big 12,3
-401752758,10,2025-11-01T16:00:00.000Z,True,False,Texas,SEC,34,Vanderbilt,SEC,31
 401754581,10,2025-11-01T16:00:00.000Z,True,False,SMU,ACC,26,Miami,ACC,20
-401756938,10,2025-11-01T16:00:00.000Z,True,False,Houston,Big 12,35,West Virginia,Big 12,45
 401762499,10,2025-11-01T16:00:00.000Z,True,False,North Texas,American Athletic,31,Navy,American Athletic,17
 401752889,10,2025-11-01T16:00:00.000Z,True,False,Ohio State,Big Ten,38,Penn State,Big Ten,14
-401760401,10,2025-11-01T16:00:00.000Z,True,False,Air Force,Mountain West,17,Army,American Athletic,20
-401757173,10,2025-11-01T16:00:00.000Z,True,False,UConn,FBS Independents,38,UAB,American Athletic,19
-401752891,10,2025-11-01T16:00:00.000Z,True,False,Illinois,Big Ten,35,Rutgers,Big Ten,13
 401754577,10,2025-11-01T16:00:00.000Z,True,False,Clemson,ACC,45,Duke,ACC,46
+401757173,10,2025-11-01T16:00:00.000Z,True,False,UConn,FBS Independents,38,UAB,American Athletic,19
+401760401,10,2025-11-01T16:00:00.000Z,True,False,Air Force,Mountain West,17,Army,American Athletic,20
+401752758,10,2025-11-01T16:00:00.000Z,True,False,Texas,SEC,34,Vanderbilt,SEC,31
+401756938,10,2025-11-01T16:00:00.000Z,True,False,Houston,Big 12,35,West Virginia,Big 12,45
+401752891,10,2025-11-01T16:00:00.000Z,True,False,Illinois,Big Ten,35,Rutgers,Big Ten,13
+401756936,10,2025-11-01T16:00:00.000Z,True,False,Baylor,Big 12,30,UCF,Big 12,3
 401756939,10,2025-11-01T17:00:00.000Z,True,False,Iowa State,Big 12,19,Arizona State,Big 12,24
 401762498,10,2025-11-01T18:00:00.000Z,True,False,Temple,American Athletic,14,East Carolina,American Athletic,45
-401760404,10,2025-11-01T19:00:00.000Z,True,False,UNLV,Mountain West,35,New Mexico,Mountain West,40
 401754580,10,2025-11-01T19:00:00.000Z,True,False,Virginia Tech,ACC,16,Louisville,ACC,28
-401761641,10,2025-11-01T19:30:00.000Z,True,False,UL Monroe,Sun Belt,6,Old Dominion,Sun Belt,31
-401754583,10,2025-11-01T19:30:00.000Z,True,False,Boston College,ACC,10,Notre Dame,FBS Independents,25
-401760402,10,2025-11-01T19:30:00.000Z,True,False,Boise State,Mountain West,7,Fresno State,Mountain West,30
-401761642,10,2025-11-01T19:30:00.000Z,True,False,South Alabama,Sun Belt,22,Louisiana,Sun Belt,31
-401754582,10,2025-11-01T19:30:00.000Z,True,False,Stanford,ACC,20,Pittsburgh,ACC,35
-401757294,10,2025-11-01T19:30:00.000Z,True,False,Western Kentucky,Conference USA,35,New Mexico State,Conference USA,16
-401756941,10,2025-11-01T19:30:00.000Z,True,False,Kansas State,Big 12,20,Texas Tech,Big 12,43
-401752755,10,2025-11-01T19:30:00.000Z,True,True,Florida,SEC,20,Georgia,SEC,24
-401752888,10,2025-11-01T19:30:00.000Z,True,False,Minnesota,Big Ten,23,Michigan State,Big Ten,20
+401760404,10,2025-11-01T19:00:00.000Z,True,False,UNLV,Mountain West,35,New Mexico,Mountain West,40
 401752887,10,2025-11-01T19:30:00.000Z,True,False,Maryland,Big Ten,10,Indiana,Big Ten,55
+401756941,10,2025-11-01T19:30:00.000Z,True,False,Kansas State,Big 12,20,Texas Tech,Big 12,43
+401752888,10,2025-11-01T19:30:00.000Z,True,False,Minnesota,Big Ten,23,Michigan State,Big Ten,20
+401752755,10,2025-11-01T19:30:00.000Z,True,True,Florida,SEC,20,Georgia,SEC,24
+401754583,10,2025-11-01T19:30:00.000Z,True,False,Boston College,ACC,10,Notre Dame,FBS Independents,25
 401757293,10,2025-11-01T19:30:00.000Z,True,False,Liberty,Conference USA,59,Delaware,Conference USA,30
+401757294,10,2025-11-01T19:30:00.000Z,True,False,Western Kentucky,Conference USA,35,New Mexico State,Conference USA,16
+401761641,10,2025-11-01T19:30:00.000Z,True,False,UL Monroe,Sun Belt,6,Old Dominion,Sun Belt,31
+401760402,10,2025-11-01T19:30:00.000Z,True,False,Boise State,Mountain West,7,Fresno State,Mountain West,30
+401754582,10,2025-11-01T19:30:00.000Z,True,False,Stanford,ACC,20,Pittsburgh,ACC,35
+401761642,10,2025-11-01T19:30:00.000Z,True,False,South Alabama,Sun Belt,22,Louisiana,Sun Belt,31
 401754576,10,2025-11-01T19:45:00.000Z,True,False,California,ACC,21,Virginia,ACC,31
+401756940,10,2025-11-01T20:00:00.000Z,True,False,Kansas,Big 12,38,Oklahoma State,Big 12,21
 401752753,10,2025-11-01T20:00:00.000Z,True,False,Arkansas,SEC,35,Mississippi State,SEC,38
 401762850,10,2025-11-01T20:00:00.000Z,True,False,Western Michigan,Mid-American,24,Central Michigan,Mid-American,21
-401756940,10,2025-11-01T20:00:00.000Z,True,False,Kansas,Big 12,38,Oklahoma State,Big 12,21
 401756937,10,2025-11-01T23:00:00.000Z,True,False,Colorado,Big 12,17,Arizona,Big 12,52
+401752890,10,2025-11-01T23:00:00.000Z,True,False,Michigan,Big Ten,21,Purdue,Big Ten,16
 401752756,10,2025-11-01T23:00:00.000Z,True,False,Ole Miss,SEC,30,South Carolina,SEC,14
 401760405,10,2025-11-01T23:00:00.000Z,True,False,San Diego State,Mountain West,24,Wyoming,Mountain West,7
-401752890,10,2025-11-01T23:00:00.000Z,True,False,Michigan,Big Ten,21,Purdue,Big Ten,16
-401752943,10,2025-11-01T23:30:00.000Z,True,False,Oregon State,Pac-12,10,Washington State,Pac-12,7
 401752757,10,2025-11-01T23:30:00.000Z,True,False,Tennessee,SEC,27,Oklahoma,SEC,33
 401752892,10,2025-11-01T23:30:00.000Z,True,False,Nebraska,Big Ten,17,USC,Big Ten,21
-401752754,10,2025-11-01T23:30:00.000Z,True,False,Auburn,SEC,3,Kentucky,SEC,10
+401752943,10,2025-11-01T23:30:00.000Z,True,False,Oregon State,Pac-12,10,Washington State,Pac-12,7
 401754578,10,2025-11-01T23:30:00.000Z,True,False,Florida State,ACC,42,Wake Forest,ACC,7
 401754579,10,2025-11-01T23:30:00.000Z,True,False,NC State,ACC,48,Georgia Tech,ACC,36
+401752754,10,2025-11-01T23:30:00.000Z,True,False,Auburn,SEC,3,Kentucky,SEC,10
 401761643,10,2025-11-02T00:00:00.000Z,True,False,Troy,Sun Belt,10,Arkansas State,Sun Belt,23
 401756942,10,2025-11-02T02:15:00.000Z,True,False,Utah,Big 12,45,Cincinnati,Big 12,14
 401760403,10,2025-11-02T02:30:00.000Z,True,False,San José State,Mountain West,45,Hawai'i,Mountain West,38
-401762851,11,2025-11-05T00:00:00.000Z,True,False,Akron,Mid-American,44,Massachusetts,Mid-American,10
 401762852,11,2025-11-05T00:00:00.000Z,True,False,Ohio,Mid-American,24,Miami (OH),Mid-American,20
-401762854,11,2025-11-06T00:00:00.000Z,True,False,Toledo,Mid-American,42,Northern Illinois,Mid-American,3
+401762851,11,2025-11-05T00:00:00.000Z,True,False,Akron,Mid-American,44,Massachusetts,Mid-American,10
 401762853,11,2025-11-06T00:00:00.000Z,True,False,Ball State,Mid-American,17,Kent State,Mid-American,13
-401762500,11,2025-11-07T00:30:00.000Z,True,False,South Florida,American Athletic,55,UTSA,American Athletic,23
+401762854,11,2025-11-06T00:00:00.000Z,True,False,Toledo,Mid-American,42,Northern Illinois,Mid-American,3
 401761644,11,2025-11-07T00:30:00.000Z,True,False,App State,Sun Belt,23,Georgia Southern,Sun Belt,25
+401762500,11,2025-11-07T00:30:00.000Z,True,False,South Florida,American Athletic,55,UTSA,American Athletic,23
 401756946,11,2025-11-08T01:00:00.000Z,True,False,UCF,Big 12,27,Houston,Big 12,30
 401752896,11,2025-11-08T02:00:00.000Z,True,False,USC,Big Ten,38,Northwestern,Big Ten,17
 401762501,11,2025-11-08T02:00:00.000Z,True,False,Memphis,American Athletic,32,Tulane,American Athletic,38
-401752762,11,2025-11-08T17:00:00.000Z,True,False,Mississippi State,SEC,21,Georgia,SEC,41
-401761647,11,2025-11-08T17:00:00.000Z,True,False,Arkansas State,Sun Belt,21,Southern Miss,Sun Belt,27
-401762503,11,2025-11-08T17:00:00.000Z,True,False,Army,American Athletic,14,Temple,American Athletic,13
-401756945,11,2025-11-08T17:00:00.000Z,True,False,Texas Tech,Big 12,29,BYU,Big 12,7
-401754584,11,2025-11-08T17:00:00.000Z,True,False,Boston College,ACC,13,SMU,ACC,45
 401752893,11,2025-11-08T17:00:00.000Z,True,False,Penn State,Big Ten,24,Indiana,Big Ten,27
-401756947,11,2025-11-08T17:00:00.000Z,True,False,West Virginia,Big 12,29,Colorado,Big 12,22
 401761646,11,2025-11-08T17:00:00.000Z,True,False,Marshall,Sun Belt,23,James Madison,Sun Belt,35
-401752897,11,2025-11-08T18:00:00.000Z,True,False,Purdue,Big Ten,10,Ohio State,Big Ten,34
-401762855,11,2025-11-08T18:00:00.000Z,True,False,Eastern Michigan,Mid-American,27,Bowling Green,Mid-American,21
+401756947,11,2025-11-08T17:00:00.000Z,True,False,West Virginia,Big 12,29,Colorado,Big 12,22
+401754584,11,2025-11-08T17:00:00.000Z,True,False,Boston College,ACC,13,SMU,ACC,45
+401756945,11,2025-11-08T17:00:00.000Z,True,False,Texas Tech,Big 12,29,BYU,Big 12,7
+401762503,11,2025-11-08T17:00:00.000Z,True,False,Army,American Athletic,14,Temple,American Athletic,13
+401761647,11,2025-11-08T17:00:00.000Z,True,False,Arkansas State,Sun Belt,21,Southern Miss,Sun Belt,27
+401752762,11,2025-11-08T17:00:00.000Z,True,False,Mississippi State,SEC,21,Georgia,SEC,41
 401752761,11,2025-11-08T18:00:00.000Z,True,False,Ole Miss,SEC,49,The Citadel,Southern,0
+401752897,11,2025-11-08T18:00:00.000Z,True,False,Purdue,Big Ten,10,Ohio State,Big Ten,34
 401757299,11,2025-11-08T18:00:00.000Z,True,False,Liberty,Conference USA,17,Missouri State,Conference USA,21
+401762855,11,2025-11-08T18:00:00.000Z,True,False,Eastern Michigan,Mid-American,27,Bowling Green,Mid-American,21
 401762502,11,2025-11-08T19:00:00.000Z,True,False,Rice,American Athletic,24,UAB,American Athletic,17
 401752894,11,2025-11-08T19:30:00.000Z,True,False,Rutgers,Big Ten,35,Maryland,Big Ten,20
-401757295,11,2025-11-08T20:00:00.000Z,True,False,Delaware,Conference USA,25,Louisiana Tech,Conference USA,24
+401762504,11,2025-11-08T20:00:00.000Z,True,False,East Carolina,American Athletic,48,Charlotte,American Athletic,22
 401762505,11,2025-11-08T20:00:00.000Z,True,False,Florida Atlantic,American Athletic,40,Tulsa,American Athletic,21
 401757297,11,2025-11-08T20:00:00.000Z,True,False,UTEP,Conference USA,27,Jacksonville State,Conference USA,30
 401757296,11,2025-11-08T20:00:00.000Z,True,False,Middle Tennessee,Conference USA,30,Florida International,Conference USA,56
-401762504,11,2025-11-08T20:00:00.000Z,True,False,East Carolina,American Athletic,48,Charlotte,American Athletic,22
-401752898,11,2025-11-08T20:30:00.000Z,True,False,Iowa,Big Ten,16,Oregon,Big Ten,18
-401754587,11,2025-11-08T20:30:00.000Z,True,False,Miami,ACC,38,Syracuse,ACC,10
-401752763,11,2025-11-08T20:30:00.000Z,True,False,Missouri,SEC,17,Texas A&M,SEC,38
+401757295,11,2025-11-08T20:00:00.000Z,True,False,Delaware,Conference USA,25,Louisiana Tech,Conference USA,24
 401754590,11,2025-11-08T20:30:00.000Z,True,False,UConn,FBS Independents,37,Duke,ACC,34
-401756944,11,2025-11-08T20:30:00.000Z,True,False,TCU,Big 12,17,Iowa State,Big 12,20
+401752898,11,2025-11-08T20:30:00.000Z,True,False,Iowa,Big Ten,16,Oregon,Big Ten,18
+401752763,11,2025-11-08T20:30:00.000Z,True,False,Missouri,SEC,17,Texas A&M,SEC,38
+401754587,11,2025-11-08T20:30:00.000Z,True,False,Miami,ACC,38,Syracuse,ACC,10
 401756943,11,2025-11-08T20:30:00.000Z,True,False,Arizona,Big 12,24,Kansas,Big 12,20
+401756944,11,2025-11-08T20:30:00.000Z,True,False,TCU,Big 12,17,Iowa State,Big 12,20
+401752764,11,2025-11-08T21:00:00.000Z,True,False,Vanderbilt,SEC,45,Auburn,SEC,38
 401757298,11,2025-11-08T21:00:00.000Z,True,False,New Mexico State,Conference USA,21,Kennesaw State,Conference USA,24
 401761645,11,2025-11-08T21:00:00.000Z,True,False,Coastal Carolina,Sun Belt,40,Georgia State,Sun Belt,27
-401752764,11,2025-11-08T21:00:00.000Z,True,False,Vanderbilt,SEC,45,Auburn,SEC,38
 401754588,11,2025-11-08T21:30:00.000Z,True,False,North Carolina,ACC,20,Stanford,ACC,15
 401752899,11,2025-11-08T21:30:00.000Z,True,False,Wisconsin,Big Ten,13,Washington,Big Ten,10
 401761648,11,2025-11-08T22:00:00.000Z,True,False,Louisiana,Sun Belt,42,Texas State,Sun Belt,39
 401760406,11,2025-11-08T23:00:00.000Z,True,False,San José State,Mountain West,16,Air Force,Mountain West,26
-401754585,11,2025-11-09T00:00:00.000Z,True,False,Louisville,ACC,26,California,ACC,29
 401754589,11,2025-11-09T00:00:00.000Z,True,False,Virginia,ACC,9,Wake Forest,ACC,16
 401754586,11,2025-11-09T00:00:00.000Z,True,False,Clemson,ACC,24,Florida State,ACC,10
+401754585,11,2025-11-09T00:00:00.000Z,True,False,Louisville,ACC,26,California,ACC,29
 401757166,11,2025-11-09T00:30:00.000Z,True,False,Notre Dame,FBS Independents,49,Navy,American Athletic,10
-401752760,11,2025-11-09T00:30:00.000Z,True,False,Kentucky,SEC,38,Florida,SEC,7
 401752759,11,2025-11-09T00:30:00.000Z,True,False,Alabama,SEC,20,LSU,SEC,9
+401752760,11,2025-11-09T00:30:00.000Z,True,False,Kentucky,SEC,38,Florida,SEC,7
 401760409,11,2025-11-09T00:30:00.000Z,True,False,Utah State,Mountain West,51,Nevada,Mountain West,14
 401752895,11,2025-11-09T02:00:00.000Z,True,False,UCLA,Big Ten,21,Nebraska,Big Ten,28
 401760407,11,2025-11-09T02:30:00.000Z,True,False,Colorado State,Mountain West,10,UNLV,Mountain West,42
@@ -689,43 +689,43 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401760408,11,2025-11-09T04:00:00.000Z,True,False,Hawai'i,Mountain West,38,San Diego State,Mountain West,6
 401762856,12,2025-11-12T00:30:00.000Z,True,False,Akron,Mid-American,35,Kent State,Mid-American,42
 401762857,12,2025-11-12T01:00:00.000Z,True,False,Western Michigan,Mid-American,17,Ohio,Mid-American,13
-401762858,12,2025-11-13T00:00:00.000Z,True,False,Central Michigan,Mid-American,38,Buffalo,Mid-American,19
 401762859,12,2025-11-13T00:00:00.000Z,True,False,Massachusetts,Mid-American,3,Northern Illinois,Mid-American,45
+401762858,12,2025-11-13T00:00:00.000Z,True,False,Central Michigan,Mid-American,38,Buffalo,Mid-American,19
 401762860,12,2025-11-13T00:00:00.000Z,True,False,Miami (OH),Mid-American,3,Toledo,Mid-American,24
 401761649,12,2025-11-14T00:30:00.000Z,True,False,Old Dominion,Sun Belt,33,Troy,Sun Belt,0
 401754591,12,2025-11-15T00:30:00.000Z,True,False,Louisville,ACC,19,Clemson,ACC,20
 401752904,12,2025-11-15T02:00:00.000Z,True,False,Oregon,Big Ten,42,Minnesota,Big Ten,13
+401756952,12,2025-11-15T17:00:00.000Z,True,False,Oklahoma State,Big 12,6,Kansas State,Big 12,14
+401756951,12,2025-11-15T17:00:00.000Z,True,False,Cincinnati,Big 12,24,Arizona,Big 12,30
 401752905,12,2025-11-15T17:00:00.000Z,True,True,Northwestern,Big Ten,22,Michigan,Big Ten,24
 401752772,12,2025-11-15T17:00:00.000Z,True,False,Texas A&M,SEC,31,South Carolina,SEC,30
 401752901,12,2025-11-15T17:00:00.000Z,True,False,Indiana,Big Ten,31,Wisconsin,Big Ten,7
-401756952,12,2025-11-15T17:00:00.000Z,True,False,Oklahoma State,Big 12,6,Kansas State,Big 12,14
-401756951,12,2025-11-15T17:00:00.000Z,True,False,Cincinnati,Big 12,24,Arizona,Big 12,30
-401754597,12,2025-11-15T17:00:00.000Z,True,False,Pittsburgh,ACC,15,Notre Dame,FBS Independents,37
+401762861,12,2025-11-15T17:00:00.000Z,True,False,Ball State,Mid-American,9,Eastern Michigan,Mid-American,24
 401757174,12,2025-11-15T17:00:00.000Z,True,False,UConn,FBS Independents,26,Air Force,Mountain West,16
 401762510,12,2025-11-15T17:00:00.000Z,True,False,Navy,American Athletic,41,South Florida,American Athletic,38
-401762861,12,2025-11-15T17:00:00.000Z,True,False,Ball State,Mid-American,9,Eastern Michigan,Mid-American,24
+401754597,12,2025-11-15T17:00:00.000Z,True,False,Pittsburgh,ACC,15,Notre Dame,FBS Independents,37
 401762507,12,2025-11-15T17:00:00.000Z,True,False,Charlotte,American Athletic,7,UTSA,American Athletic,28
 401752768,12,2025-11-15T17:45:00.000Z,True,False,LSU,SEC,23,Arkansas,SEC,22
 401752945,12,2025-11-15T18:00:00.000Z,True,False,Tulsa,American Athletic,31,Oregon State,Pac-12,14
 401756948,12,2025-11-15T18:00:00.000Z,True,False,Arizona State,Big 12,25,West Virginia,Big 12,23
 401752767,12,2025-11-15T18:30:00.000Z,True,False,Kentucky,SEC,42,Tennessee Tech,OVC-Big South,10
-401761651,12,2025-11-15T19:00:00.000Z,True,False,Georgia State,Sun Belt,18,Marshall,Sun Belt,30
 401762506,12,2025-11-15T19:00:00.000Z,True,False,UAB,American Athletic,24,North Texas,American Athletic,53
+401761651,12,2025-11-15T19:00:00.000Z,True,False,Georgia State,Sun Belt,18,Marshall,Sun Belt,30
 401760411,12,2025-11-15T20:00:00.000Z,True,False,New Mexico,Mountain West,20,Colorado State,Mountain West,17
 401757304,12,2025-11-15T20:00:00.000Z,True,False,Missouri State,Conference USA,38,UTEP,Conference USA,24
-401761653,12,2025-11-15T20:30:00.000Z,True,False,UL Monroe,Sun Belt,14,South Alabama,Sun Belt,26
-401756953,12,2025-11-15T20:30:00.000Z,True,False,Texas Tech,Big 12,48,UCF,Big 12,9
-401761654,12,2025-11-15T20:30:00.000Z,True,False,Southern Miss,Sun Belt,14,Texas State,Sun Belt,41
-401760413,12,2025-11-15T20:30:00.000Z,True,False,Nevada,Mountain West,55,San José State,Mountain West,10
-401754592,12,2025-11-15T20:30:00.000Z,True,False,Boston College,ACC,34,Georgia Tech,ACC,36
-401754593,12,2025-11-15T20:30:00.000Z,True,False,Duke,ACC,17,Virginia,ACC,34
+401752907,12,2025-11-15T20:30:00.000Z,True,False,USC,Big Ten,26,Iowa,Big Ten,21
 401757303,12,2025-11-15T20:30:00.000Z,True,False,Western Kentucky,Conference USA,42,Middle Tennessee,Conference USA,26
 401754595,12,2025-11-15T20:30:00.000Z,True,False,Miami,ACC,41,NC State,ACC,7
+401756953,12,2025-11-15T20:30:00.000Z,True,False,Texas Tech,Big 12,48,UCF,Big 12,9
+401754593,12,2025-11-15T20:30:00.000Z,True,False,Duke,ACC,17,Virginia,ACC,34
+401754592,12,2025-11-15T20:30:00.000Z,True,False,Boston College,ACC,34,Georgia Tech,ACC,36
+401760413,12,2025-11-15T20:30:00.000Z,True,False,Nevada,Mountain West,55,San José State,Mountain West,10
 401752906,12,2025-11-15T20:30:00.000Z,True,False,Illinois,Big Ten,24,Maryland,Big Ten,6
+401761653,12,2025-11-15T20:30:00.000Z,True,False,UL Monroe,Sun Belt,14,South Alabama,Sun Belt,26
+401761654,12,2025-11-15T20:30:00.000Z,True,False,Southern Miss,Sun Belt,14,Texas State,Sun Belt,41
+401752903,12,2025-11-15T20:30:00.000Z,True,False,Michigan State,Big Ten,10,Penn State,Big Ten,28
 401752765,12,2025-11-15T20:30:00.000Z,True,False,Alabama,SEC,21,Oklahoma,SEC,23
 401761652,12,2025-11-15T20:30:00.000Z,True,False,James Madison,Sun Belt,58,App State,Sun Belt,10
-401752907,12,2025-11-15T20:30:00.000Z,True,False,USC,Big Ten,26,Iowa,Big Ten,21
-401752903,12,2025-11-15T20:30:00.000Z,True,False,Michigan State,Big Ten,10,Penn State,Big Ten,28
 401762508,12,2025-11-15T21:00:00.000Z,True,False,East Carolina,American Athletic,31,Memphis,American Athletic,27
 401762509,12,2025-11-15T21:00:00.000Z,True,False,Tulane,American Athletic,35,Florida Atlantic,American Athletic,24
 401752771,12,2025-11-15T21:15:00.000Z,True,False,Tennessee,SEC,42,New Mexico State,Conference USA,9
@@ -733,145 +733,145 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401757301,12,2025-11-15T22:00:00.000Z,True,False,Florida International,Conference USA,34,Liberty,Conference USA,27
 401761650,12,2025-11-15T23:00:00.000Z,True,False,Georgia Southern,Sun Belt,45,Coastal Carolina,Sun Belt,40
 401760414,12,2025-11-16T00:00:00.000Z,True,False,UNLV,Mountain West,29,Utah State,Mountain West,26
-401756949,12,2025-11-16T00:00:00.000Z,True,False,Baylor,Big 12,28,Utah,Big 12,55
 401757300,12,2025-11-16T00:00:00.000Z,True,True,Sam Houston,Conference USA,26,Delaware,Conference USA,23
-401752769,12,2025-11-16T00:00:00.000Z,True,False,Ole Miss,SEC,34,Florida,SEC,24
 401752902,12,2025-11-16T00:00:00.000Z,True,False,Washington,Big Ten,49,Purdue,Big Ten,13
+401756949,12,2025-11-16T00:00:00.000Z,True,False,Baylor,Big 12,28,Utah,Big 12,55
+401752769,12,2025-11-16T00:00:00.000Z,True,False,Ole Miss,SEC,34,Florida,SEC,24
+401754594,12,2025-11-16T00:30:00.000Z,True,False,Florida State,ACC,34,Virginia Tech,ACC,14
 401752900,12,2025-11-16T00:30:00.000Z,True,False,Ohio State,Big Ten,48,UCLA,Big Ten,10
 401752766,12,2025-11-16T00:30:00.000Z,True,False,Georgia,SEC,35,Texas,SEC,10
-401754594,12,2025-11-16T00:30:00.000Z,True,False,Florida State,ACC,34,Virginia Tech,ACC,14
 401752770,12,2025-11-16T00:45:00.000Z,True,False,Missouri,SEC,49,Mississippi State,SEC,27
 401757302,12,2025-11-16T01:00:00.000Z,True,False,Jacksonville State,Conference USA,35,Kennesaw State,Conference USA,26
 401752953,12,2025-11-16T03:00:00.000Z,True,False,Washington State,Pac-12,28,Louisiana Tech,Conference USA,3
 401756950,12,2025-11-16T03:15:00.000Z,True,False,BYU,Big 12,44,TCU,Big 12,13
-401760410,12,2025-11-16T03:30:00.000Z,True,False,San Diego State,Mountain West,17,Boise State,Mountain West,7
 401760412,12,2025-11-16T03:30:00.000Z,True,False,Fresno State,Mountain West,24,Wyoming,Mountain West,3
-401762862,13,2025-11-19T00:00:00.000Z,True,False,Bowling Green,Mid-American,16,Akron,Mid-American,19
-401762864,13,2025-11-19T00:00:00.000Z,True,False,Northern Illinois,Mid-American,19,Western Michigan,Mid-American,35
+401760410,12,2025-11-16T03:30:00.000Z,True,False,San Diego State,Mountain West,17,Boise State,Mountain West,7
 401762863,13,2025-11-19T00:00:00.000Z,True,False,Ohio,Mid-American,42,Massachusetts,Mid-American,14
-401762866,13,2025-11-20T00:00:00.000Z,True,False,Kent State,Mid-American,16,Central Michigan,Mid-American,28
+401762864,13,2025-11-19T00:00:00.000Z,True,False,Northern Illinois,Mid-American,19,Western Michigan,Mid-American,35
+401762862,13,2025-11-19T00:00:00.000Z,True,False,Bowling Green,Mid-American,16,Akron,Mid-American,19
 401762865,13,2025-11-20T00:00:00.000Z,True,False,Buffalo,Mid-American,20,Miami (OH),Mid-American,37
+401762866,13,2025-11-20T00:00:00.000Z,True,False,Kent State,Mid-American,16,Central Michigan,Mid-American,28
 401761655,13,2025-11-21T00:30:00.000Z,True,False,Arkansas State,Sun Belt,30,Louisiana,Sun Belt,34
 401754598,13,2025-11-22T01:00:00.000Z,True,False,NC State,ACC,21,Florida State,ACC,11
 401760418,13,2025-11-22T03:30:00.000Z,True,False,UNLV,Mountain West,38,Hawai'i,Mountain West,10
-401752912,13,2025-11-22T17:00:00.000Z,True,False,Ohio State,Big Ten,42,Rutgers,Big Ten,9
-401754606,13,2025-11-22T17:00:00.000Z,True,False,Wake Forest,ACC,52,Delaware,Conference USA,14
+401754602,13,2025-11-22T17:00:00.000Z,True,False,SMU,ACC,38,Louisville,ACC,6
 401756958,13,2025-11-22T17:00:00.000Z,True,False,Iowa State,Big 12,38,Kansas,Big 12,14
+401754606,13,2025-11-22T17:00:00.000Z,True,False,Wake Forest,ACC,52,Delaware,Conference USA,14
 401752778,13,2025-11-22T17:00:00.000Z,True,False,Oklahoma,SEC,17,Missouri,SEC,6
 401752781,13,2025-11-22T17:00:00.000Z,True,False,Texas A&M,SEC,48,Samford,Southern,0
-401754602,13,2025-11-22T17:00:00.000Z,True,False,SMU,ACC,38,Louisville,ACC,6
 401754603,13,2025-11-22T17:00:00.000Z,True,False,Virginia Tech,ACC,17,Miami,ACC,34
 401752909,13,2025-11-22T17:00:00.000Z,True,True,Northwestern,Big Ten,38,Minnesota,Big Ten,35
 401762512,13,2025-11-22T17:00:00.000Z,True,False,Army,American Athletic,25,Tulsa,American Athletic,26
+401752912,13,2025-11-22T17:00:00.000Z,True,False,Ohio State,Big Ten,42,Rutgers,Big Ten,9
 401752776,13,2025-11-22T17:45:00.000Z,True,False,Georgia,SEC,35,Charlotte,American Athletic,3
 401761657,13,2025-11-22T18:00:00.000Z,True,False,Georgia Southern,Sun Belt,10,Old Dominion,Sun Belt,45
-401752954,13,2025-11-22T18:00:00.000Z,True,False,James Madison,Sun Belt,24,Washington State,Pac-12,20
 401756954,13,2025-11-22T18:00:00.000Z,True,False,Arizona,Big 12,41,Baylor,Big 12,17
-401752773,13,2025-11-22T19:00:00.000Z,True,False,Alabama,SEC,56,Eastern Illinois,OVC-Big South,0
+401752954,13,2025-11-22T18:00:00.000Z,True,False,James Madison,Sun Belt,24,Washington State,Pac-12,20
 401762867,13,2025-11-22T19:00:00.000Z,True,False,Toledo,Mid-American,38,Ball State,Mid-American,9
-401760419,13,2025-11-22T19:00:00.000Z,True,False,Wyoming,Mountain West,7,Nevada,Mountain West,13
+401752773,13,2025-11-22T19:00:00.000Z,True,False,Alabama,SEC,56,Eastern Illinois,OVC-Big South,0
 401757306,13,2025-11-22T19:00:00.000Z,True,False,Kennesaw State,Conference USA,41,Missouri State,Conference USA,34
+401760419,13,2025-11-22T19:00:00.000Z,True,False,Wyoming,Mountain West,7,Nevada,Mountain West,13
 401752774,13,2025-11-22T19:00:00.000Z,True,False,Auburn,SEC,62,Mercer,Southern,17
 401761656,13,2025-11-22T19:30:00.000Z,True,False,App State,Sun Belt,26,Marshall,Sun Belt,24
-401757307,13,2025-11-22T20:00:00.000Z,True,False,Louisiana Tech,Conference USA,34,Liberty,Conference USA,28
 401757175,13,2025-11-22T20:00:00.000Z,True,False,Florida Atlantic,American Athletic,45,UConn,FBS Independents,48
 401762511,13,2025-11-22T20:00:00.000Z,True,False,UAB,American Athletic,18,South Florida,American Athletic,48
 401757309,13,2025-11-22T20:00:00.000Z,True,False,UTEP,Conference USA,31,New Mexico State,Conference USA,34
 401757308,13,2025-11-22T20:00:00.000Z,True,False,Middle Tennessee,Conference USA,31,Sam Houston,Conference USA,17
-401754600,13,2025-11-22T20:30:00.000Z,True,False,North Carolina,ACC,25,Duke,ACC,32
-401762513,13,2025-11-22T20:30:00.000Z,True,False,UTSA,American Athletic,58,East Carolina,American Athletic,24
-401754604,13,2025-11-22T20:30:00.000Z,True,False,Notre Dame,FBS Independents,70,Syracuse,ACC,7
-401752911,13,2025-11-22T20:30:00.000Z,True,False,Oregon,Big Ten,42,USC,Big Ten,27
+401757307,13,2025-11-22T20:00:00.000Z,True,False,Louisiana Tech,Conference USA,34,Liberty,Conference USA,28
+401761658,13,2025-11-22T20:30:00.000Z,True,False,South Alabama,Sun Belt,42,Southern Miss,Sun Belt,35
 401752913,13,2025-11-22T20:30:00.000Z,True,False,Iowa,Big Ten,20,Michigan State,Big Ten,17
 401752782,13,2025-11-22T20:30:00.000Z,True,False,Vanderbilt,SEC,45,Kentucky,SEC,17
+401754600,13,2025-11-22T20:30:00.000Z,True,False,North Carolina,ACC,25,Duke,ACC,32
+401754604,13,2025-11-22T20:30:00.000Z,True,False,Notre Dame,FBS Independents,70,Syracuse,ACC,7
 401757305,13,2025-11-22T20:30:00.000Z,True,False,Florida International,Conference USA,27,Jacksonville State,Conference USA,21
+401762513,13,2025-11-22T20:30:00.000Z,True,False,UTSA,American Athletic,58,East Carolina,American Athletic,24
 401752780,13,2025-11-22T20:30:00.000Z,True,False,Texas,SEC,52,Arkansas,SEC,37
-401761658,13,2025-11-22T20:30:00.000Z,True,False,South Alabama,Sun Belt,42,Southern Miss,Sun Belt,35
+401752911,13,2025-11-22T20:30:00.000Z,True,False,Oregon,Big Ten,42,USC,Big Ten,27
 401762515,13,2025-11-22T20:45:00.000Z,True,False,Temple,American Athletic,13,Tulane,American Athletic,37
-401761660,13,2025-11-22T21:00:00.000Z,True,False,Troy,Sun Belt,31,Georgia State,Sun Belt,19
-401752914,13,2025-11-22T21:00:00.000Z,True,False,Maryland,Big Ten,20,Michigan,Big Ten,45
 401756959,13,2025-11-22T21:00:00.000Z,True,False,UCF,Big 12,17,Oklahoma State,Big 12,14
 401756957,13,2025-11-22T21:00:00.000Z,True,False,Houston,Big 12,14,TCU,Big 12,17
 401756960,13,2025-11-22T21:00:00.000Z,True,False,Utah,Big 12,51,Kansas State,Big 12,47
+401752914,13,2025-11-22T21:00:00.000Z,True,False,Maryland,Big Ten,20,Michigan,Big Ten,45
+401761660,13,2025-11-22T21:00:00.000Z,True,False,Troy,Sun Belt,31,Georgia State,Sun Belt,19
 401752779,13,2025-11-22T21:15:00.000Z,True,False,South Carolina,SEC,51,Coastal Carolina,Sun Belt,7
 401754605,13,2025-11-22T21:30:00.000Z,True,False,Clemson,ACC,45,Furman,Southern,10
 401761659,13,2025-11-22T22:00:00.000Z,True,False,Texas State,Sun Belt,31,UL Monroe,Sun Belt,14
+401760415,13,2025-11-23T00:00:00.000Z,True,False,Air Force,Mountain West,3,New Mexico,Mountain West,20
 401760416,13,2025-11-23T00:00:00.000Z,True,False,Boise State,Mountain West,49,Colorado State,Mountain West,21
 401752908,13,2025-11-23T00:00:00.000Z,True,False,Penn State,Big Ten,37,Nebraska,Big Ten,10
-401760415,13,2025-11-23T00:00:00.000Z,True,False,Air Force,Mountain West,3,New Mexico,Mountain West,20
 401754601,13,2025-11-23T00:00:00.000Z,True,False,Georgia Tech,ACC,28,Pittsburgh,ACC,42
-401752775,13,2025-11-23T00:30:00.000Z,True,False,Florida,SEC,11,Tennessee,SEC,31
-401752915,13,2025-11-23T00:30:00.000Z,True,False,Wisconsin,Big Ten,27,Illinois,Big Ten,10
 401762514,13,2025-11-23T00:30:00.000Z,True,False,Rice,American Athletic,24,North Texas,American Athletic,56
 401754599,13,2025-11-23T00:30:00.000Z,True,False,Stanford,ACC,31,California,ACC,10
+401752775,13,2025-11-23T00:30:00.000Z,True,False,Florida,SEC,11,Tennessee,SEC,31
+401752915,13,2025-11-23T00:30:00.000Z,True,False,Wisconsin,Big Ten,27,Illinois,Big Ten,10
 401752777,13,2025-11-23T00:45:00.000Z,True,False,LSU,SEC,13,Western Kentucky,Conference USA,10
 401756955,13,2025-11-23T01:00:00.000Z,True,False,Cincinnati,Big 12,14,BYU,Big 12,26
 401756956,13,2025-11-23T01:00:00.000Z,True,False,Colorado,Big 12,17,Arizona State,Big 12,42
+401752910,13,2025-11-23T03:30:00.000Z,True,False,UCLA,Big Ten,14,Washington,Big Ten,48
 401760417,13,2025-11-23T03:30:00.000Z,True,False,Fresno State,Mountain West,17,Utah State,Mountain West,28
 401760420,13,2025-11-23T03:30:00.000Z,True,False,San Diego State,Mountain West,25,San José State,Mountain West,3
-401752910,13,2025-11-23T03:30:00.000Z,True,False,UCLA,Big Ten,14,Washington,Big Ten,48
 401762868,14,2025-11-25T21:30:00.000Z,True,False,Massachusetts,Mid-American,14,Bowling Green,Mid-American,45
 401762869,14,2025-11-26T00:30:00.000Z,True,False,Eastern Michigan,Mid-American,21,Western Michigan,Mid-American,31
 401762516,14,2025-11-28T00:30:00.000Z,True,False,Memphis,American Athletic,17,Navy,American Athletic,28
 401762870,14,2025-11-28T17:00:00.000Z,True,False,Buffalo,Mid-American,26,Ohio,Mid-American,31
-401756964,14,2025-11-28T17:00:00.000Z,True,False,Kansas,Big 12,21,Utah,Big 12,31
+401752788,14,2025-11-28T17:00:00.000Z,True,False,Mississippi State,SEC,19,Ole Miss,SEC,38
 401752916,14,2025-11-28T17:00:00.000Z,True,False,Nebraska,Big Ten,16,Iowa,Big Ten,40
 401762871,14,2025-11-28T17:00:00.000Z,True,False,Northern Illinois,Mid-American,31,Kent State,Mid-American,35
-401752788,14,2025-11-28T17:00:00.000Z,True,False,Mississippi State,SEC,19,Ole Miss,SEC,38
+401756964,14,2025-11-28T17:00:00.000Z,True,False,Kansas,Big 12,21,Utah,Big 12,31
 401760421,14,2025-11-28T20:00:00.000Z,True,False,Colorado State,Mountain West,21,Air Force,Mountain West,42
 401762442,14,2025-11-28T20:30:00.000Z,True,False,North Texas,American Athletic,52,Temple,American Athletic,25
-401760426,14,2025-11-28T20:30:00.000Z,True,False,New Mexico,Mountain West,23,San Diego State,Mountain West,17
 401752786,14,2025-11-28T20:30:00.000Z,True,True,Georgia Tech,ACC,9,Georgia,SEC,16
+401760426,14,2025-11-28T20:30:00.000Z,True,False,New Mexico,Mountain West,23,San Diego State,Mountain West,17
 401760422,14,2025-11-28T21:00:00.000Z,True,False,Utah State,Mountain West,24,Boise State,Mountain West,25
 401752792,14,2025-11-29T00:30:00.000Z,True,False,Texas,SEC,27,Texas A&M,SEC,17
 401752924,14,2025-11-29T00:30:00.000Z,True,False,Purdue,Big Ten,3,Indiana,Big Ten,56
 401756961,14,2025-11-29T02:00:00.000Z,True,False,Arizona State,Big 12,7,Arizona,Big 12,23
-401752787,14,2025-11-29T17:00:00.000Z,True,False,Louisville,ACC,41,Kentucky,SEC,0
-401762875,14,2025-11-29T17:00:00.000Z,True,False,Miami (OH),Mid-American,45,Ball State,Mid-American,24
-401756968,14,2025-11-29T17:00:00.000Z,True,False,West Virginia,Big 12,0,Texas Tech,Big 12,49
-401752790,14,2025-11-29T17:00:00.000Z,True,False,South Carolina,SEC,14,Clemson,ACC,28
-401762519,14,2025-11-29T17:00:00.000Z,True,False,Florida Atlantic,American Athletic,3,East Carolina,American Athletic,42
 401762872,14,2025-11-29T17:00:00.000Z,True,False,Central Michigan,Mid-American,3,Toledo,Mid-American,21
+401762875,14,2025-11-29T17:00:00.000Z,True,False,Miami (OH),Mid-American,45,Ball State,Mid-American,24
+401752790,14,2025-11-29T17:00:00.000Z,True,False,South Carolina,SEC,14,Clemson,ACC,28
 401752921,14,2025-11-29T17:00:00.000Z,True,False,Michigan,Big Ten,9,Ohio State,Big Ten,27
-401756965,14,2025-11-29T17:00:00.000Z,True,False,Kansas State,Big 12,24,Colorado,Big 12,14
-401756962,14,2025-11-29T17:00:00.000Z,True,False,Baylor,Big 12,24,Houston,Big 12,31
+401756968,14,2025-11-29T17:00:00.000Z,True,False,West Virginia,Big 12,0,Texas Tech,Big 12,49
+401762519,14,2025-11-29T17:00:00.000Z,True,False,Florida Atlantic,American Athletic,3,East Carolina,American Athletic,42
+401752787,14,2025-11-29T17:00:00.000Z,True,False,Louisville,ACC,41,Kentucky,SEC,0
 401754611,14,2025-11-29T17:00:00.000Z,True,False,Pittsburgh,ACC,7,Miami,ACC,38
+401756962,14,2025-11-29T17:00:00.000Z,True,False,Baylor,Big 12,24,Houston,Big 12,31
 401756966,14,2025-11-29T17:00:00.000Z,True,False,Oklahoma State,Big 12,13,Iowa State,Big 12,20
-401756963,14,2025-11-29T18:00:00.000Z,True,False,BYU,Big 12,41,UCF,Big 12,21
+401756965,14,2025-11-29T17:00:00.000Z,True,False,Kansas State,Big 12,24,Colorado,Big 12,14
 401757311,14,2025-11-29T18:00:00.000Z,True,True,Sam Houston,Conference USA,16,Florida International,Conference USA,56
+401756963,14,2025-11-29T18:00:00.000Z,True,False,BYU,Big 12,41,UCF,Big 12,21
 401757310,14,2025-11-29T18:00:00.000Z,True,False,Delaware,Conference USA,61,UTEP,Conference USA,31
 401761663,14,2025-11-29T18:30:00.000Z,True,False,Marshall,Sun Belt,19,Georgia Southern,Sun Belt,24
-401757314,14,2025-11-29T19:00:00.000Z,True,False,Missouri State,Conference USA,30,Louisiana Tech,Conference USA,42
 401761664,14,2025-11-29T19:00:00.000Z,True,False,Old Dominion,Sun Belt,27,Georgia State,Sun Belt,10
+401757314,14,2025-11-29T19:00:00.000Z,True,False,Missouri State,Conference USA,30,Louisiana Tech,Conference USA,42
 401757312,14,2025-11-29T19:00:00.000Z,True,False,Jacksonville State,Conference USA,37,Western Kentucky,Conference USA,34
 401761661,14,2025-11-29T19:30:00.000Z,True,False,App State,Sun Belt,29,Arkansas State,Sun Belt,30
-401757315,14,2025-11-29T20:00:00.000Z,True,False,New Mexico State,Conference USA,24,Middle Tennessee,Conference USA,31
 401761667,14,2025-11-29T20:00:00.000Z,True,False,Texas State,Sun Belt,49,South Alabama,Sun Belt,26
 401761665,14,2025-11-29T20:00:00.000Z,True,False,Louisiana,Sun Belt,30,UL Monroe,Sun Belt,27
 401762517,14,2025-11-29T20:00:00.000Z,True,False,Tulsa,American Athletic,24,UAB,American Athletic,31
 401754608,14,2025-11-29T20:00:00.000Z,True,False,Syracuse,ACC,12,Boston College,ACC,34
-401752791,14,2025-11-29T20:30:00.000Z,True,False,Tennessee,SEC,24,Vanderbilt,SEC,45
-401761666,14,2025-11-29T20:30:00.000Z,True,False,Southern Miss,Sun Belt,18,Troy,Sun Belt,28
+401757315,14,2025-11-29T20:00:00.000Z,True,False,New Mexico State,Conference USA,24,Middle Tennessee,Conference USA,31
 401754610,14,2025-11-29T20:30:00.000Z,True,False,Duke,ACC,49,Wake Forest,ACC,32
-401756967,14,2025-11-29T20:30:00.000Z,True,False,TCU,Big 12,45,Cincinnati,Big 12,23
-401752920,14,2025-11-29T20:30:00.000Z,True,False,Rutgers,Big Ten,36,Penn State,Big Ten,40
-401757313,14,2025-11-29T20:30:00.000Z,True,False,Liberty,Conference USA,42,Kennesaw State,Conference USA,48
-401762441,14,2025-11-29T20:30:00.000Z,True,False,UTSA,American Athletic,24,Army,American Athletic,27
-401752918,14,2025-11-29T20:30:00.000Z,True,False,Minnesota,Big Ten,17,Wisconsin,Big Ten,7
 401752789,14,2025-11-29T20:30:00.000Z,True,False,Oklahoma,SEC,17,LSU,SEC,13
+401752918,14,2025-11-29T20:30:00.000Z,True,False,Minnesota,Big Ten,17,Wisconsin,Big Ten,7
+401752920,14,2025-11-29T20:30:00.000Z,True,False,Rutgers,Big Ten,36,Penn State,Big Ten,40
+401756967,14,2025-11-29T20:30:00.000Z,True,False,TCU,Big 12,45,Cincinnati,Big 12,23
+401752791,14,2025-11-29T20:30:00.000Z,True,False,Tennessee,SEC,24,Vanderbilt,SEC,45
+401762441,14,2025-11-29T20:30:00.000Z,True,False,UTSA,American Athletic,24,Army,American Athletic,27
+401761666,14,2025-11-29T20:30:00.000Z,True,False,Southern Miss,Sun Belt,18,Troy,Sun Belt,28
 401752783,14,2025-11-29T20:30:00.000Z,True,False,Arkansas,SEC,17,Missouri,SEC,31
 401752917,14,2025-11-29T20:30:00.000Z,True,False,Washington,Big Ten,14,Oregon,Big Ten,26
+401757313,14,2025-11-29T20:30:00.000Z,True,False,Liberty,Conference USA,42,Kennesaw State,Conference USA,48
 401761662,14,2025-11-29T20:45:00.000Z,True,False,Coastal Carolina,Sun Belt,10,James Madison,Sun Belt,59
 401752785,14,2025-11-29T21:30:00.000Z,True,False,Florida,SEC,40,Florida State,ACC,21
 401752946,14,2025-11-29T23:30:00.000Z,True,False,Washington State,Pac-12,32,Oregon State,Pac-12,8
-401762520,14,2025-11-30T00:00:00.000Z,True,False,South Florida,American Athletic,52,Rice,American Athletic,3
 401752923,14,2025-11-30T00:00:00.000Z,True,True,Michigan State,Big Ten,38,Maryland,Big Ten,28
 401754613,14,2025-11-30T00:00:00.000Z,True,False,Virginia,ACC,27,Virginia Tech,ACC,7
+401762520,14,2025-11-30T00:00:00.000Z,True,False,South Florida,American Athletic,52,Rice,American Athletic,3
+401752919,14,2025-11-30T00:30:00.000Z,True,False,USC,Big Ten,29,UCLA,Big Ten,10
 401752922,14,2025-11-30T00:30:00.000Z,True,False,Illinois,Big Ten,20,Northwestern,Big Ten,13
-401762518,14,2025-11-30T00:30:00.000Z,True,False,Tulane,American Athletic,27,Charlotte,American Athletic,0
 401754612,14,2025-11-30T00:30:00.000Z,True,False,NC State,ACC,42,North Carolina,ACC,19
 401752784,14,2025-11-30T00:30:00.000Z,True,False,Auburn,SEC,20,Alabama,SEC,27
-401752919,14,2025-11-30T00:30:00.000Z,True,False,USC,Big Ten,29,UCLA,Big Ten,10
+401762518,14,2025-11-30T00:30:00.000Z,True,False,Tulane,American Athletic,27,Charlotte,American Athletic,0
 401754609,14,2025-11-30T01:00:00.000Z,True,False,California,ACC,38,SMU,ACC,35
 401760425,14,2025-11-30T02:00:00.000Z,True,False,Nevada,Mountain West,17,UNLV,Mountain West,42
 401760423,14,2025-11-30T03:30:00.000Z,True,False,San José State,Mountain West,14,Fresno State,Mountain West,41
@@ -879,10 +879,10 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401760424,14,2025-11-30T04:00:00.000Z,True,False,Hawai'i,Mountain West,27,Wyoming,Mountain West,7
 401777325,15,2025-12-06T00:00:00.000Z,True,False,Jacksonville State,Conference USA,15,Kennesaw State,Conference USA,19
 401777352,15,2025-12-06T00:00:00.000Z,True,False,James Madison,Sun Belt,31,Troy,Sun Belt,14
-401777324,15,2025-12-06T01:00:00.000Z,True,False,Tulane,American Athletic,34,North Texas,American Athletic,21
 401777326,15,2025-12-06T01:00:00.000Z,True,False,Boise State,Mountain West,38,UNLV,Mountain West,21
-401777329,15,2025-12-06T17:00:00.000Z,True,True,Western Michigan,Mid-American,23,Miami (OH),Mid-American,13
+401777324,15,2025-12-06T01:00:00.000Z,True,False,Tulane,American Athletic,34,North Texas,American Athletic,21
 401777327,15,2025-12-06T17:00:00.000Z,True,True,Texas Tech,Big 12,34,BYU,Big 12,7
+401777329,15,2025-12-06T17:00:00.000Z,True,True,Western Michigan,Mid-American,23,Miami (OH),Mid-American,13
 401777351,15,2025-12-06T21:00:00.000Z,True,True,Alabama,SEC,7,Georgia,SEC,28
 401777353,15,2025-12-07T01:00:00.000Z,True,True,Ohio State,Big Ten,10,Indiana,Big Ten,13
 401777328,15,2025-12-07T01:00:00.000Z,True,True,Virginia,ACC,20,Duke,ACC,27
