@@ -12,11 +12,12 @@ Sign convention (as books print): home_spread NEGATIVE = home favoured, so the m
 """
 import argparse, csv, json, math, os, statistics
 from . import config as C
+from .teamstats import FBS_CONFERENCES as FBS_CONF
 
 
 def load_games(raw="data/raw"):
     """-> dict season -> list of dict(id, week, home, away, hp, ap, neutral, done), plus lines {(season, id): (home_spread, total)}."""
-    games, lines = {}, {}
+    games, lines, fbs = {}, {}, set()
     sources = [(C.SEASON, f"{raw}/cfb_games.csv", f"{raw}/cfb_game_lines.csv")]
     for y in (C.SEASON - 1, C.SEASON - 2):
         sources.append((y, f"{raw}/cfb_hist/cfb_games_{y}.csv", f"{raw}/cfb_hist/cfb_game_lines_{y}.csv"))
@@ -28,6 +29,10 @@ def load_games(raw="data/raw"):
                         wk = int(float(r["week"]))
                     except ValueError:
                         continue
+                    if r.get("homeConference") in FBS_CONF:
+                        fbs.add(r["homeTeam"])
+                    if r.get("awayConference") in FBS_CONF:
+                        fbs.add(r["awayTeam"])
                     done = str(r["completed"]).lower() == "true" and r["homePoints"] not in ("", None) and r["awayPoints"] not in ("", None)
                     games.setdefault(y, []).append(dict(id=r["id"], week=wk, home=r["homeTeam"], away=r["awayTeam"], neutral=str(r["neutralSite"]).lower() == "true", done=done,
                                                         hp=float(r["homePoints"]) if done else None, ap=float(r["awayPoints"]) if done else None, date=r["startDate"]))
@@ -37,16 +42,19 @@ def load_games(raw="data/raw"):
                     sp = float(r["home_spread"]) if r["home_spread"] not in ("", None) else None
                     tt = float(r["total"]) if r["total"] not in ("", None) else None
                     lines[(y, r["id"])] = (sp, tt)
-    return games, lines
+    return games, lines, fbs
 
 
-def fit_margin(games, prior, lam, rho, iters=80):
+def fit_margin(games, prior, lam, rho, iters=80, fbs=None, cap=None, fcs_prior=None):
     """Ridge team ratings + a home-field term from completed games (list of dict). Returns (ratings, hfa)."""
     teams = {}
     for g in games:
         teams.setdefault(g["home"], []).append((g, True))
         teams.setdefault(g["away"], []).append((g, False))
-    pri = {t: rho * prior.get(t, 0.0) for t in teams}
+    cap = C.CFB_SPREAD_CAP if cap is None else cap
+    fcs_prior = C.CFB_SPREAD_FCS if fcs_prior is None else fcs_prior
+    # a team outside FBS has no useful history of its own: it starts far below an average FBS team
+    pri = {t: (rho * prior[t] if t in prior else (0.0 if (fbs is None or t in fbs) else fcs_prior)) for t in teams}
     r = dict(pri)
     hfa = C.CFB_SPREAD_HFA
     for _ in range(iters):
@@ -55,7 +63,7 @@ def fit_margin(games, prior, lam, rho, iters=80):
             num = lam * pri[t]
             den = lam
             for g, is_home in gs:
-                m = g["hp"] - g["ap"]
+                m = max(-cap, min(cap, g["hp"] - g["ap"]))          # a 50-point win is not twice a 25-point win
                 h = 0.0 if g["neutral"] else hfa
                 if is_home:
                     obs = m - h + r.get(g["away"], 0.0)
@@ -99,15 +107,15 @@ def predict(g, rat, hfa, mu, ta):
     return m, t
 
 
-def season_ratings(games, prior, lam, rho):
+def season_ratings(games, prior, lam, rho, fbs=None):
     done = [g for g in games if g["done"]]
-    return fit_margin(done, prior, lam, rho)[0] if done else {}
+    return fit_margin(done, prior, lam, rho, fbs=fbs)[0] if done else {}
 
 
-def walk_forward(games_by_season, season, lam, rho, first_week=2):
+def walk_forward(games_by_season, season, lam, rho, first_week=2, fbs=None):
     """Predict every game of `season` week by week from the earlier weeks (and last season as the prior). -> list of dict(game + model margin/total)."""
     prev = games_by_season.get(season - 1, [])
-    prior = season_ratings(prev, {}, lam, 1.0) if prev else {}
+    prior = season_ratings(prev, {}, lam, 1.0, fbs) if prev else {}
     out = []
     cur = games_by_season.get(season, [])
     for wk in sorted({g["week"] for g in cur}):
@@ -116,7 +124,7 @@ def walk_forward(games_by_season, season, lam, rho, first_week=2):
         past = [g for g in cur if g["done"] and g["week"] < wk]
         if len(past) < 40:
             continue
-        rat, hfa = fit_margin(past, prior, lam, rho)
+        rat, hfa = fit_margin(past, prior, lam, rho, fbs=fbs)
         mu, ta = fit_total(past)
         for g in (x for x in cur if x["week"] == wk):
             m, t = predict(g, rat, hfa, mu, ta)
@@ -124,7 +132,7 @@ def walk_forward(games_by_season, season, lam, rho, first_week=2):
     return out
 
 
-def evaluate(preds, lines):
+def evaluate(preds, lines, fbs=None):
     """MAE of margin and total against the actual result for the model and (where there is a line) the market, plus BETA and the ATS record by edge."""
     rows = []
     for p in preds:
@@ -133,6 +141,9 @@ def evaluate(preds, lines):
         sp, tt = lines.get((p["season"], p["id"]), (None, None))
         rows.append(dict(p, mkt_margin=None if sp is None else -sp, mkt_total=tt, actual=p["hp"] - p["ap"], atotal=p["hp"] + p["ap"]))
     res = dict(n=len(rows))
+    if fbs:
+        rows = [r for r in rows if r["home"] in fbs and r["away"] in fbs]       # FBS vs FBS only: an FBS team against an FCS team is a mismatch the line prices at 30+
+        res["n_fbs"] = len(rows)
     if not rows:
         return res
     res["model_margin_mae"] = round(sum(abs(r["model_margin"] - r["actual"]) for r in rows) / len(rows), 3)
@@ -173,21 +184,21 @@ def evaluate(preds, lines):
 
 
 def main(raw="data/raw", tune=False):
-    games, lines = load_games(raw)
+    games, lines, fbs = load_games(raw)
     print({y: (len(g), sum(1 for x in g if x["done"])) for y, g in games.items()}, "lines:", len(lines))
     lam, rho = C.CFB_SPREAD_LAM, C.CFB_SPREAD_RHO
     if tune:
         best = None
         for l in (2, 4, 6, 8, 12):
             for rr in (0.4, 0.6, 0.8, 1.0):
-                ev = evaluate(walk_forward(games, C.SEASON - 1, l, rr), lines)
+                ev = evaluate(walk_forward(games, C.SEASON - 1, l, rr, fbs=fbs), lines, fbs)
                 if ev["n"] and (best is None or ev["model_margin_mae"] < best[0]):
                     best = (ev["model_margin_mae"], l, rr)
                 print(f"lam {l:>2} rho {rr}: margin MAE {ev.get('model_margin_mae')} (n {ev['n']})")
         print("best on", C.SEASON - 1, best)
     for s in sorted(games):
         if s - 1 in games or s == C.SEASON:
-            print(s, json.dumps(evaluate(walk_forward(games, s, lam, rho), lines)))
+            print(s, json.dumps(evaluate(walk_forward(games, s, lam, rho, fbs=fbs), lines, fbs)))
 
 
 if __name__ == "__main__":
