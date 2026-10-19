@@ -107,8 +107,8 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     by_team_wx, wx_rows = weather.week_weather(sched, week, P, weather.load_overrides(), fetch=fetch_wx)
     status = statuses(inj, week)
     out_ids = {i for i, st in status.items() if re.match(r"(out|ir)", st, re.I)}
-    core = nfl_core(hist, mu, by_team_wx, dict(P, OUT_IDS=out_ids))
     dpt = depth_map(load_csv(f"{raw}/depth.csv")) if os.path.exists(f"{raw}/depth.csv") else {}
+    core = nfl_core(hist, mu, by_team_wx, dict(P, OUT_IDS=out_ids, QB1_IDS={i for i, d in dpt.items() if d["slot"] == "QB1"}))
     # starters (depth chart rank 1, WR 1-3) the injury report lists Out or Doubtful, by team, for the Game Board warning
     outs = {}
     for x in inj:
