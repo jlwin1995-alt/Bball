@@ -8,6 +8,7 @@
     "Half PPR": {passYd: 0.04, passTd: 4, intr: -1, rushYd: 0.1, rushTd: 6, recYd: 0.1, recTd: 6, rec: 0.5, fum: -1, two: 2},
     "Standard": {passYd: 0.04, passTd: 4, intr: -1, rushYd: 0.1, rushTd: 6, recYd: 0.1, recTd: 6, rec: 0, fum: -1, two: 2},
     "6-pt pass TD (PPR)": {passYd: 0.04, passTd: 6, intr: -2, rushYd: 0.1, rushTd: 6, recYd: 0.1, recTd: 6, rec: 1, fum: -2, two: 2},
+    "PrizePicks": {passYd: 0.04, passTd: 4, intr: -1, rushYd: 0.1, rushTd: 6, recYd: 0.1, recTd: 6, rec: 1, fum: -1, two: 0},
     "FanDuel": {passYd: 0.04, passTd: 4, intr: -1, rushYd: 0.1, rushTd: 6, recYd: 0.1, recTd: 6, rec: 0.5, fum: -2, two: 2},
   };
 
