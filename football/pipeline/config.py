@@ -243,10 +243,12 @@ CFB_PLAY_PRIOR = 0.1               # regression on that judgement for college (t
 CFB_MEAN_FACTOR = 1.08             # mean points / median points for college: sum of actual over sum of projected in the walk-forward backtest (NFL: 1.17); five weeks
 CFB_BACKTEST_FROM_WEEK = 2
 # spread / total model (pipeline/cfb_spread.py): ridge strength toward the prior (in games), how much of last season's rating carries over, home-field points, total-tendency ridge
-CFB_SPREAD_LAM = 6.0
-CFB_SPREAD_RHO = 0.6
+CFB_SPREAD_LAM = 2.0              # tuned on the 2025 walk-forward (cap 60, lam 2, rho 1.0)
+CFB_SPREAD_RHO = 1.0
 CFB_SPREAD_HFA = 2.5
 CFB_TOTAL_LAM = 8.0
+CFB_SPREAD_CAP = 60.0             # margins are capped at this when fitting ratings
+CFB_SPREAD_FCS = -22.0            # prior rating of a team outside FBS
 # games left out of the college scorecard and backtest (projections are still made and logged for them): mismatches skew the error and over rates
 CFB_SCORE_EXCL_FCS = True          # any game against an FCS team
 CFB_SCORE_EXCL_TIER_GAP = True     # non-conference game between a Power 4 team and a Group of 5 / independent team
