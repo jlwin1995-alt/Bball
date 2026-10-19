@@ -168,3 +168,17 @@ A MORE pick that had already cleared its line when the player left is not voided
 `pipeline/nfl_spread.py` runs the college ridge team ratings on NFL scores (regular season, 2015–2026, `data/raw/nfl_hist/nfl_games.csv` from nflverse schedules, closing `spread_line`/`total_line`), walk-forward from week 3 with last season's ratings as the prior (lam 6, rho 0.7, margin cap 28). `python -m pipeline.nfl_spread [--tune]`.
 
 Result, 2016–2025 (about 225–240 games per season): the model's margin MAE is 9.1–11.3 against the market's 8.7–10.8, so the market is better in every season by roughly 0.3–0.7 points. BETA (the share of model-minus-market worth adding to the market) is -0.44 to +0.28 with no consistent sign, and the ATS hit rate by edge size is noise (the "edge >= 6" bucket has only 8–33 games a season). The total model is also worse than the closing total (MAE about 0.1–0.7 worse in 9 of 10 seasons). Same conclusion as college: scores alone do not beat the closing line, so there are no spread/total leans. Any NFL edge would have to come from information the market is slower on (injuries, QB changes, the player model), not from team ratings.
+
+### NFL player model vs the closing lines — no edge
+
+`pipeline/nfl_player.py` sums the site's own player projections (`nfl_core` + `derive`, walk-forward from week 5, no weather, Out players removed) to the team (yards, touchdowns, turnovers, sacks, home flag), fits a small ridge to points on EARLIER seasons only, and compares the implied game total and margin with the nflverse closing lines. It needs `data/raw/history/{weekly,schedule,injuries}_<season>.csv` (`python -m pipeline.fetch --season N`; gitignored, so it runs locally, about 15 seconds). `python -m pipeline.nfl_player`.
+
+Result, 2023–2025, weeks 5+, 208 games a season. BETA (slope of actual-minus-market on model-minus-market; 0 means the model adds nothing):
+
+| season | total BETA (±se) | total hit, edge ≥1 | margin BETA (±se) | margin hit |
+|---|---|---|---|---|
+| 2023 | -0.06 (0.30) | 53.5% (n 157) | -0.03 (0.20) | 48.5% |
+| 2024 | +0.05 (0.29) | 48.1% (n 154) | -0.45 (0.19) | 45.5% |
+| 2025 | +0.03 (0.24) | 48.2% (n 168) | -0.25 (0.19) | 49.7% |
+
+The market is more accurate every season (total MAE 10.1–10.6 for the model vs 9.8–10.4; margin 10.3–10.7 vs 9.3–10.0). Total BETA is zero within noise; margin BETA is negative, i.e. where the player model disagrees with the spread, the spread is the better guess. No spread/total leans from the player model. It is still a fair test of the player projections' team-level sums, but weather, injuries beyond Out, and QB changes are the places left that the market could be slower on.
