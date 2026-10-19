@@ -19,7 +19,7 @@ def load_games(raw="data/raw"):
     games, lines = {}, {}
     sources = [(C.SEASON, f"{raw}/cfb_games.csv", f"{raw}/cfb_game_lines.csv")]
     for y in (C.SEASON - 1, C.SEASON - 2):
-        sources.append((y, f"{raw}/history/cfb_games_{y}.csv", f"{raw}/history/cfb_game_lines_{y}.csv"))
+        sources.append((y, f"{raw}/cfb_hist/cfb_games_{y}.csv", f"{raw}/cfb_hist/cfb_game_lines_{y}.csv"))
     for y, gp, lp in sources:
         if os.path.exists(gp):
             with open(gp, newline="") as f:
