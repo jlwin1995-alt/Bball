@@ -236,9 +236,21 @@ def cfb_props_checks():
     print("college props ok")
 
 
+def line_snapshots_check():
+    from datetime import datetime, timezone
+    from . import line_snapshots
+    ev = [dict(id="a", commence_time="2026-10-22T00:15:00Z", home_team="H", away_team="A", bookmakers=[dict(key="fanduel", markets=[
+        dict(key="spreads", outcomes=[dict(name="H", point=-3.5), dict(name="A", point=3.5)]), dict(key="totals", outcomes=[dict(name="Over", point=44.5), dict(name="Under", point=44.5)])])]),
+          dict(id="b", commence_time="2026-10-20T00:15:00Z", home_team="H2", away_team="A2", bookmakers=[dict(key="fanduel", markets=[dict(key="totals", outcomes=[dict(name="Over", point=40.5)])])])]
+    rows = line_snapshots.snapshot("nfl", ev, datetime(2026, 10, 21, 16, 0, tzinfo=timezone.utc))
+    assert len(rows) == 1 and rows[0]["home_spread"] == -3.5 and rows[0]["total"] == 44.5 and rows[0]["sport"] == "nfl", rows     # the started game is skipped
+    print("line snapshots ok")
+
+
 def fair_ok(x):
     return x == -150
 
 
 if __name__ == "__main__":
     main()
+    line_snapshots_check()

@@ -182,3 +182,7 @@ Result, 2023–2025, weeks 5+, 208 games a season. BETA (slope of actual-minus-m
 | 2025 | +0.03 (0.24) | 48.2% (n 168) | -0.25 (0.19) | 49.7% |
 
 The market is more accurate every season (total MAE 10.1–10.6 for the model vs 9.8–10.4; margin 10.3–10.7 vs 9.3–10.0). Total BETA is zero within noise; margin BETA is negative, i.e. where the player model disagrees with the spread, the spread is the better guess. No spread/total leans from the player model. It is still a fair test of the player projections' team-level sums, but weather, injuries beyond Out, and QB changes are the places left that the market could be slower on.
+
+### Timestamped line snapshots
+
+`pipeline/line_snapshots.py` + `.github/workflows/football-line-snapshots.yml` append the consensus spread and total of every upcoming NFL and college game to `data/log/line_snapshots.csv` (ts, sport, event, commence, home, away, home_spread, total, n_spread, n_total) on Wednesday ~noon ET, Thursday, Friday, Saturday and Sunday ~9am ET (about 4 credits a run, ~20 a week; games that have kicked off are skipped, so a game's last snapshot is its close). This replaces the stale "open" lines of the movement test: once a few weeks have accumulated, compare Wednesday against the final snapshot and test whether the move follows the scores-only / player model.
