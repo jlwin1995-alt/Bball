@@ -40,11 +40,14 @@ def partial_games(snaps_path, rows, frac=0.5, min_avg=0.35, min_prev=2, pbp_path
     except FileNotFoundError:
         return {}
     ids = {(name_key(r["player_display_name"]), r["team"], int(num(r["week"]))): r["player_id"] for r in rows}
-    last_q = {}
+    last_q, team_h1 = {}, {}
     if pbp_path:
         try:
             with open(pbp_path, newline="") as f:
                 for r in csv.DictReader(f):
+                    if int(num(r["qtr"])) <= 2:
+                        tk = (r["posteam"], int(num(r["week"])))
+                        team_h1[tk] = team_h1.get(tk, 0) + 1
                     for col in ("passer_player_id", "rusher_player_id", "receiver_player_id"):
                         if r[col]:
                             k = (r[col], int(num(r["week"])))
@@ -61,8 +64,19 @@ def partial_games(snaps_path, rows, frac=0.5, min_avg=0.35, min_prev=2, pbp_path
             pid = ids.get((nk, team, wk))
             if pid and avg >= min_avg and pct < frac * avg:
                 q = last_q.get((pid, wk), 0)
-                # ESTIMATE: his last involvement in a play was in the 1st half (the snap counts have no halves; a player can miss time without a touch)
-                out[(pid, wk)] = dict(avg=round(avg, 2), pct=round(pct, 2), snaps=n, last_q=q, first_half=int(0 < q <= 2))
+                h1 = team_h1.get((team, wk), 0)
+                # Is the play void under PrizePicks' reboot rule (a first-half exit with no return; MORE picks only)? The snap counts have no halves and the
+                # 2026 participation file is not published, so this is an ESTIMATE:
+                #   not void: he touched the ball in the 2nd half, or he took more snaps than his team ran in the whole 1st half (so some must be 2nd-half snaps)
+                #   likely void: his last play was in the 1st half and his snaps fit inside it
+                #   check: no involvement either way (a player can take snaps without a touch)
+                if q >= 3 or (h1 and n > h1):
+                    void = "no"
+                elif 0 < q <= 2:
+                    void = "likely"
+                else:
+                    void = "check"
+                out[(pid, wk)] = dict(avg=round(avg, 2), pct=round(pct, 2), snaps=n, last_q=q, team_h1=h1, void=void)
     return out
 
 

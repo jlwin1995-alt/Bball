@@ -140,8 +140,10 @@ def partial_checks():
     with open(pb, "w", newline="") as f:
         w = csv.writer(f); w.writerow(["week", "posteam", "qtr", "passer_player_id", "rusher_player_id", "receiver_player_id"])
         w.writerow([4, "XXX", 1, "", "a", ""]); w.writerow([4, "XXX", 2, "", "a", ""]); w.writerow([4, "XXX", 4, "", "b", ""])
+        for q in [1, 2] * 7:                      # plays with no skill player listed still count toward the team's first-half snaps
+            w.writerow([4, "XXX", q, "", "", ""])
     got = partial_games(p, rows, pbp_path=pb)
-    assert list(got) == [("a", 4)] and got[("a", 4)]["pct"] == 0.2 and got[("a", 4)]["last_q"] == 2 and got[("a", 4)]["first_half"] == 1, got
+    assert list(got) == [("a", 4)] and got[("a", 4)]["pct"] == 0.2 and got[("a", 4)]["last_q"] == 2 and got[("a", 4)]["void"] == "likely" and got[("a", 4)]["team_h1"] == 16, got
     print("partial games ok")
 
 

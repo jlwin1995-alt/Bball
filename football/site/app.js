@@ -96,7 +96,7 @@ function partialBlock(s) {
   if (!s.partial_list?.length) return "";
   const cols = [{k: "name", h: "Player", l: 1}, {k: "team", h: "Team", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "week", h: "Wk"}, {k: "proj", h: "Proj pts", f: r => num(r.proj)}, {k: "act", h: "Actual", f: r => num(r.act)},
     {k: "avg", h: "Usual snap %", f: r => num(r.avg * 100, 0) + "%"}, {k: "pct", h: "This game", f: r => num(r.pct * 100, 0) + "%"},
-    {k: "first_half", h: "Left in 1st half (est.)", t: "ESTIMATE from play-by-play: his last involvement in a play was in the 1st half. Snap counts have no halves, and a player can miss time without a touch. PrizePicks voids MORE picks (not LESS) for a first-half exit without a return.", f: r => r.last_q ? (r.first_half ? "likely" : "no (last play Q" + r.last_q + ")") : "unknown"}];
+    {k: "void", h: "Void (est.)", t: "PrizePicks voids a MORE pick (not LESS) when a player leaves in the 1st half and does not return. ESTIMATE: no = he touched the ball in the 2nd half or took more snaps than his team ran in the 1st half; likely = his last play was in the 1st half and his snaps fit inside it; check = no touches to tell. Snap counts have no halves, and a blowout benching looks the same as an injury.", f: r => r.void === "likely" ? `<b>likely void</b> <span class="mut">(last play Q${r.last_q})</span>` : r.void === "no" ? "no" : "check"}];
   return `<h3>Partial games (not scored)</h3><p class="sub">${s.partial} skill players played under half of their usual snap share, so they are left out of the accuracy numbers above (like a player who did not play). The lean record keeps them: a bet on a player who gets hurt still loses. It cannot tell an injury from a benching in a blowout.</p>${table(cols, s.partial_list, {id: "part"})}`;
 }
 
