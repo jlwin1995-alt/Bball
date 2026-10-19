@@ -194,3 +194,16 @@ MNF WAS@SF showed Washington's running backs with only 16 of the team's 28.5 pro
 - a backup QB's attempts and carries are weighted by how often he played relative to the team's main passer, and with a healthy depth-chart QB1 (`QB1_IDS`, from `depth.csv`) a backup keeps at most `QB_BACKUP_W` = 10% of his own history.
 
 Backtest (2024 / 2025, weeks 5+, QBs with real volume): passing yards MAE 10.66 -> 10.25 / 10.52 -> 9.60, completions 0.87 -> 0.82 / 0.88 -> 0.81, projected points 5.59 -> 5.59 / 5.52 -> 5.49 (the backtest has no historical depth chart, so it tests only the participation weighting). WAS@SF now: Washington RB carries 19.8 (was 16.4), Daniels 30.4 attempts, Kaliakmanis 4.0, Mariota gone. Next-man-up RB volume still follows each back's own history (White 8.6, Ekeler 4.1, Allen 4.7 carries), so a lone replacement does not take the whole lead role unless the history says so.
+
+### Next-man-up RB share: tested, not adopted
+
+Test: when a back is listed Out, give a fraction NMU of his vacated carries to the team's leading remaining back (highest carry load) before the team rescale, instead of spreading them by every back's own history. Walk-forward 2023-2025, weeks 5+, 302 teammate-back projections on teams with an Out back:
+
+| NMU | carries MAE | rushing yards MAE |
+|---|---|---|
+| 0 (current: spread by history) | 4.14 | 21.73 |
+| 0.25 | 4.10 | 22.22 |
+| 0.5 | 4.22 | 22.95 |
+| 1.0 (lead back takes all) | 4.56 | 24.77 |
+
+Concentrating on the lead back is worse the more of it there is (backfields split a vacated role more than the "next man takes it" story suggests), and the 0.25 carries gain is within noise while yards get worse. The current pro-rata spread stays; the code was not kept. A depth-chart version (the backtest has no historical depth) is the one untested variant.
