@@ -256,6 +256,8 @@ def nfl_core(rows, matchup, wx=None, P=None):
     out_rb_teams = {PL[i]["team"] for i in out_rb}
     out_wr = {i for i in out_ids if i in PL and PL[i]["team"] in matchup and PL[i]["pos"] == "WR"} if P.get("OUT_WR") else set()
     ids = [i for i in ids if i not in out_wr]
+    if P.get("OUT_QB"):
+        ids = [i for i in ids if not (i in out_ids and PL[i]["pos"] == "QB")]
     out_wr_teams = {PL[i]["team"] for i in out_wr}
     raw = {i: dict(car=blend(PL[i], "car"), tgt=blend(PL[i], "tgt"), att=blend(PL[i], "att")) for i in ids}
 
@@ -280,6 +282,22 @@ def nfl_core(rows, matchup, wx=None, P=None):
         for k in ("car", "tgt", "att"):
             hits = sum(1 for w in want if w in seen and seen[w][k] >= play_floor[k])
             p_play[i][k] = (hits + play_prior * 0.5) / (len(want) + play_prior)
+
+    # a backup quarterback's volume is weighted by how often he played relative to the team's main passer: scale is capped at +-20%, so it cannot shrink him
+    if P.get("QB_PART"):
+        top = {}
+        for i in ids:
+            if PL[i]["pos"] == "QB":
+                top[PL[i]["team"]] = max(top.get(PL[i]["team"], 0.0), p_play[i]["att"])
+        qb1 = P.get("QB1_IDS") or set()
+        has_qb1 = {PL[i]["team"] for i in ids if i in qb1 and PL[i]["pos"] == "QB"}
+        for i in ids:
+            if PL[i]["pos"] == "QB" and top.get(PL[i]["team"]):
+                w = min(1.0, p_play[i]["att"] / top[PL[i]["team"]])
+                if PL[i]["team"] in has_qb1:                 # the depth chart's healthy QB1 is the passer; a backup keeps a sliver for garbage time
+                    w = 1.0 if i in qb1 else min(w, P["QB_BACKUP_W"])
+                raw[i]["att"] *= w
+                raw[i]["car"] *= w
 
     scale = {}
     for t in team_base:

@@ -186,3 +186,11 @@ The market is more accurate every season (total MAE 10.1–10.6 for the model vs
 ### Timestamped line snapshots
 
 `pipeline/line_snapshots.py` + `.github/workflows/football-line-snapshots.yml` append the consensus spread and total of every upcoming NFL and college game to `data/log/line_snapshots.csv` (ts, sport, event, commence, home, away, home_spread, total, n_spread, n_total) on Wednesday ~noon ET, Thursday, Friday, Saturday and Sunday ~9am ET (about 4 credits a run, ~20 a week; games that have kicked off are skipped, so a game's last snapshot is its close). This replaces the stale "open" lines of the movement test: once a few weeks have accumulated, compare Wednesday against the final snapshot and test whether the move follows the scores-only / player model.
+
+### Backup quarterbacks no longer absorb the offence (Out-QB and QB participation)
+
+MNF WAS@SF showed Washington's running backs with only 16 of the team's 28.5 projected carries and three quarterbacks sharing 85 attempts: a QB listed Out (Mariota) was still projected, and the backups (Kaliakmanis, one start; Mariota) kept their full per-game history because the +-20% team-scale cap cannot shrink them. That leaked about 5 carries a game from the backs to backup QBs. Two changes in `model.nfl_core` (knobs `OUT_QB`, `QB_PART`, `QB_BACKUP_W`; both are in the scorecard stamp, so the NFL accuracy record restarts under the new stamp):
+- a QB listed Out is removed from the pool (as RBs and WRs already were);
+- a backup QB's attempts and carries are weighted by how often he played relative to the team's main passer, and with a healthy depth-chart QB1 (`QB1_IDS`, from `depth.csv`) a backup keeps at most `QB_BACKUP_W` = 10% of his own history.
+
+Backtest (2024 / 2025, weeks 5+, QBs with real volume): passing yards MAE 10.66 -> 10.25 / 10.52 -> 9.60, completions 0.87 -> 0.82 / 0.88 -> 0.81, projected points 5.59 -> 5.59 / 5.52 -> 5.49 (the backtest has no historical depth chart, so it tests only the participation weighting). WAS@SF now: Washington RB carries 19.8 (was 16.4), Daniels 30.4 attempts, Kaliakmanis 4.0, Mariota gone. Next-man-up RB volume still follows each back's own history (White 8.6, Ekeler 4.1, Allen 4.7 carries), so a lone replacement does not take the whole lead role unless the history says so.
