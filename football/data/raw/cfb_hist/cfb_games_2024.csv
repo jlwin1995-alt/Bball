@@ -1,0 +1,875 @@
+id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayTeam,awayConference,awayPoints
+401635525,1,2024-08-24T16:00:00.000Z,True,True,Georgia Tech,ACC,24,Florida State,ACC,21
+401643697,1,2024-08-24T20:00:00.000Z,True,False,New Mexico,Mountain West,31,Montana State,Big Sky,35
+401643696,1,2024-08-25T00:00:00.000Z,True,False,Nevada,Mountain West,24,SMU,ACC,29
+401643858,1,2024-08-25T03:59:00.000Z,True,False,Hawai'i,Mountain West,35,Delaware State,MEAC,14
+401628458,1,2024-08-29T22:00:00.000Z,True,False,Rutgers,Big Ten,44,Howard,MEAC,7
+401628582,1,2024-08-29T23:00:00.000Z,True,False,UCF,Big 12,57,New Hampshire,Coastal Athletic,3
+401644730,1,2024-08-29T23:00:00.000Z,True,False,Central Michigan,Mid-American,66,Central Connecticut,NEC,10
+401644729,1,2024-08-29T23:00:00.000Z,True,False,Bowling Green,Mid-American,41,Fordham,Patriot,17
+401634299,1,2024-08-29T23:00:00.000Z,True,False,NC State,ACC,38,Western Carolina,Southern,21
+401644727,1,2024-08-29T23:00:00.000Z,True,False,Buffalo,Mid-American,30,Lafayette,Patriot,13
+401628581,1,2024-08-29T23:00:00.000Z,True,False,Wake Forest,ACC,45,North Carolina A&T,Coastal Athletic,13
+401636387,1,2024-08-29T23:00:00.000Z,True,False,UL Monroe,Sun Belt,30,Jackson State,SWAC,14
+401628320,1,2024-08-29T23:30:00.000Z,True,True,Arkansas,SEC,70,Arkansas-Pine Bluff,SWAC,0
+401644728,1,2024-08-29T23:30:00.000Z,True,False,Toledo,Mid-American,49,Duquesne,NEC,10
+401634206,1,2024-08-30T00:00:00.000Z,True,False,Colorado,Big 12,31,North Dakota State,MVFC,26
+401640998,1,2024-08-30T00:00:00.000Z,True,False,Jacksonville State,Conference USA,27,Coastal Carolina,Sun Belt,55
+401645316,1,2024-08-30T00:00:00.000Z,True,False,UAB,American Athletic,41,Alcorn State,SWAC,3
+401636606,1,2024-08-30T00:00:00.000Z,True,True,Kansas,Big 12,48,Lindenwood,Big South-OVC,3
+401645317,1,2024-08-30T00:00:00.000Z,True,False,Tulane,American Athletic,52,SE Louisiana,Southland,0
+401628448,1,2024-08-30T00:00:00.000Z,True,False,Minnesota,Big Ten,17,North Carolina,ACC,19
+401628327,1,2024-08-30T00:00:00.000Z,True,False,Missouri,SEC,51,Murray State,MVFC,0
+401645318,1,2024-08-30T00:00:00.000Z,True,False,Tulsa,American Athletic,62,Northwestern State,Southland,28
+401636607,1,2024-08-30T01:00:00.000Z,True,False,Utah,Big 12,49,Southern Utah,UAC,0
+401654845,1,2024-08-30T01:00:00.000Z,True,False,Illinois,Big Ten,45,Eastern Illinois,Big South-OVC,0
+401643698,1,2024-08-30T02:00:00.000Z,True,False,San José State,Mountain West,42,Sacramento State,Big Sky,24
+401645319,1,2024-08-30T22:00:00.000Z,True,False,Army,American Athletic,42,Lehigh,Patriot,7
+401628328,1,2024-08-30T23:00:00.000Z,True,False,Oklahoma,SEC,51,Temple,American Athletic,3
+401628453,1,2024-08-30T23:00:00.000Z,True,False,Michigan State,Big Ten,16,Florida Atlantic,American Athletic,10
+401628584,1,2024-08-30T23:30:00.000Z,True,False,Duke,ACC,26,Elon,Coastal Athletic,3
+401628461,1,2024-08-31T01:00:00.000Z,True,False,Wisconsin,Big Ten,28,Western Michigan,Mid-American,14
+401634300,1,2024-08-31T02:30:00.000Z,True,False,Stanford,ACC,27,TCU,Big 12,34
+401643703,1,2024-08-31T04:00:00.000Z,True,False,Utah State,Mountain West,36,Robert Morris,NEC,14
+401628333,1,2024-08-31T16:00:00.000Z,True,False,Vanderbilt,SEC,34,Virginia Tech,ACC,27
+401628457,1,2024-08-31T16:00:00.000Z,True,False,West Virginia,Big 12,12,Penn State,Big Ten,34
+401634169,1,2024-08-31T16:00:00.000Z,True,False,Purdue,Big Ten,49,Indiana State,MVFC,0
+401632062,1,2024-08-31T16:00:00.000Z,True,False,Louisville,ACC,62,Austin Peay,UAC,0
+401628451,1,2024-08-31T16:00:00.000Z,True,False,Maryland,Big Ten,50,UConn,FBS Independents,7
+401628323,1,2024-08-31T16:00:00.000Z,True,True,Georgia,SEC,34,Clemson,ACC,3
+401628450,1,2024-08-31T16:00:00.000Z,True,False,Iowa,Big Ten,40,Illinois State,MVFC,0
+401634305,1,2024-08-31T16:00:00.000Z,True,False,Pittsburgh,ACC,55,Kent State,Mid-American,24
+401645322,1,2024-08-31T16:00:00.000Z,True,False,Navy,American Athletic,49,Bucknell,Patriot,21
+401628330,1,2024-08-31T16:45:00.000Z,True,False,Tennessee,SEC,69,Chattanooga,Southern,3
+401634212,1,2024-08-31T18:00:00.000Z,True,False,Oklahoma State,Big 12,44,South Dakota State,MVFC,20
+401628591,1,2024-08-31T18:30:00.000Z,True,False,Cincinnati,Big 12,38,Towson,Coastal Athletic,20
+401637159,1,2024-08-31T19:00:00.000Z,True,False,Washington State,Pac-12,70,Portland State,Big Sky,30
+401644731,1,2024-08-31T19:30:00.000Z,True,False,Northern Illinois,Mid-American,54,Western Illinois,Big South-OVC,15
+401634304,1,2024-08-31T19:30:00.000Z,True,False,Syracuse,ACC,38,Ohio,Mid-American,22
+401634197,1,2024-08-31T19:30:00.000Z,True,False,Iowa State,Big 12,21,North Dakota,MVFC,3
+401628449,1,2024-08-31T19:30:00.000Z,True,False,Indiana,Big Ten,31,Florida International,Conference USA,7
+401641015,1,2024-08-31T19:30:00.000Z,True,False,UTSA,American Athletic,28,Kennesaw State,Conference USA,16
+401644683,1,2024-08-31T19:30:00.000Z,True,True,Northwestern,Big Ten,13,Miami (OH),Mid-American,6
+401643699,1,2024-08-31T19:30:00.000Z,True,False,Air Force,Mountain West,21,Merrimack,FCS Independents,6
+401628331,1,2024-08-31T19:30:00.000Z,True,False,Texas,SEC,52,Colorado State,Mountain West,0
+401628322,1,2024-08-31T19:30:00.000Z,True,False,Florida,SEC,17,Miami,ACC,41
+401634133,1,2024-08-31T19:30:00.000Z,True,False,App State,Sun Belt,38,East Tennessee State,Southern,10
+401628454,1,2024-08-31T19:30:00.000Z,True,False,Nebraska,Big Ten,40,UTEP,Conference USA,7
+401628455,1,2024-08-31T19:30:00.000Z,True,False,Ohio State,Big Ten,52,Akron,Mid-American,6
+401629039,1,2024-08-31T19:30:00.000Z,True,False,Massachusetts,FBS Independents,14,Eastern Michigan,Mid-American,28
+401643700,1,2024-08-31T20:00:00.000Z,True,False,Georgia Southern,Sun Belt,45,Boise State,Mountain West,56
+401628329,1,2024-08-31T20:15:00.000Z,True,False,South Carolina,SEC,23,Old Dominion,Sun Belt,19
+401628590,1,2024-08-31T21:00:00.000Z,True,False,Marshall,Sun Belt,45,Stony Brook,Coastal Athletic,3
+401634301,1,2024-08-31T21:00:00.000Z,True,False,California,ACC,31,UC Davis,Big Sky,13
+401643775,1,2024-08-31T21:00:00.000Z,True,False,South Alabama,Sun Belt,38,North Texas,American Athletic,52
+401645320,1,2024-08-31T22:00:00.000Z,True,False,East Carolina,American Athletic,42,Norfolk State,MEAC,3
+401628326,1,2024-08-31T22:00:00.000Z,True,False,Mississippi State,SEC,56,Eastern Kentucky,UAC,7
+401628586,1,2024-08-31T22:00:00.000Z,True,False,Liberty,Conference USA,41,Campbell,Coastal Athletic,24
+401628589,1,2024-08-31T22:00:00.000Z,True,False,Virginia,ACC,34,Richmond,Coastal Athletic,13
+401643704,1,2024-08-31T22:30:00.000Z,True,False,Oregon State,Pac-12,38,Idaho State,Big Sky,15
+401641023,1,2024-08-31T23:00:00.000Z,True,False,Middle Tennessee,Conference USA,32,Tennessee Tech,Big South-OVC,25
+401636363,1,2024-08-31T23:00:00.000Z,True,False,South Florida,American Athletic,48,Bethune-Cookman,SWAC,3
+401636610,1,2024-08-31T23:00:00.000Z,True,False,Baylor,Big 12,45,Tarleton State,UAC,3
+401636611,1,2024-08-31T23:00:00.000Z,True,False,Houston,Big 12,7,UNLV,Mountain West,27
+401643701,1,2024-08-31T23:00:00.000Z,True,False,Troy,Sun Belt,26,Nevada,Mountain West,28
+401628325,1,2024-08-31T23:00:00.000Z,True,False,Ole Miss,SEC,76,Furman,Southern,0
+401628319,1,2024-08-31T23:00:00.000Z,True,False,Alabama,SEC,63,Western Kentucky,Conference USA,0
+401636612,1,2024-08-31T23:00:00.000Z,True,False,Kansas State,Big 12,41,UT Martin,Big South-OVC,6
+401632064,1,2024-08-31T23:00:00.000Z,True,False,Arkansas State,Sun Belt,34,Central Arkansas,UAC,31
+401641039,1,2024-08-31T23:00:00.000Z,True,False,Rice,American Athletic,14,Sam Houston,Conference USA,34
+401645321,1,2024-08-31T23:00:00.000Z,True,False,Memphis,American Athletic,40,North Alabama,UAC,0
+401628332,1,2024-08-31T23:30:00.000Z,True,False,Texas A&M,SEC,13,Notre Dame,FBS Independents,23
+401628452,1,2024-08-31T23:30:00.000Z,True,False,Michigan,Big Ten,30,Fresno State,Mountain West,10
+401628321,1,2024-08-31T23:30:00.000Z,True,False,Auburn,SEC,73,Alabama A&M,SWAC,3
+401628459,1,2024-08-31T23:30:00.000Z,True,False,Hawai'i,Mountain West,13,UCLA,Big Ten,16
+401636613,1,2024-08-31T23:30:00.000Z,True,False,Texas Tech,Big 12,52,Abilene Christian,UAC,51
+401628456,1,2024-08-31T23:30:00.000Z,True,False,Oregon,Big Ten,24,Idaho,Big Sky,14
+401628324,1,2024-08-31T23:45:00.000Z,True,False,Kentucky,SEC,31,Southern Miss,Sun Belt,0
+401643774,1,2024-09-01T00:00:00.000Z,True,False,Charlotte,American Athletic,7,James Madison,Sun Belt,30
+401643702,1,2024-09-01T00:00:00.000Z,True,False,San Diego State,Mountain West,45,East Texas A&M,Southland,14
+401634303,1,2024-09-01T00:00:00.000Z,True,False,SMU,ACC,59,Houston Christian,Southland,7
+401634302,1,2024-09-01T00:00:00.000Z,True,False,Georgia Tech,ACC,35,Georgia State,Sun Belt,12
+401641007,1,2024-09-01T00:00:00.000Z,True,False,Louisiana Tech,Conference USA,25,Nicholls,Southland,17
+401636380,1,2024-09-01T00:00:00.000Z,True,False,Louisiana,Sun Belt,40,Grambling,SWAC,10
+401634240,1,2024-09-01T00:00:00.000Z,True,False,BYU,Big 12,41,Southern Illinois,MVFC,13
+401643776,1,2024-09-01T00:00:00.000Z,True,False,Texas State,Sun Belt,34,Lamar,Southland,27
+401641032,1,2024-09-01T01:00:00.000Z,True,False,New Mexico State,Conference USA,23,Southeast Missouri State,Big South-OVC,16
+401636608,1,2024-09-01T02:30:00.000Z,True,False,Arizona,Big 12,61,New Mexico,Mountain West,39
+401636609,1,2024-09-01T02:30:00.000Z,True,False,Arizona State,Big 12,48,Wyoming,Mountain West,7
+401628460,1,2024-09-01T03:00:00.000Z,True,False,Washington,Big Ten,35,Weber State,Big Sky,3
+401628334,1,2024-09-01T23:30:00.000Z,True,True,LSU,SEC,20,USC,Big Ten,27
+401634306,1,2024-09-02T23:30:00.000Z,True,False,Florida State,ACC,13,Boston College,ACC,28
+401634765,2,2024-09-06T23:00:00.000Z,True,False,SMU,ACC,15,BYU,Big 12,18
+401628463,2,2024-09-06T23:00:00.000Z,True,False,Indiana,Big Ten,77,Western Illinois,Big South-OVC,3
+401635533,2,2024-09-07T01:00:00.000Z,True,True,Northwestern,Big Ten,20,Duke,ACC,26
+401628471,2,2024-09-07T16:00:00.000Z,True,False,Rutgers,Big Ten,49,Akron,Mid-American,17
+401645323,2,2024-09-07T16:00:00.000Z,True,False,Florida Atlantic,American Athletic,7,Army,American Athletic,24
+401628470,2,2024-09-07T16:00:00.000Z,True,False,Penn State,Big Ten,34,Bowling Green,Mid-American,27
+401635534,2,2024-09-07T16:00:00.000Z,True,False,Syracuse,ACC,31,Georgia Tech,ACC,28
+401636616,2,2024-09-07T16:00:00.000Z,True,False,Tulane,American Athletic,27,Kansas State,Big 12,34
+401636999,2,2024-09-07T16:00:00.000Z,True,False,UConn,FBS Independents,63,Merrimack,FCS Independents,17
+401628347,2,2024-09-07T16:00:00.000Z,True,False,Michigan,Big Ten,12,Texas,SEC,31
+401628336,2,2024-09-07T16:00:00.000Z,True,False,Oklahoma State,Big 12,39,Arkansas,SEC,31
+401635538,2,2024-09-07T16:00:00.000Z,True,False,Cincinnati,Big 12,27,Pittsburgh,ACC,28
+401643784,2,2024-09-07T16:00:00.000Z,True,False,Memphis,American Athletic,38,Troy,Sun Belt,17
+401628466,2,2024-09-07T16:00:00.000Z,True,False,Minnesota,Big Ten,48,Rhode Island,Coastal Athletic,0
+401628348,2,2024-09-07T16:45:00.000Z,True,False,Texas A&M,SEC,52,McNeese,Southland,10
+401628339,2,2024-09-07T18:00:00.000Z,True,False,Georgia,SEC,48,Tennessee Tech,Big South-OVC,3
+401634181,2,2024-09-07T18:00:00.000Z,True,False,Ball State,Mid-American,42,Missouri State,MVFC,34
+401644732,2,2024-09-07T18:30:00.000Z,True,False,Kent State,Mid-American,17,Saint Francis,NEC,23
+401632071,2,2024-09-07T19:00:00.000Z,True,False,UNLV,Mountain West,72,Utah Tech,UAC,14
+401628464,2,2024-09-07T19:30:00.000Z,True,False,Iowa,Big Ten,19,Iowa State,Big 12,20
+401645324,2,2024-09-07T19:30:00.000Z,True,False,Navy,American Athletic,38,Temple,American Athletic,11
+401629040,2,2024-09-07T19:30:00.000Z,True,False,Toledo,Mid-American,38,Massachusetts,FBS Independents,23
+401628977,2,2024-09-07T19:30:00.000Z,True,False,Notre Dame,FBS Independents,14,Northern Illinois,Mid-American,16
+401636618,2,2024-09-07T19:30:00.000Z,True,False,Utah,Big 12,23,Baylor,Big 12,12
+401628474,2,2024-09-07T19:30:00.000Z,True,False,Wisconsin,Big Ten,27,South Dakota,MVFC,13
+401635531,2,2024-09-07T19:30:00.000Z,True,False,Boston College,ACC,56,Duquesne,NEC,0
+401628337,2,2024-09-07T19:30:00.000Z,True,False,Auburn,SEC,14,California,ACC,21
+401643710,2,2024-09-07T19:30:00.000Z,True,False,Wyoming,Mountain West,13,Idaho,Big Sky,17
+401635537,2,2024-09-07T19:30:00.000Z,True,False,North Carolina,ACC,38,Charlotte,American Athletic,20
+401635535,2,2024-09-07T19:30:00.000Z,True,False,Louisville,ACC,49,Jacksonville State,Conference USA,14
+401628473,2,2024-09-07T19:30:00.000Z,True,False,Washington,Big Ten,30,Eastern Michigan,Mid-American,9
+401628465,2,2024-09-07T19:30:00.000Z,True,False,Maryland,Big Ten,24,Michigan State,Big Ten,27
+401628340,2,2024-09-07T19:30:00.000Z,True,False,Kentucky,SEC,6,South Carolina,SEC,31
+401643783,2,2024-09-07T20:00:00.000Z,True,False,Texas State,Sun Belt,49,UTSA,American Athletic,10
+401628342,2,2024-09-07T20:15:00.000Z,True,False,Ole Miss,SEC,52,Middle Tennessee,Conference USA,3
+401635540,2,2024-09-07T20:30:00.000Z,True,False,Virginia Tech,ACC,31,Marshall,Sun Belt,14
+401643777,2,2024-09-07T22:00:00.000Z,True,False,James Madison,Sun Belt,13,Gardner-Webb,Big South-OVC,6
+401643778,2,2024-09-07T22:00:00.000Z,True,False,Old Dominion,Sun Belt,14,East Carolina,American Athletic,20
+401628593,2,2024-09-07T22:00:00.000Z,True,False,West Virginia,Big 12,49,UAlbany,Coastal Athletic,14
+401640979,2,2024-09-07T22:00:00.000Z,True,True,Florida International,Conference USA,52,Central Michigan,Mid-American,16
+401635536,2,2024-09-07T22:00:00.000Z,True,False,Miami,ACC,56,Florida A&M,SWAC,9
+401643781,2,2024-09-07T22:00:00.000Z,True,False,Ohio,Mid-American,27,South Alabama,Sun Belt,20
+401636617,2,2024-09-07T22:30:00.000Z,True,False,UCF,Big 12,45,Sam Houston,Conference USA,14
+401628335,2,2024-09-07T23:00:00.000Z,True,False,Alabama,SEC,42,South Florida,American Athletic,16
+401628603,2,2024-09-07T23:00:00.000Z,True,False,Coastal Carolina,Sun Belt,40,William & Mary,Coastal Athletic,21
+401635539,2,2024-09-07T23:00:00.000Z,True,False,Stanford,ACC,41,Cal Poly,Big Sky,7
+401643782,2,2024-09-07T23:00:00.000Z,True,False,Southern Miss,Sun Belt,35,SE Louisiana,Southland,10
+401641016,2,2024-09-07T23:00:00.000Z,True,False,Kennesaw State,Conference USA,10,Louisiana,Sun Belt,34
+401645326,2,2024-09-07T23:00:00.000Z,True,False,Rice,American Athletic,69,Texas Southern,SWAC,7
+401643708,2,2024-09-07T23:00:00.000Z,True,False,Nevada,Mountain West,17,Georgia Southern,Sun Belt,20
+401628344,2,2024-09-07T23:00:00.000Z,True,False,Missouri,SEC,38,Buffalo,Mid-American,0
+401632459,2,2024-09-07T23:00:00.000Z,True,False,Georgia State,Sun Belt,24,Chattanooga,Southern,21
+401643705,2,2024-09-07T23:00:00.000Z,True,False,Air Force,Mountain West,7,San José State,Mountain West,17
+401628338,2,2024-09-07T23:00:00.000Z,True,False,Florida,SEC,45,Samford,Southern,7
+401628462,2,2024-09-07T23:00:00.000Z,True,False,Illinois,Big Ten,23,Kansas,Big 12,17
+401643780,2,2024-09-07T23:00:00.000Z,True,False,UL Monroe,Sun Belt,32,UAB,American Athletic,6
+401643779,2,2024-09-07T23:00:00.000Z,True,False,Arkansas State,Sun Belt,28,Tulsa,American Athletic,24
+401632068,2,2024-09-07T23:00:00.000Z,True,False,Western Kentucky,Conference USA,31,Eastern Kentucky,UAC,0
+401643706,2,2024-09-07T23:00:00.000Z,True,False,Colorado State,Mountain West,38,Northern Colorado,Big Sky,17
+401635639,2,2024-09-07T23:00:00.000Z,True,False,Wake Forest,ACC,30,Virginia,ACC,31
+401628349,2,2024-09-07T23:30:00.000Z,True,False,Vanderbilt,SEC,55,Alcorn State,SWAC,0
+401645325,2,2024-09-07T23:30:00.000Z,True,False,North Texas,American Athletic,35,Stephen F. Austin,Southland,20
+401628346,2,2024-09-07T23:30:00.000Z,True,True,NC State,ACC,10,Tennessee,SEC,51
+401628468,2,2024-09-07T23:30:00.000Z,True,False,Ohio State,Big Ten,56,Western Michigan,Mid-American,0
+401628341,2,2024-09-07T23:30:00.000Z,True,False,LSU,SEC,44,Nicholls,Southland,21
+401628467,2,2024-09-07T23:30:00.000Z,True,False,Nebraska,Big Ten,28,Colorado,Big 12,10
+401628345,2,2024-09-07T23:45:00.000Z,True,False,Oklahoma,SEC,16,Houston,Big 12,12
+401635532,2,2024-09-08T00:00:00.000Z,True,False,Clemson,ACC,66,App State,Sun Belt,20
+401636615,2,2024-09-08T00:00:00.000Z,True,False,TCU,Big 12,45,Long Island University,NEC,0
+401632072,2,2024-09-08T01:00:00.000Z,True,False,UTEP,Conference USA,24,Southern Utah,UAC,27
+401636859,2,2024-09-08T02:00:00.000Z,True,False,Washington State,Pac-12,37,Texas Tech,Big 12,16
+401628469,2,2024-09-08T02:00:00.000Z,True,False,Oregon,Big Ten,37,Boise State,Mountain West,34
+401643707,2,2024-09-08T02:00:00.000Z,True,False,Fresno State,Mountain West,46,Sacramento State,Big Sky,30
+401636614,2,2024-09-08T02:00:00.000Z,True,False,Arizona,Big 12,22,Northern Arizona,Big Sky,10
+401640989,2,2024-09-08T02:15:00.000Z,True,False,New Mexico State,Conference USA,24,Liberty,Conference USA,30
+401643709,2,2024-09-08T02:30:00.000Z,True,False,San Diego State,Mountain West,0,Oregon State,Pac-12,21
+401628343,2,2024-09-08T02:30:00.000Z,True,False,Arizona State,Big 12,30,Mississippi State,SEC,23
+401628472,2,2024-09-08T03:00:00.000Z,True,False,USC,Big Ten,48,Utah State,Mountain West,0
+401636867,3,2024-09-12T23:30:00.000Z,True,False,Texas State,Sun Belt,28,Arizona State,Big 12,31
+401643788,3,2024-09-12T23:30:00.000Z,True,False,South Alabama,Sun Belt,87,Northwestern State,Southland,10
+401636863,3,2024-09-13T23:00:00.000Z,True,True,Kansas,Big 12,20,UNLV,Mountain West,23
+401636864,3,2024-09-14T00:00:00.000Z,True,False,Kansas State,Big 12,31,Arizona,Big 12,7
+401628350,3,2024-09-14T16:00:00.000Z,True,False,Wisconsin,Big Ten,10,Alabama,SEC,42
+401628479,3,2024-09-14T16:00:00.000Z,True,False,Michigan,Big Ten,28,Arkansas State,Sun Belt,18
+401636869,3,2024-09-14T16:00:00.000Z,True,False,Tulsa,American Athletic,10,Oklahoma State,Big 12,45
+401636865,3,2024-09-14T16:00:00.000Z,True,False,Miami (OH),Mid-American,16,Cincinnati,Big 12,27
+401635542,3,2024-09-14T16:00:00.000Z,True,False,Florida State,ACC,12,Memphis,American Athletic,20
+401628475,3,2024-09-14T16:00:00.000Z,True,False,Illinois,Big Ten,30,Central Michigan,Mid-American,9
+401636868,3,2024-09-14T16:00:00.000Z,True,False,Texas Tech,Big 12,66,North Texas,American Athletic,21
+401628359,3,2024-09-14T16:00:00.000Z,True,False,South Carolina,SEC,33,LSU,SEC,36
+401635546,3,2024-09-14T16:00:00.000Z,True,False,NC State,ACC,30,Louisiana Tech,Conference USA,20
+401628357,3,2024-09-14T16:45:00.000Z,True,False,Missouri,SEC,27,Boston College,ACC,21
+401629041,3,2024-09-14T17:00:00.000Z,True,False,Buffalo,Mid-American,34,Massachusetts,FBS Independents,3
+401643786,3,2024-09-14T18:00:00.000Z,True,False,Temple,American Athletic,20,Coastal Carolina,Sun Belt,28
+401635543,3,2024-09-14T19:30:00.000Z,True,False,Georgia Tech,ACC,59,VMI,Southern,7
+401628484,3,2024-09-14T19:30:00.000Z,True,True,Washington,Big Ten,19,Washington State,Pac-12,24
+401628978,3,2024-09-14T19:30:00.000Z,True,False,Purdue,Big Ten,7,Notre Dame,FBS Independents,66
+401628483,3,2024-09-14T19:30:00.000Z,True,False,Oregon State,Pac-12,14,Oregon,Big Ten,49
+401628480,3,2024-09-14T19:30:00.000Z,True,False,Michigan State,Big Ten,40,Prairie View A&M,SWAC,0
+401628353,3,2024-09-14T19:30:00.000Z,True,False,Florida,SEC,20,Texas A&M,SEC,33
+401635547,3,2024-09-14T19:30:00.000Z,True,False,Pittsburgh,ACC,38,West Virginia,Big 12,34
+401635544,3,2024-09-14T19:30:00.000Z,True,False,Miami,ACC,62,Ball State,Mid-American,0
+401644734,3,2024-09-14T19:30:00.000Z,True,False,Ohio,Mid-American,21,Morgan State,MEAC,6
+401628358,3,2024-09-14T19:30:00.000Z,True,False,Oklahoma,SEC,34,Tulane,American Athletic,19
+401628481,3,2024-09-14T19:30:00.000Z,True,False,Minnesota,Big Ten,27,Nevada,Mountain West,0
+401643785,3,2024-09-14T20:00:00.000Z,True,False,East Carolina,American Athletic,19,App State,Sun Belt,21
+401628477,3,2024-09-14T20:00:00.000Z,True,False,Iowa,Big Ten,38,Troy,Sun Belt,21
+401628351,3,2024-09-14T20:15:00.000Z,True,False,Arkansas,SEC,37,UAB,American Athletic,27
+401636870,3,2024-09-14T20:30:00.000Z,True,False,Utah State,Mountain West,21,Utah,Big 12,38
+401644733,3,2024-09-14T22:00:00.000Z,True,False,Akron,Mid-American,31,Colgate,Patriot,20
+401629030,3,2024-09-14T22:00:00.000Z,True,False,Duke,ACC,26,UConn,FBS Independents,21
+401643787,3,2024-09-14T22:00:00.000Z,True,False,Georgia Southern,Sun Belt,42,South Carolina State,MEAC,14
+401635545,3,2024-09-14T22:00:00.000Z,True,False,North Carolina,ACC,45,North Carolina Central,MEAC,10
+401640990,3,2024-09-14T22:00:00.000Z,True,False,Liberty,Conference USA,28,UTEP,Conference USA,10
+401645327,3,2024-09-14T22:00:00.000Z,True,False,Charlotte,American Athletic,27,Gardner-Webb,Big South-OVC,26
+401640980,3,2024-09-14T22:00:00.000Z,True,False,Florida Atlantic,American Athletic,38,Florida International,Conference USA,20
+401635548,3,2024-09-14T22:00:00.000Z,True,False,Old Dominion,Sun Belt,17,Virginia Tech,ACC,37
+401628355,3,2024-09-14T22:30:00.000Z,True,False,Wake Forest,ACC,6,Ole Miss,SEC,40
+401636364,3,2024-09-14T22:30:00.000Z,True,False,Western Michigan,Mid-American,59,Bethune-Cookman,SWAC,31
+401643789,3,2024-09-14T23:00:00.000Z,True,False,Southern Miss,Sun Belt,24,South Florida,American Athletic,49
+401640999,3,2024-09-14T23:00:00.000Z,True,False,Eastern Michigan,Mid-American,37,Jacksonville State,Conference USA,34
+401641024,3,2024-09-14T23:00:00.000Z,True,False,Middle Tennessee,Conference USA,21,Western Kentucky,Conference USA,49
+401628362,3,2024-09-14T23:00:00.000Z,True,False,Georgia State,Sun Belt,36,Vanderbilt,SEC,32
+401628361,3,2024-09-14T23:00:00.000Z,True,False,Texas,SEC,56,UTSA,American Athletic,7
+401641017,3,2024-09-14T23:00:00.000Z,True,False,San José State,Mountain West,31,Kennesaw State,Conference USA,10
+401641040,3,2024-09-14T23:00:00.000Z,True,False,Sam Houston,Conference USA,31,Hawai'i,Mountain West,13
+401636860,3,2024-09-14T23:30:00.000Z,True,False,Baylor,Big 12,31,Air Force,Mountain West,3
+401628482,3,2024-09-14T23:30:00.000Z,True,False,Nebraska,Big Ten,34,Northern Iowa,MVFC,3
+401655632,3,2024-09-14T23:30:00.000Z,True,True,Northwestern,Big Ten,31,Eastern Illinois,Big South-OVC,7
+401636861,3,2024-09-14T23:30:00.000Z,True,False,Colorado State,Mountain West,9,Colorado,Big 12,28
+401628352,3,2024-09-14T23:30:00.000Z,True,False,Auburn,SEC,45,New Mexico,Mountain West,19
+401628476,3,2024-09-14T23:30:00.000Z,True,False,UCLA,Big Ten,13,Indiana,Big Ten,42
+401628356,3,2024-09-14T23:30:00.000Z,True,False,Mississippi State,SEC,17,Toledo,Mid-American,41
+401636866,3,2024-09-14T23:30:00.000Z,True,False,TCU,Big 12,34,UCF,Big 12,35
+401628354,3,2024-09-14T23:30:00.000Z,True,False,Kentucky,SEC,12,Georgia,SEC,13
+401628360,3,2024-09-14T23:45:00.000Z,True,False,Tennessee,SEC,71,Kent State,Mid-American,0
+401636862,3,2024-09-15T00:00:00.000Z,True,False,Houston,Big 12,33,Rice,American Athletic,7
+401628478,3,2024-09-15T00:00:00.000Z,True,False,Virginia,ACC,13,Maryland,Big Ten,27
+401636871,3,2024-09-15T01:00:00.000Z,True,False,Wyoming,Mountain West,14,BYU,Big 12,34
+401635541,3,2024-09-15T02:30:00.000Z,True,False,California,ACC,31,San Diego State,Mountain West,10
+401641033,3,2024-09-15T02:30:00.000Z,True,False,Fresno State,Mountain West,48,New Mexico State,Conference USA,0
+401643790,4,2024-09-19T23:30:00.000Z,True,False,App State,Sun Belt,14,South Alabama,Sun Belt,48
+401634766,4,2024-09-20T23:30:00.000Z,True,False,Syracuse,ACC,24,Stanford,ACC,26
+401628485,4,2024-09-21T00:00:00.000Z,True,False,Nebraska,Big Ten,24,Illinois,Big Ten,31
+401643714,4,2024-09-21T02:00:00.000Z,True,False,Washington State,Pac-12,54,San José State,Mountain West,52
+401628492,4,2024-09-21T16:00:00.000Z,True,False,Ohio State,Big Ten,49,Marshall,Sun Belt,14
+401628486,4,2024-09-21T16:00:00.000Z,True,False,Indiana,Big Ten,52,Charlotte,American Athletic,14
+401635552,4,2024-09-21T16:00:00.000Z,True,False,Clemson,ACC,59,NC State,ACC,35
+401636879,4,2024-09-21T16:00:00.000Z,True,False,West Virginia,Big 12,32,Kansas,Big 12,28
+401636873,4,2024-09-21T16:00:00.000Z,True,False,Cincinnati,Big 12,34,Houston,Big 12,0
+401645328,4,2024-09-21T16:00:00.000Z,True,False,Army,American Athletic,37,Rice,American Athletic,14
+401643791,4,2024-09-21T16:00:00.000Z,True,False,Louisiana,Sun Belt,33,Tulane,American Athletic,41
+401628367,4,2024-09-21T16:00:00.000Z,True,False,Mississippi State,SEC,28,Florida,SEC,45
+401628488,4,2024-09-21T16:00:00.000Z,True,False,Maryland,Big Ten,38,Villanova,Coastal Athletic,20
+401635556,4,2024-09-21T16:00:00.000Z,True,False,North Carolina,ACC,50,James Madison,Sun Belt,70
+401628364,4,2024-09-21T16:45:00.000Z,True,False,Kentucky,SEC,41,Ohio,Mid-American,6
+401644735,4,2024-09-21T17:00:00.000Z,True,False,Central Michigan,Mid-American,37,Ball State,Mid-American,34
+401644737,4,2024-09-21T18:00:00.000Z,True,False,Eastern Michigan,Mid-American,36,Saint Francis,NEC,0
+401635558,4,2024-09-21T18:00:00.000Z,True,False,Coastal Carolina,Sun Belt,24,Virginia,ACC,43
+401643715,4,2024-09-21T18:00:00.000Z,True,False,Temple,American Athletic,45,Utah State,Mountain West,29
+401636875,4,2024-09-21T18:00:00.000Z,True,False,Iowa State,Big 12,52,Arkansas State,Sun Belt,7
+401641000,4,2024-09-21T19:00:00.000Z,True,False,Jacksonville State,Conference USA,44,Southern Miss,Sun Belt,7
+401643713,4,2024-09-21T19:00:00.000Z,True,False,Nevada,Mountain West,49,Eastern Washington,Big Sky,16
+401628489,4,2024-09-21T19:30:00.000Z,True,False,Michigan,Big Ten,27,USC,Big Ten,24
+401645329,4,2024-09-21T19:30:00.000Z,True,False,Navy,American Athletic,56,Memphis,American Athletic,44
+401628979,4,2024-09-21T19:30:00.000Z,True,False,Notre Dame,FBS Independents,28,Miami (OH),Mid-American,3
+401636877,4,2024-09-21T19:30:00.000Z,True,False,Texas Tech,Big 12,30,Arizona State,Big 12,22
+401628365,4,2024-09-21T19:30:00.000Z,True,False,LSU,SEC,34,UCLA,Big Ten,17
+401645330,4,2024-09-21T19:30:00.000Z,True,False,UTSA,American Athletic,45,Houston Christian,Southland,7
+401628494,4,2024-09-21T19:30:00.000Z,True,False,Virginia Tech,ACC,23,Rutgers,Big Ten,26
+401644736,4,2024-09-21T19:30:00.000Z,True,False,Northern Illinois,Mid-American,20,Buffalo,Mid-American,23
+401635554,4,2024-09-21T19:30:00.000Z,True,False,Louisville,ACC,31,Georgia Tech,ACC,19
+401629042,4,2024-09-21T19:30:00.000Z,True,False,Massachusetts,FBS Independents,35,Central Connecticut,NEC,31
+401634247,4,2024-09-21T19:30:00.000Z,True,False,Pittsburgh,ACC,73,Youngstown State,MVFC,17
+401628493,4,2024-09-21T19:30:00.000Z,True,False,Penn State,Big Ten,56,Kent State,Mid-American,0
+401628363,4,2024-09-21T19:30:00.000Z,True,False,Auburn,SEC,14,Arkansas,SEC,24
+401635553,4,2024-09-21T20:00:00.000Z,True,False,Middle Tennessee,Conference USA,17,Duke,ACC,45
+401636876,4,2024-09-21T20:00:00.000Z,True,False,Oklahoma State,Big 12,19,Utah,Big 12,22
+401628368,4,2024-09-21T20:15:00.000Z,True,False,Missouri,SEC,30,Vanderbilt,SEC,27
+401641028,4,2024-09-21T21:00:00.000Z,True,False,Colorado State,Mountain West,27,UTEP,Conference USA,17
+401635557,4,2024-09-21T21:00:00.000Z,True,False,SMU,ACC,66,TCU,Big 12,42
+401640991,4,2024-09-21T22:00:00.000Z,True,False,Liberty,Conference USA,35,East Carolina,American Athletic,24
+401628625,4,2024-09-21T22:00:00.000Z,True,True,Florida International,Conference USA,42,Monmouth,Coastal Athletic,45
+401641008,4,2024-09-21T23:00:00.000Z,True,False,Louisiana Tech,Conference USA,20,Tulsa,American Athletic,23
+401635555,4,2024-09-21T23:00:00.000Z,True,False,South Florida,American Athletic,15,Miami,ACC,50
+401641037,4,2024-09-21T23:00:00.000Z,True,False,Western Kentucky,Conference USA,26,Toledo,Mid-American,21
+401636374,4,2024-09-21T23:00:00.000Z,True,False,Troy,Sun Belt,34,Florida A&M,SWAC,12
+401635551,4,2024-09-21T23:00:00.000Z,True,False,Florida State,ACC,14,California,ACC,9
+401629031,4,2024-09-21T23:00:00.000Z,True,False,UConn,FBS Independents,48,Florida Atlantic,American Athletic,14
+401643716,4,2024-09-21T23:00:00.000Z,True,False,North Texas,American Athletic,44,Wyoming,Mountain West,17
+401641034,4,2024-09-21T23:00:00.000Z,True,False,Sam Houston,Conference USA,31,New Mexico State,Conference USA,11
+401628491,4,2024-09-21T23:00:00.000Z,True,False,Washington,Big Ten,24,Northwestern,Big Ten,5
+401628369,4,2024-09-21T23:30:00.000Z,True,False,Oklahoma,SEC,15,Tennessee,SEC,25
+401628487,4,2024-09-21T23:30:00.000Z,True,False,Minnesota,Big Ten,14,Iowa,Big Ten,31
+401628370,4,2024-09-21T23:30:00.000Z,True,False,South Carolina,SEC,50,Akron,Mid-American,7
+401628372,4,2024-09-21T23:30:00.000Z,True,False,Texas A&M,SEC,26,Bowling Green,Mid-American,20
+401628366,4,2024-09-21T23:45:00.000Z,True,False,Ole Miss,SEC,52,Georgia Southern,Sun Belt,13
+401628490,4,2024-09-22T00:00:00.000Z,True,False,Boston College,ACC,23,Michigan State,Big Ten,19
+401628371,4,2024-09-22T00:00:00.000Z,True,False,Texas,SEC,51,UL Monroe,Sun Belt,3
+401636874,4,2024-09-22T00:00:00.000Z,True,False,Colorado,Big 12,38,Baylor,Big 12,31
+401643717,4,2024-09-22T00:30:00.000Z,True,False,Oregon State,Pac-12,38,Purdue,Big Ten,21
+401643711,4,2024-09-22T00:30:00.000Z,True,False,New Mexico,Mountain West,21,Fresno State,Mountain West,38
+401637162,4,2024-09-22T01:45:00.000Z,True,False,Boise State,Mountain West,56,Portland State,Big Sky,14
+401636872,4,2024-09-22T02:30:00.000Z,True,False,BYU,Big 12,38,Kansas State,Big 12,9
+401643712,4,2024-09-22T03:59:00.000Z,True,False,Hawai'i,Mountain West,36,Northern Iowa,MVFC,7
+401645331,5,2024-09-26T23:30:00.000Z,True,False,Temple,American Athletic,14,Army,American Athletic,42
+401634767,5,2024-09-27T23:30:00.000Z,True,False,Miami,ACC,38,Virginia Tech,ACC,34
+401628501,5,2024-09-28T00:00:00.000Z,True,False,Rutgers,Big Ten,21,Washington,Big Ten,18
+401629032,5,2024-09-28T16:00:00.000Z,True,False,UConn,FBS Independents,47,Buffalo,Mid-American,3
+401645332,5,2024-09-28T16:00:00.000Z,True,False,UAB,American Athletic,18,Navy,American Athletic,41
+401628499,5,2024-09-28T16:00:00.000Z,True,False,Purdue,Big Ten,10,Nebraska,Big Ten,28
+401628377,5,2024-09-28T16:00:00.000Z,True,False,Ole Miss,SEC,17,Kentucky,SEC,20
+401628497,5,2024-09-28T16:00:00.000Z,True,False,Michigan,Big Ten,27,Minnesota,Big Ten,24
+401635564,5,2024-09-28T16:00:00.000Z,True,False,NC State,ACC,24,Northern Illinois,Mid-American,17
+401636883,5,2024-09-28T16:00:00.000Z,True,False,Kansas State,Big 12,42,Oklahoma State,Big 12,20
+401636880,5,2024-09-28T16:00:00.000Z,True,False,Baylor,Big 12,28,BYU,Big 12,34
+401635560,5,2024-09-28T16:00:00.000Z,True,False,Boston College,ACC,21,Western Kentucky,Conference USA,20
+401645337,5,2024-09-28T16:00:00.000Z,True,False,Tulane,American Athletic,45,South Florida,American Athletic,10
+401635565,5,2024-09-28T16:00:00.000Z,True,False,Syracuse,ACC,42,Holy Cross,Patriot,14
+401628496,5,2024-09-28T16:00:00.000Z,True,False,Indiana,Big Ten,42,Maryland,Big Ten,28
+401643793,5,2024-09-28T17:30:00.000Z,True,False,James Madison,Sun Belt,63,Ball State,Mid-American,7
+401641041,5,2024-09-28T19:00:00.000Z,True,True,Sam Houston,Conference USA,40,Texas State,Sun Belt,39
+401628373,5,2024-09-28T19:30:00.000Z,True,True,Texas A&M,SEC,21,Arkansas,SEC,17
+401643792,5,2024-09-28T19:30:00.000Z,True,False,Georgia State,Sun Belt,21,Georgia Southern,Sun Belt,38
+401643720,5,2024-09-28T19:30:00.000Z,True,False,UNLV,Mountain West,59,Fresno State,Mountain West,14
+401628980,5,2024-09-28T19:30:00.000Z,True,False,Notre Dame,FBS Independents,31,Louisville,ACC,24
+401643794,5,2024-09-28T19:30:00.000Z,True,False,Marshall,Sun Belt,27,Western Michigan,Mid-American,20
+401635659,5,2024-09-28T19:30:00.000Z,True,False,Wake Forest,ACC,38,Louisiana,Sun Belt,41
+401643721,5,2024-09-28T19:30:00.000Z,True,False,Central Michigan,Mid-American,22,San Diego State,Mountain West,21
+401644738,5,2024-09-28T19:30:00.000Z,True,False,Ohio,Mid-American,30,Akron,Mid-American,10
+401636885,5,2024-09-28T19:30:00.000Z,True,False,UCF,Big 12,21,Colorado,Big 12,48
+401628375,5,2024-09-28T19:30:00.000Z,True,False,Auburn,SEC,21,Oklahoma,SEC,27
+401644739,5,2024-09-28T19:30:00.000Z,True,False,Kent State,Mid-American,33,Eastern Michigan,Mid-American,52
+401640992,5,2024-09-28T19:30:00.000Z,False,False,App State,Sun Belt,,Liberty,Conference USA,
+401628502,5,2024-09-28T19:30:00.000Z,True,False,USC,Big Ten,38,Wisconsin,Big Ten,21
+401629043,5,2024-09-28T19:30:00.000Z,True,False,Miami (OH),Mid-American,23,Massachusetts,FBS Independents,20
+401636882,5,2024-09-28T19:30:00.000Z,True,True,Kansas,Big 12,27,TCU,Big 12,38
+401635562,5,2024-09-28T20:00:00.000Z,True,False,Duke,ACC,21,North Carolina,ACC,20
+401645334,5,2024-09-28T20:00:00.000Z,True,False,East Carolina,American Athletic,30,UTSA,American Athletic,20
+401628378,5,2024-09-28T20:15:00.000Z,True,False,Texas,SEC,35,Mississippi State,SEC,13
+401643795,5,2024-09-28T21:00:00.000Z,True,False,Bowling Green,Mid-American,27,Old Dominion,Sun Belt,30
+401640981,5,2024-09-28T22:00:00.000Z,True,True,Florida International,Conference USA,17,Louisiana Tech,Conference USA,10
+401641018,5,2024-09-28T22:00:00.000Z,True,False,Kennesaw State,Conference USA,13,UT Martin,Big South-OVC,24
+401645335,5,2024-09-28T22:00:00.000Z,True,False,Florida Atlantic,American Athletic,41,Wagner,NEC,10
+401645333,5,2024-09-28T23:00:00.000Z,True,False,Rice,American Athletic,20,Charlotte,American Athletic,21
+401636881,5,2024-09-28T23:00:00.000Z,True,False,Houston,Big 12,0,Iowa State,Big 12,20
+401643796,5,2024-09-28T23:00:00.000Z,True,False,Troy,Sun Belt,9,UL Monroe,Sun Belt,13
+401645336,5,2024-09-28T23:00:00.000Z,True,False,North Texas,American Athletic,52,Tulsa,American Athletic,20
+401635561,5,2024-09-28T23:00:00.000Z,True,False,Clemson,ACC,40,Stanford,ACC,14
+401628498,5,2024-09-28T23:30:00.000Z,True,False,Michigan State,Big Ten,7,Ohio State,Big Ten,38
+401628374,5,2024-09-28T23:30:00.000Z,True,False,Alabama,SEC,41,Georgia,SEC,34
+401641025,5,2024-09-28T23:30:00.000Z,True,False,Memphis,American Athletic,24,Middle Tennessee,Conference USA,7
+401628495,5,2024-09-28T23:30:00.000Z,True,False,Penn State,Big Ten,21,Illinois,Big Ten,7
+401628376,5,2024-09-28T23:45:00.000Z,True,False,LSU,SEC,42,South Alabama,Sun Belt,10
+401643718,5,2024-09-29T00:00:00.000Z,True,False,Wyoming,Mountain West,31,Air Force,Mountain West,19
+401635563,5,2024-09-29T00:00:00.000Z,True,False,SMU,ACC,42,Florida State,ACC,16
+401641035,5,2024-09-29T00:00:00.000Z,True,False,New Mexico State,Conference USA,40,New Mexico,Mountain West,50
+401636884,5,2024-09-29T00:00:00.000Z,True,False,Texas Tech,Big 12,44,Cincinnati,Big 12,41
+401643719,5,2024-09-29T02:00:00.000Z,True,False,Boise State,Mountain West,45,Washington State,Pac-12,24
+401636886,5,2024-09-29T02:15:00.000Z,True,False,Utah,Big 12,10,Arizona,Big 12,23
+401628500,5,2024-09-29T03:00:00.000Z,True,False,UCLA,Big Ten,13,Oregon,Big Ten,34
+401643797,6,2024-10-03T23:00:00.000Z,True,False,Troy,Sun Belt,17,Texas State,Sun Belt,38
+401641029,6,2024-10-04T01:00:00.000Z,True,False,UTEP,Conference USA,21,Sam Houston,Conference USA,41
+401641001,6,2024-10-04T23:00:00.000Z,True,False,Kennesaw State,Conference USA,24,Jacksonville State,Conference USA,63
+401636891,6,2024-10-04T23:30:00.000Z,True,False,TCU,Big 12,19,Houston,Big 12,30
+401634779,6,2024-10-05T01:00:00.000Z,True,False,UNLV,Mountain West,41,Syracuse,ACC,44
+401628506,6,2024-10-05T01:00:00.000Z,True,False,Oregon,Big Ten,31,Michigan State,Big Ten,10
+401635571,6,2024-10-05T16:00:00.000Z,True,False,Louisville,ACC,27,SMU,ACC,34
+401628509,6,2024-10-05T16:00:00.000Z,True,False,Wisconsin,Big Ten,52,Purdue,Big Ten,6
+401635567,6,2024-10-05T16:00:00.000Z,True,False,Virginia,ACC,24,Boston College,ACC,14
+401643722,6,2024-10-05T16:00:00.000Z,True,False,Air Force,Mountain West,7,Navy,American Athletic,34
+401635638,6,2024-10-05T16:00:00.000Z,True,False,NC State,ACC,30,Wake Forest,ACC,34
+401645339,6,2024-10-05T16:00:00.000Z,True,False,Tulsa,American Athletic,7,Army,American Athletic,49
+401628383,6,2024-10-05T16:00:00.000Z,True,False,Texas A&M,SEC,41,Missouri,SEC,10
+401635572,6,2024-10-05T16:00:00.000Z,True,False,North Carolina,ACC,24,Pittsburgh,ACC,34
+401629044,6,2024-10-05T16:00:00.000Z,True,False,Northern Illinois,Mid-American,34,Massachusetts,FBS Independents,20
+401628510,6,2024-10-05T16:00:00.000Z,True,False,Penn State,Big Ten,27,UCLA,Big Ten,11
+401645338,6,2024-10-05T17:00:00.000Z,True,False,UAB,American Athletic,20,Tulane,American Athletic,71
+401644741,6,2024-10-05T18:00:00.000Z,True,False,Ball State,Mid-American,42,Western Michigan,Mid-American,45
+401643799,6,2024-10-05T19:30:00.000Z,True,False,Marshall,Sun Belt,52,App State,Sun Belt,37
+401629033,6,2024-10-05T19:30:00.000Z,True,False,UConn,FBS Independents,29,Temple,American Athletic,20
+401628504,6,2024-10-05T19:30:00.000Z,True,False,Ohio State,Big Ten,35,Iowa,Big Ten,7
+401645340,6,2024-10-05T19:30:00.000Z,True,False,Charlotte,American Athletic,55,East Carolina,American Athletic,24
+401635573,6,2024-10-05T19:30:00.000Z,True,False,Stanford,ACC,7,Virginia Tech,ACC,31
+401628503,6,2024-10-05T19:30:00.000Z,True,True,Northwestern,Big Ten,24,Indiana,Big Ten,41
+401644684,6,2024-10-05T19:30:00.000Z,True,False,Toledo,Mid-American,30,Miami (OH),Mid-American,20
+401628382,6,2024-10-05T19:30:00.000Z,True,False,South Carolina,SEC,3,Ole Miss,SEC,27
+401628381,6,2024-10-05T19:30:00.000Z,True,False,Georgia,SEC,31,Auburn,SEC,13
+401644740,6,2024-10-05T19:30:00.000Z,True,False,Akron,Mid-American,20,Bowling Green,Mid-American,27
+401628508,6,2024-10-05T20:00:00.000Z,True,False,Nebraska,Big Ten,14,Rutgers,Big Ten,7
+401636890,6,2024-10-05T20:00:00.000Z,True,False,Oklahoma State,Big 12,14,West Virginia,Big 12,38
+401628384,6,2024-10-05T20:15:00.000Z,True,False,Vanderbilt,SEC,40,Alabama,SEC,35
+401643724,6,2024-10-05T22:30:00.000Z,True,False,Oregon State,Pac-12,39,Colorado State,Mountain West,31
+401643800,6,2024-10-05T23:00:00.000Z,True,False,Arkansas State,Sun Belt,18,South Alabama,Sun Belt,16
+401643802,6,2024-10-05T23:00:00.000Z,True,False,Southern Miss,Sun Belt,13,Louisiana,Sun Belt,23
+401643801,6,2024-10-05T23:00:00.000Z,True,False,UL Monroe,Sun Belt,21,James Madison,Sun Belt,19
+401643723,6,2024-10-05T23:00:00.000Z,True,False,Boise State,Mountain West,62,Utah State,Mountain West,30
+401643798,6,2024-10-05T23:00:00.000Z,True,False,Coastal Carolina,Sun Belt,45,Old Dominion,Sun Belt,37
+401635569,6,2024-10-05T23:00:00.000Z,True,False,Florida State,ACC,13,Clemson,ACC,29
+401636889,6,2024-10-05T23:30:00.000Z,True,False,Iowa State,Big 12,43,Baylor,Big 12,21
+401628505,6,2024-10-05T23:30:00.000Z,True,False,Washington,Big Ten,27,Michigan,Big Ten,17
+401643726,6,2024-10-05T23:30:00.000Z,True,False,San José State,Mountain West,35,Nevada,Mountain West,31
+401628379,6,2024-10-05T23:30:00.000Z,True,False,Arkansas,SEC,19,Tennessee,SEC,14
+401628507,6,2024-10-05T23:30:00.000Z,True,False,Minnesota,Big Ten,24,USC,Big Ten,17
+401628380,6,2024-10-05T23:45:00.000Z,True,False,Florida,SEC,24,UCF,Big 12,13
+401635570,6,2024-10-06T00:00:00.000Z,True,False,Georgia Tech,ACC,24,Duke,ACC,14
+401636888,6,2024-10-06T00:00:00.000Z,True,False,Arizona State,Big 12,35,Kansas,Big 12,31
+401643725,6,2024-10-06T00:00:00.000Z,True,False,San Diego State,Mountain West,27,Hawai'i,Mountain West,24
+401635568,6,2024-10-06T02:30:00.000Z,True,False,California,ACC,38,Miami,ACC,39
+401636887,6,2024-10-06T03:00:00.000Z,True,False,Arizona,Big 12,22,Texas Tech,Big 12,28
+401640982,7,2024-10-08T23:00:00.000Z,True,False,Liberty,Conference USA,31,Florida International,Conference USA,24
+401641002,7,2024-10-09T23:30:00.000Z,True,False,Jacksonville State,Conference USA,54,New Mexico State,Conference USA,13
+401643803,7,2024-10-10T23:30:00.000Z,True,False,James Madison,Sun Belt,39,Coastal Carolina,Sun Belt,7
+401641009,7,2024-10-11T00:00:00.000Z,True,False,Louisiana Tech,Conference USA,48,Middle Tennessee,Conference USA,21
+401641030,7,2024-10-11T00:00:00.000Z,True,False,Western Kentucky,Conference USA,44,UTEP,Conference USA,17
+401628513,7,2024-10-12T00:00:00.000Z,True,False,Maryland,Big Ten,10,Northwestern,Big Ten,37
+401643733,7,2024-10-12T01:00:00.000Z,True,False,Utah State,Mountain West,34,UNLV,Mountain West,50
+401636892,7,2024-10-12T02:30:00.000Z,True,False,Arizona State,Big 12,27,Utah,Big 12,19
+401628517,7,2024-10-12T16:00:00.000Z,True,False,Rutgers,Big Ten,7,Wisconsin,Big Ten,42
+401635577,7,2024-10-12T16:00:00.000Z,True,False,North Carolina,ACC,34,Georgia Tech,ACC,41
+401628512,7,2024-10-12T16:00:00.000Z,True,False,Iowa,Big Ten,40,Washington,Big Ten,16
+401635576,7,2024-10-12T16:00:00.000Z,True,False,Wake Forest,ACC,14,Clemson,ACC,49
+401628389,7,2024-10-12T16:00:00.000Z,True,False,Massachusetts,FBS Independents,3,Missouri,SEC,45
+401644743,7,2024-10-12T16:00:00.000Z,True,False,Kent State,Mid-American,35,Ball State,Mid-American,37
+401644745,7,2024-10-12T16:00:00.000Z,True,False,Buffalo,Mid-American,30,Toledo,Mid-American,15
+401645342,7,2024-10-12T16:00:00.000Z,True,False,Army,American Athletic,44,UAB,American Athletic,10
+401628385,7,2024-10-12T16:00:00.000Z,True,False,Alabama,SEC,27,South Carolina,SEC,25
+401644685,7,2024-10-12T18:00:00.000Z,True,False,Eastern Michigan,Mid-American,14,Miami (OH),Mid-American,38
+401636895,7,2024-10-12T19:30:00.000Z,True,False,UCF,Big 12,13,Cincinnati,Big 12,19
+401628511,7,2024-10-12T19:30:00.000Z,True,False,Illinois,Big Ten,50,Purdue,Big Ten,49
+401635575,7,2024-10-12T19:30:00.000Z,True,False,Pittsburgh,ACC,17,California,ACC,15
+401645341,7,2024-10-12T19:30:00.000Z,True,True,South Florida,American Athletic,3,Memphis,American Athletic,21
+401643729,7,2024-10-12T19:30:00.000Z,True,False,Colorado State,Mountain West,31,San José State,Mountain West,24
+401644744,7,2024-10-12T19:30:00.000Z,True,False,Bowling Green,Mid-American,7,Northern Illinois,Mid-American,17
+401635578,7,2024-10-12T19:30:00.000Z,True,False,Virginia,ACC,20,Louisville,ACC,24
+401643805,7,2024-10-12T19:30:00.000Z,True,False,Georgia State,Sun Belt,14,Old Dominion,Sun Belt,21
+401644742,7,2024-10-12T19:30:00.000Z,True,False,Western Michigan,Mid-American,34,Akron,Mid-American,24
+401628390,7,2024-10-12T19:30:00.000Z,True,True,Oklahoma,SEC,3,Texas,SEC,34
+401628981,7,2024-10-12T19:30:00.000Z,True,False,Notre Dame,FBS Independents,49,Stanford,ACC,7
+401643732,7,2024-10-12T19:30:00.000Z,True,False,Wyoming,Mountain West,24,San Diego State,Mountain West,27
+401628516,7,2024-10-12T19:30:00.000Z,True,False,USC,Big Ten,30,Penn State,Big Ten,33
+401644746,7,2024-10-12T20:00:00.000Z,True,False,Central Michigan,Mid-American,25,Ohio,Mid-American,27
+401636893,7,2024-10-12T20:00:00.000Z,True,False,BYU,Big 12,41,Arizona,Big 12,19
+401628386,7,2024-10-12T20:15:00.000Z,True,False,Georgia,SEC,41,Mississippi State,SEC,31
+401643807,7,2024-10-12T21:00:00.000Z,True,False,UL Monroe,Sun Belt,38,Southern Miss,Sun Belt,21
+401643808,7,2024-10-12T23:00:00.000Z,True,False,Texas State,Sun Belt,41,Arkansas State,Sun Belt,9
+401645344,7,2024-10-12T23:00:00.000Z,True,False,Rice,American Athletic,29,UTSA,American Athletic,27
+401643730,7,2024-10-12T23:00:00.000Z,True,False,Fresno State,Mountain West,17,Washington State,Pac-12,25
+401643727,7,2024-10-12T23:00:00.000Z,True,False,New Mexico,Mountain West,52,Air Force,Mountain West,37
+401628391,7,2024-10-12T23:00:00.000Z,True,False,Tennessee,SEC,23,Florida,SEC,17
+401645343,7,2024-10-12T23:00:00.000Z,True,False,Florida Atlantic,American Athletic,37,North Texas,American Athletic,41
+401628515,7,2024-10-12T23:30:00.000Z,True,False,Oregon,Big Ten,32,Ohio State,Big Ten,31
+401628388,7,2024-10-12T23:30:00.000Z,True,False,LSU,SEC,29,Ole Miss,SEC,26
+401643731,7,2024-10-12T23:30:00.000Z,True,False,Nevada,Mountain West,42,Oregon State,Pac-12,37
+401643806,7,2024-10-12T23:30:00.000Z,True,False,Louisiana,Sun Belt,34,App State,Sun Belt,24
+401628387,7,2024-10-12T23:45:00.000Z,True,False,Kentucky,SEC,13,Vanderbilt,SEC,20
+401635574,7,2024-10-13T00:00:00.000Z,True,False,NC State,ACC,17,Syracuse,ACC,24
+401636896,7,2024-10-13T00:00:00.000Z,True,False,West Virginia,Big 12,16,Iowa State,Big 12,28
+401643804,7,2024-10-13T00:00:00.000Z,True,False,Georgia Southern,Sun Belt,24,Marshall,Sun Belt,23
+401628514,7,2024-10-13T01:00:00.000Z,True,False,UCLA,Big Ten,17,Minnesota,Big Ten,21
+401636894,7,2024-10-13T02:15:00.000Z,True,False,Colorado,Big 12,28,Kansas State,Big 12,31
+401643728,7,2024-10-13T03:00:00.000Z,True,False,Hawai'i,Mountain West,7,Boise State,Mountain West,28
+401643809,8,2024-10-15T23:30:00.000Z,True,False,South Alabama,Sun Belt,25,Troy,Sun Belt,9
+401641019,8,2024-10-16T00:00:00.000Z,True,False,Middle Tennessee,Conference USA,14,Kennesaw State,Conference USA,5
+401641010,8,2024-10-16T01:00:00.000Z,True,False,New Mexico State,Conference USA,33,Louisiana Tech,Conference USA,30
+401641038,8,2024-10-16T23:00:00.000Z,True,False,Sam Houston,Conference USA,14,Western Kentucky,Conference USA,31
+401640983,8,2024-10-17T01:00:00.000Z,True,False,UTEP,Conference USA,30,Florida International,Conference USA,21
+401643810,8,2024-10-17T23:00:00.000Z,True,False,Marshall,Sun Belt,35,Georgia State,Sun Belt,20
+401634768,8,2024-10-17T23:30:00.000Z,True,False,Virginia Tech,ACC,42,Boston College,ACC,21
+401634769,8,2024-10-18T23:00:00.000Z,True,False,Duke,ACC,23,Florida State,ACC,16
+401628523,8,2024-10-19T00:00:00.000Z,True,False,Purdue,Big Ten,0,Oregon,Big Ten,35
+401636898,8,2024-10-19T02:15:00.000Z,True,False,BYU,Big 12,38,Oklahoma State,Big 12,35
+401643735,8,2024-10-19T02:30:00.000Z,True,False,Nevada,Mountain West,21,Fresno State,Mountain West,24
+401635588,8,2024-10-19T16:00:00.000Z,True,False,Clemson,ACC,48,Virginia,ACC,31
+401636899,8,2024-10-19T16:00:00.000Z,True,False,Cincinnati,Big 12,24,Arizona State,Big 12,14
+401628522,8,2024-10-19T16:00:00.000Z,True,True,Northwestern,Big Ten,3,Wisconsin,Big Ten,23
+401628519,8,2024-10-19T16:00:00.000Z,True,False,Indiana,Big Ten,56,Nebraska,Big Ten,7
+401628524,8,2024-10-19T16:00:00.000Z,True,False,Rutgers,Big Ten,32,UCLA,Big Ten,35
+401635589,8,2024-10-19T16:00:00.000Z,True,False,Louisville,ACC,45,Miami,ACC,52
+401628395,8,2024-10-19T16:00:00.000Z,True,False,Missouri,SEC,21,Auburn,SEC,17
+401643811,8,2024-10-19T16:00:00.000Z,True,False,Coastal Carolina,Sun Belt,24,Louisiana,Sun Belt,34
+401629034,8,2024-10-19T16:00:00.000Z,True,False,UConn,FBS Independents,20,Wake Forest,ACC,23
+401645346,8,2024-10-19T16:00:00.000Z,True,False,Army,American Athletic,45,East Carolina,American Athletic,28
+401628396,8,2024-10-19T16:45:00.000Z,True,False,Oklahoma,SEC,9,South Carolina,SEC,35
+401645351,8,2024-10-19T18:00:00.000Z,True,False,Temple,American Athletic,20,Tulsa,American Athletic,10
+401644750,8,2024-10-19T18:00:00.000Z,True,False,Eastern Michigan,Mid-American,38,Central Michigan,Mid-American,34
+401644751,8,2024-10-19T19:30:00.000Z,True,False,Northern Illinois,Mid-American,6,Toledo,Mid-American,13
+401645345,8,2024-10-19T19:30:00.000Z,True,False,South Florida,American Athletic,35,UAB,American Athletic,25
+401644749,8,2024-10-19T19:30:00.000Z,True,False,Buffalo,Mid-American,41,Western Michigan,Mid-American,48
+401645348,8,2024-10-19T19:30:00.000Z,True,False,UTSA,American Athletic,38,Florida Atlantic,American Athletic,24
+401645350,8,2024-10-19T19:30:00.000Z,True,False,Tulane,American Athletic,24,Rice,American Athletic,10
+401628518,8,2024-10-19T19:30:00.000Z,True,False,Illinois,Big Ten,21,Michigan,Big Ten,7
+401635587,8,2024-10-19T19:30:00.000Z,True,False,California,ACC,23,NC State,ACC,24
+401628397,8,2024-10-19T19:30:00.000Z,True,False,Tennessee,SEC,24,Alabama,SEC,17
+401643736,8,2024-10-19T19:30:00.000Z,True,False,Washington State,Pac-12,42,Hawai'i,Mountain West,10
+401645347,8,2024-10-19T19:30:00.000Z,True,False,Navy,American Athletic,51,Charlotte,American Athletic,17
+401636901,8,2024-10-19T19:30:00.000Z,True,True,Kansas,Big 12,42,Houston,Big 12,14
+401643813,8,2024-10-19T19:30:00.000Z,True,False,Old Dominion,Sun Belt,24,Texas State,Sun Belt,14
+401644748,8,2024-10-19T19:30:00.000Z,True,False,Bowling Green,Mid-American,27,Kent State,Mid-American,6
+401644686,8,2024-10-19T19:30:00.000Z,True,False,Miami (OH),Mid-American,30,Ohio,Mid-American,20
+401628982,8,2024-10-19T19:30:00.000Z,True,True,Georgia Tech,ACC,13,Notre Dame,FBS Independents,31
+401643738,8,2024-10-19T20:00:00.000Z,True,False,San José State,Mountain West,24,Wyoming,Mountain West,14
+401643737,8,2024-10-19T20:00:00.000Z,True,False,Utah State,Mountain West,45,New Mexico,Mountain West,50
+401643812,8,2024-10-19T20:00:00.000Z,True,False,Georgia Southern,Sun Belt,28,James Madison,Sun Belt,14
+401628521,8,2024-10-19T20:00:00.000Z,True,False,Maryland,Big Ten,29,USC,Big Ten,28
+401636902,8,2024-10-19T20:00:00.000Z,True,False,Texas Tech,Big 12,35,Baylor,Big 12,59
+401636897,8,2024-10-19T20:00:00.000Z,True,False,Arizona,Big 12,7,Colorado,Big 12,34
+401628394,8,2024-10-19T20:15:00.000Z,True,False,Mississippi State,SEC,24,Texas A&M,SEC,34
+401628399,8,2024-10-19T23:00:00.000Z,True,False,Vanderbilt,SEC,24,Ball State,Mid-American,14
+401628392,8,2024-10-19T23:00:00.000Z,True,False,Arkansas,SEC,10,LSU,SEC,34
+401643814,8,2024-10-19T23:00:00.000Z,True,False,Southern Miss,Sun Belt,28,Arkansas State,Sun Belt,44
+401636900,8,2024-10-19T23:30:00.000Z,True,False,Iowa State,Big 12,38,UCF,Big 12,35
+401628520,8,2024-10-19T23:30:00.000Z,True,False,Michigan State,Big Ten,32,Iowa,Big Ten,20
+401636904,8,2024-10-19T23:30:00.000Z,True,False,West Virginia,Big 12,18,Kansas State,Big 12,45
+401628398,8,2024-10-19T23:30:00.000Z,True,False,Texas,SEC,15,Georgia,SEC,30
+401645349,8,2024-10-19T23:30:00.000Z,True,False,Memphis,American Athletic,52,North Texas,American Athletic,44
+401628393,8,2024-10-19T23:45:00.000Z,True,False,Florida,SEC,48,Kentucky,SEC,20
+401643734,8,2024-10-20T00:00:00.000Z,True,False,Air Force,Mountain West,13,Colorado State,Mountain West,21
+401635590,8,2024-10-20T00:00:00.000Z,True,False,Stanford,ACC,10,SMU,ACC,40
+401643739,8,2024-10-20T02:00:00.000Z,True,False,Oregon State,Pac-12,25,UNLV,Mountain West,33
+401636903,8,2024-10-20T02:30:00.000Z,True,False,Utah,Big 12,7,TCU,Big 12,13
+401640984,9,2024-10-22T23:30:00.000Z,True,True,Florida International,Conference USA,7,Sam Houston,Conference USA,10
+401641011,9,2024-10-23T00:00:00.000Z,True,False,Louisiana Tech,Conference USA,14,UTEP,Conference USA,10
+401640993,9,2024-10-23T23:00:00.000Z,True,False,Kennesaw State,Conference USA,27,Liberty,Conference USA,24
+401641003,9,2024-10-23T23:30:00.000Z,True,False,Jacksonville State,Conference USA,42,Middle Tennessee,Conference USA,20
+401643815,9,2024-10-24T23:00:00.000Z,True,False,Old Dominion,Sun Belt,47,Georgia Southern,Sun Belt,19
+401634770,9,2024-10-24T23:30:00.000Z,True,False,Pittsburgh,ACC,41,Syracuse,ACC,13
+401634771,9,2024-10-25T23:30:00.000Z,True,False,Boston College,ACC,27,Louisville,ACC,31
+401643740,9,2024-10-26T02:30:00.000Z,True,False,UNLV,Mountain West,24,Boise State,Mountain West,29
+401628532,9,2024-10-26T03:00:00.000Z,True,False,USC,Big Ten,42,Rutgers,Big Ten,20
+401628526,9,2024-10-26T16:00:00.000Z,True,False,Indiana,Big Ten,31,Washington,Big Ten,17
+401628983,9,2024-10-26T16:00:00.000Z,True,True,Navy,American Athletic,14,Notre Dame,FBS Independents,51
+401628530,9,2024-10-26T16:00:00.000Z,True,False,Ohio State,Big Ten,21,Nebraska,Big Ten,17
+401644755,9,2024-10-26T16:00:00.000Z,True,False,Ohio,Mid-American,47,Buffalo,Mid-American,16
+401635597,9,2024-10-26T16:00:00.000Z,True,False,Virginia Tech,ACC,21,Georgia Tech,ACC,6
+401635598,9,2024-10-26T16:00:00.000Z,True,False,Virginia,ACC,14,North Carolina,ACC,41
+401645353,9,2024-10-26T16:00:00.000Z,True,False,Memphis,American Athletic,33,Charlotte,American Athletic,28
+401628402,9,2024-10-26T16:00:00.000Z,True,False,Ole Miss,SEC,26,Oklahoma,SEC,14
+401645354,9,2024-10-26T16:00:00.000Z,True,False,North Texas,American Athletic,37,Tulane,American Athletic,45
+401628403,9,2024-10-26T16:45:00.000Z,True,False,Mississippi State,SEC,25,Arkansas,SEC,58
+401643816,9,2024-10-26T17:00:00.000Z,True,False,App State,Sun Belt,33,Georgia State,Sun Belt,26
+401644687,9,2024-10-26T18:00:00.000Z,True,False,Miami (OH),Mid-American,46,Central Michigan,Mid-American,7
+401645352,9,2024-10-26T18:00:00.000Z,True,False,East Carolina,American Athletic,56,Temple,American Athletic,34
+401645355,9,2024-10-26T19:30:00.000Z,True,False,Tulsa,American Athletic,46,UTSA,American Athletic,45
+401628525,9,2024-10-26T19:30:00.000Z,True,False,Oregon,Big Ten,38,Illinois,Big Ten,9
+401635599,9,2024-10-26T19:30:00.000Z,True,False,Stanford,ACC,24,Wake Forest,ACC,27
+401629035,9,2024-10-26T19:30:00.000Z,True,False,UConn,FBS Independents,17,Rice,American Athletic,10
+401636906,9,2024-10-26T19:30:00.000Z,True,False,Baylor,Big 12,38,Oklahoma State,Big 12,28
+401636911,9,2024-10-26T19:30:00.000Z,True,False,UCF,Big 12,24,BYU,Big 12,37
+401636910,9,2024-10-26T19:30:00.000Z,True,False,TCU,Big 12,35,Texas Tech,Big 12,34
+401628400,9,2024-10-26T19:30:00.000Z,True,False,Alabama,SEC,34,Missouri,SEC,0
+401628527,9,2024-10-26T19:30:00.000Z,True,False,Iowa,Big Ten,40,Northwestern,Big Ten,14
+401645308,9,2024-10-26T19:30:00.000Z,True,False,Massachusetts,FBS Independents,35,Wagner,NEC,7
+401644756,9,2024-10-26T19:30:00.000Z,True,False,Western Michigan,Mid-American,52,Kent State,Mid-American,21
+401644754,9,2024-10-26T19:30:00.000Z,True,False,Toledo,Mid-American,26,Bowling Green,Mid-American,41
+401644753,9,2024-10-26T19:30:00.000Z,True,False,Ball State,Mid-American,25,Northern Illinois,Mid-American,23
+401644752,9,2024-10-26T19:30:00.000Z,True,False,Akron,Mid-American,25,Eastern Michigan,Mid-American,21
+401628528,9,2024-10-26T19:30:00.000Z,True,False,Minnesota,Big Ten,48,Maryland,Big Ten,23
+401643817,9,2024-10-26T19:30:00.000Z,True,False,James Madison,Sun Belt,32,Southern Miss,Sun Belt,15
+401635594,9,2024-10-26T20:00:00.000Z,True,False,California,ACC,44,Oregon State,Pac-12,7
+401628405,9,2024-10-26T20:15:00.000Z,True,False,Vanderbilt,SEC,24,Texas,SEC,27
+401643741,9,2024-10-26T21:00:00.000Z,True,False,Colorado State,Mountain West,17,New Mexico,Mountain West,6
+401643819,9,2024-10-26T21:00:00.000Z,True,False,South Alabama,Sun Belt,46,UL Monroe,Sun Belt,17
+401636908,9,2024-10-26T23:00:00.000Z,True,False,Houston,Big 12,17,Utah,Big 12,14
+401643745,9,2024-10-26T23:00:00.000Z,True,False,Wyoming,Mountain West,25,Utah State,Mountain West,27
+401643818,9,2024-10-26T23:00:00.000Z,True,False,Arkansas State,Sun Belt,34,Troy,Sun Belt,31
+401636905,9,2024-10-26T23:00:00.000Z,True,False,Arizona,Big 12,26,West Virginia,Big 12,31
+401635596,9,2024-10-26T23:00:00.000Z,True,False,Miami,ACC,36,Florida State,ACC,14
+401628531,9,2024-10-26T23:30:00.000Z,True,False,Wisconsin,Big Ten,13,Penn State,Big Ten,28
+401628529,9,2024-10-26T23:30:00.000Z,True,False,Michigan,Big Ten,24,Michigan State,Big Ten,17
+401628404,9,2024-10-26T23:30:00.000Z,True,False,Texas A&M,SEC,38,LSU,SEC,23
+401628401,9,2024-10-26T23:45:00.000Z,True,False,Kentucky,SEC,10,Auburn,SEC,24
+401636909,9,2024-10-27T00:00:00.000Z,True,False,Kansas State,Big 12,29,Kansas,Big 12,27
+401643742,9,2024-10-27T00:00:00.000Z,True,False,Fresno State,Mountain West,33,San José State,Mountain West,10
+401635595,9,2024-10-27T00:00:00.000Z,True,False,Duke,ACC,27,SMU,ACC,28
+401636907,9,2024-10-27T02:15:00.000Z,True,False,Colorado,Big 12,34,Cincinnati,Big 12,23
+401643744,9,2024-10-27T02:30:00.000Z,True,False,San Diego State,Mountain West,26,Washington State,Pac-12,29
+401643743,9,2024-10-27T03:59:00.000Z,True,False,Hawai'i,Mountain West,34,Nevada,Mountain West,13
+401640985,10,2024-10-29T23:00:00.000Z,True,True,Florida International,Conference USA,34,New Mexico State,Conference USA,13
+401643820,10,2024-10-29T23:30:00.000Z,True,False,Texas State,Sun Belt,17,Louisiana,Sun Belt,23
+401641012,10,2024-10-30T00:00:00.000Z,True,False,Sam Houston,Conference USA,9,Louisiana Tech,Conference USA,3
+401640994,10,2024-10-30T23:00:00.000Z,True,False,Liberty,Conference USA,21,Jacksonville State,Conference USA,31
+401641020,10,2024-10-30T23:30:00.000Z,True,False,Western Kentucky,Conference USA,31,Kennesaw State,Conference USA,14
+401645356,10,2024-10-31T23:30:00.000Z,True,False,Charlotte,American Athletic,3,Tulane,American Athletic,34
+401629036,10,2024-11-01T23:00:00.000Z,True,False,UConn,FBS Independents,34,Georgia State,Sun Belt,27
+401645357,10,2024-11-01T23:30:00.000Z,True,False,Florida Atlantic,American Athletic,21,South Florida,American Athletic,44
+401643747,10,2024-11-02T00:00:00.000Z,True,False,Boise State,Mountain West,56,San Diego State,Mountain West,24
+401643746,10,2024-11-02T16:00:00.000Z,True,False,Army,American Athletic,20,Air Force,Mountain West,3
+401635601,10,2024-11-02T16:00:00.000Z,True,False,Miami,ACC,53,Duke,ACC,31
+401645359,10,2024-11-02T16:00:00.000Z,True,False,UTSA,American Athletic,44,Memphis,American Athletic,36
+401635516,10,2024-11-02T16:00:00.000Z,True,False,NC State,ACC,59,Stanford,ACC,28
+401644758,10,2024-11-02T16:00:00.000Z,True,False,Eastern Michigan,Mid-American,28,Toledo,Mid-American,29
+401628533,10,2024-11-02T16:00:00.000Z,True,False,Illinois,Big Ten,17,Minnesota,Big Ten,25
+401628538,10,2024-11-02T16:00:00.000Z,True,False,Purdue,Big Ten,20,Northwestern,Big Ten,26
+401628539,10,2024-11-02T16:00:00.000Z,True,False,Penn State,Big Ten,13,Ohio State,Big Ten,20
+401628406,10,2024-11-02T16:00:00.000Z,True,False,Arkansas,SEC,31,Ole Miss,SEC,63
+401628410,10,2024-11-02T16:00:00.000Z,True,False,Oklahoma,SEC,59,Maine,Coastal Athletic,14
+401635604,10,2024-11-02T16:00:00.000Z,True,False,Syracuse,ACC,38,Virginia Tech,ACC,31
+401644757,10,2024-11-02T16:00:00.000Z,True,False,Akron,Mid-American,30,Buffalo,Mid-American,41
+401628407,10,2024-11-02T16:45:00.000Z,True,False,Auburn,SEC,7,Vanderbilt,SEC,17
+401643821,10,2024-11-02T18:30:00.000Z,True,False,App State,Sun Belt,28,Old Dominion,Sun Belt,20
+401645358,10,2024-11-02T18:30:00.000Z,True,False,UAB,American Athletic,59,Tulsa,American Athletic,21
+401636914,10,2024-11-02T19:30:00.000Z,True,False,Iowa State,Big 12,22,Texas Tech,Big 12,23
+401636916,10,2024-11-02T19:30:00.000Z,True,False,UCF,Big 12,56,Arizona,Big 12,12
+401636913,10,2024-11-02T19:30:00.000Z,True,False,Houston,Big 12,24,Kansas State,Big 12,19
+401641026,10,2024-11-02T19:30:00.000Z,True,False,UTEP,Conference USA,13,Middle Tennessee,Conference USA,20
+401628534,10,2024-11-02T19:30:00.000Z,True,False,Michigan State,Big Ten,10,Indiana,Big Ten,47
+401628536,10,2024-11-02T19:30:00.000Z,True,False,Michigan,Big Ten,17,Oregon,Big Ten,38
+401628537,10,2024-11-02T19:30:00.000Z,True,False,Nebraska,Big Ten,20,UCLA,Big Ten,27
+401636915,10,2024-11-02T19:30:00.000Z,True,False,Oklahoma State,Big 12,21,Arizona State,Big 12,42
+401643822,10,2024-11-02T19:30:00.000Z,True,False,Marshall,Sun Belt,28,UL Monroe,Sun Belt,23
+401635602,10,2024-11-02T19:30:00.000Z,True,False,Florida State,ACC,11,North Carolina,ACC,35
+401628408,10,2024-11-02T19:30:00.000Z,True,True,Georgia,SEC,34,Florida,SEC,20
+401643750,10,2024-11-02T20:00:00.000Z,True,False,New Mexico,Mountain West,45,Wyoming,Mountain West,49
+401643824,10,2024-11-02T20:00:00.000Z,True,False,Troy,Sun Belt,38,Coastal Carolina,Sun Belt,24
+401645360,10,2024-11-02T20:00:00.000Z,True,False,Rice,American Athletic,24,Navy,American Athletic,10
+401628409,10,2024-11-02T20:15:00.000Z,True,False,Mississippi State,SEC,45,Massachusetts,FBS Independents,20
+401643749,10,2024-11-02T23:00:00.000Z,True,False,Fresno State,Mountain West,20,Hawai'i,Mountain West,21
+401628535,10,2024-11-02T23:30:00.000Z,True,False,Iowa,Big Ten,42,Wisconsin,Big Ten,10
+401635600,10,2024-11-02T23:30:00.000Z,True,False,Clemson,ACC,21,Louisville,ACC,33
+401643823,10,2024-11-02T23:30:00.000Z,True,False,South Alabama,Sun Belt,30,Georgia Southern,Sun Belt,34
+401628540,10,2024-11-02T23:30:00.000Z,True,False,Washington,Big Ten,26,USC,Big Ten,21
+401628411,10,2024-11-02T23:30:00.000Z,True,False,South Carolina,SEC,44,Texas A&M,SEC,20
+401628412,10,2024-11-02T23:45:00.000Z,True,False,Tennessee,SEC,28,Kentucky,SEC,18
+401635627,10,2024-11-03T00:00:00.000Z,True,False,SMU,ACC,48,Pittsburgh,ACC,25
+401636912,10,2024-11-03T00:00:00.000Z,True,False,Baylor,Big 12,37,TCU,Big 12,34
+401643748,10,2024-11-03T00:00:00.000Z,True,False,Nevada,Mountain West,21,Colorado State,Mountain West,38
+401644760,11,2024-11-06T00:30:00.000Z,True,False,Central Michigan,Mid-American,13,Bowling Green,Mid-American,23
+401644688,11,2024-11-06T01:00:00.000Z,True,False,Ball State,Mid-American,21,Miami (OH),Mid-American,27
+401644761,11,2024-11-07T00:00:00.000Z,True,False,Kent State,Mid-American,0,Ohio,Mid-American,41
+401644762,11,2024-11-07T00:00:00.000Z,True,False,Western Michigan,Mid-American,28,Northern Illinois,Mid-American,42
+401643825,11,2024-11-08T01:00:00.000Z,True,False,Coastal Carolina,Sun Belt,38,App State,Sun Belt,24
+401645361,11,2024-11-08T01:00:00.000Z,True,False,East Carolina,American Athletic,49,Florida Atlantic,American Athletic,14
+401634773,11,2024-11-09T01:00:00.000Z,True,False,Wake Forest,ACC,36,California,ACC,46
+401645362,11,2024-11-09T02:00:00.000Z,True,False,Memphis,American Athletic,27,Rice,American Athletic,20
+401628542,11,2024-11-09T02:00:00.000Z,True,False,UCLA,Big Ten,20,Iowa,Big Ten,17
+401643754,11,2024-11-09T03:30:00.000Z,True,False,San Diego State,Mountain West,16,New Mexico,Mountain West,21
+401635606,11,2024-11-09T17:00:00.000Z,True,False,Boston College,ACC,37,Syracuse,ACC,31
+401628544,11,2024-11-09T17:00:00.000Z,True,False,Rutgers,Big Ten,26,Minnesota,Big Ten,19
+401643828,11,2024-11-09T17:00:00.000Z,True,False,UL Monroe,Sun Belt,17,Texas State,Sun Belt,38
+401635609,11,2024-11-09T17:00:00.000Z,True,False,Georgia Tech,ACC,28,Miami,ACC,23
+401628545,11,2024-11-09T17:00:00.000Z,True,False,Ohio State,Big Ten,45,Purdue,Big Ten,0
+401628417,11,2024-11-09T17:00:00.000Z,True,False,Texas,SEC,49,Florida,SEC,17
+401645363,11,2024-11-09T17:00:00.000Z,True,False,South Florida,American Athletic,7,Navy,American Athletic,28
+401636918,11,2024-11-09T17:00:00.000Z,True,False,Cincinnati,Big 12,24,West Virginia,Big 12,31
+401640995,11,2024-11-09T18:00:00.000Z,True,False,Middle Tennessee,Conference USA,17,Liberty,Conference USA,37
+401629037,11,2024-11-09T19:30:00.000Z,True,False,UAB,American Athletic,23,UConn,FBS Independents,31
+401643829,11,2024-11-09T20:00:00.000Z,True,False,Southern Miss,Sun Belt,3,Marshall,Sun Belt,37
+401636919,11,2024-11-09T20:30:00.000Z,True,True,Kansas,Big 12,45,Iowa State,Big 12,36
+401635607,11,2024-11-09T20:30:00.000Z,True,False,Virginia Tech,ACC,14,Clemson,ACC,24
+401629045,11,2024-11-09T20:30:00.000Z,True,False,North Texas,American Athletic,3,Army,American Athletic,14
+401643826,11,2024-11-09T20:30:00.000Z,True,False,James Madison,Sun Belt,38,Georgia State,Sun Belt,7
+401635608,11,2024-11-09T20:30:00.000Z,True,False,NC State,ACC,19,Duke,ACC,29
+401628541,11,2024-11-09T20:30:00.000Z,True,False,Indiana,Big Ten,20,Michigan,Big Ten,15
+401628414,11,2024-11-09T20:30:00.000Z,True,False,Ole Miss,SEC,28,Georgia,SEC,10
+401643755,11,2024-11-09T20:30:00.000Z,True,False,Oregon State,Pac-12,13,San José State,Mountain West,24
+401636921,11,2024-11-09T21:00:00.000Z,True,False,Texas Tech,Big 12,27,Colorado,Big 12,41
+401645364,11,2024-11-09T21:00:00.000Z,True,False,Tulane,American Athletic,52,Temple,American Athletic,6
+401641021,11,2024-11-09T21:00:00.000Z,True,False,UTEP,Conference USA,43,Kennesaw State,Conference USA,35
+401628418,11,2024-11-09T21:15:00.000Z,True,False,Vanderbilt,SEC,7,South Carolina,SEC,28
+401641004,11,2024-11-09T21:30:00.000Z,True,False,Louisiana Tech,Conference USA,37,Jacksonville State,Conference USA,44
+401643827,11,2024-11-09T22:00:00.000Z,True,False,Louisiana,Sun Belt,55,Arkansas State,Sun Belt,19
+401641036,11,2024-11-09T23:00:00.000Z,True,False,New Mexico State,Conference USA,28,Western Kentucky,Conference USA,41
+401636920,11,2024-11-10T00:00:00.000Z,True,False,TCU,Big 12,38,Oklahoma State,Big 12,13
+401628416,11,2024-11-10T00:00:00.000Z,True,False,Tennessee,SEC,33,Mississippi State,SEC,14
+401636917,11,2024-11-10T00:00:00.000Z,True,False,Arizona State,Big 12,35,UCF,Big 12,31
+401628543,11,2024-11-10T00:00:00.000Z,True,False,Oregon,Big Ten,39,Maryland,Big Ten,18
+401628984,11,2024-11-10T00:30:00.000Z,True,False,Notre Dame,FBS Independents,52,Florida State,ACC,3
+401628413,11,2024-11-10T00:30:00.000Z,True,False,LSU,SEC,13,Alabama,SEC,42
+401628415,11,2024-11-10T00:45:00.000Z,True,False,Missouri,SEC,30,Oklahoma,SEC,23
+401635610,11,2024-11-10T01:00:00.000Z,True,False,Pittsburgh,ACC,19,Virginia,ACC,24
+401643752,11,2024-11-10T01:00:00.000Z,True,False,Boise State,Mountain West,28,Nevada,Mountain West,21
+401628546,11,2024-11-10T01:00:00.000Z,True,False,Penn State,Big Ten,35,Washington,Big Ten,6
+401643753,11,2024-11-10T02:00:00.000Z,True,False,Hawai'i,Mountain West,27,UNLV,Mountain West,29
+401643751,11,2024-11-10T02:45:00.000Z,True,False,Air Force,Mountain West,36,Fresno State,Mountain West,28
+401636922,11,2024-11-10T03:15:00.000Z,True,False,Utah,Big 12,21,BYU,Big 12,22
+401643756,11,2024-11-10T03:30:00.000Z,True,False,Washington State,Pac-12,49,Utah State,Mountain West,28
+401644765,12,2024-11-13T00:00:00.000Z,True,False,Toledo,Mid-American,37,Central Michigan,Mid-American,10
+401644764,12,2024-11-13T00:00:00.000Z,True,False,Bowling Green,Mid-American,31,Western Michigan,Mid-American,13
+401644763,12,2024-11-13T00:00:00.000Z,True,False,Buffalo,Mid-American,51,Ball State,Mid-American,48
+401644766,12,2024-11-14T00:00:00.000Z,True,False,Northern Illinois,Mid-American,29,Akron,Mid-American,16
+401644689,12,2024-11-14T00:00:00.000Z,True,False,Miami (OH),Mid-American,34,Kent State,Mid-American,7
+401644767,12,2024-11-14T00:00:00.000Z,True,False,Ohio,Mid-American,35,Eastern Michigan,Mid-American,10
+401645365,12,2024-11-15T00:30:00.000Z,True,False,Tulsa,American Athletic,31,East Carolina,American Athletic,38
+401643759,12,2024-11-16T01:00:00.000Z,True,False,Colorado State,Mountain West,24,Wyoming,Mountain West,10
+401645366,12,2024-11-16T01:00:00.000Z,True,False,UTSA,American Athletic,48,North Texas,American Athletic,27
+401628553,12,2024-11-16T02:00:00.000Z,True,False,Washington,Big Ten,31,UCLA,Big Ten,19
+401636923,12,2024-11-16T03:15:00.000Z,True,False,Arizona,Big 12,27,Houston,Big 12,3
+401641013,12,2024-11-16T17:00:00.000Z,True,False,Western Kentucky,Conference USA,7,Louisiana Tech,Conference USA,12
+401636925,12,2024-11-16T17:00:00.000Z,True,False,Colorado,Big 12,49,Utah,Big 12,24
+401629046,12,2024-11-16T17:00:00.000Z,True,False,Massachusetts,FBS Independents,34,Liberty,Conference USA,35
+401628550,12,2024-11-16T17:00:00.000Z,True,True,Northwestern,Big Ten,7,Ohio State,Big Ten,31
+401645370,12,2024-11-16T17:00:00.000Z,True,False,Navy,American Athletic,0,Tulane,American Athletic,35
+401635582,12,2024-11-16T17:00:00.000Z,True,False,Pittsburgh,ACC,20,Clemson,ACC,24
+401628419,12,2024-11-16T17:00:00.000Z,True,False,Arkansas,SEC,10,Texas,SEC,20
+401628426,12,2024-11-16T17:45:00.000Z,True,False,Auburn,SEC,48,UL Monroe,Sun Belt,14
+401643832,12,2024-11-16T18:00:00.000Z,True,False,Marshall,Sun Belt,31,Coastal Carolina,Sun Belt,19
+401628422,12,2024-11-16T18:30:00.000Z,True,False,Kentucky,SEC,48,Murray State,MVFC,6
+401640986,12,2024-11-16T19:00:00.000Z,True,False,Jacksonville State,Conference USA,34,Florida International,Conference USA,31
+401628425,12,2024-11-16T19:00:00.000Z,True,False,Alabama,SEC,52,Mercer,Southern,7
+401645369,12,2024-11-16T19:00:00.000Z,True,False,Temple,American Athletic,18,Florida Atlantic,American Athletic,15
+401628547,12,2024-11-16T19:30:00.000Z,True,False,Illinois,Big Ten,38,Michigan State,Big Ten,16
+401635581,12,2024-11-16T20:00:00.000Z,True,False,California,ACC,25,Syracuse,ACC,33
+401641022,12,2024-11-16T20:00:00.000Z,True,False,Kennesaw State,Conference USA,17,Sam Houston,Conference USA,23
+401643760,12,2024-11-16T20:00:00.000Z,True,False,Utah State,Mountain West,55,Hawai'i,Mountain West,10
+401628420,12,2024-11-16T20:30:00.000Z,True,False,Florida,SEC,27,LSU,SEC,16
+401643757,12,2024-11-16T20:30:00.000Z,True,False,Air Force,Mountain West,28,Oregon State,Pac-12,0
+401635517,12,2024-11-16T20:30:00.000Z,True,False,Stanford,ACC,38,Louisville,ACC,35
+401645368,12,2024-11-16T20:30:00.000Z,True,False,Charlotte,American Athletic,24,South Florida,American Athletic,59
+401628985,12,2024-11-16T20:30:00.000Z,True,False,Notre Dame,FBS Independents,35,Virginia,ACC,14
+401628552,12,2024-11-16T20:30:00.000Z,True,False,Purdue,Big Ten,10,Penn State,Big Ten,49
+401635580,12,2024-11-16T20:30:00.000Z,True,False,SMU,ACC,38,Boston College,ACC,28
+401643833,12,2024-11-16T21:00:00.000Z,True,False,Old Dominion,Sun Belt,32,James Madison,Sun Belt,35
+401643830,12,2024-11-16T21:00:00.000Z,True,False,Georgia Southern,Sun Belt,20,Troy,Sun Belt,28
+401636929,12,2024-11-16T21:00:00.000Z,True,False,West Virginia,Big 12,35,Baylor,Big 12,49
+401628549,12,2024-11-16T21:00:00.000Z,True,False,USC,Big Ten,28,Nebraska,Big Ten,20
+401628423,12,2024-11-16T21:15:00.000Z,True,False,South Carolina,SEC,34,Missouri,SEC,30
+401643831,12,2024-11-16T22:00:00.000Z,True,False,Georgia State,Sun Belt,20,Arkansas State,Sun Belt,27
+401628548,12,2024-11-16T23:00:00.000Z,True,False,Maryland,Big Ten,17,Rutgers,Big Ten,31
+401636927,12,2024-11-17T00:00:00.000Z,True,False,Kansas State,Big 12,14,Arizona State,Big 12,24
+401643835,12,2024-11-17T00:00:00.000Z,True,False,Texas State,Sun Belt,58,Southern Miss,Sun Belt,3
+401643834,12,2024-11-17T00:00:00.000Z,True,False,Louisiana,Sun Belt,22,South Alabama,Sun Belt,24
+401643758,12,2024-11-17T00:00:00.000Z,True,False,San José State,Mountain West,21,Boise State,Mountain West,42
+401628421,12,2024-11-17T00:30:00.000Z,True,False,Georgia,SEC,31,Tennessee,SEC,17
+401628551,12,2024-11-17T00:30:00.000Z,True,False,Wisconsin,Big Ten,13,Oregon,Big Ten,16
+401628424,12,2024-11-17T00:45:00.000Z,True,False,Texas A&M,SEC,38,New Mexico State,Conference USA,3
+401635583,12,2024-11-17T01:00:00.000Z,True,False,North Carolina,ACC,31,Wake Forest,ACC,24
+401645367,12,2024-11-17T01:00:00.000Z,True,False,Memphis,American Athletic,53,UAB,American Athletic,18
+401636926,12,2024-11-17T01:00:00.000Z,True,False,Iowa State,Big 12,34,Cincinnati,Big 12,17
+401643761,12,2024-11-17T02:30:00.000Z,True,False,New Mexico,Mountain West,38,Washington State,Pac-12,35
+401636924,12,2024-11-17T03:15:00.000Z,True,False,BYU,Big 12,13,Kansas,Big 12,17
+401643762,12,2024-11-17T03:30:00.000Z,True,False,UNLV,Mountain West,41,San Diego State,Mountain West,20
+401644769,13,2024-11-20T00:00:00.000Z,True,False,Kent State,Mid-American,17,Akron,Mid-American,38
+401644770,13,2024-11-20T00:30:00.000Z,True,False,Central Michigan,Mid-American,16,Western Michigan,Mid-American,14
+401644690,13,2024-11-20T01:00:00.000Z,True,False,Miami (OH),Mid-American,20,Northern Illinois,Mid-American,9
+401644772,13,2024-11-21T00:00:00.000Z,True,False,Eastern Michigan,Mid-American,20,Buffalo,Mid-American,37
+401644773,13,2024-11-21T00:00:00.000Z,True,False,Toledo,Mid-American,7,Ohio,Mid-American,24
+401634772,13,2024-11-22T00:30:00.000Z,True,False,Georgia Tech,ACC,30,NC State,ACC,29
+401645374,13,2024-11-23T00:00:00.000Z,True,False,UTSA,American Athletic,51,Temple,American Athletic,27
+401628558,13,2024-11-23T01:00:00.000Z,True,False,Michigan State,Big Ten,24,Purdue,Big Ten,17
+401643767,13,2024-11-23T03:00:00.000Z,True,False,San José State,Mountain West,16,UNLV,Mountain West,27
+401628554,13,2024-11-23T17:00:00.000Z,True,False,Rutgers,Big Ten,31,Illinois,Big Ten,38
+401635518,13,2024-11-23T17:00:00.000Z,True,False,Syracuse,ACC,31,UConn,FBS Independents,24
+401635612,13,2024-11-23T17:00:00.000Z,True,False,Boston College,ACC,41,North Carolina,ACC,21
+401628429,13,2024-11-23T17:00:00.000Z,True,False,Florida,SEC,24,Ole Miss,SEC,17
+401628556,13,2024-11-23T17:00:00.000Z,True,False,Maryland,Big Ten,13,Iowa,Big Ten,29
+401635618,13,2024-11-23T17:00:00.000Z,True,False,Miami,ACC,42,Wake Forest,ACC,14
+401635619,13,2024-11-23T17:00:00.000Z,True,False,Virginia,ACC,7,SMU,ACC,33
+401628555,13,2024-11-23T17:00:00.000Z,True,False,Ohio State,Big Ten,38,Indiana,Big Ten,15
+401641005,13,2024-11-23T17:00:00.000Z,True,False,Jacksonville State,Conference USA,21,Sam Houston,Conference USA,11
+401628430,13,2024-11-23T17:45:00.000Z,True,False,Georgia,SEC,59,Massachusetts,FBS Independents,21
+401628435,13,2024-11-23T18:00:00.000Z,True,False,Tennessee,SEC,56,UTEP,Conference USA,0
+401640996,13,2024-11-23T18:00:00.000Z,True,False,Liberty,Conference USA,38,Western Kentucky,Conference USA,21
+401635616,13,2024-11-23T18:30:00.000Z,True,False,Florida State,ACC,41,Charleston Southern,Big South-OVC,7
+401645373,13,2024-11-23T19:00:00.000Z,True,False,UAB,American Athletic,40,Rice,American Athletic,14
+401644774,13,2024-11-23T19:00:00.000Z,True,False,Ball State,Mid-American,13,Bowling Green,Mid-American,38
+401641027,13,2024-11-23T19:30:00.000Z,True,False,Middle Tennessee,Conference USA,21,New Mexico State,Conference USA,36
+401643836,13,2024-11-23T19:30:00.000Z,True,False,App State,Sun Belt,34,James Madison,Sun Belt,20
+401643839,13,2024-11-23T20:00:00.000Z,True,False,Arkansas State,Sun Belt,28,UL Monroe,Sun Belt,21
+401640987,13,2024-11-23T20:00:00.000Z,True,False,Kennesaw State,Conference USA,27,Florida International,Conference USA,26
+401636935,13,2024-11-23T20:00:00.000Z,True,False,TCU,Big 12,49,Arizona,Big 12,28
+401645371,13,2024-11-23T20:00:00.000Z,True,False,Florida Atlantic,American Athletic,27,Charlotte,American Athletic,39
+401643841,13,2024-11-23T20:00:00.000Z,True,False,Southern Miss,Sun Belt,14,South Alabama,Sun Belt,35
+401643766,13,2024-11-23T20:30:00.000Z,True,False,Utah State,Mountain West,41,San Diego State,Mountain West,20
+401636934,13,2024-11-23T20:30:00.000Z,True,False,Oklahoma State,Big 12,48,Texas Tech,Big 12,56
+401645372,13,2024-11-23T20:30:00.000Z,True,False,North Texas,American Athletic,28,East Carolina,American Athletic,40
+401645375,13,2024-11-23T20:30:00.000Z,True,False,South Florida,American Athletic,63,Tulsa,American Athletic,30
+401636937,13,2024-11-23T20:30:00.000Z,True,False,West Virginia,Big 12,31,UCF,Big 12,21
+401636932,13,2024-11-23T20:30:00.000Z,True,True,Kansas,Big 12,37,Colorado,Big 12,21
+401636930,13,2024-11-23T20:30:00.000Z,True,False,Arizona State,Big 12,28,BYU,Big 12,23
+401628560,13,2024-11-23T20:30:00.000Z,True,False,Nebraska,Big Ten,44,Wisconsin,Big Ten,25
+401628559,13,2024-11-23T20:30:00.000Z,True,False,Minnesota,Big Ten,25,Penn State,Big Ten,26
+401628557,13,2024-11-23T20:30:00.000Z,True,False,Michigan,Big Ten,50,Northwestern,Big Ten,6
+401635614,13,2024-11-23T20:30:00.000Z,True,False,Clemson,ACC,51,The Citadel,Southern,14
+401635613,13,2024-11-23T20:30:00.000Z,True,False,California,ACC,24,Stanford,ACC,21
+401643837,13,2024-11-23T20:30:00.000Z,True,False,Coastal Carolina,Sun Belt,6,Georgia Southern,Sun Belt,26
+401628436,13,2024-11-23T20:30:00.000Z,True,False,Texas,SEC,31,Kentucky,SEC,14
+401628434,13,2024-11-23T21:00:00.000Z,True,False,South Carolina,SEC,56,Wofford,Southern,12
+401635617,13,2024-11-23T21:00:00.000Z,True,False,Louisville,ACC,37,Pittsburgh,ACC,9
+401628427,13,2024-11-23T21:00:00.000Z,True,False,Arkansas,SEC,35,Louisiana Tech,Conference USA,14
+401628432,13,2024-11-23T21:15:00.000Z,True,False,Mississippi State,SEC,20,Missouri,SEC,39
+401643840,13,2024-11-23T22:00:00.000Z,True,False,Louisiana,Sun Belt,51,Troy,Sun Belt,30
+401628572,13,2024-11-24T00:00:00.000Z,True,False,Oregon State,Pac-12,41,Washington State,Pac-12,38
+401636931,13,2024-11-24T00:00:00.000Z,True,False,Houston,Big 12,10,Baylor,Big 12,20
+401643842,13,2024-11-24T00:00:00.000Z,True,False,Texas State,Sun Belt,44,Georgia State,Sun Belt,52
+401643764,13,2024-11-24T00:00:00.000Z,True,False,Wyoming,Mountain West,13,Boise State,Mountain West,17
+401640959,13,2024-11-24T00:00:00.000Z,True,True,Notre Dame,FBS Independents,49,Army,American Athletic,14
+401628433,13,2024-11-24T00:30:00.000Z,True,False,Oklahoma,SEC,24,Alabama,SEC,3
+401643838,13,2024-11-24T00:30:00.000Z,True,False,Old Dominion,Sun Belt,35,Marshall,Sun Belt,42
+401636936,13,2024-11-24T00:30:00.000Z,True,False,Utah,Big 12,28,Iowa State,Big 12,31
+401628428,13,2024-11-24T00:30:00.000Z,True,False,Auburn,SEC,43,Texas A&M,SEC,41
+401628431,13,2024-11-24T00:45:00.000Z,True,False,LSU,SEC,24,Vanderbilt,SEC,17
+401635615,13,2024-11-24T01:00:00.000Z,True,False,Duke,ACC,31,Virginia Tech,ACC,28
+401636933,13,2024-11-24T01:00:00.000Z,True,False,Kansas State,Big 12,41,Cincinnati,Big 12,15
+401628561,13,2024-11-24T03:30:00.000Z,True,False,UCLA,Big Ten,13,USC,Big Ten,19
+401643765,13,2024-11-24T03:30:00.000Z,True,False,Fresno State,Mountain West,28,Colorado State,Mountain West,22
+401643763,13,2024-11-24T03:30:00.000Z,True,False,Nevada,Mountain West,19,Air Force,Mountain West,22
+401644776,14,2024-11-27T00:00:00.000Z,True,False,Buffalo,Mid-American,43,Kent State,Mid-American,7
+401644775,14,2024-11-27T00:00:00.000Z,True,False,Akron,Mid-American,21,Toledo,Mid-American,14
+401645376,14,2024-11-29T00:30:00.000Z,True,False,Tulane,American Athletic,24,Memphis,American Athletic,34
+401628568,14,2024-11-29T17:00:00.000Z,True,False,Wisconsin,Big Ten,7,Minnesota,Big Ten,24
+401643769,14,2024-11-29T17:00:00.000Z,True,False,Boise State,Mountain West,34,Oregon State,Pac-12,18
+401645379,14,2024-11-29T17:00:00.000Z,True,False,East Carolina,American Athletic,20,Navy,American Athletic,34
+401644777,14,2024-11-29T17:00:00.000Z,True,False,Ohio,Mid-American,42,Ball State,Mid-American,21
+401644691,14,2024-11-29T17:00:00.000Z,True,False,Bowling Green,Mid-American,12,Miami (OH),Mid-American,28
+401636938,14,2024-11-29T17:00:00.000Z,True,False,Colorado,Big 12,52,Oklahoma State,Big 12,0
+401640997,14,2024-11-29T20:30:00.000Z,True,False,Sam Houston,Conference USA,20,Liberty,Conference USA,18
+401628442,14,2024-11-29T20:30:00.000Z,True,False,Ole Miss,SEC,26,Mississippi State,SEC,14
+401643843,14,2024-11-29T20:30:00.000Z,True,False,South Alabama,Sun Belt,38,Texas State,Sun Belt,45
+401643770,14,2024-11-29T20:30:00.000Z,True,False,Colorado State,Mountain West,42,Utah State,Mountain West,37
+401635625,14,2024-11-29T21:00:00.000Z,True,False,San José State,Mountain West,34,Stanford,ACC,31
+401628439,14,2024-11-30T00:30:00.000Z,True,False,Georgia,SEC,44,Georgia Tech,ACC,42
+401628562,14,2024-11-30T00:30:00.000Z,True,False,Iowa,Big Ten,13,Nebraska,Big Ten,10
+401636939,14,2024-11-30T01:00:00.000Z,True,False,UCF,Big 12,14,Utah,Big 12,28
+401645381,14,2024-11-30T17:00:00.000Z,True,False,Temple,American Athletic,17,North Texas,American Athletic,24
+401628444,14,2024-11-30T17:00:00.000Z,True,False,Clemson,ACC,14,South Carolina,SEC,17
+401629038,14,2024-11-30T17:00:00.000Z,True,False,Massachusetts,FBS Independents,42,UConn,FBS Independents,47
+401636945,14,2024-11-30T17:00:00.000Z,True,False,Texas Tech,Big 12,52,West Virginia,Big 12,15
+401645378,14,2024-11-30T17:00:00.000Z,True,False,Army,American Athletic,29,UTSA,American Athletic,24
+401628440,14,2024-11-30T17:00:00.000Z,True,False,Kentucky,SEC,14,Louisville,ACC,41
+401628566,14,2024-11-30T17:00:00.000Z,True,False,Ohio State,Big Ten,10,Michigan,Big Ten,13
+401628563,14,2024-11-30T17:00:00.000Z,True,True,Northwestern,Big Ten,28,Illinois,Big Ten,38
+401635622,14,2024-11-30T17:00:00.000Z,True,False,Wake Forest,ACC,17,Duke,ACC,23
+401636941,14,2024-11-30T17:00:00.000Z,True,False,Baylor,Big 12,45,Kansas,Big 12,17
+401628446,14,2024-11-30T17:00:00.000Z,True,False,Vanderbilt,SEC,23,Tennessee,SEC,36
+401643848,14,2024-11-30T17:00:00.000Z,True,False,UL Monroe,Sun Belt,23,Louisiana,Sun Belt,37
+401644780,14,2024-11-30T18:30:00.000Z,True,False,Western Michigan,Mid-American,26,Eastern Michigan,Mid-American,18
+401643849,14,2024-11-30T19:00:00.000Z,True,False,Troy,Sun Belt,52,Southern Miss,Sun Belt,20
+401643845,14,2024-11-30T19:00:00.000Z,True,False,Georgia State,Sun Belt,27,Coastal Carolina,Sun Belt,48
+401640988,14,2024-11-30T19:00:00.000Z,True,True,Florida International,Conference USA,35,Middle Tennessee,Conference USA,24
+401645382,14,2024-11-30T19:00:00.000Z,True,False,Rice,American Athletic,35,South Florida,American Athletic,28
+401635620,14,2024-11-30T20:00:00.000Z,True,False,Boston College,ACC,34,Pittsburgh,ACC,23
+401643847,14,2024-11-30T20:00:00.000Z,True,False,Arkansas State,Sun Belt,32,Old Dominion,Sun Belt,40
+401628437,14,2024-11-30T20:30:00.000Z,True,False,Alabama,SEC,28,Auburn,SEC,14
+401628567,14,2024-11-30T20:30:00.000Z,True,False,Michigan State,Big Ten,14,Rutgers,Big Ten,41
+401628570,14,2024-11-30T20:30:00.000Z,True,False,UCLA,Big Ten,20,Fresno State,Mountain West,13
+401628571,14,2024-11-30T20:30:00.000Z,True,False,USC,Big Ten,35,Notre Dame,FBS Independents,49
+401636940,14,2024-11-30T20:30:00.000Z,True,False,Arizona,Big 12,7,Arizona State,Big 12,49
+401645380,14,2024-11-30T20:30:00.000Z,True,False,Tulsa,American Athletic,16,Florida Atlantic,American Athletic,63
+401645377,14,2024-11-30T20:30:00.000Z,True,False,Charlotte,American Athletic,29,UAB,American Athletic,27
+401644779,14,2024-11-30T20:30:00.000Z,True,False,Northern Illinois,Mid-American,24,Central Michigan,Mid-American,16
+401628443,14,2024-11-30T20:30:00.000Z,True,False,Missouri,SEC,28,Arkansas,SEC,21
+401635623,14,2024-11-30T20:30:00.000Z,True,False,Syracuse,ACC,42,Miami,ACC,38
+401635621,14,2024-11-30T20:30:00.000Z,True,False,SMU,ACC,38,California,ACC,6
+401635624,14,2024-11-30T20:30:00.000Z,True,False,North Carolina,ACC,30,NC State,ACC,35
+401628565,14,2024-11-30T20:30:00.000Z,True,False,Penn State,Big Ten,44,Maryland,Big Ten,7
+401641006,14,2024-11-30T21:00:00.000Z,True,False,Western Kentucky,Conference USA,19,Jacksonville State,Conference USA,17
+401641031,14,2024-11-30T21:00:00.000Z,True,False,New Mexico State,Conference USA,35,UTEP,Conference USA,42
+401641014,14,2024-11-30T21:00:00.000Z,True,False,Louisiana Tech,Conference USA,33,Kennesaw State,Conference USA,0
+401636943,14,2024-11-30T23:00:00.000Z,True,False,Cincinnati,Big 12,13,TCU,Big 12,20
+401643844,14,2024-11-30T23:00:00.000Z,True,False,Georgia Southern,Sun Belt,29,App State,Sun Belt,20
+401643773,14,2024-11-30T23:30:00.000Z,True,False,Washington State,Pac-12,14,Wyoming,Mountain West,15
+401628441,14,2024-12-01T00:00:00.000Z,True,False,LSU,SEC,37,Oklahoma,SEC,17
+401628564,14,2024-12-01T00:00:00.000Z,True,False,Indiana,Big Ten,66,Purdue,Big Ten,0
+401628438,14,2024-12-01T00:00:00.000Z,True,False,Florida State,ACC,11,Florida,SEC,31
+401636944,14,2024-12-01T00:30:00.000Z,True,False,Iowa State,Big 12,29,Kansas State,Big 12,21
+401628445,14,2024-12-01T00:30:00.000Z,True,False,Texas A&M,SEC,7,Texas,SEC,17
+401628569,14,2024-12-01T00:30:00.000Z,True,False,Oregon,Big Ten,49,Washington,Big Ten,21
+401643846,14,2024-12-01T01:00:00.000Z,True,False,James Madison,Sun Belt,33,Marshall,Sun Belt,35
+401635640,14,2024-12-01T01:00:00.000Z,True,False,Virginia Tech,ACC,37,Virginia,ACC,17
+401643772,14,2024-12-01T01:00:00.000Z,True,False,UNLV,Mountain West,38,Nevada,Mountain West,14
+401636942,14,2024-12-01T03:15:00.000Z,True,False,BYU,Big 12,30,Houston,Big 12,18
+401643768,14,2024-12-01T03:30:00.000Z,True,False,San Diego State,Mountain West,20,Air Force,Mountain West,31
+401643771,14,2024-12-01T04:00:00.000Z,True,False,Hawai'i,Mountain West,38,New Mexico,Mountain West,30
+401673466,15,2024-12-07T00:00:00.000Z,True,False,Jacksonville State,Conference USA,52,Western Kentucky,Conference USA,12
+401673468,15,2024-12-07T01:00:00.000Z,True,False,Boise State,Mountain West,21,UNLV,Mountain West,7
+401673462,15,2024-12-07T01:00:00.000Z,True,False,Army,American Athletic,35,Tulane,American Athletic,14
+401673467,15,2024-12-07T17:00:00.000Z,True,True,Miami (OH),Mid-American,3,Ohio,Mid-American,38
+401673465,15,2024-12-07T17:00:00.000Z,True,True,Arizona State,Big 12,45,Iowa State,Big 12,19
+401673469,15,2024-12-07T21:00:00.000Z,True,True,Texas,SEC,19,Georgia,SEC,22
+401673470,15,2024-12-08T00:30:00.000Z,True,False,Louisiana,Sun Belt,3,Marshall,Sun Belt,31
+401673463,15,2024-12-08T01:00:00.000Z,True,True,SMU,ACC,31,Clemson,ACC,34
+401673464,15,2024-12-08T01:00:00.000Z,True,True,Oregon,Big Ten,45,Penn State,Big Ten,37
+401645383,16,2024-12-14T20:00:00.000Z,True,True,Army,American Athletic,13,Navy,American Athletic,31
