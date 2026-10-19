@@ -102,6 +102,7 @@ def cfb_lines_checks():
     print("college lines ok")
     cfb_props_checks()
     depth_checks()
+    spread_checks()
     fp_lean_checks()
     partial_checks()
     fp_checks()
@@ -171,6 +172,29 @@ def fp_lean_checks():
     n = fp.build(log, [dict(id="1", name="Dak Prescott", team="B", pos="QB", game="A @ B"), dict(id="2", name="Dak Prescott", team="Z", pos="QB")], d + "/o.json", dict(mean=[2, 0.9], sigma=[4, 0.25]))
     assert n == 2 and json.load(open(d + "/o.json"))["rows"][0]["id"] == "1", n      # matched by name AND a team in the game
     print("fantasy-points lean ok")
+
+
+def spread_checks():
+    import random
+    from . import cfb_spread as S, cfb_lines_data as LD
+    random.seed(7)
+    true = {f"T{i}": random.gauss(0, 10) for i in range(24)}
+    games = []
+    for wk in range(1, 11):
+        names = list(true); random.shuffle(names)
+        for h, a in zip(names[::2], names[1::2]):
+            m = true[h] - true[a] + 2.5 + random.gauss(0, 13)
+            games.append(dict(id=f"{wk}{h}", week=wk, home=h, away=a, neutral=False, done=True, hp=30 + m / 2, ap=30 - m / 2, date=""))
+    rat, hfa = S.fit_margin(games, {}, 2.0, 1.0)
+    xs = [true[t] for t in true]; ys = [rat[t] for t in true]
+    mx, my = sum(xs) / len(xs), sum(ys) / len(ys)
+    corr = sum((x - mx) * (y - my) for x, y in zip(xs, ys)) / (sum((x - mx) ** 2 for x in xs) * sum((y - my) ** 2 for y in ys)) ** 0.5
+    assert corr > 0.9 and 1.0 < hfa < 4.0, (corr, hfa)
+    pp = S.walk_forward({2026: games}, 2026, 4.0, 1.0)
+    assert pp and all("model_margin" in p for p in pp)
+    rows = LD.parse_lines([dict(id=1, week=3, homeTeam="Texas", awayTeam="Ohio State", lines=[dict(spread=-3.5, overUnder=55.5, formattedSpread="Texas -3.5"), dict(spread=3.5, overUnder=56.5, formattedSpread="Texas -3.5")])], 2025)
+    assert rows[0]["home_spread"] == -3.5 and rows[0]["total"] == 56.0, rows
+    print("spread model ok")
 
 
 def depth_checks():
