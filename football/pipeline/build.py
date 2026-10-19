@@ -187,7 +187,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     sc = scorecard.score(rows, live, P=P, partial=partial)
     sc["legacy"] = scorecard.score(rows, live, P=P, stamp_override=legacy.STAMP, partial=partial)
     dump(sc, out, "scorecard.json")
-    nres = results.main(rows, live, out)
+    nres = results.main(rows, live, out, partial=partial)
 
     now = dt.datetime.now(dt.timezone.utc)
     dump(dict(season=C.SEASON, week=week, generated=now.isoformat(timespec="seconds"), stamp=scorecard.stamp(P),

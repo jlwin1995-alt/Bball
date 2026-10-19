@@ -378,6 +378,7 @@ const pages = {
       {k: "cons", h: "Model side vs consensus", t: "How often the side the model leans (over if projection > line) won, over every line", v: r => r.cons[0] ? r.cons[1] / r.cons[0] : null, f: r => pc(r.cons[1], r.cons[0])},
       {k: "cp", h: "Consensus picks", t: `Lines where the model's probability differs from the book's by ${I.edge_pp}+ points`, v: r => r.cons_pick[0] ? r.cons_pick[1] / r.cons_pick[0] : null, f: r => pc(r.cons_pick[1], r.cons_pick[0])},
       {k: "pp", h: "PrizePicks side", v: r => r.pp[0] ? r.pp[1] / r.pp[0] : null, f: r => pc(r.pp[1], r.pp[0])},
+      {k: "ppv", h: "PP voids (est.)", t: "MORE picks voided under PrizePicks' reboot rule (a first-half exit with no return): an estimate, shown as void in the player table and left out of the PrizePicks percentages", f: r => r.pp_void ?? ""},
       {k: "ppp", h: "PrizePicks picks", t: `Past the ${num(I.pp_breakeven, 1)}% per-leg break-even`, v: r => r.pp_pick[0] ? r.pp_pick[1] / r.pp_pick[0] : null, f: r => pc(r.pp_pick[1], r.pp_pick[0])}];
     const rate = a => a[0] ? (a[1] / a[0] * 100).toFixed(1) + "%" : "—";
     const tot = (a) => a.reduce((x, y) => [x[0] + y[0], x[1] + y[1]], [0, 0]);
@@ -405,7 +406,7 @@ const pages = {
       ...(mk === "pts" ? [["car", "Car"], ["tgt", "Tgt"], ["att", "Att"]].map(([v, h]) => ({k: "v" + v, h: h + " (proj → act)", v: r => r.vol[v][1] - r.vol[v][0], f: r => `${num(r.vol[v][0])} → ${num(r.vol[v][1], 0)}`})) : [
         {k: "line", h: "Cons line", v: r => r.e.line, f: r => r.e.line ?? ""}, {k: "side", h: "Model side", l: 1, f: r => r.e.side ? (r.e.side === "O" ? "Over" : "Under") : ""},
         {k: "hit", h: "Result", l: 1, f: r => r.e.side ? hitCell(r.e.hit) : ""}, {k: "pick", h: "Pick", l: 1, f: r => r.e.pick ? `<b>${r.e.pick === "O" ? "OVER" : "UNDER"}</b> ${hitCell(r.e.pick_hit)}` : ""},
-        {k: "pp", h: "PrizePicks", v: r => r.e.pp, f: r => r.e.pp ?? ""}, {k: "pph", h: "PP result", l: 1, f: r => r.e.pp != null ? `${r.e.pp_side === "O" ? "O" : "U"} ${hitCell(r.e.pp_hit)}${r.e.pp_pick ? " <b>pick</b>" : ""}` : ""},
+        {k: "pp", h: "PrizePicks", v: r => r.e.pp, f: r => r.e.pp ?? ""}, {k: "pph", h: "PP result", l: 1, f: r => r.e.pp != null ? `${r.e.pp_side === "O" ? "O" : "U"} ${r.e.pp_void ? `<span class="pill bkp" title="PrizePicks voids a MORE pick when a player leaves in the 1st half and does not return (${r.e.pp_void === "est" ? "an ESTIMATE from snaps and play-by-play: confirm against PrizePicks' notice and add the player to data/log/void_overrides.csv" : "confirmed by you"}). A LESS pick stands.">void${r.e.pp_void === "est" ? " (est.)" : ""}</span>` : hitCell(r.e.pp_hit)}${r.e.pp_pick ? " <b>pick</b>" : ""}` : ""},
         {k: "ud", h: "UD/Pick6", f: r => r.e.ud ?? ""}])];
     const m = I.weeks.find(w => key(w) === F.rweek), mm = m && m.mkts[mk];
     const sub = mm ? `<p class="sub">${esc(label)}: model side ${pc(mm.cons[1], mm.cons[0])} · consensus picks ${pc(mm.cons_pick[1], mm.cons_pick[0])} · PrizePicks ${pc(mm.pp[1], mm.pp[0])} · PrizePicks picks ${pc(mm.pp_pick[1], mm.pp_pick[0])}.</p>` : "";

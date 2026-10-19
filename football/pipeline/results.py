@@ -38,9 +38,25 @@ def tally(rec, res):
     rec[1] += 1 if res else 0
 
 
-def main(rows, live, out="site/data", log_path=None, lines_path=LINES_LOG, W=None):
+VOID_OVERRIDES = "data/log/void_overrides.csv"
+
+
+def load_overrides(path=VOID_OVERRIDES):
+    """data/log/void_overrides.csv (player_id,week,void with void = 1 or 0): your call, from PrizePicks' own notice, beats the estimate."""
+    out = {}
+    if os.path.exists(path):
+        with open(path, newline="") as f:
+            for r in csv.DictReader(f):
+                if r.get("void") in ("0", "1"):
+                    out[(r["player_id"], int(r["week"]))] = r["void"] == "1"
+    return out
+
+
+def main(rows, live, out="site/data", log_path=None, lines_path=LINES_LOG, W=None, partial=None, overrides=None):
     W = W or C.DEFAULT_SCORING
     log_path = log_path or "data/log/accuracy_log.csv"
+    partial = partial or {}
+    overrides = load_overrides() if overrides is None else overrides
     log = [r for r in read_log(log_path) if str(r["late"]) != "1"]
     act = {(r["player_id"], int(r["week"])): r for r in rows}
     lines = {}
@@ -55,7 +71,7 @@ def main(rows, live, out="site/data", log_path=None, lines_path=LINES_LOG, W=Non
     index, edge, be = [], C.RESULTS_EDGE_PP / 100, C.PP_BREAKEVEN
     for (season, week), lr in sorted(by_week.items()):
         players, dnp = [], 0
-        sm = dict(n=0, ae=dict(m=0.0, s=0.0, l=0.0), cons=[0, 0], cons_pick=[0, 0], pp=[0, 0], pp_pick=[0, 0])
+        sm = dict(n=0, ae=dict(m=0.0, s=0.0, l=0.0), cons=[0, 0], cons_pick=[0, 0], pp=[0, 0], pp_pick=[0, 0], pp_void=0)
         per_mkt = {}
         for r in lr:
             wk = int(r["week"])
@@ -69,6 +85,10 @@ def main(rows, live, out="site/data", log_path=None, lines_path=LINES_LOG, W=Non
             k0 = dt.datetime.fromisoformat(r["kickoff"]) if r["kickoff"] else None
             if k0 and k0.tzinfo is None:
                 k0 = k0.replace(tzinfo=dt.timezone.utc)          # imported history carries only a date
+            # PrizePicks voids a MORE (over) pick, never a LESS, when a player leaves in the 1st half and does not return. An estimate unless overridden.
+            pg = partial.get((r["player_id"], wk))
+            ov = overrides.get((r["player_id"], wk))
+            void_src = "confirmed" if ov else ("est" if (ov is None and pg and pg["void"] == "likely") else None)
             pl = dict(id=r["player_id"], name=r["name"], pos=r["pos"], team=r["team"], opp=r["opp"], status=r["status"],
                       vol={"car": [fnum(r["car"]), a_row.get("carries", 0.0)], "tgt": [fnum(r["tgt"]), a_row.get("targets", 0.0)],
                            "att": [fnum(r["att"]), a_row.get("attempts", 0.0)]},
@@ -104,10 +124,17 @@ def main(rows, live, out="site/data", log_path=None, lines_path=LINES_LOG, W=Non
                         side = "O" if o >= u else "U"
                         g = grade(a[k], pl_, side)
                         ent["pp"] = pl_; ent["pp_side"] = side; ent["pp_hit"] = g
-                        tally(mk["pp"], g); tally(sm["pp"], g)
-                        if max(o, u) - be >= edge:
-                            tally(mk["pp_pick"], g); tally(sm["pp_pick"], g)
-                            ent["pp_pick"] = True
+                        if side == "O" and void_src:
+                            ent["pp_void"] = void_src                   # the MORE pick is void: not graded
+                            ent["pp_hit"] = None
+                            sm["pp_void"] += 1
+                            if max(o, u) - be >= edge:
+                                ent["pp_pick"] = True
+                        else:
+                            tally(mk["pp"], g); tally(sm["pp"], g)
+                            if max(o, u) - be >= edge:
+                                tally(mk["pp_pick"], g); tally(sm["pp_pick"], g)
+                                ent["pp_pick"] = True
                     if ul is not None:
                         ent["ud"] = ul
                 pl["m"][k] = ent
@@ -117,7 +144,7 @@ def main(rows, live, out="site/data", log_path=None, lines_path=LINES_LOG, W=Non
         n = sm["n"]
         row = dict(season=season, week=week, n=n, dnp=dnp,
                    mae=round(sm["ae"]["m"] / n, 3), base=round(sm["ae"]["s"] / n, 3), last3=round(sm["ae"]["l"] / n, 3),
-                   cons=sm["cons"], cons_pick=sm["cons_pick"], pp=sm["pp"], pp_pick=sm["pp_pick"],
+                   cons=sm["cons"], cons_pick=sm["cons_pick"], pp=sm["pp"], pp_pick=sm["pp_pick"], pp_void=sm["pp_void"],
                    mkts={k: v for k, v in per_mkt.items()})
         index.append(row)
         json.dump(dict(**row, players=players), open(f"{out}/results/{season}-{week}.json", "w"), separators=(",", ":"))
