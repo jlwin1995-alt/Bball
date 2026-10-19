@@ -378,6 +378,7 @@ const pages = {
       {k: "cons", h: "Model side vs consensus", t: "How often the side the model leans (over if projection > line) won, over every line", v: r => r.cons[0] ? r.cons[1] / r.cons[0] : null, f: r => pc(r.cons[1], r.cons[0])},
       {k: "cp", h: "Consensus picks", t: `Lines where the model's probability differs from the book's by ${I.edge_pp}+ points`, v: r => r.cons_pick[0] ? r.cons_pick[1] / r.cons_pick[0] : null, f: r => pc(r.cons_pick[1], r.cons_pick[0])},
       {k: "pp", h: "PrizePicks side", v: r => r.pp[0] ? r.pp[1] / r.pp[0] : null, f: r => pc(r.pp[1], r.pp[0])},
+      {k: "fpl", h: "FP lines (strong / all)", t: "PrizePicks fantasy-points lines graded with the model's mean-adjusted lean (first logged week 6): model side won, STRONG only and all tiers; voided MORE picks excluded", f: r => { const f = r.fp; if (!f) return ""; const t = ["strong", "lean", "none"].reduce((a, k) => [a[0] + f[k][0], a[1] + f[k][1]], [0, 0]); return t[0] ? `${f.strong[1]}/${f.strong[0]} · ${t[1]}/${t[0]}` : ""; }},
       {k: "ppv", h: "PP voids (est.)", t: "MORE picks voided under PrizePicks' reboot rule (a first-half exit with no return): an estimate, shown as void in the player table and left out of the PrizePicks percentages", f: r => r.pp_void ?? ""},
       {k: "ppp", h: "PrizePicks picks", t: `Past the ${num(I.pp_breakeven, 1)}% per-leg break-even`, v: r => r.pp_pick[0] ? r.pp_pick[1] / r.pp_pick[0] : null, f: r => pc(r.pp_pick[1], r.pp_pick[0])}];
     const rate = a => a[0] ? (a[1] / a[0] * 100).toFixed(1) + "%" : "—";
@@ -487,6 +488,8 @@ const pages = {
 };
 
 // ---------- routing / render -----------------------------------------------------
+{ const base = pages.Lines;
+  pages.Lines = () => base() + fpSection(D.fp_lines, Object.fromEntries(proj().map(p => [p.id, p])), p => FB.calc(p, OVR[p.id], FB.SCORING["PrizePicks"], D.meta).pts, F); }
 let page = "Projections";
 function render(keepFocus, focusId) {
   const act = document.activeElement, id = focusId || act?.id, pos = act?.selectionStart;
@@ -558,7 +561,7 @@ document.addEventListener("click", e => {
 async function boot() {
   CFG = {...CFG, ...store.get("cfg", {})}; OVR = store.get("ovr", {}); LINES = store.get("lines", []);
   if (!CFG.scoring || Object.keys(CFG.scoring).some(k => !(k in SCORE_LABEL))) CFG = {...CFG, preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}};
-  const names = ["projections", "games", "teams", "matchups", "efficiency", "usage", "trends", "weather", "coverage", "scorecard", "meta", "lines"];
+  const names = ["projections", "games", "teams", "matchups", "efficiency", "usage", "trends", "weather", "coverage", "scorecard", "meta", "lines", "fp_lines"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   if (!D.projections || !D.meta) { view().innerHTML = "<p>No data found in <code>data/</code>. Run <code>python -m pipeline.build</code>.</p>"; return; }
   await loadBacktests();

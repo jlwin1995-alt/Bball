@@ -39,6 +39,14 @@ def tally(rec, res):
 
 
 VOID_OVERRIDES = "data/log/void_overrides.csv"
+FP_LOG = "data/log/fp_lines_log.csv"
+
+
+def pp_points(a):
+    """Actual points under the PrizePicks chart: a reception is 1 point, a fumble lost -1, no two-point term."""
+    g = lambda k: fnum(a.get(k)) or 0.0
+    return (g("passing_yards") * 0.04 + g("passing_tds") * 4 - g("passing_interceptions") + g("rushing_yards") * 0.1 + g("rushing_tds") * 6
+            + g("receiving_yards") * 0.1 + g("receiving_tds") * 6 + g("receptions") - (g("rushing_fumbles_lost") + g("receiving_fumbles_lost") + g("sack_fumbles_lost")))
 
 
 def load_overrides(path=VOID_OVERRIDES):
@@ -68,10 +76,19 @@ def main(rows, live, out="site/data", log_path=None, lines_path=LINES_LOG, W=Non
     by_week = {}
     for r in log:
         by_week.setdefault((int(r["season"]), int(r["week"])), []).append(r)
+    from .lines import norm
+    fp_by = {}
+    if os.path.exists(FP_LOG):
+        with open(FP_LOG, newline="") as f:
+            for x in csv.DictReader(f):
+                fp_by.setdefault((norm(x["player"]), x["home"]), []).append(x)
+                fp_by.setdefault((norm(x["player"]), x["away"]), []).append(x)
+    m0, m1 = C.FP_MEAN
+    s0, s1 = C.FP_SIGMA
     index, edge, be = [], C.RESULTS_EDGE_PP / 100, C.PP_BREAKEVEN
     for (season, week), lr in sorted(by_week.items()):
         players, dnp = [], 0
-        sm = dict(n=0, ae=dict(m=0.0, s=0.0, l=0.0), cons=[0, 0], cons_pick=[0, 0], pp=[0, 0], pp_pick=[0, 0], pp_void=0)
+        sm = dict(n=0, ae=dict(m=0.0, s=0.0, l=0.0), cons=[0, 0], cons_pick=[0, 0], pp=[0, 0], pp_pick=[0, 0], pp_void=0, fp=dict(strong=[0, 0], lean=[0, 0], none=[0, 0], void=0))
         per_mkt = {}
         for r in lr:
             wk = int(r["week"])
@@ -138,13 +155,31 @@ def main(rows, live, out="site/data", log_path=None, lines_path=LINES_LOG, W=Non
                     if ul is not None:
                         ent["ud"] = ul
                 pl["m"][k] = ent
+            # PrizePicks fantasy-points line: the model's lean from its frozen median (mean-adjusted), graded on the actual PrizePicks-scored points
+            fl = [x for x in fp_by.get((norm(r["name"]), r["team"]), []) if k0
+                  and abs((dt.datetime.fromisoformat(x["commence"].replace("Z", "+00:00")) - k0).total_seconds()) < 6 * 3600]
+            if fl and fnum(r["p_pts"]) is not None:
+                line = float(fl[-1]["line"])
+                med = fnum(r["p_pts"]) - 2 * (fnum(r.get("two")) or 0.0)
+                mean = m0 + m1 * med
+                z = (mean - line) / (s0 + s1 * mean)
+                tier = "strong" if abs(z) >= 0.5 else "lean" if abs(z) >= 0.25 else "none"
+                more = mean > line
+                ap = pp_points(a_row)
+                if more and void_src and (void_src == "confirmed" or ap <= line):
+                    sm["fp"]["void"] += 1
+                    pl["fp"] = dict(line=line, mean=round(mean, 1), z=round(z, 2), tier=tier, side="MORE", actual=round(ap, 1), hit=None, void=void_src)
+                else:
+                    hit = grade(ap, line, "O" if more else "U")
+                    tally(sm["fp"][tier], hit)
+                    pl["fp"] = dict(line=line, mean=round(mean, 1), z=round(z, 2), tier=tier, side="MORE" if more else "LESS", actual=round(ap, 1), hit=hit)
             players.append(pl)
         if not players:
             continue
         n = sm["n"]
         row = dict(season=season, week=week, n=n, dnp=dnp,
                    mae=round(sm["ae"]["m"] / n, 3), base=round(sm["ae"]["s"] / n, 3), last3=round(sm["ae"]["l"] / n, 3),
-                   cons=sm["cons"], cons_pick=sm["cons_pick"], pp=sm["pp"], pp_pick=sm["pp_pick"], pp_void=sm["pp_void"],
+                   cons=sm["cons"], cons_pick=sm["cons_pick"], pp=sm["pp"], pp_pick=sm["pp_pick"], pp_void=sm["pp_void"], fp=sm["fp"],
                    mkts={k: v for k, v in per_mkt.items()})
         index.append(row)
         json.dump(dict(**row, players=players), open(f"{out}/results/{season}-{week}.json", "w"), separators=(",", ":"))

@@ -90,3 +90,33 @@ document.addEventListener("click", e => {
   if (a && typeof F !== "undefined") { F.game = a.dataset.game; F.focus = a.dataset.pid; }
 });
 const focusRow = r => typeof F !== "undefined" && F.focus && r.id === F.focus ? "focus" : "";
+
+// ---- Fantasy points (PrizePicks) ----
+// The player's MEDIAN points under the PrizePicks scoring become a mean-adjusted projection (cfg.mean = [a, b]: mean = a + b x median, fitted on the backtest, since a
+// median sits below the mean and PrizePicks' lines sit at about the mean), and the lean is (mean - line) / sigma with sigma = cfg.sigma[0] + cfg.sigma[1] x mean.
+// MORE = over, LESS = under. Only STRONG (0.5 sigma or more) is flagged; thin samples and role-shift players never are. A LESS pick is not voided by an early exit.
+function fpBuild(FPD, byId, medianPts) {
+  if (!FPD?.rows?.length || !FPD.cfg) return [];
+  const [m0, m1] = FPD.cfg.mean, [s0, s1] = FPD.cfg.sigma;
+  return FPD.rows.map(r => {
+    const p = byId[r.id];
+    if (!p) return null;
+    const med = medianPts(p), mean = m0 + m1 * med, sd = s0 + s1 * mean, z = (mean - r.line) / sd, st = Date.now() >= Date.parse(r.commence);
+    return {...r, p, med, mean, sd, z, started: st, side: z > 0 ? "MORE" : "LESS", pm: FB.normCdf(z), tier: !st && Math.abs(z) >= 0.5 && !noLean(p) && med > 0 ? "strong" : ""};
+  }).filter(Boolean);
+}
+function fpSection(FPD, byId, medianPts, F) {
+  if (!FPD) return "";
+  const head = `<h2 style="margin-top:28px">Fantasy points (PrizePicks)</h2>`;
+  if (!FPD.cfg) return `${head}<p class="sub">PrizePicks fantasy-points lines are being collected, but the mean-adjustment and spread for this league need more backtest rows before a lean can be shown.</p>`;
+  const rows = fpBuild(FPD, byId, medianPts).filter(r => (!F.q || (r.name + " " + r.team).toLowerCase().includes(F.q.trim().toLowerCase())) && (!F.pos || r.p.pos === F.pos));
+  if (!rows.length) return `${head}<p class="sub">No PrizePicks fantasy-points lines yet: they post close to kickoff for each team's main players, and this fills in on its own.</p>`;
+  const cols = [{k: "name", h: "Player", l: 1, f: r => gbLink(r.name, r.p.game, r.id) + thinTag(r.p) + shiftTag(r.p)}, {k: "pos", h: "Pos", l: 1, f: r => esc(r.p.pos)}, {k: "team", h: "Team", l: 1},
+    {k: "game", h: "Game", l: 1, f: r => esc(r.game) + (r.started ? ` <span class="pill hot">LIVE</span>` : "")},
+    {k: "med", h: "Median", t: "The model's median points under the PrizePicks scoring", f: r => num(r.med)}, {k: "mean", h: "Mean-adj", t: "Median turned into a mean (backtest fit)", f: r => num(r.mean)},
+    {k: "line", h: "Line", v: r => r.line, f: r => num(r.line, 1)}, {k: "z", h: "Lean σ", t: "(mean-adjusted projection - line) / sigma. Positive = MORE", v: r => Math.abs(r.z), f: r => `${r.z > 0 ? "+" : ""}${num(r.z, 2)}`},
+    {k: "pick", h: "Lean", l: 1, v: r => r.tier ? Math.abs(r.z) : 0, f: r => r.tier ? `<span class="pill lean-strong" title="STRONG: 0.5 sigma or more. Ungraded for this market so far.">STRONG ${r.side}</span>` : ""},
+    {k: "pm", h: "P(MORE)", t: "Model probability the player clears the line (normal around the mean-adjusted projection)", f: r => num(r.pm * 100, 0) + "%"}];
+  return `${head}<p class="sub">${rows.length} lines, last updated ${esc(new Date(FPD.updated).toLocaleString(undefined, {month: "short", day: "numeric", hour: "numeric", minute: "2-digit"}))}. Median projection under the PrizePicks scoring, turned into a mean-adjusted projection and compared with the PrizePicks line in standard deviations (σ ≈ ${num(FPD.cfg.sigma[0], 1)} + ${num(FPD.cfg.sigma[1], 2)} × projection). Only STRONG (0.5σ or more) is flagged, and no pick is flagged for thin-sample or role-shift players. This market has no sportsbook price, so there is no vig to remove; check the break-even for your entry type. A LESS pick is not voided by an early exit, but a MORE pick can be (first-half exit, no return).</p>
+    ${table(cols, rows, {id: "fp", sort: {key: "z"}, rowClass: r => r.started ? "started" : r.tier ? "lean-strong-row" : ""})}`;
+}

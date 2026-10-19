@@ -161,6 +161,8 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     for g in games:
         g["outs"] = {t: outs[t] for t in (g["away"], g["home"]) if t in outs}
     dump(games, out, "games.json")
+    from . import fp as FP
+    FP.build("data/log/fp_lines_log.csv", proj, f"{out}/fp_lines.json", dict(mean=list(C.FP_MEAN), sigma=list(C.FP_SIGMA)))
     lines_mod.main(raw, out, {g["game"] for g in games})        # live lines + consensus, if odds.csv exists
     dump(wx_rows, out, "weather.json")
     dump(dict(week=week, rows=matchup_table(core, mu, week, P), ranks=position_rankings(core), lg=dict(ypc=r(core["LG_YPC"], 3), catch=r(core["LG_CATCH"], 4), ypr=r(core["LG_YPR"], 3),

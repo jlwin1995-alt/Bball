@@ -154,7 +154,7 @@ def fetch_cfb_props(s, key, now, force=False, raw=RAW):
                 print(f"college props: stopping, only {remaining} credits left")
                 break
             resp = s.get(f"{CFB_BASE}/events/{ev['id']}/odds", timeout=30, params={"apiKey": key, "bookmakers": ",".join(C.ODDS_BOOKS),
-                         "markets": ",".join(C.CFB_ODDS_MARKETS), "oddsFormat": "american", "dateFormat": "iso"})
+                         "markets": ",".join([*C.CFB_ODDS_MARKETS, C.FP_MARKET]), "oddsFormat": "american", "dateFormat": "iso"})
             if resp.status_code != 200:
                 print(f"college props: {ev['away_team']} @ {ev['home_team']} HTTP {resp.status_code} {resp.text[:100]}")
                 if resp.status_code in (401, 429):
@@ -162,6 +162,9 @@ def fetch_cfb_props(s, key, now, force=False, raw=RAW):
                 continue
             remaining = float(resp.headers.get("x-requests-remaining", "nan"))
             got = parse_event(ev, resp.json(), now.isoformat(timespec="seconds"), markets=specs, teams=(a or ev["away_team"], h or ev["home_team"]))
+            fp_got = [x for x in parse_event(ev, resp.json(), now.isoformat(timespec="seconds"), markets=FP_SPEC, teams=(a or ev["away_team"], h or ev["home_team"]))
+                      if x["book"] == C.FP_BOOK]
+            snapshot_fp(fp_got, now, CFB_FP_LOG)
             calls += 1
             fresh.add(ev["id"])
             pulled[ev["id"]] = now.isoformat(timespec="seconds")
@@ -224,6 +227,7 @@ def probe(session=None, base=None):
 
 FP_SPEC = {C.FP_MARKET: ("fp", "Fantasy pts", 0, 0, "normal")}
 FP_LOG = "data/log/fp_lines_log.csv"
+CFB_FP_LOG = "data/log/cfb_fp_lines_log.csv"
 FP_COLS = ["ts", "event", "commence", "game", "home", "away", "player", "book", "line", "over", "under"]
 
 
