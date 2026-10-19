@@ -195,6 +195,8 @@ def spread_checks():
     assert pp and all("model_margin" in p for p in pp)
     rows = LD.parse_lines([dict(id=1, week=3, homeTeam="Texas", awayTeam="Ohio State", lines=[dict(spread=-3.5, overUnder=55.5, formattedSpread="Texas -3.5"), dict(spread=3.5, overUnder=56.5, formattedSpread="Texas -3.5")])], 2025)
     assert rows[0]["home_spread"] == -3.5 and rows[0]["total"] == 56.0, rows
+    ro = LD.parse_lines([dict(id=1, week=3, homeTeam="Texas", awayTeam="Ohio State", lines=[dict(spread=-3.5, overUnder=55.5, spreadOpen=-2.5, overUnderOpen=54.5, formattedSpread="Texas -3.5")])], 2025)
+    assert ro[0]["open_total"] == 54.5 and ro[0]["open_spread"] == -2.5, ro
     print("spread model ok")
 
 

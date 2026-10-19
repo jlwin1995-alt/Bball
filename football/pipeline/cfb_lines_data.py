@@ -10,7 +10,7 @@ import argparse, os, statistics
 from . import config as C
 from .cfb_data import get, norm_game, write_csv, read_csv, GAME_COLS
 
-LINE_COLS = ["id", "season", "week", "home", "away", "home_spread", "total", "n_spread", "n_total"]
+LINE_COLS = ["id", "season", "week", "home", "away", "home_spread", "total", "n_spread", "n_total", "open_spread", "open_total"]
 
 
 def num(x):
@@ -25,9 +25,12 @@ def parse_lines(items, season):
     """/lines -> one row per game with the median spread (home perspective, negative = home favoured) and total."""
     rows = []
     for g in items:
-        sp, tot = [], []
+        sp, tot, osp, otot = [], [], [], []
         for ln in g.get("lines") or []:
             s, t = num(ln.get("spread")), num(ln.get("overUnder"))
+            so, to = num(ln.get("spreadOpen")), num(ln.get("overUnderOpen"))
+            if to is not None:
+                otot.append(to)
             fm = str(ln.get("formattedSpread") or "")
             if s is not None:
                 # CFBD's spread is the home team's; the formatted text ("Texas -3.5") names the favourite, so trust it when the two disagree
@@ -36,11 +39,14 @@ def parse_lines(items, season):
                 if fav_home is not None and fm and abs(s) > 0:
                     s = -abs(s) if fav_home else abs(s)
                 sp.append(s)
+                if so is not None:
+                    osp.append(-abs(so) if s < 0 else abs(so) if s > 0 else so)       # the opening spread is on the same side as the closing one when both exist
             if t is not None:
                 tot.append(t)
         if sp or tot:
             rows.append(dict(id=g.get("id"), season=season, week=g.get("week"), home=g.get("homeTeam"), away=g.get("awayTeam"),
-                             home_spread=statistics.median(sp) if sp else "", total=statistics.median(tot) if tot else "", n_spread=len(sp), n_total=len(tot)))
+                             home_spread=statistics.median(sp) if sp else "", total=statistics.median(tot) if tot else "", n_spread=len(sp), n_total=len(tot),
+                             open_spread=statistics.median(osp) if osp else "", open_total=statistics.median(otot) if otot else ""))
     return rows
 
 
@@ -61,7 +67,12 @@ def main(raw="data/raw", key=None):
             calls += 1
             games.sort(key=lambda g: (g["week"] if g["week"] != "" else 99))
             write_csv(gp, GAME_COLS, games)
-        if not os.path.exists(lp):
+        # the opening lines were added later: an older file without them is fetched again (1 call)
+        stale = False
+        if os.path.exists(lp):
+            with open(lp) as fh:
+                stale = "open_total" not in fh.readline()
+        if not os.path.exists(lp) or stale:
             write_csv(lp, LINE_COLS, parse_lines(get("/lines", key, year=y, seasonType=C.CFB_SEASON_TYPE), y))
             calls += 1
     print(f"college lines: {calls} API calls")
