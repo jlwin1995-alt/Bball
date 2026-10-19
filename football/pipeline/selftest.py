@@ -102,6 +102,7 @@ def cfb_lines_checks():
     print("college lines ok")
     cfb_props_checks()
     depth_checks()
+    totals_checks()
     spread_checks()
     fp_lean_checks()
     partial_checks()
@@ -195,6 +196,17 @@ def spread_checks():
     rows = LD.parse_lines([dict(id=1, week=3, homeTeam="Texas", awayTeam="Ohio State", lines=[dict(spread=-3.5, overUnder=55.5, formattedSpread="Texas -3.5"), dict(spread=3.5, overUnder=56.5, formattedSpread="Texas -3.5")])], 2025)
     assert rows[0]["home_spread"] == -3.5 and rows[0]["total"] == 56.0, rows
     print("spread model ok")
+
+
+def totals_checks():
+    import random
+    from . import cfb_totals as T
+    random.seed(5)
+    rows = [[random.gauss(0, 1), random.gauss(0, 2)] for _ in range(400)]
+    ys = [3.0 * r[0] - 1.0 * r[1] + random.gauss(0, 0.5) for r in rows]
+    coef, mean, sd, ym = T.ridge(rows, ys, 1.0)
+    assert abs(coef[0] / sd[0] - 3.0) < 0.2 and abs(coef[1] / sd[1] + 1.0) < 0.2, (coef, sd)
+    print("totals ridge ok")
 
 
 def depth_checks():
