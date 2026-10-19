@@ -102,6 +102,7 @@ def cfb_lines_checks():
     print("college lines ok")
     cfb_props_checks()
     depth_checks()
+    partial_checks()
     fp_checks()
 
 
@@ -120,6 +121,28 @@ def fp_checks():
     assert fetch_odds.snapshot_fp(rows, dt.datetime(2026, 10, 18, tzinfo=dt.timezone.utc), p) == 1 and len(fetch_odds.read_rows(p)) == 1
     assert fetch_odds.snapshot_fp(rows, dt.datetime(2099, 10, 21, tzinfo=dt.timezone.utc), p) == 0                     # started: untouched
     print("fantasy-points log ok")
+
+
+def partial_checks():
+    import csv, tempfile
+    from .analysis import partial_games
+    d = tempfile.mkdtemp(); p = d + "/snaps.csv"
+    with open(p, "w", newline="") as f:
+        w = csv.writer(f); w.writerow(["season", "week", "player", "team", "position", "offense_snaps", "offense_pct"])
+        for wk, pct, n in [(1, 0.8, 60), (2, 0.8, 58), (3, 0.7, 50), (4, 0.2, 14)]:
+            w.writerow([2026, wk, "Some Back", "XXX", "RB", n, pct])
+        for wk, pct, n in [(1, 0.8, 60), (2, 0.8, 58), (3, 0.7, 50), (4, 0.7, 50)]:
+            w.writerow([2026, wk, "Steady Back", "XXX", "RB", n, pct])
+        for wk, pct, n in [(1, 1.0, 70), (2, 1.0, 70), (3, 1.0, 70), (4, 0.0, 0)]:
+            w.writerow([2026, wk, "Some Tackle", "XXX", "T", n, pct])
+    rows = [dict(player_display_name=n, team="XXX", week=4, player_id=i) for n, i in (("Some Back", "a"), ("Steady Back", "b"), ("Some Tackle", "c"))]
+    pb = d + "/pbp.csv"
+    with open(pb, "w", newline="") as f:
+        w = csv.writer(f); w.writerow(["week", "posteam", "qtr", "passer_player_id", "rusher_player_id", "receiver_player_id"])
+        w.writerow([4, "XXX", 1, "", "a", ""]); w.writerow([4, "XXX", 2, "", "a", ""]); w.writerow([4, "XXX", 4, "", "b", ""])
+    got = partial_games(p, rows, pbp_path=pb)
+    assert list(got) == [("a", 4)] and got[("a", 4)]["pct"] == 0.2 and got[("a", 4)]["last_q"] == 2 and got[("a", 4)]["first_half"] == 1, got
+    print("partial games ok")
 
 
 def depth_checks():

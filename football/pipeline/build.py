@@ -183,8 +183,9 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     imported = legacy.import_sheet_log() if log else 0
     if imported:
         print(f"imported {imported} rows from the Google-Sheet model's own log")
-    sc = scorecard.score(rows, live, P=P)
-    sc["legacy"] = scorecard.score(rows, live, P=P, stamp_override=legacy.STAMP)
+    partial = analysis.partial_games(f"{raw}/snaps.csv", rows, pbp_path=f"{raw}/pbp_slim.csv")
+    sc = scorecard.score(rows, live, P=P, partial=partial)
+    sc["legacy"] = scorecard.score(rows, live, P=P, stamp_override=legacy.STAMP, partial=partial)
     dump(sc, out, "scorecard.json")
     nres = results.main(rows, live, out)
 

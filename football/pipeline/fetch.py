@@ -78,6 +78,21 @@ def depth(path, season):
     return len(rows), best
 
 
+def pbp(path, season):
+    """nflverse play-by-play, kept slim: which skill player was involved in each play and in which quarter (used to estimate when a partial-game player left)."""
+    import gzip
+    cols = ["week", "posteam", "qtr", "passer_player_id", "rusher_player_id", "receiver_player_id"]
+    url = f"{C.NFLVERSE}/pbp/play_by_play_{season}.csv.gz"
+    r = requests.get(url, timeout=180)
+    r.raise_for_status()
+    rows = []
+    for x in csv.DictReader(io.StringIO(gzip.decompress(r.content).decode("utf-8", "replace"))):
+        if x.get("season_type", "REG") == "REG" and x["qtr"] and (x["passer_player_id"] or x["rusher_player_id"] or x["receiver_player_id"]):
+            rows.append([x[c] for c in cols])
+    write(path, cols, rows)
+    return len(rows)
+
+
 def resolve_season(raw="data/raw"):
     """The newest season nflverse has published weekly stats for (this calendar year's once Week 1 has been played, otherwise last year's).
     Written to data/raw/season.txt so config.SEASON follows it: the site rolls over by itself in September and stays on last season through
@@ -118,6 +133,10 @@ def main(season=None, raw="data/raw"):
                 print(f"{name}: {simple(url, f'{d}/{name}.csv')} rows")
             except Exception as e:
                 print(f"::warning::{name} unavailable ({e}); keeping the previous file", file=sys.stderr)
+        try:
+            print(f"play-by-play: {pbp(f'{d}/pbp_slim.csv', season)} skill plays")
+        except Exception as e:
+            print(f"::warning::play-by-play unavailable ({e}); keeping the previous file", file=sys.stderr)
         try:
             print("depth chart: %d rows, snapshot %s" % depth(f"{d}/depth.csv", season))
         except Exception as e:
