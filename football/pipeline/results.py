@@ -124,7 +124,7 @@ def main(rows, live, out="site/data", log_path=None, lines_path=LINES_LOG, W=Non
                         side = "O" if o >= u else "U"
                         g = grade(a[k], pl_, side)
                         ent["pp"] = pl_; ent["pp_side"] = side; ent["pp_hit"] = g
-                        if side == "O" and void_src:
+                        if side == "O" and void_src and (void_src == "confirmed" or a[k] <= pl_):          # an estimated void only matters if the pick had not already cleared
                             ent["pp_void"] = void_src                   # the MORE pick is void: not graded
                             ent["pp_hit"] = None
                             sm["pp_void"] += 1
