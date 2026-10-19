@@ -87,7 +87,8 @@ def pbp(path, season):
     r.raise_for_status()
     rows = []
     for x in csv.DictReader(io.StringIO(gzip.decompress(r.content).decode("utf-8", "replace"))):
-        if x.get("season_type", "REG") == "REG" and x["qtr"] and (x["passer_player_id"] or x["rusher_player_id"] or x["receiver_player_id"]):
+        # every offensive play (the team's snap count by half is needed), with the skill players involved when there are any
+        if x.get("season_type", "REG") == "REG" and x["qtr"] and x["posteam"] and x.get("play_type") in ("pass", "run", "qb_kneel", "qb_spike"):
             rows.append([x[c] for c in cols])
     write(path, cols, rows)
     return len(rows)
