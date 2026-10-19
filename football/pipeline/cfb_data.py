@@ -123,14 +123,14 @@ def write_csv(path, cols, rows):
         w.writerows(rows)
 
 
-def main(season=None, raw="data/raw", key=None, max_seconds=None):
+def main(season=None, raw="data/raw", key=None, max_seconds=None, hist="history"):
     key = (key or os.environ.get("CFBD_API_KEY", "")).strip()
     if not key:
         print("CFBD_API_KEY is not set; skipping college data (get a free key at collegefootballdata.com/key)")
         return 0
     season = season or C.SEASON
     cur = season == C.SEASON
-    d = raw if cur else os.path.join(raw, "history")
+    d = raw if cur else os.path.join(raw, hist)
     sfx = "" if cur else f"_{season}"
     games = [norm_game(g) for g in get("/games", key, year=season, seasonType=C.CFB_SEASON_TYPE, classification="fbs")]
     games.sort(key=lambda g: (g["week"] if g["week"] != "" else 99))
@@ -179,5 +179,6 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--season", type=int)
     ap.add_argument("--raw", default="data/raw")
+    ap.add_argument("--hist", default="history", help="folder under --raw for an earlier season (use cfb_hist for the committed spread-model data)")
     a = ap.parse_args()
-    main(a.season, a.raw)
+    main(a.season, a.raw, hist=a.hist)
