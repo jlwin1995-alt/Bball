@@ -3,7 +3,7 @@
     CFBD_API_KEY=... python -m pipeline.cfb_lines_data
 
 One /lines call for the current season (data/raw/cfb_game_lines.csv, every refresh) and, ONCE, the two earlier seasons' games and lines
-(data/raw/history/cfb_games_<y>.csv, cfb_game_lines_<y>.csv): 1 + 2 x 2 = 5 calls of the 1,000 a month. A finished game's line is its closing line.
+(data/raw/cfb_hist/cfb_games_<y>.csv, cfb_game_lines_<y>.csv; not under history/, which is gitignored): 1 + 2 x 2 = 5 calls of the 1,000 a month. A finished game's line is its closing line.
 home_spread is as books print it: NEGATIVE = the home team is favoured. The consensus is the median across the providers CFBD lists.
 """
 import argparse, os, statistics
@@ -55,7 +55,7 @@ def main(raw="data/raw", key=None):
     calls += 1
     write_csv(f"{raw}/cfb_game_lines.csv", LINE_COLS, parse_lines(items, cur))
     for y in (cur - 1, cur - 2):
-        gp, lp = f"{raw}/history/cfb_games_{y}.csv", f"{raw}/history/cfb_game_lines_{y}.csv"
+        gp, lp = f"{raw}/cfb_hist/cfb_games_{y}.csv", f"{raw}/cfb_hist/cfb_game_lines_{y}.csv"
         if not os.path.exists(gp):
             games = [norm_game(g) for g in get("/games", key, year=y, seasonType=C.CFB_SEASON_TYPE, classification="fbs")]
             calls += 1
