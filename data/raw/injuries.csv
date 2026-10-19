@@ -3,11 +3,11 @@ None,Henri Veesaar,ATL,Out
 None,Mouhamed Gueye,ATL,Day-To-Day
 None,Devin Carter,BOS,Out
 None,Joshua Jefferson,BKN,Out
+None,Coby White,CHA,Day-To-Day
+None,Kon Knueppel,CHA,Day-To-Day
 None,Grayson Allen,CHA,Day-To-Day
 None,Moussa Diabate,CHA,Day-To-Day
 None,Kylan Boswell,CHA,Day-To-Day
-None,Coby White,CHA,Day-To-Day
-None,Kon Knueppel,CHA,Day-To-Day
 None,Grant Williams,CHA,Day-To-Day
 None,Tobe Awaka,CHI,Day-To-Day
 None,Isaac Okoro,CHI,Day-To-Day
@@ -16,12 +16,13 @@ None,Nic Claxton,CHI,Day-To-Day
 None,Sam Merrill,CLE,Day-To-Day
 None,Nae'Qwan Tomlin,CLE,Day-To-Day
 None,Khalifa Diop,CLE,Day-To-Day
+None,Santi Aldama,DAL,Day-To-Day
 None,Tarik Biberovic,DAL,Day-To-Day
 None,Jett Howard,DAL,Day-To-Day
 None,Dereck Lively II,DAL,Day-To-Day
-None,Santi Aldama,DAL,Day-To-Day
-None,Julian Strawther,DEN,Out
 None,Spencer Jones,DEN,Day-To-Day
+None,Julian Strawther,DEN,Out
+None,Stephen Curry,GS,Day-To-Day
 None,Moses Moody,GS,Out
 None,Jimmy Butler III,GS,Out
 None,Kristaps Porzingis,GS,Out
@@ -42,8 +43,8 @@ None,Jerami Grant,MEM,Day-To-Day
 None,GG Jackson,MEM,Day-To-Day
 None,Micah Peavy,MEM,Day-To-Day
 None,Isaiah Stewart,MEM,Out
-None,Pelle Larsson,MIA,Day-To-Day
 None,Dru Smith,MIA,Day-To-Day
+None,Pelle Larsson,MIA,Day-To-Day
 None,Bam Adebayo,MIA,Day-To-Day
 None,Jericho Sims,MIL,Day-To-Day
 None,Nate Ament,MIL,Day-To-Day
@@ -51,23 +52,23 @@ None,Rocco Zikarsky,MIN,Day-To-Day
 None,Donte DiVincenzo,MIN,Out
 None,Dejounte Murray,NO,Day-To-Day
 None,Josh Hart,NY,Day-To-Day
+None,Cason Wallace,OKC,Day-To-Day
 None,Thomas Sorber,OKC,Day-To-Day
 None,Jaylin Williams,OKC,Day-To-Day
-None,Cason Wallace,OKC,Day-To-Day
 None,Nikola Topic,OKC,Day-To-Day
 None,Chet Holmgren,OKC,Day-To-Day
 None,Otega Oweh,OKC,Out
+None,Anthony Black,ORL,Day-To-Day
+None,Franz Wagner,ORL,Day-To-Day
 None,Jase Richardson,ORL,Day-To-Day
 None,Noah Penda,ORL,Out
-None,Franz Wagner,ORL,Day-To-Day
 None,Jonathan Isaac,ORL,Day-To-Day
-None,Anthony Black,ORL,Day-To-Day
 None,Izaiyah Nelson,ORL,Out
+None,Adem Bona,PHI,Day-To-Day
+None,Anfernee Simons,PHI,Day-To-Day
 None,Tacko Fall,PHI,Day-To-Day
 None,Dominick Barlow,PHI,Day-To-Day
 None,Dean Wade,PHI,Day-To-Day
-None,Anfernee Simons,PHI,Day-To-Day
-None,Adem Bona,PHI,Day-To-Day
 None,Ariel Hukporti,PHI,Out
 None,Luke Kennard,PHX,Day-To-Day
 None,Oso Ighodaro,PHX,Day-To-Day
@@ -76,6 +77,7 @@ None,Chris Youngblood,POR,Day-To-Day
 None,Micah Potter,POR,Day-To-Day
 None,Jrue Holiday,POR,Day-To-Day
 None,Shaedon Sharpe,POR,Out
+None,Ben Simmons,SAC,Out
 None,Malik Monk,SAC,Day-To-Day
 None,Dylan Cardwell,SAC,Out
 None,Maxime Raynaud,SAC,Out
