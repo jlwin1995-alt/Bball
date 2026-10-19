@@ -1,0 +1,51 @@
+name: Football line snapshots
+
+# Appends a timestamped spread/total snapshot of every upcoming NFL and college game to football/data/log/line_snapshots.csv (about 4 credits a run, ~20 a week),
+# so opening-to-closing line movement can be tested with real timestamps. Needs the ODDS_API_KEY secret; without it this skips. Commits data only, no deploy.
+on:
+  schedule:
+    - cron: "10 16 * * 3"     # Wednesday ~noon ET: the week's first full look (NFL and college)
+    - cron: "10 13 * * 4"     # Thursday ~9am ET: before the Thursday-night game
+    - cron: "10 13 * * 5"     # Friday ~9am ET: before the Friday and Saturday college slate
+    - cron: "10 13 * * 6"     # Saturday ~9am ET: before the college slate
+    - cron: "10 13 * * 0"     # Sunday ~9am ET: before the Sunday NFL games (the London game is early)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    env:
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+    defaults:
+      run:
+        working-directory: football
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: football/pipeline/requirements.txt
+      - run: pip install -r pipeline/requirements.txt
+      - run: python -m pipeline.line_snapshots
+      - name: Commit data
+        working-directory: .
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add football/data/log
+          git diff --cached --quiet && exit 0
+          git commit -m "Line snapshot"
+          for i in 1 2 3; do
+            git pull --rebase -X theirs origin main && git push && exit 0
+            git rebase --abort 2>/dev/null || true
+            sleep $((i * 5))
+          done
+          echo "::error::could not push the snapshot commit"; exit 1
