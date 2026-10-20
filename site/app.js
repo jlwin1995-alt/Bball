@@ -42,7 +42,7 @@ function sides(line, m, sd) { line = +line; const whole = Number.isInteger(line)
   return whole ? {o: 1 - normCdf((line + 0.5 - m) / sd), u: normCdf((line - 0.5 - m) / sd)} : (() => { const o = 1 - normCdf((line - m) / sd); return {o, u: 1 - o}; })(); }
 
 // ---------- generic sortable table -------------------------------------------
-function table(cols, rows, {sort = null, id = "t", rowClass = null} = {}) {
+function table(cols, rows, {sort = null, id = "t", rowClass = null, tight = false} = {}) {
   const st = table.state[id] || (table.state[id] = {key: sort?.key, asc: sort?.asc ?? false});
   const sorted = [...rows];
   const col = cols.find(c => c.k === st.key);
@@ -55,9 +55,9 @@ function table(cols, rows, {sort = null, id = "t", rowClass = null} = {}) {
       return (typeof x === "string" ? x.localeCompare(y) : x - y) * (st.asc ? 1 : -1);
     });
   }
-  const head = cols.map(c => `<th class="${c.l ? "l" : ""} ${c.k === st.key ? "s " + (st.asc ? "asc" : "") : ""}" data-k="${c.k}" title="${esc(c.t || "")}">${c.h}</th>`).join("");
-  const body = sorted.map(r => `<tr class="${rowClass ? rowClass(r) : ""}">` + cols.map(c => `<td class="${c.l ? "l" : ""}">${c.f ? c.f(r) : esc(r[c.k])}</td>`).join("") + "</tr>").join("");
-  return `<div class="tw" data-tid="${id}"><table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
+  const head = cols.map(c => `<th class="${c.l ? "l" : ""} ${c.c || ""} ${c.k === st.key ? "s " + (st.asc ? "asc" : "") : ""}" data-k="${c.k}" title="${esc(c.t || "")}">${c.h}</th>`).join("");
+  const body = sorted.map(r => `<tr class="${rowClass ? rowClass(r) : ""}">` + cols.map(c => `<td class="${c.l ? "l" : ""} ${c.c || ""}">${c.f ? c.f(r) : esc(r[c.k])}</td>`).join("") + "</tr>").join("");
+  return `<div class="tw${tight ? " tight" : ""}" data-tid="${id}"><table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
 }
 table.state = {};
 document.addEventListener("click", e => {
@@ -78,7 +78,7 @@ function band(stat, m) {
   return [Math.max(m - e, 0), m + e];
 }
 const rangeLine = (stat, m) => { if (!F.range || m == null || !(m > 0)) return ""; const [lo, hi] = band(stat, m), d = m < 10 ? 1 : 0;
-  return `<br><span class="mut" style="font-size:.78em" title="Typical-miss range: projection ± a typical error (${bandWiden() > 1 ? "widened 15% for the opening weeks" : "from the fitted spread"})">${num(lo, d)}–${num(hi, d)}</span>`; };
+  return `<span class="mut rng" title="Typical-miss range: projection ± a typical error (${bandWiden() > 1 ? "widened 15% for the opening weeks" : "from the fitted spread"})">${num(lo, d)}–${num(hi, d)}</span>`; };
 const rangeBox = () => `<label><input type="checkbox" id="rng" ${F.range ? "checked" : ""}> show ± typical-miss range</label>`;
 function filters(extra = "") {
   return `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}">
@@ -403,18 +403,17 @@ document.addEventListener("pointermove", e => {
 const pages = {
   Projections() {
     const rows = proj().filter(passes);
-    const cols = [...nameCols, {k: "opp", h: "Opp", l: 1, f: r => (r.home ? "vs " : "@ ") + esc(r.opp), v: r => r.opp},
-      {k: "rest", h: "Rest", t: "Days since the team's last game", f: r => r.rest ?? ""},
-      {k: "status", h: "Status", l: 1, f: r => statusPill(r.status)},
-      {k: "g", h: "G", t: "Weighted games in the sample (last season counts partially early on)"},
-      {k: "mino", h: "Min OVR", t: "Type minutes to override; 0 = out. Teammates are NOT re-scaled in the browser. Saved on this device.", v: r => OVR[r.pid]?.min,
+    const cols = [{k: "name", h: "Player", l: 1, f: r => esc(r.name) + ` <span class="mut">${esc(r.pos)}</span> ` + statusPill(r.status), v: r => r.name}, {k: "team", h: "Team", l: 1, c: "opt"}, {k: "opp", h: "Opp", l: 1, f: r => (r.home ? "vs " : "@ ") + esc(r.opp), v: r => r.opp},
+      {k: "rest", h: "Rest", c: "opt", t: "Days since the team's last game", f: r => r.rest ?? ""},
+      {k: "g", h: "G", c: "opt", t: "Weighted games in the sample (last season counts partially early on)"},
+      {k: "mino", h: "Min OVR", c: "opt", t: "Type minutes to override; 0 = out. Teammates are NOT re-scaled in the browser. Saved on this device.", v: r => OVR[r.pid]?.min,
         f: r => `<input class="ovr" data-pid="${esc(r.pid)}" value="${OVR[r.pid]?.min ?? ""}" placeholder="${num(r.min)}">`},
-      {k: "cmin", h: "Min", v: r => r.c.min, f: r => num(r.c.min)},
+      {k: "cmin", h: "Min", c: "opt", v: r => r.c.min, f: r => num(r.c.min)},
       ...STATS.map(s => ({k: "c" + s, h: LABEL[s], v: r => r.c[s], f: r => num(r.c[s], 1) + (["pts", "reb", "ast", "fg3m"].includes(s) ? rangeLine(s, r.c[s]) : "")})),
       {k: "cfp", h: CFG.mean ? "Mean FP" : "Proj FP", v: r => r.c.fp, f: r => `<b>${num(r.c.fp)}</b>` + rangeLine("fp", r.c.fp)},
-      {k: "apts", h: "Pts Adj", t: "Opponent multiplier on scoring, after damping", v: r => r.adj_pts, f: r => pct(r.adj_pts)},
-      {k: "areb", h: "Reb Adj", v: r => r.adj_reb, f: r => pct(r.adj_reb)},
-      {k: "aast", h: "Ast Adj", v: r => r.adj_ast, f: r => pct(r.adj_ast)}];
+      {k: "apts", h: "Pts Adj", c: "opt", t: "Opponent multiplier on scoring, after damping", v: r => r.adj_pts, f: r => pct(r.adj_pts)},
+      {k: "areb", h: "Reb Adj", c: "opt", v: r => r.adj_reb, f: r => pct(r.adj_reb)},
+      {k: "aast", h: "Ast Adj", c: "opt", v: r => r.adj_ast, f: r => pct(r.adj_ast)}];
     return `<h2>Projections — ${esc(D.coverage.slate_date || "no slate")}</h2>
       <p class="sub">${CFG.mean ? "Mean" : "Median-style"} projection per player with a game. Shaded <b>Min OVR</b> is yours; everything recalculates instantly. Scoring: ${esc(CFG.preset)}.</p>
       ${filters(`${rangeBox()}<button id="clr">Clear overrides</button>`)}
@@ -441,16 +440,16 @@ const pages = {
     const [home, away] = (F.game || "|").split("|");
     const mk = t => {
       const rows = proj().filter(p => p.team === t);
-      const cols = [...nameCols.slice(0, 2), {k: "status", h: "Status", l: 1, f: r => statusPill(r.status)},
+      const cols = [{k: "name", h: "Player", l: 1, f: r => esc(r.name) + ` <span class="mut">${esc(r.pos)}</span> ` + statusPill(r.status), v: r => r.name},
         {k: "cmin", h: "Min", v: r => r.c.min, f: r => num(r.c.min)},
-        ...["pts", "reb", "ast", "fg3m", "pra"].map(s => ({k: "c" + s, h: LABEL[s], t: "Projection [posted line]. Line = sportsbook consensus, else PrizePicks. Green O / orange U = the model is past your edge threshold (Config) on that side; hover for each book's line.",
+        ...["pts", "reb", "ast", "fg3m"].map(s => ({k: "c" + s, h: LABEL[s], t: "Projection [posted line]. Line = sportsbook consensus, else PrizePicks. Green O / orange U = the model is past your edge threshold (Config) on that side; hover for each book's line.",
           v: r => cellVal(r, s), f: r => boardCell(r, s)})),
         {k: "cfp", h: "FP", v: r => r.c.fp, f: r => `<b>${num(r.c.fp)}</b>` + rangeLine("fp", r.c.fp)}];
-      return `<div><h3>${esc(t)} ${t === home ? "(home)" : "(away)"}</h3>${table(cols, rows, {id: "gb" + t, sort: {key: "cfp"}, rowClass: r => r.c.min === 0 ? "out" : ""})}</div>`;
+      return `<div><h3>${esc(t)} ${t === home ? "(home)" : "(away)"}</h3>${table(cols, rows, {id: "gb" + t, tight: true, sort: {key: "cfp"}, rowClass: r => r.c.min === 0 ? "out" : ""})}</div>`;
     };
     const h0 = D.projections.find(p => p.team === home && p.exp_margin != null);
     const env = h0 ? ` Expected margin ${esc(home)} ${h0.exp_margin >= 0 ? "+" : ""}${num(h0.exp_margin)} (from each team's average point differential, a stand-in for the spread); pace ${h0.pace_f >= 1 ? "+" : ""}${num((h0.pace_f - 1) * 100)}% vs league.` : "";
-    return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected fantasy points. Posted lines are in brackets next to the projection (consensus, else PrizePicks) once books have them; <b class="good">O</b> / <b class="bad">U</b> marks a side past your edge threshold. The small grey range under each number is the projection ± a typical miss (about 0.8 of the fitted spread, widened 15% for the opening weeks).${env}</p>
+    return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected fantasy points. [Line] = consensus, else PrizePicks; <b class="good">O</b> / <b class="bad">U</b> = a side past your edge threshold; grey = projection ± a typical miss (Methodology).${env}</p>
       <div class="bar">${rangeBox()}<select id="game">${games.map(g => `<option value="${g}" ${g === F.game ? "selected" : ""}>${g.split("|")[1]} @ ${g.split("|")[0]}</option>`).join("")}</select></div>
       <div class="two">${mk(away)}${mk(home)}</div>`;
   },
