@@ -83,8 +83,8 @@ SPREAD_DEFAULT = {"pts": [2.5, 0.20], "reb": [1.2, 0.30], "ast": [0.9, 0.30],
                   "fg3m": [0.6, 0.45], "stl": [0.5, 0.45], "blk": [0.4, 0.55], "tov": [0.6, 0.30],
                   "fp": [4.0, 0.15]}
 
-# Default fantasy scoring used for Trends, the Scorecard and the backtest. (DraftKings classic)
-DEFAULT_SCORING = {"pts": 1.0, "fg3m": 0.5, "reb": 1.25, "ast": 1.5, "stl": 2.0, "blk": 2.0, "tov": -0.5}
+# Default fantasy scoring used for Trends, the Scorecard and the backtest. (PrizePicks fantasy scoring: pts 1, reb 1.2, ast 1.5, stl 3, blk 3, tov -1, no 3PM bonus; was DraftKings classic before the 2026-27 opener)
+DEFAULT_SCORING = {"pts": 1.0, "fg3m": 0.0, "reb": 1.2, "ast": 1.5, "stl": 3.0, "blk": 3.0, "tov": -1.0}
 
 # Preseason fallback if the learner (pipeline.preseason_minutes) has no data: a ROUGH GUESS, not measured here, so the site never
 # projects stars for regular-season minutes in a preseason game. The site banner says when these are in use.

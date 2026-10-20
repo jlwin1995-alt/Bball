@@ -16,7 +16,7 @@ A static site (`site/`) fed by a small Python pipeline (`pipeline/`).
 | Efficiency / Usage / Trends | Per-36 and shooting rates; share of team opportunity; rolling form vs season, floor/ceiling, HOT/COLD. |
 | Lines | Projection vs a posted line → P(over) with the vig removed from the book price. |
 | Scorecard | Projections are logged **before** tip-off and never rewritten, then scored against season-average and last-N baselines. |
-| Config | Scoring preset (DraftKings / FanDuel / custom), median vs mean, edge threshold. |
+| Config | Scoring preset (PrizePicks default / DraftKings / FanDuel / custom), median vs mean, edge threshold. |
 
 ## Run it
 

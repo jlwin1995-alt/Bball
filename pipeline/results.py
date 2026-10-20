@@ -53,7 +53,8 @@ def build(L, G, LG, spread):
     M = L.merge(A, on=["date", "pid"], how="inner", suffixes=("_p", "_a"))
     M = add_combos(M, ["p", "a"])
     M["fp_a"] = sum(M[f"{s}_a"] * w for s, w in C.DEFAULT_SCORING.items())
-    M = M.rename(columns={"fp": "fp_p"})
+    M["fp_p"] = sum(M[f"{s}_p"] * w for s, w in C.DEFAULT_SCORING.items())     # rescored from the stored per-stat projections, so a change of scoring never mixes with old logged FP
+    M = M.drop(columns=["fp"])
     lk = {}
     if len(LG):
         for r in LG.sort_values("ts").itertuples():
