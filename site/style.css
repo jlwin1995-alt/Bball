@@ -44,3 +44,17 @@ tr:hover td:first-child{background:var(--head)}
 .sccell{cursor:crosshair}.sccell:hover{stroke:var(--fg);stroke-width:.18}
 #sctip{position:fixed;z-index:20;max-width:270px;padding:6px 9px;border-radius:6px;background:var(--fg);color:var(--bg);font-size:12px;pointer-events:none}
 .brand a.sw{margin-left:12px;font-size:12px;color:var(--mut);text-decoration:none}.brand a.sw:hover{color:var(--acc)}
+
+.rng{display:block;font-size:.72em;line-height:1.1}
+.tw.tight th,.tw.tight td{padding:2px 6px}
+.tw.tight .rng{margin-top:-1px}
+.two{grid-template-columns:repeat(auto-fit,minmax(min(100%,600px),1fr))}
+@media (max-width:900px){.opt{display:none}}
+@media (max-width:640px){
+  header{padding:8px 10px}
+  nav{flex-wrap:nowrap;overflow-x:auto;width:100%;scrollbar-width:none}
+  nav a{white-space:nowrap}
+  .brand span{display:none}
+  .tw{max-height:none}
+  th,td{padding:3px 6px}
+}
