@@ -2,7 +2,7 @@ id,season,week,home,away,home_spread,total,n_spread,n_total,open_spread,open_tot
 401858497,2026,8,Minnesota,Iowa,7.0,40.75,2,2,5.75,41.75
 401866669,2026,7,Yale,Rhode Island,-12.5,48.5,1,1,-10.0,50.5
 401856731,2026,8,South Carolina,Tennessee,-2.5,50.75,2,2,-1.75,51.0
-401856729,2026,8,Kentucky,Vanderbilt,-10.75,51.5,2,2,-10.0,52.0
+401856729,2026,8,Kentucky,Vanderbilt,-10.5,51.5,2,2,-10.0,52.0
 401867920,2026,7,Robert Morris,New Haven,-9.5,45.5,1,1,-10.0,46.5
 401858276,2026,8,Clemson,Virginia Tech,-2.75,49.5,2,2,-2.25,49.5
 401858262,2026,7,Stanford,Elon,-33.5,55.5,1,1,-35.5,56.5
@@ -128,7 +128,6 @@ id,season,week,home,away,home_spread,total,n_spread,n_total,open_spread,open_tot
 401869845,2026,8,App State,James Madison,10.5,56.25,2,2,10.75,56.5
 401866449,2026,8,Ohio,Eastern Michigan,-12.25,48.5,2,2,-10.25,49.5
 401858499,2026,8,UCLA,Michigan State,-14.0,44.5,2,2,-13.75,46.75
-401858496,2026,8,Michigan,Indiana,7.0,41.5,2,2,6.5,46.75
 401868012,2026,7,Fordham,Villanova,7.5,44.5,1,1,7.5,47.5
 401868222,2026,7,Davidson,Morehead State,1.5,57.5,1,1,1.5,56.5
 401868066,2026,7,West Georgia,Austin Peay,19.5,53.5,1,1,21.0,55.5
@@ -161,6 +160,7 @@ id,season,week,home,away,home_spread,total,n_spread,n_total,open_spread,open_tot
 401858270,2026,8,SMU,California,-19.5,53.5,2,2,-18.0,53.0
 401871070,2026,8,Sam Houston,New Mexico State,3.0,44.75,2,2,2.75,46.0
 401856719,2026,7,Georgia,Auburn,-19.5,50.25,2,2,-17.5,51.5
+401858496,2026,8,Michigan,Indiana,7.0,41.5,2,2,6.5,46.75
 401856841,2026,8,TCU,West Virginia,-8.5,56.5,2,2,-7.25,57.75
 401871094,2026,8,Troy,UL Monroe,-14.75,51.25,2,2,-17.25,50.75
 401868207,2026,7,Southeast Missouri State,Western Illinois,-6.0,52.5,1,1,-6.0,55.5
@@ -180,11 +180,11 @@ id,season,week,home,away,home_spread,total,n_spread,n_total,open_spread,open_tot
 401871093,2026,8,Louisiana Tech,Old Dominion,-12.25,46.25,2,2,-9.5,44.75
 401856840,2026,8,Cincinnati,Texas Tech,10.75,56.5,2,2,10.75,56.5
 401866446,2026,8,Kent State,Akron,-3.0,46.25,2,2,-3.25,44.5
-401862807,2026,8,Memphis,East Carolina,-10.25,54.5,2,2,-9.75,53.75
 401862810,2026,8,Navy,North Texas,2.5,61.75,2,2,1.75,62.25
 401856834,2026,8,Kansas,Baylor,3.0,53.5,2,2,1.5,54.5
 401860907,2026,8,Washington State,Boise State,12.5,51.25,2,2,13.25,50.75
-401862809,2026,8,Florida Atlantic,Rice,-7.5,53.25,2,2,-10.25,57.25
+401862809,2026,8,Florida Atlantic,Rice,-7.5,53.0,2,2,-10.25,57.25
+401862807,2026,8,Memphis,East Carolina,-10.0,54.5,2,2,-9.75,53.75
 401858202,2026,1,Virginia,NC State,-4.0,50.5,2,2,-3.5,54.5
 401856667,2026,1,Texas,Texas State,-29.5,60.75,2,2,-30.5,59.5
 401868118,2026,1,Utah Tech,Montana State,32.5,57.5,1,1,31.5,56.5
@@ -215,12 +215,12 @@ id,season,week,home,away,home_spread,total,n_spread,n_total,open_spread,open_tot
 401868154,2026,1,Portland State,UC Davis,25.5,60.5,1,1,24.5,62.5
 401868194,2026,1,Tennessee State,Jackson State,12.5,49.5,1,1,15.5,49.5
 401868261,2026,1,New Haven,Marist,-2.5,46.5,1,1,-1.5,44.5
-401858272,2026,8,Stanford,NC State,7.0,55.5,2,2,7.25,55.5
 401866448,2026,8,Buffalo,Bowling Green,-3.5,44.5,2,2,-4.5,44.0
 401856730,2026,8,Mississippi State,Oklahoma,4.25,44.5,2,2,2.0,46.25
 401871056,2026,8,Kennesaw State,Liberty,10.0,49.25,2,2,9.5,48.25
-401871092,2026,8,Marshall,South Alabama,3.0,65.25,2,2,3.0,63.25
-401871055,2026,8,Florida International,Middle Tennessee,-10.0,45.5,2,2,-10.25,45.75
+401858272,2026,8,Stanford,NC State,6.5,55.5,2,2,7.25,55.5
+401871055,2026,8,Florida International,Middle Tennessee,-10.0,46.25,2,2,-10.25,45.75
+401871092,2026,8,Marshall,South Alabama,2.5,64.75,2,2,3.0,63.25
 401862693,2026,1,UNLV,Memphis,-4.75,55.5,2,2,-3.0,60.5
 401858436,2026,1,USC,Fresno State,-22.0,51.25,2,2,-23.25,51.5
 401858428,2026,1,Michigan,Western Michigan,-27.5,50.0,2,2,-26.5,47.5
