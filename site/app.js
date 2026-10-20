@@ -68,11 +68,22 @@ document.addEventListener("click", e => {
 });
 
 const nameCols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}];
+// Typical-miss band around a projection: sd comes from the fitted spread (sd = a + b x projection); a typical miss (mean absolute error) is
+// about 0.8 sd. Opening-week backtests ran about 13% less accurate than late season (fantasy-point MAE 8.8 vs 7.8), so the band is widened 15%
+// until the new season has ~15 game days of data.
+const bandWiden = () => ((D.coverage && D.coverage.cur_season_games) ?? 1e9) < 4500 ? 1.15 : 1.0;
+function band(stat, m) {
+  const [a, b] = (D.spread || D.meta.spread)[stat] || [1, 0.3], e = 0.8 * (a + b * m) * bandWiden();
+  return [Math.max(m - e, 0), m + e];
+}
+const rangeLine = (stat, m) => { if (!F.range || m == null || !(m > 0)) return ""; const [lo, hi] = band(stat, m), d = m < 10 ? 1 : 0;
+  return `<br><span class="mut" style="font-size:.78em" title="Typical-miss range: projection ± a typical error (${bandWiden() > 1 ? "widened 15% for the opening weeks" : "from the fitted spread"})">${num(lo, d)}–${num(hi, d)}</span>`; };
+const rangeBox = () => `<label><input type="checkbox" id="rng" ${F.range ? "checked" : ""}> show ± typical-miss range</label>`;
 function filters(extra = "") {
   return `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}">
   <label>Pos <select id="pos">${["", "G", "F", "C"].map(p => `<option ${F.pos === p ? "selected" : ""} value="${p}">${p || "All"}</option>`).join("")}</select></label>${extra}</div>`;
 }
-const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lpicks: false, rday: "", vstat: "pts", sview: "today", smode: "soft", cteam: "", cplayer: "", cheat: "fg", cdots: "all", rmode: null, rlines: false, rpicks: false};
+const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lpicks: false, rday: "", vstat: "pts", sview: "today", smode: "soft", cteam: "", cplayer: "", cheat: "fg", cdots: "all", rmode: null, rlines: false, rpicks: false, range: true};
 const RES = {};                                     // results/<date>.json cache
 function passes(r) {
   if (F.pos && r.pos !== F.pos) return false;
@@ -83,6 +94,7 @@ document.addEventListener("input", e => {
   if (e.target.id === "q") { F.q = e.target.value; render(true, "q"); }
 });
 document.addEventListener("change", e => {
+  if (e.target.id === "rng") { F.range = e.target.checked; render(true); }
   if (e.target.id === "pos") { F.pos = e.target.value; render(true); }
   if (e.target.id === "ming") { F.ming = +e.target.value || 0; render(true); }
   if (e.target.id === "lstat") { F.lstat = e.target.value; render(true); }
@@ -397,14 +409,14 @@ const pages = {
       {k: "mino", h: "Min OVR", t: "Type minutes to override; 0 = out. Teammates are NOT re-scaled in the browser. Saved on this device.", v: r => OVR[r.pid]?.min,
         f: r => `<input class="ovr" data-pid="${esc(r.pid)}" value="${OVR[r.pid]?.min ?? ""}" placeholder="${num(r.min)}">`},
       {k: "cmin", h: "Min", v: r => r.c.min, f: r => num(r.c.min)},
-      ...STATS.map(s => ({k: "c" + s, h: LABEL[s], v: r => r.c[s], f: r => num(r.c[s], s === "pts" ? 1 : 1)})),
-      {k: "cfp", h: CFG.mean ? "Mean FP" : "Proj FP", v: r => r.c.fp, f: r => `<b>${num(r.c.fp)}</b>`},
+      ...STATS.map(s => ({k: "c" + s, h: LABEL[s], v: r => r.c[s], f: r => num(r.c[s], 1) + (["pts", "reb", "ast", "fg3m"].includes(s) ? rangeLine(s, r.c[s]) : "")})),
+      {k: "cfp", h: CFG.mean ? "Mean FP" : "Proj FP", v: r => r.c.fp, f: r => `<b>${num(r.c.fp)}</b>` + rangeLine("fp", r.c.fp)},
       {k: "apts", h: "Pts Adj", t: "Opponent multiplier on scoring, after damping", v: r => r.adj_pts, f: r => pct(r.adj_pts)},
       {k: "areb", h: "Reb Adj", v: r => r.adj_reb, f: r => pct(r.adj_reb)},
       {k: "aast", h: "Ast Adj", v: r => r.adj_ast, f: r => pct(r.adj_ast)}];
     return `<h2>Projections — ${esc(D.coverage.slate_date || "no slate")}</h2>
       <p class="sub">${CFG.mean ? "Mean" : "Median-style"} projection per player with a game. Shaded <b>Min OVR</b> is yours; everything recalculates instantly. Scoring: ${esc(CFG.preset)}.</p>
-      ${filters(`<button id="clr">Clear overrides</button>`)}
+      ${filters(`${rangeBox()}<button id="clr">Clear overrides</button>`)}
       ${table(cols, rows, {id: "proj", sort: {key: "cfp"}, rowClass: r => r.c.min === 0 ? "out" : ""})}`;
   },
 
@@ -414,14 +426,14 @@ const pages = {
     const cellVal = (r, s) => s === "pra" ? r.c.pts + r.c.reb + r.c.ast : r.c[s];
     const boardCell = (r, s) => {
       const m = cellVal(r, s), L = lineRow[r.pid + "|" + s];
-      if (!L || r.c.min === 0 || Date.now() >= Date.parse(L.commence)) return num(m);
+      if (!L || r.c.min === 0 || Date.now() >= Date.parse(L.commence)) return num(m) + rangeLine(s, m);
       const [a, b] = sp[s] || [1, 0.3], sd = Math.max(a + b * m, 0.1), c = L.cons, pp = L.dfs?.prizepicks;
       let line = c ? c.line : pp, lean = "";
       if (c) { const q = sides(c.line, m, sd).o, e = (q - c.p_over) * 100; if (Math.abs(e) >= CFG.edgeMin) lean = e > 0 ? "O" : "U"; }
       else if (pp != null) { const q = sides(pp, m, sd), w = Math.max(q.o, q.u); if ((w - BE) * 100 >= CFG.edgeMin) lean = q.o >= q.u ? "O" : "U"; }
-      if (line == null) return num(m);
+      if (line == null) return num(m) + rangeLine(s, m);
       const tip = [...(L.books || []).map(x => `${x.b} ${x.line}`), ...Object.entries(L.dfs || {}).map(([k, v]) => `${k} ${v}`)].join("\n");
-      return `<span title="${esc(tip)}">${num(m)} <span class="mut">[${line}]</span>${lean ? ` <b class="${lean === "O" ? "good" : "bad"}">${lean}</b>` : ""}</span>`;
+      return `<span title="${esc(tip)}">${num(m)} <span class="mut">[${line}]</span>${lean ? ` <b class="${lean === "O" ? "good" : "bad"}">${lean}</b>` : ""}</span>${rangeLine(s, m)}`;
     };
     const games = [...new Set(D.projections.filter(p => p.home).map(p => p.team + "|" + p.opp))].sort();
     F.game = F.game && games.includes(F.game) ? F.game : games[0];
@@ -432,13 +444,13 @@ const pages = {
         {k: "cmin", h: "Min", v: r => r.c.min, f: r => num(r.c.min)},
         ...["pts", "reb", "ast", "fg3m", "pra"].map(s => ({k: "c" + s, h: LABEL[s], t: "Projection [posted line]. Line = sportsbook consensus, else PrizePicks. Green O / orange U = the model is past your edge threshold (Config) on that side; hover for each book's line.",
           v: r => cellVal(r, s), f: r => boardCell(r, s)})),
-        {k: "cfp", h: "FP", v: r => r.c.fp, f: r => `<b>${num(r.c.fp)}</b>`}];
+        {k: "cfp", h: "FP", v: r => r.c.fp, f: r => `<b>${num(r.c.fp)}</b>` + rangeLine("fp", r.c.fp)}];
       return `<div><h3>${esc(t)} ${t === home ? "(home)" : "(away)"}</h3>${table(cols, rows, {id: "gb" + t, sort: {key: "cfp"}, rowClass: r => r.c.min === 0 ? "out" : ""})}</div>`;
     };
     const h0 = D.projections.find(p => p.team === home && p.exp_margin != null);
     const env = h0 ? ` Expected margin ${esc(home)} ${h0.exp_margin >= 0 ? "+" : ""}${num(h0.exp_margin)} (from each team's average point differential, a stand-in for the spread); pace ${h0.pace_f >= 1 ? "+" : ""}${num((h0.pace_f - 1) * 100)}% vs league.` : "";
-    return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected fantasy points. Posted lines are in brackets next to the projection (consensus, else PrizePicks) once books have them; <b class="good">O</b> / <b class="bad">U</b> marks a side past your edge threshold.${env}</p>
-      <div class="bar"><select id="game">${games.map(g => `<option value="${g}" ${g === F.game ? "selected" : ""}>${g.split("|")[1]} @ ${g.split("|")[0]}</option>`).join("")}</select></div>
+    return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected fantasy points. Posted lines are in brackets next to the projection (consensus, else PrizePicks) once books have them; <b class="good">O</b> / <b class="bad">U</b> marks a side past your edge threshold. The small grey range under each number is the projection ± a typical miss (about 0.8 of the fitted spread, widened 15% for the opening weeks).${env}</p>
+      <div class="bar">${rangeBox()}<select id="game">${games.map(g => `<option value="${g}" ${g === F.game ? "selected" : ""}>${g.split("|")[1]} @ ${g.split("|")[0]}</option>`).join("")}</select></div>
       <div class="two">${mk(away)}${mk(home)}</div>`;
   },
 
@@ -675,7 +687,7 @@ const pages = {
 <h3>Median or mean</h3><p>Stat lines are right-skewed: a few huge nights pull the average above the typical one. <b>Median-style</b> is the number to compare to a posted line; <b>Mean</b> (× MEAN_FACTOR) is for season-long value.</p>
 <h3>Lines</h3><p>P(over) uses sd = a + b × projection per stat. Book probability has the vig removed first (a −110/−110 market prices at 104.8%). Pick shows only past the edge threshold.</p>
 <h3>Results</h3><p>For each graded game day, every player's pregame projection next to his box score, with the last pregame consensus and PrizePicks lines. The model "takes" the over if its projection is above a line and the under if below; a result exactly on the line is a push and is left out. A <b>pick</b> is a line where the model's probability differs from the book's by the edge threshold (PrizePicks: from the break-even). Lines are snapshotted at each odds pull until tip-off and frozen after; if a game had no pull before tip, it has no line to grade against.</p><h3>Scorecard</h3><p>Every slate's projections are logged before the games and never rewritten, then scored against the season-average and last-N baselines. Each row carries a settings stamp so a change to any knob starts a fresh record rather than blending into the old one.</p>
-<h3>Game environment</h3><p>Each team's pace (possessions per game, both sides) and average point margin are shrunk toward the league by games played. <b>Pace</b>: the average of the two teams' pace vs league scales per-minute rates; measured on 2025-26 the share that arrives is about 1.0 (points 1.36 [0.71, 2.06]), and the effect is small (about 1%). <b>Blowouts</b>: starters do lose about 0.3 minutes per point of expected margin beyond 9 (replicated in both halves), but fantasy-point error did not move and the half-by-half minutes error disagreed, so it is <b>tested and not modelled</b> (<code>BLOWOUT_SLOPE</code> = 0). The expected margin on the Game Board is a point-differential stand-in; swap in the real spread once pregame spreads are stored.</p>
+<h3>Typical-miss range</h3><p>Under the projections (Projections and Game Board; untick to hide) is <b>projection ± a typical miss</b>: roughly the middle 55-60% of outcomes, not a floor and ceiling. The size comes from the fitted spread, sd = a + b × projection per stat (<code>spread.json</code>), times 0.8 (mean absolute error ≈ 0.8 sd). Backtests of the opening weeks of 2025-26 ran about 13% worse than late season (fantasy-point miss 8.8 vs 7.8), so the range is widened 15% until the new season has about 15 game days of data. Low ends are floored at 0. The FP spread is fitted on DraftKings scoring, so ranges under other scoring are rougher.</p><h3>Game environment</h3><p>Each team's pace (possessions per game, both sides) and average point margin are shrunk toward the league by games played. <b>Pace</b>: the average of the two teams' pace vs league scales per-minute rates; measured on 2025-26 the share that arrives is about 1.0 (points 1.36 [0.71, 2.06]), and the effect is small (about 1%). <b>Blowouts</b>: starters do lose about 0.3 minutes per point of expected margin beyond 9 (replicated in both halves), but fantasy-point error did not move and the half-by-half minutes error disagreed, so it is <b>tested and not modelled</b> (<code>BLOWOUT_SLOPE</code> = 0). The expected margin on the Game Board is a point-differential stand-in; swap in the real spread once pregame spreads are stored.</p>
 <h3>Shot zones</h3><p>Shot locations come from ESPN's play-by-play (x/y in feet, free), grouped into rim, paint, mid-range, corner three and above-break three. No defender distance exists in the feed, so shot quality here is <b>location and type only</b>, not open vs contested. Two ideas were tested as projection inputs on 2025-26, the football way (measure how much arrives, check both halves): (1) the opponent's points-per-shot allowed in each zone, weighted by the player's own shot mix, on top of the team-wide matchup already applied: share arriving 0.19 [-0.09, 0.57], halves -0.02 and +0.42, error unchanged; (2) shooting better than his shot locations imply: it regresses further than the model already assumes (-0.24 [-0.35, -0.14], negative in both halves) but the effect is too small to move error. Neither is modelled. A follow-up cut shows why (1) was weak: restricted to the <b>rim and paint</b> zones, whose FG% allowed is reliable (split-half 0.73 and 0.75), the share arriving is 0.49 [0.09, 0.92], positive in both halves (0.52 and 0.45), while the three-point zones were anti-signal (-0.97) and dragged the all-zone number down. Softest-fifth players beat projections by about 4% on points against 2% for the toughest fifth, so the daily hot-zone list scores only rim and paint; the effect is small enough that it is shown as a nudge, not folded into the projections. The Shots tab is for reading a game. Split-half reliability is shown there: shot mix allowed and rim/paint FG% allowed are steady, mid-range and three-point FG% allowed are mostly luck.</p>\n<h3>Rookies and players with no NBA history</h3><p>A player needs 3 games of regular-season history to be projected, which used to leave out every rookie and anyone back from a missed season (135 players on current rosters). They are now built from their <b>preseason box scores</b> until real games exist: per-minute rates shrink hard toward the position average (a few preseason games say little about a rate), and minutes follow their preseason minutes, which on a regular-season slate are scaled by 1.1 (measured on 494 players, 2025 preseason to the first five regular-season games: early minutes = 1.1 x preseason minutes, correlation 0.59). The preseason minute adjustment is not applied to them because their minutes already are preseason minutes. Players with no preseason games either are still not projected. Treat these rows as rough: the minutes are a guess and the rates are mostly the position average.</p>
 <h3>Not modelled</h3><p>Opposing-offence strength inside the defence rating, double-double bonuses, player-vs-player matchups, and in-browser minute redistribution when you override a teammate. Injury status comes from ESPN's feed and is only as current as the last build.</p>
 <h3>Data</h3><p>ESPN's public NBA JSON endpoints (box scores, schedule, injuries), refreshed by the scheduled GitHub Action. No API key.</p></div>`;
