@@ -207,3 +207,7 @@ Test: when a back is listed Out, give a fraction NMU of his vacated carries to t
 | 1.0 (lead back takes all) | 4.56 | 24.77 |
 
 Concentrating on the lead back is worse the more of it there is (backfields split a vacated role more than the "next man takes it" story suggests), and the 0.25 carries gain is within noise while yards get worse. The current pro-rata spread stays; the code was not kept. A depth-chart version (the backtest has no historical depth) is the one untested variant.
+
+### Void check on MNF (week 6): confirmed voids respect cleared stats
+
+McLaurin (left in Q1, 1 target) and Evans (out after the first half) were hurt; the snaps were not posted yet, so the estimate stayed off and both are in `data/log/void_overrides.csv`. PrizePicks voided McLaurin's picks and Evans's receptions (3, under a 4.5 line) but not his yards (94, over 64.5), which is the cleared-stat rule. Results used to void everything for a confirmed override; a confirmed void now also stays graded for a stat that had already cleared its line. Both players were LESS picks in our record, which a void never touches (MORE only), so no result changed. Juszczyk (FB) had Q1/Q2 plays only because the scheme made him a blocker, not an injury; the snap-based estimate sees a full game and flags nothing.

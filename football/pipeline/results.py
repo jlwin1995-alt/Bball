@@ -50,7 +50,7 @@ def pp_points(a):
 
 
 def load_overrides(path=VOID_OVERRIDES):
-    """data/log/void_overrides.csv (player_id,week,void with void = 1 or 0): your call, from PrizePicks' own notice, beats the estimate."""
+    """data/log/void_overrides.csv (player_id,week,void with void = 1 or 0): your call, from PrizePicks' own notice, beats the estimate. A stat that had already cleared its line stays graded even when confirmed (Evans, wk 6: receptions void, yards stayed)."""
     out = {}
     if os.path.exists(path):
         with open(path, newline="") as f:
@@ -141,7 +141,7 @@ def main(rows, live, out="site/data", log_path=None, lines_path=LINES_LOG, W=Non
                         side = "O" if o >= u else "U"
                         g = grade(a[k], pl_, side)
                         ent["pp"] = pl_; ent["pp_side"] = side; ent["pp_hit"] = g
-                        if side == "O" and void_src and (void_src == "confirmed" or a[k] <= pl_):          # an estimated void only matters if the pick had not already cleared
+                        if side == "O" and void_src and a[k] <= pl_:          # a void (estimated or confirmed) only matters if the pick had not already cleared its line
                             ent["pp_void"] = void_src                   # the MORE pick is void: not graded
                             ent["pp_hit"] = None
                             sm["pp_void"] += 1
@@ -166,7 +166,7 @@ def main(rows, live, out="site/data", log_path=None, lines_path=LINES_LOG, W=Non
                 tier = "strong" if abs(z) >= 0.5 else "lean" if abs(z) >= 0.25 else "none"
                 more = mean > line
                 ap = pp_points(a_row)
-                if more and void_src and (void_src == "confirmed" or ap <= line):
+                if more and void_src and ap <= line:
                     sm["fp"]["void"] += 1
                     pl["fp"] = dict(line=line, mean=round(mean, 1), z=round(z, 2), tier=tier, side="MORE", actual=round(ap, 1), hit=None, void=void_src)
                 else:
