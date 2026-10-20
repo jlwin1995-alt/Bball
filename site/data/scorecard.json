@@ -1,1 +1,1 @@
-{"days":[],"current":"22fa0bbc","summary":null,"logged_rows":97,"unscored_days":1}
+{"days":[{"date":"2026-10-20","stamp":"22fa0bbc","current":true,"n":20,"mae_model":7.488,"mae_season":7.546,"mae_last":10.312,"edge_pct":0.8,"bias_pct":-1.2,"over_pct":50.0,"check":""}],"current":"22fa0bbc","summary":{"n":20,"days":1,"mae_model":7.488,"mae_season":7.546,"mae_last":10.312,"edge_pct":0.8,"bias_pct":-1.2,"over_pct":50.0},"logged_rows":97,"unscored_days":1}

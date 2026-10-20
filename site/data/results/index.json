@@ -1,1 +1,1 @@
-{"days":[],"edge_pp":4.0,"pp_breakeven":0.577,"min_proj":15.0,"stamp":"22fa0bbc","rehearsal":false}
+{"days":[{"date":"2026-10-20","rows":22,"n":20,"min_mae":4.25,"fp_mae":7.49,"fp_bias":-1.2,"cons":[98,54],"picks":[63,37],"pp":[88,47],"pp_picks":[23,15]}],"edge_pp":4.0,"pp_breakeven":0.577,"min_proj":15.0,"stamp":"22fa0bbc","rehearsal":false}
