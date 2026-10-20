@@ -1,6 +1,6 @@
 pid,name,team,status
+None,Mouhamed Gueye,ATL,Out
 None,Henri Veesaar,ATL,Out
-None,Mouhamed Gueye,ATL,Day-To-Day
 None,Devin Carter,BOS,Out
 None,Tyler Bilodeau,BKN,Out
 None,Coby White,CHA,Day-To-Day
@@ -22,10 +22,13 @@ None,Jett Howard,DAL,Day-To-Day
 None,Dereck Lively II,DAL,Day-To-Day
 None,Spencer Jones,DEN,Day-To-Day
 None,Julian Strawther,DEN,Out
+None,Taurean Prince,DET,Day-To-Day
 None,Stephen Curry,GS,Day-To-Day
+None,Kristaps Porzingis,GS,Out
+None,Charles Bassey,GS,Day-To-Day
+None,Brandin Podziemski,GS,Day-To-Day
 None,Moses Moody,GS,Out
 None,Jimmy Butler III,GS,Out
-None,Kristaps Porzingis,GS,Out
 None,Jarace Walker,IND,Day-To-Day
 None,T.J. McConnell,IND,Day-To-Day
 None,Aaron Nesmith,IND,Day-To-Day
@@ -35,27 +38,23 @@ None,Max Strus,LAC,Out
 None,Yanic Konan Niederhauser,LAC,Out
 None,Brandon Ingram,TOR,Out
 None,Jordan Miller,LAC,Out
-None,Jarred Vanderbilt,LAL,Day-To-Day
+None,Bronny James,LAL,Day-To-Day
 None,Cameron Carr,LAL,Day-To-Day
-None,Collin Sexton,LAL,Day-To-Day
 None,Adou Thiero,LAL,Day-To-Day
+None,Collin Sexton,LAL,Day-To-Day
+None,Jarred Vanderbilt,LAL,Day-To-Day
 None,Jerami Grant,MEM,Day-To-Day
 None,GG Jackson,MEM,Day-To-Day
-None,Micah Peavy,MEM,Day-To-Day
 None,Isaiah Stewart,MEM,Out
 None,Dru Smith,MIA,Day-To-Day
-None,Pelle Larsson,MIA,Day-To-Day
 None,Bam Adebayo,MIA,Day-To-Day
+None,Pelle Larsson,MIA,Day-To-Day
 None,Jericho Sims,MIL,Day-To-Day
 None,Nate Ament,MIL,Day-To-Day
 None,Rocco Zikarsky,MIN,Day-To-Day
 None,Donte DiVincenzo,MIN,Out
-None,Josh Hart,NY,Day-To-Day
-None,Cason Wallace,OKC,Day-To-Day
-None,Thomas Sorber,OKC,Day-To-Day
-None,Jaylin Williams,OKC,Day-To-Day
-None,Nikola Topic,OKC,Day-To-Day
-None,Chet Holmgren,OKC,Day-To-Day
+None,Thomas Sorber,OKC,Out
+None,Nikola Topic,OKC,Out
 None,Otega Oweh,OKC,Out
 None,Anthony Black,ORL,Day-To-Day
 None,Franz Wagner,ORL,Day-To-Day
@@ -63,11 +62,11 @@ None,Jase Richardson,ORL,Day-To-Day
 None,Noah Penda,ORL,Out
 None,Jonathan Isaac,ORL,Day-To-Day
 None,Izaiyah Nelson,ORL,Out
-None,Dominick Barlow,PHI,Day-To-Day
 None,Dean Wade,PHI,Day-To-Day
 None,Adem Bona,PHI,Day-To-Day
 None,Anfernee Simons,PHI,Day-To-Day
-None,Tacko Fall,PHI,Day-To-Day
+None,Tacko Fall,PHI,Out
+None,Dominick Barlow,PHI,Out
 None,Ariel Hukporti,PHI,Out
 None,Luke Kennard,PHX,Day-To-Day
 None,Oso Ighodaro,PHX,Day-To-Day
