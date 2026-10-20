@@ -100,7 +100,7 @@ ODDS_SPORTS = ["basketball_nba", "basketball_nba_preseason"]   # tried in order;
 # Specific bookmakers rather than regions: as I recall The Odds API bills every 10 bookmakers as one "region", so up to
 # 10 books here costs (markets x 1) credits per game. Verify against their docs/usage before relying on that.
 ODDS_BOOKS = ["draftkings", "fanduel", "betmgm", "williamhill_us", "betrivers", "espnbet", "fanatics",
-              "prizepicks", "underdog", "pick6"]
+              "prizepicks"]                                          # DFS side is PrizePicks only (Underdog and Pick6 dropped; credits unchanged, still one bookmaker group)
 DFS_BOOKS = ["prizepicks", "underdog", "pick6", "dabble_us_dfs"]     # nominal-price books: shown beside, never in the consensus
 ODDS_MARKETS = {                                                    # Odds API market key -> our stat key
     "player_points": "pts", "player_rebounds": "reb", "player_assists": "ast", "player_threes": "fg3m",

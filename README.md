@@ -60,9 +60,9 @@ Preseason minutes are modelled as a straight line, `a + b x usual minutes`, fitt
 
 ### Live lines, consensus and PrizePicks
 
-The **Lines** tab shows every posted player prop with the sportsbook consensus (median line, vig removed, fair odds), the PrizePicks and
-Underdog lines beside it, and the model's edge against each. Data comes from [The Odds API](https://the-odds-api.com): its `us_dfs` region
-carries `prizepicks`, `underdog` and `pick6`. DFS prices are nominal, so PrizePicks edge is measured against your own break-even (Config; a
+The **Lines** tab shows every posted player prop with the sportsbook consensus (median line, vig removed, fair odds), the PrizePicks line
+beside it, and the model's edge against each. Data comes from [The Odds API](https://the-odds-api.com): its `us_dfs` region
+carries `prizepicks` (the only DFS book we request). DFS prices are nominal, so PrizePicks edge is measured against your own break-even (Config; a
 k-pick entry paying M× needs M^(-1/k) per leg).
 
 1. Get a key at the-odds-api.com (the free tier is 500 credits/month; a full slate of 5 markets costs roughly 5 credits per game per pull
