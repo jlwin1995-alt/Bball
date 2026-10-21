@@ -1,133 +1,59 @@
 ts,event,commence,game,home,away,player,stat,book,line,over,under
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landyn Locke,passY,fanduel,226.5,-114,-114
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Josiah Thomas,recY,fanduel,38.5,-114,-114
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,TK King,recY,fanduel,36.5,-118,-112
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Grady O'Neill,recY,fanduel,39.5,-114,-114
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,AJ Williams,recY,fanduel,26.5,-114,-114
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Chris Reed,recY,fanduel,52.5,-114,-114
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Tim Burns Jr.,recY,fanduel,32.5,-114,-114
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,James Jones,rushY,fanduel,88.5,-114,-114
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,MJ Dowdy,rushY,fanduel,48.5,-114,-114
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landyn Locke,passY,betrivers,229.5,-127,
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Tim Burns Jr.,recY,betrivers,33.5,-132,
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Chris Reed,recY,betrivers,54.5,-136,
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Grady O'Neill,recY,betrivers,37.5,-134,
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Myles Libman,recY,betrivers,27.5,-115,
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Josiah Thomas,recY,betrivers,36.5,-122,
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landan Brown,rushY,betrivers,22.5,-121,
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,MJ Dowdy,rushY,betrivers,47.5,-129,
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,James Jones,rushY,betrivers,84.5,-113,
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landyn Locke,passY,underdog,226.5,-137,-137
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,James Jones,recY,underdog,11.5,-137,
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,TK King,recY,underdog,36.5,-137,
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Myles Libman,recY,underdog,20.5,-137,
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Tim Burns Jr.,recY,underdog,32.5,-137,-137
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Chris Reed,recY,underdog,52.5,-137,-137
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,AJ Williams,recY,underdog,24.5,-137,
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Tim Burns Jr.,rec,underdog,2.5,-137,
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landyn Locke,rushY,underdog,4.5,-137,
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,James Jones,rushY,underdog,88.5,-137,-137
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landyn Locke,passY,prizepicks,226.5,-137,-137
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Chris Reed,recY,prizepicks,51.5,-137,-137
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Grady O'Neill,recY,prizepicks,39.5,-137,-137
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Josiah Thomas,recY,prizepicks,38.5,-137,-137
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,TK King,recY,prizepicks,36.5,-137,-137
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Tim Burns Jr.,recY,prizepicks,32.5,-137,-137
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Myles Libman,recY,prizepicks,20.5,-137,-137
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,James Jones,recY,prizepicks,11.5,-137,-137
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landan Brown,recY,prizepicks,6.5,-137,-137
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,James Jones,rushY,prizepicks,88.5,-137,-137
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,MJ Dowdy,rushY,prizepicks,48.5,-137,-137
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landan Brown,rushY,prizepicks,23.5,-137,-137
-2026-10-21T00:32:31+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landyn Locke,rushY,prizepicks,4.5,-137,-137
-2026-10-20T18:38:31+00:00,dc65142bf9a0e7652a252b2074037efa,2026-10-20T23:00:00Z,Missouri State @ Delaware,Delaware,Missouri State,Henry Belin IV,passY,fanduel,226.5,-114,-114
-2026-10-20T18:38:31+00:00,dc65142bf9a0e7652a252b2074037efa,2026-10-20T23:00:00Z,Missouri State @ Delaware,Delaware,Missouri State,Isaiah Myers,recY,fanduel,70.5,-114,-114
-2026-10-20T18:38:31+00:00,dc65142bf9a0e7652a252b2074037efa,2026-10-20T23:00:00Z,Missouri State @ Delaware,Delaware,Missouri State,Sean Wilson,recY,fanduel,62.5,-114,-114
-2026-10-20T18:38:31+00:00,dc65142bf9a0e7652a252b2074037efa,2026-10-20T23:00:00Z,Missouri State @ Delaware,Delaware,Missouri State,Da'Wain Lofton,recY,fanduel,55.5,-114,-114
-2026-10-20T18:38:31+00:00,dc65142bf9a0e7652a252b2074037efa,2026-10-20T23:00:00Z,Missouri State @ Delaware,Delaware,Missouri State,Jmariyae Robinson,recY,fanduel,51.5,-114,-114
-2026-10-20T18:38:31+00:00,dc65142bf9a0e7652a252b2074037efa,2026-10-20T23:00:00Z,Missouri State @ Delaware,Delaware,Missouri State,Jo Silver,rushY,fanduel,41.5,-114,-114
-2026-10-20T18:38:31+00:00,dc65142bf9a0e7652a252b2074037efa,2026-10-20T23:00:00Z,Missouri State @ Delaware,Delaware,Missouri State,Ramone Green Jr.,rushY,fanduel,35.5,-114,-114
-2026-10-20T18:38:31+00:00,dc65142bf9a0e7652a252b2074037efa,2026-10-20T23:00:00Z,Missouri State @ Delaware,Delaware,Missouri State,Isaiah Myers,recY,betrivers,67.5,-114,
-2026-10-20T18:38:31+00:00,dc65142bf9a0e7652a252b2074037efa,2026-10-20T23:00:00Z,Missouri State @ Delaware,Delaware,Missouri State,Jmariyae Robinson,recY,betrivers,54.5,-115,
-2026-10-20T18:38:31+00:00,dc65142bf9a0e7652a252b2074037efa,2026-10-20T23:00:00Z,Missouri State @ Delaware,Delaware,Missouri State,Da'Wain Lofton,recY,betrivers,53.5,-120,
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Roman Gagliano,passY,fanduel,202.5,-114,-114
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,JJ Kohl,passY,fanduel,257.5,-114,-114
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Greg Gaines III,recY,fanduel,24.5,-114,-114
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Terrence Brown,recY,fanduel,18.5,-114,-114
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,JoJo Stone,recY,fanduel,23.5,-114,-114
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,James Resar,recY,fanduel,29.5,-118,-112
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Maguire Anderson,recY,fanduel,80.5,-114,-114
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Neo Clifton,recY,fanduel,27.5,-114,-114
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Koraun Perdue,recY,fanduel,15.5,-112,-118
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Cam'ron Lacy,recY,fanduel,55.5,-114,-114
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Neo Clifton,rec,fanduel,2.5,118,-158
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,James Resar,rec,fanduel,2.5,-158,118
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Maguire Anderson,rec,fanduel,5.5,116,-154
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Cam'ron Lacy,rec,fanduel,5.5,106,-140
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Devonte Lyons,rushY,fanduel,74.5,-114,-114
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Terrence Brown,rushY,fanduel,22.5,-114,-114
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Roman Gagliano,rushY,fanduel,9.5,-114,-114
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Antonio Martin,rushY,fanduel,52.5,-114,-114
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,JJ Kohl,rushY,fanduel,7.5,-114,-114
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,JJ Kohl,passY,espnbet,259.5,-110,-120
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Roman Gagliano,passY,espnbet,205.5,-110,-120
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Cam'ron Lacy,recY,espnbet,57.5,-110,-120
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,JoJo Stone,recY,espnbet,24.5,-120,-110
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Antonio Martin,rushY,espnbet,54.5,-105,-125
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,JJ Kohl,rushY,espnbet,7.5,-120,-110
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Roman Gagliano,rushY,espnbet,9.5,-120,-110
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,JJ Kohl,passY,betrivers,255.5,-137,
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Roman Gagliano,passY,betrivers,200.5,-134,
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Neo Clifton,recY,betrivers,25.5,-124,
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,JoJo Stone,recY,betrivers,24.5,-122,
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Greg Gaines III,recY,betrivers,24.5,-122,
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Devonte Lyons,recY,betrivers,14.5,-120,
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Maguire Anderson,recY,betrivers,78.5,-122,
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Koraun Perdue,recY,betrivers,13.5,-122,
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Cam'ron Lacy,recY,betrivers,51.5,-130,
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,James Resar,recY,betrivers,28.5,-125,
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Antonio Martin,rushY,betrivers,50.5,-122,
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Anthony Carrie,rushY,betrivers,37.5,-120,
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,JJ Kohl,passY,prizepicks,257.5,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Roman Gagliano,passY,prizepicks,202.5,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Maguire Anderson,recY,prizepicks,80.5,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Cam'ron Lacy,recY,prizepicks,55.5,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,James Resar,recY,prizepicks,29.5,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Neo Clifton,recY,prizepicks,27.5,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Greg Gaines III,recY,prizepicks,24.5,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,JoJo Stone,recY,prizepicks,23.5,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Ziyon Butler,recY,prizepicks,21.5,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Koraun Perdue,recY,prizepicks,15.5,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Jackson Verdugo,recY,prizepicks,8.5,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Devonte Lyons,recY,prizepicks,8.5,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Anthony Carrie,recY,prizepicks,5.5,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Antonio Martin,recY,prizepicks,2.5,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Maguire Anderson,rec,prizepicks,5.0,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Devonte Lyons,rushY,prizepicks,74.5,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Antonio Martin,rushY,prizepicks,52.5,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,Roman Gagliano,rushY,prizepicks,9.5,-137,-137
-2026-10-20T18:38:31+00:00,c85512046e05e5ed845e60dd5d6d5e1e,2026-10-20T23:00:00Z,Middle Tennessee @ Florida International,Florida International,Middle Tennessee,JJ Kohl,rushY,prizepicks,7.5,-137,-137
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Jared Hollins,passY,fanduel,196.5,-114,-114
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Brendan Jenkins,recY,fanduel,40.5,-114,-114
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Xayvion Turner-Bradshaw,recY,fanduel,25.5,-112,-118
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Adrian Norton,recY,fanduel,37.5,-114,-114
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Anthony Eager,recY,fanduel,50.5,-114,-114
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Jared Hollins,rushY,fanduel,23.5,-114,-114
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Keenan Phillips,rushY,fanduel,66.5,-114,-118
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Judah Price,rushY,fanduel,68.5,-114,-114
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,PJ Martin,rushY,fanduel,66.5,-114,-114
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Jared Hollins,passY,espnbet,199.5,-110,-120
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Anthony Eager,recY,espnbet,54.5,-105,-125
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Brendan Jenkins,recY,espnbet,39.5,-130,100
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Keenan Phillips,rushY,espnbet,69.5,-105,-125
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,PJ Martin,rushY,espnbet,69.5,-105,-125
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Jared Hollins,rushY,espnbet,24.5,-110,-120
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Jared Hollins,passY,betrivers,206.5,-121,
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Xayvion Turner-Bradshaw,recY,betrivers,25.5,-148,
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Anthony Eager,recY,betrivers,51.5,-120,
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Adrian Norton,recY,betrivers,33.5,-134,
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Brendan Jenkins,recY,betrivers,38.5,-122,
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Jared Hollins,rushY,betrivers,24.5,-118,
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Judah Price,rushY,betrivers,67.5,-122,
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,Keenan Phillips,rushY,betrivers,65.5,-117,
-2026-10-20T18:38:31+00:00,a3ed14cd9d938b3c5bea48fb0c78805d,2026-10-20T23:30:00Z,South Alabama @ Marshall,Marshall,South Alabama,PJ Martin,rushY,betrivers,64.5,-120,
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landyn Locke,passY,fanduel,226.5,-114,-114
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Josiah Thomas,recY,fanduel,38.5,-114,-114
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,AJ Williams,recY,fanduel,26.5,-114,-114
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,TK King,recY,fanduel,35.5,-114,-114
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Grady O'Neill,recY,fanduel,39.5,-114,-114
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Chris Reed,recY,fanduel,52.5,-114,-114
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Tim Burns Jr.,recY,fanduel,32.5,-114,-114
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,James Jones,rushY,fanduel,94.5,-112,-118
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,MJ Dowdy,rushY,fanduel,48.5,-114,-114
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landyn Locke,passY,espnbet,227.5,-115,-115
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Chris Reed,recY,espnbet,49.5,-140,110
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Tim Burns Jr.,recY,espnbet,33.5,-115,-115
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Josiah Thomas,recY,espnbet,39.5,-115,-115
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Grady O'Neill,recY,espnbet,35.5,-150,115
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Myles Libman,recY,espnbet,19.5,-125,-105
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Grady O'Neill,rec,espnbet,3.5,-170,130
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Chris Reed,rec,espnbet,3.5,-125,-105
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Tim Burns Jr.,rec,espnbet,2.5,-120,-110
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Myles Libman,rec,espnbet,1.5,-155,120
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,James Jones,rushY,espnbet,95.5,-120,-110
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landyn Locke,passY,betrivers,229.5,-113,
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Tim Burns Jr.,recY,betrivers,33.5,-130,
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Chris Reed,recY,betrivers,54.5,-130,
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Grady O'Neill,recY,betrivers,37.5,-130,
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Mike King Jr.,recY,betrivers,44.5,102,
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Myles Libman,recY,betrivers,27.5,-113,
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Josiah Thomas,recY,betrivers,36.5,-118,
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landan Brown,rushY,betrivers,22.5,-120,
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,MJ Dowdy,rushY,betrivers,47.5,-125,
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,James Jones,rushY,betrivers,84.5,-115,
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landyn Locke,passY,underdog,226.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,TK King,recY,underdog,36.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Chris Reed,recY,underdog,52.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Tim Burns Jr.,recY,underdog,32.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Myles Libman,recY,underdog,20.5,-137,
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Grady O'Neill,recY,underdog,39.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,AJ Williams,recY,underdog,23.5,-137,
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Josiah Thomas,recY,underdog,38.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Chris Reed,rec,underdog,3.5,-137,
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Tim Burns Jr.,rec,underdog,2.5,-137,
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landyn Locke,rushY,underdog,4.5,-137,
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,James Jones,rushY,underdog,90.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,MJ Dowdy,rushY,underdog,48.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landyn Locke,passY,prizepicks,226.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Chris Reed,recY,prizepicks,51.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Grady O'Neill,recY,prizepicks,39.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Josiah Thomas,recY,prizepicks,38.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,TK King,recY,prizepicks,36.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Tim Burns Jr.,recY,prizepicks,32.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Myles Libman,recY,prizepicks,19.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,James Jones,recY,prizepicks,10.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landan Brown,recY,prizepicks,6.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Chris Reed,rec,prizepicks,3.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Tim Burns Jr.,rec,prizepicks,2.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,James Jones,rushY,prizepicks,90.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,MJ Dowdy,rushY,prizepicks,48.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landan Brown,rushY,prizepicks,23.5,-137,-137
+2026-10-21T16:51:58+00:00,b04425f83695783f343344ca6d33261c,2026-10-22T00:00:00Z,New Mexico State @ Sam Houston,Sam Houston,New Mexico State,Landyn Locke,rushY,prizepicks,4.5,-137,-137
