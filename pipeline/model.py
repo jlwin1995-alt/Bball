@@ -73,7 +73,7 @@ def play_rates(g):
     return out
 
 
-def player_rates(g, asof, fallback=None):
+def player_rates(g, asof, fallback=None, reg_mode=False):
     """Shrunk per-minute rates, projected minutes, and bookkeeping per player.
     fallback: preseason box scores (same columns as games). Players without MIN_GAMES of regular-season history are built from
     them instead of being dropped (rookies, players back from a missed season); flagged pre_only when ALL their games are preseason."""
@@ -109,7 +109,7 @@ def player_rates(g, asof, fallback=None):
         if pre_only:                                                  # his preseason minutes are a noisy guide: pull toward a rookie-ish default
             min_s = (mw + C.PRE_ONLY_MIN_K * C.PRE_ONLY_MIN_PRIOR) / (gw + C.PRE_ONLY_MIN_K)
             min_r = (mr + C.PRE_ONLY_MIN_K * C.PRE_ONLY_MIN_PRIOR) / (len(rec) + C.PRE_ONLY_MIN_K)
-            pplay = C.PRE_ONLY_PPLAY
+            pplay = float(np.clip(C.PRE_ONLY_PPLAY_A + C.PRE_ONLY_PPLAY_B * (mw / gw), C.PRE_ONLY_PPLAY_LO, C.PRE_ONLY_PPLAY_HI)) if reg_mode else C.PRE_ONLY_PPLAY
         else:
             min_s, min_r, pplay = mw / gw, rec["min"].mean(), pp.get((last["team"], pid), 0.0)
         r = {"pid": pid, "name": last["name"], "team": last["team"], "pos": pos, "pre_only": pre_only,
@@ -139,7 +139,7 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
     g = g[g["date"] < asof]
     if fallback is not None and len(fallback):                      # preseason rows only count if they are BEFORE the day being projected
         fallback = fallback[pd.to_datetime(fallback["date"]) < pd.to_datetime(slate["date"]).min()]
-    P = player_rates(g, asof, fallback)
+    P = player_rates(g, asof, fallback, reg_mode=not minute_mult)
     D = defence_table(g)
     if rosters is not None and len(rosters) >= 350:           # a full league's worth; a partial fetch must not drop people
         cur = dict(zip(rosters["pid"].astype(str), rosters["team"]))
@@ -169,7 +169,8 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
     P["min_raw"] = (C.RECENT_WEIGHT_MIN * P["min_r"] + (1 - C.RECENT_WEIGHT_MIN) * P["min_s"]) * rest_mult * qm
     P.loc[P["out"], "min_raw"] = 0.0
     if not minute_mult:                                              # regular-season slate: no-history players play ~1.1x their preseason minutes
-        P.loc[P["pre_only"] & ~P["out"], "min_raw"] *= C.PRE_ONLY_REG_MULT
+        po = P["pre_only"] & ~P["out"]
+        P.loc[po, "min_raw"] = np.clip(C.PRE_ONLY_MIN_A + C.PRE_ONLY_MIN_B * P.loc[po, "min_raw"], 0, C.MAX_MIN)
 
     # Minutes above are conditional on playing; a team's 240 is shared by whoever dresses, so the
     # rescale sums EXPECTED minutes (weighted by how often each man plays) and is applied to the conditional ones.
@@ -177,6 +178,12 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
     tot = P.groupby("team")["min_exp"].transform("sum")
     fac = np.clip(C.TEAM_MINUTES / tot.replace(0, np.nan), *C.RESCALE_CLIP).fillna(1.0)
     fac = 1 + C.RESCALE_STRENGTH * (fac - 1)                     # how much of the rescale to believe (measured: pipeline.usage_test)
+    if not minute_mult and C.PRE_ONLY_RESCALE:                    # established players first: no-history players share only the minutes left over
+        po = P["pre_only"]
+        est = P["min_exp"].where(~po, 0.0).groupby(P["team"]).transform("sum")
+        rk = P["min_exp"].where(po, 0.0).groupby(P["team"]).transform("sum")
+        fr = np.clip((C.TEAM_MINUTES - est) / rk.replace(0, np.nan), 0.3, 1.0).fillna(1.0)
+        fac = np.where(po, 1 + C.PRE_ONLY_RESCALE * (fr - 1), fac)
     P["min"] = np.minimum(P["min_raw"] * fac, C.MAX_MIN)
     P["min_noadj"] = P["min"]
     # Preseason mode: stars/starters play a fraction of their normal minutes. A multiplier by tier replaces the
@@ -210,7 +217,7 @@ def all_players(games, rosters=None, minute_mult=None, fallback=None):
     """Every player we have history for: expected minutes IF he plays and per-minute rates, with no slate or opponent attached.
     The Live tab uses it to project players in games that are not in the daily slate (today's later games, yesterday's, preseason)."""
     g = _prep(games.astype({"pid": str}))
-    P = player_rates(g, None, fallback)
+    P = player_rates(g, None, fallback, reg_mode=not minute_mult)
     if rosters is not None and len(rosters) >= 350:
         cur = dict(zip(rosters["pid"].astype(str), rosters["team"]))
         P = P[P["pid"].isin(cur)].copy()
@@ -222,6 +229,8 @@ def all_players(games, rosters=None, minute_mult=None, fallback=None):
         adj = np.clip(a + b * raw, 0, C.MAX_MIN)
     else:
         adj = np.minimum(raw * (pd.Series(tier, index=P.index).map(minute_mult).fillna(1.0) if minute_mult else 1.0), C.MAX_MIN)
+        if not minute_mult:                                          # regular season: no-history players, same mapping as project()
+            adj = np.where(P["pre_only"], np.clip(C.PRE_ONLY_MIN_A + C.PRE_ONLY_MIN_B * raw, 0, C.MAX_MIN), adj)
     P["min_exp"] = np.where(P["pre_only"], np.minimum(raw, C.MAX_MIN), adj) if minute_mult else adj
     return P.reset_index(drop=True)
 
