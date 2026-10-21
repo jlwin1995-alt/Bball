@@ -10,7 +10,7 @@ API (the development sandbox blocks the host). The stat keys are read by name an
 raises loudly instead of filling zeros. Run it once locally or from the GitHub Action and check
 `python -m pipeline.fetch_espn --selftest` output before trusting the numbers.
 """
-import argparse, os, sys, time
+import argparse, os, re, sys, time
 from zoneinfo import ZoneInfo
 from datetime import date, datetime, timedelta, timezone
 import pandas as pd
@@ -130,6 +130,27 @@ def daterange(a, b):
         d += timedelta(days=1)
 
 
+def injury_pid(ath):
+    """ESPN's injuries feed stopped sending athlete.id (every status silently went unmatched); the id is still in the player-card links."""
+    if ath.get("id"):
+        return str(ath["id"])
+    for l in ath.get("links", []):
+        m = re.search(r"/id/(\d+)", l.get("href", ""))
+        if m:
+            return m.group(1)
+    return ""
+
+
+def fetch_injuries():
+    inj = []
+    for team in get(f"{BASE}/injuries").get("injuries", []):
+        for i in team.get("injuries", []):
+            ath = i.get("athlete", {})
+            inj.append(dict(pid=injury_pid(ath), name=ath.get("displayName"), team=(ath.get("team") or {}).get("abbreviation", team.get("displayName")),
+                            status=i.get("status")))
+    return inj
+
+
 def main(backfill=False, preseason=False):
     os.makedirs(RAW, exist_ok=True)
     path = f"{RAW}/games.csv"
@@ -190,14 +211,9 @@ def main(backfill=False, preseason=False):
     except Exception as e:                                     # soft-fail: the model falls back to last-played team
         print("rosters skipped:", e)
 
-    inj = []
-    for team in get(f"{BASE}/injuries").get("injuries", []):
-        for i in team.get("injuries", []):
-            ath = i.get("athlete", {})
-            inj.append(dict(pid=str(ath.get("id")), name=ath.get("displayName"), team=(ath.get("team") or {}).get("abbreviation", team.get("displayName")),
-                            status=i.get("status")))
+    inj = fetch_injuries()
     pd.DataFrame(inj, columns=["pid", "name", "team", "status"]).to_csv(f"{RAW}/injuries.csv", index=False)
-    print(f"injuries.csv: {len(inj)} entries")
+    print(f"injuries.csv: {len(inj)} entries, {sum(1 for r in inj if r['pid'])} with a player id")
 
 
 def selftest():
