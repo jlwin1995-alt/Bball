@@ -5,6 +5,12 @@ on:
     - cron: "17 9 * * *"      # daily, ~5am ET, after the previous night's games are final
     - cron: "47 10 * * *"     # backups: GitHub's scheduler is best-effort and skipped the first 09:17 run, so run again twice.
     - cron: "17 12 * * *"     # Extra runs are cheap (incremental fetch, no Odds API credits) and commit only if something changed.
+    # Midday refresh for fresh injuries and projections (the pregame log is frozen by the first run of the day, so these never rewrite it).
+    # Times are UTC for US Eastern daylight time (noon ET = 16:xx); after clocks go back on Nov 1 they land an hour earlier in ET.
+    - cron: "17 16 * * 1-5"   # weekdays ~noon ET (games tip in the evening)
+    - cron: "47 16 * * 1-5"   # backup
+    - cron: "17 13 * * 0,6"   # weekends ~9am ET (games tip from early afternoon)
+    - cron: "47 13 * * 0,6"   # backup
   workflow_dispatch: {}
 
 permissions:

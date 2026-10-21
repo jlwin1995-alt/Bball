@@ -13,6 +13,9 @@ on:
     - cron: "5 21 * * *"      # ~5pm ET
     - cron: "40 21 * * *"     # backup
     - cron: "35 23 * * *"     # ~7:35pm ET: close to the first tip
+    # Weekends: games tip early afternoon, so add an early-morning pull (weekday noon is already covered by the 16:05 pull above)
+    - cron: "5 12 * * 0,6"    # ~8am ET
+    - cron: "40 12 * * 0,6"   # backup
   workflow_dispatch:
     inputs:
       probe:
