@@ -43,8 +43,9 @@ def build_lines(odds, roster):
     rows, unmatched = [], set()
     for (event, player, stat), g in odds.groupby(["event", "player", "stat"]):
         first = g.iloc[0]
-        cands = [c for c in by_name.get(norm(player), []) if c[1] in (first["home"], first["away"])] or \
-                (by_name.get(norm(player), []) if len(by_name.get(norm(player), [])) == 1 else [])
+        key = C.NAME_ALIASES.get(norm(player), norm(player))
+        cands = [c for c in by_name.get(key, []) if c[1] in (first["home"], first["away"])] or \
+                (by_name.get(key, []) if len(by_name.get(key, [])) == 1 else [])
         if not cands:
             unmatched.add(player)
             continue

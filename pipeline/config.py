@@ -116,6 +116,8 @@ ODDS_SPORTS = ["basketball_nba", "basketball_nba_preseason"]   # tried in order;
 # 10 books here costs (markets x 1) credits per game. Verify against their docs/usage before relying on that.
 ODDS_BOOKS = ["draftkings", "fanduel", "betmgm", "williamhill_us", "betrivers", "espnbet", "fanatics",
               "prizepicks"]                                          # DFS side is PrizePicks only (Underdog and Pick6 dropped; credits unchanged, still one bookmaker group)
+# Odds-feed player names that differ from ESPN's, as normalised (lowercase, no Jr/II) feed name -> normalised roster name
+NAME_ALIASES = {"herb jones": "herbert jones", "ron holland": "ronald holland"}
 DFS_BOOKS = ["prizepicks", "underdog", "pick6", "dabble_us_dfs"]     # nominal-price books: shown beside, never in the consensus
 ODDS_MARKETS = {                                                    # Odds API market key -> our stat key
     "player_points": "pts", "player_rebounds": "reb", "player_assists": "ast", "player_threes": "fg3m",
