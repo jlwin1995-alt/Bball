@@ -23,8 +23,17 @@ MIN_GAMES = 3                      # weighted games needed before a player is pr
 # 6.8 unshrunk vs 7.5 with k=2), so the prior is light.
 PRE_ONLY_MIN_PRIOR = 17.0          # minutes a no-history player is lightly pulled toward (the group's average preseason minutes)
 PRE_ONLY_MIN_K = 0.5               # preseason games' worth of that prior
-PRE_ONLY_REG_MULT = 1.1            # regular-season minutes per preseason minute (not applied on preseason slates)
-PRE_ONLY_PPLAY = 0.85              # share of team games assumed to be played
+# Regular-season minutes WHEN PLAYING = A + B x preseason minutes (not applied on preseason slates). Fitted on the no-history players of the 2025 preseason (59 who
+# played early in 2025-26): minutes MAE 9.3 -> 7.4 and bias +6.4 -> 0 against the old flat 1.1x, which was fitted on every preseason player, veterans included.
+PRE_ONLY_MIN_A = 1.71
+PRE_ONLY_MIN_B = 0.683
+# Share of team games a no-history player appears in = clip(A + B x preseason minutes, LO, HI) (105 players: 17.6 preseason minutes -> 39% of games)
+PRE_ONLY_PPLAY_A = -0.12
+PRE_ONLY_PPLAY_B = 0.0295
+PRE_ONLY_PPLAY_LO = 0.03
+PRE_ONLY_PPLAY_HI = 0.70
+PRE_ONLY_RESCALE = 0.25            # share of the team-240 cut applied to no-history players: established players keep their minutes, rookies share what is left (tested on 2025-26: 0 -> bias +2.0 min, 0.25 -> +0.4, 0.5 -> -1.3, 1.0 -> -4.9)
+PRE_ONLY_PPLAY = 0.85              # preseason slates only: share of team games assumed to be played
 
 # --- minutes -------------------------------------------------------------
 RECENT_WEIGHT_MIN = 0.5            # share of projected minutes taken from the rolling window
