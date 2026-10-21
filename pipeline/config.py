@@ -33,6 +33,12 @@ PRE_ONLY_PPLAY_B = 0.0295
 PRE_ONLY_PPLAY_LO = 0.03
 PRE_ONLY_PPLAY_HI = 0.70
 PRE_ONLY_RESCALE = 0.25            # share of the team-240 cut applied to no-history players: established players keep their minutes, rookies share what is left (tested on 2025-26: 0 -> bias +2.0 min, 0.25 -> +0.4, 0.5 -> -1.3, 1.0 -> -4.9)
+# Hand-set roles for no-history players expected to be in the rotation (regular-season slates only): minutes when playing, by name.
+# The fitted line above cannot see draft position or role. Last year's top rookies averaged 33-37 (top 3), then 26-27, over their first 25 games.
+# Remove a name once he has games of his own. These players are treated like established players when the leftover minutes are shared.
+ROOKIE_ROLE_MIN = {"AJ Dybantsa": 28.0, "Darryn Peterson": 28.0, "Cameron Boozer": 27.0, "Caleb Wilson": 27.0,
+                   "Darius Acuff Jr.": 25.0, "Brayden Burries": 24.0, "Yaxel Lendeborg": 24.0}
+ROOKIE_ROLE_PPLAY = 0.95           # share of games a hand-set rotation rookie is assumed to play
 PRE_ONLY_PPLAY = 0.85              # preseason slates only: share of team games assumed to be played
 
 # --- minutes -------------------------------------------------------------
