@@ -6,6 +6,7 @@ slate columns: date,team,opp,home         (one row per team playing on the proje
 import numpy as np
 import pandas as pd
 from . import config as C
+from .fetch_nba_api import norm
 
 POS_MAP = {"PG": "G", "SG": "G", "G": "G", "GF": "F", "SF": "F", "PF": "F", "F": "F", "FC": "C", "C": "C"}
 
@@ -154,13 +155,20 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
     P = P.merge(slate[["team", "opp", "home"]], on="team", how="inner")
     status = {}
     if injuries is not None and len(injuries):
-        inj = injuries.dropna(subset=["pid", "status"]).astype({"pid": str})
-        inj = inj[~inj["pid"].isin(["None", "nan", ""])].drop_duplicates("pid", keep="last")
-        status = dict(zip(inj["pid"], inj["status"]))
+        inj = injuries.dropna(subset=["status"]).copy()
+        inj["pid"] = inj["pid"].astype(str).where(inj["pid"].notna(), "")
+        has = ~inj["pid"].isin(["None", "nan", ""])
+        status = dict(zip(inj[has].drop_duplicates("pid", keep="last")["pid"], inj[has].drop_duplicates("pid", keep="last")["status"]))
+        by_name = {(norm(n), t): s for n, t, s in zip(inj[~has]["name"], inj[~has]["team"], inj[~has]["status"])}   # older files / feeds without an id
     P["status"] = P["pid"].map(status).fillna("")
+    if injuries is not None and len(injuries):
+        P["status"] = np.where(P["status"] == "", [by_name.get((norm(n), t), "") for n, t in zip(P["name"], P["team"])], P["status"])
     team_last = P["team"].map(last_played)
     P["active"] = (team_last - P["last_game"]).dt.days <= C.ACTIVE_DAYS   # relative to the team, so the offseason does not drop everyone
-    P["out"] = P["status"].isin(["Out", "Doubtful"]) | ~P["active"]
+    have_injuries = injuries is not None and len(injuries) > 0
+    # With a live injury report the report decides: a player who has not played for weeks but is not listed is healthy (Irving, Kessler,
+    # Young were all excluded by the 21-day rule). The rule only stands in when there is no report (backtests, a failed fetch).
+    P["out"] = P["status"].isin(["Out", "Doubtful"]) | (~P["active"] & (not have_injuries))
 
     P["rest"] = P["team"].map(lambda t: (day - last_played[t]).days if t in last_played else np.nan)
     P.loc[P["rest"] > 14, "rest"] = np.nan                            # offseason gap is not a rest signal
