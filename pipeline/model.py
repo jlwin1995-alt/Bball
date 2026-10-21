@@ -171,6 +171,10 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
     if not minute_mult:                                              # regular-season slate: no-history players play ~1.1x their preseason minutes
         po = P["pre_only"] & ~P["out"]
         P.loc[po, "min_raw"] = np.clip(C.PRE_ONLY_MIN_A + C.PRE_ONLY_MIN_B * P.loc[po, "min_raw"], 0, C.MAX_MIN)
+        role = P["name"].map(C.ROOKIE_ROLE_MIN)
+        P["role_set"] = role.notna() & P["pre_only"] & ~P["out"]
+        P.loc[P["role_set"], "min_raw"] = role[P["role_set"]]
+        P.loc[P["role_set"], "pplay"] = C.ROOKIE_ROLE_PPLAY
 
     # Minutes above are conditional on playing; a team's 240 is shared by whoever dresses, so the
     # rescale sums EXPECTED minutes (weighted by how often each man plays) and is applied to the conditional ones.
@@ -179,7 +183,7 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
     fac = np.clip(C.TEAM_MINUTES / tot.replace(0, np.nan), *C.RESCALE_CLIP).fillna(1.0)
     fac = 1 + C.RESCALE_STRENGTH * (fac - 1)                     # how much of the rescale to believe (measured: pipeline.usage_test)
     if not minute_mult and C.PRE_ONLY_RESCALE:                    # established players first: no-history players share only the minutes left over
-        po = P["pre_only"]
+        po = P["pre_only"] & ~P["role_set"]
         est = P["min_exp"].where(~po, 0.0).groupby(P["team"]).transform("sum")
         rk = P["min_exp"].where(po, 0.0).groupby(P["team"]).transform("sum")
         fr = np.clip((C.TEAM_MINUTES - est) / rk.replace(0, np.nan), 0.3, 1.0).fillna(1.0)
@@ -231,6 +235,8 @@ def all_players(games, rosters=None, minute_mult=None, fallback=None):
         adj = np.minimum(raw * (pd.Series(tier, index=P.index).map(minute_mult).fillna(1.0) if minute_mult else 1.0), C.MAX_MIN)
         if not minute_mult:                                          # regular season: no-history players, same mapping as project()
             adj = np.where(P["pre_only"], np.clip(C.PRE_ONLY_MIN_A + C.PRE_ONLY_MIN_B * raw, 0, C.MAX_MIN), adj)
+            role = P["name"].map(C.ROOKIE_ROLE_MIN)
+            adj = np.where(P["pre_only"] & role.notna(), role.fillna(0), adj)
     P["min_exp"] = np.where(P["pre_only"], np.minimum(raw, C.MAX_MIN), adj) if minute_mult else adj
     return P.reset_index(drop=True)
 
