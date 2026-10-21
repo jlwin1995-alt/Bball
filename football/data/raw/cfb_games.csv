@@ -223,35 +223,35 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401856691,3,2026-09-19T20:15:00.000Z,True,False,South Carolina,SEC,34,Mississippi State,SEC,41
 401868317,3,2026-09-19T20:30:00.000Z,True,False,UL Monroe,Sun Belt,35,SE Louisiana,Southland,38
 401864574,3,2026-09-19T22:00:00.000Z,True,False,App State,Sun Belt,26,Charlotte,American Athletic,21
-401862771,3,2026-09-19T22:00:00.000Z,True,False,Florida Atlantic,American Athletic,16,Florida International,Conference USA,10
 401862710,3,2026-09-19T22:00:00.000Z,True,False,Old Dominion,Sun Belt,17,East Carolina,American Athletic,20
+401862771,3,2026-09-19T22:00:00.000Z,True,False,Florida Atlantic,American Athletic,16,Florida International,Conference USA,10
 401871047,3,2026-09-19T22:30:00.000Z,True,False,Missouri State,Conference USA,24,Marshall,Sun Belt,30
-401856689,3,2026-09-19T23:00:00.000Z,True,False,Missouri,SEC,27,Troy,Sun Belt,17
-401856803,3,2026-09-19T23:00:00.000Z,True,False,Oklahoma State,Big 12,59,Murray State,MVFC,0
-401862773,3,2026-09-19T23:00:00.000Z,True,False,Rice,American Athletic,21,Western Michigan,Mid-American,28
-401869948,3,2026-09-19T23:00:00.000Z,True,False,Jacksonville State,Conference USA,31,Georgia Southern,Sun Belt,27
-401861963,3,2026-09-19T23:00:00.000Z,True,False,Southern Miss,Sun Belt,20,UConn,FBS Independents,48
-401862777,3,2026-09-19T23:00:00.000Z,True,False,South Florida,American Athletic,59,Delaware State,MEAC,17
-401870764,3,2026-09-19T23:00:00.000Z,True,False,Sam Houston,Conference USA,59,Nicholls,Southland,0
 401856687,3,2026-09-19T23:00:00.000Z,True,False,Auburn,SEC,39,Florida,SEC,44
-401862772,3,2026-09-19T23:00:00.000Z,True,False,Memphis,American Athletic,45,UT Martin,OVC,21
-401856800,3,2026-09-19T23:00:00.000Z,True,False,UCF,Big 12,44,Georgia State,Sun Belt,30
 401864443,3,2026-09-19T23:00:00.000Z,True,False,Middle Tennessee,Conference USA,27,Nevada,Mountain West,20
+401856803,3,2026-09-19T23:00:00.000Z,True,False,Oklahoma State,Big 12,59,Murray State,MVFC,0
+401862777,3,2026-09-19T23:00:00.000Z,True,False,South Florida,American Athletic,59,Delaware State,MEAC,17
+401869948,3,2026-09-19T23:00:00.000Z,True,False,Jacksonville State,Conference USA,31,Georgia Southern,Sun Belt,27
+401870764,3,2026-09-19T23:00:00.000Z,True,False,Sam Houston,Conference USA,59,Nicholls,Southland,0
+401856689,3,2026-09-19T23:00:00.000Z,True,False,Missouri,SEC,27,Troy,Sun Belt,17
+401856800,3,2026-09-19T23:00:00.000Z,True,False,UCF,Big 12,44,Georgia State,Sun Belt,30
+401862772,3,2026-09-19T23:00:00.000Z,True,False,Memphis,American Athletic,45,UT Martin,OVC,21
 401866423,3,2026-09-19T23:00:00.000Z,True,False,South Alabama,Sun Belt,41,Ohio,Mid-American,36
+401861963,3,2026-09-19T23:00:00.000Z,True,False,Southern Miss,Sun Belt,20,UConn,FBS Independents,48
+401862773,3,2026-09-19T23:00:00.000Z,True,False,Rice,American Athletic,21,Western Michigan,Mid-American,28
 401858459,3,2026-09-19T23:15:00.000Z,True,False,Washington,Big Ten,48,Eastern Washington,Big Sky,16
 401858452,3,2026-09-19T23:15:00.000Z,True,False,Nebraska,Big Ten,34,North Dakota,MVFC,7
-401856796,3,2026-09-19T23:30:00.000Z,True,False,Northwestern,Big Ten,41,Colorado,Big 12,7
-401856688,3,2026-09-19T23:30:00.000Z,True,False,Ole Miss,SEC,32,LSU,SEC,24
-401858453,3,2026-09-19T23:30:00.000Z,True,False,Notre Dame,FBS Independents,27,Michigan State,Big Ten,10
-401856690,3,2026-09-19T23:30:00.000Z,True,False,Oklahoma,SEC,14,New Mexico,Mountain West,6
 401856802,3,2026-09-19T23:30:00.000Z,True,True,Virginia,ACC,27,West Virginia,Big 12,38
-401856795,3,2026-09-19T23:30:00.000Z,True,False,Colorado State,Pac-12,23,BYU,Big 12,41
 401858232,3,2026-09-19T23:30:00.000Z,True,False,Maryland,Big Ten,26,Virginia Tech,ACC,35
+401856690,3,2026-09-19T23:30:00.000Z,True,False,Oklahoma,SEC,14,New Mexico,Mountain West,6
+401856795,3,2026-09-19T23:30:00.000Z,True,False,Colorado State,Pac-12,23,BYU,Big 12,41
+401856688,3,2026-09-19T23:30:00.000Z,True,False,Ole Miss,SEC,32,LSU,SEC,24
+401856796,3,2026-09-19T23:30:00.000Z,True,False,Northwestern,Big Ten,41,Colorado,Big 12,7
+401858453,3,2026-09-19T23:30:00.000Z,True,False,Notre Dame,FBS Independents,27,Michigan State,Big Ten,10
 401856692,3,2026-09-19T23:45:00.000Z,True,False,Tennessee,SEC,42,Kennesaw State,Conference USA,9
 401862775,3,2026-09-20T00:00:00.000Z,True,False,Tulsa,American Athletic,42,East Texas A&M,Southland,0
 401856693,3,2026-09-20T00:00:00.000Z,True,False,Texas,SEC,30,UTSA,American Athletic,6
-401862776,3,2026-09-20T00:00:00.000Z,True,False,Louisiana,Sun Belt,21,UAB,American Athletic,14
 401856799,3,2026-09-20T00:00:00.000Z,True,False,TCU,Big 12,31,Arkansas State,Sun Belt,7
+401862776,3,2026-09-20T00:00:00.000Z,True,False,Louisiana,Sun Belt,21,UAB,American Athletic,14
 401860887,3,2026-09-20T02:00:00.000Z,True,False,San Diego State,Pac-12,13,James Madison,Sun Belt,26
 401860885,3,2026-09-20T02:00:00.000Z,True,False,Boise State,Pac-12,38,South Dakota,MVFC,24
 401864507,3,2026-09-20T02:30:00.000Z,True,False,Sacramento State,Mid-American,10,North Dakota State,Mountain West,31
@@ -265,70 +265,70 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401862778,4,2026-09-25T23:00:00.000Z,True,False,UAB,American Athletic,24,Navy,American Athletic,20
 401858461,4,2026-09-26T00:00:00.000Z,True,False,Indiana,Big Ten,29,Northwestern,Big Ten,23
 401858234,4,2026-09-26T02:30:00.000Z,True,False,California,ACC,10,Clemson,ACC,24
-401858243,4,2026-09-26T16:00:00.000Z,True,False,Louisville,ACC,27,Wake Forest,ACC,30
+401860896,4,2026-09-26T16:00:00.000Z,True,False,UTSA,American Athletic,59,Colorado State,Pac-12,45
+401856813,4,2026-09-26T16:00:00.000Z,True,False,Baylor,Big 12,23,Colorado,Big 12,13
 401856704,4,2026-09-26T16:00:00.000Z,True,False,Tennessee,SEC,17,Texas,SEC,20
 401856805,4,2026-09-26T16:00:00.000Z,True,False,Texas Tech,Big 12,49,Sam Houston,Conference USA,14
 401858242,4,2026-09-26T16:00:00.000Z,True,False,Boston College,ACC,14,Virginia Tech,ACC,21
-401866425,4,2026-09-26T16:00:00.000Z,True,False,Kent State,Mid-American,26,Ball State,Mid-American,13
+401858243,4,2026-09-26T16:00:00.000Z,True,False,Louisville,ACC,27,Wake Forest,ACC,30
 401858465,4,2026-09-26T16:00:00.000Z,True,False,Ohio State,Big Ten,42,Illinois,Big Ten,19
+401866425,4,2026-09-26T16:00:00.000Z,True,False,Kent State,Mid-American,26,Ball State,Mid-American,13
 401858236,4,2026-09-26T16:00:00.000Z,True,False,Pittsburgh,ACC,59,Bucknell,Patriot,0
 401860893,4,2026-09-26T16:00:00.000Z,True,False,Toledo,Mid-American,41,San Diego State,Pac-12,16
-401860896,4,2026-09-26T16:00:00.000Z,True,False,UTSA,American Athletic,59,Colorado State,Pac-12,45
 401864512,4,2026-09-26T16:00:00.000Z,True,False,Akron,Mid-American,10,UNLV,Mountain West,38
-401856813,4,2026-09-26T16:00:00.000Z,True,False,Baylor,Big 12,23,Colorado,Big 12,13
 401864576,4,2026-09-26T16:45:00.000Z,True,False,Kentucky,SEC,45,South Alabama,Sun Belt,21
 401866427,4,2026-09-26T17:00:00.000Z,True,False,Eastern Michigan,Mid-American,29,Lindenwood,OVC,3
 401858462,4,2026-09-26T17:30:00.000Z,True,False,Maryland,Big Ten,3,UCLA,Big Ten,54
-401864511,4,2026-09-26T18:00:00.000Z,True,False,Georgia State,Sun Belt,35,Northern Illinois,Mountain West,14
 401858467,4,2026-09-26T18:00:00.000Z,True,False,Purdue,Big Ten,10,Notre Dame,FBS Independents,49
+401864511,4,2026-09-26T18:00:00.000Z,True,False,Georgia State,Sun Belt,35,Northern Illinois,Mountain West,14
 401864510,4,2026-09-26T19:00:00.000Z,True,False,Wyoming,Mountain West,27,Hawai'i,Mountain West,10
 401858237,4,2026-09-26T19:00:00.000Z,True,False,Florida State,ACC,34,Central Arkansas,UAC,7
-401856699,4,2026-09-26T19:30:00.000Z,True,False,Florida,SEC,52,Ole Miss,SEC,28
-401858463,4,2026-09-26T19:30:00.000Z,True,False,Michigan,Big Ten,19,Iowa,Big Ten,20
-401864579,4,2026-09-26T19:30:00.000Z,True,False,New Mexico State,Conference USA,18,New Mexico,Mountain West,42
-401866426,4,2026-09-26T19:30:00.000Z,True,False,Buffalo,Mid-American,31,Robert Morris,NEC,28
 401861970,4,2026-09-26T19:30:00.000Z,True,False,Miami (OH),Mid-American,24,UConn,FBS Independents,21
-401860897,4,2026-09-26T19:30:00.000Z,True,False,Western Michigan,Mid-American,7,Boise State,Pac-12,32
-401856816,4,2026-09-26T19:30:00.000Z,True,False,Iowa State,Big 12,17,Utah,Big 12,31
+401866428,4,2026-09-26T19:30:00.000Z,True,False,Ohio,Mid-American,35,Stonehill,NEC,7
 401868188,4,2026-09-26T19:30:00.000Z,True,False,Marshall,Sun Belt,36,Gardner-Webb,OVC,35
+401858463,4,2026-09-26T19:30:00.000Z,True,False,Michigan,Big Ten,19,Iowa,Big Ten,20
+401856699,4,2026-09-26T19:30:00.000Z,True,False,Florida,SEC,52,Ole Miss,SEC,28
 401858244,4,2026-09-26T19:30:00.000Z,True,False,Duke,ACC,62,William & Mary,Patriot,7
+401856816,4,2026-09-26T19:30:00.000Z,True,False,Iowa State,Big 12,17,Utah,Big 12,31
+401866426,4,2026-09-26T19:30:00.000Z,True,False,Buffalo,Mid-American,31,Robert Morris,NEC,28
+401864579,4,2026-09-26T19:30:00.000Z,True,False,New Mexico State,Conference USA,18,New Mexico,Mountain West,42
+401860897,4,2026-09-26T19:30:00.000Z,True,False,Western Michigan,Mid-American,7,Boise State,Pac-12,32
 401856815,4,2026-09-26T19:30:00.000Z,True,False,UCF,Big 12,21,TCU,Big 12,13
 401856700,4,2026-09-26T19:30:00.000Z,True,False,Georgia,SEC,41,Oklahoma,SEC,13
-401866428,4,2026-09-26T19:30:00.000Z,True,False,Ohio,Mid-American,35,Stonehill,NEC,7
 401862781,4,2026-09-26T20:00:00.000Z,True,False,East Carolina,American Athletic,42,North Carolina Central,MEAC,9
 401856806,4,2026-09-26T20:00:00.000Z,True,False,Georgia Southern,Sun Belt,28,Houston,Big 12,42
 401856698,4,2026-09-26T20:15:00.000Z,True,False,Auburn,SEC,21,Vanderbilt,SEC,15
-401858464,4,2026-09-26T21:00:00.000Z,True,False,Michigan State,Big Ten,13,Nebraska,Big Ten,31
 401858466,4,2026-09-26T21:00:00.000Z,True,False,Penn State,Big Ten,20,Wisconsin,Big Ten,24
+401858464,4,2026-09-26T21:00:00.000Z,True,False,Michigan State,Big Ten,13,Nebraska,Big Ten,31
 401862785,4,2026-09-26T21:00:00.000Z,True,False,Bowling Green,Mid-American,6,South Florida,American Athletic,14
-401860892,4,2026-09-26T22:00:00.000Z,True,False,Texas State,Pac-12,63,Incarnate Word,Southland,10
 401867909,4,2026-09-26T22:00:00.000Z,True,False,Florida International,Conference USA,20,Long Island University,NEC,3
-401869961,4,2026-09-26T22:00:00.000Z,True,False,Old Dominion,Sun Belt,20,James Madison,Sun Belt,46
+401860892,4,2026-09-26T22:00:00.000Z,True,False,Texas State,Pac-12,63,Incarnate Word,Southland,10
 401858239,4,2026-09-26T22:00:00.000Z,True,False,Virginia,ACC,42,Delaware,Conference USA,3
+401869961,4,2026-09-26T22:00:00.000Z,True,False,Old Dominion,Sun Belt,20,James Madison,Sun Belt,46
 401858238,4,2026-09-26T22:30:00.000Z,True,False,Miami,ACC,52,Central Michigan,Mid-American,3
 401862780,4,2026-09-26T22:30:00.000Z,True,False,Charlotte,American Athletic,7,Louisiana,Sun Belt,34
-401870745,4,2026-09-26T23:00:00.000Z,True,False,Western Kentucky,Conference USA,52,Mercyhurst,NEC,7
+401869931,4,2026-09-26T23:00:00.000Z,True,False,Arkansas State,Sun Belt,17,Kennesaw State,Conference USA,14
+401871048,4,2026-09-26T23:00:00.000Z,True,False,Jacksonville State,Conference USA,23,Middle Tennessee,Conference USA,13
+401856814,4,2026-09-26T23:00:00.000Z,True,False,Cincinnati,Big 12,31,Kansas State,Big 12,26
 401856881,4,2026-09-26T23:00:00.000Z,True,False,West Virginia,Big 12,24,Oklahoma State,Big 12,41
 401862784,4,2026-09-26T23:00:00.000Z,True,False,Tulane,American Athletic,24,Southern Miss,Sun Belt,21
-401856814,4,2026-09-26T23:00:00.000Z,True,False,Cincinnati,Big 12,31,Kansas State,Big 12,26
-401869931,4,2026-09-26T23:00:00.000Z,True,False,Arkansas State,Sun Belt,17,Kennesaw State,Conference USA,14
 401856696,4,2026-09-26T23:00:00.000Z,True,False,Alabama,SEC,49,South Carolina,SEC,18
-401871048,4,2026-09-26T23:00:00.000Z,True,False,Jacksonville State,Conference USA,23,Middle Tennessee,Conference USA,13
-401860894,4,2026-09-26T23:30:00.000Z,True,False,Utah State,Pac-12,21,Troy,Sun Belt,10
+401870745,4,2026-09-26T23:00:00.000Z,True,False,Western Kentucky,Conference USA,52,Mercyhurst,NEC,7
 401856804,4,2026-09-26T23:30:00.000Z,True,False,Washington State,Pac-12,24,Arizona,Big 12,34
-401864572,4,2026-09-26T23:30:00.000Z,True,False,NC State,ACC,41,App State,Sun Belt,31
 401858469,4,2026-09-26T23:30:00.000Z,True,False,USC,Big Ten,27,Oregon,Big Ten,41
-401856702,4,2026-09-26T23:30:00.000Z,True,False,LSU,SEC,35,Texas A&M,SEC,6
+401864572,4,2026-09-26T23:30:00.000Z,True,False,NC State,ACC,41,App State,Sun Belt,31
 401862783,4,2026-09-26T23:30:00.000Z,True,False,North Texas,American Athletic,63,Houston Christian,Southland,14
+401856702,4,2026-09-26T23:30:00.000Z,True,False,LSU,SEC,35,Texas A&M,SEC,6
+401860894,4,2026-09-26T23:30:00.000Z,True,False,Utah State,Pac-12,21,Troy,Sun Belt,10
 401856703,4,2026-09-26T23:45:00.000Z,True,False,Mississippi State,SEC,31,Missouri,SEC,24
-401862782,4,2026-09-27T00:00:00.000Z,True,False,UL Monroe,Sun Belt,17,Florida Atlantic,American Athletic,45
 401856697,4,2026-09-27T00:00:00.000Z,True,False,Arkansas,SEC,34,Tulsa,American Athletic,6
+401862782,4,2026-09-27T00:00:00.000Z,True,False,UL Monroe,Sun Belt,17,Florida Atlantic,American Athletic,45
 401866429,4,2026-09-27T01:00:00.000Z,True,False,Sacramento State,Mid-American,6,Massachusetts,Mid-American,35
-401860895,4,2026-09-27T01:00:00.000Z,True,False,UTEP,Mountain West,7,Oregon State,Pac-12,33
 401858241,4,2026-09-27T01:00:00.000Z,True,False,SMU,ACC,34,Missouri State,Conference USA,24
+401860895,4,2026-09-27T01:00:00.000Z,True,False,UTEP,Mountain West,7,Oregon State,Pac-12,33
 401860891,4,2026-09-27T02:00:00.000Z,True,False,Fresno State,Pac-12,38,Rice,American Athletic,24
-401864509,4,2026-09-27T02:30:00.000Z,True,False,Nevada,Mountain West,33,Air Force,Mountain West,36
 401858240,4,2026-09-27T02:30:00.000Z,True,False,Stanford,ACC,34,Georgia Tech,ACC,27
+401864509,4,2026-09-27T02:30:00.000Z,True,False,Nevada,Mountain West,33,Air Force,Mountain West,36
 401858470,4,2026-09-27T03:00:00.000Z,True,False,Washington,Big Ten,24,Minnesota,Big Ten,27
 401871049,5,2026-10-02T00:00:00.000Z,True,False,New Mexico State,Conference USA,34,Western Kentucky,Conference USA,13
 401862786,5,2026-10-02T01:00:00.000Z,True,False,Tulsa,American Athletic,44,North Texas,American Athletic,45
@@ -336,16 +336,16 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401871050,5,2026-10-02T23:00:00.000Z,True,False,Delaware,Conference USA,14,Liberty,Conference USA,30
 401858476,5,2026-10-03T00:00:00.000Z,True,False,Northwestern,Big Ten,34,Penn State,Big Ten,13
 401862787,5,2026-10-03T15:00:00.000Z,True,False,Charlotte,American Athletic,8,Memphis,American Athletic,59
+401858251,5,2026-10-03T16:00:00.000Z,True,False,Wake Forest,ACC,57,Stanford,ACC,3
+401856807,5,2026-10-03T16:00:00.000Z,True,False,Kansas,Big 12,55,Middle Tennessee,Conference USA,0
+401858246,5,2026-10-03T16:00:00.000Z,True,False,SMU,ACC,25,Boston College,ACC,16
+401856822,5,2026-10-03T16:00:00.000Z,True,False,Iowa State,Big 12,45,West Virginia,Big 12,42
+401858250,5,2026-10-03T16:00:00.000Z,True,False,North Carolina,ACC,26,Notre Dame,FBS Independents,37
+401858252,5,2026-10-03T16:00:00.000Z,True,False,UConn,FBS Independents,41,Syracuse,ACC,42
 401856707,5,2026-10-03T16:00:00.000Z,True,False,Mississippi State,SEC,23,Alabama,SEC,56
 401856819,5,2026-10-03T16:00:00.000Z,True,False,Houston,Big 12,27,UCF,Big 12,17
-401858246,5,2026-10-03T16:00:00.000Z,True,False,SMU,ACC,25,Boston College,ACC,16
-401858250,5,2026-10-03T16:00:00.000Z,True,False,North Carolina,ACC,26,Notre Dame,FBS Independents,37
-401856807,5,2026-10-03T16:00:00.000Z,True,False,Kansas,Big 12,55,Middle Tennessee,Conference USA,0
 401862791,5,2026-10-03T16:00:00.000Z,True,False,Air Force,Mountain West,14,Navy,American Athletic,9
-401856822,5,2026-10-03T16:00:00.000Z,True,False,Iowa State,Big 12,45,West Virginia,Big 12,42
-401858251,5,2026-10-03T16:00:00.000Z,True,False,Wake Forest,ACC,57,Stanford,ACC,3
 401858474,5,2026-10-03T16:00:00.000Z,True,False,Minnesota,Big Ten,20,Michigan,Big Ten,14
-401858252,5,2026-10-03T16:00:00.000Z,True,False,UConn,FBS Independents,41,Syracuse,ACC,42
 401858479,5,2026-10-03T16:30:00.000Z,True,False,Wisconsin,Big Ten,31,Michigan State,Big Ten,3
 401856705,5,2026-10-03T16:45:00.000Z,True,False,Georgia,SEC,38,Vanderbilt,SEC,14
 401866432,5,2026-10-03T17:00:00.000Z,True,False,Buffalo,Mid-American,17,Western Michigan,Mid-American,20
@@ -392,10 +392,10 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401871090,6,2026-10-07T00:00:00.000Z,True,False,Troy,Sun Belt,55,Southern Miss,Sun Belt,34
 401871051,6,2026-10-07T23:00:00.000Z,True,False,Kennesaw State,Conference USA,26,Jacksonville State,Conference USA,27
 401871066,6,2026-10-07T23:30:00.000Z,True,False,Florida International,Conference USA,22,New Mexico State,Conference USA,3
-401870766,6,2026-10-08T23:00:00.000Z,True,False,Liberty,Conference USA,35,Sam Houston,Conference USA,3
 401871052,6,2026-10-08T23:00:00.000Z,True,False,Western Kentucky,Conference USA,34,Missouri State,Conference USA,13
-401862794,6,2026-10-08T23:30:00.000Z,True,False,UTSA,American Athletic,31,South Florida,American Athletic,24
+401870766,6,2026-10-08T23:00:00.000Z,True,False,Liberty,Conference USA,35,Sam Houston,Conference USA,3
 401869933,6,2026-10-08T23:30:00.000Z,True,False,Arkansas State,Sun Belt,49,South Alabama,Sun Belt,56
+401862794,6,2026-10-08T23:30:00.000Z,True,False,UTSA,American Athletic,31,South Florida,American Athletic,24
 401858254,6,2026-10-09T23:00:00.000Z,True,False,Louisville,ACC,44,Florida State,ACC,20
 401860922,6,2026-10-10T01:00:00.000Z,True,False,Utah State,Pac-12,17,Washington State,Pac-12,16
 401864519,6,2026-10-10T01:00:00.000Z,True,False,San José State,Mountain West,13,Wyoming,Mountain West,16
@@ -639,9 +639,9 @@ id,week,startDate,completed,neutralSite,homeTeam,homeConference,homePoints,awayT
 401856738,10,2026-11-07T05:00:00.000Z,False,False,Auburn,SEC,,Arkansas,SEC,
 401858512,10,2026-11-07T05:00:00.000Z,False,False,Minnesota,Big Ten,,UCLA,Big Ten,
 401856739,10,2026-11-07T05:00:00.000Z,False,False,Florida,SEC,,Oklahoma,SEC,
-401856740,10,2026-11-07T05:00:00.000Z,False,False,LSU,SEC,,Alabama,SEC,
 401856849,10,2026-11-07T05:00:00.000Z,False,False,Utah,Big 12,,BYU,Big 12,
 401856745,10,2026-11-07T05:00:00.000Z,False,False,Tennessee,SEC,,Kentucky,SEC,
+401856740,10,2026-11-07T05:00:00.000Z,False,False,LSU,SEC,,Alabama,SEC,
 401864532,10,2026-11-07T05:00:00.000Z,False,False,UTEP,Mountain West,,Hawai'i,Mountain West,
 401858285,10,2026-11-07T05:00:00.000Z,False,False,Syracuse,ACC,,Clemson,ACC,
 401856856,10,2026-11-07T05:00:00.000Z,False,False,Texas Tech,Big 12,,West Virginia,Big 12,
