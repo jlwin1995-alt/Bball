@@ -17,8 +17,8 @@ import pandas as pd
 from . import config as C
 from . import scorecard, lines as lines_mod
 
-LINE_STATS = ["pts", "reb", "ast", "fg3m", "pra", "pr", "pa", "ra"]
-SHOWN = C.STATS + list(C.COMBOS)
+LINE_STATS = ["pts", "reb", "ast", "fg3m", "pra", "pr", "pa", "ra", "fp"]
+SHOWN = C.STATS + list(C.COMBOS) + ["fp"]
 
 
 def cdf(z):

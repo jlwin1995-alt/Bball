@@ -115,6 +115,9 @@ def probe(session=None):
                 keys = sorted(m["key"] for m in bk.get("markets", []))
                 found[bk["key"]] = keys
                 print(f"     {bk['key']:<18} {', '.join(keys)[:140]}")
+            ft = {b: [k for k in v if any(t in k for t in ("free", "field_goal", "fta", "ftm", "fantasy"))] for b, v in found.items()}
+            print("     free-throw / field-goal / fantasy-score markets by book:", {b: v for b, v in ft.items() if v} or "none")
+            print("     all distinct market keys across books:", ", ".join(sorted({k for v in found.values() for k in v})))
             print("     -> prizepicks listed:", "prizepicks" in found, "| any player_* market anywhere:", any(k.startswith("player_") for v in found.values() for k in v))
         for label, params in (("DFS region, player props", {"regions": "us_dfs", "markets": PROPS}),
                               ("US books, player props", {"regions": "us", "markets": "player_points,player_rebounds,player_assists"}),
