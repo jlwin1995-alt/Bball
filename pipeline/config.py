@@ -41,6 +41,12 @@ ROOKIE_ROLE_MIN = {"AJ Dybantsa": 28.0, "Darryn Peterson": 28.0, "Cameron Boozer
 ROOKIE_ROLE_PPLAY = 0.95           # share of games a hand-set rotation rookie is assumed to play
 PRE_ONLY_PPLAY = 0.85              # preseason slates only: share of team games assumed to be played
 
+# Opening-weeks rotation tightening: coaches shorten rotations early, so players ranked 6th and lower on their team by projected minutes play less than
+# projected in the first games (2025-26 and 2024-25 both: ranks 6+ ran 1.4-2.6 minutes under in the first week, then slightly over). Minutes are cut by
+# CUTS[tier] x a weight that falls from 1 at no games to 0 after GAMES team games. Tiers: rank 1-5, 6-8, 9+.
+EARLY_TIGHTEN_GAMES = 10
+EARLY_TIGHTEN_CUTS = (0.03, 0.08, 0.12)
+
 # --- minutes -------------------------------------------------------------
 RECENT_WEIGHT_MIN = 0.5            # share of projected minutes taken from the rolling window
 TEAM_MINUTES = 240.0               # a game's worth of player minutes
