@@ -1,21 +1,16 @@
 name: Refresh odds
 
-# Pulls NBA player-prop lines (sportsbooks + PrizePicks/Underdog) from The Odds API several times on game days,
+# Pulls NBA player-prop lines (sportsbooks + PrizePicks) from The Odds API twice a day (7 am ET and 2 hours before the first tip),
 # rebuilds site/data/lines.json, and redeploys. Needs the repository secret ODDS_API_KEY; without it this just skips.
 on:
   schedule:
-    # GitHub's scheduler is best-effort (it skipped and delayed runs here), so every pull has a backup ~35 min later. fetch_odds skips
-    # a run if the previous check was under 90 min ago, so backups only spend credits when the first run did not happen.
-    - cron: "5 14 * * *"      # ~10am ET: books start posting props
-    - cron: "40 14 * * *"     # backup
-    - cron: "5 16 * * *"      # ~noon ET
-    - cron: "40 16 * * *"     # backup
-    - cron: "5 21 * * *"      # ~5pm ET
-    - cron: "40 21 * * *"     # backup
-    - cron: "35 23 * * *"     # ~7:35pm ET: close to the first tip
-    # Weekends: games tip early afternoon, so add an early-morning pull (weekday noon is already covered by the 16:05 pull above)
-    - cron: "5 12 * * 0,6"    # ~8am ET
-    - cron: "40 12 * * 0,6"   # backup
+    # Two runs a day, decided by pipeline/gate.py (Eastern time and the real first tip, which cron cannot express):
+    #   7 am ET, and 2 hours before the day's first tip. Each run pulls odds, then triggers the data refresh.
+    # The gate job ticks every 30 minutes and ends in seconds when there is nothing to do (no credits). GitHub's scheduler is
+    # best-effort, so several ticks fall inside each window; the gate makes sure it fires once.
+    - cron: "7,37 11,12 * * *"   # 7:07 / 7:37 am ET (both UTC hours so it works in daylight and standard time)
+    - cron: "0,30 13-23 * * *"   # pre-tip checks, 9 am - 7 pm ET (daylight time)
+    - cron: "0,30 0-2 * * *"     # ... and into the late evening
   workflow_dispatch:
     inputs:
       probe:
@@ -31,14 +26,27 @@ permissions:
   contents: write
   pages: write
   id-token: write
-
-concurrency:
-  group: refresh              # same group as the daily refresh so the two never push at once
-  cancel-in-progress: false
+  actions: write              # the scheduled run triggers the data refresh
 
 jobs:
-  odds:
+  gate:
     runs-on: ubuntu-latest
+    outputs:
+      fire: ${{ steps.g.outputs.fire }}
+      key: ${{ steps.g.outputs.key }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: g
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then echo "fire=1" >> "$GITHUB_OUTPUT"; echo "key=" >> "$GITHUB_OUTPUT"; else python3 pipeline/gate.py decide >> "$GITHUB_OUTPUT"; fi
+
+  odds:
+    needs: gate
+    if: needs.gate.outputs.fire == '1'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: refresh          # same group as the data refresh so the two never push at once
+      cancel-in-progress: false
     env:
       ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
     steps:
@@ -63,10 +71,13 @@ jobs:
         if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
         env:
           ODDS_HORIZON_HOURS: ${{ github.event.inputs.hours }}
-        run: python -m pipeline.fetch_odds ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}   # manual runs always pull
+        run: python -m pipeline.fetch_odds --force   # the gate already limits scheduled runs to twice a day, so every run that gets here pulls
       - name: Build lines.json
         if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
         run: python -m pipeline.lines
+      - name: Mark this scheduled run as done
+        if: steps.key.outputs.skip != '1' && needs.gate.outputs.key != ''
+        run: python3 pipeline/gate.py record "${{ needs.gate.outputs.key }}"
       - name: Commit data
         if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
         run: |
@@ -92,3 +103,8 @@ jobs:
         if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
         with:
           artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Trigger the data refresh (scheduled runs only)
+        if: steps.key.outputs.skip != '1' && github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run refresh.yml --ref main

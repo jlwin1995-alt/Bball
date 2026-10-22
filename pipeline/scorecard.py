@@ -18,7 +18,7 @@ REHEARSAL_LOG = "data/log/rehearsal_log.csv"       # preseason dress rehearsal: 
 
 
 def stamp():
-    knobs = {k: getattr(C, k) for k in dir(C) if k.isupper() and k not in ("SEASON", "CUR_START", "PRIOR_START", "PRIOR_END", "NAME_ALIASES")}
+    knobs = {k: getattr(C, k) for k in dir(C) if k.isupper() and k not in ("SEASON", "CUR_START", "PRIOR_START", "PRIOR_END", "NAME_ALIASES", "ODDS_MARKETS", "ODDS_BOOKS", "DFS_BOOKS")}
     return hashlib.sha1(json.dumps(knobs, sort_keys=True, default=str).encode()).hexdigest()[:8]
 
 
