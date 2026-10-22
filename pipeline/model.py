@@ -197,6 +197,12 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
         fr = np.clip((C.TEAM_MINUTES - est) / rk.replace(0, np.nan), 0.3, 1.0).fillna(1.0)
         fac = np.where(po, 1 + C.PRE_ONLY_RESCALE * (fr - 1), fac)
     P["min"] = np.minimum(P["min_raw"] * fac, C.MAX_MIN)
+    if not minute_mult and C.EARLY_TIGHTEN_GAMES:                  # opening weeks: rotations are shorter than last season's
+        tgames = g[g["season"] == C.SEASON].groupby("team")["date"].nunique()
+        w = np.clip(1 - P["team"].map(tgames).fillna(0) / C.EARLY_TIGHTEN_GAMES, 0, 1)
+        rk = P.groupby("team")["min"].rank(ascending=False, method="first")
+        cut = np.select([rk <= 5, rk <= 8], [C.EARLY_TIGHTEN_CUTS[0], C.EARLY_TIGHTEN_CUTS[1]], C.EARLY_TIGHTEN_CUTS[2])
+        P["min"] = P["min"] * (1 - w * cut)
     P["min_noadj"] = P["min"]
     # Preseason mode: stars/starters play a fraction of their normal minutes. A multiplier by tier replaces the
     # 240 rescale (which would just undo it): the missing minutes go to rookies/two-way players we do not project.
