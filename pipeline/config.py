@@ -128,6 +128,7 @@ DFS_BOOKS = ["prizepicks", "underdog", "pick6", "dabble_us_dfs"]     # nominal-p
 ODDS_MARKETS = {                                                    # Odds API market key -> our stat key
     "player_points": "pts", "player_rebounds": "reb", "player_assists": "ast", "player_threes": "fg3m",
     "player_points_rebounds_assists": "pra", "player_points_rebounds": "pr", "player_points_assists": "pa", "player_rebounds_assists": "ra",
+    "player_fantasy_points": "fp",    # PrizePicks "Fantasy Score" (pts + 1.2 reb + 1.5 ast + 3 stl + 3 blk - tov = DEFAULT_SCORING); PrizePicks and Underdog only, no consensus
     # each market costs 1 credit per game per pull (10 books = 1 bookmaker group). Optional extras, ~+1 credit per game each:
     # "player_steals": "stl", "player_blocks": "blk", "player_turnovers": "tov"
 }

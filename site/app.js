@@ -29,6 +29,7 @@ function calc(p, forceMedian) {
   for (const s of STATS) r[s] = min * p["rate_" + s] * f;
   for (const [k, parts] of Object.entries(COMBO)) r[k] = parts.reduce((a, x) => a + r[x], 0);
   r.fp = Object.entries(CFG.scoring).reduce((a, [s, w]) => a + w * r[s], 0);
+  r.fpPP = r.pts + 1.2 * r.reb + 1.5 * r.ast + 3 * r.stl + 3 * r.blk - r.tov;   // PrizePicks Fantasy Score, whatever scoring preset is chosen
   return r;
 }
 const proj = () => D.projections.map(p => ({...p, c: calc(p)}));
@@ -174,7 +175,7 @@ function liveLines() {
   const sp = D.spread || D.meta.spread, BE = CFG.ppBE / 100, mins = Math.round((Date.now() - Date.parse(/[zZ]|[+-]\d\d:?\d\d$/.test(L.updated) ? L.updated : L.updated + "Z")) / 60000);
   let rows = L.rows.map(r => {
     const p = byId[r.pid]; if (!p) return null;
-    const m = p.c[r.stat], [a, b] = sp[r.stat] || [1, 0.3], sd = Math.max(a + b * m, 0.1), c = r.cons, pp = r.dfs.prizepicks;
+    const m = r.stat === "fp" ? p.c.fpPP : p.c[r.stat], [a, b] = sp[r.stat] || [1, 0.3], sd = Math.max(a + b * m, 0.1), c = r.cons, pp = r.dfs.prizepicks;
     const started = Date.now() >= Date.parse(r.commence);
     const out = {started, name: p.name, pos: p.pos, team: p.team, game: r.game, stat: r.stat, m, c, r, pp, ud: r.dfs.underdog ?? r.dfs.pick6, out: p.c.min === 0};
     if (c) { const s = sides(c.line, m, sd); out.po = s.o; out.edge = (s.o - c.p_over) * 100; out.pick = started ? "LIVE" : out.out ? "OUT" : Math.abs(out.edge) >= CFG.edgeMin ? (out.edge > 0 ? "OVER" : "UNDER") : ""; }
@@ -186,7 +187,7 @@ function liveLines() {
   if (F.lgame) rows = rows.filter(r => r.game === F.lgame);
   if (F.lpicks) rows = rows.filter(r => (r.pick && r.pick !== "OUT" && r.pick !== "LIVE") || (r.ppPick && r.ppPick !== "OUT" && r.ppPick !== "LIVE"));
   const tip = r => r.r.books.map(b => `${b.b} ${b.line} (${b.over ?? "-"}/${b.under ?? "-"})`).join("\n");
-  const cols = [{k: "name", h: "Player", l: 1, f: r => esc(r.name)}, {k: "team", h: "Team", l: 1}, {k: "game", h: "Game", l: 1, f: r => esc(r.game) + (r.started ? ` <span class="pill hot" title="Tipped off: these are the last PRE-game lines. The model's pregame probability no longer applies, so no pick is shown.">LIVE</span>` : "")}, {k: "stat", h: "Stat", l: 1, f: r => LABEL[r.stat]},
+  const cols = [{k: "name", h: "Player", l: 1, f: r => esc(r.name)}, {k: "team", h: "Team", l: 1}, {k: "game", h: "Game", l: 1, f: r => esc(r.game) + (r.started ? ` <span class="pill hot" title="Tipped off: these are the last PRE-game lines. The model's pregame probability no longer applies, so no pick is shown.">LIVE</span>` : "")}, {k: "stat", h: "Stat", l: 1, f: r => r.stat === "fp" ? "Fantasy score" : LABEL[r.stat]},
     {k: "m", h: "Proj", t: "Median-style projection with your Min OVR overrides", f: r => num(r.m)},
     {k: "cl", h: "Cons line", t: "Median sportsbook line; hover for every book", v: r => r.c?.line, f: r => r.c ? `<span title="${esc(tip(r))}">${r.c.line} <span class="mut">${r.c.n}/${r.c.n_books}</span></span>` : ""},
     {k: "cp", h: "Cons P(over)", t: "Average vig-free P(over) of the books at the consensus line", v: r => r.c?.p_over, f: r => r.c ? num(r.c.p_over * 100) + "%" : ""},
@@ -200,7 +201,7 @@ function liveLines() {
     {k: "ppEdge", h: "PP edge pp", t: `vs your break-even of ${CFG.ppBE}% (Config)`, v: r => r.ppEdge, f: r => r.ppEdge == null ? "" : `<span class="${r.ppEdge > 0 ? "good" : "bad"}">${num(r.ppEdge)}</span>`},
     {k: "ppPick", h: "PP pick", l: 1, f: r => r.ppPick ? `<b>${r.ppPick}</b>${r.ppPick === "OUT" || r.ppPick === "LIVE" ? "" : warn(r.ppEdge)}` : ""}];
   const games = [...new Set(L.rows.map(r => r.game))].sort(), stats = [...new Set(L.rows.map(r => r.stat))];
-  const extra = `<label>Stat <select id="lstat"><option value="">All</option>${stats.map(s => `<option value="${s}" ${F.lstat === s ? "selected" : ""}>${LABEL[s] || s}</option>`).join("")}</select></label>
+  const extra = `<label>Stat <select id="lstat"><option value="">All</option>${stats.map(s => `<option value="${s}" ${F.lstat === s ? "selected" : ""}>${s === "fp" ? "Fantasy score" : LABEL[s] || s}</option>`).join("")}</select></label>
     <label>Game <select id="lgame"><option value="">All</option>${games.map(g => `<option ${F.lgame === g ? "selected" : ""}>${esc(g)}</option>`).join("")}</select></label>
     <label><input type="checkbox" id="lpicks" ${F.lpicks ? "checked" : ""}> picks only</label>`;
   return `<p class="sub">Sportsbook consensus (median line; vig removed) beside PrizePicks, with the model's edge against each${credits}. Updated ${mins < 90 ? mins + " min" : Math.round(mins / 60) + " h"} ago${mins > 360 ? " — <b>stale, lines move</b>" : ""}. DFS prices are nominal, so PrizePicks edge is measured against your break-even (Config) rather than odds. A k-pick entry paying M× needs M^(−1/k) per leg.</p>
@@ -423,8 +424,9 @@ const pages = {
     const sp = D.spread || D.meta.spread, BE = CFG.ppBE / 100, lineRow = {};
     for (const r of (D.lines?.rows || [])) lineRow[r.pid + "|" + r.stat] = r;
     const cellVal = (r, s) => s === "pra" ? r.c.pts + r.c.reb + r.c.ast : r.c[s];
+    const fpLine = CFG.preset === "PrizePicks";          // the posted Fantasy Score line only matches this scoring
     const boardCell = (r, s) => {
-      const m = cellVal(r, s), L = lineRow[r.pid + "|" + s];
+      const m = cellVal(r, s), L = s === "fp" && !fpLine ? null : lineRow[r.pid + "|" + s];
       if (!L || r.c.min === 0 || Date.now() >= Date.parse(L.commence)) return num(m) + rangeLine(s, m);
       const [a, b] = sp[s] || [1, 0.3], sd = Math.max(a + b * m, 0.1), c = L.cons, pp = L.dfs?.prizepicks;
       let line = c ? c.line : pp, lean = "";
@@ -443,7 +445,7 @@ const pages = {
         {k: "cmin", h: "Min", v: r => r.c.min, f: r => num(r.c.min)},
         ...["pts", "reb", "ast", "fg3m"].map(s => ({k: "c" + s, h: LABEL[s], t: "Projection [posted line]. Line = sportsbook consensus, else PrizePicks. Green O / orange U = the model is past your edge threshold (Config) on that side; hover for each book's line.",
           v: r => cellVal(r, s), f: r => boardCell(r, s)})),
-        {k: "cfp", h: "FP", v: r => r.c.fp, f: r => `<b>${num(r.c.fp)}</b>` + rangeLine("fp", r.c.fp)}];
+        {k: "cfp", h: "FP", v: r => r.c.fp, f: r => `<b>${boardCell(r, "fp")}</b>`}];
       return `<div><h3>${esc(t)} ${t === home ? "(home)" : "(away)"}</h3>${table(cols, rows, {id: "gb" + t, tight: true, sort: {key: "cfp"}, rowClass: r => r.c.min === 0 ? "out" : ""})}</div>`;
     };
     const h0 = D.projections.find(p => p.team === home && p.exp_margin != null);
@@ -638,7 +640,8 @@ const pages = {
           return t; }});
       const cols = [{k: "n", h: "Player", l: 1}, {k: "t", h: "Team", l: 1},
         {k: "mp", h: "MIN", t: "projected → actual minutes", v: r => Math.abs(r.ma - r.mp), f: r => `${num(r.mp, 0)} <span class="mut">→</span> ${num(r.ma, 0)}`},
-        {k: "fp", h: "FP", t: "PrizePicks scoring, projected → actual", v: r => Math.abs(r.fp[1] - r.fp[0]), f: r => `${num(r.fp[0])} <span class="mut">→</span> ${num(r.fp[1])}`},
+        {k: "fp", h: "FP", t: "PrizePicks scoring, projected → actual; PP = the PrizePicks Fantasy Score line when one was posted", v: r => Math.abs(r.fp[1] - r.fp[0]),
+          f: r => r.s.fp ? cell("fp").f(r) : `${num(r.fp[0])} <span class="mut">→</span> ${num(r.fp[1])}`},
         ...["pts", "reb", "ast", "fg3m", "pra", "pr", "pa", "ra"].map(cell)];
       body = `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}"><label><input type="checkbox" id="rlines" ${F.rlines ? "checked" : ""}> has a line</label><label><input type="checkbox" id="rpicks" ${F.rpicks ? "checked" : ""}> has a pick</label><span class="mut">${rows.length} players · click a header to sort by the size of the miss</span></div>${table(cols, rows, {id: "resday", sort: {key: "fp"}})}`;
     }
