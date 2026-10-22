@@ -68,7 +68,7 @@ k-pick entry paying M× needs M^(-1/k) per leg).
 1. Get a key at the-odds-api.com (the free tier is 500 credits/month; a full slate of 5 markets costs roughly 5 credits per game per pull
    with one bookmaker group, so plan on a paid tier for daily use - check their pricing page).
 2. GitHub: Settings → Secrets and variables → Actions → **New repository secret** `ODDS_API_KEY`. Never commit the key.
-3. Actions → **Refresh odds** → Run workflow. It then pulls at about 10am, noon, 5pm and 7:35pm ET, each with a backup 35 min later; a run is skipped if the previous check was under 90 minutes ago, so backups cost no credits (GitHub's scheduler is best-effort and does skip or delay runs). Manual runs always pull. Locally:
+3. Actions → **Refresh odds** → Run workflow. It then pulls twice a day: at 7 am ET and 2 hours before the day's first tip (taken from ESPN's scoreboard by `pipeline/gate.py`), and each scheduled pull then triggers the data refresh. The workflow ticks every 30 minutes; a tick with nothing to do ends in seconds and costs no credits, and several ticks fall inside each window because GitHub's scheduler is best-effort. Manual runs always pull (and do not trigger a refresh). Locally:
    `ODDS_API_KEY=... python -m pipeline.fetch_odds && python -m pipeline.lines`.
 
 Markets and books are in `pipeline/config.py` (`ODDS_MARKETS`, `ODDS_BOOKS`). Edges above 15 points get a warning marker: they usually mean the
@@ -90,7 +90,7 @@ model has the player's minutes or role wrong (injury news), not a bargain. Playe
 3. *Free throws and field goals.* PrizePicks lists `player_frees_made`, `player_frees_attempts`, `player_field_goals`, `player_field_goals_attempted` (and alternates); no sportsbook carries free throws. Tested Oct 22 on 2025-26: the model's edge over a season average is about +0.2% (FTM) and +0.4% (FTA), and FTM is lumpy (40% of games at zero), so it needs a count distribution (negative binomial) for P(win) rather than the normal approximation; that also helps threes, steals and blocks. Look for a fouling-matchup signal (opponent FTA allowed, pace) before expecting an edge.
 4. *Game simulator.* Once the model is calibrated on real regular-season data: first a resampling simulator (minutes and per-minute stats drawn from each player's own games, tied together by a game-script factor) to get joint probabilities for entries and skewed tails; a possession-level simulator only if the first shows the correlations matter.
 
-**Credit budget (Odds API, 20,000 a month).** A pull costs (markets x bookmaker groups) credits per game; our ten books count as one group, so 8 markets is about 8 credits per game per pull. A game is pulled by each scheduled run that falls inside the 18-hour window and before tip-off, which in practice is about 4 times (the 90-minute skip rule stops the backup crons from spending anything). An average day is about 7 games, so roughly 230 credits a day, about 7,000 a month; a 15-game day is about 480. Every pull appends a row to `data/log/odds_credits.csv` (games, calls, credits before and after, credits per game), so the real cost can be checked in the first week and the schedule or horizon tightened if it runs high. If the API rejects a market name, that market is skipped and the rest still load. Optional extras (steals, blocks, turnovers) are commented in `ODDS_MARKETS` at about +1 credit per game each.
+**Credit budget (Odds API, 20,000 a month).** A pull costs (markets x bookmaker groups) credits per game; our ten books count as one group, so 8 markets is about 8 credits per game per pull. A game is pulled by each scheduled run that falls inside the 18-hour window and before tip-off, which is now 2 times (7 am ET and 2 hours before the first tip). With 9 markets and an average day of about 7 games that is roughly 125 credits a day, about 3,800 a month; a 15-game day is about 270. Every pull appends a row to `data/log/odds_credits.csv` (games, calls, credits before and after, credits per game), so the real cost can be checked in the first week and the schedule or horizon tightened if it runs high. If the API rejects a market name, that market is skipped and the rest still load. Optional extras (steals, blocks, turnovers) are commented in `ODDS_MARKETS` at about +1 credit per game each.
 
 ### Results (projected vs actual)
 
@@ -121,7 +121,7 @@ Pick one per `games.csv`: the two use different player ids, and `fetch_nba_api` 
 
 ### Automatic daily refresh
 
-`.github/workflows/refresh.yml` runs every day at 09:17 UTC (about 5am Eastern): fetch → learn preseason minutes (once) → fit spreads →
+`.github/workflows/refresh.yml` is started by the odds workflow twice a day (7 am ET, which also grades the night before and freezes the day's pregame log, and 2 hours before the first tip, which refreshes injuries and projections) or by hand: fetch → learn preseason minutes (once) → fit spreads →
 build (logging the next regular-season slate) → commit the data → deploy the site. GitHub only runs scheduled workflows from the
 **default branch**, so merge this branch to `main` first, then in the repo go to Settings → Pages → Source: **GitHub Actions**, and
 run it once from the Actions tab (Run workflow) to check it. No secrets needed. Preseason games are included automatically until `CUR_START`.
