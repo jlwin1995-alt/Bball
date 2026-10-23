@@ -47,7 +47,7 @@ function leanBlock(L) {
   const N = {strong: "STRONG (0.5σ or more)", lean: "LEAN (0.25–0.5σ)", none: "Under 0.25σ"};
   const row = r => ({tier: N[r.tier], n: r.n, hit: r.hit, pct: r.n ? r.hit / r.n * 100 : null});
   const tc = [{k: "tier", h: "Lean tier", l: 1}, {k: "n", h: "Lines graded"}, {k: "hit", h: "Model side won"}, {k: "pct", h: "Hit rate", v: r => r.pct, f: r => r.pct == null ? "" : num(r.pct, 1) + "%"}];
-  return `<h3>Lean record (player props)</h3><p class="sub">The model's side (its frozen projection vs the last pre-game consensus line) graded against the box score; a result equal to the line is a push and is left out. ${L.graded} lines graded, ${L.waiting} waiting on games. Break-even is about 52.4% at standard prices, and a few dozen lines say very little.</p>
+  return `<h3>Lean record (player props)</h3><p class="sub">The model's side (its frozen projection vs the last pre-game consensus line) graded against the box score; a result equal to the line is a push and is left out. ${L.graded} lines graded, ${L.waiting} waiting on games${L.voided ? `, ${L.voided} MORE pick${L.voided > 1 ? "s" : ""} void (first-half exit, PrizePicks rule)` : ""}. Break-even is about 52.4% at standard prices, and a few dozen lines say very little.</p>
     ${L.graded ? table(tc, L.tiers.map(row), {id: "lt"}) : `<p class="mut">Nothing graded yet: college props are only posted close to kickoff, and the pre-game lines are logged from now on.</p>`}`;
 }
 const bestLean = p => { const b = playerLines(p)[0]; return b && b.tier ? b : null; };
