@@ -1,177 +1,545 @@
 ts,event,commence,game,home,away,player,stat,book,line,over,under
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Camden Coleman,passY,fanduel,178.5,-114,-114
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Braeden Wisloski,recY,fanduel,23.5,-114,-114
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Sam Pickett III,recY,fanduel,55.5,-114,-114
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Cole Keller,recY,fanduel,35.5,-112,-118
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Michael Scott,recY,fanduel,36.5,-114,-114
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Darrin Fugitt,recY,fanduel,34.5,-114,-114
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Corey Scott,recY,fanduel,46.5,-114,-114
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Nate Branch,recY,fanduel,34.5,-114,-114
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Braeden Wisloski,rec,fanduel,2.5,102,-136
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Nate Branch,rec,fanduel,3.5,154,-210
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Darrin Fugitt,rec,fanduel,3.5,112,-148
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Corey Scott,rec,fanduel,3.5,124,-166
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Michael Scott,rec,fanduel,3.5,144,-194
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Cole Keller,rec,fanduel,3.5,134,-180
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Sam Pickett III,rec,fanduel,4.5,112,-148
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Camden Coleman,rushY,fanduel,14.5,-114,-114
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Jaquari Lewis,rushY,fanduel,42.5,-114,-114
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,George Pettaway,rushY,fanduel,105.5,-114,-114
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Camden Coleman,passY,espnbet,174.5,-115,-115
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Sam Pickett III,recY,espnbet,54.5,-125,-105
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Nate Branch,recY,espnbet,34.5,-120,-110
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Darrin Fugitt,recY,espnbet,34.5,-120,-110
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Chris Lofton,recY,espnbet,19.5,105,-135
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Braeden Wisloski,recY,espnbet,25.5,-105,-125
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Cole Keller,recY,espnbet,34.5,-125,-105
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Nate Branch,rec,espnbet,3.5,150,-200
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Darrin Fugitt,rec,espnbet,3.5,115,-150
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Sam Pickett III,rec,espnbet,4.5,115,-150
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Cole Keller,rec,espnbet,2.5,-150,115
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Chris Lofton,rec,espnbet,1.5,100,-130
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,George Pettaway,rushY,espnbet,109.5,-110,-120
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Jaquari Lewis,rushY,espnbet,44.5,-105,-125
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Camden Coleman,rushY,espnbet,14.5,-120,-110
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Camden Coleman,passY,betrivers,204.5,-113,
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Henry Hasselbeck,passY,betrivers,183.5,-117,
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Sam Pickett III,recY,betrivers,56.5,-121,
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Braeden Wisloski,recY,betrivers,23.5,-121,
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Corey Scott,recY,betrivers,45.5,-115,
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Michael Scott,recY,betrivers,35.5,-115,
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Cole Keller,recY,betrivers,34.5,-121,
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Nate Branch,recY,betrivers,34.5,-122,
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Darrin Fugitt,recY,betrivers,31.5,-121,
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Henry Hasselbeck,rushY,betrivers,52.5,-120,
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,George Pettaway,rushY,betrivers,104.5,-120,
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Camden Coleman,rushY,betrivers,17.5,-118,
-2026-10-22T18:28:36+00:00,d476cb73381765342220f698035bc889,2026-10-22T23:00:00Z,James Madison @ App State,App State,James Madison,Jaquari Lewis,rushY,betrivers,44.5,-118,
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Deshawn Purdie,passY,fanduel,173.5,-114,-114
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Rickie Collins,passY,fanduel,210.5,-114,-114
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Jamari Person,recY,fanduel,23.5,-114,-114
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Makai Jackson,recY,fanduel,68.5,-114,-114
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Brayden Munroe,recY,fanduel,44.5,-114,-114
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Javon Rogers,recY,fanduel,39.5,-114,-114
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Makai Jackson,rec,fanduel,3.5,-108,-122
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Boogie Woods III,rushY,fanduel,39.5,-114,-114
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Rickie Collins,rushY,fanduel,32.5,-114,-114
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Kam Davis,rushY,fanduel,85.5,-114,-114
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Rickie Collins,passY,espnbet,209.5,-125,-105
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Deshawn Purdie,passY,espnbet,174.5,-115,-115
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Brayden Munroe,recY,espnbet,44.5,-120,-110
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Jamari Person,recY,espnbet,24.5,-115,-115
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Kam Davis,rushY,espnbet,84.5,-125,-105
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Peyton Jones,rushY,espnbet,34.5,-115,-115
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Rickie Collins,passY,betrivers,211.5,-121,
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Deshawn Purdie,passY,betrivers,173.5,-121,
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Javon Rogers,recY,betrivers,43.5,-118,
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Makai Jackson,recY,betrivers,65.5,-120,
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Brayden Munroe,recY,betrivers,49.5,-115,
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Jamari Person,recY,betrivers,23.5,-122,
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Rickie Collins,rushY,betrivers,27.5,-120,
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Kam Davis,rushY,betrivers,88.5,-120,
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Peyton Jones,rushY,betrivers,35.5,-117,
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Rickie Collins,passY,underdog,210.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Deshawn Purdie,passY,underdog,173.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Brayden Munroe,recY,underdog,44.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Jamari Person,recY,underdog,23.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Javon Rogers,recY,underdog,39.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Makai Jackson,recY,underdog,68.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Makai Jackson,rec,underdog,3.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Boogie Woods III,rushY,underdog,46.5,-137,
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Peyton Jones,rushY,underdog,35.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Kam Davis,rushY,underdog,85.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Rickie Collins,passY,prizepicks,210.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Deshawn Purdie,passY,prizepicks,173.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Makai Jackson,recY,prizepicks,68.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Brayden Munroe,recY,prizepicks,44.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Javon Rogers,recY,prizepicks,39.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Jamari Person,recY,prizepicks,23.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Makai Jackson,rec,prizepicks,3.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Kam Davis,rushY,prizepicks,86.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Boogie Woods III,rushY,prizepicks,38.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Peyton Jones,rushY,prizepicks,34.5,-137,-137
-2026-10-22T18:28:36+00:00,1635891ddb79191dba2be031ad6dc762,2026-10-22T23:00:00Z,Liberty @ Kennesaw State,Kennesaw State,Liberty,Rickie Collins,rushY,prizepicks,32.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Emory Williams,passY,fanduel,174.5,-114,-114
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Marcus Stokes,passY,fanduel,227.5,-114,-114
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Hunter Tipton,recY,fanduel,35.5,-114,-114
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Ray Ray Joseph Jr.,recY,fanduel,40.5,-114,-114
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Stonka Burnside,recY,fanduel,39.5,-112,-118
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Stonka Burnside,rec,fanduel,2.5,-130,-102
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Hunter Tipton,rec,fanduel,2.5,-130,-102
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Ray Ray Joseph Jr.,rec,fanduel,5.5,116,-154
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,TJ Engleman Jr.,rushY,fanduel,78.5,-114,-114
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Marcus Stokes,rushY,fanduel,31.5,-114,-114
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Jaylin Carter,rushY,fanduel,95.5,-114,-114
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Marcus Stokes,passY,espnbet,229.5,-110,-120
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Emory Williams,passY,espnbet,174.5,-120,-110
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Hunter Tipton,recY,espnbet,36.5,-110,-120
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Hunter Tipton,rec,espnbet,2.5,-130,100
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,TJ Engleman Jr.,rushY,espnbet,84.5,100,-130
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Jaylin Carter,rushY,espnbet,99.5,-105,-125
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Marcus Stokes,rushY,espnbet,29.5,-130,100
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Emory Williams,passY,betrivers,182.5,-112,
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Marcus Stokes,passY,betrivers,235.5,-109,
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Ray Ray Joseph Jr.,recY,betrivers,41.5,-118,
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Hunter Tipton,recY,betrivers,37.5,-113,
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Marcus Stokes,rushY,betrivers,31.5,-118,
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,TJ Engleman Jr.,rushY,betrivers,78.5,-121,
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Jaylin Carter,rushY,betrivers,91.5,-122,
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Marcus Stokes,passY,prizepicks,230.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Emory Williams,passY,prizepicks,174.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Ray Ray Joseph Jr.,recY,prizepicks,40.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Hunter Tipton,recY,prizepicks,35.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Ismael Smith Flores,recY,prizepicks,16.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,TJ Engleman Jr.,recY,prizepicks,11.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Jaylin Carter,recY,prizepicks,8.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Hunter Tipton,rec,prizepicks,3.0,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Jaylin Carter,rushY,prizepicks,95.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,TJ Engleman Jr.,rushY,prizepicks,78.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Marcus Stokes,rushY,prizepicks,34.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Emory Williams,rushY,prizepicks,11.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Emory Williams,passY,underdog,174.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Marcus Stokes,passY,underdog,227.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,TJ Engleman Jr.,recY,underdog,11.5,-137,
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Stonka Burnside,recY,underdog,42.5,-137,
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Ray Ray Joseph Jr.,recY,underdog,40.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Hunter Tipton,recY,underdog,35.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Ismael Smith Flores,recY,underdog,16.5,-137,
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Jaylin Carter,recY,underdog,8.5,-137,
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Emory Williams,rushY,underdog,11.5,-137,
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,TJ Engleman Jr.,rushY,underdog,78.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Marcus Stokes,rushY,underdog,32.5,-137,-137
-2026-10-22T18:28:36+00:00,5be63fd8c778b46afe084d3352e38a40,2026-10-22T23:30:00Z,East Carolina @ Memphis,Memphis,East Carolina,Jaylin Carter,rushY,underdog,95.5,-137,-137
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,passY,fanduel,179.5,-114,-114
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Walker Eget,passY,fanduel,201.5,-114,-114
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Nate Sheppard,recY,fanduel,40.5,-114,-114
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jared Richardson,recY,fanduel,35.5,-114,-114
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jeremiah Hasley,recY,fanduel,35.5,-114,-114
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jekail Middlebrook,rushY,fanduel,69.5,-114,-114
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Nate Sheppard,rushY,fanduel,119.5,-114,-114
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,rushY,fanduel,25.5,-114,-114
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Walker Eget,passY,espnbet,205.5,-105,-125
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,passY,espnbet,180.5,-115,-115
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jeremiah Hasley,recY,espnbet,36.5,-115,-115
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jared Richardson,recY,espnbet,37.5,-110,-120
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Nate Sheppard,recY,espnbet,39.5,-125,-105
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Nate Sheppard,rushY,espnbet,119.5,-120,-110
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jekail Middlebrook,rushY,espnbet,69.5,-120,-110
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,rushY,espnbet,26.5,-110,-120
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Walker Eget,passY,underdog,201.5,-137,-137
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,passY,underdog,179.5,-137,-137
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jared Richardson,recY,underdog,35.5,-137,-137
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jeremiah Hasley,recY,underdog,30.5,-137,-137
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,rushY,underdog,25.5,-137,-137
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jekail Middlebrook,rushY,underdog,69.5,-137,-137
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Walker Eget,passY,prizepicks,204.5,-137,-137
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,passY,prizepicks,179.5,-137,-137
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Nate Sheppard,recY,prizepicks,40.5,-137,-137
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jared Richardson,recY,prizepicks,35.5,-137,-137
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jeremiah Hasley,recY,prizepicks,35.5,-137,-137
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Nate Sheppard,rushY,prizepicks,119.5,-137,-137
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jekail Middlebrook,rushY,prizepicks,69.5,-137,-137
-2026-10-22T18:28:36+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,rushY,prizepicks,25.5,-137,-137
-2026-10-22T18:28:36+00:00,c3dd6e7e07382aa22aca6458aea01f2d,2026-10-23T23:00:00Z,UMass Minutemen @ UConn,UConn,UMass Minutemen,Kalieb Osborne,passY,fanduel,233.5,-114,-114
-2026-10-22T18:28:36+00:00,c3dd6e7e07382aa22aca6458aea01f2d,2026-10-23T23:00:00Z,UMass Minutemen @ UConn,UConn,UMass Minutemen,Ryder Treadway,recY,fanduel,33.5,-114,-114
-2026-10-22T18:28:36+00:00,c3dd6e7e07382aa22aca6458aea01f2d,2026-10-23T23:00:00Z,UMass Minutemen @ UConn,UConn,UMass Minutemen,Shamar Porter,recY,fanduel,30.5,-114,-114
-2026-10-22T18:28:36+00:00,c3dd6e7e07382aa22aca6458aea01f2d,2026-10-23T23:00:00Z,UMass Minutemen @ UConn,UConn,UMass Minutemen,Javon Brown,recY,fanduel,34.5,-114,-114
-2026-10-22T18:28:36+00:00,c3dd6e7e07382aa22aca6458aea01f2d,2026-10-23T23:00:00Z,UMass Minutemen @ UConn,UConn,UMass Minutemen,Cyncir Bowers,rushY,fanduel,71.5,-118,-112
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,passY,fanduel,179.5,-114,-114
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Walker Eget,passY,fanduel,192.5,-114,-114
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Nate Sheppard,recY,fanduel,40.5,-114,-114
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jared Richardson,recY,fanduel,35.5,-114,-114
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jeremiah Hasley,recY,fanduel,35.5,-114,-114
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jekail Middlebrook,rushY,fanduel,69.5,-114,-114
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Nate Sheppard,rushY,fanduel,119.5,-114,-114
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,rushY,fanduel,24.5,-118,-112
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Walker Eget,passY,espnbet,194.5,-115,-115
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,passY,espnbet,180.5,-115,-115
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jeremiah Hasley,recY,espnbet,36.5,-110,-120
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jared Richardson,recY,espnbet,37.5,-110,-120
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Nate Sheppard,recY,espnbet,39.5,-125,-105
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Nate Sheppard,rushY,espnbet,119.5,-120,-110
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jekail Middlebrook,rushY,espnbet,69.5,-120,-110
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,rushY,espnbet,24.5,-125,-105
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,passY,betrivers,177.5,-113,
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Walker Eget,passY,betrivers,207.5,-107,
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jared Richardson,recY,betrivers,33.5,-113,
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jeremiah Hasley,recY,betrivers,34.5,-118,
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Nate Sheppard,recY,betrivers,41.5,-112,
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jekail Middlebrook,rushY,betrivers,66.5,-124,
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Nate Sheppard,rushY,betrivers,125.5,-121,
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,rushY,betrivers,25.5,-118,
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Walker Eget,passY,underdog,192.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,passY,underdog,179.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Nate Sheppard,recY,underdog,40.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jonah Burton,recY,underdog,22.5,-137,
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jacquon Gibson,recY,underdog,19.5,-137,
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jayden Moore,recY,underdog,13.5,-137,
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Da'Shawn Martin,recY,underdog,39.5,-137,
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jared Richardson,recY,underdog,35.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Dakota Twitty,recY,underdog,7.5,-137,
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Nate Kurisky,recY,underdog,7.5,-137,
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jeremiah Hasley,recY,underdog,35.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,rushY,underdog,24.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jekail Middlebrook,rushY,underdog,69.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Walker Eget,passY,prizepicks,195.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,passY,prizepicks,179.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Nate Sheppard,recY,prizepicks,40.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Da'Shawn Martin,recY,prizepicks,39.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jared Richardson,recY,prizepicks,35.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jeremiah Hasley,recY,prizepicks,35.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jonah Burton,recY,prizepicks,21.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jacquon Gibson,recY,prizepicks,19.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jayden Moore,recY,prizepicks,13.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Nate Kurisky,recY,prizepicks,7.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Da'Shawn Martin,rec,prizepicks,2.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Nate Sheppard,rushY,prizepicks,119.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Jekail Middlebrook,rushY,prizepicks,69.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,CJ Campbell Jr.,rushY,prizepicks,33.5,-137,-137
+2026-10-23T12:45:49+00:00,a493efd6ef737f676a45aacc0eaf7be8,2026-10-23T23:00:00Z,Duke @ Virginia,Virginia,Duke,Beau Pribula,rushY,prizepicks,24.5,-137,-137
+2026-10-23T12:45:49+00:00,c3dd6e7e07382aa22aca6458aea01f2d,2026-10-23T23:00:00Z,UMass Minutemen @ UConn,UConn,UMass Minutemen,Kalieb Osborne,passY,fanduel,233.5,-114,-114
+2026-10-23T12:45:49+00:00,c3dd6e7e07382aa22aca6458aea01f2d,2026-10-23T23:00:00Z,UMass Minutemen @ UConn,UConn,UMass Minutemen,Ryder Treadway,recY,fanduel,33.5,-114,-114
+2026-10-23T12:45:49+00:00,c3dd6e7e07382aa22aca6458aea01f2d,2026-10-23T23:00:00Z,UMass Minutemen @ UConn,UConn,UMass Minutemen,Shamar Porter,recY,fanduel,30.5,-114,-114
+2026-10-23T12:45:49+00:00,c3dd6e7e07382aa22aca6458aea01f2d,2026-10-23T23:00:00Z,UMass Minutemen @ UConn,UConn,UMass Minutemen,Javon Brown,recY,fanduel,29.5,-114,-114
+2026-10-23T12:45:49+00:00,c3dd6e7e07382aa22aca6458aea01f2d,2026-10-23T23:00:00Z,UMass Minutemen @ UConn,UConn,UMass Minutemen,Cyncir Bowers,rushY,fanduel,71.5,-118,-112
+2026-10-23T12:45:49+00:00,2e2ae6a759029288a93488e0805aa9f3,2026-10-24T00:30:00Z,Army @ Tulsa,Tulsa,Army,Baylor Hayes,passY,fanduel,225.5,-114,-114
+2026-10-23T12:45:49+00:00,2e2ae6a759029288a93488e0805aa9f3,2026-10-24T00:30:00Z,Army @ Tulsa,Tulsa,Army,Cale Hellums,passY,fanduel,78.5,-114,-114
+2026-10-23T12:45:49+00:00,2e2ae6a759029288a93488e0805aa9f3,2026-10-24T00:30:00Z,Army @ Tulsa,Tulsa,Army,Oran Singleton Jr.,recY,fanduel,66.5,-114,-114
+2026-10-23T12:45:49+00:00,2e2ae6a759029288a93488e0805aa9f3,2026-10-24T00:30:00Z,Army @ Tulsa,Tulsa,Army,Javon Ross,recY,fanduel,30.5,-114,-114
+2026-10-23T12:45:49+00:00,2e2ae6a759029288a93488e0805aa9f3,2026-10-24T00:30:00Z,Army @ Tulsa,Tulsa,Army,David Wells Jr.,recY,fanduel,29.5,-114,-114
+2026-10-23T12:45:49+00:00,2e2ae6a759029288a93488e0805aa9f3,2026-10-24T00:30:00Z,Army @ Tulsa,Tulsa,Army,Damari Alston,rushY,fanduel,48.5,-114,-114
+2026-10-23T12:45:49+00:00,2e2ae6a759029288a93488e0805aa9f3,2026-10-24T00:30:00Z,Army @ Tulsa,Tulsa,Army,Cale Hellums,rushY,fanduel,117.5,-114,-114
+2026-10-23T12:45:49+00:00,2e2ae6a759029288a93488e0805aa9f3,2026-10-24T00:30:00Z,Army @ Tulsa,Tulsa,Army,Baylor Hayes,rushY,fanduel,14.5,-114,-114
+2026-10-23T12:45:49+00:00,2e2ae6a759029288a93488e0805aa9f3,2026-10-24T00:30:00Z,Army @ Tulsa,Tulsa,Army,Baylor Hayes,passY,prizepicks,225.5,-137,-137
+2026-10-23T12:45:49+00:00,2e2ae6a759029288a93488e0805aa9f3,2026-10-24T00:30:00Z,Army @ Tulsa,Tulsa,Army,Cale Hellums,passY,prizepicks,78.5,-137,-137
+2026-10-23T12:45:49+00:00,2e2ae6a759029288a93488e0805aa9f3,2026-10-24T00:30:00Z,Army @ Tulsa,Tulsa,Army,Oran Singleton Jr.,recY,prizepicks,66.5,-137,-137
+2026-10-23T12:45:49+00:00,2e2ae6a759029288a93488e0805aa9f3,2026-10-24T00:30:00Z,Army @ Tulsa,Tulsa,Army,Javon Ross,recY,prizepicks,30.5,-137,-137
+2026-10-23T12:45:49+00:00,2e2ae6a759029288a93488e0805aa9f3,2026-10-24T00:30:00Z,Army @ Tulsa,Tulsa,Army,David Wells Jr.,recY,prizepicks,29.5,-137,-137
+2026-10-23T12:45:49+00:00,2e2ae6a759029288a93488e0805aa9f3,2026-10-24T00:30:00Z,Army @ Tulsa,Tulsa,Army,Cale Hellums,rushY,prizepicks,117.5,-137,-137
+2026-10-23T12:45:49+00:00,2e2ae6a759029288a93488e0805aa9f3,2026-10-24T00:30:00Z,Army @ Tulsa,Tulsa,Army,Damari Alston,rushY,prizepicks,48.5,-137,-137
+2026-10-23T12:45:49+00:00,2e2ae6a759029288a93488e0805aa9f3,2026-10-24T00:30:00Z,Army @ Tulsa,Tulsa,Army,Baylor Hayes,rushY,prizepicks,14.5,-137,-137
+2026-10-23T12:45:49+00:00,1612c641ab70fd57963596255b9cb69c,2026-10-24T01:00:00Z,Air Force @ Wyoming,Wyoming,Air Force,Evan Medders,passY,fanduel,44.5,-114,-114
+2026-10-23T12:45:49+00:00,1612c641ab70fd57963596255b9cb69c,2026-10-24T01:00:00Z,Air Force @ Wyoming,Wyoming,Air Force,Tyler Hughes,passY,fanduel,127.5,-114,-114
+2026-10-23T12:45:49+00:00,1612c641ab70fd57963596255b9cb69c,2026-10-24T01:00:00Z,Air Force @ Wyoming,Wyoming,Air Force,Markell Holman,rushY,fanduel,50.5,-114,-114
+2026-10-23T12:45:49+00:00,1612c641ab70fd57963596255b9cb69c,2026-10-24T01:00:00Z,Air Force @ Wyoming,Wyoming,Air Force,Samuel Harris,rushY,fanduel,47.5,-112,-118
+2026-10-23T12:45:49+00:00,1612c641ab70fd57963596255b9cb69c,2026-10-24T01:00:00Z,Air Force @ Wyoming,Wyoming,Air Force,Evan Medders,rushY,fanduel,106.5,-114,-114
+2026-10-23T12:45:49+00:00,1612c641ab70fd57963596255b9cb69c,2026-10-24T01:00:00Z,Air Force @ Wyoming,Wyoming,Air Force,Tyler Hughes,rushY,fanduel,75.5,-114,-114
+2026-10-23T12:45:49+00:00,1612c641ab70fd57963596255b9cb69c,2026-10-24T01:00:00Z,Air Force @ Wyoming,Wyoming,Air Force,Tyler Hughes,passY,prizepicks,127.5,-137,-137
+2026-10-23T12:45:49+00:00,1612c641ab70fd57963596255b9cb69c,2026-10-24T01:00:00Z,Air Force @ Wyoming,Wyoming,Air Force,Evan Medders,passY,prizepicks,44.5,-137,-137
+2026-10-23T12:45:49+00:00,1612c641ab70fd57963596255b9cb69c,2026-10-24T01:00:00Z,Air Force @ Wyoming,Wyoming,Air Force,Evan Medders,rushY,prizepicks,106.5,-137,-137
+2026-10-23T12:45:49+00:00,1612c641ab70fd57963596255b9cb69c,2026-10-24T01:00:00Z,Air Force @ Wyoming,Wyoming,Air Force,Tyler Hughes,rushY,prizepicks,75.5,-137,-137
+2026-10-23T12:45:49+00:00,1612c641ab70fd57963596255b9cb69c,2026-10-24T01:00:00Z,Air Force @ Wyoming,Wyoming,Air Force,Owen Allen,rushY,prizepicks,57.5,-137,-137
+2026-10-23T12:45:49+00:00,1612c641ab70fd57963596255b9cb69c,2026-10-24T01:00:00Z,Air Force @ Wyoming,Wyoming,Air Force,Markell Holman,rushY,prizepicks,50.5,-137,-137
+2026-10-23T12:45:49+00:00,1612c641ab70fd57963596255b9cb69c,2026-10-24T01:00:00Z,Air Force @ Wyoming,Wyoming,Air Force,Samuel Harris,rushY,prizepicks,47.5,-137,-137
+2026-10-23T12:45:49+00:00,1612c641ab70fd57963596255b9cb69c,2026-10-24T01:00:00Z,Air Force @ Wyoming,Wyoming,Air Force,Rocco Conti,rushY,prizepicks,40.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,CJ Bailey,passY,fanduel,267.5,-114,-114
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Davis Warren,passY,fanduel,235.5,-114,-114
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Victor Snow,recY,fanduel,28.5,-114,-114
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Preston Douglas,recY,fanduel,46.5,-114,-114
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Benji Blackburn,recY,fanduel,28.5,-114,-114
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Caden High,recY,fanduel,40.5,-114,-114
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Jordan Onovughe,recY,fanduel,24.5,-114,-114
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Keenan Jackson,recY,fanduel,62.5,-114,-114
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Nico Brown,recY,fanduel,48.5,-114,-114
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Micah Ford,rushY,fanduel,77.5,-114,-114
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Davion Gause,rushY,fanduel,63.5,-114,-114
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Davis Warren,passY,espnbet,238.5,-110,-120
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,CJ Bailey,passY,espnbet,269.5,-115,-115
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Keenan Jackson,recY,espnbet,61.5,-125,-105
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Nico Brown,recY,espnbet,49.5,-120,-110
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Caden High,recY,espnbet,39.5,-120,-110
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Preston Douglas,recY,espnbet,49.5,100,-130
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Benji Blackburn,recY,espnbet,29.5,-115,-115
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Victor Snow,recY,espnbet,29.5,-115,-115
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Micah Ford,rushY,espnbet,79.5,-115,-115
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Davion Gause,rushY,espnbet,64.5,-115,-115
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,CJ Bailey,passY,betrivers,275.5,-134,
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Davis Warren,passY,betrivers,233.5,-130,
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Nico Brown,recY,betrivers,48.5,-125,
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Jordan Onovughe,recY,betrivers,25.5,-120,
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Preston Douglas,recY,betrivers,46.5,-124,
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Keenan Jackson,recY,betrivers,61.5,-130,
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Joshisa Trader,recY,betrivers,38.5,-117,
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Victor Snow,recY,betrivers,28.5,-127,
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Caden High,recY,betrivers,41.5,-122,
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Benji Blackburn,recY,betrivers,29.5,-122,
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Davion Gause,rushY,betrivers,62.5,-124,
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Micah Ford,rushY,betrivers,77.5,-118,
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,CJ Bailey,passY,underdog,267.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Davis Warren,passY,underdog,235.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Micah Ford,recY,underdog,13.5,-137,
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Victor Snow,recY,underdog,28.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Joshisa Trader,recY,underdog,37.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Jordan Onovughe,recY,underdog,24.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Nico Brown,recY,underdog,48.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Keenan Jackson,recY,underdog,62.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Caden High,recY,underdog,40.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Benji Blackburn,recY,underdog,28.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Preston Douglas,recY,underdog,46.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Keenan Jackson,rec,underdog,4.5,-137,
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,CJ Bailey,rushY,underdog,22.5,-137,
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Micah Ford,rushY,underdog,77.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Davion Gause,rushY,underdog,63.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,CJ Bailey,passY,prizepicks,267.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Davis Warren,passY,prizepicks,235.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Keenan Jackson,recY,prizepicks,62.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Nico Brown,recY,prizepicks,48.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Preston Douglas,recY,prizepicks,46.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Caden High,recY,prizepicks,40.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Victor Snow,recY,prizepicks,28.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Benji Blackburn,recY,prizepicks,28.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Jordan Onovughe,recY,prizepicks,23.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Micah Ford,recY,prizepicks,13.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Keenan Jackson,rec,prizepicks,4.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Micah Ford,rushY,prizepicks,77.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,Davion Gause,rushY,prizepicks,63.5,-137,-137
+2026-10-23T12:45:49+00:00,027c66400a752f72c7a21ce15a3b1743,2026-10-24T02:30:00Z,NC State @ Stanford,Stanford,NC State,CJ Bailey,rushY,prizepicks,22.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Byrum Brown,passY,fanduel,180.5,-114,-114
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Sam Leavitt,passY,fanduel,256.5,-114,-114
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Dilin Jones,recY,fanduel,25.5,-114,-114
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Winston Watkins Jr.,recY,fanduel,52.5,-114,-114
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Keshaun Singleton,recY,fanduel,50.5,-114,-114
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Chas Nimrod,recY,fanduel,47.5,-112,-118
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Jeremiah Koger,recY,fanduel,22.5,-114,-114
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Trey'Dez Green,recY,fanduel,37.5,-114,-114
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Eugene Wilson III,recY,fanduel,33.5,-114,-114
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Eugene Wilson III,rec,fanduel,2.5,-148,112
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Winston Watkins Jr.,rec,fanduel,4.5,112,-148
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Sam Leavitt,rushY,fanduel,25.5,-114,-114
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Jeremiah Cobb,rushY,fanduel,42.5,-114,-114
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Dilin Jones,rushY,fanduel,81.5,-114,-114
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Byrum Brown,rushY,fanduel,61.5,-112,-118
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Sam Leavitt,passY,prizepicks,256.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Byrum Brown,passY,prizepicks,180.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Winston Watkins Jr.,recY,prizepicks,52.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Keshaun Singleton,recY,prizepicks,50.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Jackson Harris,recY,prizepicks,49.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Chas Nimrod,recY,prizepicks,47.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Eugene Wilson III,recY,prizepicks,33.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Trey'Dez Green,recY,prizepicks,32.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Dilin Jones,recY,prizepicks,25.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Jeremiah Koger,recY,prizepicks,22.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Jake Johnson,recY,prizepicks,8.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Jeremiah Cobb,recY,prizepicks,6.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Keshaun Singleton,rec,prizepicks,4.0,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Jackson Harris,rec,prizepicks,4.0,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Chas Nimrod,rec,prizepicks,3.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Dilin Jones,rec,prizepicks,3.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Dilin Jones,rushY,prizepicks,81.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Byrum Brown,rushY,prizepicks,61.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Jeremiah Cobb,rushY,prizepicks,42.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Sam Leavitt,rushY,prizepicks,25.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Byrum Brown,passY,underdog,180.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Sam Leavitt,passY,underdog,256.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Jeremiah Cobb,recY,underdog,6.5,-137,
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Dilin Jones,recY,underdog,25.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Jeremiah Koger,recY,underdog,22.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Keshaun Singleton,recY,underdog,50.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Eugene Wilson III,recY,underdog,33.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Winston Watkins Jr.,recY,underdog,52.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Chas Nimrod,recY,underdog,47.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Jake Johnson,recY,underdog,9.5,-137,
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Dilin Jones,rec,underdog,3.5,-137,
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Byrum Brown,rushY,underdog,61.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Sam Leavitt,rushY,underdog,25.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Jeremiah Cobb,rushY,underdog,42.5,-137,-137
+2026-10-23T12:45:49+00:00,1f2a24570e2ca6de4516eae60b021507,2026-10-24T16:00:00Z,LSU @ Auburn,Auburn,LSU,Dilin Jones,rushY,underdog,81.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Jaron-Keawe Sagapolutele,passY,fanduel,231.5,-114,-114
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Kevin Jennings,passY,fanduel,280.5,-114,-114
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Chase Hendricks,recY,fanduel,51.5,-114,-114
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Yamir Knight,recY,fanduel,58.5,-114,-114
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Mason Mini,recY,fanduel,26.5,-114,-114
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Jalen Cooper,recY,fanduel,44.5,-114,-114
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Yannick Smith,recY,fanduel,66.5,-114,-114
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Ashten Emory,rushY,fanduel,42.5,-114,-114
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Kendrick Raphael,rushY,fanduel,96.5,-114,-114
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Kevin Jennings,rushY,fanduel,14.5,-114,-114
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Kevin Jennings,passY,underdog,280.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Jaron-Keawe Sagapolutele,passY,underdog,227.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Kendrick Raphael,recY,underdog,12.5,-137,
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Yannick Smith,recY,underdog,66.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Yamir Knight,recY,underdog,53.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Jalen Cooper,recY,underdog,44.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Theo Melin Ohrstrom,recY,underdog,29.5,-137,
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Yannick Smith,rec,underdog,4.5,-137,
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Kendrick Raphael,rushY,underdog,96.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Kevin Jennings,passY,prizepicks,280.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Jaron-Keawe Sagapolutele,passY,prizepicks,223.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Yannick Smith,recY,prizepicks,66.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Chase Hendricks,recY,prizepicks,51.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Yamir Knight,recY,prizepicks,50.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Jalen Cooper,recY,prizepicks,44.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Theo Melin Ohrstrom,recY,prizepicks,28.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Mason Mini,recY,prizepicks,26.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Kendrick Raphael,recY,prizepicks,12.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Yannick Smith,rec,prizepicks,4.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Kendrick Raphael,rushY,prizepicks,96.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Ashten Emory,rushY,prizepicks,42.5,-137,-137
+2026-10-23T12:45:49+00:00,bbbabc2490914e9a4d1e619a32461b1f,2026-10-24T16:00:00Z,California @ SMU,SMU,California,Kevin Jennings,rushY,prizepicks,17.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Will Hammond,passY,fanduel,230.5,-114,-114
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,JC French IV,passY,fanduel,210.5,-114,-114
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,J'Koby Williams,recY,fanduel,22.5,-114,-114
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Coy Eakin,recY,fanduel,31.5,-114,-114
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Kenny Johnson,recY,fanduel,60.5,-114,-114
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Terrance Carter Jr.,recY,fanduel,31.5,-114,-114
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,JV Gibson,recY,fanduel,52.5,-114,-114
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Isaiah Johnson,recY,fanduel,37.5,-114,-114
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Cole Tabb,recY,fanduel,19.5,-114,-114
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Coy Eakin,rec,fanduel,3.5,112,-148
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Kenny Johnson,rec,fanduel,4.5,120,-160
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Terrance Carter Jr.,rec,fanduel,3.5,102,-136
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Isaiah Johnson,rec,fanduel,3.5,-114,-114
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,JV Gibson,rec,fanduel,4.5,108,-144
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,J'Koby Williams,rushY,fanduel,94.5,-114,-114
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,JC French IV,rushY,fanduel,23.5,-114,-114
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Cole Tabb,rushY,fanduel,51.5,-114,-114
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Will Hammond,passY,espnbet,234.5,-110,-120
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,JC French IV,passY,espnbet,209.5,-125,-105
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Kenny Johnson,recY,espnbet,61.5,-115,-115
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,JV Gibson,recY,espnbet,54.5,-105,-125
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Coy Eakin,recY,espnbet,32.5,-110,-120
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Isaiah Johnson,recY,espnbet,39.5,-110,-120
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Malachi Henry,recY,espnbet,27.5,-115,-115
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Terrance Carter Jr.,recY,espnbet,32.5,-110,-120
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Micah Hudson,recY,espnbet,19.5,-110,-120
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,J'Koby Williams,recY,espnbet,24.5,-105,-125
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Cole Tabb,recY,espnbet,19.5,-120,-110
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Coy Eakin,rec,espnbet,3.5,115,-150
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Isaiah Johnson,rec,espnbet,3.5,-115,-115
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Kenny Johnson,rec,espnbet,4.5,120,-155
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,JV Gibson,rec,espnbet,4.5,110,-140
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Terrance Carter Jr.,rec,espnbet,3.5,100,-130
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Cole Tabb,rec,espnbet,2.5,-155,120
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,J'Koby Williams,rec,espnbet,2.5,-160,125
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Malachi Henry,rec,espnbet,2.5,115,-150
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Micah Hudson,rec,espnbet,1.5,-140,110
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,J'Koby Williams,rushY,espnbet,94.5,-120,-110
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Cole Tabb,rushY,espnbet,54.5,-105,-125
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,JC French IV,rushY,espnbet,24.5,-105,-125
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Quinten Joyner,rushY,espnbet,49.5,-110,-120
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Will Hammond,passY,prizepicks,230.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,JC French IV,passY,prizepicks,210.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Kenny Johnson,recY,prizepicks,60.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,JV Gibson,recY,prizepicks,52.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Isaiah Johnson,recY,prizepicks,37.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Coy Eakin,recY,prizepicks,31.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Terrance Carter Jr.,recY,prizepicks,31.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Malachi Henry,recY,prizepicks,27.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,J'Koby Williams,recY,prizepicks,22.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Cole Tabb,recY,prizepicks,19.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Micah Hudson,recY,prizepicks,19.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Isaiah Johnson,rec,prizepicks,3.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,J'Koby Williams,rushY,prizepicks,94.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Cole Tabb,rushY,prizepicks,51.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Quinten Joyner,rushY,prizepicks,49.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,JC French IV,rushY,prizepicks,23.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,JC French IV,passY,underdog,210.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Will Hammond,passY,underdog,230.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,J'Koby Williams,recY,underdog,22.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Cole Tabb,recY,underdog,19.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Micah Hudson,recY,underdog,19.5,-137,
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Kenny Johnson,recY,underdog,60.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,JV Gibson,recY,underdog,52.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Coy Eakin,recY,underdog,31.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Isaiah Johnson,recY,underdog,37.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Terrance Carter Jr.,recY,underdog,31.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Isaiah Johnson,rec,underdog,3.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,JC French IV,rushY,underdog,23.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,J'Koby Williams,rushY,underdog,94.5,-137,-137
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Quinten Joyner,rushY,underdog,48.5,-137,
+2026-10-23T12:45:49+00:00,7a2b82b534f197acfe4913fcdaa86792,2026-10-24T16:00:00Z,Texas Tech @ Cincinnati,Cincinnati,Texas Tech,Cole Tabb,rushY,underdog,51.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Tommy Carr,passY,fanduel,144.5,-114,-114
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Josh Hoover,passY,fanduel,210.5,-114,-114
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Hogan Hansen,recY,fanduel,19.5,-114,-114
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,JJ Buchanan,recY,fanduel,47.5,-114,-114
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Andrew Marsh,recY,fanduel,39.5,-114,-114
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Nick Marsh,recY,fanduel,68.5,-114,-114
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Charlie Becker,recY,fanduel,77.5,-114,-114
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,JJ Buchanan,rec,fanduel,3.5,100,-132
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Charlie Becker,rec,fanduel,4.5,-130,-102
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Hogan Hansen,rec,fanduel,2.5,114,-148
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Andrew Marsh,rec,fanduel,3.5,-130,-102
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Nick Marsh,rec,fanduel,4.5,-120,-110
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Tommy Carr,rushY,fanduel,14.5,-114,-114
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Jordan Marshall,rushY,fanduel,42.5,-114,-114
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Lee Beebe Jr.,rushY,fanduel,38.5,-114,-114
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Turbo Richard,rushY,fanduel,56.5,-114,-114
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Khobie Martin,rushY,fanduel,34.5,-114,-114
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Savion Hiter,rushY,fanduel,36.5,-112,-118
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Josh Hoover,passY,prizepicks,216.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Tommy Carr,passY,prizepicks,141.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Charlie Becker,recY,prizepicks,77.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Nick Marsh,recY,prizepicks,68.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,JJ Buchanan,recY,prizepicks,47.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Andrew Marsh,recY,prizepicks,39.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Hogan Hansen,recY,prizepicks,19.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Savion Hiter,recY,prizepicks,2.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Charlie Becker,rec,prizepicks,5.0,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Nick Marsh,rec,prizepicks,4.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,JJ Buchanan,rec,prizepicks,3.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Turbo Richard,rushY,prizepicks,55.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Jordan Marshall,rushY,prizepicks,44.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Lee Beebe Jr.,rushY,prizepicks,38.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Savion Hiter,rushY,prizepicks,36.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Khobie Martin,rushY,prizepicks,34.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Tommy Carr,rushY,prizepicks,12.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Josh Hoover,passY,underdog,213.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Tommy Carr,passY,underdog,141.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Nick Marsh,recY,underdog,68.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Andrew Marsh,recY,underdog,39.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Charlie Becker,recY,underdog,77.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,JJ Buchanan,recY,underdog,47.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Savion Hiter,recY,underdog,2.5,-137,
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Nick Marsh,rec,underdog,4.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Lee Beebe Jr.,rushY,underdog,39.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Turbo Richard,rushY,underdog,57.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Tommy Carr,rushY,underdog,14.5,-137,-137
+2026-10-23T12:45:49+00:00,259f3312084b229ac2b74d414d36869f,2026-10-24T16:00:00Z,Indiana @ Michigan,Michigan,Indiana,Savion Hiter,rushY,underdog,36.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Darian Mensah,passY,fanduel,258.5,-114,-114
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Carson Kent,recY,fanduel,24.5,-114,-114
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Malik Knight,recY,fanduel,24.5,-114,-114
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Daylyn Upshaw,recY,fanduel,34.5,-114,-114
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Elija Lofton,recY,fanduel,27.5,-114,-114
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Cataurus Hicks,recY,fanduel,47.5,-114,-114
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Cooper Barkate,recY,fanduel,43.5,-114,-114
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Malachi Toney,recY,fanduel,104.5,-114,-114
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Malik Knight,rec,fanduel,2.5,102,-136
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Cataurus Hicks,rec,fanduel,3.5,-104,-128
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Carson Kent,rec,fanduel,2.5,-130,-102
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Cooper Barkate,rec,fanduel,3.5,-118,-112
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Malachi Toney,rec,fanduel,7.5,-114,-114
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Elija Lofton,rec,fanduel,2.5,-154,116
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Daylyn Upshaw,rec,fanduel,3.5,118,-158
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Damon Ferguson Jr.,rushY,fanduel,41.5,-112,-118
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Mark Fletcher Jr.,rushY,fanduel,66.5,-118,-112
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Javian Mallory,rushY,fanduel,53.5,-114,-114
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Darian Mensah,rushY,fanduel,6.5,-114,-114
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Darian Mensah,passY,prizepicks,258.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Malachi Toney,recY,prizepicks,104.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Cooper Barkate,recY,prizepicks,43.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Daylyn Upshaw,recY,prizepicks,34.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Elija Lofton,recY,prizepicks,27.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Malik Knight,recY,prizepicks,24.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Carson Kent,recY,prizepicks,24.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Censere Lee,recY,prizepicks,16.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Malachi Toney,rec,prizepicks,8.0,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Cooper Barkate,rec,prizepicks,3.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Mark Fletcher Jr.,rushY,prizepicks,66.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Javian Mallory,rushY,prizepicks,53.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Ja'Kyrian Turner,rushY,prizepicks,45.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Damon Ferguson Jr.,rushY,prizepicks,41.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Darian Mensah,rushY,prizepicks,6.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Darian Mensah,passY,underdog,258.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Holden Geriner,passY,underdog,163.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Mark Fletcher Jr.,recY,underdog,2.5,-137,
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Malik Knight,recY,underdog,24.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Cooper Barkate,recY,underdog,43.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Censere Lee,recY,underdog,16.5,-137,
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Daylyn Upshaw,recY,underdog,34.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Malachi Toney,recY,underdog,104.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Carson Kent,recY,underdog,24.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Elija Lofton,recY,underdog,27.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Cooper Barkate,rec,underdog,3.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Darian Mensah,rushY,underdog,6.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Mark Fletcher Jr.,rushY,underdog,66.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Ja'Kyrian Turner,rushY,underdog,45.5,-137,
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Javian Mallory,rushY,underdog,53.5,-137,-137
+2026-10-23T12:45:49+00:00,2d125f14eca5c6eb1417f126cafde7c0,2026-10-24T16:00:00Z,Pittsburgh @ Miami,Miami,Pittsburgh,Damon Ferguson Jr.,rushY,underdog,41.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Dylan Lonergan,passY,fanduel,223.5,-114,-114
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Aidan Chiles,passY,fanduel,252.5,-114,-114
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,KJ Duff,recY,fanduel,108.5,-114,-114
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Drew Wagner,recY,fanduel,37.5,-114,-114
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Griffin Wilde,recY,fanduel,80.5,-114,-114
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,KJ Duff,rec,fanduel,6.5,-114,-114
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Griffin Wilde,rec,fanduel,5.5,-122,-108
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Aidan Chiles,rushY,fanduel,26.5,-114,-114
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Caleb Komolafe,rushY,fanduel,71.5,-114,-114
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Aidan Chiles,passY,espnbet,254.5,-115,-115
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Dylan Lonergan,passY,espnbet,224.5,-115,-115
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Griffin Wilde,recY,espnbet,83.5,-105,-125
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,KJ Duff,recY,espnbet,109.5,-120,-110
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Drew Wagner,recY,espnbet,39.5,-105,-125
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,KJ Duff,rec,espnbet,6.5,-115,-115
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Griffin Wilde,rec,espnbet,5.5,-125,-105
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Antwan Raymond,rushY,espnbet,56.5,-115,-115
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Caleb Komolafe,rushY,espnbet,72.5,-115,-115
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Aidan Chiles,rushY,espnbet,29.5,-105,-125
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Aidan Chiles,passY,prizepicks,252.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Dylan Lonergan,passY,prizepicks,225.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,KJ Duff,recY,prizepicks,108.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Griffin Wilde,recY,prizepicks,80.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Drew Wagner,recY,prizepicks,37.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Antwan Raymond,recY,prizepicks,16.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,KJ Duff,rec,prizepicks,6.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Griffin Wilde,rec,prizepicks,5.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Caleb Komolafe,rushY,prizepicks,71.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Antwan Raymond,rushY,prizepicks,54.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Clay Thevenin,rushY,prizepicks,34.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Aidan Chiles,rushY,prizepicks,26.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Dylan Lonergan,passY,underdog,225.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Aidan Chiles,passY,underdog,252.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Griffin Wilde,recY,underdog,80.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,KJ Duff,recY,underdog,108.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Drew Wagner,recY,underdog,37.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Griffin Wilde,rec,underdog,5.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,KJ Duff,rec,underdog,6.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Aidan Chiles,rushY,underdog,28.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Caleb Komolafe,rushY,underdog,71.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Antwan Raymond,rushY,underdog,57.5,-137,-137
+2026-10-23T12:45:49+00:00,99932501288d30e4693c828c0ab2455e,2026-10-24T16:00:00Z,Rutgers @ Northwestern,Northwestern,Rutgers,Clay Thevenin,rushY,underdog,34.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Michael Hawkins Jr.,passY,fanduel,173.5,-114,-114
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Jaden Craig,passY,fanduel,292.5,-114,-114
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Prince Strachan,recY,fanduel,41.5,-114,-114
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Ed Small,recY,fanduel,54.5,-114,-114
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Jordan Dwyer,recY,fanduel,81.5,-114,-114
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Jeremy Scott,recY,fanduel,22.5,-114,-114
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Cam Cook,recY,fanduel,13.5,-114,-114
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,DJ Epps,recY,fanduel,54.5,-114,-114
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Ed Small,rec,fanduel,4.5,102,-136
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Jeremy Scott,rec,fanduel,2.5,122,-162
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Jordan Dwyer,rec,fanduel,5.5,-102,-130
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,DJ Epps,rec,fanduel,3.5,100,-132
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Prince Strachan,rec,fanduel,2.5,-112,-118
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Michael Hawkins Jr.,rushY,fanduel,84.5,-114,-114
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Cam Cook,rushY,fanduel,96.5,-114,-114
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Jaden Craig,passY,espnbet,294.5,-115,-115
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Michael Hawkins Jr.,passY,espnbet,179.5,-110,-120
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,DJ Epps,recY,espnbet,55.5,-115,-115
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Ed Small,recY,espnbet,54.5,-120,-110
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Kari Ashley,recY,espnbet,44.5,-115,-115
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Prince Strachan,recY,espnbet,42.5,-115,-115
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Jeremy Scott,recY,espnbet,21.5,-130,100
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Cam Cook,recY,espnbet,13.5,-120,-110
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Prince Strachan,rec,espnbet,2.5,-110,-120
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Michael Hawkins Jr.,rushY,espnbet,83.5,-115,-115
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Cam Cook,rushY,espnbet,99.5,-110,-120
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Michael Hawkins Jr.,passY,underdog,178.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Jaden Craig,passY,underdog,292.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Cam Cook,recY,underdog,13.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Jordan Dwyer,recY,underdog,81.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Ed Small,recY,underdog,54.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Cam Cook,rushY,underdog,96.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Jaden Craig,passY,prizepicks,292.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Michael Hawkins Jr.,passY,prizepicks,180.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Jordan Dwyer,recY,prizepicks,81.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Ed Small,recY,prizepicks,54.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,DJ Epps,recY,prizepicks,54.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Kari Ashley,recY,prizepicks,44.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Prince Strachan,recY,prizepicks,42.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Jeremy Scott,recY,prizepicks,22.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Cam Cook,recY,prizepicks,13.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Prince Strachan,rec,prizepicks,2.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Cam Cook,rushY,prizepicks,96.5,-137,-137
+2026-10-23T12:45:49+00:00,1067cba701eaa40c3724cceda30524c6,2026-10-24T16:00:00Z,West Virginia @ TCU,TCU,West Virginia,Michael Hawkins Jr.,rushY,prizepicks,83.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,DJ Lagway,passY,fanduel,260.5,-114,-114
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Isaiah Marshall,passY,fanduel,218.5,-114,-114
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Dylan Edwards,recY,fanduel,18.5,-136,102
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Gavin Freeman,recY,fanduel,75.5,-114,-114
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Cam Pickett,recY,fanduel,40.5,-114,-114
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Nik McMillan,recY,fanduel,55.5,-114,-114
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Cam Pickett,rec,fanduel,4.5,112,-148
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Nik McMillan,rec,fanduel,3.5,-125,-106
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Gavin Freeman,rec,fanduel,6.5,-148,112
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Dylan Edwards,rushY,fanduel,67.5,-114,-114
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Isaiah Marshall,rushY,fanduel,43.5,-114,-114
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Dawson Pendergrass,rushY,fanduel,34.5,-114,-114
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,DJ Lagway,passY,betrivers,254.5,-121,
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Isaiah Marshall,passY,betrivers,218.5,-120,
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Gavin Freeman,recY,betrivers,78.5,-121,
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Cam Pickett,recY,betrivers,44.5,-121,
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Dylan Edwards,recY,betrivers,24.5,-121,
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Nik McMillan,recY,betrivers,55.5,-120,
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Dawson Pendergrass,rushY,betrivers,32.5,-124,
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Isaiah Marshall,rushY,betrivers,43.5,-118,
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Dylan Edwards,rushY,betrivers,66.5,-121,
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,DJ Lagway,passY,espnbet,259.5,-120,-110
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Isaiah Marshall,passY,espnbet,219.5,-115,-115
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Nik McMillan,recY,espnbet,56.5,-115,-115
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Gavin Freeman,recY,espnbet,74.5,-125,-105
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Cam Pickett,recY,espnbet,39.5,-130,100
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Dylan Edwards,recY,espnbet,19.5,-130,100
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Gavin Freeman,rec,espnbet,6.5,-150,115
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Dylan Edwards,rushY,espnbet,68.5,-115,-115
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Dawson Pendergrass,rushY,espnbet,34.5,-120,-110
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Isaiah Marshall,rushY,espnbet,44.5,-115,-115
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,DJ Lagway,passY,prizepicks,260.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Isaiah Marshall,passY,prizepicks,218.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Gavin Freeman,recY,prizepicks,75.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Nik McMillan,recY,prizepicks,55.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Louis Brown IV,recY,prizepicks,46.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Cam Pickett,recY,prizepicks,40.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Nahzae Cox,recY,prizepicks,35.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Dylan Edwards,recY,prizepicks,19.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Matthew Klopfenstein,recY,prizepicks,12.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Caden Knighten,recY,prizepicks,2.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Nik McMillan,rec,prizepicks,3.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Dylan Edwards,rushY,prizepicks,68.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Isaiah Marshall,rushY,prizepicks,43.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Dawson Pendergrass,rushY,prizepicks,34.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Caden Knighten,rushY,prizepicks,34.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Isaiah Marshall,passY,underdog,218.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,DJ Lagway,passY,underdog,260.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Caden Knighten,recY,underdog,2.5,-137,
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Gavin Freeman,recY,underdog,75.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Cam Pickett,recY,underdog,40.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Nik McMillan,recY,underdog,55.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Louis Brown IV,recY,underdog,46.5,-137,
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Nahzae Cox,recY,underdog,36.5,-137,
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Matthew Klopfenstein,recY,underdog,12.5,-137,
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Isaiah Marshall,rushY,underdog,43.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Dylan Edwards,rushY,underdog,67.5,-137,-137
+2026-10-23T12:45:49+00:00,ba6abfebaef34d88099fa6dc6640dc08,2026-10-24T17:00:00Z,Baylor @ Kansas,Kansas,Baylor,Caden Knighten,rushY,underdog,34.5,-137,
