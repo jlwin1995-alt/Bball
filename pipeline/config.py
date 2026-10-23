@@ -35,10 +35,19 @@ PRE_ONLY_PPLAY_HI = 0.70
 PRE_ONLY_RESCALE = 0.25            # share of the team-240 cut applied to no-history players: established players keep their minutes, rookies share what is left (tested on 2025-26: 0 -> bias +2.0 min, 0.25 -> +0.4, 0.5 -> -1.3, 1.0 -> -4.9)
 # Hand-set roles for no-history players expected to be in the rotation (regular-season slates only): minutes when playing, by name.
 # The fitted line above cannot see draft position or role. Last year's top rookies averaged 33-37 (top 3), then 26-27, over their first 25 games.
-# Remove a name once he has games of his own. These players are treated like established players when the leftover minutes are shared.
-ROOKIE_ROLE_MIN = {"AJ Dybantsa": 28.0, "Darryn Peterson": 28.0, "Cameron Boozer": 27.0, "Caleb Wilson": 27.0,
-                   "Darius Acuff Jr.": 25.0, "Brayden Burries": 24.0, "Yaxel Lendeborg": 24.0}
+# A name stops applying by itself once he has 3 regular-season games this season. These players are treated like established players when the leftover minutes are shared.
+# Oct 23: moved halfway toward what they played in their first game (Peterson 31, Boozer 33, Wilson 32, Acuff 35, Lendeborg 29, Burries 16).
+ROOKIE_ROLE_MIN = {"AJ Dybantsa": 28.0, "Darryn Peterson": 29.5, "Cameron Boozer": 30.0, "Caleb Wilson": 29.5,
+                   "Darius Acuff Jr.": 30.0, "Brayden Burries": 20.0, "Yaxel Lendeborg": 26.5}
 ROOKIE_ROLE_PPLAY = 0.95           # share of games a hand-set rotation rookie is assumed to play
+# Deep-bench no-history players: every game so far they played 3 minutes or fewer (or did not play) after a preseason-based projection of 10+. Held at
+# BENCH_MIN minutes when they play and BENCH_PPLAY of games. Built from opening nights Oct 20-22 (Stirtz 1 and 2 minutes against 25 projected). An entry
+# stops applying by itself once the player has 3 regular-season games this season (he is then projected from his own games), so nothing needs removing.
+ROOKIE_BENCH = ["Bennett Stirtz", "Tarris Reed Jr.", "Ja'Kobi Gillespie", "Maliq Brown", "Josh Dix", "Labaron Philon Jr.", "Nick Martinelli", "Isaiah Evans",
+                "Ryan Conwell", "Bryce Hopkins", "Bruce Thornton", "Dillon Mitchell", "Chris Cenac Jr.", "Ebuka Okorie", "Ugonna Onyenso", "Tyler Nickel",
+                "Jaden Akins", "Hannes Steinbach", "Tobi Lawal", "Braden Smith", "Arthur Kaluma", "Tre Donaldson", "Felix Okpara", "Meleek Thomas"]
+ROOKIE_BENCH_MIN = 4.0
+ROOKIE_BENCH_PPLAY = 0.2
 PRE_ONLY_PPLAY = 0.85              # preseason slates only: share of team games assumed to be played
 
 # Opening-weeks rotation tightening: coaches shorten rotations early, so players ranked 6th and lower on their team by projected minutes play less than
