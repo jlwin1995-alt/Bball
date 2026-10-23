@@ -153,6 +153,7 @@ NFL_COLS = [
     "rushing_fumbles_lost", "receiving_fumbles_lost", "sack_fumbles_lost",
     "rushing_2pt_conversions", "receiving_2pt_conversions", "passing_2pt_conversions",
     "fantasy_points", "fantasy_points_ppr",
+    "fg_made", "fg_att", "fg_missed", "fg_long", "pat_made", "pat_att",       # kickers
 ]
 
 ET = ZoneInfo("America/New_York")
