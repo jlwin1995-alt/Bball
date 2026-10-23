@@ -211,3 +211,17 @@ Concentrating on the lead back is worse the more of it there is (backfields spli
 ### Void check on MNF (week 6): confirmed voids respect cleared stats
 
 McLaurin (left in Q1, 1 target) and Evans (out after the first half) were hurt; the snaps were not posted yet, so the estimate stayed off and both are in `data/log/void_overrides.csv`. PrizePicks voided McLaurin's picks and Evans's receptions (3, under a 4.5 line) but not his yards (94, over 64.5), which is the cleared-stat rule. Results used to void everything for a confirmed override; a confirmed void now also stays graded for a stat that had already cleared its line. Both players were LESS picks in our record, which a void never touches (MORE only), so no result changed. Juszczyk (FB) had Q1/Q2 plays only because the scheme made him a blocker, not an injury; the snap-based estimate sees a full game and flags nothing.
+
+### Kickers: a backtest, no market added
+
+`pipeline/kicker.py` (kicking points = 3 x field goals + extra points; the kicking columns `fg_made`, `fg_att`, `fg_missed`, `fg_long`, `pat_made`, `pat_att` are now kept in the weekly file). Walk-forward 2023-2025, weeks 4+, 1,341 kicker games, 66 kickers, against the team's implied points from the closing spread and total:
+
+| predictor | MAE | RMSE |
+|---|---|---|
+| league mean (7.2 pts, sd 3.7) | 3.016 | 3.752 |
+| team implied points only (pts = 3.42 + 0.172 x implied) | **2.965** | **3.678** |
+| implied points + the kicker's own history (shrunk 6 games) | 2.985 | 3.696 |
+| kicker's season average | 3.076 | 3.803 |
+| kicker's last three | 3.400 | 4.279 |
+
+The scoring environment explains almost all there is: implied points beat the league mean by only 1.7% of MAE, and adding a kicker's own history makes it slightly WORSE in every season. A single game's kicking points are mostly noise (sd 3.7 against an explainable spread of well under 1), and books price kicker props off the same totals. No kicker market was added to the odds pull and no leans are built; the projection is not worth surfacing. Revisit only if a book posts kicker lines well off their team's implied points (the logged lines would show that).
