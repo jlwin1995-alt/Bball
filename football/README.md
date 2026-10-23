@@ -225,3 +225,7 @@ McLaurin (left in Q1, 1 target) and Evans (out after the first half) were hurt; 
 | kicker's last three | 3.400 | 4.279 |
 
 The scoring environment explains almost all there is: implied points beat the league mean by only 1.7% of MAE, and adding a kicker's own history makes it slightly WORSE in every season. A single game's kicking points are mostly noise (sd 3.7 against an explainable spread of well under 1), and books price kicker props off the same totals. No kicker market was added to the odds pull and no leans are built; the projection is not worth surfacing. Revisit only if a book posts kicker lines well off their team's implied points (the logged lines would show that).
+
+### College void overrides (lean record)
+
+`data/log/cfb_void_overrides.csv` (player_id,week) lists college players who left in the first half and did not return. `cfb_build.lean_record` drops a MORE (over) pick on such a player when his stat had not cleared the line (the PrizePicks reboot rule, as on the NFL page; LESS picks are never voided). First case: Emory Williams (ECU, pulled after the first quarter with an injury, week 8) - the Over on passing yards (174.5 line, 61 actual) is void, so the STRONG record reads 56 of 76 rather than 56 of 77. College has no snap data, so this is manual only; the Lean record note on the college Scorecard shows the void count.

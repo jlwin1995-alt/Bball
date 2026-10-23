@@ -141,7 +141,18 @@ def props_lines(raw, out, season, week=None):
 LEAN_FIELD = {"rushY": "rushing_yards", "recY": "receiving_yards", "rec": "receptions", "passY": "passing_yards"}
 
 
-def lean_record(rows, played, skip, specs, P, lines_log="data/log/cfb_lines_log.csv", log=LOG):
+VOIDS = "data/log/cfb_void_overrides.csv"
+
+
+def load_voids(path=VOIDS):
+    """data/log/cfb_void_overrides.csv (player_id,week): a player who left in the first half and did not return. PrizePicks voids his MORE picks."""
+    try:
+        return {(x["player_id"], str(x["week"])) for x in read_csv(path)}
+    except FileNotFoundError:
+        return set()
+
+
+def lean_record(rows, played, skip, specs, P, lines_log="data/log/cfb_lines_log.csv", log=LOG, voids=None):
     """Grade the leans: for every logged pre-game consensus line, the model's side is its FROZEN projection (cfb_log, current model, logged before
     kickoff) against the line, and the lean is (projection - line) / sigma. Hit = the model's side won; a result equal to the line is a push and is
     left out. FCS / tier-gap games are left out as in the rest of the college record."""
@@ -150,7 +161,8 @@ def lean_record(rows, played, skip, specs, P, lines_log="data/log/cfb_lines_log.
     act = {(x["playerId"], int(x["week"])): x for x in rows}
     tiers = {t: dict(n=0, hit=0) for t in ("strong", "lean", "none")}
     by_mkt = {}
-    graded = waiting = 0
+    graded = waiting = voided = 0
+    voids = load_voids() if voids is None else voids
     for x in read_csv(lines_log):
         pr = proj.get((x["player_id"], str(x.get("week", ""))))
         st = x["stat"]
@@ -168,6 +180,9 @@ def lean_record(rows, played, skip, specs, P, lines_log="data/log/cfb_lines_log.
         line, m, res = float(x["cons_line"]), float(pr[f"p_{st}"]), a[LEAN_FIELD[st]]
         if res == line or m <= 0:
             continue
+        if (x["player_id"], str(x["week"])) in voids and m > line and res < line:
+            voided += 1                                         # a MORE pick on a first-half exit that had not cleared its line is void, not a miss
+            continue
         sp = specs[st]
         z = (m - line) / max(sp["a"] + sp["b"] * m, max(0.12 * m, 0.5))
         t = "strong" if abs(z) >= 0.5 else "lean" if abs(z) >= 0.25 else "none"
@@ -175,7 +190,7 @@ def lean_record(rows, played, skip, specs, P, lines_log="data/log/cfb_lines_log.
         graded += 1
         for d in (tiers[t], by_mkt.setdefault((sp["label"], t), dict(n=0, hit=0))):
             d["n"] += 1; d["hit"] += hit
-    return dict(graded=graded, waiting=waiting, tiers=[dict(tier=t, **d) for t, d in tiers.items()],
+    return dict(graded=graded, waiting=waiting, voided=voided, tiers=[dict(tier=t, **d) for t, d in tiers.items()],
                 markets=[dict(label=k[0], tier=k[1], **v) for k, v in sorted(by_mkt.items())])
 
 
