@@ -4,7 +4,7 @@
     python pipeline/gate.py record KEY [--state ...]                                                 marks KEY as done (committed with the data)
 
 Two daily runs, both decided here so the schedule follows the real slate and Eastern time (GitHub's cron is UTC only):
-  morning  7:00-7:59 am Eastern, once per Eastern date;
+  morning  from 7:00 am Eastern until 11:00 am (so a skipped 7 am tick is caught by a later one), once per Eastern date;
   pretip   from 2 hours before the day's first tip until that tip, once per first-tip time. The first tip comes from ESPN's scoreboard.
 The workflow ticks every 30 minutes; a tick that finds nothing to do ends in seconds and costs no Odds API credits.
 """
@@ -33,10 +33,18 @@ def first_tip(day):
     return min(tips) if tips else None
 
 
+def last_pull(meta="data/raw/odds_meta.json"):
+    try:
+        return datetime.fromisoformat(json.load(open(meta))["ts"].replace("Z", "+00:00"))
+    except (OSError, ValueError, KeyError):
+        return None
+
+
 def decide(state, now):
     local = now.astimezone(ET)
-    if local.hour == 7 and state.get("morning") != local.date().isoformat():
-        return True, "morning:" + local.date().isoformat()
+    pulled = last_pull()
+    if 7 <= local.hour < 11 and state.get("morning") != local.date().isoformat() and not (pulled and now - pulled < timedelta(hours=3)):
+        return True, "morning:" + local.date().isoformat()                # (a manual pull in the last 3 hours counts as the morning pull)
     try:
         tip = first_tip(local.date())
     except Exception as e:                                           # ESPN down: do nothing now, the next tick tries again

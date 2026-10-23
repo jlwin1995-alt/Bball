@@ -8,9 +8,9 @@ on:
     #   7 am ET, and 2 hours before the day's first tip. Each run pulls odds, then triggers the data refresh.
     # The gate job ticks every 30 minutes and ends in seconds when there is nothing to do (no credits). GitHub's scheduler is
     # best-effort, so several ticks fall inside each window; the gate makes sure it fires once.
-    - cron: "7,37 11,12 * * *"   # 7:07 / 7:37 am ET (both UTC hours so it works in daylight and standard time)
-    - cron: "0,30 13-23 * * *"   # pre-tip checks, 9 am - 7 pm ET (daylight time)
-    - cron: "0,30 0-2 * * *"     # ... and into the late evening
+    # GitHub skips or delays many scheduled runs (Oct 23: only 2 of ~26 ticks ran overnight and none of the 7 am ones), so tick every 15 minutes.
+    - cron: "*/15 11-23 * * *"   # 7 am ET (daylight time; 6 am standard) through 7 pm ET: morning run, then pre-tip checks
+    - cron: "*/15 0-2 * * *"     # ... and into the late evening
   workflow_dispatch:
     inputs:
       probe:
