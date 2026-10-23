@@ -180,9 +180,14 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
         po = P["pre_only"] & ~P["out"]
         P.loc[po, "min_raw"] = np.clip(C.PRE_ONLY_MIN_A + C.PRE_ONLY_MIN_B * P.loc[po, "min_raw"], 0, C.MAX_MIN)
         role = P["name"].map(C.ROOKIE_ROLE_MIN)
-        P["role_set"] = role.notna() & P["pre_only"] & ~P["out"]
+        ncur = P["pid"].map(g[g["season"] == C.SEASON].groupby("pid").size()).fillna(0)       # regular-season games so far this season
+        P["role_set"] = role.notna() & (ncur < 3) & ~P["out"]          # hand-set roles apply until the player has 3 games of his own
         P.loc[P["role_set"], "min_raw"] = role[P["role_set"]]
         P.loc[P["role_set"], "pplay"] = C.ROOKIE_ROLE_PPLAY
+        bench = P["name"].isin(C.ROOKIE_BENCH) & (ncur < 3) & ~P["out"] & ~P["role_set"]
+        P.loc[bench, "min_raw"] = C.ROOKIE_BENCH_MIN
+        P.loc[bench, "pplay"] = C.ROOKIE_BENCH_PPLAY
+        P["role_set"] = P["role_set"] | bench                    # fixed minutes: not part of the leftover sharing
 
     # Minutes above are conditional on playing; a team's 240 is shared by whoever dresses, so the
     # rescale sums EXPECTED minutes (weighted by how often each man plays) and is applied to the conditional ones.
@@ -251,6 +256,7 @@ def all_players(games, rosters=None, minute_mult=None, fallback=None):
             adj = np.where(P["pre_only"], np.clip(C.PRE_ONLY_MIN_A + C.PRE_ONLY_MIN_B * raw, 0, C.MAX_MIN), adj)
             role = P["name"].map(C.ROOKIE_ROLE_MIN)
             adj = np.where(P["pre_only"] & role.notna(), role.fillna(0), adj)
+            adj = np.where(P["pre_only"] & P["name"].isin(C.ROOKIE_BENCH) & role.isna(), C.ROOKIE_BENCH_MIN, adj)
     P["min_exp"] = np.where(P["pre_only"], np.minimum(raw, C.MAX_MIN), adj) if minute_mult else adj
     return P.reset_index(drop=True)
 

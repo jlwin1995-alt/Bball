@@ -121,7 +121,7 @@ Pick one per `games.csv`: the two use different player ids, and `fetch_nba_api` 
 
 ### Automatic daily refresh
 
-`.github/workflows/refresh.yml` is started by the odds workflow twice a day (7 am ET, which also grades the night before and freezes the day's pregame log, and 2 hours before the first tip, which refreshes injuries and projections) or by hand: fetch → learn preseason minutes (once) → fit spreads →
+`.github/workflows/refresh.yml` is started by the odds workflow twice a day (7 am ET, which grades the night before, and 2 hours before the first tip, which also freezes the day's pregame log: the log is written only in the window from 2 hours before the first tip until the tip, so it holds the latest injury news and nothing after tip-off) or by hand: fetch → learn preseason minutes (once) → fit spreads →
 build (logging the next regular-season slate) → commit the data → deploy the site. GitHub only runs scheduled workflows from the
 **default branch**, so merge this branch to `main` first, then in the repo go to Settings → Pages → Source: **GitHub Actions**, and
 run it once from the Actions tab (Run workflow) to check it. No secrets needed. Preseason games are included automatically until `CUR_START`.

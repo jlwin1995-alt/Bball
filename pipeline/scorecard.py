@@ -22,9 +22,11 @@ def stamp():
     return hashlib.sha1(json.dumps(knobs, sort_keys=True, default=str).encode()).hexdigest()[:8]
 
 
-def log_slate(P, games, today=None, preseason=False):
+def log_slate(P, games, today=None, preseason=False, now=None):
     """Append the slate's projections unless that date is already logged or already played.
-    Preseason slates go to REHEARSAL_LOG (a dry run of the Results tab); regular-season slates go to LOG."""
+    Preseason slates go to REHEARSAL_LOG (a dry run of the Results tab); regular-season slates go to LOG.
+    Regular-season slates are frozen in the PRE-TIP WINDOW only: from 2 hours before the day's first tip (ESPN's scoreboard) until that tip, so the
+    record holds the latest injury news and none after tip-off. If the scoreboard cannot be read, the old rule applies (log now)."""
     if not len(P):
         return 0
     g = _prep(games)
@@ -35,6 +37,18 @@ def log_slate(P, games, today=None, preseason=False):
         return 0                                           # more than a day out: injuries/lineups will still change, log it the day before
     if not preseason and day <= g["date"].max():
         return 0                                           # a projection made after tip-off is not a prediction
+    if not preseason:
+        try:
+            from .gate import first_tip, LEAD
+            tip = first_tip(day.date())
+        except Exception as e:
+            print("log window: scoreboard unavailable, logging now:", e)
+            tip = None
+        if tip is not None:
+            now = pd.Timestamp(now).tz_convert("UTC") if now is not None else pd.Timestamp.now("UTC")
+            if not (pd.Timestamp(tip) - LEAD <= now < pd.Timestamp(tip)):
+                print(f"log window: {day.date()} is logged from {pd.Timestamp(tip) - LEAD:%H:%M}Z to tip {pd.Timestamp(tip):%H:%M}Z; now {now:%H:%M}Z, not logging")
+                return 0
     log = REHEARSAL_LOG if preseason else LOG
     old = pd.read_csv(log, dtype={"pid": str}) if os.path.exists(log) else pd.DataFrame()
     if len(old) and (pd.to_datetime(old["date"]) == day).any():
