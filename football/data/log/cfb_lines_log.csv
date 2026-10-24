@@ -1142,52 +1142,25 @@ commence,game,player_id,name,team,stat,cons_line,cons_p_over,n_books,pp_line,ud_
 2026-10-24T23:30:00Z,Iowa State @ Arizona,5219258,Aiden Flora,Iowa State,recY,,,,,12.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Iowa State @ Arizona,5219258,Aiden Flora,Iowa State,rushY,74.5,0.5203,1,,75.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Iowa State @ Arizona,4612624,Antwan Roberts,Arizona,rushY,37.5,0.5,1,,37.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4870906,Arch Manning,Texas,passY,235.5,0.5,1,237.5,235.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4870906,Arch Manning,Texas,rushY,19.5,0.5306,1,20.5,20.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Syracuse @ North Carolina,4592532,Billy Edwards,North Carolina,passY,214.5,0.5,1,218.5,218.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Iowa State @ Arizona,5121936,Brandon Phelps,Arizona,rec,3.5,0.477,1,,,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Iowa State @ Arizona,5121936,Brandon Phelps,Arizona,recY,47.5,0.5,1,,47.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Syracuse @ North Carolina,5159039,C.J. Sadler,North Carolina,recY,17.5,0.5,1,17.5,17.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5224178,Caleb Cunningham,Ole Miss,rec,2.5,0.3884,1,1.5,1.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5224178,Caleb Cunningham,Ole Miss,recY,18.5,0.5,1,20.5,18.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5079647,Caleb Odom,Ole Miss,rec,3.5,0.4918,2,3.5,3.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5079647,Caleb Odom,Ole Miss,recY,37.5,0.5,1,37.5,37.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Syracuse @ North Carolina,5159036,Calvin Russell III,Syracuse,recY,,,,29.5,,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5079376,Cam Coleman,Texas,rec,3.5,0.5225,2,,,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5079376,Cam Coleman,Texas,recY,53.5,0.5,1,54.5,55.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Iowa State @ Arizona,4875853,Cody Jackson,Iowa State,rec,2.5,0.5306,1,,,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Iowa State @ Arizona,4875853,Cody Jackson,Iowa State,recY,34.5,0.5,1,,34.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5203606,Derrek Cooper,Texas,rushY,29.5,0.4938,1,29.5,29.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5152158,Deuce Alexander,Ole Miss,rec,5.5,0.4288,2,5.0,,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5152158,Deuce Alexander,Ole Miss,recY,69.5,0.5101,1,70.5,70.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5079613,Emmett Mosley V,Texas,rec,3.5,0.4288,2,,,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5079613,Emmett Mosley V,Texas,recY,40.5,0.5062,1,40.5,40.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4711408,Horatio Fields,Ole Miss,rec,2.5,0.4158,2,,,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4711408,Horatio Fields,Ole Miss,recY,24.5,0.5306,1,27.5,27.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Iowa State @ Arizona,5198318,Isaiah Mizell,Arizona,rec,4.5,0.5247,1,,,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Iowa State @ Arizona,5198318,Isaiah Mizell,Arizona,recY,68.5,0.5,1,,68.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Iowa State @ Arizona,5080403,Jaylen Raynor,Iowa State,passY,180.5,0.5,1,,180.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Iowa State @ Arizona,5080403,Jaylen Raynor,Iowa State,rushY,17.5,0.5,1,,17.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Syracuse @ North Carolina,4871039,Jelani Thurman,North Carolina,recY,42.5,0.5062,1,43.5,43.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5161011,Jermaine Bishop Jr.,Texas,recY,21.5,0.5,1,21.5,21.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Syracuse @ North Carolina,5079687,Jordan Shipp,North Carolina,recY,74.5,0.5203,1,75.5,75.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Iowa State @ Arizona,4899361,Kedrick Reescano,Arizona,rushY,54.5,0.5051,2,,54.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5086388,Kewan Lacy,Ole Miss,recY,9.5,0.5408,1,10.5,11.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5086388,Kewan Lacy,Ole Miss,rushY,66.5,0.5,1,65.5,66.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Iowa State @ Arizona,4801717,Noah Fifita,Arizona,passY,262.5,0.5,2,,262.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Iowa State @ Arizona,4801717,Noah Fifita,Arizona,rushY,12.5,0.5,1,,12.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Iowa State @ Arizona,4837269,Omari Hayes,Iowa State,rec,2.5,0.6017,1,,,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Iowa State @ Arizona,4837269,Omari Hayes,Iowa State,recY,34.5,0.5306,1,,35.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4685268,Raleek Brown,Texas,rec,2.5,0.4521,2,,,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4685268,Raleek Brown,Texas,recY,14.5,0.5,1,14.5,14.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4685268,Raleek Brown,Texas,rushY,71.5,0.4938,1,71.5,71.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5218633,Ryan Wingo,Texas,rec,4.5,0.4732,2,4.5,,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5218633,Ryan Wingo,Texas,recY,53.5,0.5062,1,53.5,53.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4870912,Traylon Ray,Ole Miss,rec,2.5,0.5806,1,,,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4870912,Traylon Ray,Ole Miss,recY,32.5,0.4938,1,32.5,32.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Syracuse @ North Carolina,5077266,Trech Kekahuna,North Carolina,recY,24.5,0.5051,2,24.5,24.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4911529,Trinidad Chambliss,Ole Miss,passY,244.5,0.5101,1,246.5,246.5,2026-10-24T23:07:38+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4911529,Trinidad Chambliss,Ole Miss,rushY,15.5,0.5062,1,15.5,15.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Iowa State @ Arizona,4816108,Tyler Powell,Arizona,recY,,,,,17.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Syracuse @ North Carolina,5261613,Tylik Hill,Syracuse,rushY,34.5,0.4969,2,34.5,34.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:30:00Z,Syracuse @ North Carolina,4691315,Umari Hatcher,Syracuse,rec,7.5,0.4797,1,7.5,,2026-10-24T23:07:38+00:00,8
@@ -1224,37 +1197,64 @@ commence,game,player_id,name,team,stat,cons_line,cons_p_over,n_books,pp_line,ud_
 2026-10-24T23:35:00Z,USC @ Wisconsin,4714046,Tyrell Henry,Wisconsin,recY,39.5,0.5051,2,39.5,39.5,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:35:00Z,Vanderbilt @ Kentucky,5136838,Willie Rodriguez,Kentucky,rec,4.5,0.4732,2,4.5,,2026-10-24T23:07:38+00:00,8
 2026-10-24T23:35:00Z,Vanderbilt @ Kentucky,5136838,Willie Rodriguez,Kentucky,recY,38.5,0.5,1,38.5,38.5,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5326947,Bailen George,New Mexico,recY,28.5,0.5,1,,,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5219572,Cade Keith,New Mexico,recY,25.5,0.5,1,,,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5228002,Jackson Williams,North Dakota State,recY,50.5,0.5061,1,,,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5146726,Kiefer Sibley,New Mexico,rushY,42.5,0.4939,1,,,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,4832952,Mekhi Collins,North Dakota State,recY,29.5,0.5061,1,,,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5087156,Nathan Hayes,North Dakota State,passY,157.5,0.5,1,,,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5087156,Nathan Hayes,North Dakota State,rushY,28.5,0.5,1,,,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5228015,Reis Kessel,North Dakota State,recY,21.5,0.5061,1,,,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5166161,Scottre Humphrey,New Mexico,rushY,66.5,0.5,1,,,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5077060,Amare Thomas,Houston,rec,3.5,0.5721,1,4.0,,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5077060,Amare Thomas,Houston,recY,58.5,0.5,1,58.5,58.5,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4869422,Braden Pegan,Utah,rec,4.5,0.5408,1,5.0,,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4869422,Braden Pegan,Utah,recY,68.5,0.5,1,69.5,68.5,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5294263,Byrd Ficklin,Utah,rushY,15.5,0.5061,1,14.5,,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4685574,Conner Weigman,Houston,passY,231.5,0.5,1,231.5,232.5,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4685574,Conner Weigman,Houston,rushY,30.5,0.5,1,30.5,30.5,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4871040,Creed Whittemore,Utah,rec,2.5,0.4657,2,,,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4871040,Creed Whittemore,Utah,recY,29.5,0.5306,1,30.5,30.5,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5105849,Devon Dampier,Utah,passY,235.5,0.5,1,237.5,235.5,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5105849,Devon Dampier,Utah,rushY,44.5,0.5,1,43.5,44.5,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5146728,Koby Young,Houston,rec,1.5,0.5779,2,,,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5146728,Koby Young,Houston,recY,26.5,0.5,1,26.5,26.5,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4816098,Makhi Hughes,Houston,rushY,54.5,0.5,1,54.5,54.5,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4900351,Noah Bennee,Utah,rec,2.5,0.5,1,,,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4900351,Noah Bennee,Utah,recY,27.5,0.5,1,27.5,27.5,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5120299,Patrick Overmyer,Houston,rec,5.5,0.4366,2,5.0,,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5120299,Patrick Overmyer,Houston,recY,57.5,0.5,1,57.5,57.5,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5132652,Ricky Johnson,Utah,rec,2.5,0.4348,2,,,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5132652,Ricky Johnson,Utah,recY,29.5,0.5306,1,30.5,30.5,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4879567,Trent Walker,Houston,rec,3.5,0.4847,2,3.5,3.5,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4879567,Trent Walker,Houston,recY,46.5,0.5,1,48.5,46.5,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5173431,Wayshawn Parker,Utah,rec,2.5,0.5184,2,2.5,2.5,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5173431,Wayshawn Parker,Utah,recY,20.5,0.5306,1,21.5,21.5,2026-10-24T23:07:38+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5173431,Wayshawn Parker,Utah,rushY,96.5,0.5,1,96.5,96.5,2026-10-24T23:07:38+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,4870906,Arch Manning,Texas,passY,235.5,0.5,1,237.5,235.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,4870906,Arch Manning,Texas,rushY,19.5,0.5306,1,20.5,20.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,5224178,Caleb Cunningham,Ole Miss,rec,2.5,0.3884,1,1.5,,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,5224178,Caleb Cunningham,Ole Miss,recY,18.5,0.5,1,20.5,18.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,5079647,Caleb Odom,Ole Miss,rec,3.5,0.4918,2,3.5,3.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,5079647,Caleb Odom,Ole Miss,recY,37.5,0.5,1,37.5,37.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,5079376,Cam Coleman,Texas,rec,3.5,0.5225,2,,,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,5079376,Cam Coleman,Texas,recY,53.5,0.5,1,54.5,55.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,5203606,Derrek Cooper,Texas,rushY,29.5,0.4938,1,29.5,29.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,5152158,Deuce Alexander,Ole Miss,rec,5.5,0.4288,2,5.0,,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,5152158,Deuce Alexander,Ole Miss,recY,69.5,0.5203,1,69.5,70.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,5079613,Emmett Mosley V,Texas,rec,3.5,0.4288,2,,,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,5079613,Emmett Mosley V,Texas,recY,39.5,0.5306,1,40.5,40.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,4711408,Horatio Fields,Ole Miss,rec,2.5,0.4158,2,,,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,4711408,Horatio Fields,Ole Miss,recY,24.5,0.5306,1,27.5,27.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,5161011,Jermaine Bishop Jr.,Texas,recY,21.5,0.5,1,21.5,21.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,5086388,Kewan Lacy,Ole Miss,recY,9.5,0.5408,1,10.5,11.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,5086388,Kewan Lacy,Ole Miss,rushY,66.5,0.5,1,65.5,66.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,4685268,Raleek Brown,Texas,rec,2.5,0.4521,2,,,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,4685268,Raleek Brown,Texas,recY,14.5,0.5,1,14.5,14.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,4685268,Raleek Brown,Texas,rushY,71.5,0.4938,1,71.5,71.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,5218633,Ryan Wingo,Texas,rec,4.5,0.4732,2,4.5,4.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,5218633,Ryan Wingo,Texas,recY,53.5,0.5062,1,53.5,53.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,4870912,Traylon Ray,Ole Miss,rec,2.5,0.5721,1,,,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,4870912,Traylon Ray,Ole Miss,recY,32.5,0.4938,1,32.5,32.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,4911529,Trinidad Chambliss,Ole Miss,passY,244.5,0.5203,1,246.5,246.5,2026-10-24T23:42:54+00:00,8
+2026-10-24T23:50:00Z,Ole Miss @ Texas,4911529,Trinidad Chambliss,Ole Miss,rushY,15.5,0.5062,1,15.5,15.5,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5326947,Bailen George,New Mexico,recY,28.5,0.5,1,,,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5219572,Cade Keith,New Mexico,recY,25.5,0.5,1,,,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5228002,Jackson Williams,North Dakota State,recY,50.5,0.5062,1,,,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5146726,Kiefer Sibley,New Mexico,rushY,42.5,0.4938,1,,,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,4832952,Mekhi Collins,North Dakota State,recY,29.5,0.5062,1,,,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5087156,Nathan Hayes,North Dakota State,passY,157.5,0.5,1,,,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5087156,Nathan Hayes,North Dakota State,rushY,28.5,0.5,1,,,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5228015,Reis Kessel,North Dakota State,recY,21.5,0.5062,1,,,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5166161,Scottre Humphrey,New Mexico,rushY,66.5,0.5,1,,,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5077060,Amare Thomas,Houston,rec,3.5,0.5806,1,4.0,,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5077060,Amare Thomas,Houston,recY,58.5,0.5,1,58.5,58.5,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4869422,Braden Pegan,Utah,rec,4.5,0.5506,1,5.0,,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4869422,Braden Pegan,Utah,recY,68.5,0.5,1,69.5,68.5,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5294263,Byrd Ficklin,Utah,rushY,15.5,0.5061,1,14.5,,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4685574,Conner Weigman,Houston,passY,231.5,0.5,1,231.5,233.5,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4685574,Conner Weigman,Houston,rushY,30.5,0.5,1,30.5,30.5,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4871040,Creed Whittemore,Utah,rec,2.5,0.4657,2,,,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4871040,Creed Whittemore,Utah,recY,31.5,0.5061,1,30.5,31.5,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5105849,Devon Dampier,Utah,passY,235.5,0.5,1,237.5,235.5,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5105849,Devon Dampier,Utah,rushY,44.5,0.5,1,43.5,44.5,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5146728,Koby Young,Houston,rec,1.5,0.5779,2,,,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5146728,Koby Young,Houston,recY,26.5,0.5,1,26.5,26.5,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4816098,Makhi Hughes,Houston,rushY,54.5,0.5,1,54.5,54.5,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4900351,Noah Bennee,Utah,rec,2.5,0.5,1,,,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4900351,Noah Bennee,Utah,recY,27.5,0.5,1,27.5,27.5,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5120299,Patrick Overmyer,Houston,rec,5.5,0.4366,2,5.0,,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5120299,Patrick Overmyer,Houston,recY,57.5,0.5,1,57.5,57.5,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5132652,Ricky Johnson,Utah,rec,2.5,0.4348,2,,,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5132652,Ricky Johnson,Utah,recY,29.5,0.5306,1,30.5,30.5,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4879567,Trent Walker,Houston,rec,3.5,0.4847,2,3.5,3.5,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4879567,Trent Walker,Houston,recY,46.5,0.5,1,48.5,46.5,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5173431,Wayshawn Parker,Utah,rec,2.5,0.5184,2,2.5,2.5,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5173431,Wayshawn Parker,Utah,recY,20.5,0.5306,1,21.5,21.5,2026-10-24T23:42:54+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5173431,Wayshawn Parker,Utah,rushY,96.5,0.5,1,96.5,96.5,2026-10-24T23:42:54+00:00,8
