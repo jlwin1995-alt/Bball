@@ -68,7 +68,7 @@ k-pick entry paying M× needs M^(-1/k) per leg).
 1. Get a key at the-odds-api.com (the free tier is 500 credits/month; a full slate of 5 markets costs roughly 5 credits per game per pull
    with one bookmaker group, so plan on a paid tier for daily use - check their pricing page).
 2. GitHub: Settings → Secrets and variables → Actions → **New repository secret** `ODDS_API_KEY`. Never commit the key.
-3. Actions → **Refresh odds** → Run workflow. It then pulls twice a day: at 7 am ET and 2 hours before the day's first tip (taken from ESPN's scoreboard by `pipeline/gate.py`), and each scheduled pull then triggers the data refresh. The workflow ticks every 30 minutes; a tick with nothing to do ends in seconds and costs no credits, and several ticks fall inside each window because GitHub's scheduler is best-effort. Manual runs always pull (and do not trigger a refresh). Locally:
+3. Actions → **Refresh odds** → Run workflow. It has no cron of its own (GitHub's scheduler delivered only about one tick every 2-3 hours, which missed the pre-tip window). Instead, two scheduled tasks start it by hand each day: 7:03 am ET, and 2 hours before the day's first tip (the morning task looks the tip up on ESPN's scoreboard and schedules the second one); each pulls the odds and then runs the data refresh. `pipeline/gate.py` is kept for `first_tip`, which the pregame log uses. Locally:
    `ODDS_API_KEY=... python -m pipeline.fetch_odds && python -m pipeline.lines`.
 
 Markets and books are in `pipeline/config.py` (`ODDS_MARKETS`, `ODDS_BOOKS`). Edges above 15 points get a warning marker: they usually mean the
