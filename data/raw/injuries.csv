@@ -8,6 +8,7 @@ pid,name,team,status
 5061575,Kon Knueppel,CHA,Day-To-Day
 4684269,Kylan Boswell,CHA,Out
 4278067,Nic Claxton,CHI,Out
+6442,Kyrie Irving,DAL,Day-To-Day
 3138160,Caleb Martin,DAL,Day-To-Day
 5105806,Jett Howard,DAL,Day-To-Day
 5148538,Tarik Biberovic,DAL,Day-To-Day
@@ -20,11 +21,15 @@ pid,name,team,status
 4432181,Julian Strawther,DEN,Out
 4684742,Ausar Thompson,DET,Day-To-Day
 4433621,Jalen Duren,DET,Day-To-Day
-4397886,Charles Bassey,GS,Out
+4709138,Brandin Podziemski,GS,Out
+3975,Stephen Curry,GS,Day-To-Day
+4397886,Charles Bassey,GS,Day-To-Day
 3102531,Kristaps Porzingis,GS,Out
 4432171,Moses Moody,GS,Out
 6430,Jimmy Butler III,GS,Out
-4711272,Reed Sheppard,HOU,Out
+2991230,Fred VanVleet,HOU,Day-To-Day
+2991235,Steven Adams,HOU,Day-To-Day
+4711272,Reed Sheppard,HOU,Day-To-Day
 2530530,T.J. McConnell,IND,Day-To-Day
 4433076,Ben Sheppard,IND,Out
 5157066,Johnny Furphy,IND,Out
@@ -33,10 +38,10 @@ pid,name,team,status
 5108024,Yanic Konan Niederhauser,LAC,Out
 3913176,Brandon Ingram,TOR,Out
 4396818,Jordan Miller,LAC,Out
-4592691,Jake LaRavia,LAL,Out
-5060631,Adou Thiero,LAL,Out
-5113969,Cameron Carr,LAL,Out
-4903027,Cedric Coward,MEM,Out
+5060631,Adou Thiero,LAL,Day-To-Day
+4592691,Jake LaRavia,LAL,Day-To-Day
+5113969,Cameron Carr,LAL,Day-To-Day
+4903027,Cedric Coward,MEM,Day-To-Day
 3934673,Donte DiVincenzo,MIN,Out
 5061589,Yves Missi,NO,Day-To-Day
 5106270,Otega Oweh,OKC,Out
@@ -55,16 +60,16 @@ pid,name,team,status
 3913174,Luke Kennard,PHX,Day-To-Day
 4601023,Oso Ighodaro,PHX,Day-To-Day
 4701232,Mark Williams,PHX,Out
-4592435,Branden Carlson,POR,Out
-4706557,Chris Youngblood,POR,Out
+4706557,Chris Youngblood,POR,Day-To-Day
+4592435,Branden Carlson,POR,Day-To-Day
 4914336,Shaedon Sharpe,POR,Out
 3907387,Ben Simmons,SAC,Out
 4433174,Dylan Cardwell,SAC,Out
 4898371,Maxime Raynaud,SAC,Out
-6440,Tobias Harris,SA,Out
+6440,Tobias Harris,SA,Day-To-Day
 5101845,Jayden Quaintance,SA,Out
 4432586,Nate Bittle,TOR,Out
-4433268,Trey Alexander,UTAH,Out
+4433268,Trey Alexander,UTAH,Day-To-Day
 3102530,Jusuf Nurkic,UTAH,Out
 5142718,AJ Dybantsa,WSH,Day-To-Day
 4997537,Tristan Vukcevic,WSH,Out
