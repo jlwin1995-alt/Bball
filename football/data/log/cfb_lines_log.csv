@@ -911,311 +911,350 @@ commence,game,player_id,name,team,stat,cons_line,cons_p_over,n_books,pp_line,ud_
 2026-10-24T17:00:00Z,Baylor @ Kansas,4896389,Louis Brown,Baylor,recY,,,,47.5,47.5,2026-10-23T23:50:19+00:00,8
 2026-10-24T17:00:00Z,Baylor @ Kansas,4869730,Nik McMillan,Kansas,rec,3.5,0.4892,2,,3.5,2026-10-23T23:50:19+00:00,8
 2026-10-24T17:00:00Z,Baylor @ Kansas,4869730,Nik McMillan,Kansas,recY,55.5,0.5,1,55.5,55.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,4827047,Aidan Laughery,Illinois,recY,,,,10.5,10.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,4827047,Aidan Laughery,Illinois,rushY,63.5,0.5203,1,64.5,64.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,5211769,Brayden Trimble,Illinois,rec,2.5,0.4279,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,5211769,Brayden Trimble,Illinois,recY,22.5,0.5051,2,22.5,22.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,4923226,Collin Dixon,Illinois,rec,6.5,0.4391,2,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,4923226,Collin Dixon,Illinois,recY,73.5,0.5,1,73.5,73.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,5141586,Dakorien Moore,Oregon,rec,5.5,0.4348,2,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,5141586,Dakorien Moore,Oregon,recY,68.5,0.4939,1,68.5,68.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,5141499,Dierre Hill Jr.,Oregon,rec,2.5,0.4657,2,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,5141499,Dierre Hill Jr.,Oregon,recY,16.5,0.5,1,16.5,16.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,5141499,Dierre Hill Jr.,Oregon,rushY,64.5,0.5,1,64.5,64.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,5079572,Dylan Raiola,Oregon,passY,222.5,0.5,1,222.5,222.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,5100582,Hudson Clement,Illinois,rec,3.5,0.5545,2,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,5100582,Hudson Clement,Illinois,recY,49.5,0.5051,2,49.5,49.5,2026-10-23T23:50:19+00:00,8
 2026-10-24T19:00:00Z,Oregon @ Illinois,4922988,Jamari Johnson,Oregon,rec,4.5,0.4592,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,4922988,Jamari Johnson,Oregon,recY,49.5,0.5203,1,49.5,49.5,2026-10-23T23:50:19+00:00,8
 2026-10-24T19:00:00Z,Oregon @ Illinois,5203604,Javari Barnett,Illinois,rushY,,,,13.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,5141423,Jordon Davison,Oregon,recY,,,,2.5,2.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,5141423,Jordon Davison,Oregon,rushY,54.5,0.5051,2,54.5,56.5,2026-10-23T23:50:19+00:00,8
 2026-10-24T19:00:00Z,Oregon @ Illinois,5211889,Messiah Hampton,Oregon,rec,3.5,0.4182,2,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:00:00Z,Oregon @ Illinois,5211889,Messiah Hampton,Oregon,recY,32.5,0.5,1,32.5,32.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,4873456,Addison Ostrenga,Iowa,recY,,,,4.5,4.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5191162,Alberto Mendoza,Georgia Tech,passY,232.5,0.5,1,232.5,232.5,2026-10-23T23:50:19+00:00,8
 2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5191162,Alberto Mendoza,Georgia Tech,rushY,,,,4.5,,2026-10-23T23:50:19+00:00,8
 2026-10-24T19:30:00Z,Michigan State @ UCLA,5146670,Alessio Milivojevic,Michigan State,passY,163.5,0.4797,1,159.5,161.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,4907671,Anthony Evans III,Mississippi State,rec,6.5,0.5,1,6.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,4907671,Anthony Evans III,Mississippi State,recY,74.5,0.5,1,74.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,5083175,Anthony Woods,UCLA,rushY,,,,45.5,45.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,5141367,Bear Bachmeier,BYU,passY,209.5,0.5,1,212.5,212.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,5141367,Bear Bachmeier,BYU,rushY,44.5,0.4939,1,44.5,44.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5208592,Bo MacCormack III,Boston College,rushY,45.5,0.5,1,45.5,45.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Tennessee @ South Carolina,5132629,Braylon Staley,Tennessee,rec,4.5,0.5294,2,4.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Tennessee @ South Carolina,5132629,Braylon Staley,Tennessee,recY,47.5,0.5,1,47.5,47.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,5209464,Brian Rowe Jr.,UCLA,rec,2.5,0.5,2,2.5,2.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,5209464,Brian Rowe Jr.,UCLA,recY,32.5,0.5,1,32.5,32.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,5148656,Caden Piening,UCF,rec,,,,2.5,2.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,5148656,Caden Piening,UCF,recY,,,,21.5,22.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,4869599,Chrishon Mccray,Michigan State,rec,2.5,0.6017,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,4869599,Chrishon Mccray,Michigan State,recY,28.5,0.5,1,28.5,28.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Tennessee @ South Carolina,5081213,DJ Black,South Carolina,rec,2.5,0.4085,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Tennessee @ South Carolina,5081213,DJ Black,South Carolina,recY,29.5,0.5132,2,29.5,29.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5218931,DJ Vonnahme,Iowa,rec,3.5,0.4706,2,3.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5218931,DJ Vonnahme,Iowa,recY,37.5,0.5,1,37.5,37.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5199859,Dalen Penson,Georgia Tech,rec,3.5,0.4718,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5199859,Dalen Penson,Georgia Tech,recY,46.5,0.5,1,46.5,46.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,4920901,Darius Taylor,Minnesota,rec,3.5,0.4706,2,3.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,4920901,Darius Taylor,Minnesota,recY,26.5,0.5,1,26.5,26.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,4920901,Darius Taylor,Minnesota,rushY,39.5,0.5306,1,40.5,40.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Tennessee @ South Carolina,5141598,Daune Morris,Tennessee,rushY,24.5,0.5306,1,25.5,25.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5214566,Dawson Pough,Boston College,recY,,,,20.5,22.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Tennessee @ South Carolina,4921108,DeSean Bishop,Tennessee,rushY,115.5,0.5,1,114.5,115.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5144959,Drake Lindsey,Minnesota,passY,204.5,0.5,1,204.5,204.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,5136049,Duke Watson,UCF,rushY,54.5,0.5051,2,54.5,54.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5220197,Fluff Bothwell,Mississippi State,rushY,45.5,0.496,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,4905609,Fredrick Moore,Michigan State,rec,2.5,0.4706,2,2.5,2.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,4905609,Fredrick Moore,Michigan State,recY,24.5,0.5306,1,26.5,26.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Tennessee @ South Carolina,5141571,George MacIntyre,Tennessee,passY,192.5,0.5051,2,191.5,192.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Texas A&M @ Alabama,4685383,Isaiah Horton,Texas A&M,rec,3.5,0.4074,2,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Texas A&M @ Alabama,4685383,Isaiah Horton,Texas A&M,recY,34.5,0.5203,1,35.5,35.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5080703,Isaiah Sategna,Oklahoma,rec,6.5,0.4706,2,6.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5080703,Isaiah Sategna,Oklahoma,recY,74.5,0.5101,1,78.5,77.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,5114332,Jaivian Thomas,UCLA,rushY,34.5,0.4694,1,31.5,31.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5144962,Jalen Smith,Minnesota,rec,2.5,0.4706,2,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5144962,Jalen Smith,Minnesota,recY,27.5,0.5051,2,27.5,27.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5146747,Javarius Green,Boston College,rec,4.5,0.4415,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5146747,Javarius Green,Boston College,recY,46.5,0.4939,1,46.5,45.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,4831976,Javon Tracy,Minnesota,rec,4.5,0.4538,2,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,4831976,Javon Tracy,Minnesota,recY,44.5,0.5101,1,45.5,45.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,5214448,Jayden Savoury,Michigan State,rec,3.5,0.4706,2,3.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,5214448,Jayden Savoury,Michigan State,recY,27.5,0.4939,1,27.5,27.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,5081332,Jaziun Patterson,Michigan State,recY,,,,10.5,13.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,5081332,Jaziun Patterson,Michigan State,rushY,54.5,0.5203,1,58.5,57.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5121030,Jeremy Hecklinski,Iowa,passY,184.5,0.5051,2,184.5,184.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5121030,Jeremy Hecklinski,Iowa,rushY,,,,7.5,7.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,4915980,John Mateer,Oklahoma,passY,226.5,0.5,1,226.5,226.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,4915980,John Mateer,Oklahoma,rushY,24.5,0.5051,2,24.5,24.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,5160955,Jojo Phillips,BYU,rec,2.5,0.4194,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,5160955,Jojo Phillips,BYU,recY,,,,25.5,25.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5141362,Jordan Allen,Georgia Tech,rec,5.5,0.5282,1,5.5,5.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5141362,Jordan Allen,Georgia Tech,recY,67.5,0.5,1,65.5,67.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Boston College @ Georgia Tech,4870760,Justice Haynes,Georgia Tech,rushY,83.5,0.5,1,83.5,83.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Texas A&M @ Alabama,5142591,Kaleb Edwards,Alabama,recY,,,,14.5,14.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5093886,Kamari Moulton,Iowa,recY,,,,7.5,7.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5093886,Kamari Moulton,Iowa,rushY,87.5,0.5,1,87.5,87.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5177084,Kamario Taylor,Mississippi State,passY,222.5,0.5,1,222.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5177084,Kamario Taylor,Mississippi State,rushY,24.5,0.5061,1,24.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Texas A&M @ Alabama,5141629,Keelon Russell,Alabama,passY,250.5,0.5,1,250.5,250.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Texas A&M @ Alabama,5141629,Keelon Russell,Alabama,rushY,24.5,0.5306,1,25.5,25.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5215629,Kevin Roche Jr.,Georgia Tech,rec,3.5,0.4542,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5215629,Kevin Roche Jr.,Georgia Tech,recY,30.5,0.5,1,30.5,30.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,5085337,Keyone Jenkins,UCF,passY,189.5,0.5203,1,190.5,190.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5209427,Kolin Wilson,Mississippi State,rushY,,,,37.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,4870876,Kyler Kasper,BYU,rec,2.5,0.6559,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,4870876,Kyler Kasper,BYU,recY,40.5,0.5,1,40.5,40.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5155048,L.J. Phillips Jr.,Iowa,rushY,29.5,0.5,1,28.5,28.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Tennessee @ South Carolina,4875127,Lanorris Sellers,South Carolina,passY,231.5,0.5,1,231.5,231.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Tennessee @ South Carolina,4875127,Lanorris Sellers,South Carolina,rushY,50.5,0.5,1,50.5,50.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,5279329,Legend Glasker,BYU,rec,3.5,0.5806,1,4.0,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,5279329,Legend Glasker,BYU,recY,58.5,0.5,1,58.5,58.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5079298,Lloyd Avant,Oklahoma,recY,,,,15.5,15.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5079298,Lloyd Avant,Oklahoma,rushY,47.5,0.5,1,47.5,47.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Texas A&M @ Alabama,5141394,Lotzeir Brooks,Alabama,rec,4.5,0.433,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Texas A&M @ Alabama,5141394,Lotzeir Brooks,Alabama,recY,60.5,0.5,1,60.5,60.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Texas A&M @ Alabama,4870971,Marcel Reed,Texas A&M,passY,168.5,0.5,1,168.5,168.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Texas A&M @ Alabama,4870971,Marcel Reed,Texas A&M,rushY,19.5,0.5051,2,19.5,19.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Texas A&M @ Alabama,5164343,Marshall Pritchett,Alabama,recY,32.5,0.5,1,32.5,32.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5307005,Mason McKenzie,Boston College,passY,203.5,0.5,1,203.5,203.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5307005,Mason McKenzie,Boston College,rushY,58.5,0.5,1,58.5,58.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Tennessee @ South Carolina,5079329,Mazeo Bennett,South Carolina,rec,4.5,0.4182,2,4.0,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Tennessee @ South Carolina,5079329,Mazeo Bennett,South Carolina,recY,39.5,0.4929,2,39.5,39.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Tennessee @ South Carolina,5079580,Mike Matthews,Tennessee,rec,3.5,0.5609,2,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Tennessee @ South Carolina,5079580,Mike Matthews,Tennessee,recY,57.5,0.5,1,55.5,57.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5164749,Noah Jennings,Minnesota,rec,4.5,0.5101,1,4.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5164749,Noah Jennings,Minnesota,recY,53.5,0.5,1,53.5,53.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Tennessee @ South Carolina,4870745,Nyck Harbor,South Carolina,rec,2.5,0.5915,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Tennessee @ South Carolina,4870745,Nyck Harbor,South Carolina,recY,43.5,0.5,1,43.5,43.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,5092200,Preston Rex,BYU,recY,,,,11.5,11.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,5092200,Preston Rex,BYU,rushY,44.5,0.5203,1,45.5,45.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Tennessee @ South Carolina,5195481,Radarious Jackson,Tennessee,rec,1.5,0.5081,2,1.5,1.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Tennessee @ South Carolina,5195481,Radarious Jackson,Tennessee,recY,18.5,0.5,1,18.5,18.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5138293,Reece Vander Zee,Iowa,rec,2.5,0.4391,2,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5138293,Reece Vander Zee,Iowa,recY,29.5,0.5306,1,30.5,30.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Texas A&M @ Alabama,5079714,Rico Scott,Alabama,rec,4.5,0.4621,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Texas A&M @ Alabama,5079714,Rico Scott,Alabama,recY,54.5,0.5203,1,55.5,55.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,4907786,Rocky Beers,Oklahoma,rec,4.5,0.4348,2,4.0,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,4907786,Rocky Beers,Oklahoma,recY,43.5,0.5,1,43.5,43.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,5260691,Rodney Bullard Jr.,Michigan State,rec,2.5,0.4391,2,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,5260691,Rodney Bullard Jr.,Michigan State,recY,27.5,0.5,1,27.5,27.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Texas A&M @ Alabama,4870934,Rueben Owens,Texas A&M,recY,,,,6.5,5.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Texas A&M @ Alabama,4870934,Rueben Owens,Texas A&M,rushY,,,,,31.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5146736,Sanfrisco Magee,Mississippi State,rec,3.5,0.4415,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5146736,Sanfrisco Magee,Mississippi State,recY,40.5,0.5,1,40.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,4899366,Semaj Morgan,UCLA,rec,3.5,0.5294,2,3.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,4899366,Semaj Morgan,UCLA,recY,42.5,0.5,1,42.5,42.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5224792,TJ Thomas Jr.,Minnesota,recY,,,,5.5,5.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5224792,TJ Thomas Jr.,Minnesota,rushY,28.5,0.5,1,28.5,28.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Texas A&M @ Alabama,5164360,TK Norman,Texas A&M,rec,2.5,0.5061,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Texas A&M @ Alabama,5164360,TK Norman,Texas A&M,recY,28.5,0.5,1,30.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5300856,Tony Diaz,Iowa,rec,4.5,0.4686,2,4.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5300856,Tony Diaz,Iowa,recY,45.5,0.5,1,45.5,45.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Iowa @ Minnesota,5300856,Tony Diaz,Iowa,rushY,,,,4.5,4.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Texas A&M @ Alabama,5327659,Trae'shawn Brown,Alabama,rushY,48.5,0.5,1,48.5,48.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,5092275,Ty Dieffenbach,UCLA,passY,181.5,0.5,1,183.5,181.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,5142600,Waden Charles,UCF,rec,3.5,0.4248,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,5142600,Waden Charles,UCF,recY,33.5,0.5,1,33.5,30.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,5221043,Walker Lyons,BYU,rec,2.5,0.6667,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,BYU @ UCF,5221043,Walker Lyons,BYU,recY,35.5,0.5,1,35.5,35.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,4912342,Wayne Knight,UCLA,rec,2.5,0.3859,2,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,4912342,Wayne Knight,UCLA,recY,18.5,0.5,1,18.5,18.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:30:00Z,Michigan State @ UCLA,4912342,Wayne Knight,UCLA,rushY,88.5,0.5,1,88.5,88.5,2026-10-23T23:50:19+00:00,8
 2026-10-24T19:45:00Z,Kansas State @ Arizona State,4870857,Avery Johnson,Kansas State,passY,199.5,0.5203,1,200.5,200.5,2026-10-23T23:50:19+00:00,8
 2026-10-24T19:45:00Z,Kansas State @ Arizona State,4870857,Avery Johnson,Kansas State,rushY,,,,48.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:45:00Z,Kansas State @ Arizona State,5384681,Derrick Salley Jr.,Kansas State,recY,,,,38.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:45:00Z,Kansas State @ Arizona State,5078225,Jaron Tibbs,Kansas State,recY,44.5,0.5306,1,46.5,46.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:45:00Z,Kansas State @ Arizona State,5079348,Jason Brown Jr.,Arizona State,rushY,34.5,0.5101,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:45:00Z,Kansas State @ Arizona State,5078916,Joe Jackson,Kansas State,rushY,74.5,0.5051,2,74.5,74.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:45:00Z,Kansas State @ Arizona State,5110535,Kyson Brown,Arizona State,rushY,34.5,0.5,1,34.5,34.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:45:00Z,Kansas State @ Arizona State,4597499,Mikey Keene,Arizona State,passY,215.5,0.5,1,215.5,215.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:45:00Z,Kansas State @ Arizona State,4870850,Omarion Miller,Arizona State,recY,56.5,0.5061,1,56.5,56.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:45:00Z,Kansas State @ Arizona State,5031157,Reed Harris,Arizona State,rec,,,,7.5,7.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:45:00Z,Kansas State @ Arizona State,5031157,Reed Harris,Arizona State,recY,91.5,0.5,1,91.5,91.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T19:45:00Z,Kansas State @ Arizona State,5125335,Rodney Fields Jr.,Kansas State,rushY,56.5,0.5,1,57.5,59.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T22:00:00Z,Boise State @ Washington State,5146712,Dylan Riley,Boise State,recY,13.5,0.5,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T22:00:00Z,Boise State @ Washington State,5146712,Dylan Riley,Boise State,rushY,118.5,0.5,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T22:00:00Z,Boise State @ Washington State,4870513,Maddux Madsen,Boise State,passY,207.5,0.5,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T22:00:00Z,Boise State @ Washington State,5080888,Matt Wagner,Boise State,recY,35.5,0.5,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T22:00:00Z,Boise State @ Washington State,5290573,Rasean Jones,Boise State,recY,59.5,0.5,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T22:00:00Z,Boise State @ Washington State,5147379,Sire Gaines,Boise State,rushY,73.5,0.4939,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Virginia Tech @ Clemson,4918417,Ayden Greene,Virginia Tech,recY,24.5,0.4868,2,24.5,24.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Colorado @ Oklahoma State,4875861,Ayo Adeyi,Oklahoma State,rushY,,,,23.5,23.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5112674,Bryant Wesco Jr.,Clemson,recY,59.5,0.4797,1,56.5,56.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5258016,Caleb Hawkins,Oklahoma State,recY,23.5,0.5,1,23.5,23.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5258016,Caleb Hawkins,Oklahoma State,rushY,103.5,0.5,1,103.5,103.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5148822,Chris Barnes,Oklahoma State,recY,19.5,0.5,1,19.5,19.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5158951,Davion Brown,Virginia Tech,recY,19.5,0.5,1,,19.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Colorado @ Oklahoma State,4870860,DeAndre Moore Jr.,Colorado,recY,,,,43.5,44.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5096878,Dekalon Taylor,Colorado,recY,,,,8.5,8.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5219834,Drew Mestemaker,Oklahoma State,passY,299.5,0.5,1,299.5,299.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5219834,Drew Mestemaker,Oklahoma State,rushY,,,,6.5,6.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5144078,Ethan Grunkemeyer,Virginia Tech,passY,239.5,0.5101,1,240.5,240.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5141422,Gideon Davidson,Clemson,rushY,69.5,0.4797,1,69.5,66.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5079771,Isaac Wilson,Colorado,passY,212.5,0.5,1,212.5,212.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5079771,Isaac Wilson,Colorado,rushY,,,,14.5,14.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5301028,Jaquail Smith,Colorado,recY,,,,11.5,11.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5301028,Jaquail Smith,Colorado,rushY,,,,46.5,46.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5214409,Jeffrey Overton Jr.,Virginia Tech,rushY,68.5,0.5061,1,68.5,68.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5189530,Joseph Williams,Colorado,recY,69.5,0.5,1,69.5,69.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5083747,Justin Bowick,Oklahoma State,recY,59.5,0.5,1,59.5,59.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5138451,Luke Reynolds,Virginia Tech,recY,45.5,0.5,1,45.5,45.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5149007,Miles Coleman,Oklahoma State,recY,37.5,0.4939,1,37.5,37.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5218787,Que'Sean Brown,Virginia Tech,recY,62.5,0.5,1,62.5,62.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5218753,T.J. Moore,Clemson,recY,52.5,0.5,1,52.5,52.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5159078,Tait Reynolds,Clemson,passY,205.5,0.5051,2,205.5,205.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5148787,Wyatt Young,Oklahoma State,recY,91.5,0.5,1,91.5,91.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,5078005,Abu Sama III,Wisconsin,rushY,42.5,0.5061,1,42.5,42.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Syracuse @ North Carolina,5154420,Ahmad Miller,Syracuse,rushY,42.5,0.5,1,42.5,42.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Iowa State @ Arizona,5219258,Aiden Flora,Iowa State,rushY,74.5,0.5203,1,,75.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Iowa State @ Arizona,4612624,Antwan Roberts,Arizona,rushY,39.5,0.5061,1,,39.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4870906,Arch Manning,Texas,passY,238.5,0.5,1,237.5,238.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4870906,Arch Manning,Texas,rushY,17.5,0.5,1,17.5,17.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Syracuse @ North Carolina,4592532,Billy Edwards,North Carolina,passY,221.5,0.5,1,221.5,221.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Iowa State @ Arizona,5121936,Brandon Phelps,Arizona,rec,3.5,0.417,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Iowa State @ Arizona,5121936,Brandon Phelps,Arizona,recY,41.5,0.5,1,,41.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Syracuse @ North Carolina,5159039,C.J. Sadler,North Carolina,recY,,,,22.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,4870609,CJ Baxter Jr.,Kentucky,rushY,76.5,0.5,1,76.5,76.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5079647,Caleb Odom,Ole Miss,rec,3.5,0.4919,2,3.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5079647,Caleb Odom,Ole Miss,recY,37.5,0.5,1,37.5,37.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Syracuse @ North Carolina,5159036,Calvin Russell III,Syracuse,recY,,,,29.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5079376,Cam Coleman,Texas,rec,3.5,0.5294,2,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5079376,Cam Coleman,Texas,recY,55.5,0.5,1,55.5,55.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,4917172,Chris Brooks Jr.,Wisconsin,rec,2.5,0.4694,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,4917172,Chris Brooks Jr.,Wisconsin,recY,25.5,0.5,1,25.5,25.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Iowa State @ Arizona,4875853,Cody Jackson,Iowa State,rec,2.5,0.5306,1,,2.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Iowa State @ Arizona,4875853,Cody Jackson,Iowa State,recY,34.5,0.5,1,,34.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,5125715,Colton Joseph,Wisconsin,passY,180.5,0.5,1,180.5,180.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,5125715,Colton Joseph,Wisconsin,rushY,51.5,0.5,1,51.5,51.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5152158,Deuce Alexander,Ole Miss,rec,5.5,0.4064,1,5.0,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5152158,Deuce Alexander,Ole Miss,recY,69.5,0.5203,1,70.5,70.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5079613,Emmett Mosley V,Texas,rec,3.5,0.4281,2,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5079613,Emmett Mosley V,Texas,recY,40.5,0.5061,1,40.5,40.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4711408,Horatio Fields,Ole Miss,rec,2.5,0.5294,2,2.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4711408,Horatio Fields,Ole Miss,recY,27.5,0.5,1,27.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Iowa State @ Arizona,5198318,Isaiah Mizell,Arizona,rec,4.5,0.4718,1,,4.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Iowa State @ Arizona,5198318,Isaiah Mizell,Arizona,recY,66.5,0.5,1,,66.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,5122018,Jacob Harris,Wisconsin,rec,2.5,0.5,2,2.5,2.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,5122018,Jacob Harris,Wisconsin,recY,33.5,0.5,1,33.5,33.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,5158948,Jared Curtis,Vanderbilt,passY,216.5,0.5,1,216.5,216.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,4685454,Jayden Maiava,USC,passY,253.5,0.5,1,254.5,253.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Iowa State @ Arizona,5080403,Jaylen Raynor,Iowa State,passY,180.5,0.5,1,,180.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Iowa State @ Arizona,5080403,Jaylen Raynor,Iowa State,rushY,16.5,0.5051,2,,16.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Syracuse @ North Carolina,4871039,Jelani Thurman,North Carolina,recY,39.5,0.5101,1,39.5,40.5,2026-10-23T23:50:19+00:00,8
 2026-10-24T23:30:00Z,Syracuse @ North Carolina,5079687,Jordan Shipp,North Carolina,rec,6.5,0.4592,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Syracuse @ North Carolina,5079687,Jordan Shipp,North Carolina,recY,84.5,0.4797,1,81.5,83.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,5078165,Junior Sherrill,Vanderbilt,rec,5.5,0.5172,2,5.5,5.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,5078165,Junior Sherrill,Vanderbilt,recY,79.5,0.5051,2,79.5,79.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Iowa State @ Arizona,4899361,Kedrick Reescano,Arizona,rushY,53.5,0.5,1,,53.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,5215172,Kenny Darby,Kentucky,rec,4.5,0.4803,2,4.5,4.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,5215172,Kenny Darby,Kentucky,recY,58.5,0.5061,1,58.5,58.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,4918099,Kenny Minchey,Kentucky,passY,236.5,0.5,1,236.5,236.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,4918099,Kenny Minchey,Kentucky,rushY,9.5,0.5051,2,9.5,9.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5086388,Kewan Lacy,Ole Miss,recY,9.5,0.5051,2,9.5,9.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5086388,Kewan Lacy,Ole Miss,rushY,62.5,0.5,1,60.5,62.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,5233016,King Miller,USC,recY,,,,3.5,3.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,5233016,King Miller,USC,rushY,72.5,0.4939,1,72.5,72.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,4912302,Makhilyn Young,Vanderbilt,rushY,39.5,0.5203,1,39.5,40.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,5264686,Mark Bowman,USC,rec,3.5,0.5306,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,5264686,Mark Bowman,USC,recY,,,,30.5,32.5,2026-10-23T23:50:19+00:00,8
 2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,4699866,Nic Anderson,Kentucky,rec,3.5,0.4759,1,3.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,4699866,Nic Anderson,Kentucky,recY,,,,34.5,35.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Iowa State @ Arizona,4801717,Noah Fifita,Arizona,passY,260.5,0.5,1,,260.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Iowa State @ Arizona,4801717,Noah Fifita,Arizona,rushY,13.5,0.5,1,,13.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Iowa State @ Arizona,4837269,Omari Hayes,Iowa State,rec,3.5,0.4182,2,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Iowa State @ Arizona,4837269,Omari Hayes,Iowa State,recY,37.5,0.5061,1,,37.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5218633,Ryan Wingo,Texas,rec,4.5,0.4706,2,4.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,5218633,Ryan Wingo,Texas,recY,51.5,0.5,1,51.5,51.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,5030333,Sedrick Alexander,Vanderbilt,rushY,34.5,0.5203,1,35.5,35.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,5141975,Tanook Hines,USC,rec,3.5,0.4366,2,3.0,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,5141975,Tanook Hines,USC,recY,38.5,0.5,1,38.5,38.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4870912,Traylon Ray,Ole Miss,rec,3.5,0.3769,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4870912,Traylon Ray,Ole Miss,recY,33.5,0.5051,2,33.5,33.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Syracuse @ North Carolina,5077266,Trech Kekahuna,North Carolina,recY,29.5,0.4797,1,28.5,28.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,5160469,Trent Mosley,USC,rec,4.5,0.5,2,4.5,4.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,5160469,Trent Mosley,USC,recY,69.5,0.5051,2,69.5,69.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4911529,Trinidad Chambliss,Ole Miss,passY,246.5,0.5,1,241.5,246.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Ole Miss @ Texas,4911529,Trinidad Chambliss,Ole Miss,rushY,15.5,0.5061,1,15.5,15.5,2026-10-23T23:50:19+00:00,8
 2026-10-24T23:30:00Z,Iowa State @ Arizona,4816108,Tyler Powell,Arizona,rec,,,,,2.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Iowa State @ Arizona,4816108,Tyler Powell,Arizona,recY,,,,,22.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Syracuse @ North Carolina,5261613,Tylik Hill,Syracuse,rushY,33.5,0.4939,1,30.5,33.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,4714046,Tyrell Henry,Wisconsin,rec,3.5,0.4567,2,,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,USC @ Wisconsin,4714046,Tyrell Henry,Wisconsin,recY,39.5,0.5051,2,39.5,39.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Syracuse @ North Carolina,4691315,Umari Hatcher,Syracuse,rec,,,,7.5,7.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Syracuse @ North Carolina,4691315,Umari Hatcher,Syracuse,recY,84.5,0.5408,1,88.5,88.5,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,5136838,Willie Rodriguez,Kentucky,rec,4.5,0.4706,2,4.5,,2026-10-23T23:50:19+00:00,8
-2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,5136838,Willie Rodriguez,Kentucky,recY,36.5,0.5,1,36.5,36.5,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5326947,Bailen George,New Mexico,recY,24.5,0.5,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5219572,Cade Keith,New Mexico,recY,27.5,0.5,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5228002,Jackson Williams,North Dakota State,recY,50.5,0.5061,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5146726,Kiefer Sibley,New Mexico,rushY,40.5,0.5,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,4832952,Mekhi Collins,North Dakota State,recY,30.5,0.5061,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5087156,Nathan Hayes,North Dakota State,passY,157.5,0.5,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5087156,Nathan Hayes,North Dakota State,rushY,29.5,0.5,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5228015,Reis Kessel,North Dakota State,recY,23.5,0.5061,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5166161,Scottre Humphrey,New Mexico,rushY,66.5,0.5,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5077060,Amare Thomas,Houston,rec,3.5,0.5806,1,4.0,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5077060,Amare Thomas,Houston,recY,58.5,0.5,1,58.5,58.5,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4869422,Braden Pegan,Utah,rec,4.5,0.5721,1,5.0,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4869422,Braden Pegan,Utah,recY,68.5,0.5,1,68.5,68.5,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5294263,Byrd Ficklin,Utah,rushY,14.5,0.5061,1,14.5,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4685574,Conner Weigman,Houston,passY,236.5,0.5,1,236.5,236.5,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4685574,Conner Weigman,Houston,rushY,30.5,0.5,1,30.5,30.5,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4871040,Creed Whittemore,Utah,rec,2.5,0.4621,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4871040,Creed Whittemore,Utah,recY,29.5,0.5306,1,30.5,30.5,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5105849,Devon Dampier,Utah,passY,232.5,0.5,1,234.5,232.5,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5105849,Devon Dampier,Utah,rushY,44.5,0.5,1,44.5,44.5,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5146728,Koby Young,Houston,rec,1.5,0.5779,2,,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5146728,Koby Young,Houston,recY,26.5,0.5,1,26.5,26.5,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4816098,Makhi Hughes,Houston,rushY,54.5,0.5,1,54.5,54.5,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4900351,Noah Bennee,Utah,rec,2.5,0.4621,1,2.5,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4900351,Noah Bennee,Utah,recY,24.5,0.5,1,24.5,24.5,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5120299,Patrick Overmyer,Houston,rec,5.5,0.4366,2,5.0,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5120299,Patrick Overmyer,Houston,recY,57.5,0.5,1,57.5,57.5,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5132652,Ricky Johnson,Utah,rec,2.5,0.433,1,,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5132652,Ricky Johnson,Utah,recY,29.5,0.5306,1,30.5,30.5,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4879567,Trent Walker,Houston,rec,3.5,0.5294,2,3.5,,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,4879567,Trent Walker,Houston,recY,44.5,0.5203,1,45.5,45.5,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5173431,Wayshawn Parker,Utah,rec,2.5,0.5184,2,2.5,2.5,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5173431,Wayshawn Parker,Utah,recY,20.5,0.5306,1,21.5,21.5,2026-10-23T23:50:19+00:00,8
-2026-10-25T02:15:00Z,Houston @ Utah,5173431,Wayshawn Parker,Utah,rushY,96.5,0.5,1,96.5,96.5,2026-10-23T23:50:19+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,4827047,Aidan Laughery,Illinois,recY,,,,10.5,11.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,4827047,Aidan Laughery,Illinois,rushY,63.5,0.5203,1,64.5,61.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,5211769,Brayden Trimble,Illinois,rec,,,,2.5,2.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,5211769,Brayden Trimble,Illinois,recY,22.5,0.5051,2,22.5,22.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,4923226,Collin Dixon,Illinois,rec,6.5,0.4412,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,4923226,Collin Dixon,Illinois,recY,73.5,0.5,1,73.5,73.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,5141586,Dakorien Moore,Oregon,rec,5.5,0.4368,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,5141586,Dakorien Moore,Oregon,recY,69.5,0.5101,1,70.5,70.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,5141499,Dierre Hill Jr.,Oregon,rec,2.5,0.4681,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,5141499,Dierre Hill Jr.,Oregon,recY,16.5,0.5,1,16.5,16.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,5141499,Dierre Hill Jr.,Oregon,rushY,64.5,0.5,1,64.5,64.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,5079572,Dylan Raiola,Oregon,passY,220.5,0.5,1,220.5,220.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,5100582,Hudson Clement,Illinois,rec,3.5,0.5525,2,4.0,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,5100582,Hudson Clement,Illinois,recY,49.5,0.5051,2,49.5,49.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,4922988,Jamari Johnson,Oregon,recY,,,,56.5,56.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,5141423,Jordon Davison,Oregon,recY,,,,2.5,2.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,5141423,Jordon Davison,Oregon,rushY,54.5,0.5051,2,54.5,54.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:00:00Z,Oregon @ Illinois,5211889,Messiah Hampton,Oregon,recY,,,,,31.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5158998,Aaron Gregory,Texas A&M,recY,22.5,0.5,1,22.5,22.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,4873456,Addison Ostrenga,Iowa,recY,,,,4.5,4.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5191162,Alberto Mendoza,Georgia Tech,passY,231.5,0.5101,1,232.5,232.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,4907671,Anthony Evans III,Mississippi State,rec,6.5,0.4949,2,6.5,6.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,4907671,Anthony Evans III,Mississippi State,recY,77.5,0.5,1,77.5,77.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,5083175,Anthony Woods,UCLA,rushY,43.5,0.5,1,44.5,43.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,5141367,Bear Bachmeier,BYU,passY,215.5,0.5,1,215.5,215.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,5141367,Bear Bachmeier,BYU,rushY,47.5,0.4938,1,47.5,47.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5208592,Bo MacCormack III,Boston College,rushY,45.5,0.5,1,45.5,45.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,5132629,Braylon Staley,Tennessee,rec,4.5,0.5225,2,4.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,5132629,Braylon Staley,Tennessee,recY,47.5,0.5,1,47.5,47.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,5209464,Brian Rowe Jr.,UCLA,rec,2.5,0.4521,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,5209464,Brian Rowe Jr.,UCLA,recY,29.5,0.4969,2,29.5,29.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,5148656,Caden Piening,UCF,rec,,,,2.5,2.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,5148656,Caden Piening,UCF,recY,,,,21.5,22.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,4869599,Chrishon Mccray,Michigan State,rec,2.5,0.5174,2,2.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,4869599,Chrishon Mccray,Michigan State,recY,29.5,0.4899,1,28.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,5081213,DJ Black,South Carolina,rec,2.5,0.3983,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,5081213,DJ Black,South Carolina,recY,29.5,0.5082,2,29.5,29.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5218931,DJ Vonnahme,Iowa,rec,3.5,0.4732,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5218931,DJ Vonnahme,Iowa,recY,37.5,0.5,1,37.5,37.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5199859,Dalen Penson,Georgia Tech,rec,3.5,0.4732,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5199859,Dalen Penson,Georgia Tech,recY,45.5,0.5203,1,46.5,46.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5079506,Daniel Hill,Alabama,recY,,,,7.5,7.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5079506,Daniel Hill,Alabama,rushY,33.5,0.5,1,33.5,33.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,4920901,Darius Taylor,Minnesota,rec,3.5,0.4949,2,3.5,3.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,4920901,Darius Taylor,Minnesota,recY,27.5,0.5,1,27.5,27.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,4920901,Darius Taylor,Minnesota,rushY,39.5,0.5306,1,40.5,40.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,5141391,Dasaahn Brame,Tennessee,rec,2.5,0.5104,1,2.5,2.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,5141391,Dasaahn Brame,Tennessee,recY,23.5,0.5,1,23.5,23.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,5141598,Daune Morris,Tennessee,rushY,24.5,0.4797,1,22.5,22.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5214566,Dawson Pough,Boston College,rec,1.5,0.625,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5214566,Dawson Pough,Boston College,recY,,,,20.5,23.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,4921108,DeSean Bishop,Tennessee,rec,,,,1.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,4921108,DeSean Bishop,Tennessee,recY,7.5,0.5,1,7.5,7.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,4921108,DeSean Bishop,Tennessee,rushY,115.5,0.5,1,114.5,113.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5144959,Drake Lindsey,Minnesota,passY,199.5,0.5,1,200.5,200.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,5136049,Duke Watson,UCF,rushY,54.5,0.5203,1,55.5,55.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5220197,Fluff Bothwell,Mississippi State,recY,,,,7.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5220197,Fluff Bothwell,Mississippi State,rushY,42.5,0.5,1,42.5,42.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,4905609,Fredrick Moore,Michigan State,rec,2.5,0.4732,2,2.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,4905609,Fredrick Moore,Michigan State,recY,24.5,0.5306,1,23.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,5141571,George MacIntyre,Tennessee,passY,195.5,0.5,1,191.5,194.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,4685383,Isaiah Horton,Texas A&M,rec,3.5,0.4095,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,4685383,Isaiah Horton,Texas A&M,recY,34.5,0.5203,1,35.5,36.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5080703,Isaiah Sategna,Oklahoma,rec,6.5,0.4702,2,6.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5080703,Isaiah Sategna,Oklahoma,recY,74.5,0.5101,1,78.5,78.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,5114332,Jaivian Thomas,UCLA,rushY,29.5,0.5306,1,31.5,31.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5144962,Jalen Smith,Minnesota,rec,2.5,0.4702,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5144962,Jalen Smith,Minnesota,recY,27.5,0.5051,2,27.5,27.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5141561,Jamarion Morrow,Texas A&M,rushY,16.5,0.5,1,16.5,16.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5146747,Javarius Green,Boston College,rec,4.5,0.4412,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5146747,Javarius Green,Boston College,recY,44.5,0.5203,1,46.5,46.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,4831976,Javon Tracy,Minnesota,rec,4.5,0.4898,2,4.5,4.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,4831976,Javon Tracy,Minnesota,recY,44.5,0.5203,1,47.5,47.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,5214448,Jayden Savoury,Michigan State,rec,3.5,0.4681,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,5214448,Jayden Savoury,Michigan State,recY,24.5,0.5408,1,25.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,5081332,Jaziun Patterson,Michigan State,recY,,,,10.5,11.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,5081332,Jaziun Patterson,Michigan State,rushY,,,,58.5,57.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5121030,Jeremy Hecklinski,Iowa,passY,182.5,0.5,1,182.5,182.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5121030,Jeremy Hecklinski,Iowa,rushY,,,,7.5,7.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,4915980,John Mateer,Oklahoma,passY,226.5,0.5,1,226.5,226.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,4915980,John Mateer,Oklahoma,rushY,22.5,0.5,1,22.5,22.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,5160955,Jojo Phillips,BYU,rec,2.5,0.375,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,5160955,Jojo Phillips,BYU,recY,,,,18.5,22.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5141362,Jordan Allen,Georgia Tech,rec,5.5,0.5225,2,5.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5141362,Jordan Allen,Georgia Tech,recY,67.5,0.5,1,67.5,67.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Boston College @ Georgia Tech,4870760,Justice Haynes,Georgia Tech,rushY,83.5,0.5,1,83.5,83.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5158975,KJ Edwards,Texas A&M,rushY,23.5,0.5104,1,23.5,23.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5142591,Kaleb Edwards,Alabama,recY,12.5,0.5203,1,13.5,13.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5093886,Kamari Moulton,Iowa,recY,,,,6.5,6.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5093886,Kamari Moulton,Iowa,rushY,87.5,0.5,1,87.5,87.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5177084,Kamario Taylor,Mississippi State,passY,219.5,0.5,1,219.5,219.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5177084,Kamario Taylor,Mississippi State,rushY,19.5,0.5,1,,19.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5141629,Keelon Russell,Alabama,passY,247.5,0.5,1,247.5,247.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5141629,Keelon Russell,Alabama,rushY,28.5,0.5,1,28.5,28.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5215629,Kevin Roche Jr.,Georgia Tech,rec,3.5,0.4521,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5215629,Kevin Roche Jr.,Georgia Tech,recY,30.5,0.5,1,30.5,30.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,5085337,Keyone Jenkins,UCF,passY,188.5,0.5,1,188.5,188.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,5085337,Keyone Jenkins,UCF,rushY,,,,4.5,4.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5209427,Kolin Wilson,Mississippi State,rushY,20.5,0.4938,1,19.5,20.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,4870876,Kyler Kasper,BYU,rec,3.5,0.4681,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,4870876,Kyler Kasper,BYU,recY,40.5,0.5,1,40.5,40.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5155048,L.J. Phillips Jr.,Iowa,rushY,29.5,0.4694,1,26.5,26.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,4875127,Lanorris Sellers,South Carolina,passY,223.5,0.5,1,222.5,222.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,4875127,Lanorris Sellers,South Carolina,rushY,50.5,0.5,1,50.5,50.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,5279329,Legend Glasker,BYU,rec,3.5,0.5806,1,4.0,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,5279329,Legend Glasker,BYU,recY,58.5,0.5,1,58.5,58.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5079298,Lloyd Avant,Oklahoma,recY,,,,11.5,13.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5079298,Lloyd Avant,Oklahoma,rushY,44.5,0.5101,1,46.5,46.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5141394,Lotzeir Brooks,Alabama,rec,4.5,0.4368,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5141394,Lotzeir Brooks,Alabama,recY,59.5,0.5306,1,60.5,60.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,4870971,Marcel Reed,Texas A&M,passY,174.5,0.4949,2,174.5,174.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,4870971,Marcel Reed,Texas A&M,rushY,19.5,0.5051,2,19.5,19.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5079345,Mario Craver,Texas A&M,rec,3.5,0.3933,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5079345,Mario Craver,Texas A&M,recY,34.5,0.5,1,34.5,34.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5076106,Marquis Johnson,Mississippi State,rec,2.5,0.5806,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5076106,Marquis Johnson,Mississippi State,recY,30.5,0.5,1,30.5,30.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5164343,Marshall Pritchett,Alabama,rec,2.5,0.6017,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5164343,Marshall Pritchett,Alabama,recY,33.5,0.5203,1,34.5,34.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5307005,Mason McKenzie,Boston College,passY,203.5,0.5,1,203.5,203.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5307005,Mason McKenzie,Boston College,rushY,58.5,0.5,1,58.5,58.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,5079329,Mazeo Bennett,South Carolina,rec,3.5,0.5806,1,4.0,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,5079329,Mazeo Bennett,South Carolina,recY,39.5,0.4929,2,39.5,39.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,5079580,Mike Matthews,Tennessee,rec,3.5,0.5525,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,5079580,Mike Matthews,Tennessee,recY,54.5,0.5203,1,55.5,57.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5164749,Noah Jennings,Minnesota,rec,4.5,0.5,1,4.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5164749,Noah Jennings,Minnesota,recY,53.5,0.5,1,53.5,53.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,4870745,Nyck Harbor,South Carolina,rec,2.5,0.5915,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,4870745,Nyck Harbor,South Carolina,recY,43.5,0.5,1,44.5,43.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,5092200,Preston Rex,BYU,recY,,,,12.5,12.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,5092200,Preston Rex,BYU,rushY,44.5,0.5203,1,45.5,45.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,5195481,Radarious Jackson,Tennessee,rec,1.5,0.5,1,1.5,1.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Tennessee @ South Carolina,5195481,Radarious Jackson,Tennessee,recY,18.5,0.5,1,18.5,18.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5138293,Reece Vander Zee,Iowa,rec,2.5,0.4412,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5138293,Reece Vander Zee,Iowa,recY,29.5,0.5306,1,30.5,30.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5079714,Rico Scott,Alabama,rec,4.5,0.4582,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5079714,Rico Scott,Alabama,recY,54.5,0.5203,1,55.5,55.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,4907786,Rocky Beers,Oklahoma,rec,4.5,0.4368,2,4.0,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,4907786,Rocky Beers,Oklahoma,recY,43.5,0.5,1,43.5,43.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,5260691,Rodney Bullard Jr.,Michigan State,rec,2.5,0.4582,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,5260691,Rodney Bullard Jr.,Michigan State,recY,,,,27.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,4870934,Rueben Owens,Texas A&M,recY,,,,6.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,4870934,Rueben Owens,Texas A&M,rushY,22.5,0.5062,1,22.5,22.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5146736,Sanfrisco Magee,Mississippi State,rec,3.5,0.4095,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5146736,Sanfrisco Magee,Mississippi State,recY,38.5,0.5062,1,38.5,38.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,4899366,Semaj Morgan,UCLA,rec,3.5,0.4949,2,3.5,3.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,4899366,Semaj Morgan,UCLA,recY,41.5,0.5,1,41.5,41.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5224792,TJ Thomas Jr.,Minnesota,recY,,,,7.5,7.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5224792,TJ Thomas Jr.,Minnesota,rushY,28.5,0.5,1,28.5,28.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5164360,TK Norman,Texas A&M,rec,2.5,0.4686,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5164360,TK Norman,Texas A&M,recY,25.5,0.5,1,21.5,25.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5300856,Tony Diaz,Iowa,rec,4.5,0.4702,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5300856,Tony Diaz,Iowa,recY,47.5,0.5,1,47.5,47.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Iowa @ Minnesota,5300856,Tony Diaz,Iowa,rushY,,,,4.5,4.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Texas A&M @ Alabama,5327659,Trae'shawn Brown,Alabama,rushY,48.5,0.5,1,48.5,48.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Boston College @ Georgia Tech,5103639,Trelain Maddox,Georgia Tech,rushY,,,,44.5,44.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,5092275,Ty Dieffenbach,UCLA,passY,181.5,0.5,1,183.5,181.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,5142600,Waden Charles,UCF,rec,3.5,0.4095,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,5142600,Waden Charles,UCF,recY,32.5,0.4938,1,32.5,32.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,5221043,Walker Lyons,BYU,rec,3.5,0.4702,2,3.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,BYU @ UCF,5221043,Walker Lyons,BYU,recY,35.5,0.5,1,35.5,35.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,4912342,Wayne Knight,UCLA,rec,2.5,0.3886,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,4912342,Wayne Knight,UCLA,recY,17.5,0.5,1,17.5,17.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Michigan State @ UCLA,4912342,Wayne Knight,UCLA,rushY,87.5,0.5,1,87.5,87.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5079643,Zion Ragins,Mississippi State,rec,1.5,0.6113,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:30:00Z,Oklahoma @ Mississippi State,5079643,Zion Ragins,Mississippi State,recY,19.5,0.5051,2,19.5,19.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:45:00Z,Kansas State @ Arizona State,5384681,Derrick Salley Jr.,Kansas State,recY,37.5,0.5,1,37.5,37.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:45:00Z,Kansas State @ Arizona State,5078225,Jaron Tibbs,Kansas State,recY,46.5,0.5,1,46.5,46.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:45:00Z,Kansas State @ Arizona State,5079348,Jason Brown Jr.,Arizona State,rushY,34.5,0.5101,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:45:00Z,Kansas State @ Arizona State,5078916,Joe Jackson,Kansas State,rushY,74.5,0.5051,2,74.5,74.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:45:00Z,Kansas State @ Arizona State,5110535,Kyson Brown,Arizona State,rushY,34.5,0.5,1,34.5,34.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:45:00Z,Kansas State @ Arizona State,4597499,Mikey Keene,Arizona State,passY,215.5,0.5,1,215.5,215.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:45:00Z,Kansas State @ Arizona State,4870850,Omarion Miller,Arizona State,rec,4.5,0.5306,1,4.5,4.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:45:00Z,Kansas State @ Arizona State,4870850,Omarion Miller,Arizona State,recY,56.5,0.5062,1,56.5,56.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:45:00Z,Kansas State @ Arizona State,5031157,Reed Harris,Arizona State,rec,7.5,0.4694,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:45:00Z,Kansas State @ Arizona State,5031157,Reed Harris,Arizona State,recY,89.5,0.5203,1,89.5,91.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T19:45:00Z,Kansas State @ Arizona State,5125335,Rodney Fields Jr.,Kansas State,rushY,56.5,0.5,1,57.5,59.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T22:00:00Z,Boise State @ Washington State,5153065,Branden Ganashamoorthy,Washington State,rec,4.5,0.4592,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T22:00:00Z,Boise State @ Washington State,5119307,Daniel Blood,Washington State,rec,3.5,0.5408,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T22:00:00Z,Boise State @ Washington State,5146712,Dylan Riley,Boise State,recY,12.5,0.5061,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T22:00:00Z,Boise State @ Washington State,5146712,Dylan Riley,Boise State,rushY,118.5,0.5,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T22:00:00Z,Boise State @ Washington State,4870513,Maddux Madsen,Boise State,passY,207.5,0.5,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T22:00:00Z,Boise State @ Washington State,5080888,Matt Wagner,Boise State,rec,3.5,0.4367,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T22:00:00Z,Boise State @ Washington State,5080888,Matt Wagner,Boise State,recY,35.5,0.5,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T22:00:00Z,Boise State @ Washington State,5290573,Rasean Jones,Boise State,rec,4.5,0.4085,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T22:00:00Z,Boise State @ Washington State,5290573,Rasean Jones,Boise State,recY,59.5,0.5051,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T22:00:00Z,Boise State @ Washington State,5147379,Sire Gaines,Boise State,rushY,74.5,0.5203,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Virginia Tech @ Clemson,4918417,Ayden Greene,Virginia Tech,recY,24.5,0.4868,2,24.5,24.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,4875861,Ayo Adeyi,Oklahoma State,rushY,24.5,0.4694,1,24.5,24.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5112674,Bryant Wesco Jr.,Clemson,recY,,,,55.5,55.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5258016,Caleb Hawkins,Oklahoma State,rec,3.5,0.4279,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5258016,Caleb Hawkins,Oklahoma State,recY,22.5,0.5,1,22.5,22.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5258016,Caleb Hawkins,Oklahoma State,rushY,105.5,0.5,1,105.5,105.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5148822,Chris Barnes,Oklahoma State,recY,17.5,0.4939,1,17.5,17.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5158951,Davion Brown,Virginia Tech,recY,19.5,0.5,1,,19.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,4870860,DeAndre Moore Jr.,Colorado,recY,44.5,0.5,1,44.5,41.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5096878,Dekalon Taylor,Colorado,recY,,,,7.5,7.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5219834,Drew Mestemaker,Oklahoma State,passY,295.5,0.5,1,299.5,299.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5219834,Drew Mestemaker,Oklahoma State,rushY,,,,6.5,6.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5144078,Ethan Grunkemeyer,Virginia Tech,passY,239.5,0.5101,1,240.5,240.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5141422,Gideon Davidson,Clemson,rushY,69.5,0.4797,1,69.5,67.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5079771,Isaac Wilson,Colorado,passY,214.5,0.5051,2,214.5,214.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5079771,Isaac Wilson,Colorado,rushY,,,,13.5,13.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5301028,Jaquail Smith,Colorado,recY,,,,10.5,10.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5301028,Jaquail Smith,Colorado,rushY,,,,46.5,46.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5214409,Jeffrey Overton Jr.,Virginia Tech,rushY,68.5,0.5061,1,68.5,68.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5189530,Joseph Williams,Colorado,rec,5.5,0.5721,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5189530,Joseph Williams,Colorado,recY,72.5,0.5,1,72.5,72.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5083747,Justin Bowick,Oklahoma State,rec,4.5,0.4279,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5083747,Justin Bowick,Oklahoma State,recY,59.5,0.5051,2,59.5,59.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5138451,Luke Reynolds,Virginia Tech,recY,48.5,0.5,1,48.5,48.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5149007,Miles Coleman,Oklahoma State,recY,37.5,0.4939,1,37.5,37.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5218787,Que'Sean Brown,Virginia Tech,recY,62.5,0.5,1,62.5,62.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5218753,T.J. Moore,Clemson,recY,52.5,0.5,1,52.5,52.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Virginia Tech @ Clemson,5159078,Tait Reynolds,Clemson,passY,205.5,0.5051,2,205.5,205.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5148787,Wyatt Young,Oklahoma State,rec,5.5,0.5633,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:00:00Z,Colorado @ Oklahoma State,5148787,Wyatt Young,Oklahoma State,recY,87.5,0.5,1,87.5,87.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,5078005,Abu Sama III,Wisconsin,rushY,42.5,0.5061,1,42.5,42.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Syracuse @ North Carolina,5154420,Ahmad Miller,Syracuse,rushY,42.5,0.5,1,42.5,42.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Iowa State @ Arizona,5219258,Aiden Flora,Iowa State,recY,,,,,13.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Iowa State @ Arizona,5219258,Aiden Flora,Iowa State,rushY,74.5,0.5203,1,,75.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Iowa State @ Arizona,4612624,Antwan Roberts,Arizona,rushY,37.5,0.5,1,,37.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,4870906,Arch Manning,Texas,passY,238.5,0.5,1,237.5,238.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,4870906,Arch Manning,Texas,rushY,18.5,0.5,1,18.5,18.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Syracuse @ North Carolina,4592532,Billy Edwards,North Carolina,passY,219.5,0.5,1,221.5,221.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Iowa State @ Arizona,5121936,Brandon Phelps,Arizona,rec,3.5,0.4718,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Iowa State @ Arizona,5121936,Brandon Phelps,Arizona,recY,47.5,0.5,1,,47.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Syracuse @ North Carolina,5159039,C.J. Sadler,North Carolina,recY,17.5,0.5,1,17.5,17.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,4870609,CJ Baxter Jr.,Kentucky,recY,,,,7.5,7.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,4870609,CJ Baxter Jr.,Kentucky,rushY,76.5,0.5,1,76.5,76.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,5224178,Caleb Cunningham,Ole Miss,rec,,,,1.5,1.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,5224178,Caleb Cunningham,Ole Miss,recY,18.5,0.5,1,18.5,18.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,5079647,Caleb Odom,Ole Miss,rec,3.5,0.4919,2,3.5,3.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,5079647,Caleb Odom,Ole Miss,recY,37.5,0.5,1,37.5,37.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Syracuse @ North Carolina,5159036,Calvin Russell III,Syracuse,recY,,,,29.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,5079376,Cam Coleman,Texas,rec,3.5,0.5294,2,4.0,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,5079376,Cam Coleman,Texas,recY,53.5,0.5,1,53.5,55.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,4917172,Chris Brooks Jr.,Wisconsin,rec,2.5,0.4797,1,2.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,4917172,Chris Brooks Jr.,Wisconsin,recY,25.5,0.5,1,25.5,25.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Iowa State @ Arizona,4875853,Cody Jackson,Iowa State,rec,2.5,0.5306,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Iowa State @ Arizona,4875853,Cody Jackson,Iowa State,recY,34.5,0.5,1,,34.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,5125715,Colton Joseph,Wisconsin,passY,191.5,0.5,1,191.5,191.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,5125715,Colton Joseph,Wisconsin,rushY,51.5,0.5,1,51.5,51.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,5203606,Derrek Cooper,Texas,rushY,29.5,0.4939,1,29.5,29.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,5152158,Deuce Alexander,Ole Miss,rec,5.5,0.4281,2,5.0,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,5152158,Deuce Alexander,Ole Miss,recY,69.5,0.5101,1,70.5,70.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,5079613,Emmett Mosley V,Texas,rec,3.5,0.4281,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,5079613,Emmett Mosley V,Texas,recY,40.5,0.5061,1,40.5,40.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,4711408,Horatio Fields,Ole Miss,rec,2.5,0.4156,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,4711408,Horatio Fields,Ole Miss,recY,24.5,0.5306,1,27.5,27.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Iowa State @ Arizona,5198318,Isaiah Mizell,Arizona,rec,4.5,0.5282,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Iowa State @ Arizona,5198318,Isaiah Mizell,Arizona,recY,68.5,0.5,1,,68.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,5122018,Jacob Harris,Wisconsin,rec,2.5,0.5,2,2.5,2.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,5122018,Jacob Harris,Wisconsin,recY,33.5,0.5,1,33.5,33.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,5158948,Jared Curtis,Vanderbilt,passY,216.5,0.5,1,216.5,216.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,4685454,Jayden Maiava,USC,passY,253.5,0.5,1,254.5,253.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Iowa State @ Arizona,5080403,Jaylen Raynor,Iowa State,passY,180.5,0.5,1,,180.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Iowa State @ Arizona,5080403,Jaylen Raynor,Iowa State,rushY,17.5,0.5,1,,17.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Syracuse @ North Carolina,4871039,Jelani Thurman,North Carolina,recY,41.5,0.5061,1,41.5,41.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,5161011,Jermaine Bishop Jr.,Texas,recY,20.5,0.5,1,20.5,20.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Syracuse @ North Carolina,5079687,Jordan Shipp,North Carolina,recY,74.5,0.5203,1,75.5,75.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,5078165,Junior Sherrill,Vanderbilt,rec,5.5,0.5172,2,5.5,5.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,5078165,Junior Sherrill,Vanderbilt,recY,79.5,0.5051,2,79.5,79.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Iowa State @ Arizona,4899361,Kedrick Reescano,Arizona,rushY,54.5,0.5051,2,,54.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,5215172,Kenny Darby,Kentucky,rec,4.5,0.5081,2,4.5,4.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,5215172,Kenny Darby,Kentucky,recY,58.5,0.5061,1,58.5,58.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,4918099,Kenny Minchey,Kentucky,passY,236.5,0.5,1,236.5,236.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,4918099,Kenny Minchey,Kentucky,rushY,9.5,0.5051,2,9.5,9.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,5086388,Kewan Lacy,Ole Miss,recY,12.5,0.5,1,12.5,12.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,5086388,Kewan Lacy,Ole Miss,rushY,66.5,0.5,1,65.5,66.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,5233016,King Miller,USC,recY,,,,4.5,4.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,5233016,King Miller,USC,rushY,72.5,0.4939,1,72.5,72.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,4912302,Makhilyn Young,Vanderbilt,rushY,39.5,0.5101,1,39.5,39.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,5264686,Mark Bowman,USC,rec,3.5,0.5306,1,3.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,5264686,Mark Bowman,USC,recY,39.5,0.4694,1,34.5,36.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,4699866,Nic Anderson,Kentucky,recY,,,,,35.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Iowa State @ Arizona,4801717,Noah Fifita,Arizona,passY,262.5,0.5051,2,,262.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Iowa State @ Arizona,4801717,Noah Fifita,Arizona,rushY,12.5,0.5,1,,12.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Iowa State @ Arizona,4837269,Omari Hayes,Iowa State,rec,3.5,0.3988,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Iowa State @ Arizona,4837269,Omari Hayes,Iowa State,recY,34.5,0.5306,1,,35.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,4685268,Raleek Brown,Texas,rec,2.5,0.4567,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,4685268,Raleek Brown,Texas,recY,14.5,0.5,1,14.5,14.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,4685268,Raleek Brown,Texas,rushY,72.5,0.5,1,72.5,72.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,5218633,Ryan Wingo,Texas,rec,4.5,0.4706,2,4.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,5218633,Ryan Wingo,Texas,recY,53.5,0.5061,1,53.5,53.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,5030333,Sedrick Alexander,Vanderbilt,recY,,,,7.5,7.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,5030333,Sedrick Alexander,Vanderbilt,rushY,34.5,0.5203,1,35.5,35.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,5141975,Tanook Hines,USC,rec,3.5,0.4366,2,3.0,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,5141975,Tanook Hines,USC,recY,38.5,0.5,1,38.5,38.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,4870912,Traylon Ray,Ole Miss,rec,2.5,0.5806,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,4870912,Traylon Ray,Ole Miss,recY,33.5,0.5051,2,33.5,33.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Syracuse @ North Carolina,5077266,Trech Kekahuna,North Carolina,recY,24.5,0.5306,1,28.5,25.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,5160469,Trent Mosley,USC,rec,4.5,0.5,2,4.5,4.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,5160469,Trent Mosley,USC,recY,71.5,0.5,1,71.5,71.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,4911529,Trinidad Chambliss,Ole Miss,passY,246.5,0.5,1,246.5,246.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Ole Miss @ Texas,4911529,Trinidad Chambliss,Ole Miss,rushY,15.5,0.5061,1,15.5,15.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Iowa State @ Arizona,4816108,Tyler Powell,Arizona,recY,,,,,17.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Syracuse @ North Carolina,5261613,Tylik Hill,Syracuse,rushY,33.5,0.502,2,33.5,33.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,4714046,Tyrell Henry,Wisconsin,rec,3.5,0.4567,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,USC @ Wisconsin,4714046,Tyrell Henry,Wisconsin,recY,39.5,0.5051,2,39.5,39.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Syracuse @ North Carolina,4691315,Umari Hatcher,Syracuse,rec,7.5,0.5101,1,7.5,7.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Syracuse @ North Carolina,4691315,Umari Hatcher,Syracuse,recY,88.5,0.5,1,88.5,88.5,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,5136838,Willie Rodriguez,Kentucky,rec,4.5,0.4706,2,4.5,,2026-10-24T17:18:55+00:00,8
+2026-10-24T23:30:00Z,Vanderbilt @ Kentucky,5136838,Willie Rodriguez,Kentucky,recY,38.5,0.5,1,38.5,38.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5326947,Bailen George,New Mexico,recY,28.5,0.5,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5219572,Cade Keith,New Mexico,recY,25.5,0.5,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5228002,Jackson Williams,North Dakota State,recY,50.5,0.5061,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5146726,Kiefer Sibley,New Mexico,rushY,40.5,0.5,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,4832952,Mekhi Collins,North Dakota State,recY,29.5,0.5061,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5087156,Nathan Hayes,North Dakota State,passY,157.5,0.5,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5087156,Nathan Hayes,North Dakota State,rushY,28.5,0.5,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5228015,Reis Kessel,North Dakota State,recY,21.5,0.5061,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:00:00Z,North Dakota State @ New Mexico,5166161,Scottre Humphrey,New Mexico,rushY,66.5,0.5,1,,,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5077060,Amare Thomas,Houston,rec,3.5,0.5806,1,4.0,,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5077060,Amare Thomas,Houston,recY,58.5,0.5,1,58.5,58.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4869422,Braden Pegan,Utah,rec,4.5,0.5506,1,5.0,,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4869422,Braden Pegan,Utah,recY,68.5,0.5,1,68.5,68.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5294263,Byrd Ficklin,Utah,rushY,15.5,0.5061,1,14.5,,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4685574,Conner Weigman,Houston,passY,231.5,0.5,1,231.5,231.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4685574,Conner Weigman,Houston,rushY,30.5,0.5,1,30.5,30.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4871040,Creed Whittemore,Utah,rec,2.5,0.4657,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4871040,Creed Whittemore,Utah,recY,29.5,0.5306,1,30.5,30.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5105849,Devon Dampier,Utah,passY,235.5,0.5,1,235.5,235.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5105849,Devon Dampier,Utah,rushY,44.5,0.5,1,44.5,44.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5146728,Koby Young,Houston,rec,1.5,0.5779,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5146728,Koby Young,Houston,recY,26.5,0.5,1,26.5,26.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4816098,Makhi Hughes,Houston,rushY,54.5,0.5,1,54.5,54.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4900351,Noah Bennee,Utah,rec,2.5,0.5,1,,2.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4900351,Noah Bennee,Utah,recY,27.5,0.5,1,27.5,27.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5120299,Patrick Overmyer,Houston,rec,5.5,0.4366,2,5.0,,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5120299,Patrick Overmyer,Houston,recY,57.5,0.5,1,57.5,57.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5132652,Ricky Johnson,Utah,rec,2.5,0.4348,2,,,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5132652,Ricky Johnson,Utah,recY,29.5,0.5306,1,30.5,30.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4879567,Trent Walker,Houston,rec,3.5,0.4847,2,3.5,3.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,4879567,Trent Walker,Houston,recY,46.5,0.5,1,46.5,46.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5173431,Wayshawn Parker,Utah,rec,2.5,0.5184,2,2.5,2.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5173431,Wayshawn Parker,Utah,recY,20.5,0.5306,1,21.5,21.5,2026-10-24T17:18:55+00:00,8
+2026-10-25T02:15:00Z,Houston @ Utah,5173431,Wayshawn Parker,Utah,rushY,96.5,0.5,1,96.5,96.5,2026-10-24T17:18:55+00:00,8
