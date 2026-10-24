@@ -229,3 +229,9 @@ The scoring environment explains almost all there is: implied points beat the le
 ### College void overrides (lean record)
 
 `data/log/cfb_void_overrides.csv` (player_id,week) lists college players who left in the first half and did not return. `cfb_build.lean_record` drops a MORE (over) pick on such a player when his stat had not cleared the line (the PrizePicks reboot rule, as on the NFL page; LESS picks are never voided). First case: Emory Williams (ECU, pulled after the first quarter with an injury, week 8) - the Over on passing yards (174.5 line, 61 actual) is void, so the STRONG record reads 56 of 76 rather than 56 of 77. College has no snap data, so this is manual only; the Lean record note on the college Scorecard shows the void count.
+
+### Watch item: college STRONG leans where the projection is under half the line
+
+Through week 8 (Oct 24), STRONG college leans by projection / consensus line: under 0.50 went 4 of 8 (50%); 0.50-0.65 went 27 of 40 (68%); 0.65-0.80 went 23 of 36 (64%); 1.25 and up went 10 of 11. The extreme-gap picks are mostly quarterbacks the books treat as starters and the model does not (Hasselbeck App State, Tommy Carr Michigan, Sagapolutele Cal; pass yards projected 38-140 against lines of 145-233), plus a benching (Lonergan, 0 yards). Likely role or lineup uncertainty, not a real edge. Sample is small, so nothing is changed yet.
+
+Revisit after about two more slates (target: 20+ picks in the under-0.5 bucket). If it still runs near 50% while the rest stays near 65%+, drop the STRONG flag (not the projection) when the projection is under half the line, as thin and role-shift players already lose theirs. The check is the bucket table above: `lean_record` rows with |z| >= 0.5 grouped by projection / line.
