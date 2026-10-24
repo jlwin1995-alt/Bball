@@ -3,14 +3,8 @@ name: Refresh odds
 # Pulls NBA player-prop lines (sportsbooks + PrizePicks) from The Odds API twice a day (7 am ET and 2 hours before the first tip),
 # rebuilds site/data/lines.json, and redeploys. Needs the repository secret ODDS_API_KEY; without it this just skips.
 on:
-  schedule:
-    # Two runs a day, decided by pipeline/gate.py (Eastern time and the real first tip, which cron cannot express):
-    #   7 am ET, and 2 hours before the day's first tip. Each run pulls odds, then triggers the data refresh.
-    # The gate job ticks every 30 minutes and ends in seconds when there is nothing to do (no credits). GitHub's scheduler is
-    # best-effort, so several ticks fall inside each window; the gate makes sure it fires once.
-    # GitHub skips or delays many scheduled runs (Oct 23: only 2 of ~26 ticks ran overnight and none of the 7 am ones), so tick every 15 minutes.
-    - cron: "*/15 11-23 * * *"   # 7 am ET (daylight time; 6 am standard) through 7 pm ET: morning run, then pre-tip checks
-    - cron: "*/15 0-2 * * *"     # ... and into the late evening
+  # No cron: GitHub delivered only about one scheduled tick every 2-3 hours, which missed the pre-tip window. Two scheduled tasks run this by hand each
+  # day instead (7:03 am ET, and 2 hours before the day's first tip), then run the data refresh.
   workflow_dispatch:
     inputs:
       probe:
@@ -26,23 +20,9 @@ permissions:
   contents: write
   pages: write
   id-token: write
-  actions: write              # the scheduled run triggers the data refresh
 
 jobs:
-  gate:
-    runs-on: ubuntu-latest
-    outputs:
-      fire: ${{ steps.g.outputs.fire }}
-      key: ${{ steps.g.outputs.key }}
-    steps:
-      - uses: actions/checkout@v4
-      - id: g
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then echo "fire=1" >> "$GITHUB_OUTPUT"; echo "key=" >> "$GITHUB_OUTPUT"; else python3 pipeline/gate.py decide >> "$GITHUB_OUTPUT"; fi
-
   odds:
-    needs: gate
-    if: needs.gate.outputs.fire == '1'
     runs-on: ubuntu-latest
     concurrency:
       group: refresh          # same group as the data refresh so the two never push at once
@@ -75,9 +55,6 @@ jobs:
       - name: Build lines.json
         if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
         run: python -m pipeline.lines
-      - name: Mark this scheduled run as done
-        if: steps.key.outputs.skip != '1' && needs.gate.outputs.key != ''
-        run: python3 pipeline/gate.py record "${{ needs.gate.outputs.key }}"
       - name: Commit data
         if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
         run: |
@@ -103,8 +80,3 @@ jobs:
         if: steps.key.outputs.skip != '1' && github.event.inputs.probe != 'true'
         with:
           artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Trigger the data refresh (scheduled runs only)
-        if: steps.key.outputs.skip != '1' && github.event_name == 'schedule'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh workflow run refresh.yml --ref main
