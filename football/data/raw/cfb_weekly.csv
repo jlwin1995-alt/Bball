@@ -11894,30 +11894,6 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 8,5265528,Jalen Bonds,RB,Ball State,Mid-American,Sacramento State,1,17.0,77.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5295205,Tate Hoover,TE,Ball State,Mid-American,Sacramento State,1,0.0,0.0,0.0,2.0,34.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,-5317, Team,,Ball State,Mid-American,Sacramento State,1,3.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4819259,Devon Tauaefa,TE,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,1.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4869582,Cam Barfield,RB,Hawai'i,Mountain West,Northern Illinois,0,16.0,58.0,1.0,3.0,70.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4917119,Devin Alves,WR,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,1.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5079499,Audric Harris,WR,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,2.0,90.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5079651,Devon Rice,RB,Hawai'i,Mountain West,Northern Illinois,0,12.0,71.0,3.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5085972,Kainoa Carvalho,WR,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,3.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5101124,Micah Alejado,QB,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,0.0,0.0,0.0,22.0,32.0,323.0,3.0,1.0,0.0
-8,5148777,Titan Lacaden,WR,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,3.0,33.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5158917,Nick Delgadillo,WR,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,1.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5173623,Frank Abreu,TE,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,3.0,31.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5211117,Bjorn Jurgensen,QB,Hawai'i,Mountain West,Northern Illinois,0,1.0,2.0,0.0,0.0,0.0,0.0,1.0,2.0,6.0,0.0,0.0,0.0
-8,5218869,Sitani Mikaele,RB,Hawai'i,Mountain West,Northern Illinois,0,4.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5218880,Blaze Kamoku,WR,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5218881,Tama Uiliata,WR,Hawai'i,Mountain West,Northern Illinois,0,2.0,17.0,0.0,2.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5218882,Josiah Fetui,WR,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,2.0,47.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5291002,TJ Fo'ilefutu,RB,Hawai'i,Mountain West,Northern Illinois,0,4.0,20.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,-6139, Team,,Hawai'i,Mountain West,Northern Illinois,0,3.0,-5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4881032,Taron Dickens,QB,Northern Illinois,Mountain West,Hawai'i,1,5.0,22.0,0.0,0.0,0.0,0.0,17.0,26.0,171.0,2.0,2.0,0.0
-8,5083748,Cam Thompson,WR,Northern Illinois,Mountain West,Hawai'i,1,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5193277,George Dimopoulos,WR,Northern Illinois,Mountain West,Hawai'i,1,0.0,0.0,0.0,3.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5193292,La'Don Bryant,WR,Northern Illinois,Mountain West,Hawai'i,1,0.0,0.0,0.0,4.0,30.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5193302,Telly Johnson Jr.,RB,Northern Illinois,Mountain West,Hawai'i,1,14.0,63.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0
-8,5219932,Elijah Porter,RB,Northern Illinois,Mountain West,Hawai'i,1,5.0,10.0,1.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5296150,DeAree Rogers,WR,Northern Illinois,Mountain West,Hawai'i,1,0.0,0.0,0.0,8.0,115.0,2.0,0.0,0.0,0.0,0.0,0.0,1.0
 8,4605477,Alante Brown,WR,Memphis,American Athletic,East Carolina,1,0.0,0.0,0.0,1.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 8,4922983,Manny Covey,RB,Memphis,American Athletic,East Carolina,1,11.0,79.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5079354,Braylon Burnside,WR,Memphis,American Athletic,East Carolina,1,0.0,0.0,0.0,6.0,61.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
@@ -11958,6 +11934,30 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 8,5185699,Dan Mahan,QB,Duke,ACC,Virginia,0,2.0,5.0,0.0,0.0,0.0,0.0,2.0,5.0,17.0,0.0,0.0,0.0
 8,5200108,Jaivon Solomon,WR,Duke,ACC,Virginia,0,0.0,0.0,0.0,3.0,48.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,-5849, Team,,Duke,ACC,Virginia,0,1.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4819259,Devon Tauaefa,TE,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,1.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4869582,Cam Barfield,RB,Hawai'i,Mountain West,Northern Illinois,0,16.0,58.0,1.0,3.0,70.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4917119,Devin Alves,WR,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,1.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5079499,Audric Harris,WR,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,2.0,90.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5079651,Devon Rice,RB,Hawai'i,Mountain West,Northern Illinois,0,12.0,71.0,3.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5085972,Kainoa Carvalho,WR,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,3.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5101124,Micah Alejado,QB,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,0.0,0.0,0.0,22.0,32.0,323.0,3.0,1.0,0.0
+8,5148777,Titan Lacaden,WR,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,3.0,33.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5158917,Nick Delgadillo,WR,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,1.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5173623,Frank Abreu,TE,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,3.0,31.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5211117,Bjorn Jurgensen,QB,Hawai'i,Mountain West,Northern Illinois,0,1.0,2.0,0.0,0.0,0.0,0.0,1.0,2.0,6.0,0.0,0.0,0.0
+8,5218869,Sitani Mikaele,RB,Hawai'i,Mountain West,Northern Illinois,0,4.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5218880,Blaze Kamoku,WR,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5218881,Tama Uiliata,WR,Hawai'i,Mountain West,Northern Illinois,0,2.0,17.0,0.0,2.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5218882,Josiah Fetui,WR,Hawai'i,Mountain West,Northern Illinois,0,0.0,0.0,0.0,2.0,47.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5291002,TJ Fo'ilefutu,RB,Hawai'i,Mountain West,Northern Illinois,0,4.0,20.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,-6139, Team,,Hawai'i,Mountain West,Northern Illinois,0,3.0,-5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4881032,Taron Dickens,QB,Northern Illinois,Mountain West,Hawai'i,1,5.0,22.0,0.0,0.0,0.0,0.0,17.0,26.0,171.0,2.0,2.0,0.0
+8,5083748,Cam Thompson,WR,Northern Illinois,Mountain West,Hawai'i,1,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5193277,George Dimopoulos,WR,Northern Illinois,Mountain West,Hawai'i,1,0.0,0.0,0.0,3.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5193292,La'Don Bryant,WR,Northern Illinois,Mountain West,Hawai'i,1,0.0,0.0,0.0,4.0,30.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5193302,Telly Johnson Jr.,RB,Northern Illinois,Mountain West,Hawai'i,1,14.0,63.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0
+8,5219932,Elijah Porter,RB,Northern Illinois,Mountain West,Hawai'i,1,5.0,10.0,1.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5296150,DeAree Rogers,WR,Northern Illinois,Mountain West,Hawai'i,1,0.0,0.0,0.0,8.0,115.0,2.0,0.0,0.0,0.0,0.0,0.0,1.0
 8,4689529,Kenji Christian,RB,UConn,FBS Independents,Massachusetts,1,12.0,46.0,0.0,3.0,19.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,4870959,Shamar Porter,WR,UConn,FBS Independents,Massachusetts,1,0.0,0.0,0.0,3.0,30.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5075952,Trey Cornist,RB,UConn,FBS Independents,Massachusetts,1,3.0,19.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
@@ -12044,27 +12044,6 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 8,5295923,TJ Johnson,WR,Old Dominion,Sun Belt,Louisiana Tech,0,0.0,0.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5394554,Daniel Pickens,,Old Dominion,Sun Belt,Louisiana Tech,0,0.0,0.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5394557,Ja'Varien Salter,RB,Old Dominion,Sun Belt,Louisiana Tech,0,1.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4431633,Will Crowder,QB,Troy,Sun Belt,UL Monroe,1,4.0,22.0,0.0,0.0,0.0,0.0,6.0,14.0,50.0,0.0,1.0,0.0
-8,4912119,Tucker Kilcrease,QB,Troy,Sun Belt,UL Monroe,1,9.0,-2.0,0.0,0.0,0.0,0.0,3.0,4.0,-3.0,1.0,0.0,0.0
-8,5078105,TJ Lott,WR,Troy,Sun Belt,UL Monroe,1,0.0,0.0,0.0,1.0,32.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5079632,Noreel White,WR,Troy,Sun Belt,UL Monroe,1,0.0,0.0,0.0,1.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5086097,Jaheim Merriweather,RB,Troy,Sun Belt,UL Monroe,1,6.0,24.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5120317,Jordan Lovett,RB,Troy,Sun Belt,UL Monroe,1,17.0,70.0,0.0,3.0,-10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5150277,Jace Petty,WR,Troy,Sun Belt,UL Monroe,1,0.0,0.0,0.0,1.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5388754,Gavin Griffin,RB,Troy,Sun Belt,UL Monroe,1,11.0,39.0,1.0,2.0,10.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5388762,Howard Kinchen,WR,Troy,Sun Belt,UL Monroe,1,0.0,0.0,0.0,1.0,-4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4685184,Donald Chaney Jr.,RB,UL Monroe,Sun Belt,Troy,0,5.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5097058,Zachary Palmer-Smith,RB,UL Monroe,Sun Belt,Troy,0,11.0,51.0,0.0,1.0,13.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5122054,Aidan Armenta,QB,UL Monroe,Sun Belt,Troy,0,3.0,3.0,0.0,0.0,0.0,0.0,13.0,22.0,147.0,2.0,0.0,0.0
-8,5122072,Nic Trujillo,WR,UL Monroe,Sun Belt,Troy,0,0.0,0.0,0.0,2.0,30.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5207934,Austin Carlisle,QB,UL Monroe,Sun Belt,Troy,0,4.0,7.0,0.0,0.0,0.0,0.0,4.0,9.0,2.0,0.0,0.0,0.0
-8,5218754,Parker Fulghum,WR,UL Monroe,Sun Belt,Troy,0,0.0,0.0,0.0,2.0,23.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5295371,Bryce Anderson,TE,UL Monroe,Sun Belt,Troy,0,0.0,0.0,0.0,3.0,25.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5295735,JP Coulter,WR,UL Monroe,Sun Belt,Troy,0,2.0,10.0,0.0,5.0,32.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5382841,LT Robinson,WR,UL Monroe,Sun Belt,Troy,0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5382854,CJ Phillip,RB,UL Monroe,Sun Belt,Troy,0,5.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5382856,Bryson Roland,RB,UL Monroe,Sun Belt,Troy,0,0.0,0.0,0.0,1.0,-4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5447033,Darrion Gilliam,WR,UL Monroe,Sun Belt,Troy,0,0.0,0.0,0.0,2.0,30.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,4894661,Durell Robinson,RB,Colorado State,Pac-12,San Diego State,1,19.0,86.0,2.0,1.0,28.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,4899418,Javonte Vereen,TE,Colorado State,Pac-12,San Diego State,1,0.0,0.0,0.0,3.0,56.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,4920896,Lavon Brown,WR,Colorado State,Pac-12,San Diego State,1,0.0,0.0,0.0,1.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
@@ -12088,6 +12067,27 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 8,5175719,Ryan Wolfer,TE,San Diego State,Pac-12,Colorado State,0,0.0,0.0,0.0,2.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5216639,Jaylon Hawkins,WR,San Diego State,Pac-12,Colorado State,0,0.0,0.0,0.0,6.0,164.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5254150,Javion Kinnard,RB,San Diego State,Pac-12,Colorado State,0,10.0,94.0,2.0,2.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4431633,Will Crowder,QB,Troy,Sun Belt,UL Monroe,1,4.0,22.0,0.0,0.0,0.0,0.0,6.0,14.0,50.0,0.0,1.0,0.0
+8,4912119,Tucker Kilcrease,QB,Troy,Sun Belt,UL Monroe,1,9.0,-2.0,0.0,0.0,0.0,0.0,3.0,4.0,-3.0,1.0,0.0,0.0
+8,5078105,TJ Lott,WR,Troy,Sun Belt,UL Monroe,1,0.0,0.0,0.0,1.0,32.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5079632,Noreel White,WR,Troy,Sun Belt,UL Monroe,1,0.0,0.0,0.0,1.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5086097,Jaheim Merriweather,RB,Troy,Sun Belt,UL Monroe,1,6.0,24.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5120317,Jordan Lovett,RB,Troy,Sun Belt,UL Monroe,1,17.0,70.0,0.0,3.0,-10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5150277,Jace Petty,WR,Troy,Sun Belt,UL Monroe,1,0.0,0.0,0.0,1.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5388754,Gavin Griffin,RB,Troy,Sun Belt,UL Monroe,1,11.0,39.0,1.0,2.0,10.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5388762,Howard Kinchen,WR,Troy,Sun Belt,UL Monroe,1,0.0,0.0,0.0,1.0,-4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4685184,Donald Chaney Jr.,RB,UL Monroe,Sun Belt,Troy,0,5.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5097058,Zachary Palmer-Smith,RB,UL Monroe,Sun Belt,Troy,0,11.0,51.0,0.0,1.0,13.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5122054,Aidan Armenta,QB,UL Monroe,Sun Belt,Troy,0,3.0,3.0,0.0,0.0,0.0,0.0,13.0,22.0,147.0,2.0,0.0,0.0
+8,5122072,Nic Trujillo,WR,UL Monroe,Sun Belt,Troy,0,0.0,0.0,0.0,2.0,30.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5207934,Austin Carlisle,QB,UL Monroe,Sun Belt,Troy,0,4.0,7.0,0.0,0.0,0.0,0.0,4.0,9.0,2.0,0.0,0.0,0.0
+8,5218754,Parker Fulghum,WR,UL Monroe,Sun Belt,Troy,0,0.0,0.0,0.0,2.0,23.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5295371,Bryce Anderson,TE,UL Monroe,Sun Belt,Troy,0,0.0,0.0,0.0,3.0,25.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5295735,JP Coulter,WR,UL Monroe,Sun Belt,Troy,0,2.0,10.0,0.0,5.0,32.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5382841,LT Robinson,WR,UL Monroe,Sun Belt,Troy,0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5382854,CJ Phillip,RB,UL Monroe,Sun Belt,Troy,0,5.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5382856,Bryson Roland,RB,UL Monroe,Sun Belt,Troy,0,0.0,0.0,0.0,1.0,-4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5447033,Darrion Gilliam,WR,UL Monroe,Sun Belt,Troy,0,0.0,0.0,0.0,2.0,30.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,4871050,Marquese Williams,RB,Akron,Mid-American,Kent State,0,3.0,22.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5084582,Jordan Gant,RB,Akron,Mid-American,Kent State,0,28.0,162.0,2.0,3.0,18.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5110019,Kyan Mason,WR,Akron,Mid-American,Kent State,0,0.0,0.0,0.0,7.0,129.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
@@ -12169,25 +12169,6 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 8,5218787,Que'Sean Brown,WR,Virginia Tech,ACC,Clemson,0,2.0,22.0,0.0,5.0,69.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5260847,Marcellous Hawkins,RB,Virginia Tech,ACC,Clemson,0,6.0,12.0,0.0,1.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,-7798, Team,,Virginia Tech,ACC,Clemson,0,3.0,-4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4685492,Jack Pedersen,TE,Washington State,Pac-12,Boise State,1,0.0,0.0,0.0,3.0,40.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5024359,Trey Leckner,TE,Washington State,Pac-12,Boise State,1,0.0,0.0,0.0,4.0,26.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5076654,Leo Pulalasi,RB,Washington State,Pac-12,Boise State,1,5.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5119307,Daniel Blood,WR,Washington State,Pac-12,Boise State,1,0.0,0.0,0.0,4.0,43.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5153065,Branden Ganashamoorthy,WR,Washington State,Pac-12,Boise State,1,0.0,0.0,0.0,4.0,58.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5154732,Kirby Vorhees,RB,Washington State,Pac-12,Boise State,1,5.0,8.0,1.0,1.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5222221,Tank Hawkins,WR,Washington State,Pac-12,Boise State,1,0.0,0.0,0.0,4.0,21.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5227814,Maxwell Woods,RB,Washington State,Pac-12,Boise State,1,0.0,0.0,0.0,1.0,-5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5263246,Owen Eshelman,QB,Washington State,Pac-12,Boise State,1,23.0,33.0,0.0,0.0,0.0,0.0,21.0,40.0,191.0,0.0,1.0,0.0
-8,4870513,Maddux Madsen,QB,Boise State,Pac-12,Washington State,0,4.0,34.0,0.0,0.0,0.0,0.0,14.0,23.0,149.0,1.0,0.0,0.0
-8,5080888,Matt Wagner,TE,Boise State,Pac-12,Washington State,0,0.0,0.0,0.0,1.0,19.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5120669,Akeem Wright,WR,Boise State,Pac-12,Washington State,0,0.0,0.0,0.0,2.0,24.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5124975,Juelz Goff,RB,Boise State,Pac-12,Washington State,0,4.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5126514,Harry Stewart III,RB,Boise State,Pac-12,Washington State,0,2.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5146712,Dylan Riley,RB,Boise State,Pac-12,Washington State,0,13.0,128.0,2.0,1.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5147379,Sire Gaines,RB,Boise State,Pac-12,Washington State,0,10.0,64.0,1.0,3.0,19.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5157187,Cameron Bates,WR,Boise State,Pac-12,Washington State,0,0.0,0.0,0.0,2.0,13.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5290573,Rasean Jones,WR,Boise State,Pac-12,Washington State,0,2.0,13.0,0.0,5.0,69.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,-5405, Team,,Boise State,Pac-12,Washington State,0,2.0,-3.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
 8,4685252,Henry Belin IV,QB,Missouri State,Conference USA,Delaware,0,2.0,-10.0,0.0,0.0,0.0,0.0,26.0,35.0,337.0,2.0,2.0,1.0
 8,4837193,Jmariyae Robinson,WR,Missouri State,Conference USA,Delaware,0,0.0,0.0,0.0,10.0,85.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5085729,Connor Lair,RB,Missouri State,Conference USA,Delaware,0,15.0,85.0,2.0,3.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
@@ -12208,6 +12189,43 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 8,5296328,Scott Moore,TE,Delaware,Conference USA,Missouri State,1,0.0,0.0,0.0,2.0,58.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5327494,Nakeem Powell,RB,Delaware,Conference USA,Missouri State,1,3.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,-5797, Team,,Delaware,Conference USA,Missouri State,1,3.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5079417,Channing Goodwin,WR,Michigan,Big Ten,Indiana,1,0.0,0.0,0.0,2.0,32.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5079494,Hogan Hansen,TE,Michigan,Big Ten,Indiana,1,0.0,0.0,0.0,4.0,34.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5079574,Jordan Marshall,RB,Michigan,Big Ten,Indiana,1,12.0,26.0,0.0,1.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5141572,Andrew Marsh,WR,Michigan,Big Ten,Indiana,1,0.0,0.0,0.0,4.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5141741,Bryce Underwood,QB,Michigan,Big Ten,Indiana,1,1.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5156348,Bryson Kuzdzal,RB,Michigan,Big Ten,Indiana,1,4.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5156349,Jalen Hoffman,TE,Michigan,Big Ten,Indiana,1,0.0,0.0,0.0,2.0,14.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5159046,Savion Hiter,RB,Michigan,Big Ten,Indiana,1,10.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5209314,Travis Johnson,WR,Michigan,Big Ten,Indiana,1,0.0,0.0,0.0,1.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5214557,JJ Buchanan,WR,Michigan,Big Ten,Indiana,1,0.0,0.0,0.0,6.0,57.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5269403,Tommy Carr,QB,Michigan,Big Ten,Indiana,1,15.0,6.0,0.0,0.0,0.0,0.0,20.0,32.0,167.0,0.0,1.0,1.0
+8,4685401,Josh Hoover,QB,Indiana,Big Ten,Michigan,0,4.0,7.0,1.0,0.0,0.0,0.0,8.0,18.0,81.0,0.0,1.0,0.0
+8,4685464,Tyler Morris,WR,Indiana,Big Ten,Michigan,0,0.0,0.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5079600,Nick Marsh,WR,Indiana,Big Ten,Michigan,0,0.0,0.0,0.0,2.0,25.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5091725,Lee Beebe,RB,Indiana,Big Ten,Michigan,0,12.0,56.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5142604,Brock Schott,TE,Indiana,Big Ten,Michigan,0,0.0,0.0,0.0,1.0,21.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5146724,Turbo Richard,RB,Indiana,Big Ten,Michigan,0,19.0,68.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5146735,Charlie Becker,WR,Indiana,Big Ten,Michigan,0,0.0,0.0,0.0,3.0,32.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4685492,Jack Pedersen,TE,Washington State,Pac-12,Boise State,1,0.0,0.0,0.0,3.0,40.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5024359,Trey Leckner,TE,Washington State,Pac-12,Boise State,1,0.0,0.0,0.0,4.0,26.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5076654,Leo Pulalasi,RB,Washington State,Pac-12,Boise State,1,5.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5119307,Daniel Blood,WR,Washington State,Pac-12,Boise State,1,0.0,0.0,0.0,4.0,43.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5153065,Branden Ganashamoorthy,WR,Washington State,Pac-12,Boise State,1,0.0,0.0,0.0,4.0,58.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5154732,Kirby Vorhees,RB,Washington State,Pac-12,Boise State,1,5.0,8.0,1.0,1.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5222221,Tank Hawkins,WR,Washington State,Pac-12,Boise State,1,0.0,0.0,0.0,4.0,21.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5227814,Maxwell Woods,RB,Washington State,Pac-12,Boise State,1,0.0,0.0,0.0,1.0,-5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5263246,Owen Eshelman,QB,Washington State,Pac-12,Boise State,1,23.0,33.0,0.0,0.0,0.0,0.0,21.0,40.0,191.0,0.0,1.0,0.0
+8,4870513,Maddux Madsen,QB,Boise State,Pac-12,Washington State,0,4.0,34.0,0.0,0.0,0.0,0.0,14.0,23.0,149.0,1.0,0.0,0.0
+8,5080888,Matt Wagner,TE,Boise State,Pac-12,Washington State,0,0.0,0.0,0.0,1.0,19.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5120669,Akeem Wright,WR,Boise State,Pac-12,Washington State,0,0.0,0.0,0.0,2.0,24.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5124975,Juelz Goff,RB,Boise State,Pac-12,Washington State,0,4.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5126514,Harry Stewart III,RB,Boise State,Pac-12,Washington State,0,2.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5146712,Dylan Riley,RB,Boise State,Pac-12,Washington State,0,13.0,128.0,2.0,1.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5147379,Sire Gaines,RB,Boise State,Pac-12,Washington State,0,10.0,64.0,1.0,3.0,19.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5157187,Cameron Bates,WR,Boise State,Pac-12,Washington State,0,0.0,0.0,0.0,2.0,13.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5290573,Rasean Jones,WR,Boise State,Pac-12,Washington State,0,2.0,13.0,0.0,5.0,69.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,-5405, Team,,Boise State,Pac-12,Washington State,0,2.0,-3.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
 8,4685436,Antonio Martin,RB,Middle Tennessee,Conference USA,Florida International,0,11.0,47.0,0.0,2.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5091830,Cam'Ron Lacy,WR,Middle Tennessee,Conference USA,Florida International,0,1.0,5.0,0.0,6.0,68.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5194615,Brody Benke,TE,Middle Tennessee,Conference USA,Florida International,0,0.0,0.0,0.0,1.0,30.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
@@ -12227,43 +12245,6 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 8,5172097,Jayden Ford,RB,Florida International,Conference USA,Middle Tennessee,1,2.0,27.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5218988,JoJo Stone,WR,Florida International,Conference USA,Middle Tennessee,1,0.0,0.0,0.0,1.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,-14550, Team,,Florida International,Conference USA,Middle Tennessee,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
-8,5079417,Channing Goodwin,WR,Michigan,Big Ten,Indiana,1,0.0,0.0,0.0,2.0,32.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5079494,Hogan Hansen,TE,Michigan,Big Ten,Indiana,1,0.0,0.0,0.0,4.0,34.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5079574,Jordan Marshall,RB,Michigan,Big Ten,Indiana,1,12.0,26.0,0.0,1.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5141572,Andrew Marsh,WR,Michigan,Big Ten,Indiana,1,0.0,0.0,0.0,4.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5141741,Bryce Underwood,QB,Michigan,Big Ten,Indiana,1,1.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5156348,Bryson Kuzdzal,RB,Michigan,Big Ten,Indiana,1,4.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5156349,Jalen Hoffman,TE,Michigan,Big Ten,Indiana,1,0.0,0.0,0.0,2.0,14.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5159046,Savion Hiter,RB,Michigan,Big Ten,Indiana,1,10.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5209314,Travis Johnson,WR,Michigan,Big Ten,Indiana,1,0.0,0.0,0.0,1.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5214557,JJ Buchanan,WR,Michigan,Big Ten,Indiana,1,0.0,0.0,0.0,6.0,57.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5269403,Tommy Carr,QB,Michigan,Big Ten,Indiana,1,15.0,6.0,0.0,0.0,0.0,0.0,20.0,32.0,167.0,0.0,1.0,1.0
-8,4685401,Josh Hoover,QB,Indiana,Big Ten,Michigan,0,4.0,7.0,1.0,0.0,0.0,0.0,8.0,18.0,81.0,0.0,1.0,0.0
-8,4685464,Tyler Morris,WR,Indiana,Big Ten,Michigan,0,0.0,0.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5079600,Nick Marsh,WR,Indiana,Big Ten,Michigan,0,0.0,0.0,0.0,2.0,25.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5091725,Lee Beebe,RB,Indiana,Big Ten,Michigan,0,12.0,56.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5142604,Brock Schott,TE,Indiana,Big Ten,Michigan,0,0.0,0.0,0.0,1.0,21.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5146724,Turbo Richard,RB,Indiana,Big Ten,Michigan,0,19.0,68.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5146735,Charlie Becker,WR,Indiana,Big Ten,Michigan,0,0.0,0.0,0.0,3.0,32.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4429804,Jimmy Calloway,WR,Tulsa,American Athletic,Army,1,1.0,6.0,0.0,10.0,88.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4685699,Damari Alston,RB,Tulsa,American Athletic,Army,1,11.0,59.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4710860,Oran Singleton Jr.,WR,Tulsa,American Athletic,Army,1,0.0,0.0,0.0,5.0,61.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5125823,DJ McKinney,RB,Tulsa,American Athletic,Army,1,1.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5157287,David Wells Jr.,WR,Tulsa,American Athletic,Army,1,1.0,11.0,1.0,1.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5222570,Luke Tevis,TE,Tulsa,American Athletic,Army,1,0.0,0.0,0.0,1.0,22.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5224011,Baylor Hayes,QB,Tulsa,American Athletic,Army,1,6.0,-3.0,0.0,0.0,0.0,0.0,23.0,34.0,262.0,2.0,1.0,0.0
-8,5229589,Javon Ross,WR,Tulsa,American Athletic,Army,1,1.0,8.0,1.0,5.0,84.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5295930,Trequan Jones,RB,Tulsa,American Athletic,Army,1,5.0,66.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5082118,Zach Mundell,WR,Army,American Athletic,Tulsa,0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,45.0,0.0,0.0,0.0
-8,5150297,Cale Hellums,QB,Army,American Athletic,Tulsa,0,30.0,121.0,3.0,0.0,0.0,0.0,7.0,12.0,64.0,0.0,0.0,0.0
-8,5150316,Samari Howard,WR,Army,American Athletic,Tulsa,0,3.0,-1.0,0.0,3.0,41.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5150326,Carson Smith,RB,Army,American Athletic,Tulsa,0,2.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5150329,Jake Rendina,RB,Army,American Athletic,Tulsa,0,2.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5150373,Tobi Olawole,WR,Army,American Athletic,Tulsa,0,0.0,0.0,0.0,1.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5219436,Bradyn Anderson,WR,Army,American Athletic,Tulsa,0,0.0,0.0,0.0,3.0,61.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5293684,Bryson Luter,QB,Army,American Athletic,Tulsa,0,1.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5293685,Godspower Nwawuihe,RB,Army,American Athletic,Tulsa,0,12.0,135.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5293698,Stroman Bridges,WR,Army,American Athletic,Tulsa,0,1.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,4869443,Tyler King,WR,New Mexico State,Conference USA,Sam Houston,0,1.0,-11.0,0.0,3.0,21.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5076584,Terrell Washington Jr.,RB,New Mexico State,Conference USA,Sam Houston,0,12.0,40.0,1.0,3.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5152503,Adam Damante,QB,New Mexico State,Conference USA,Sam Houston,0,0.0,0.0,0.0,0.0,0.0,0.0,19.0,29.0,160.0,2.0,1.0,0.0
@@ -12291,24 +12272,25 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 8,5384797,Brett Holloway,QB,Sam Houston,Conference USA,New Mexico State,1,3.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5384799,MJ Dowdy,RB,Sam Houston,Conference USA,New Mexico State,1,4.0,17.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,-7268, Team,,Sam Houston,Conference USA,New Mexico State,1,1.0,-2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-8,5223108,Josh Johnson,QB,Air Force,Mountain West,Wyoming,0,2.0,-3.0,0.0,0.0,0.0,0.0,2.0,4.0,20.0,0.0,0.0,2.0
-8,5223116,Grant Wayne,WR,Air Force,Mountain West,Wyoming,0,0.0,0.0,0.0,2.0,10.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5223119,Owen Allen,RB,Air Force,Mountain West,Wyoming,0,13.0,42.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5223131,Rocco Conti,RB,Air Force,Mountain West,Wyoming,0,7.0,48.0,0.0,1.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5223147,Simon Kibbee,TE,Air Force,Mountain West,Wyoming,0,0.0,0.0,0.0,1.0,14.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5223149,Adam Hrynciw,WR,Air Force,Mountain West,Wyoming,0,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5238869,Matt Long,WR,Air Force,Mountain West,Wyoming,0,0.0,0.0,0.0,2.0,30.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5295010,Gage LaDue,FB,Air Force,Mountain West,Wyoming,0,10.0,57.0,0.0,1.0,21.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5306440,Evan Medders,QB,Air Force,Mountain West,Wyoming,0,21.0,115.0,0.0,0.0,0.0,0.0,3.0,4.0,27.0,1.0,0.0,1.0
-8,5388359,Keegan Sack,,Air Force,Mountain West,Wyoming,0,1.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5449066,Howard Fisher IV,QB,Air Force,Mountain West,Wyoming,0,9.0,38.0,0.0,0.0,0.0,0.0,3.0,7.0,36.0,0.0,0.0,0.0
-8,4838536,Tyler Hughes,QB,Wyoming,Mountain West,Air Force,1,12.0,146.0,1.0,0.0,0.0,0.0,10.0,17.0,113.0,2.0,0.0,0.0
-8,4912280,Charlie Coenen,WR,Wyoming,Mountain West,Air Force,1,0.0,0.0,0.0,2.0,33.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5141406,Deion DeBlanc,WR,Wyoming,Mountain West,Air Force,1,0.0,0.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5193325,Jake Wilson,TE,Wyoming,Mountain West,Air Force,1,0.0,0.0,0.0,2.0,36.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5227257,Markell Holman,RB,Wyoming,Mountain West,Air Force,1,9.0,35.0,1.0,2.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5258056,Samuel Harris,RB,Wyoming,Mountain West,Air Force,1,3.0,7.0,0.0,1.0,21.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5296622,Eric Richardson,WR,Wyoming,Mountain West,Air Force,1,0.0,0.0,0.0,2.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4429804,Jimmy Calloway,WR,Tulsa,American Athletic,Army,1,1.0,6.0,0.0,10.0,88.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4685699,Damari Alston,RB,Tulsa,American Athletic,Army,1,11.0,59.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4710860,Oran Singleton Jr.,WR,Tulsa,American Athletic,Army,1,0.0,0.0,0.0,5.0,61.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5125823,DJ McKinney,RB,Tulsa,American Athletic,Army,1,1.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5157287,David Wells Jr.,WR,Tulsa,American Athletic,Army,1,1.0,11.0,1.0,1.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5222570,Luke Tevis,TE,Tulsa,American Athletic,Army,1,0.0,0.0,0.0,1.0,22.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5224011,Baylor Hayes,QB,Tulsa,American Athletic,Army,1,6.0,-3.0,0.0,0.0,0.0,0.0,23.0,34.0,262.0,2.0,1.0,0.0
+8,5229589,Javon Ross,WR,Tulsa,American Athletic,Army,1,1.0,8.0,1.0,5.0,84.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5295930,Trequan Jones,RB,Tulsa,American Athletic,Army,1,5.0,66.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5082118,Zach Mundell,WR,Army,American Athletic,Tulsa,0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,45.0,0.0,0.0,0.0
+8,5150297,Cale Hellums,QB,Army,American Athletic,Tulsa,0,30.0,121.0,3.0,0.0,0.0,0.0,7.0,12.0,64.0,0.0,0.0,0.0
+8,5150316,Samari Howard,WR,Army,American Athletic,Tulsa,0,3.0,-1.0,0.0,3.0,41.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5150326,Carson Smith,RB,Army,American Athletic,Tulsa,0,2.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5150329,Jake Rendina,RB,Army,American Athletic,Tulsa,0,2.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5150373,Tobi Olawole,WR,Army,American Athletic,Tulsa,0,0.0,0.0,0.0,1.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5219436,Bradyn Anderson,WR,Army,American Athletic,Tulsa,0,0.0,0.0,0.0,3.0,61.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5293684,Bryson Luter,QB,Army,American Athletic,Tulsa,0,1.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5293685,Godspower Nwawuihe,RB,Army,American Athletic,Tulsa,0,12.0,135.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5293698,Stroman Bridges,WR,Army,American Athletic,Tulsa,0,1.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,4840113,Chase Belcher,RB,Kansas,Big 12,Baylor,1,6.0,24.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,4869603,Cam Pickett,WR,Kansas,Big 12,Baylor,1,0.0,0.0,0.0,4.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,4869730,Nik McMillan,WR,Kansas,Big 12,Baylor,1,0.0,0.0,0.0,2.0,66.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
@@ -12330,6 +12312,42 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 8,5295723,Caden Knighten,RB,Baylor,Big 12,Kansas,0,7.0,25.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5295724,Michael Turner,RB,Baylor,Big 12,Kansas,0,9.0,40.0,0.0,2.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5295733,Taz Williams Jr.,WR,Baylor,Big 12,Kansas,0,0.0,0.0,0.0,1.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5223108,Josh Johnson,QB,Air Force,Mountain West,Wyoming,0,2.0,-3.0,0.0,0.0,0.0,0.0,2.0,4.0,20.0,0.0,0.0,2.0
+8,5223116,Grant Wayne,WR,Air Force,Mountain West,Wyoming,0,0.0,0.0,0.0,2.0,10.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5223119,Owen Allen,RB,Air Force,Mountain West,Wyoming,0,13.0,42.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5223131,Rocco Conti,RB,Air Force,Mountain West,Wyoming,0,7.0,48.0,0.0,1.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5223147,Simon Kibbee,TE,Air Force,Mountain West,Wyoming,0,0.0,0.0,0.0,1.0,14.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5223149,Adam Hrynciw,WR,Air Force,Mountain West,Wyoming,0,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5238869,Matt Long,WR,Air Force,Mountain West,Wyoming,0,0.0,0.0,0.0,2.0,30.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5295010,Gage LaDue,FB,Air Force,Mountain West,Wyoming,0,10.0,57.0,0.0,1.0,21.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5306440,Evan Medders,QB,Air Force,Mountain West,Wyoming,0,21.0,115.0,0.0,0.0,0.0,0.0,3.0,4.0,27.0,1.0,0.0,1.0
+8,5388359,Keegan Sack,,Air Force,Mountain West,Wyoming,0,1.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5449066,Howard Fisher IV,QB,Air Force,Mountain West,Wyoming,0,9.0,38.0,0.0,0.0,0.0,0.0,3.0,7.0,36.0,0.0,0.0,0.0
+8,4838536,Tyler Hughes,QB,Wyoming,Mountain West,Air Force,1,12.0,146.0,1.0,0.0,0.0,0.0,10.0,17.0,113.0,2.0,0.0,0.0
+8,4912280,Charlie Coenen,WR,Wyoming,Mountain West,Air Force,1,0.0,0.0,0.0,2.0,33.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5141406,Deion DeBlanc,WR,Wyoming,Mountain West,Air Force,1,0.0,0.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5193325,Jake Wilson,TE,Wyoming,Mountain West,Air Force,1,0.0,0.0,0.0,2.0,36.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5227257,Markell Holman,RB,Wyoming,Mountain West,Air Force,1,9.0,35.0,1.0,2.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5258056,Samuel Harris,RB,Wyoming,Mountain West,Air Force,1,3.0,7.0,0.0,1.0,21.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5296622,Eric Richardson,WR,Wyoming,Mountain West,Air Force,1,0.0,0.0,0.0,2.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4826636,Jordan Anderson,RB,Illinois,Big Ten,Oregon,1,11.0,67.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4827047,Aidan Laughery,RB,Illinois,Big Ten,Oregon,1,13.0,123.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4870728,Kaden Feagin,TE,Illinois,Big Ten,Oregon,1,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4923226,Collin Dixon,WR,Illinois,Big Ten,Oregon,1,0.0,0.0,0.0,6.0,65.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5076651,Christian Abney,TE,Illinois,Big Ten,Oregon,1,0.0,0.0,0.0,2.0,13.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5196352,Carson Boyd,QB,Illinois,Big Ten,Oregon,1,4.0,21.0,0.0,0.0,0.0,0.0,1.0,1.0,5.0,0.0,0.0,0.0
+8,5198286,Michael Clayton II,QB,Illinois,Big Ten,Oregon,1,5.0,-13.0,0.0,0.0,0.0,0.0,11.0,18.0,84.0,2.0,0.0,1.0
+8,5203604,Javari Barnett,RB,Illinois,Big Ten,Oregon,1,6.0,27.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5211769,Brayden Trimble,WR,Illinois,Big Ten,Oregon,1,0.0,0.0,0.0,1.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5217444,Jershaun Newton,WR,Illinois,Big Ten,Oregon,1,0.0,0.0,0.0,1.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4912286,Iverson Hooks,WR,Oregon,Big Ten,Illinois,0,0.0,0.0,0.0,1.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4922988,Jamari Johnson,TE,Oregon,Big Ten,Illinois,0,0.0,0.0,0.0,7.0,69.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5079572,Dylan Raiola,QB,Oregon,Big Ten,Illinois,0,3.0,-6.0,0.0,0.0,0.0,0.0,27.0,41.0,246.0,0.0,0.0,1.0
+8,5141423,Jordon Davison,RB,Oregon,Big Ten,Illinois,0,14.0,92.0,1.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5141499,Dierre Hill Jr.,RB,Oregon,Big Ten,Illinois,0,13.0,83.0,0.0,3.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5141586,Dakorien Moore,WR,Oregon,Big Ten,Illinois,0,0.0,0.0,0.0,9.0,70.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5198506,Brandon Smith,RB,Oregon,Big Ten,Illinois,0,2.0,11.0,0.0,1.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5282366,Hudson Lewis,WR,Oregon,Big Ten,Illinois,0,0.0,0.0,0.0,5.0,68.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,4907671,Anthony Evans III,WR,Mississippi State,SEC,Oklahoma,1,0.0,0.0,0.0,6.0,33.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,4920164,Sam West,TE,Mississippi State,SEC,Oklahoma,1,0.0,0.0,0.0,1.0,11.0,0.0,1.0,1.0,18.0,1.0,0.0,0.0
 8,5076106,Marquis Johnson,WR,Mississippi State,SEC,Oklahoma,1,0.0,0.0,0.0,2.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
@@ -12353,24 +12371,24 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 8,5218767,Jacob Jordan,WR,Oklahoma,SEC,Mississippi State,0,0.0,0.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5293827,Manny Choice,WR,Oklahoma,SEC,Mississippi State,0,0.0,0.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,-7026, Team,,Oklahoma,SEC,Mississippi State,0,2.0,-2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4826636,Jordan Anderson,RB,Illinois,Big Ten,Oregon,1,11.0,67.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4827047,Aidan Laughery,RB,Illinois,Big Ten,Oregon,1,13.0,123.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4870728,Kaden Feagin,TE,Illinois,Big Ten,Oregon,1,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4923226,Collin Dixon,WR,Illinois,Big Ten,Oregon,1,0.0,0.0,0.0,6.0,65.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5076651,Christian Abney,TE,Illinois,Big Ten,Oregon,1,0.0,0.0,0.0,2.0,13.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5196352,Carson Boyd,QB,Illinois,Big Ten,Oregon,1,4.0,21.0,0.0,0.0,0.0,0.0,1.0,1.0,5.0,0.0,0.0,0.0
-8,5198286,Michael Clayton II,QB,Illinois,Big Ten,Oregon,1,5.0,-13.0,0.0,0.0,0.0,0.0,11.0,18.0,84.0,2.0,0.0,1.0
-8,5203604,Javari Barnett,RB,Illinois,Big Ten,Oregon,1,6.0,27.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5211769,Brayden Trimble,WR,Illinois,Big Ten,Oregon,1,0.0,0.0,0.0,1.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5217444,Jershaun Newton,WR,Illinois,Big Ten,Oregon,1,0.0,0.0,0.0,1.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4912286,Iverson Hooks,WR,Oregon,Big Ten,Illinois,0,0.0,0.0,0.0,1.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4922988,Jamari Johnson,TE,Oregon,Big Ten,Illinois,0,0.0,0.0,0.0,7.0,69.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5079572,Dylan Raiola,QB,Oregon,Big Ten,Illinois,0,3.0,-6.0,0.0,0.0,0.0,0.0,27.0,41.0,246.0,0.0,0.0,1.0
-8,5141423,Jordon Davison,RB,Oregon,Big Ten,Illinois,0,14.0,92.0,1.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5141499,Dierre Hill Jr.,RB,Oregon,Big Ten,Illinois,0,13.0,83.0,0.0,3.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5141586,Dakorien Moore,WR,Oregon,Big Ten,Illinois,0,0.0,0.0,0.0,9.0,70.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5198506,Brandon Smith,RB,Oregon,Big Ten,Illinois,0,2.0,11.0,0.0,1.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5282366,Hudson Lewis,WR,Oregon,Big Ten,Illinois,0,0.0,0.0,0.0,5.0,68.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4917858,Cole Cabana,RB,Western Michigan,Mid-American,Toledo,0,3.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5074245,Broc Lowry,QB,Western Michigan,Mid-American,Toledo,0,8.0,17.0,1.0,0.0,0.0,0.0,12.0,29.0,207.0,2.0,2.0,1.0
+8,5075962,Baylin Brooks,WR,Western Michigan,Mid-American,Toledo,0,0.0,0.0,0.0,3.0,57.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5085006,Jalen Buckley,RB,Western Michigan,Mid-American,Toledo,0,18.0,92.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5155273,Egypt Nelson,WR,Western Michigan,Mid-American,Toledo,0,0.0,0.0,0.0,2.0,28.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5157528,Nathan Levicki,TE,Western Michigan,Mid-American,Toledo,0,0.0,0.0,0.0,1.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5164351,Aveion Chenault,WR,Western Michigan,Mid-American,Toledo,0,0.0,0.0,0.0,6.0,105.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5296166,Ofa Mataele,RB,Western Michigan,Mid-American,Toledo,0,4.0,34.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4812374,Terrell Crosby Jr.,WR,Toledo,Mid-American,Western Michigan,1,0.0,0.0,0.0,2.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+8,5082330,John Alan Richter,QB,Toledo,Mid-American,Western Michigan,1,6.0,-5.0,1.0,0.0,0.0,0.0,29.0,41.0,391.0,3.0,1.0,0.0
+8,5083458,Peyton Strickland,TE,Toledo,Mid-American,Western Michigan,1,0.0,0.0,0.0,4.0,28.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5092811,CJ Miller,RB,Toledo,Mid-American,Western Michigan,1,33.0,183.0,1.0,1.0,13.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5153399,Adjatay Dabbs,WR,Toledo,Mid-American,Western Michigan,1,0.0,0.0,0.0,8.0,124.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5162858,Bryson Hammer,WR,Toledo,Mid-American,Western Michigan,1,0.0,0.0,0.0,7.0,107.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5164730,Autavius Ison,RB,Toledo,Mid-American,Western Michigan,1,7.0,27.0,1.0,1.0,13.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5220133,Sam Lee,TE,Toledo,Mid-American,Western Michigan,1,0.0,0.0,0.0,2.0,58.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5230932,Daryl Barnett Jr.,WR,Toledo,Mid-American,Western Michigan,1,0.0,0.0,0.0,4.0,41.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,-7650, Team,,Toledo,Mid-American,Western Michigan,1,1.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,4870776,Jalen Hale,WR,SMU,ACC,California,1,0.0,0.0,0.0,2.0,34.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,4870843,Theo Melin Ohrstrom,,SMU,ACC,California,1,0.0,0.0,0.0,1.0,27.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,4870954,Randy Pittman,TE,SMU,ACC,California,1,1.0,1.0,0.0,2.0,27.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
@@ -12421,24 +12439,6 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 8,5222689,John Montague,WR,Boston College,ACC,Georgia Tech,0,0.0,0.0,0.0,1.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5307005,Mason McKenzie,QB,Boston College,ACC,Georgia Tech,0,16.0,170.0,2.0,0.0,0.0,0.0,9.0,17.0,101.0,1.0,0.0,0.0
 8,-5408, Team,,Boston College,ACC,Georgia Tech,0,1.0,-2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4917858,Cole Cabana,RB,Western Michigan,Mid-American,Toledo,0,3.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5074245,Broc Lowry,QB,Western Michigan,Mid-American,Toledo,0,8.0,17.0,1.0,0.0,0.0,0.0,12.0,29.0,207.0,2.0,2.0,1.0
-8,5075962,Baylin Brooks,WR,Western Michigan,Mid-American,Toledo,0,0.0,0.0,0.0,3.0,57.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5085006,Jalen Buckley,RB,Western Michigan,Mid-American,Toledo,0,18.0,92.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5155273,Egypt Nelson,WR,Western Michigan,Mid-American,Toledo,0,0.0,0.0,0.0,2.0,28.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5157528,Nathan Levicki,TE,Western Michigan,Mid-American,Toledo,0,0.0,0.0,0.0,1.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5164351,Aveion Chenault,WR,Western Michigan,Mid-American,Toledo,0,0.0,0.0,0.0,6.0,105.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5296166,Ofa Mataele,RB,Western Michigan,Mid-American,Toledo,0,4.0,34.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,4812374,Terrell Crosby Jr.,WR,Toledo,Mid-American,Western Michigan,1,0.0,0.0,0.0,2.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-8,5082330,John Alan Richter,QB,Toledo,Mid-American,Western Michigan,1,6.0,-5.0,1.0,0.0,0.0,0.0,29.0,41.0,391.0,3.0,1.0,0.0
-8,5083458,Peyton Strickland,TE,Toledo,Mid-American,Western Michigan,1,0.0,0.0,0.0,4.0,28.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5092811,CJ Miller,RB,Toledo,Mid-American,Western Michigan,1,33.0,183.0,1.0,1.0,13.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5153399,Adjatay Dabbs,WR,Toledo,Mid-American,Western Michigan,1,0.0,0.0,0.0,8.0,124.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5162858,Bryson Hammer,WR,Toledo,Mid-American,Western Michigan,1,0.0,0.0,0.0,7.0,107.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5164730,Autavius Ison,RB,Toledo,Mid-American,Western Michigan,1,7.0,27.0,1.0,1.0,13.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5220133,Sam Lee,TE,Toledo,Mid-American,Western Michigan,1,0.0,0.0,0.0,2.0,58.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,5230932,Daryl Barnett Jr.,WR,Toledo,Mid-American,Western Michigan,1,0.0,0.0,0.0,4.0,41.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
-8,-7650, Team,,Toledo,Mid-American,Western Michigan,1,1.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,4685494,George Pettaway,RB,James Madison,Sun Belt,App State,0,15.0,57.0,1.0,2.0,13.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5078227,Braeden Wisloski,WR,James Madison,Sun Belt,App State,0,0.0,0.0,0.0,2.0,84.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5153978,Camden Coleman,QB,James Madison,Sun Belt,App State,0,4.0,11.0,1.0,0.0,0.0,0.0,22.0,39.0,232.0,1.0,1.0,0.0
@@ -12604,6 +12604,50 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 8,5215357,Daniel Rolovich,QB,San José State,Mountain West,Nevada,0,1.0,-2.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0
 8,5219662,Dominique McKenzie,WR,San José State,Mountain West,Nevada,0,0.0,0.0,0.0,2.0,60.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5295238,Luke Weaver,QB,San José State,Mountain West,Nevada,0,2.0,6.0,0.0,0.0,0.0,0.0,6.0,10.0,91.0,0.0,0.0,0.0
+8,5083747,Justin Bowick,WR,Oklahoma State,Big 12,Colorado,1,0.0,0.0,0.0,5.0,138.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5083966,Morgan McPhaul,TE,Oklahoma State,Big 12,Colorado,1,0.0,0.0,0.0,1.0,3.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5086240,Donovan Green,TE,Oklahoma State,Big 12,Colorado,1,0.0,0.0,0.0,1.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5148787,Wyatt Young,WR,Oklahoma State,Big 12,Colorado,1,0.0,0.0,0.0,4.0,78.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5148822,Chris Barnes,WR,Oklahoma State,Big 12,Colorado,1,0.0,0.0,0.0,1.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5149007,Miles Coleman,WR,Oklahoma State,Big 12,Colorado,1,0.0,0.0,0.0,3.0,69.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5207931,Terrence Lewis,WR,Oklahoma State,Big 12,Colorado,1,0.0,0.0,0.0,2.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5219834,Drew Mestemaker,QB,Oklahoma State,Big 12,Colorado,1,8.0,8.0,0.0,0.0,0.0,0.0,21.0,36.0,386.0,4.0,0.0,0.0
+8,5219835,Oscar Hammond,TE,Oklahoma State,Big 12,Colorado,1,0.0,0.0,0.0,1.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5224505,Tre Page III,RB,Oklahoma State,Big 12,Colorado,1,4.0,30.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5258016,Caleb Hawkins,RB,Oklahoma State,Big 12,Colorado,1,19.0,120.0,0.0,5.0,72.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5291690,Broderick Vehrs,QB,Oklahoma State,Big 12,Colorado,1,1.0,3.0,0.0,0.0,0.0,0.0,2.0,2.0,24.0,0.0,0.0,0.0
+8,5390453,William Mason,RB,Oklahoma State,Big 12,Colorado,1,6.0,27.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4870860,DeAndre Moore Jr.,WR,Colorado,Big 12,Oklahoma State,0,0.0,0.0,0.0,5.0,106.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4918094,Damian Henderson II,RB,Colorado,Big 12,Oklahoma State,0,2.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5079370,Ernest Campbell,WR,Colorado,Big 12,Oklahoma State,0,0.0,0.0,0.0,1.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5079771,Isaac Wilson,QB,Colorado,Big 12,Oklahoma State,0,14.0,16.0,1.0,0.0,0.0,0.0,19.0,27.0,280.0,2.0,2.0,1.0
+8,5096878,Dekalon Taylor,RB,Colorado,Big 12,Oklahoma State,0,0.0,0.0,0.0,2.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5141445,Quanell Farrakhan Jr.,WR,Colorado,Big 12,Oklahoma State,0,0.0,0.0,0.0,4.0,70.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5189530,Joseph Williams,WR,Colorado,Big 12,Oklahoma State,0,0.0,0.0,0.0,9.0,135.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5214655,Kaneal Sweetwyne,QB,Colorado,Big 12,Oklahoma State,0,1.0,-2.0,0.0,0.0,0.0,0.0,3.0,5.0,63.0,0.0,0.0,0.0
+8,5301028,Jaquail Smith,RB,Colorado,Big 12,Oklahoma State,0,13.0,39.0,0.0,1.0,4.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4685269,Jovantae Barnes,RB,Kentucky,SEC,Vanderbilt,1,15.0,68.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4870609,CJ Baxter Jr.,RB,Kentucky,SEC,Vanderbilt,1,1.0,3.0,0.0,1.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4918099,Kenny Minchey,QB,Kentucky,SEC,Vanderbilt,1,5.0,23.0,1.0,0.0,0.0,0.0,19.0,26.0,203.0,1.0,0.0,0.0
+8,5123048,Jason Patterson,RB,Kentucky,SEC,Vanderbilt,1,12.0,44.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5136838,Willie Rodriguez,TE,Kentucky,SEC,Vanderbilt,1,1.0,1.0,1.0,6.0,67.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5141449,Ja'Kayden Ferguson,WR,Kentucky,SEC,Vanderbilt,1,0.0,0.0,0.0,1.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5164333,Brennen Ward,QB,Kentucky,SEC,Vanderbilt,1,1.0,10.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5212635,Mikkel Skinner,TE,Kentucky,SEC,Vanderbilt,1,4.0,24.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5215172,Kenny Darby,WR,Kentucky,SEC,Vanderbilt,1,0.0,0.0,0.0,4.0,71.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5294137,DJ Miller,WR,Kentucky,SEC,Vanderbilt,1,0.0,0.0,0.0,5.0,43.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4799991,Cole Spence,TE,Vanderbilt,SEC,Kentucky,0,0.0,0.0,0.0,5.0,49.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,4912302,Makhilyn Young,RB,Vanderbilt,SEC,Kentucky,0,3.0,-2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5030333,Sedrick Alexander,RB,Vanderbilt,SEC,Kentucky,0,3.0,4.0,0.0,3.0,29.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5041960,Jayvontay Conner,TE,Vanderbilt,SEC,Kentucky,0,0.0,0.0,0.0,2.0,20.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5078165,Junior Sherrill,WR,Vanderbilt,SEC,Kentucky,0,1.0,2.0,0.0,8.0,78.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5149910,Tristen Brown,WR,Vanderbilt,SEC,Kentucky,0,0.0,0.0,0.0,3.0,31.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5150895,Claiborne Richards,WR,Vanderbilt,SEC,Kentucky,0,0.0,0.0,0.0,1.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5158948,Jared Curtis,QB,Vanderbilt,SEC,Kentucky,0,8.0,6.0,0.0,0.0,0.0,0.0,27.0,36.0,247.0,2.0,1.0,1.0
+8,5218655,Jamezell Lassiter,RB,Vanderbilt,SEC,Kentucky,0,1.0,6.0,0.0,1.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5245128,Evan Hampton,RB,Vanderbilt,SEC,Kentucky,0,0.0,0.0,0.0,1.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,5295920,Ja'Cory Thomas,WR,Vanderbilt,SEC,Kentucky,0,0.0,0.0,0.0,3.0,35.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+8,-7793, Team,,Vanderbilt,SEC,Kentucky,0,1.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5079506,Daniel Hill,RB,Alabama,SEC,Texas A&M,1,9.0,36.0,0.0,2.0,17.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5079714,Rico Scott,WR,Alabama,SEC,Texas A&M,1,0.0,0.0,0.0,6.0,156.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 8,5110500,Kevin Riley,RB,Alabama,SEC,Texas A&M,1,1.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
