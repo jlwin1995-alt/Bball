@@ -30,8 +30,9 @@
     const qbW = att / 15;                                   // full correction at 15+ projected attempts, none at 0
     const passY = calShrink(att * p.ypa * p.a_pass, p.pp, meta.cal_pass, qbW);
     const comp = calShrink(att * p.cmp * p.a_comp, p.cp, meta.cal_comp, qbW);
-    const rushTD = car * p.rtd_r * p.a_rtd;
-    const recTD = tgt * p.rectd_r * p.a_rectd;             // scales with targets, so an overridden Rec does not drag it
+    const sw = meta.sit_w || 0;                             // weight of the situational (goal-line / red-zone) touchdown rate
+    const rushTD = car * ((1 - sw) * p.rtd_r * p.a_rtd + sw * (p.sit_r || 0));
+    const recTD = tgt * ((1 - sw) * p.rectd_r * p.a_rectd + sw * (p.sit_c || 0));             // scales with targets, so an overridden Rec does not drag it
     const passTD = att * p.ptd_r * p.a_ptd;
     const int = att * p.int_r;
     // the sack rate is per dropback (an attempt OR a sack): solve sacks = rate x (att + sacks) for sacks

@@ -79,9 +79,9 @@ def depth(path, season):
 
 
 def pbp(path, season):
-    """nflverse play-by-play, kept slim: which skill player was involved in each play and in which quarter (used to estimate when a partial-game player left)."""
+    """nflverse play-by-play, kept slim: which skill player was involved in each play and in which quarter (used to estimate when a partial-game player left), plus the situation (down, distance, yards to the goal line, touchdown) for third-down and goal-line shares."""
     import gzip
-    cols = ["week", "posteam", "qtr", "passer_player_id", "rusher_player_id", "receiver_player_id"]
+    cols = ["week", "posteam", "qtr", "passer_player_id", "rusher_player_id", "receiver_player_id", "defteam", "down", "ydstogo", "yardline_100", "pass_touchdown", "rush_touchdown"]
     url = f"{C.NFLVERSE}/pbp/play_by_play_{season}.csv.gz"
     r = requests.get(url, timeout=180)
     r.raise_for_status()

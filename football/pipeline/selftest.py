@@ -247,6 +247,24 @@ def line_snapshots_check():
     print("line snapshots ok")
 
 
+def situation_check():
+    from . import situation
+    plays = [dict(week="1", yardline_100="3", down="1", rusher_player_id="A", receiver_player_id="", rush_touchdown="1", pass_touchdown="0"),
+             dict(week="1", yardline_100="60", down="3", rusher_player_id="A", receiver_player_id="", rush_touchdown="0", pass_touchdown="0"),
+             dict(week="1", yardline_100="15", down="3", rusher_player_id="", receiver_player_id="B", rush_touchdown="0", pass_touchdown="1"),
+             dict(week="2", yardline_100="2", down="1", rusher_player_id="A", receiver_player_id="", rush_touchdown="1", pass_touchdown="0")]
+    sh = situation.shares(plays, upto_week=2)                      # week 2 is excluded
+    assert sh["A"]["car"] == 2 and sh["A"]["gl_car"] == 1 and sh["A"]["td3_car"] == 1 and sh["A"]["rush_td"] == 1, sh
+    assert sh["B"]["rz_tgt"] == 1 and sh["B"]["td3_tgt"] == 1 and sh["B"]["rec_td"] == 1, sh
+    f = situation.fracs(plays, 2)
+    assert 0.0534 < f["A"][0] < 0.5 and 0.1355 < f["B"][1] < 1.0, f                  # shrunk toward the league, in the direction of his own history
+    rows = [dict(position_group="WR", opponent_team="X", week=1, fantasy_points_ppr=20.0, rushing_yards=0, receiving_yards=100, passing_yards=0, rushing_tds=0, receiving_tds=1, passing_tds=0),
+            dict(position_group="WR", opponent_team="Y", week=1, fantasy_points_ppr=10.0, rushing_yards=0, receiving_yards=50, passing_yards=0, rushing_tds=0, receiving_tds=0, passing_tds=0)]
+    al, lg = situation.allowed(rows)
+    assert al["X"]["WR"]["rank"] == 1 and al["Y"]["WR"]["rank"] == 2 and abs(lg["WR"]["pts"] - 15.0) < 1e-9 and abs(al["X"]["WR"]["vs"] - 1 / 3) < 1e-9, (al, lg)
+    print("situation ok")
+
+
 def fair_ok(x):
     return x == -150
 
@@ -254,3 +272,4 @@ def fair_ok(x):
 if __name__ == "__main__":
     main()
     line_snapshots_check()
+    situation_check()
