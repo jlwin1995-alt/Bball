@@ -268,3 +268,18 @@ Week 7 showed Tanner McKee (PHI; Hurts out, McKee the depth-chart QB1) with 54 a
 ### Usage trend view (Usage tab > View > Weekly trend)
 
 `analysis.usage_trend` -> `site/data/usage_trend.json`. For every RB / WR / TE (FB included) with 3+ games: weekly series of target share, carry share, share of the team's carries + targets, and snap %; the last `window` (3) games against the games BEFORE them (ratio of sums; the whole season when fewer than 2 games precede the window); and the team's own volume (targets a game for receivers, carries for backs) over the same split, so a team-wide change shows separately from a role change. The Role pill is RISING / FALLING when the main share (target share for WR/TE, share of carries + targets for RB) moves 5 points or more, and the top of the page lists the biggest risers and fallers with their snap change. Season-to-date shares stay on View > Season share.
+
+### Weighting recent usage more for players whose role moved: tested, not adopted
+
+Idea from the usage trend view: when a player's share of the team's carries or targets over the last 3 games has moved well away from his earlier games, trust the recent games more than the standing 20% recent weight (`RECENT_WEIGHT`). Walk-forward 2023-25, weeks 5+, RB/WR/TE (9,700 player-games; volume MAE = |projected - actual carries| + |projected - actual targets|):
+
+| recent weight | where | players flagged | volume MAE (flagged) | volume MAE (all) |
+|---|---|---|---|---|
+| 0.20 | everyone (current) | - | 3.901 | 3.036 |
+| 0.70 | share moved 10+ points | 2,900 | 3.857 | 3.022 |
+| 0.90 | share moved 10+ points | 2,900 | 3.876 | 3.028 |
+| 0.70 | share moved 15+ points | fewer | 3.867 | 3.025 |
+| 0.50 | share moved 5+ points | 4,993 (half of all rows: 5 points is routine noise) | 3.559 vs 3.583 | 3.037 vs 3.050 |
+| 0.35 / 0.50 | everyone, no flag | - | about the same as the flagged runs | 3.037 / 3.033 |
+
+Raw volume improves by about 0.5% at best, and a plain higher weight for everyone does as well as the flag, so the share-move trigger adds nothing. Through the whole model it is slightly worse: with the 0.7 weight on 10+ point movers, rushing yards MAE 8.84 -> 8.86, 8.91 -> 8.98, 9.01 -> 9.10, receiving yards 18.00 -> 18.12, 17.75 -> 17.88, 17.11 -> 17.12 and projected points 5.398 -> 5.419, 5.581 -> 5.603, 5.474 -> 5.494 (2023/24/25); a global 0.35 or 0.50 is also flat to slightly worse. A recent share move is mostly noise that reverts, which is why the team-scale and season-long weighting win. The usage trend view stays as a reading aid, not a model input; the code was not kept.
