@@ -296,6 +296,8 @@ def nfl_core(rows, matchup, wx=None, P=None):
                 w = min(1.0, p_play[i]["att"] / top[PL[i]["team"]])
                 if PL[i]["team"] in has_qb1:                 # the depth chart's healthy QB1 is the passer; a backup keeps a sliver for garbage time
                     w = 1.0 if i in qb1 else min(w, P["QB_BACKUP_W"])
+                if i in qb1 and p_play[i]["att"] < top[PL[i]["team"]]:
+                    p_play[i]["att"] = 1.0                   # a CHANGED starter (a backup has thrown more lately): one start in six weeks must not shrink the team's attempts onto the scale cap
                 raw[i]["att"] *= w
                 raw[i]["car"] *= w
 
