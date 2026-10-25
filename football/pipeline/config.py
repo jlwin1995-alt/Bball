@@ -74,6 +74,11 @@ PLAY_PRIOR = 0.25
 OUT_RB = True                     # a running back the injury report lists OUT is removed from the pool and his carries go to the next men up (backtest 2024-26: teammates' carries MAE 5.13 -> 4.24, rushing yards MAE 23.7 -> 20.7)
 OUT_WR = True                     # same for a wide receiver listed OUT: removed from the pool, targets re-spread (backtest 2024-26, 991 teammates: WR targets MAE 2.52 -> 2.41, 2+ WRs out 2.10 -> 1.96)
 OUT_TGT_CAP = 0.5                 # how far a team's target rescale may rise when a receiver is out (0.2, 0.5 and 1.0 tested: 0.5 and 1.0 identical)
+SIT_TD_W = 0.5                    # weight of the situational touchdown estimate (goal-line carries, red-zone targets) against the model's own; backtest 2023-25: log-loss 0.5433 -> ~0.536 (rush), 0.4968 -> ~0.484 (rec)
+SIT_K_CAR = 40.0                  # carries of shrinkage for a player's goal-line share (toward the league's)
+SIT_K_TGT = 30.0                  # targets of shrinkage for a player's red-zone share
+SIT_R_GL, SIT_R_OP, SIT_F_GL = 0.3887, 0.0136, 0.0534      # league 2022-25: touchdown rate on carries inside the 5, on other carries, and the share of carries inside the 5
+SIT_R_RZ, SIT_R_RO, SIT_F_RZ = 0.2366, 0.0155, 0.1355      # same for targets inside the 20
 OUT_QB = True                     # a quarterback listed OUT is removed from the pool (his attempts and carries go to the next man up)
 QB_PART = True                    # a backup quarterback's attempts and carries are weighted by how often he has played relative to the team's main passer (the 20% team-scale cap cannot shrink him)
 QB_BACKUP_W = 0.1                 # with a healthy depth-chart QB1, a backup's attempts/carries are at most this fraction of his own history
@@ -88,7 +93,7 @@ MODEL_KEYS = [
     "K_DEF_POS_WR", "K_DEF_POS_TE", "K_DEF_POS_RB", "K_TEAM_VOL", "TEAM_SCALE_CAP", "DEF_STRENGTH_RUSH", "DEF_STRENGTH_YPR", "DEF_STRENGTH_CATCH",
     "DEF_STRENGTH_PASS", "DEF_STRENGTH_COMP", "TEAM_TD_WEIGHT", "K_TEAM_TD", "EXPL_RUSH_WEIGHT", "EXPL_RUSH_SCALE", "CAL_PASS_SLOPE", "CAL_COMP_SLOPE",
     "LAMBDA_RUSH_TD", "LAMBDA_REC_TD", "LAMBDA_PASS_TD", "CONCENTRATE_ATTEMPTS", "CONCENTRATE_CARRIES", "CONCENTRATE_TARGETS", "PLAY_WINDOW",
-    "PLAY_PRIOR", "OUT_RB", "OUT_QB", "QB_PART", "QB_BACKUP_W", "OUT_CAP", "OUT_WR", "OUT_TGT_CAP", "LG_PASS_TD", "LG_INT", "LG_YPA", "WEATHER_ON", "WX_WIND_THRESHOLD", "WX_WIND_SLOPE", "WX_WIND_FLOOR", "WX_REC_DAMP", "WX_RUSH_SLOPE",
+    "PLAY_PRIOR", "OUT_RB", "SIT_TD_W", "SIT_K_CAR", "SIT_K_TGT", "OUT_QB", "QB_PART", "QB_BACKUP_W", "OUT_CAP", "OUT_WR", "OUT_TGT_CAP", "LG_PASS_TD", "LG_INT", "LG_YPA", "WEATHER_ON", "WX_WIND_THRESHOLD", "WX_WIND_SLOPE", "WX_WIND_FLOOR", "WX_REC_DAMP", "WX_RUSH_SLOPE",
     "DEFAULT_SCORING",
 ]
 

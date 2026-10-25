@@ -108,7 +108,11 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     status = statuses(inj, week)
     out_ids = {i for i, st in status.items() if re.match(r"(out|ir)", st, re.I)}
     dpt = depth_map(load_csv(f"{raw}/depth.csv")) if os.path.exists(f"{raw}/depth.csv") else {}
-    core = nfl_core(hist, mu, by_team_wx, dict(P, OUT_IDS=out_ids, QB1_IDS={i for i, d in dpt.items() if d["slot"] == "QB1"}))
+    sit_fracs = {}
+    if P.get("SIT_TD_W") and os.path.exists(f"{raw}/pbp_slim.csv"):
+        from . import situation
+        sit_fracs = situation.fracs(situation.load_plays(f"{raw}/pbp_slim.csv"), week, P)       # goal-line / red-zone shares from this season's plays before the target week
+    core = nfl_core(hist, mu, by_team_wx, dict(P, OUT_IDS=out_ids, QB1_IDS={i for i, d in dpt.items() if d["slot"] == "QB1"}, SIT_FRACS=sit_fracs))
     # starters (depth chart rank 1, WR 1-3) the injury report lists Out or Doubtful, by team, for the Game Board warning
     outs = {}
     for x in inj:
@@ -149,6 +153,9 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
             a_rtd=r(td_adj(td_base(pl, "dr"), P["LAMBDA_RUSH_TD"]) * pl["site"], 4),
             a_rectd=r(td_adj(td_base(pl, "dc") * td_base(pl, "dy"), P["LAMBDA_REC_TD"]) * pl["site"], 4),
             a_ptd=r(td_adj(td_base(pl, "dp"), P["LAMBDA_PASS_TD"]) * pl["site"], 4),
+            # situational touchdown rates per carry / per target (goal-line and red-zone share), blended with the rates above at meta.sit_w
+            sit_r=r((pl["glFrac"] * P["SIT_R_GL"] + (1 - pl["glFrac"]) * P["SIT_R_OP"]) * pl["site"], 5),
+            sit_c=r((pl["rzFrac"] * P["SIT_R_RZ"] + (1 - pl["rzFrac"]) * P["SIT_R_RO"]) * pl["site"], 5),
             tcar=r(pl["teamCar"], 1), ttgt=r(pl["teamTgt"], 1), pp=r(pl.get("passPivot"), 4), cp=r(pl.get("compPivot"), 4),
             # the projection under the default scoring components (the browser recomputes points from these under any scoring preset)
             ry=r(d["rushY"], 2), rec=r(d["rec"], 3), recy=r(d["recY"], 2), py=r(d["passY"], 2), comp=r(d["comp"], 3), sacks=r(d["sacks"], 3),
@@ -165,7 +172,10 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     FP.build("data/log/fp_lines_log.csv", proj, f"{out}/fp_lines.json", dict(mean=list(C.FP_MEAN), sigma=list(C.FP_SIGMA)))
     lines_mod.main(raw, out, {g["game"] for g in games})        # live lines + consensus, if odds.csv exists
     dump(wx_rows, out, "weather.json")
-    dump(dict(week=week, rows=matchup_table(core, mu, week, P), ranks=position_rankings(core), lg=dict(ypc=r(core["LG_YPC"], 3), catch=r(core["LG_CATCH"], 4), ypr=r(core["LG_YPR"], 3),
+    from . import situation as SIT
+    allow, allow_lg = SIT.allowed(hist)
+    allow_rows = [dict(team=t, **{f"{g.lower()}_{k}": (r(v, 2) if k == "vs" else r(v, 1)) if k != "rank" else v for g, d in gs.items() for k, v in d.items() if k in ("pts", "yds", "td", "rank", "vs")}) for t, gs in sorted(allow.items())]
+    dump(dict(week=week, allowed=dict(rows=allow_rows, lg={g: {k: r(v, 2) for k, v in d.items()} for g, d in allow_lg.items()}), rows=matchup_table(core, mu, week, P), ranks=position_rankings(core), lg=dict(ypc=r(core["LG_YPC"], 3), catch=r(core["LG_CATCH"], 4), ypr=r(core["LG_YPR"], 3),
                                                                         pos={p: dict(catch=r(v["catch"], 3), ypr=r(v["ypr"], 2)) for p, v in core["posBase"].items()})),
          out, "matchups.json")
 
@@ -193,7 +203,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
 
     now = dt.datetime.now(dt.timezone.utc)
     dump(dict(season=C.SEASON, week=week, generated=now.isoformat(timespec="seconds"), stamp=scorecard.stamp(P),
-              mean_factor=C.MEAN_FACTOR, window=C.ROLLING_WINDOW, cal_pass=P["CAL_PASS_SLOPE"], cal_comp=P["CAL_COMP_SLOPE"], default_scoring=C.DEFAULT_SCORING,
+              mean_factor=C.MEAN_FACTOR, window=C.ROLLING_WINDOW, cal_pass=P["CAL_PASS_SLOPE"], cal_comp=P["CAL_COMP_SLOPE"], sit_w=P["SIT_TD_W"], default_scoring=C.DEFAULT_SCORING,
               players=len(proj), games=len(games), history_rows=len(hist), history_gaps=gaps[:6], asof_week=int(max(x["week"] for x in rows)),
               weather=dict(on=P["WEATHER_ON"], threshold=P["WX_WIND_THRESHOLD"]),
               edge_min=C.EDGE_MIN * 100, pp_breakeven=C.PP_BREAKEVEN * 100,

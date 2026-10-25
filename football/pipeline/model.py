@@ -377,6 +377,7 @@ def nfl_core(rows, matchup, wx=None, P=None):
         out.append(dict(
             id=i, name=p["name"], pos=p["pos"], grp=p["grp"], team=p["team"], opp=opp, siteTag=m["site"], rest=m.get("rest") or 0, g=p["g"],
             car=car, tgt=tgt, att=att, site=site, drRaw=drRaw, dyRaw=dyRaw, dcRaw=dcRaw, dpRaw=dpRaw, wind=w["wind"], wxYds=w["yds"],
+            glFrac=(P.get("SIT_FRACS") or {}).get(i, (P["SIT_F_GL"], P["SIT_F_RZ"]))[0], rzFrac=(P.get("SIT_FRACS") or {}).get(i, (P["SIT_F_GL"], P["SIT_F_RZ"]))[1],
             teamCar=tp.get("car", 0.0), teamTgt=tp.get("tgt", 0.0), dr=dr, dc=dc, dy=dy, dp=dp, dcomp=dcomp,
             ypc=(p["rushing_yards"] + P["PRIOR_CARRIES"] * LG_YPC) / (p["carries"] + P["PRIOR_CARRIES"]),
             cr=(p["receptions"] + P["PRIOR_TARGETS"] * pb["catch"]) / (p["targets"] + P["PRIOR_TARGETS"]),
@@ -437,6 +438,12 @@ def derive(pl, W, P=None):
     comp = cal_shrink(vatt * pl["compRate"] * pl["dcomp"], pl.get("compPivot"), P["CAL_COMP_SLOPE"], qb_w)
     rush_td = vcar * pl["rushTdRate"] * td_adj(td_base(pl, "dr"), P["LAMBDA_RUSH_TD"]) * pl["site"]
     rec_td = vtgt * pl["recTdRate"] * td_adj(td_base(pl, "dc") * td_base(pl, "dy"), P["LAMBDA_REC_TD"]) * pl["site"]
+    w_sit = P.get("SIT_TD_W") or 0.0
+    if w_sit:
+        # situational touchdown estimate: where his carries and targets come from (goal line, red zone) rather than just how many he gets
+        gf, rf = pl.get("glFrac", P["SIT_F_GL"]), pl.get("rzFrac", P["SIT_F_RZ"])
+        rush_td = (1 - w_sit) * rush_td + w_sit * vcar * (gf * P["SIT_R_GL"] + (1 - gf) * P["SIT_R_OP"]) * pl["site"]
+        rec_td = (1 - w_sit) * rec_td + w_sit * vtgt * (rf * P["SIT_R_RZ"] + (1 - rf) * P["SIT_R_RO"]) * pl["site"]
     pass_td = vatt * pl["ptdRate"] * td_adj(td_base(pl, "dp"), P["LAMBDA_PASS_TD"]) * pl["site"]
     ints = vatt * pl["intRate"]
     # the sack rate is per dropback (an attempt OR a sack): solve sacks = rate x (att + sacks) for sacks

@@ -228,12 +228,16 @@ const pages = {
       {k: "ypr_wr", h: "Y/Rec vs WR", f: a3("ypr_wr")}, {k: "ypr_te", h: "Y/Rec vs TE", f: a3("ypr_te")}, {k: "ypr_rb", h: "Y/Rec vs RB", f: a3("ypr_rb")},
       {k: "faces", h: `Faces in wk ${M.week}`, l: 1}];
     const rkc = (k, h) => ({k: k + "_rk", h, t: "Rank (1 = most generous) and the multiplier applied", f: r => `<b>${r[k + "_rk"]}</b> <span class="mut">${adj(r[k])}</span>`, v: r => r[k + "_rk"]});
+    const alw = (p, h) => ({k: p + "_pts", h, t: "PPR points allowed per game, rank (1 = most), and vs the league average", f: r => r[p + "_pts"] == null ? "" : `${num(r[p + "_pts"], 1)} <span class="mut">#${r[p + "_rank"]} ${r[p + "_vs"] >= 0 ? "+" : ""}${num(r[p + "_vs"] * 100, 0)}%</span>`, v: r => r[p + "_pts"]});
+    const allowCols = [{k: "team", h: "Defense", l: 1}, alw("qb", "vs QB"), alw("rb", "vs RB"), alw("wr", "vs WR"), alw("te", "vs TE")];
     const posCols = [{k: "team", h: "Defense", l: 1}, rkc("qb", "vs QB (pass)"), rkc("rb_rush", "vs RB (rush)"), rkc("wr_rec", "vs WR (rec)"), rkc("te_rec", "vs TE (rec)"), rkc("rb_rec", "vs RB (rec)")];
     return `<h2>Matchups — Week ${D.meta.week}</h2>
       <p class="sub">Above 0% means the opponent has been easier than average to gain on; below, harder. Every value is regressed by how many plays the defence has faced and then capped, so early in a season most sit near 0%.</p>
       <h3>This week, softest matchup first</h3>${table(c1, rk, {id: "mr", sort: {key: "overall"}})}
       <h3>Positional rankings — every defence</h3><p class="sub">How each defence has fared against each position group, as the multiplier actually applied to projections (defence only). <b>1 = most generous</b>. QB = passing, RB = rushing, the three receiving columns are catch rate × yards per catch against that group. Tight-end splits carry no information (a defence's tight-end numbers in one half of a season correlate −0.03 with the other), so the TE column falls back on the overall receiving rating.</p>
       ${table(posCols, M.ranks, {id: "mpos", sort: {key: "qb_rk", asc: true}})}
+      ${M.allowed ? `<h3>Fantasy points allowed by position</h3><p class="sub">Full-PPR fantasy points each defence has allowed per game to every player at the position, with its rank (<b>1 = allows the most</b>) and how far above or below the league average that is. A plain results table: it is NOT a model input (the model uses the multipliers above, which are regressed and capped because points allowed barely repeat week to week).</p>
+      ${table(allowCols, M.allowed.rows, {id: "mallow", sort: {key: "wr_pts"}})}` : ""}
       <h3>Every defence</h3>${table(c2, M.rows, {id: "md", sort: {key: "rush"}})}
       <div class="doc"><p class="mut">League baseline: ${num(M.lg.ypc, 2)} Y/C, ${num(M.lg.catch, 3)} catch rate, ${num(M.lg.ypr, 2)} Y/Rec. Per position — ${Object.entries(M.lg.pos).map(([p, v]) => `${p} ${num(v.catch, 3)} / ${num(v.ypr, 1)} Y/Rec`).join(", ")}.
       The three TD columns are derived from the yardage columns, not from touchdowns allowed (a defence's own TD rate allowed barely predicts its future one). The position columns regress toward that defence's own overall number; tight-end splits are switched off because how a defence did against tight ends in one half of a season tells you nothing about the other.</p></div>`;

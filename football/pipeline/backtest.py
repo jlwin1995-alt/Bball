@@ -61,6 +61,7 @@ def run(season, raw="data/raw", W=None, P=None, from_week=None, min_pts=None, qu
     acc = {m: {k: dict(ae=0.0, se=0.0, n=0, pred=0.0, act=0.0, over=0, overN=0) for k, *_ in STATS} for m in models}
     pos_acc = {g: dict(n=0, over=0, pred=0.0, act=0.0) for g in ("QB", "RB", "WR", "TE")}
     per_week, last_week = [], from_week - 1
+    plays = None
 
     for wk in range(from_week, max_week + 1):
         if wk not in by_week:
@@ -75,6 +76,14 @@ def run(season, raw="data/raw", W=None, P=None, from_week=None, min_pts=None, qu
         Pw = P
         if P.get("OUT_RB") and INJ.get(season):
             Pw = dict(P, OUT_IDS={r["gsis_id"] for r in INJ[season] if int(float(r["week"] or 0)) == wk and r["report_status"] in P.get("OUT_STATUS", ("Out",))})
+        if P.get("SIT_TD_W"):
+            if plays is None:
+                from . import situation
+                pp = f"{raw}/pbp_slim.csv" if cur else f"{raw}/history/pbp_slim_{season}.csv"
+                plays = situation.load_plays(pp) if os.path.exists(pp) else []
+            if plays:
+                from . import situation
+                Pw = dict(Pw, SIT_FRACS=situation.fracs(plays, wk, P))
         core = nfl_core(hist, mu, recorded_wx(sched, wk, Pw), Pw)
         seen = {}
         for r in hist:
