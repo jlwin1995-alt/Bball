@@ -119,7 +119,8 @@ def aggregate(rows, snaps):
         if sp is not None:
             p["snapSum"] += sp; p["snapGames"] += 1
         p["weeks"].append(dict(week=week, ppr=r["fantasy_points_ppr"], yds=r["passing_yards"] + r["rushing_yards"] + r["receiving_yards"],
-                               opp=r["attempts"] + r["carries"] + r["targets"], epa=r["passing_epa"] + r["rushing_epa"] + r["receiving_epa"]))
+                               opp=r["attempts"] + r["carries"] + r["targets"], epa=r["passing_epa"] + r["rushing_epa"] + r["receiving_epa"],
+                               tgt=r["targets"], car=r["carries"], snap=sp, tm_tgt=tw["targets"], tm_car=tw["carries"]))
     for p in P.values():
         p["weeks"].sort(key=lambda x: x["week"])
     return P, team_week, live
@@ -175,6 +176,51 @@ def usage(P):
                         touches=touches, touch_g=r_(div(touches, p["g"]), 1), opp=opp, opp_g=r_(div(opp, p["g"]), 1),
                         opp_sh=sh(opp, team_opp), team_opp=team_opp))
     out.sort(key=lambda x: -(x["opp_sh"] or 0))
+    return out
+
+
+def usage_trend(P, win=None, min_g=3, move=5.0):
+    """Week-by-week and rolling usage for rushers and receivers: target share, carry share, share of the team's opportunity (carries + targets) and snap %,
+    each as a weekly series, the last-`win` games against the games BEFORE them (ratio of sums; against the whole season when fewer than 2 games precede the window),
+    and the team's own volume (targets or carries a game) over the same split, so a team-wide change is not read as a role change.
+    flag RISING / FALLING when the primary share moves `move` points or more: target share for WR/TE, opportunity share for RB/FB."""
+    win = win or C.ROLLING_WINDOW
+    out = []
+    pct = lambda n, d: None if not d else n / d * 100
+    for p in P.values():
+        if p["grp"] not in ("RB", "WR", "TE") and p["pos"] != "FB":
+            continue
+        w = p["weeks"]
+        if len(w) < min_g or (nsum(x["car"] + x["tgt"] for x in w) < 15):
+            continue
+        sh = lambda seg, num_k, tm_k: pct(nsum(x[num_k] for x in seg), nsum(x[tm_k] for x in seg))
+        opp_sh = lambda seg: pct(nsum(x["car"] + x["tgt"] for x in seg), nsum(x["tm_car"] + x["tm_tgt"] for x in seg))
+        snap = lambda seg: (lambda v: sum(v) / len(v) * 100 if v else None)([x["snap"] for x in seg if x["snap"] is not None])
+        recent, prior = w[-win:], w[:-win]
+        ref = prior if len(prior) >= 2 else w                    # too few earlier games to be a baseline: compare with the whole season
+        wk_series = lambda f: [r_(f([x]), 1) for x in w]
+        row = dict(id=p["id"], name=p["name"], pos=p["pos"], team=p["team"], g=len(w), ref=len(ref) if ref is not w else len(w), vs_season=ref is w,
+                   weeks=[int(x["week"]) for x in w],
+                   tgt_w=wk_series(lambda s: sh(s, "tgt", "tm_tgt")), car_w=wk_series(lambda s: sh(s, "car", "tm_car")), opp_w=wk_series(opp_sh),
+                   snap_w=[r_(x["snap"] * 100, 1) if x["snap"] is not None else None for x in w])
+        for key, f in (("tgt", lambda s: sh(s, "tgt", "tm_tgt")), ("car", lambda s: sh(s, "car", "tm_car")), ("opp", opp_sh), ("snap", snap)):
+            a, b = f(recent), f(ref)
+            row[key + "_r"], row[key + "_b"] = r_(a, 1), r_(b, 1)
+            row[key + "_d"] = r_(None if a is None or b is None else a - b, 1)
+        # the team's own volume over the same split (targets for receivers, carries for backs)
+        tk = "tm_car" if p["grp"] == "RB" else "tm_tgt"
+        team_by_week = {}
+        for x in w:
+            team_by_week[x["week"]] = x[tk]
+        tr = [v for k, v in team_by_week.items() if k in {x["week"] for x in recent}]
+        tb = [v for k, v in team_by_week.items() if k in {x["week"] for x in ref}]
+        row["tm_d"] = r_((sum(tr) / len(tr)) / (sum(tb) / len(tb)) * 100 - 100, 0) if tr and tb and sum(tb) else None
+        key = "opp_d" if p["grp"] == "RB" else "tgt_d"
+        d = row[key]
+        row["flag"] = "RISING" if d is not None and d >= move else "FALLING" if d is not None and d <= -move else ""
+        row["move"] = d
+        out.append(row)
+    out.sort(key=lambda x: -abs(x["move"] or 0))
     return out
 
 

@@ -32,7 +32,7 @@ function calcFor(p) {
 const proj = () => D.projections.map(p => ({...p, c: calcFor(p)}));
 
 const nameCols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}];
-const F = {q: "", pos: "", team: "", hideStarted: false, game: "", effView: "QB", year: "", minG: 0, lstat: "", lgame: "", lpicks: false, lstrong: false, rweek: "", rmkt: "pts", rlines: false, rpicks: false};
+const F = {q: "", pos: "", team: "", hideStarted: false, game: "", effView: "QB", usView: "Season share", year: "", minG: 0, lstat: "", lgame: "", lpicks: false, lstrong: false, rweek: "", rmkt: "pts", rlines: false, rpicks: false};
 function teams() { return [...new Set(D.projections.map(p => p.team))].sort(); }
 function filters(extra = "", {team = false} = {}) {
   return `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}">
@@ -50,6 +50,29 @@ document.addEventListener("input", e => { if (e.target.id === "q") { F.q = e.tar
 const statusPill = s => s ? `<span class="pill ${isOut(s) || /doubt/i.test(s) ? "bad" : "q"}">${esc(s)}</span>` : "";
 const formPill = f => f === "HOT" ? `<span class="pill hot">HOT</span>` : f === "COLD" ? `<span class="pill cold">COLD</span>` : `<span class="mut">${esc(f || "")}</span>`;
 const vsOpp = r => (r.home ? "vs " : "@ ") + esc(r.opp);
+const usViewSel = () => `<label>View <select id="usview">${["Season share", "Weekly trend"].map(s => `<option ${F.usView === s ? "selected" : ""}>${s}</option>`).join("")}</select></label>`;
+const moveCell = (v, pts = true) => v == null ? "" : `<span class="${v >= 5 ? "good" : v <= -5 ? "bad" : "mut"}">${v > 0 ? "+" : ""}${num(v, 1)}${pts ? "" : "%"}</span>`;
+function UsageTrend() {
+  const win = D.meta.window || 3;
+  const rows = D.usage_trend.filter(passes).filter(r => !F.minG || r.g >= F.minG);
+  const flagPill = f => f ? `<span class="pill ${f === "RISING" ? "lean-strong" : "lean-lean"}">${f}</span>` : "";
+  const cols = [...nameCols, {k: "g", h: "G"},
+    {k: "flag", h: "Role", l: 1, t: "RISING / FALLING: his main share (target share for WR/TE, share of the team's carries + targets for RB) moved 5 points or more", f: r => flagPill(r.flag), v: r => r.move},
+    {k: "snap_r", h: `Snap % last ${win}`, f: r => num(r.snap_r)}, {k: "snap_d", h: "Δ", t: "Points vs the earlier games", f: r => moveCell(r.snap_d)},
+    {k: "tgt_b", h: "Tgt share before", t: "Target share in the games before the window (the whole season when fewer than 2 games precede it)", f: r => num(r.tgt_b)},
+    {k: "tgt_r", h: `last ${win}`, f: r => `<b>${num(r.tgt_r)}</b>`}, {k: "tgt_d", h: "Δ", f: r => moveCell(r.tgt_d)}, {k: "tgt_w", h: "Weekly tgt %", v: null, f: r => spark(r.tgt_w.map(v => v ?? 0))},
+    {k: "car_b", h: "Carry share before", f: r => num(r.car_b)}, {k: "car_r", h: `last ${win}`, f: r => `<b>${num(r.car_r)}</b>`}, {k: "car_d", h: "Δ", f: r => moveCell(r.car_d)},
+    {k: "car_w", h: "Weekly carry %", v: null, f: r => spark(r.car_w.map(v => v ?? 0))},
+    {k: "opp_r", h: `Opp share last ${win}`, t: "Share of the team's carries + targets", f: r => num(r.opp_r)}, {k: "opp_d", h: "Δ", f: r => moveCell(r.opp_d)},
+    {k: "tm_d", h: "Team vol Δ", t: "The team's own targets a game (carries for a back) over the same split: a team-wide drop makes a raw-count fall look like a role change when the share did not move", f: r => moveCell(r.tm_d, false)}];
+  const movers = (dir) => rows.filter(r => r.move != null && (dir > 0 ? r.move >= 5 : r.move <= -5)).sort((a, b) => dir * (b.move - a.move)).slice(0, 8);
+  const list = (title, arr) => `<div><h3>${title}</h3>${arr.length ? `<ul class="movers">${arr.map(r => `<li><b>${esc(r.name)}</b> <span class="mut">${esc(r.pos)} · ${esc(r.team)}</span> ${r.pos === "RB" ? "opp share" : "target share"} ${num(r.pos === "RB" ? r.opp_b : r.tgt_b)}% → <b>${num(r.pos === "RB" ? r.opp_r : r.tgt_r)}%</b> (${moveCell(r.move)}) <span class="mut">· snaps ${num(r.snap_b, 0)}% → ${num(r.snap_r, 0)}%</span></li>`).join("")}</ul>` : `<p class="mut">None moved 5 points.</p>`}</div>`;
+  return `<h2>Usage</h2><p class="sub">How each skill player's role has moved: the last ${win} games against the games before them (share of the team's targets and carries, snap %). The sparklines are week by week. A <b>Team vol Δ</b> next to a drop tells you whether the team simply threw or ran less.</p>
+    ${filters(usViewSel() + `<label>Min games <input id="ming" type="number" min="0" max="18" style="width:60px" value="${F.minG}"></label>`)}
+    <div class="cols2">${list("Biggest risers", movers(1))}${list("Biggest fallers", movers(-1))}</div>
+    ${table(cols, rows, {id: "ustr", sort: {key: "flag"}})}`;
+}
+
 function spark(a) {
   if (!a || a.length < 2) return "";
   const w = 70, h = 18, mx = Math.max(...a, 1), mn = Math.min(...a, 0), step = w / (a.length - 1);
@@ -271,13 +294,14 @@ const pages = {
   },
 
   Usage() {
+    if (F.usView === "Weekly trend" && D.usage_trend) return UsageTrend();
     const rows = D.usage.filter(passes);
     const cols = [...nameCols, {k: "g", h: "G"}, {k: "snap", h: "Snap %", f: r => num(r.snap)}, {k: "tgt", h: "Tgt"}, {k: "tgt_g", h: "Tgt/G", f: r => num(r.tgt_g)},
       {k: "tgt_sh", h: "Tgt Share %", f: r => num(r.tgt_sh)}, {k: "air", h: "Air Yds", f: r => num(r.air, 0)}, {k: "air_sh", h: "Air Share %", f: r => num(r.air_sh)},
       {k: "wopr", h: "WOPR", t: "1.5 x target share + 0.7 x air-yards share", f: r => num(r.wopr, 3)}, {k: "car", h: "Car"}, {k: "car_g", h: "Car/G", f: r => num(r.car_g)},
       {k: "car_sh", h: "Carry Share %", f: r => num(r.car_sh)}, {k: "touches", h: "Touches"}, {k: "touch_g", h: "Touch/G", f: r => num(r.touch_g)},
       {k: "opp", h: "Opp"}, {k: "opp_g", h: "Opp/G", f: r => num(r.opp_g)}, {k: "opp_sh", h: "Opp Share %", t: "(carries + targets) over the team's", f: r => `<b>${num(r.opp_sh)}</b>`}];
-    return `<h2>Usage</h2><p class="sub">Share of team opportunity, season to date. Opportunity = carries + targets.</p>${filters()}${table(cols, rows, {id: "usage", sort: {key: "opp_sh"}})}`;
+    return `<h2>Usage</h2><p class="sub">Share of team opportunity, season to date. Opportunity = carries + targets.</p>${filters(usViewSel())}${table(cols, rows, {id: "usage", sort: {key: "opp_sh"}})}`;
   },
 
   Trends() {
@@ -539,6 +563,7 @@ document.addEventListener("change", e => {
   else if (t.id === "team") { F.team = t.value; render(true); }
   else if (t.id === "game") { F.game = t.value; render(); }
   else if (t.id === "effview") { F.effView = t.value; render(); }
+  else if (t.id === "usview") { F.usView = t.value; render(); }
   else if (t.id === "year") { F.year = t.value; render(); }
   else if (t.id === "ming") { F.minG = +t.value || 0; render(true); }
   else if (t.id === "hidestarted") { F.hideStarted = t.checked; render(true); }
@@ -573,7 +598,7 @@ document.addEventListener("click", e => {
 async function boot() {
   CFG = {...CFG, ...store.get("cfg", {})}; OVR = store.get("ovr", {}); LINES = store.get("lines", []);
   if (!CFG.scoring || Object.keys(CFG.scoring).some(k => !(k in SCORE_LABEL))) CFG = {...CFG, preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}};
-  const names = ["projections", "games", "teams", "matchups", "efficiency", "usage", "trends", "weather", "coverage", "scorecard", "meta", "lines", "fp_lines"];
+  const names = ["projections", "games", "teams", "matchups", "efficiency", "usage", "trends", "weather", "usage_trend", "coverage", "scorecard", "meta", "lines", "fp_lines"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   if (!D.projections || !D.meta) { view().innerHTML = "<p>No data found in <code>data/</code>. Run <code>python -m pipeline.build</code>.</p>"; return; }
   await loadBacktests();

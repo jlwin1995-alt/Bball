@@ -183,6 +183,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     Pl, team_week, live = analysis.aggregate(rows, snaps)
     dump(analysis.efficiency(Pl), out, "efficiency.json")
     dump(analysis.usage(Pl), out, "usage.json")
+    dump(analysis.usage_trend(Pl), out, "usage_trend.json")
     dump(analysis.trends(Pl), out, "trends.json")
     dump(analysis.coverage(team_week, live), out, "coverage.json")
     dump(teamstats.build(teamstats.nfl_team_games(rows, sched)), out, "teams.json")

@@ -281,6 +281,20 @@ def td_check():
     print("anytime td ok")
 
 
+def usage_trend_check():
+    from . import analysis
+    wk = lambda w, tgt, car, snap: dict(week=w, tgt=tgt, car=car, snap=snap, tm_tgt=30.0, tm_car=25.0)
+    P = {"a": dict(id="a", name="A", pos="WR", grp="WR", team="X", weeks=[wk(1, 3, 0, .6), wk(2, 3, 0, .6), wk(3, 3, 0, .6), wk(4, 9, 0, .9), wk(5, 9, 0, .9), wk(6, 9, 0, .9)]),
+         "b": dict(id="b", name="B", pos="RB", grp="RB", team="X", weeks=[wk(1, 3, 15, .7)] * 3 + [wk(2, 2, 6, .4)] * 3),
+         "c": dict(id="c", name="C", pos="QB", grp="QB", team="X", weeks=[wk(1, 0, 3, 1.0)] * 6)}
+    out = {x["id"]: x for x in analysis.usage_trend(P, win=3)}
+    assert "c" not in out, out                                                       # quarterbacks are not part of the view
+    a = out["a"]
+    assert a["flag"] == "RISING" and a["tgt_b"] == 10.0 and a["tgt_r"] == 30.0 and a["tgt_d"] == 20.0 and a["snap_d"] == 30.0, a   # 3 of 30 -> 9 of 30 targets, snaps 60% -> 90%
+    assert out["b"]["flag"] == "FALLING" and out["b"]["opp_d"] < -5, out["b"]
+    print("usage trend ok")
+
+
 def fair_ok(x):
     return x == -150
 
@@ -290,3 +304,4 @@ if __name__ == "__main__":
     line_snapshots_check()
     situation_check()
     td_check()
+    usage_trend_check()
