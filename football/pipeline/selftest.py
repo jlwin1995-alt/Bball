@@ -265,6 +265,22 @@ def situation_check():
     print("situation ok")
 
 
+def td_check():
+    from . import fetch_odds
+    ev = dict(id="e1", commence_time="2026-10-25T17:00:00Z", home_team="Chicago Bears", away_team="New England Patriots")
+    odds = dict(bookmakers=[
+        dict(key="fanduel", markets=[dict(key="player_anytime_td", outcomes=[dict(name="Yes", description="Colston Loveland", price=190), dict(name="No", description="Colston Loveland", price=-250),
+                                                                            dict(name="Yes", description="D'Andre Swift", price=-110)])]),
+        dict(key="prizepicks", markets=[dict(key="player_anytime_td", outcomes=[dict(name="Yes", description="Colston Loveland", price=-119)])]),
+        dict(key="draftkings", markets=[dict(key="player_anytime_td", outcomes=[dict(name="Colston Loveland", price=200)])])])
+    rows = fetch_odds.parse_td(ev, odds, "2026-10-25T12:00:00")
+    by = {(r["book"], r["player"]): r for r in rows}
+    assert len(rows) == 3 and ("prizepicks", "Colston Loveland") not in by, rows                        # the DFS app is skipped
+    assert by[("fanduel", "Colston Loveland")]["yes"] == 190 and by[("fanduel", "Colston Loveland")]["no"] == -250 and by[("fanduel", "D'Andre Swift")]["no"] is None, rows
+    assert by[("draftkings", "Colston Loveland")]["yes"] == 200 and rows[0]["game"] == "NE @ CHI", rows       # a book that names the player as the outcome
+    print("anytime td ok")
+
+
 def fair_ok(x):
     return x == -150
 
@@ -273,3 +289,4 @@ if __name__ == "__main__":
     main()
     line_snapshots_check()
     situation_check()
+    td_check()

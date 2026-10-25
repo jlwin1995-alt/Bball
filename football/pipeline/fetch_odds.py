@@ -231,7 +231,37 @@ CFB_FP_LOG = "data/log/cfb_fp_lines_log.csv"
 FP_COLS = ["ts", "event", "commence", "game", "home", "away", "player", "book", "line", "over", "under"]
 
 
-def snapshot_fp(rows, now, path=FP_LOG):
+TD_LOG = "data/log/td_lines_log.csv"
+TD_COLS = ["ts", "event", "commence", "game", "home", "away", "player", "book", "yes", "no"]
+
+
+def parse_td(ev, odds, now_iso, teams=None):
+    """Anytime-touchdown prices: one row per (player, book) with the American price for Yes (and No where the book posts it). Sportsbooks only: the DFS apps do not post this."""
+    away, home = teams or (C.TEAM_ABBR.get(ev["away_team"], ev["away_team"]), C.TEAM_ABBR.get(ev["home_team"], ev["home_team"]))
+    rows = []
+    for bk in odds.get("bookmakers", []):
+        if bk["key"] in C.DFS_BOOKS:
+            continue
+        for mk in bk.get("markets", []):
+            if mk["key"] != C.TD_MARKET:
+                continue
+            by = {}
+            for o in mk.get("outcomes", []):
+                nm = o.get("name")
+                who = o.get("description") if nm in ("Yes", "No", "Over", "Under") else nm
+                if not who or o.get("price") is None:
+                    continue
+                d = by.setdefault(who, {})
+                if nm in ("No", "Under"):
+                    d["no"] = o["price"]
+                else:
+                    d["yes"] = o["price"]
+            rows += [dict(ts=now_iso, event=ev["id"], commence=ev["commence_time"], game=f"{away} @ {home}", home=home, away=away, player=who,
+                          book=bk["key"], yes=d.get("yes"), no=d.get("no")) for who, d in by.items() if d.get("yes") is not None]
+    return rows
+
+
+def snapshot_fp(rows, now, path=FP_LOG, cols=None):
     """Keep the LAST PRE-GAME fantasy-points line per (event, player, book): overwritten while the game has not started, never touched after kickoff."""
     new = [x for x in rows if datetime.fromisoformat(x["commence"].replace("Z", "+00:00")) > now]
     if not new:
@@ -241,7 +271,7 @@ def snapshot_fp(rows, now, path=FP_LOG):
     old = [x for x in read_rows(path) if key(x) not in fresh]
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=FP_COLS, extrasaction="ignore")
+        w = csv.DictWriter(f, fieldnames=cols or FP_COLS, extrasaction="ignore")
         w.writeheader()
         w.writerows(old + new)
     return len(new)
@@ -264,7 +294,7 @@ def main(session=None, force=False):
     horizon = now + timedelta(hours=C.ODDS_HORIZON_HOURS)
     prev_rows = read_rows(f"{RAW}/odds.csv")
     rows, remaining, n_games, info = [], None, 0, []
-    fp_rows = []
+    fp_rows, td_rows = [], []
     r = s.get(f"{BASE}/events", params={"apiKey": key, "dateFormat": "iso"}, timeout=30)
     if r.status_code in (401, 429):
         raise SystemExit(f"Odds API {r.status_code}: {r.text[:200]}")
@@ -277,13 +307,14 @@ def main(session=None, force=False):
             print(f"stopping: only {remaining} credits left (ODDS_MIN_CREDITS={C.ODDS_MIN_CREDITS})")
             break
         resp = s.get(f"{BASE}/events/{ev['id']}/odds", timeout=30, params={
-            "apiKey": key, "bookmakers": ",".join(C.ODDS_BOOKS), "markets": ",".join([*C.ODDS_MARKETS, C.FP_MARKET]), "oddsFormat": "american", "dateFormat": "iso"})
+            "apiKey": key, "bookmakers": ",".join(C.ODDS_BOOKS), "markets": ",".join([*C.ODDS_MARKETS, C.FP_MARKET, C.TD_MARKET]), "oddsFormat": "american", "dateFormat": "iso"})
         if resp.status_code in (401, 429):
             raise SystemExit(f"Odds API {resp.status_code}: {resp.text[:200]}")
         resp.raise_for_status()
         remaining = float(resp.headers.get("x-requests-remaining", "nan"))
         got = parse_event(ev, resp.json(), now.isoformat(timespec="seconds"))
         fp_rows += [x for x in parse_event(ev, resp.json(), now.isoformat(timespec="seconds"), markets=FP_SPEC) if x["book"] == C.FP_BOOK]
+        td_rows += parse_td(ev, resp.json(), now.isoformat(timespec="seconds"))
         n_games += 1
         info.append(dict(game=f"{C.TEAM_ABBR.get(ev['away_team'], ev['away_team'])} @ {C.TEAM_ABBR.get(ev['home_team'], ev['home_team'])}",
                          commence=ev["commence_time"], props=len(got)))
@@ -302,6 +333,8 @@ def main(session=None, force=False):
     write_rows(f"{RAW}/odds.csv", rows)
     n_fp = snapshot_fp(fp_rows, now)
     print(f"fantasy-points lines ({C.FP_BOOK}): {len(fp_rows)} seen, {n_fp} kept in the log")
+    n_td = snapshot_fp(td_rows, now, path=TD_LOG, cols=TD_COLS)
+    print(f"anytime-TD prices: {len(td_rows)} seen, {n_td} kept in the log")
     json.dump(dict(ts=now.isoformat(timespec="seconds"), credits=None if remaining is None or remaining != remaining else remaining, games=info),
               open(f"{RAW}/odds_meta.json", "w"))
     print(f"odds.csv: {len(rows)} lines across {n_games} games; credits remaining: {remaining}")
