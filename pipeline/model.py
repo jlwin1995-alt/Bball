@@ -195,6 +195,9 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
     tot = P.groupby("team")["min_exp"].transform("sum")
     fac = np.clip(C.TEAM_MINUTES / tot.replace(0, np.nan), *C.RESCALE_CLIP).fillna(1.0)
     fac = 1 + C.RESCALE_STRENGTH * (fac - 1)                     # how much of the rescale to believe (measured: pipeline.usage_test)
+    if C.RESCALE_STRENGTH_BENCH is not None:                     # bench men soak up the minutes of absent rotation players more fully than starters do
+        fb = np.clip(C.TEAM_MINUTES / tot.replace(0, np.nan), *C.RESCALE_CLIP_BENCH).fillna(1.0)
+        fac = np.where(P["min_raw"] < C.BENCH_MIN_CUT, 1 + C.RESCALE_STRENGTH_BENCH * (fb - 1), fac)
     if not minute_mult and C.PRE_ONLY_RESCALE:                    # established players first: no-history players share only the minutes left over
         po = P["pre_only"] & ~P["role_set"]
         est = P["min_exp"].where(~po, 0.0).groupby(P["team"]).transform("sum")
