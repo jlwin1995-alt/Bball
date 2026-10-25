@@ -243,3 +243,14 @@ Revisit after about two more slates (target: 20+ picks in the under-0.5 bucket).
 - **A level problem this exposed.** Both the old and the new touchdown estimates are LOW: projected rushing TDs total 869 against 970 actual (-10%) and receiving TDs 1,285 against 1,545 (-17%) for players with real volume, which is most of the model's -8% to -13% points bias. Not changed here (it would shift every projection and prop); it is the next candidate.
 - **Third-down shares** (`td3_car`, `td3_tgt`) are computed in `situation.shares` but not used or tested yet.
 - **Points allowed by position.** `situation.allowed` sums PPR points, yards and touchdowns allowed per game to QB / RB / WR / TE for every defence (rank, % above league) and the Matchups tab shows it under "Fantasy points allowed by position". It is a reference table, not a model input: the model keeps the regressed and capped multipliers because points allowed barely repeat from one half-season to the next. Not available free: routes run, outside vs slot alignment (the participation file stopped being published after 2022).
+
+### NFL touchdown calibration: tested, not applied to the points
+
+The touchdown projections run low (rushing about 10%, receiving about 17% for players with real volume). Test: scale the expected touchdowns by a factor fitted on the OTHER two seasons and apply it to the held-out season (2023-25, weeks 5+, 11,113 player-games, current model with the goal-line / red-zone blend).
+
+- **The shortfall is stable across seasons.** Actual / projected TDs: rushing 1.07 / 1.09 / 1.19, receiving 1.15 / 1.32 / 1.17, passing 0.95 / 1.06 / 0.93 (passing needs no change).
+- **It is concentrated by position.** Rushing: QBs 1.34-1.45 (their rushing TDs are badly under-projected), RBs 1.03-1.09. Receiving: TEs 1.31-1.41, WRs 1.15-1.29, RBs 0.84-0.99 (RB receiving TDs are slightly OVER-projected). A flat scale hides that.
+- **What it buys.** Bernoulli log-loss for "scores a TD" improves in every held-out season (rush 0.5127 -> 0.5118 flat, 0.5104 by position in 2023; rec 0.4666 -> 0.4639; 2024 and 2025 similar), small gains. Points BIAS improves (-10.5% -> -7.8%, -14.2% -> -12.5%, -9.7% -> -7.1%) because the touchdown mean is corrected.
+- **What it does not buy.** Projected-points MAE gets slightly WORSE (4.627 -> 4.638, 4.865 -> 4.868, 4.786 -> 4.799). The points projection is a median (that is what MAE rewards, and the fantasy-points lean already adds its own fitted mean adjustment), and touchdowns are skewed counts: raising their mean moves the points projection away from the median.
+
+Decision: the points projection is NOT recalibrated. The factors are the numbers to use when touchdown probabilities matter (an anytime-TD market, which the odds pull does not collect): QB rush x1.4, RB rush x1.05, WR rec x1.2, TE rec x1.35, RB rec x0.9, pass x1.0. Revisit if we add that market.
