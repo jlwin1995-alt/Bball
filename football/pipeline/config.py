@@ -201,6 +201,7 @@ CFB_PROPS_HORIZON_HOURS = float(__import__("os").environ.get("CFB_PROPS_HORIZON_
 CFB_PROPS_MIN_HOURS = 3
 CFB_SPREAD_STAT = {"Rushing yards": "rushY", "Receiving yards": "recY", "Receptions": "rec", "Passing yards": "passY", "Completions": "comp"}   # backtest label -> stat key
 # Fantasy-points prop (PrizePicks only for now): collected into data/log/fp_lines_log.csv, NOT shown on the site until PrizePicks' scoring and a sigma for points are fitted.
+TD_MARKET = "player_anytime_td"       # anytime touchdown scorer: a Yes price per player, no line; logged for the touchdown-probability test, not shown yet
 FP_MARKET = "player_fantasy_points"
 PP_SCORING = {"passYd": 0.04, "passTd": 4, "intr": -1, "rushYd": 0.1, "rushTd": 6, "recYd": 0.1, "recTd": 6, "rec": 1, "fum": -1, "two": 0}   # PrizePicks' official chart
 # NFL fantasy-points lean, fitted on the 2024-26 walk-forward backtests (6,364 player-games with a 4+ point projection), PrizePicks scoring:
