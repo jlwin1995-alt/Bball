@@ -62,6 +62,9 @@ TEAM_MINUTES = 240.0               # a game's worth of player minutes
 RESCALE_CLIP = (0.80, 1.25)        # how far the team rescale may move anyone's minutes
 MAX_MIN = 42.0
 RESCALE_STRENGTH = 0.25            # share of the team-240 rescale applied. MEASURED (pipeline.absence_test, 2025-26): full rescale over-credits teammates; 0.25 cuts minutes MAE 6% and fantasy-point MAE ~2% with absences known (~1% unknown), in both halves of the season
+RESCALE_STRENGTH_BENCH = 0.75      # share of the team-240 rescale applied to men below BENCH_MIN_CUT usual minutes (None = same as RESCALE_STRENGTH). MEASURED (2025-26 and 2024-25, absences known): with 2+ rotation men out, bench men are projected ~2.5 min low at 0.25 and ~1.2 at 0.75 (fantasy MAE 7.8 -> 7.6, bench overall bias +0.9 -> +0.2); starters are unbiased at 0.25 and get worse above it, so they keep it
+RESCALE_CLIP_BENCH = (0.80, 1.5)
+BENCH_MIN_CUT = 20.0
 PLAY_WINDOW = 20                   # team games used to measure how often a player actually plays
 ACTIVE_DAYS = 21                   # a player must have played in this window to take minutes
 TIER_CUTS = (30.0, 22.0)             # projected-minutes cutoffs: T1 stars/starters >= 30, T2 rotation >= 22, T3 the rest
