@@ -161,6 +161,14 @@ const pages = {
     if (!F.game || !games.some(g => g.game === F.game)) F.game = (games.find(g => !started(g.ko)) || games[0]).game;
     const g = games.find(x => x.game === F.game);
     const all = proj();
+    // what the OPPOSING defence has allowed to each position group (PPR points per game, rank 1 = allows the most): reference only, not a model input
+    const allowRows = D.matchups?.allowed?.rows || [];
+    const allowStrip = t => {
+      const opp = t === g.home ? g.away : g.home, a = allowRows.find(x => x.team === opp);
+      if (!a) return "";
+      const chip = (p, h) => a[p + "_pts"] == null ? "" : `<span class="pill" title="${esc(opp)} has allowed ${num(a[p + "_pts"], 1)} PPR points a game to ${h}s: rank ${a[p + "_rank"]} of 32 (1 = most), ${a[p + "_vs"] >= 0 ? "+" : ""}${num(a[p + "_vs"] * 100, 0)}% vs the league average">${h} <b>${num(a[p + "_pts"], 1)}</b> <span class="mut">#${a[p + "_rank"]} ${a[p + "_vs"] >= 0 ? "+" : ""}${num(a[p + "_vs"] * 100, 0)}%</span></span>`;
+      return `<p class="sub">${esc(opp)} defence has allowed (PPR pts a game, #1 = most): ${chip("qb", "QB")} ${chip("rb", "RB")} ${chip("wr", "WR")} ${chip("te", "TE")}</p>`;
+    };
     const mk = t => {
       const rows = all.filter(p => p.team === t && p.game === g.game);
       const cols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "status", h: "Status", l: 1, f: r => statusPill(r.status)}, depthCol(depthTip(false, D.meta.depth_ts)),
@@ -175,7 +183,7 @@ const pages = {
       const live = rows.filter(r => !isOut(r.status)), nOut = rows.length - live.length;
       const tot = live.reduce((a, r) => a + r.c.shown, 0);
       const outs = g.outs?.[t] || [];
-      return `<div><h3>${esc(t)} <span class="mut">· ${num(tot)} projected pts across ${live.length} players${nOut ? ` (${nOut} listed out, not counted)` : ""}</span></h3>${outs.length ? `<p class="banner">⚠ Projected starter${outs.length > 1 ? "s" : ""} on the injury report: ${outs.map(o => `<b>${esc(o.name)}</b> (${esc(o.slot)}, ${esc(o.status)})`).join(", ")}. ${outs.some(o => (o.pos === "RB" || o.pos === "WR") && /^(out|ir)/i.test(o.status)) ? "A back or receiver who is OUT is removed and his carries or targets go to the players who remain. " : ""}${outs.some(o => !((o.pos === "RB" || o.pos === "WR") && /^(out|ir)/i.test(o.status))) ? "Other volume is not handed to teammates, so check the next man up before trusting their numbers." : ""}</p>` : ""}${table(cols, rows, {id: "gb" + t, sort: {key: "cpts"}, rowClass: r => [leanRow(r), focusRow(r)].filter(Boolean).join(" ")})}</div>`;
+      return `<div><h3>${esc(t)} <span class="mut">· ${num(tot)} projected pts across ${live.length} players${nOut ? ` (${nOut} listed out, not counted)` : ""}</span></h3>${allowStrip(t)}${outs.length ? `<p class="banner">⚠ Projected starter${outs.length > 1 ? "s" : ""} on the injury report: ${outs.map(o => `<b>${esc(o.name)}</b> (${esc(o.slot)}, ${esc(o.status)})`).join(", ")}. ${outs.some(o => (o.pos === "RB" || o.pos === "WR") && /^(out|ir)/i.test(o.status)) ? "A back or receiver who is OUT is removed and his carries or targets go to the players who remain. " : ""}${outs.some(o => !((o.pos === "RB" || o.pos === "WR") && /^(out|ir)/i.test(o.status))) ? "Other volume is not handed to teammates, so check the next man up before trusting their numbers." : ""}</p>` : ""}${table(cols, rows, {id: "gb" + t, sort: {key: "cpts"}, rowClass: r => [leanRow(r), focusRow(r)].filter(Boolean).join(" ")})}</div>`;
     };
     const wx = g.src === "indoor" || g.roof === "indoor" ? "indoors" : g.wind != null ? `${num(g.wind, 0)} mph wind${g.temp != null ? `, ${num(g.temp, 0)}°F` : ""} <span class="mut">(${esc(g.src)})</span>` : "weather unknown";
     const sp = g.spread == null ? "" : g.spread > 0 ? `${g.home} -${num(g.spread)}` : g.spread < 0 ? `${g.away} -${num(-g.spread)}` : "pick'em";
