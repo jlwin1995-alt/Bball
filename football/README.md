@@ -294,3 +294,13 @@ Fix: `CONCENTRATE_ATTEMPTS = 0` (the scale uses raw volumes; the relative weight
 - share of actuals above the passing-yards projection 50.6% / 53.3% / 52.1% (it was 48.8-51.1%), completions 51.9 / 56.5 / 49.4; passing yards bias +1.0 / -3.6 / +1.0%;
 - projected points MAE 5.398 -> 5.385, 5.581 -> 5.578, 5.474 -> 5.466.
 Week 7 2026 on its own: passing yards bias +10.1% -> about +1%, MAE 11.67 -> 11.17 before the re-centring. The new settings change the model stamp, so the NFL accuracy record restarts again (week 7 is scored under the old model).
+
+### QB matchup strength and rolling defensive windows: tested, no change
+
+Prompted by week 7, where QBs against the five most generous defences beat their projections by 3.5 points and those against the five stingiest fell short by 4.4 (n = 5 each). Backtest 2023-25 (weeks 5+), averages over the three seasons:
+
+- **Is the passing matchup under-applied?** Raising the share of the measured passing matchup that is applied (`DEF_STRENGTH_PASS`, now 0.47) to 0.7 or 1.0 does not help: passing-yards MAE 9.784 -> 9.790 -> 9.816. Setting it to 0 gives 9.811, so the whole matchup is worth about 0.03 of a point per QB; completions (`DEF_STRENGTH_COMP` 0.66 vs 0.9 or 1.0) 0.812 -> 0.811; a smaller prior (`K_DEF_PASS` 40) 9.795. Projected points MAE is 5.476-5.478 in every case.
+- **Does a defence's QB-points-allowed carry extra information?** Across 989 QB games (20+ projected attempts), the residual (actual minus projected points) rises 2.0 +- 1.5 points per +100% of "QB points allowed vs league" through the prior week, i.e. about +0.6 points for a defence 30% above average, not statistically distinguishable from zero, and unstable by season (slopes +0.7, -0.5, +5.6 in 2023, 2024, 2025). The most generous third of defences is +0.77 vs +0.66 for the middle third and -0.03 for the stingiest.
+- **Rolling defensive data.** The defensive tables (yards per carry, catch rate, yards per reception, yards per target, completion rate, sacks, and the position splits) are season-to-date, regressed by sample size and capped; they are not rolling, and prior seasons are not used. Tested a rolling version two ways (games older than N weeks dropped, N = 4 or 6; or each older week's weight multiplied by 0.9, 0.8 or 0.7): no gain anywhere (passing yards MAE 9.784 season-to-date vs 9.807-9.838, completions 0.812 vs 0.816-0.820, rushing and receiving yards flat within 0.01, points 5.476 vs 5.479-5.486). With so few plays per defence per week the regression already does the smoothing; a window only throws data away.
+
+Conclusion: week 7's gap was a five-player sample. The passing matchup stays at its fitted strength and the defensive tables stay season-to-date. The knobs were not kept.
