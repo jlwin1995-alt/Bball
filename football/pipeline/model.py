@@ -384,8 +384,8 @@ def nfl_core(rows, matchup, wx=None, P=None):
             ypc=(p["rushing_yards"] + P["PRIOR_CARRIES"] * LG_YPC) / (p["carries"] + P["PRIOR_CARRIES"]),
             cr=(p["receptions"] + P["PRIOR_TARGETS"] * pb["catch"]) / (p["targets"] + P["PRIOR_TARGETS"]),
             ypr=(p["receiving_yards"] + P["PRIOR_TARGETS"] * pb["catch"] * pb["ypr"]) / (p["receptions"] + P["PRIOR_TARGETS"] * pb["catch"]),
-            ypa=(p["passing_yards"] + P["PRIOR_ATTEMPTS"] * C.LG_YPA) / (p["attempts"] + P["PRIOR_ATTEMPTS"]),
-            compRate=(p["completions"] + P["PRIOR_ATTEMPTS"] * LG_COMP) / (p["attempts"] + P["PRIOR_ATTEMPTS"]),
+            ypa=(p["passing_yards"] + P["PRIOR_ATTEMPTS"] * C.LG_YPA) / (p["attempts"] + P["PRIOR_ATTEMPTS"]) * P.get("PASS_YPA_ADJ", 1.0),
+            compRate=(p["completions"] + P["PRIOR_ATTEMPTS"] * LG_COMP) / (p["attempts"] + P["PRIOR_ATTEMPTS"]) * P.get("COMP_ADJ", 1.0),
             # touchdown rates shrink toward the player's OFFENCE (regressing results on own history + team-without-him: +0.32 vs +0.34)
             rushTdRate=(p["rushing_tds"] + P["PRIOR_CARRIES"] * td_target(p, "rush")) / (p["carries"] + P["PRIOR_CARRIES"]),
             recTdRate=(p["receiving_tds"] + P["PRIOR_TARGETS"] * td_target(p, "rec")) / (p["targets"] + P["PRIOR_TARGETS"]),
