@@ -73,7 +73,7 @@ def parse_box(event_id, ev_date, season, home_abbr, away_abbr):
             ix = {k: keys.index(k) for k in need}
             for a in grp.get("athletes", []):
                 st = a.get("stats") or []
-                if a.get("didNotPlay") or not st or not st[ix["minutes"]] or st[ix["minutes"]] in ("--", "0"):
+                if a.get("didNotPlay") or not st or not st[ix["minutes"]] or st[ix["minutes"]] in ("--", "-", "0"):
                     continue
                 fgm, fga = split(st[ix["fieldGoalsMade-fieldGoalsAttempted"]])
                 tpm, _ = split(st[ix["threePointFieldGoalsMade-threePointFieldGoalsAttempted"]])
