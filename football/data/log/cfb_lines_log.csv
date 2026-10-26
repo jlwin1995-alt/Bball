@@ -1258,21 +1258,21 @@ commence,game,player_id,name,team,stat,cons_line,cons_p_over,n_books,pp_line,ud_
 2026-10-25T02:15:00Z,Houston @ Utah,5173431,Wayshawn Parker,Utah,rec,2.5,0.5184,2,2.5,2.5,2026-10-24T23:42:54+00:00,8
 2026-10-25T02:15:00Z,Houston @ Utah,5173431,Wayshawn Parker,Utah,recY,20.5,0.5306,1,21.5,21.5,2026-10-24T23:42:54+00:00,8
 2026-10-25T02:15:00Z,Houston @ Utah,5173431,Wayshawn Parker,Utah,rushY,96.5,0.5,1,96.5,96.5,2026-10-24T23:42:54+00:00,8
-2026-10-27T23:00:00Z,Delaware @ Western Kentucky,4878394,Ajay Allen,Western Kentucky,recY,10.5,0.5,1,,,2026-10-26T19:52:13+00:00,9
-2026-10-27T23:00:00Z,Delaware @ Western Kentucky,4878394,Ajay Allen,Western Kentucky,rushY,54.5,0.5,1,,,2026-10-26T19:52:13+00:00,9
-2026-10-27T23:00:00Z,Delaware @ Western Kentucky,4920158,Brock Glenn,Western Kentucky,passY,200.5,0.5,1,,,2026-10-26T19:52:13+00:00,9
-2026-10-27T23:00:00Z,Delaware @ Western Kentucky,4920158,Brock Glenn,Western Kentucky,rushY,64.5,0.5,1,,,2026-10-26T19:52:13+00:00,9
-2026-10-27T23:00:00Z,Delaware @ Western Kentucky,5157266,Bryson Graves,Delaware,recY,24.5,0.5061,1,,,2026-10-26T19:52:13+00:00,9
-2026-10-27T23:00:00Z,Delaware @ Western Kentucky,5153870,Donovan Lewis,Delaware,recY,52.5,0.5,1,,,2026-10-26T19:52:13+00:00,9
-2026-10-27T23:00:00Z,Delaware @ Western Kentucky,5290902,Jonathan Stafford Jr.,Western Kentucky,recY,52.5,0.5,1,,,2026-10-26T19:52:13+00:00,9
-2026-10-27T23:00:00Z,Delaware @ Western Kentucky,5153846,Nick Minicucci,Delaware,passY,265.5,0.5,1,,,2026-10-26T19:52:13+00:00,9
-2026-10-27T23:00:00Z,Delaware @ Western Kentucky,5224764,Sean Wilson,Delaware,recY,66.5,0.5,1,,,2026-10-26T19:52:13+00:00,9
-2026-10-28T00:00:00Z,Sam Houston @ Missouri State,4895711,Chris Reed,Sam Houston,recY,37.5,0.5,1,,,2026-10-26T19:52:13+00:00,9
-2026-10-28T00:00:00Z,Sam Houston @ Missouri State,5085729,Connor Lair,Missouri State,rushY,51.5,0.5,1,,,2026-10-26T19:52:13+00:00,9
-2026-10-28T00:00:00Z,Sam Houston @ Missouri State,5104888,Grady O'Neill,Sam Houston,recY,46.5,0.5,1,,,2026-10-26T19:52:13+00:00,9
-2026-10-28T00:00:00Z,Sam Houston @ Missouri State,4685252,Henry Belin IV,Missouri State,passY,260.5,0.5,1,,,2026-10-26T19:52:13+00:00,9
-2026-10-28T00:00:00Z,Sam Houston @ Missouri State,5219476,Isaiah Myers,Missouri State,recY,93.5,0.5,1,,,2026-10-26T19:52:13+00:00,9
-2026-10-28T00:00:00Z,Sam Houston @ Missouri State,4837193,Jmariyae Robinson,Missouri State,recY,69.5,0.5,1,,,2026-10-26T19:52:13+00:00,9
-2026-10-28T00:00:00Z,Sam Houston @ Missouri State,5384799,MJ Dowdy,Sam Houston,rushY,32.5,0.5,1,,,2026-10-26T19:52:13+00:00,9
-2026-10-28T00:00:00Z,Sam Houston @ Missouri State,5154284,Ramone Green Jr.,Missouri State,rushY,29.5,0.5,1,,,2026-10-26T19:52:13+00:00,9
-2026-10-28T00:00:00Z,Sam Houston @ Missouri State,5296832,Tim Burns Jr.,Sam Houston,recY,44.5,0.5,1,,,2026-10-26T19:52:13+00:00,9
+2026-10-27T23:00:00Z,Delaware @ Western Kentucky,4878394,Ajay Allen,Western Kentucky,recY,10.5,0.5,1,,,2026-10-26T20:19:51+00:00,9
+2026-10-27T23:00:00Z,Delaware @ Western Kentucky,4878394,Ajay Allen,Western Kentucky,rushY,54.5,0.5,1,,,2026-10-26T20:19:51+00:00,9
+2026-10-27T23:00:00Z,Delaware @ Western Kentucky,4920158,Brock Glenn,Western Kentucky,passY,200.5,0.5,1,,,2026-10-26T20:19:51+00:00,9
+2026-10-27T23:00:00Z,Delaware @ Western Kentucky,4920158,Brock Glenn,Western Kentucky,rushY,64.5,0.5,1,,,2026-10-26T20:19:51+00:00,9
+2026-10-27T23:00:00Z,Delaware @ Western Kentucky,5157266,Bryson Graves,Delaware,recY,24.5,0.5061,1,,,2026-10-26T20:19:51+00:00,9
+2026-10-27T23:00:00Z,Delaware @ Western Kentucky,5153870,Donovan Lewis,Delaware,recY,52.5,0.5,1,,,2026-10-26T20:19:51+00:00,9
+2026-10-27T23:00:00Z,Delaware @ Western Kentucky,5290902,Jonathan Stafford Jr.,Western Kentucky,recY,52.5,0.5,1,,,2026-10-26T20:19:51+00:00,9
+2026-10-27T23:00:00Z,Delaware @ Western Kentucky,5153846,Nick Minicucci,Delaware,passY,265.5,0.5,1,,,2026-10-26T20:19:51+00:00,9
+2026-10-27T23:00:00Z,Delaware @ Western Kentucky,5224764,Sean Wilson,Delaware,recY,66.5,0.5,1,,,2026-10-26T20:19:51+00:00,9
+2026-10-28T00:00:00Z,Sam Houston @ Missouri State,4895711,Chris Reed,Sam Houston,recY,37.5,0.5,1,,,2026-10-26T20:19:51+00:00,9
+2026-10-28T00:00:00Z,Sam Houston @ Missouri State,5085729,Connor Lair,Missouri State,rushY,51.5,0.5,1,,,2026-10-26T20:19:51+00:00,9
+2026-10-28T00:00:00Z,Sam Houston @ Missouri State,5104888,Grady O'Neill,Sam Houston,recY,46.5,0.5,1,,,2026-10-26T20:19:51+00:00,9
+2026-10-28T00:00:00Z,Sam Houston @ Missouri State,4685252,Henry Belin IV,Missouri State,passY,260.5,0.5,1,,,2026-10-26T20:19:51+00:00,9
+2026-10-28T00:00:00Z,Sam Houston @ Missouri State,5219476,Isaiah Myers,Missouri State,recY,93.5,0.5,1,,,2026-10-26T20:19:51+00:00,9
+2026-10-28T00:00:00Z,Sam Houston @ Missouri State,4837193,Jmariyae Robinson,Missouri State,recY,69.5,0.5,1,,,2026-10-26T20:19:51+00:00,9
+2026-10-28T00:00:00Z,Sam Houston @ Missouri State,5384799,MJ Dowdy,Sam Houston,rushY,32.5,0.5,1,,,2026-10-26T20:19:51+00:00,9
+2026-10-28T00:00:00Z,Sam Houston @ Missouri State,5154284,Ramone Green Jr.,Missouri State,rushY,29.5,0.5,1,,,2026-10-26T20:19:51+00:00,9
+2026-10-28T00:00:00Z,Sam Houston @ Missouri State,5296832,Tim Burns Jr.,Sam Houston,recY,44.5,0.5,1,,,2026-10-26T20:19:51+00:00,9
