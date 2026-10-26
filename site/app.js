@@ -85,7 +85,7 @@ function filters(extra = "") {
   return `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}">
   <label>Pos <select id="pos">${["", "G", "F", "C"].map(p => `<option ${F.pos === p ? "selected" : ""} value="${p}">${p || "All"}</option>`).join("")}</select></label>${extra}</div>`;
 }
-const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lpicks: false, rday: "", vstat: "pts", sview: "today", smode: "soft", cteam: "", cplayer: "", cheat: "fg", cdots: "all", rmode: null, rlines: false, rpicks: false, range: true};
+const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lside: "", lbucket: "", lpicks: false, rday: "", vstat: "pts", sview: "today", smode: "soft", cteam: "", cplayer: "", cheat: "fg", cdots: "all", rmode: null, rlines: false, rpicks: false, range: true};
 const RES = {};                                     // results/<date>.json cache
 function passes(r) {
   if (F.pos && r.pos !== F.pos) return false;
@@ -101,6 +101,8 @@ document.addEventListener("change", e => {
   if (e.target.id === "ming") { F.ming = +e.target.value || 0; render(true); }
   if (e.target.id === "lstat") { F.lstat = e.target.value; render(true); }
   if (e.target.id === "lgame") { F.lgame = e.target.value; render(true); }
+  if (e.target.id === "lside") { F.lside = e.target.value; render(true); }
+  if (e.target.id === "lbucket") { F.lbucket = e.target.value; render(true); }
   if (e.target.id === "lpicks") { F.lpicks = e.target.checked; render(true); }
 });
 
@@ -161,6 +163,7 @@ async function loadResultsDay(date) {
 const pct1 = (h, n) => n ? `${(h / n * 100).toFixed(1)}% <span class="mut">(${h}/${n})</span>` : "—";
 
 const warn = e => e != null && Math.abs(e) >= 15 ? ` <span title="An edge this large is usually the model having the minutes or role wrong (injury news, rotation change), not a bargain. Check before trusting it." style="cursor:help">⚠</span>` : "";
+const LBUCKETS = [["50-55", "50–55%"], ["55-57.7", "55–57.7% (under break-even)"], ["57.7-65", "57.7–65%"], ["57-65", "57–65%"], ["60-65", "60–65%"], ["65-70", "65–70%"], ["70-101", "70%+"]];
 function liveLines() {
   const L = D.lines;
   const M = L && L.meta, credits = M && M.credits != null ? ` · Odds API credits left: <b>${M.credits}</b>` : "";
@@ -185,6 +188,8 @@ function liveLines() {
   }).filter(Boolean).filter(passes);
   if (F.lstat) rows = rows.filter(r => r.stat === F.lstat);
   if (F.lgame) rows = rows.filter(r => r.game === F.lgame);
+  if (F.lside) rows = rows.filter(r => r.side === F.lside);                   // PrizePicks side (the better side at the PrizePicks line)
+  if (F.lbucket) { const [lo, hi] = F.lbucket.split("-").map(Number); rows = rows.filter(r => r.pw != null && r.pw * 100 >= lo && r.pw * 100 < hi); }
   if (F.lpicks) rows = rows.filter(r => (r.pick && r.pick !== "OUT" && r.pick !== "LIVE") || (r.ppPick && r.ppPick !== "OUT" && r.ppPick !== "LIVE"));
   const tip = r => r.r.books.map(b => `${b.b} ${b.line} (${b.over ?? "-"}/${b.under ?? "-"})`).join("\n");
   const cols = [{k: "name", h: "Player", l: 1, f: r => esc(r.name)}, {k: "team", h: "Team", l: 1}, {k: "game", h: "Game", l: 1, f: r => esc(r.game) + (r.started ? ` <span class="pill hot" title="Tipped off: these are the last PRE-game lines. The model's pregame probability no longer applies, so no pick is shown.">LIVE</span>` : "")}, {k: "stat", h: "Stat", l: 1, f: r => r.stat === "fp" ? "Fantasy score" : LABEL[r.stat]},
@@ -203,6 +208,8 @@ function liveLines() {
   const games = [...new Set(L.rows.map(r => r.game))].sort(), stats = [...new Set(L.rows.map(r => r.stat))];
   const extra = `<label>Stat <select id="lstat"><option value="">All</option>${stats.map(s => `<option value="${s}" ${F.lstat === s ? "selected" : ""}>${s === "fp" ? "Fantasy score" : LABEL[s] || s}</option>`).join("")}</select></label>
     <label>Game <select id="lgame"><option value="">All</option>${games.map(g => `<option ${F.lgame === g ? "selected" : ""}>${esc(g)}</option>`).join("")}</select></label>
+    <label>Side <select id="lside"><option value="">Over + Under</option><option value="OVER" ${F.lside === "OVER" ? "selected" : ""}>Overs</option><option value="UNDER" ${F.lside === "UNDER" ? "selected" : ""}>Unders</option></select></label>
+    <label title="Model probability of the better side at the PrizePicks line (PP P(win)). Filters to rows that have a PrizePicks line.">PP P(win) <select id="lbucket"><option value="">Any</option>${LBUCKETS.map(([v, t]) => `<option value="${v}" ${F.lbucket === v ? "selected" : ""}>${t}</option>`).join("")}</select></label>
     <label><input type="checkbox" id="lpicks" ${F.lpicks ? "checked" : ""}> picks only</label>`;
   return `<p class="sub">Sportsbook consensus (median line; vig removed) beside PrizePicks, with the model's edge against each${credits}. Updated ${mins < 90 ? mins + " min" : Math.round(mins / 60) + " h"} ago${mins > 360 ? " — <b>stale, lines move</b>" : ""}. DFS prices are nominal, so PrizePicks edge is measured against your break-even (Config) rather than odds. A k-pick entry paying M× needs M^(−1/k) per leg.</p>
     ${filters(extra)}${table(cols, rows, {id: "live", sort: {key: "edge"}})}`;
