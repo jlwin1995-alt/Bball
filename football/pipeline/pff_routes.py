@@ -119,3 +119,68 @@ if __name__ == "__main__":
     ap.add_argument("--raw", default="data/raw")
     a = ap.parse_args()
     report(run(a.seasons, a.raw))
+
+
+def run_full(seasons, raw="data/raw", w=0.5, **kw):
+    """The routes blend carried through the whole model: replace each WR/TE/RB's projected targets with (1-w) x the model's + w x the routes projection, re-derive receptions / receiving yards /
+    points, and compare with the unblended model on the same player-weeks. -> list of (stat, model projection, blended projection, actual)."""
+    from .backtest import actual
+    P = params()
+    W = C.DEFAULT_SCORING
+    out = []
+    for season in seasons:
+        pff = load_pff(season, raw)
+        load_inj(season, raw)
+        rows = load_weekly(f"{raw}/history/weekly_{season}.csv")
+        sched = load_csv(f"{raw}/history/schedule_{season}.csv")
+        by_week = {}
+        for r in rows:
+            by_week.setdefault(int(r["week"]), []).append(r)
+        for wk in range(5, max(by_week) + 1):
+            mu = matchups(sched, wk)
+            if not mu:
+                continue
+            hist = [r for x in range(1, wk) for r in by_week.get(x, [])]
+            outs = {r["gsis_id"] for r in INJ.get(season, []) if int(float(r["week"] or 0)) == wk and r["report_status"] == "Out"}
+            core = nfl_core(hist, mu, None, dict(P, OUT_IDS=outs))
+            tm = {}
+            for (n, t, w_), v in pff.items():
+                if w_ < wk:
+                    tm.setdefault(t, {})[w_] = max(tm.get(t, {}).get(w_, 0.0), v["pass_plays"])
+            lg_pp = statistics.mean(v for d_ in tm.values() for v in d_.values()) if tm else 35.0
+            pos_t, pos_r = {}, {}
+            for (n, t, w_), v in pff.items():
+                if w_ < wk:
+                    pos_t[v["pos"]] = pos_t.get(v["pos"], 0.0) + v["targets"]; pos_r[v["pos"]] = pos_r.get(v["pos"], 0.0) + v["routes"]
+            pos_tpr = {p: pos_t[p] / pos_r[p] for p in pos_t if pos_r[p]}
+            act = {(name_key(r["player_display_name"]), r["team"]): r for r in by_week[wk]}
+            for pl in core["players"]:
+                if pl["pos"] not in ("WR", "TE", "RB"):
+                    continue
+                key = (name_key(pl["name"]), pl["team"])
+                a = act.get(key)
+                pj = project(pff, key, wk, pos_tpr=pos_tpr, **kw) if a is not None else None
+                if a is None or pj is None:
+                    continue
+                games = tm.get(pl["team"], {})
+                n = len(games)
+                team_pp = (sum(games.values()) + 3.0 * lg_pp) / (n + 3.0) if n else lg_pp
+                d0 = derive(pl, W, P)
+                new_tgt = (1 - w) * pl["tgt"] + w * team_pp * pj[0] * pj[1]
+                d1 = derive(dict(pl, tgt=new_tgt), W, P)
+                if d0["pts"] < 3.0 and d1["pts"] < 3.0:
+                    continue
+                act_s = actual(a, W)
+                for st, k0, ak in (("targets", "tgt", a["targets"]), ("receptions", "rec", a["receptions"]), ("rec yards", "recY", a["receiving_yards"]), ("points", "pts", act_s["pts"])):
+                    out.append((st, d0[k0], d1[k0], ak))
+    return out
+
+
+def report_full(res):
+    for st in ("targets", "receptions", "rec yards", "points"):
+        r = [x for x in res if x[0] == st]
+        m0 = sum(abs(x[1] - x[3]) for x in r) / len(r)
+        m1 = sum(abs(x[2] - x[3]) for x in r) / len(r)
+        b0 = sum(x[1] - x[3] for x in r) / sum(x[3] for x in r) * 100
+        b1 = sum(x[2] - x[3] for x in r) / sum(x[3] for x in r) * 100
+        print(f"{st:11} n={len(r):5d}  MAE model {m0:.3f} -> with routes blend {m1:.3f} ({(m1 - m0) / m0 * 100:+.1f}%)   bias {b0:+.1f}% -> {b1:+.1f}%")
