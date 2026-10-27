@@ -52,6 +52,7 @@ const formPill = f => f === "HOT" ? `<span class="pill hot">HOT</span>` : f === 
 const vsOpp = r => (r.home ? "vs " : "@ ") + esc(r.opp);
 const usViewSel = () => `<label>View <select id="usview">${["Season share", "Weekly trend"].map(s => `<option ${F.usView === s ? "selected" : ""}>${s}</option>`).join("")}</select></label>`;
 const moveCell = (v, pts = true) => v == null ? "" : `<span class="${v >= 5 ? "good" : v <= -5 ? "bad" : "mut"}">${v > 0 ? "+" : ""}${num(v, 1)}${pts ? "" : "%"}</span>`;
+const roleCell = ro => !ro ? "" : `<span title="Slot ${ro.sl}% · Wide ${ro.wd}% · Inline ${ro.il}% · Backfield ${ro.bk}% of his pass routes, last 3 games (PFF)">${esc(ro.label)}</span>`;
 function UsageTrend() {
   const win = D.meta.window || 3;
   const rows = D.usage_trend.filter(passes).filter(r => !F.minG || r.g >= F.minG);
@@ -63,6 +64,11 @@ function UsageTrend() {
     {k: "tgt_r", h: `last ${win}`, f: r => `<b>${num(r.tgt_r)}</b>`}, {k: "tgt_d", h: "Δ", f: r => moveCell(r.tgt_d)}, {k: "tgt_w", h: "Weekly tgt %", v: null, f: r => spark(r.tgt_w.map(v => v ?? 0))},
     {k: "car_b", h: "Carry share before", f: r => num(r.car_b)}, {k: "car_r", h: `last ${win}`, f: r => `<b>${num(r.car_r)}</b>`}, {k: "car_d", h: "Δ", f: r => moveCell(r.car_d)},
     {k: "car_w", h: "Weekly carry %", v: null, f: r => spark(r.car_w.map(v => v ?? 0))},
+    {k: "role", h: "Alignment (PFF)", l: 1, t: "Where he lines up on his pass routes over the last 3 games (PFF): Slot / Wide / Inline / Backfield, with the split", v: r => r.role?.label ?? "", f: r => roleCell(r.role)},
+    {k: "rr", h: "Route %", t: "Routes run per team pass play, last 3 games (PFF)", v: r => r.role?.rr, f: r => r.role?.rr == null ? "" : num(r.role.rr, 0)},
+    {k: "rr_w", h: "Weekly route %", v: null, f: r => r.role?.weekly ? spark(r.role.weekly.map(v => v ?? 0)) : ""},
+    {k: "tprr", h: "Tgt/route", t: "Targets per route run, season (PFF)", v: r => r.role?.tprr, f: r => r.role?.tprr == null ? "" : num(r.role.tprr, 2)},
+    {k: "yprr", h: "Yds/route", t: "Receiving yards per route run, season (PFF)", v: r => r.role?.yprr, f: r => r.role?.yprr == null ? "" : num(r.role.yprr, 2)},
     {k: "opp_r", h: `Opp share last ${win}`, t: "Share of the team's carries + targets", f: r => num(r.opp_r)}, {k: "opp_d", h: "Δ", f: r => moveCell(r.opp_d)},
     {k: "tm_d", h: "Team vol Δ", t: "The team's own targets a game (carries for a back) over the same split: a team-wide drop makes a raw-count fall look like a role change when the share did not move", f: r => moveCell(r.tm_d, false)}];
   const movers = (dir) => rows.filter(r => r.move != null && (dir > 0 ? r.move >= 5 : r.move <= -5)).sort((a, b) => dir * (b.move - a.move)).slice(0, 8);
@@ -200,6 +206,7 @@ const pages = {
         {k: "catt", h: "Att", v: r => r.c.att, f: r => r.c.att > 0 ? num(r.c.att) : ""}, {k: "cpy", h: "Pass Yds", v: r => r.c.passY, f: r => r.c.att > 0 ? num(r.c.passY, 0) : ""},
         {k: "ctd", h: "TD", v: r => r.c.rushTD + r.c.recTD + r.c.passTD, f: r => num(r.c.rushTD + r.c.recTD + r.c.passTD, 2)},
         {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`},
+        {k: "role", h: "Role (PFF)", l: 1, t: "Alignment and routes per team pass play over the last 3 games (PFF); hover for the split", v: r => r.role?.rr, f: r => r.role ? `${roleCell(r.role)} <span class="mut">${num(r.role.rr, 0)}%</span>` : ""},
         {k: "ovp", h: "Opp vs Pos", t: "What the opponent gives up to this player's position group, and where it ranks among this week's defences (1 = most generous)", v: r => r.ovp,
           f: r => r.ovp == null ? "" : `${signed(r.ovp)}% <span class="mut">${esc(r.ork || "")}</span>`},
         {k: "lines", h: "Lines · strongest lean", l: 1, t: "Click to open every posted line for this player", v: r => { const b = playerLines(r)[0]; return b?.z == null ? null : Math.abs(b.z); }, f: linesCell}];

@@ -3,7 +3,7 @@
     python -m pipeline.build [--raw data/raw] [--out site/data] [--no-log] [--no-weather] [--week N]
 """
 import argparse, datetime as dt, json, os, re, sys
-from . import config as C, analysis, scorecard, weather, results, legacy, teamstats, lines as lines_mod
+from . import config as C, analysis, scorecard, weather, results, legacy, teamstats, pff_roles, lines as lines_mod
 from .model import (load_weekly, nfl_core, derive, params, rnd, td_adj, td_base, opp_pos_factor, pos_group, REC_POS, num)
 from .slate import load_csv, target_week, matchups, kickoffs, statuses, depth_map, week_games, game_label, history_gaps
 
@@ -81,6 +81,12 @@ def position_rankings(core):
     return out
 
 
+def role_of(pffr, pl):
+    """PFF alignment / route facts for a receiver (None when PFF has no row for him)."""
+    x = pffr.get((analysis.name_key(pl["name"]), pff_roles.FIX.get(pl["team"], pl["team"])))
+    return None if x is None or pl["pos"] == "QB" else {k: x[k] for k in ("label", "rr", "sl", "wd", "il", "bk", "tprr", "yprr", "grade", "weekly")}
+
+
 def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=None):
     os.makedirs(out, exist_ok=True)
     P = params()
@@ -139,6 +145,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     for x in hist:
         team_games.setdefault(x["team"], set()).add(x["week"])
     early_exit = {pid for (pid, wk), v in analysis.partial_games(f"{raw}/snaps.csv", rows, pbp_path=f"{raw}/pbp_slim.csv").items() if wk >= week - P["RET_WEEKS"]}
+    pffr = pff_roles.roles(pff_roles.load(f"{raw}/pff_hist/pff_receiving_{C.SEASON}.csv"), week)
     for pl in core["players"]:
         d = derive(pl, W, P)
         d_pos = dpt.get(pl["id"])
@@ -151,7 +158,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
         k0 = kick.get(pl["team"])
         proj.append(dict(
             id=pl["id"], name=pl["name"], pos=pl["pos"], grp=pl["grp"], team=pl["team"], opp=pl["opp"], home=int(pl["siteTag"] == "vs"),
-            game=game_label(away, home), ko=utc(k0), status=status.get(pl["id"], ""), depth=dpt.get(pl["id"]), shift=int((pl["team"], pl["pos"]) in shift and pl["id"] not in out_ids), ret=ret, g=pl["g"], rest=pl["rest"],
+            game=game_label(away, home), ko=utc(k0), status=status.get(pl["id"], ""), depth=dpt.get(pl["id"]), shift=int((pl["team"], pl["pos"]) in shift and pl["id"] not in out_ids), ret=ret, g=pl["g"], rest=pl["rest"], role=role_of(pffr, pl),
             wind=r(pl["wind"], 1) if pl["wind"] != "" else None,
             # volumes (rounded to one decimal, as displayed) and the rates the browser multiplies them by when you override a volume
             car=d["car"], tgt=d["tgt"], att=d["att"], ypc=r(pl["ypc"], 4), cr=r(pl["cr"], 4), ypr=r(pl["ypr"], 4), ypa=r(pl["ypa"], 4), cmp=r(pl["compRate"], 4),
@@ -192,7 +199,10 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     Pl, team_week, live = analysis.aggregate(rows, snaps)
     dump(analysis.efficiency(Pl), out, "efficiency.json")
     dump(analysis.usage(Pl), out, "usage.json")
-    dump(analysis.usage_trend(Pl), out, "usage_trend.json")
+    ut = analysis.usage_trend(Pl)
+    for u in ut:
+        u["role"] = role_of(pffr, u)
+    dump(ut, out, "usage_trend.json")
     dump(analysis.trends(Pl), out, "trends.json")
     dump(analysis.coverage(team_week, live), out, "coverage.json")
     dump(teamstats.build(teamstats.nfl_team_games(rows, sched)), out, "teams.json")
