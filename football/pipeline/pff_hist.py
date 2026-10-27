@@ -45,6 +45,11 @@ REPORTS = {
                                                             "sacks_allowed", "hits_allowed", "hurries_allowed", "grades_pass_block", "pbe", "pass_block_percent"], None),
     "passrush": ("/v1/facet/defense/pass_rush", None, ["player_id", "player", "team", "position", "player_game_count", "snap_counts_pass_play", "snap_counts_pass_rush", "total_pressures", "sacks",
                                                        "hits", "hurries", "pass_rush_win_rate", "pass_rush_percent", "grades_pass_rush_defense"], None),
+    # defence reports keep every column the API returns (cols None); they are aggregated to team-weeks by pff_def.py
+    "defsummary": ("/v1/facet/defense/summary", None, None, None),
+    "defcoverage": ("/v1/facet/defense/coverage", None, None, None),
+    "defrun": ("/v1/facet/defense/run", None, None, None),
+    "defmatchup": ("/v1/facet/defense/coverage_matchup", None, None, None),
     "offense": ("/v1/facet/offense/summary", "offense_summary", ["player_id", "player", "team", "team_name", "position", "player_game_count", "snap_counts_total", "snap_counts_pass",
                                                                   "snap_counts_run", "snap_counts_pass_route", "snap_counts_pass_block", "snap_counts_run_block", "snap_counts_total_pass",
                                                                   "snap_counts_total_run", "grades_offense", "grades_pass_route", "grades_run_block", "grades_pass_block"], SKILL),
@@ -59,7 +64,7 @@ def pull(league, seasons, w0, w1, reports, out="data/raw/pff_hist", key=None):
     pre = "" if league == "nfl" else f"{league}_"
     for rep in reports:
         path, rk, cols, keep_pos = REPORTS[rep]
-        fields = ["season", "week"] + [c for c in cols if c not in ("season", "week")]
+        fields = ["season", "week"] + [c for c in (cols or []) if c not in ("season", "week")]
         for s in seasons:
             rows = []
             for wk in range(w0, w1 + 1):
@@ -74,12 +79,14 @@ def pull(league, seasons, w0, w1, reports, out="data/raw/pff_hist", key=None):
                 for x in data:
                     if keep_pos and x.get("position") not in keep_pos:
                         continue
+                    if cols is None:
+                        fields += [k for k in x if k not in fields and not isinstance(x[k], (dict, list))]
                     rows.append({k: (s if k == "season" else wk if k == "week" else x.get(k)) for k in fields})
                 print(f"{league} {rep} {s} wk {wk}: {n0} rows ({len(rows)} kept) remaining {r.headers.get('x-ratelimit-remaining')}", flush=True)
                 time.sleep(0.8)
             if rows:
                 with open(f"{out}/{pre}{rep}_{s}.csv" if league != "nfl" or rep != "receiving" else f"{out}/pff_receiving_{s}.csv", "w", newline="") as f:
-                    w = csv.DictWriter(f, fieldnames=fields)
+                    w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
                     w.writeheader()
                     w.writerows(rows)
                 print(f"{league} {rep} {s}: {len(rows)} rows written", flush=True)
