@@ -1,0 +1,48 @@
+name: Football PFF history
+
+# Manual. Pulls PFF weekly receiving summaries (routes, alignment snaps, grades) for the given seasons into football/data/raw/pff_hist and commits them to this PRIVATE repo
+# (never staged into the public site). Needs the PFF_API_KEY secret. ~18 calls per season, throttled under the 100/min read limit.
+on:
+  workflow_dispatch:
+    inputs:
+      seasons:
+        description: "Seasons, space separated"
+        type: string
+        default: "2022 2023 2024 2025 2026"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    env:
+      PFF_API_KEY: ${{ secrets.PFF_API_KEY }}
+    defaults:
+      run:
+        working-directory: football
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - run: python -m pipeline.pff_hist --seasons ${{ github.event.inputs.seasons }}
+      - name: Commit data
+        working-directory: .
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add football/data/raw/pff_hist
+          git diff --cached --quiet && exit 0
+          git commit -m "PFF receiving history"
+          for i in 1 2 3; do
+            git pull --rebase -X theirs origin main && git push && exit 0
+            git rebase --abort 2>/dev/null || true
+            sleep $((i * 5))
+          done
+          echo "::error::could not push"; exit 1
