@@ -18,7 +18,7 @@ on:
         type: string
         default: "1 18"
       reports:
-        description: "Reports: receiving passing rushing offense passblock passrush defsummary defcoverage defrun defmatchup (blank = NFL receiving only)"
+        description: "Reports: receiving passing rushing offense passblock passrush defsummary defcoverage defrun covmatchup (blank = NFL receiving only)"
         type: string
         default: ""
 
