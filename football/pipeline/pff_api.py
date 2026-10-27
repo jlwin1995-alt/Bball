@@ -79,15 +79,50 @@ def call(path, params, rows):
         print("updatedAt:", j["updatedAt"])
 
 
+def batch(calls):
+    """calls: list of [path, params, sample?]. Prints the COLUMNS (keys) and row count of each response; one sample row only when asked."""
+    import time
+    for c in calls:
+        path, params = c[0], c[1]
+        sample = len(c) > 2 and c[2]
+        r = requests.get(BASE + path, params=params, headers=hdr(), timeout=120)
+        print(f"\n### {path} {params}: HTTP {r.status_code} (remaining {r.headers.get('x-ratelimit-remaining')})")
+        if r.status_code != 200:
+            print("   ", r.text[:300])
+            time.sleep(0.8)
+            continue
+        j = r.json()
+        if path == "/v1/leagues":
+            for lg in j.get("leagues", []):
+                print("   league", lg.get("slug"), "| seasons", lg.get("seasons", [])[:12], "| default", lg.get("default_season"), lg.get("default_week"))
+            continue
+        rows = None
+        for k, v in (j.items() if isinstance(j, dict) else []):
+            if isinstance(v, list) and v and isinstance(v[0], dict):
+                rows = (k, v)
+                break
+        if rows is None:
+            print("   keys:", list(j)[:30] if isinstance(j, dict) else type(j).__name__)
+        else:
+            k, v = rows
+            print(f"   {k}: {len(v)} rows, {len(v[0])} columns:")
+            print("   " + ", ".join(v[0].keys()))
+            if sample:
+                print("   sample:", json.dumps(v[0], default=str)[:700])
+        time.sleep(0.8)
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["openapi", "whoami", "call"])
+    ap.add_argument("cmd", choices=["openapi", "whoami", "call", "batch"])
     ap.add_argument("path", nargs="?")
     ap.add_argument("--params", default="{}")
     ap.add_argument("--rows", type=int, default=1)
     a = ap.parse_args()
     if a.cmd == "openapi":
         openapi()
+    elif a.cmd == "batch":
+        batch(json.loads(a.params))
     elif a.cmd == "whoami":
         call("/v1/whoami", {}, 1)
     else:
