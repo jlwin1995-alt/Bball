@@ -83,6 +83,7 @@ PASS_YPA_ADJ = 1.06               # yards per attempt x this (with CONCENTRATE_A
 COMP_ADJ = 1.03                   # completion rate x this (same reason; 1.00 / 1.03 / 1.05 / 1.08 tested)
 RET_MISSED = 2                    # a depth-chart starter who has missed this many of his team's games this season, or left a game early in the last RET_WEEKS weeks, is a "returning star": his usage history understates his role, so no lean is flagged (like thin and role-shift players)
 RET_WEEKS = 3
+PFF_SHOW_DEFENDERS = False         # publish the likely covering defenders (name, position, PFF coverage rank) with the matchup strength; off until PFF's terms on redistributing player-level data are confirmed
 OUT_QB = True                     # a quarterback listed OUT is removed from the pool (his attempts and carries go to the next man up)
 QB_PART = True                    # a backup quarterback's attempts and carries are weighted by how often he has played relative to the team's main passer (the 20% team-scale cap cannot shrink him)
 QB_BACKUP_W = 0.1                 # with a healthy depth-chart QB1, a backup's attempts/carries are at most this fraction of his own history
