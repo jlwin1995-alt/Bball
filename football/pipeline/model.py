@@ -255,10 +255,11 @@ def nfl_core(rows, matchup, wx=None, P=None):
     ids = [i for i in PL if PL[i]["team"] in matchup and i not in out_rb]
     out_rb_teams = {PL[i]["team"] for i in out_rb}
     out_wr = {i for i in out_ids if i in PL and PL[i]["team"] in matchup and PL[i]["pos"] == "WR"} if P.get("OUT_WR") else set()
-    ids = [i for i in ids if i not in out_wr]
+    out_te = {i for i in out_ids if i in PL and PL[i]["team"] in matchup and PL[i]["pos"] == "TE"} if P.get("OUT_TE") else set()
+    ids = [i for i in ids if i not in out_wr and i not in out_te]
     if P.get("OUT_QB"):
         ids = [i for i in ids if not (i in out_ids and PL[i]["pos"] == "QB")]
-    out_wr_teams = {PL[i]["team"] for i in out_wr}
+    out_wr_teams = {PL[i]["team"] for i in out_wr | out_te}
     raw = {i: dict(car=blend(PL[i], "car"), tgt=blend(PL[i], "tgt"), att=blend(PL[i], "att")) for i in ids}
 
     # --- participation weighting (attempts only): a backup who threw in one of the last six games stops absorbing a fifth of the offence
