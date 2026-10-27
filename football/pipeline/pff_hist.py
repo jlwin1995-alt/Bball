@@ -31,6 +31,55 @@ def get(path, params, key, tries=4):
     return r
 
 
+# report name -> (path, response key, columns kept, positions kept (None = all)); the file is data/raw/pff_hist/<prefix><report>_<season>.csv (NFL receiving keeps its old name)
+SKILL = {"QB", "HB", "WR", "TE", "FB", "RB"}
+REPORTS = {
+    "receiving": ("/v1/facet/receiving/summary", "receiving_summary", KEEP[2:], None),
+    "passing": ("/v1/facet/passing/summary", "passing_summary", ["player_id", "player", "team", "team_name", "position", "player_game_count", "attempts", "dropbacks", "passing_snaps",
+                                                                  "completions", "yards", "touchdowns", "interceptions", "sacks", "scrambles", "ypa", "grades_pass", "grades_offense",
+                                                                  "avg_time_to_throw", "avg_depth_of_target", "twp_rate", "btt_rate", "pressure_to_sack_rate"], None),
+    "rushing": ("/v1/facet/rushing/summary", "rushing_summary", ["player_id", "player", "team", "team_name", "position", "player_game_count", "attempts", "run_plays", "yards", "ypa",
+                                                                  "touchdowns", "targets", "receptions", "routes", "total_touches", "yards_after_contact", "elusive_rating", "grades_run",
+                                                                  "grades_offense", "scrambles"], None),
+    "offense": ("/v1/facet/offense/summary", "offense_summary", ["player_id", "player", "team", "team_name", "position", "player_game_count", "snap_counts_total", "snap_counts_pass",
+                                                                  "snap_counts_run", "snap_counts_pass_route", "snap_counts_pass_block", "snap_counts_run_block", "snap_counts_total_pass",
+                                                                  "snap_counts_total_run", "grades_offense", "grades_pass_route", "grades_run_block", "grades_pass_block"], SKILL),
+}
+
+
+def pull(league, seasons, w0, w1, reports, out="data/raw/pff_hist", key=None):
+    key = key or os.environ.get("PFF_API_KEY", "").strip()
+    if not key:
+        sys.exit("PFF_API_KEY is not set")
+    os.makedirs(out, exist_ok=True)
+    pre = "" if league == "nfl" else f"{league}_"
+    for rep in reports:
+        path, rk, cols, keep_pos = REPORTS[rep]
+        fields = ["season", "week"] + [c for c in cols if c not in ("season", "week")]
+        for s in seasons:
+            rows = []
+            for wk in range(w0, w1 + 1):
+                r = get(path, dict(league=league, season=s, week=wk), key)
+                if r.status_code != 200:
+                    print(f"{league} {rep} {s} wk {wk}: HTTP {r.status_code} {r.text[:120]}")
+                    time.sleep(0.8)
+                    continue
+                data = r.json().get(rk, [])
+                n0 = len(data)
+                for x in data:
+                    if keep_pos and x.get("position") not in keep_pos:
+                        continue
+                    rows.append({k: (s if k == "season" else wk if k == "week" else x.get(k)) for k in fields})
+                print(f"{league} {rep} {s} wk {wk}: {n0} rows ({len(rows)} kept) remaining {r.headers.get('x-ratelimit-remaining')}", flush=True)
+                time.sleep(0.8)
+            if rows:
+                with open(f"{out}/{pre}{rep}_{s}.csv" if league != "nfl" or rep != "receiving" else f"{out}/pff_receiving_{s}.csv", "w", newline="") as f:
+                    w = csv.DictWriter(f, fieldnames=fields)
+                    w.writeheader()
+                    w.writerows(rows)
+                print(f"{league} {rep} {s}: {len(rows)} rows written", flush=True)
+
+
 def main(seasons, w0, w1, out="data/raw/pff_hist"):
     key = os.environ.get("PFF_API_KEY", "").strip()
     if not key:
@@ -58,7 +107,12 @@ def main(seasons, w0, w1, out="data/raw/pff_hist"):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
+    ap.add_argument("--league", default="nfl")
     ap.add_argument("--seasons", type=int, nargs="+", default=[2022, 2023, 2024, 2025, 2026])
     ap.add_argument("--weeks", type=int, nargs=2, default=[1, 18])
+    ap.add_argument("--reports", nargs="+", default=None)
     a = ap.parse_args()
-    main(a.seasons, a.weeks[0], a.weeks[1])
+    if a.league == "nfl" and a.reports is None:
+        main(a.seasons, a.weeks[0], a.weeks[1])
+    else:
+        pull(a.league, a.seasons, a.weeks[0], a.weeks[1], a.reports or list(REPORTS))
