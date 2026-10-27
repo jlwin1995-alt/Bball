@@ -15,7 +15,7 @@ import argparse, json, math, os
 import numpy as np
 import pandas as pd
 from . import config as C
-from . import scorecard, lines as lines_mod
+from . import scorecard, lines as lines_mod, voids as voids_mod
 
 LINE_STATS = ["pts", "reb", "ast", "fg3m", "pra", "pr", "pa", "ra", "fp"]
 SHOWN = C.STATS + list(C.COMBOS) + ["fp"]
@@ -47,8 +47,10 @@ def add_combos(df, cols):
     return df
 
 
-def build(L, G, LG, spread):
-    """L: accuracy log, G: box scores, LG: lines log (may be empty), spread: {stat: [a, b]}. Returns (index_rows, {date: [rows]})."""
+def build(L, G, LG, spread, V=None):
+    """L: accuracy log, G: box scores, LG: lines log (may be empty), spread: {stat: [a, b]}, V: {(date, pid): reason} plays that void
+    (no 2nd half / left hurt; voids.py). Voided players stay in the table and the error numbers but not in any hit rate. Returns (index_rows, {date: [rows]})."""
+    V = V or {}
     A = G.groupby(["date", "pid"], as_index=False).agg(**{"min": ("min", "sum"), **{s: (s, "sum") for s in C.STATS}}).rename(columns={"min": "min_a"})
     M = L.merge(A, on=["date", "pid"], how="inner", suffixes=("_p", "_a"))
     M = add_combos(M, ["p", "a"])
@@ -62,8 +64,11 @@ def build(L, G, LG, spread):
     days, detail = [], {}
     for date, d in M.groupby("date"):
         rows, tally = [], {k: [0, 0] for k in ("cons", "picks", "pp", "pp_picks")}
+        nvoid = 0
         for r in d.itertuples():
             s_out = {}
+            vd = V.get((str(date), str(r.pid)))
+            nvoid += vd is not None
             for st in SHOWN:
                 p, a = float(getattr(r, st + "_p")), float(getattr(r, st + "_a"))
                 cl = pl = None
@@ -78,34 +83,34 @@ def build(L, G, LG, spread):
                             po, pu = sides(cl, p, sd)
                             side = "O" if p > cl else "U"
                             g = grade(a, cl, side)
-                            if g is not None:
+                            if g is not None and vd is None:
                                 tally["cons"][0] += 1; tally["cons"][1] += int(g)
                             if pd.notna(ln.cons_p_over) and abs(po - float(ln.cons_p_over)) * 100 >= C.RESULTS_EDGE_PP:
                                 pc = "O" if po > float(ln.cons_p_over) else "U"
                                 gg = grade(a, cl, pc)
-                                if gg is not None:
+                                if gg is not None and vd is None:
                                     tally["picks"][0] += 1; tally["picks"][1] += int(gg)
                         if pd.notna(ln.pp_line):
                             pl = float(ln.pp_line)
                             po, pu = sides(pl, p, sd)
                             side = "O" if po >= pu else "U"
                             g = grade(a, pl, side)
-                            if g is not None:
+                            if g is not None and vd is None:
                                 tally["pp"][0] += 1; tally["pp"][1] += int(g)
                             if max(po, pu) - C.PP_BREAKEVEN >= C.RESULTS_EDGE_PP / 100:
                                 gg = grade(a, pl, side)
                                 pk = side
-                                if gg is not None:
+                                if gg is not None and vd is None:
                                     tally["pp_picks"][0] += 1; tally["pp_picks"][1] += int(gg)
                 s_out[st] = [round(p, 1), round(a, 1), cl, pl, pc, pk]
             rows.append({"pid": r.pid, "n": r.name, "t": r.team, "mp": round(float(r.min_p), 1), "ma": round(float(r.min_a), 1),
-                         "fp": [round(float(r.fp_p), 1), round(float(r.fp_a), 1)], "s": s_out})
+                         "fp": [round(float(r.fp_p), 1), round(float(r.fp_a), 1)], "s": s_out, **({"v": vd} if vd else {})})
         big = d[d["min_p"] >= C.RESULTS_MIN_PROJ_MIN]
         days.append({"date": str(date), "rows": len(d), "n": int(len(big)),
                      "min_mae": round(float((big["min_p"] - big["min_a"]).abs().mean()), 2) if len(big) else None,
                      "fp_mae": round(float((big["fp_p"] - big["fp_a"]).abs().mean()), 2) if len(big) else None,
                      "fp_bias": round(float((big["fp_p"].sum() - big["fp_a"].sum()) / big["fp_a"].sum() * 100), 1) if len(big) and big["fp_a"].sum() else None,
-                     **tally})
+                     "voids": nvoid, **tally})
         detail[str(date)] = rows
     return sorted(days, key=lambda x: x["date"], reverse=True), detail
 
@@ -129,7 +134,11 @@ def main(raw="data/raw", out="site/data", games=None, log=None, subdir="results"
     LG = pd.read_csv(lines_mod.LOG, dtype={"pid": str}) if (not rehearsal and os.path.exists(lines_mod.LOG)) else pd.DataFrame()
     sp = json.load(open(f"{raw}/spread.json")) if os.path.exists(f"{raw}/spread.json") else {}
     spread = {**C.SPREAD_DEFAULT, **sp}
-    days, detail = build(L, G, LG, spread)
+    try:
+        voids_mod.update(raw, games=G)
+    except Exception as e:                                   # never block the results on the void bookkeeping
+        print("voids skipped:", e)
+    days, detail = build(L, G, LG, spread, voids_mod.load())
     for date, rows in detail.items():
         json.dump(rows, open(f"{out}/{subdir}/{date}.json", "w"), separators=(",", ":"))
     json.dump({"days": days, **meta}, open(f"{out}/{subdir}/index.json", "w"), separators=(",", ":"))
