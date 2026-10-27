@@ -383,6 +383,24 @@ def backtest(rows, games, W, P, from_week=None):
     return dict(pts_fit=pts_fit, weeks=used, scored=nscored, excluded=nskip, thin=len(used) < 3, table=table, spread=spread, mean_factor=rnd(pa["act"] / pa["pred"], 3) if pa["pred"] else None)
 
 
+def pff_college(raw, season, week, proj):
+    """PFF alignment / routes ("role") and opposing-coverage strength ("mu") on each WR / TE / RB projection (display only; skipped when the PFF files are missing)."""
+    from . import pff_roles, pff_matchups, pff_teams
+    from .analysis import name_key
+    rec = pff_roles.load(f"{raw}/pff_hist/ncaa_receiving_{season}.csv")
+    if not rec:
+        return
+    tm = pff_teams.cfbd_map({r["team"] for r in rec}, {x["team"] for x in proj} | {x["opp"] for x in proj})
+    roles_ = pff_roles.roles(rec, week, fx=lambda t: tm.get(t, t))
+    mu = pff_matchups.matchups(raw, season, week, league="ncaa", tmap=tm)
+    for x in proj:
+        ro = roles_.get((name_key(x["name"]), x["team"])) if x["pos"] in ("WR", "TE", "RB") else None
+        x["role"] = None if ro is None else {k: ro[k] for k in ("label", "rr", "sl", "wd", "il", "bk", "tprr", "yprr", "grade", "weekly")}
+        m = mu.get(x["opp"], {}).get(x["pos"]) if x["pos"] in ("WR", "TE", "RB") else None
+        x["mu"] = None if not m else (dict(m) if C.PFF_SHOW_DEFENDERS else {k: v for k, v in m.items() if k != "defs"})
+    print(f"college PFF: roles on {sum(1 for x in proj if x.get('role'))}, matchups on {sum(1 for x in proj if x.get('mu'))} of {len(proj)} projections")
+
+
 def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, season=None):
     os.makedirs(out, exist_ok=True)
     P, W = params(), C.DEFAULT_SCORING
@@ -427,6 +445,7 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
     rl = roles(rows, proj)
     for x in proj:
         x["depth"] = rl.get(x["id"])
+    pff_college(raw, season, week, proj)
     games_out = []
     for g in s["games"]:
         games_out.append(dict(game=label(g["homeTeam"], g["awayTeam"], "N" if g["neutral"] else "vs"), away=g["awayTeam"], home=g["homeTeam"], neutral=g["neutral"],

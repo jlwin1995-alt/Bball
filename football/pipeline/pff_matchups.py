@@ -30,12 +30,16 @@ def label(rank):
     return "GREAT" if rank >= 27 else "GOOD" if rank >= 21 else "EVEN" if rank >= 12 else "TOUGH" if rank >= 7 else "HARD"
 
 
-def matchups(raw, season, week):
+def matchups(raw, season, week, league="nfl", tmap=None):
+    """league "nfl" or "ncaa" (files carry the ncaa_ prefix); tmap maps PFF team strings to the model's team names (NFL default: PFF's four odd codes)."""
     d = f"{raw}/pff_hist"
+    pre = "" if league == "nfl" else f"{league}_"
+    fx = (lambda t: tmap.get(t, t)) if tmap is not None else (lambda t: FIX.get(t, t))
+    rec_file = f"{d}/pff_receiving_{season}.csv" if league == "nfl" else f"{d}/{pre}receiving_{season}.csv"
     try:
-        cov = list(csv.DictReader(open(f"{d}/defcoverage_{season}.csv", newline="")))
-        vs = list(csv.DictReader(open(f"{d}/covvs_{season}.csv", newline="")))
-        rec = list(csv.DictReader(open(f"{d}/pff_receiving_{season}.csv", newline="")))
+        cov = list(csv.DictReader(open(f"{d}/{pre}defcoverage_{season}.csv", newline="")))
+        vs = list(csv.DictReader(open(f"{d}/{pre}covvs_{season}.csv", newline="")))
+        rec = list(csv.DictReader(open(rec_file, newline="")))
     except FileNotFoundError:
         return {}
     pos_of = {r["player_id"]: group(r["position"]) for r in rec}
@@ -46,8 +50,8 @@ def matchups(raw, season, week):
             continue
         s = fl(r["snap_counts_coverage"])
         pid = r["player_id"]
-        info[pid] = (r["player"], r["position"], FIX.get(r["team"], r["team"]))
-        team_wk[(pid, wk)] = FIX.get(r["team"], r["team"])
+        info[pid] = (r["player"], r["position"], fx(r["team"]))
+        team_wk[(pid, wk)] = fx(r["team"])
         gs[pid] = gs.get(pid, 0.0) + fl(r["grades_coverage_defense"]) * s
         sn[pid] = sn.get(pid, 0.0) + s
     grade = {p: (gs[p] + K_SN * LG) / (sn[p] + K_SN) for p in sn}
@@ -68,7 +72,7 @@ def matchups(raw, season, week):
         score[k] = (sum(n * grade.get(p, LG) for p, n in x.items()) + K_T * LG) / (den + K_T)
     out = {}
     for g in ("WR", "TE", "RB"):
-        teams = sorted((k[0] for k in score if k[1] == g), key=lambda t: -score[(t, g)])     # best coverage first
+        teams = sorted((k[0] for k in score if k[1] == g and (tmap is None or k[0] in set(tmap.values()))), key=lambda t: -score[(t, g)])     # best coverage first
         n = len(teams)
         for i, t in enumerate(teams):
             x = tg[(t, g)]
@@ -79,7 +83,7 @@ def matchups(raw, season, week):
     return out
 
 
-def refresh_current(season, raw="data/raw"):
+def refresh_current(season, raw="data/raw", league="nfl"):
     """Re-pull the last two weeks on file plus the next for the defender coverage report and the receiver-versus-defender pairs and merge them into the season files (6 API calls).
     Skips quietly without PFF_API_KEY."""
     import os
@@ -90,7 +94,7 @@ def refresh_current(season, raw="data/raw"):
         return
     d = f"{raw}/pff_hist"
     for name, path, key_of, pick in (("defcoverage", "/v1/facet/defense/coverage", None, None), ("covvs", "/v1/facet/receiving/coverage", "receiving_coverage_stats", "versus")):
-        fp = f"{d}/{name}_{season}.csv"
+        fp = f"{d}/{'' if league == 'nfl' else league + '_'}{name}_{season}.csv"
         try:
             old = list(csv.DictReader(open(fp, newline="")))
         except FileNotFoundError:
@@ -98,8 +102,8 @@ def refresh_current(season, raw="data/raw"):
         cols = list(old[0].keys()) if old else []
         last = max([int(r["week"]) for r in old] or [0])
         new = []
-        for wk in range(max(1, last - 1), min(last + 2, 23)):
-            r = pff_hist.get(path, dict(league="nfl", season=season, week=wk), key)
+        for wk in range(max(0 if league != "nfl" else 1, last - 1), min(last + 2, 23)):
+            r = pff_hist.get(path, dict(league=league, season=season, week=wk), key)
             if r.status_code != 200:
                 print(f"PFF {name} week {wk}: HTTP {r.status_code}")
                 continue

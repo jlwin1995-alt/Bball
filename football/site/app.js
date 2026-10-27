@@ -52,9 +52,6 @@ const formPill = f => f === "HOT" ? `<span class="pill hot">HOT</span>` : f === 
 const vsOpp = r => (r.home ? "vs " : "@ ") + esc(r.opp);
 const usViewSel = () => `<label>View <select id="usview">${["Season share", "Weekly trend"].map(s => `<option ${F.usView === s ? "selected" : ""}>${s}</option>`).join("")}</select></label>`;
 const moveCell = (v, pts = true) => v == null ? "" : `<span class="${v >= 5 ? "good" : v <= -5 ? "bad" : "mut"}">${v > 0 ? "+" : ""}${num(v, 1)}${pts ? "" : "%"}</span>`;
-const MU_TIP = "Strength of the opposing coverage against his position group (PFF receiver-versus-defender data, season to date): the target-weighted coverage grade of the defenders thrown at by that group. Rank 32 = the weakest coverage in the league. A visual aid only: tested as a model input it did not improve the projections.";
-const muCell = m => !m ? "" : `<span class="pill mu-${m.label.toLowerCase()}" title="${esc(MU_TIP)}${m.defs?.length ? "\n\nLikely coverage: " + m.defs.map(d => `${d.name} (${d.pos}, coverage ${d.rk}/${d.n}, ${d.share}% of the group's targets)`).join("; ") : ""}">${m.label} <span class="zs">${m.rank}/${m.of}</span></span>`;
-const roleCell = ro => !ro ? "" : `<span title="Slot ${ro.sl}% · Wide ${ro.wd}% · Inline ${ro.il}% · Backfield ${ro.bk}% of his pass routes, last 3 games (PFF)">${esc(ro.label)}</span>`;
 function UsageTrend() {
   const win = D.meta.window || 3;
   const rows = D.usage_trend.filter(passes).filter(r => !F.minG || r.g >= F.minG);

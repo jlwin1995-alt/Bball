@@ -53,6 +53,10 @@ jobs:
         run: python -c "from pipeline import config as C, pff_roles, pff_matchups; pff_roles.refresh_current(C.SEASON); pff_matchups.refresh_current(C.SEASON)" || echo "::warning::PFF roles not refreshed"
       - name: Build site data (and log the week before kickoff)
         run: python -m pipeline.build
+      - name: PFF college routes, alignment and coverage matchups (skips without PFF_API_KEY; display only)
+        env:
+          PFF_API_KEY: ${{ secrets.PFF_API_KEY }}
+        run: python -c "from pipeline import config as C, pff_roles, pff_matchups; pff_roles.refresh_current(C.SEASON, league='ncaa'); pff_matchups.refresh_current(C.SEASON, league='ncaa')" || echo "::warning::PFF college data not refreshed"
       - name: Build college data (and log the week before kickoff)
         run: |
           python -m pipeline.cfb_build || echo "::warning::college build failed"
