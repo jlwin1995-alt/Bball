@@ -33,10 +33,16 @@ def openapi():
                 for m, op in ops.items():
                     if m not in ("get", "post"):
                         continue
-                    params = [(x.get("name"), x.get("in")) for x in op.get("parameters", []) if isinstance(x, dict)]
+                    comps = spec.get("components", {}).get("parameters", {})
+                    params = []
+                    for x in op.get("parameters", []) + ops.get("parameters", []):
+                        if isinstance(x, dict) and "$ref" in x:
+                            x = comps.get(x["$ref"].split("/")[-1], {"name": x["$ref"].split("/")[-1]})   # a shared parameter: look it up by name
+                        if isinstance(x, dict):
+                            params.append(f"{x.get('name')}({(x.get('in') or '?')[0]}{'*' if x.get('required') else ''})")
                     print(f"{m.upper():4} {p}  [{op.get('operationId', '')}]  {op.get('summary', '')}")
                     if params:
-                        print("       params:", ", ".join(f"{n}({i[0]})" for n, i in params))
+                        print("       params:", ", ".join(params))
             return
         print(r.text[:300])
 
