@@ -77,3 +77,41 @@ def matchups(raw, season, week):
             out.setdefault(t, {})[g] = dict(rank=i + 1, of=n, label=label(round((i + 1) * 32 / n)), score=round(score[(t, g)], 1),
                                             defs=[dict(name=info[p][0], pos=info[p][1], rk=drank.get(p), n=len(ranked), share=round(v / den * 100)) for p, v in top if p in info])
     return out
+
+
+def refresh_current(season, raw="data/raw"):
+    """Re-pull the last two weeks on file plus the next for the defender coverage report and the receiver-versus-defender pairs and merge them into the season files (6 API calls).
+    Skips quietly without PFF_API_KEY."""
+    import os
+    from . import pff_hist
+    key = os.environ.get("PFF_API_KEY", "").strip()
+    if not key:
+        print("PFF_API_KEY not set; PFF matchups not refreshed")
+        return
+    d = f"{raw}/pff_hist"
+    for name, path, key_of, pick in (("defcoverage", "/v1/facet/defense/coverage", None, None), ("covvs", "/v1/facet/receiving/coverage", "receiving_coverage_stats", "versus")):
+        fp = f"{d}/{name}_{season}.csv"
+        try:
+            old = list(csv.DictReader(open(fp, newline="")))
+        except FileNotFoundError:
+            continue
+        cols = list(old[0].keys()) if old else []
+        last = max([int(r["week"]) for r in old] or [0])
+        new = []
+        for wk in range(max(1, last - 1), min(last + 2, 23)):
+            r = pff_hist.get(path, dict(league="nfl", season=season, week=wk), key)
+            if r.status_code != 200:
+                print(f"PFF {name} week {wk}: HTTP {r.status_code}")
+                continue
+            body = r.json()
+            data = body.get(key_of, {}).get(pick, []) if key_of else next((v for v in body.values() if isinstance(v, list) and v and isinstance(v[0], dict)), [])
+            new += [dict(x, season=season, week=wk) for x in data]
+        if not new:
+            continue
+        got = {int(x["week"]) for x in new}
+        rows = [r for r in old if int(r["week"]) not in got] + new
+        with open(fp, "w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
+            w.writeheader()
+            w.writerows(rows)
+        print(f"PFF {name} refreshed: weeks {sorted(got)}, {len(new)} rows")

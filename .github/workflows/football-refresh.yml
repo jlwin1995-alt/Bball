@@ -47,10 +47,10 @@ jobs:
         run: |
           S=$(python -c "from pipeline import config as C; print(C.SEASON - 1)")
           test -f site/data/backtest_$S.json || { python -m pipeline.fetch --season $S && python -m pipeline.backtest --season $S --write; } || echo "::warning::backtest could not be built"
-      - name: PFF routes and alignment for the Usage view and Game Board (skips without PFF_API_KEY; display only)
+      - name: PFF routes, alignment and coverage matchups for the Usage view and boards (skips without PFF_API_KEY; display only)
         env:
           PFF_API_KEY: ${{ secrets.PFF_API_KEY }}
-        run: python -c "from pipeline import config as C, pff_roles; pff_roles.refresh_current(C.SEASON)" || echo "::warning::PFF roles not refreshed"
+        run: python -c "from pipeline import config as C, pff_roles, pff_matchups; pff_roles.refresh_current(C.SEASON); pff_matchups.refresh_current(C.SEASON)" || echo "::warning::PFF roles not refreshed"
       - name: Build site data (and log the week before kickoff)
         run: python -m pipeline.build
       - name: Build college data (and log the week before kickoff)
