@@ -1,0 +1,42 @@
+name: Football PFF timing
+
+# Every 30 minutes until Nov 4: logs each NFL and college game's PFF processing status (lock_status / has_stats) to football/data/log/pff_timing.csv, so the delay between a game
+# ending and PFF having its stats can be measured. Needs the PFF_API_KEY secret. Commits only when a status changed.
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  timing:
+    runs-on: ubuntu-latest
+    env:
+      PFF_API_KEY: ${{ secrets.PFF_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - run: python -m pipeline.pff_timing
+        working-directory: football
+      - name: Commit the log
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add football/data/log/pff_timing.csv
+          git diff --cached --quiet && exit 0
+          git commit -m "PFF timing log"
+          for i in 1 2 3; do
+            git pull --rebase -X theirs origin main && git push && exit 0
+            git rebase --abort 2>/dev/null || true
+            sleep $((i * 5))
+          done
+          echo "::error::could not push the timing log"; exit 1
