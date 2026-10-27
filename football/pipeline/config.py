@@ -81,6 +81,8 @@ SIT_R_GL, SIT_R_OP, SIT_F_GL = 0.3887, 0.0136, 0.0534      # league 2022-25: tou
 SIT_R_RZ, SIT_R_RO, SIT_F_RZ = 0.2366, 0.0155, 0.1355      # same for targets inside the 20
 PASS_YPA_ADJ = 1.06               # yards per attempt x this (with CONCENTRATE_ATTEMPTS = 0 the attempts are no longer inflated ~15%, which had been masking low per-attempt yardage; 1.00 / 1.06 / 1.10 / 1.14 tested)
 COMP_ADJ = 1.03                   # completion rate x this (same reason; 1.00 / 1.03 / 1.05 / 1.08 tested)
+RET_MISSED = 2                    # a depth-chart starter who has missed this many of his team's games this season, or left a game early in the last RET_WEEKS weeks, is a "returning star": his usage history understates his role, so no lean is flagged (like thin and role-shift players)
+RET_WEEKS = 3
 OUT_QB = True                     # a quarterback listed OUT is removed from the pool (his attempts and carries go to the next man up)
 QB_PART = True                    # a backup quarterback's attempts and carries are weighted by how often he has played relative to the team's main passer (the 20% team-scale cap cannot shrink him)
 QB_BACKUP_W = 0.1                 # with a healthy depth-chart QB1, a backup's attempts/carries are at most this fraction of his own history

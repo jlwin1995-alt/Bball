@@ -78,10 +78,12 @@ const isThin = p => p.g != null && p.g < THIN_G;
 // A teammate of a starter the injury report lists OUT (same position, RB or WR): his projected volume is the model's re-spread, not an observation, and it
 // is still low on average (WR teammates 4.3 targets projected vs 5.2 actual), which would bias leans toward the UNDER. No lean is flagged for him.
 const isShift = p => !!p.shift;
-const noLean = p => isThin(p) || isShift(p);
+const isRet = p => !!p.ret;
+const noLean = p => isThin(p) || isShift(p) || isRet(p);
 const shiftTag = p => isShift(p) ? ` <span class="pill bkp" title="A starter at his position is listed OUT. His volume is the model's re-spread of that starter's share, so no lean is flagged.">role shift</span>` : "";
 const thinTag = p => isThin(p) ? ` <span class="pill bkp" title="Only ${p.g} game${p.g === 1 ? "" : "s"} of history: the projection is mostly the league prior, so no lean is flagged.">thin</span>` : "";
-const depthCol = (tip, inferred) => ({k: "depth", h: "Depth", l: 1, t: tip, v: r => r.depth ? (starterOut(r) ? -1 : (r.depth.st ? 0 : 1) * 100 + r.depth.rank) : 999, f: r => depthPill(r.depth, tip, r.status) + thinTag(r) + shiftTag(r)});
+const retTag = p => isRet(p) ? ` <span class="pill bkp" title="A starter who has missed games or left one early lately: his history understates the role he is expected to have back, so no lean is flagged.">returning</span>` : "";
+const depthCol = (tip, inferred) => ({k: "depth", h: "Depth", l: 1, t: tip, v: r => r.depth ? (starterOut(r) ? -1 : (r.depth.st ? 0 : 1) * 100 + r.depth.rank) : 999, f: r => depthPill(r.depth, tip, r.status) + thinTag(r) + shiftTag(r) + retTag(r)});
 
 // A player's name that opens his game on the Game Board (Lines tab): sets the board's game and highlights his row.
 const gbLink = (name, game, id) => `<a href="#Game-Board" class="plink" data-game="${esc(game)}" data-pid="${esc(id)}" title="Open this player's game on the Game Board">${esc(name)}</a>`;
@@ -111,7 +113,7 @@ function fpSection(FPD, byId, medianPts, F) {
   if (!FPD.cfg) return `${head}<p class="sub">PrizePicks fantasy-points lines are being collected, but the mean-adjustment and spread for this league need more backtest rows before a lean can be shown.</p>`;
   const rows = fpBuild(FPD, byId, medianPts).filter(r => (!F.q || (r.name + " " + r.team).toLowerCase().includes(F.q.trim().toLowerCase())) && (!F.pos || r.p.pos === F.pos));
   if (!rows.length) return `${head}<p class="sub">No PrizePicks fantasy-points lines yet: they post close to kickoff for each team's main players, and this fills in on its own.</p>`;
-  const cols = [{k: "name", h: "Player", l: 1, f: r => gbLink(r.name, r.p.game, r.id) + thinTag(r.p) + shiftTag(r.p)}, {k: "pos", h: "Pos", l: 1, f: r => esc(r.p.pos)}, {k: "team", h: "Team", l: 1},
+  const cols = [{k: "name", h: "Player", l: 1, f: r => gbLink(r.name, r.p.game, r.id) + thinTag(r.p) + shiftTag(r.p) + retTag(r.p)}, {k: "pos", h: "Pos", l: 1, f: r => esc(r.p.pos)}, {k: "team", h: "Team", l: 1},
     {k: "game", h: "Game", l: 1, f: r => esc(r.game) + (r.started ? ` <span class="pill hot">LIVE</span>` : "")},
     {k: "med", h: "Median", t: "The model's median points under the PrizePicks scoring", f: r => num(r.med)}, {k: "mean", h: "Mean-adj", t: "Median turned into a mean (backtest fit)", f: r => num(r.mean)},
     {k: "line", h: "Line", v: r => r.line, f: r => num(r.line, 1)}, {k: "z", h: "Lean σ", t: "(mean-adjusted projection - line) / sigma. Positive = MORE", v: r => Math.abs(r.z), f: r => `${r.z > 0 ? "+" : ""}${num(r.z, 2)}`},
