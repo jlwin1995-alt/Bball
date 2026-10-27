@@ -133,8 +133,17 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
         pos_rank[g] = {t: (i + 1, len(order)) for i, t in enumerate(order)}
 
     proj = []
+    # returning stars: a depth-chart starter who has missed 2+ of his team's games, or left a game early lately (partial game, snaps well under his usual share).
+    # His history (few games, light games) makes the projection low against a role he is expected to have back, so the lean is suppressed, as for thin and role-shift players.
+    team_games = {}
+    for x in hist:
+        team_games.setdefault(x["team"], set()).add(x["week"])
+    early_exit = {pid for (pid, wk), v in analysis.partial_games(f"{raw}/snaps.csv", rows, pbp_path=f"{raw}/pbp_slim.csv").items() if wk >= week - P["RET_WEEKS"]}
     for pl in core["players"]:
         d = derive(pl, W, P)
+        d_pos = dpt.get(pl["id"])
+        ret = int(bool(d_pos and d_pos["st"] and pl["pos"] in ("QB", "RB", "WR", "TE") and pl["g"] >= 3
+                       and (len(team_games.get(pl["team"], ())) - pl["g"] >= P["RET_MISSED"] or pl["id"] in early_exit)))
         away = pl["opp"] if pl["siteTag"] == "vs" else pl["team"]
         home = pl["team"] if pl["siteTag"] == "vs" else pl["opp"]
         g = pos_group(pl)
@@ -142,7 +151,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
         k0 = kick.get(pl["team"])
         proj.append(dict(
             id=pl["id"], name=pl["name"], pos=pl["pos"], grp=pl["grp"], team=pl["team"], opp=pl["opp"], home=int(pl["siteTag"] == "vs"),
-            game=game_label(away, home), ko=utc(k0), status=status.get(pl["id"], ""), depth=dpt.get(pl["id"]), shift=int((pl["team"], pl["pos"]) in shift and pl["id"] not in out_ids), g=pl["g"], rest=pl["rest"],
+            game=game_label(away, home), ko=utc(k0), status=status.get(pl["id"], ""), depth=dpt.get(pl["id"]), shift=int((pl["team"], pl["pos"]) in shift and pl["id"] not in out_ids), ret=ret, g=pl["g"], rest=pl["rest"],
             wind=r(pl["wind"], 1) if pl["wind"] != "" else None,
             # volumes (rounded to one decimal, as displayed) and the rates the browser multiplies them by when you override a volume
             car=d["car"], tgt=d["tgt"], att=d["att"], ypc=r(pl["ypc"], 4), cr=r(pl["cr"], 4), ypr=r(pl["ypr"], 4), ypa=r(pl["ypa"], 4), cmp=r(pl["compRate"], 4),
