@@ -5,10 +5,22 @@ name: Football PFF history
 on:
   workflow_dispatch:
     inputs:
+      league:
+        description: "nfl or ncaa"
+        type: string
+        default: "nfl"
       seasons:
         description: "Seasons, space separated"
         type: string
         default: "2022 2023 2024 2025 2026"
+      weeks:
+        description: "First and last week (NFL 1 18; college 0 16)"
+        type: string
+        default: "1 18"
+      reports:
+        description: "Reports: receiving passing rushing offense (blank = NFL receiving only)"
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -31,7 +43,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install requests
-      - run: python -m pipeline.pff_hist --seasons ${{ github.event.inputs.seasons }}
+      - run: python -m pipeline.pff_hist --league ${{ github.event.inputs.league }} --seasons ${{ github.event.inputs.seasons }} --weeks ${{ github.event.inputs.weeks }} ${{ github.event.inputs.reports != '' && format('--reports {0}', github.event.inputs.reports) || '' }}
       - name: Commit data
         working-directory: .
         run: |
