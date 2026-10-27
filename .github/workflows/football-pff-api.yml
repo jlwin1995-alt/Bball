@@ -1,0 +1,36 @@
+name: Football PFF API probe
+
+# Manual. Reads PFF's OpenAPI contract and makes ONE authenticated call, printing only the response shape (columns, row count, one row) to the job log.
+# Needs the repository secret PFF_API_KEY (an ak_live_ key; never paste it anywhere else). Commits nothing.
+on:
+  workflow_dispatch:
+    inputs:
+      cmd:
+        description: "openapi | whoami | call"
+        type: string
+        default: "openapi"
+      path:
+        description: "For call: the API path, e.g. /v1/..."
+        type: string
+        default: ""
+      params:
+        description: 'For call: query parameters as JSON, e.g. {"league":"nfl","season":2025,"week":1}'
+        type: string
+        default: "{}"
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    env:
+      PFF_API_KEY: ${{ secrets.PFF_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - run: python -m pipeline.pff_api "${{ github.event.inputs.cmd }}" ${{ github.event.inputs.path != '' && format('"{0}"', github.event.inputs.path) || '' }} --params '${{ github.event.inputs.params }}'
+        working-directory: football
