@@ -157,7 +157,7 @@ def main(seasons, w0, w1, out="data/raw/pff_hist"):
             print(f"{s}: {len(rows)} rows written")
 
 
-def pull_matchups(seasons, w0, w1, out="data/raw/pff_hist", key=None):
+def pull_matchups(seasons, w0, w1, out="data/raw/pff_hist", key=None, league="nfl"):
     """Receiver-versus-defender coverage (/v1/facet/receiving/coverage): three lists per week. Writes covvs_<season>.csv (one row per receiver / covering defender pair that had a target:
     player_id, coverage_player_id, targets, receptions, yards, touchdowns ...) and covdef_<season>.csv (each defender's game: coverage grade, targets, yards). Ids only; team and position
     come from the receiving / defence-coverage files."""
@@ -168,7 +168,7 @@ def pull_matchups(seasons, w0, w1, out="data/raw/pff_hist", key=None):
     for s in seasons:
         vs, df = [], []
         for wk in range(w0, w1 + 1):
-            r = get("/v1/facet/receiving/coverage", dict(league="nfl", season=s, week=wk), key)
+            r = get("/v1/facet/receiving/coverage", dict(league=league, season=s, week=wk), key)
             if r.status_code != 200:
                 print(f"{s} wk {wk}: HTTP {r.status_code} {r.text[:150]}")
                 time.sleep(0.8)
@@ -183,7 +183,7 @@ def pull_matchups(seasons, w0, w1, out="data/raw/pff_hist", key=None):
         for name, rows in (("covvs", vs), ("covdef", df)):
             if rows:
                 cols = ["season", "week"] + sorted({k for x in rows for k in x if k not in ("season", "week")})
-                with open(f"{out}/{name}_{s}.csv", "w", newline="") as f:
+                with open(f"{out}/{"" if league == "nfl" else league + "_"}{name}_{s}.csv", "w", newline="") as f:
                     w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
                     w.writeheader()
                     w.writerows(rows)
@@ -198,7 +198,7 @@ if __name__ == "__main__":
     ap.add_argument("--reports", nargs="+", default=None)
     a = ap.parse_args()
     if a.reports == ["covmatchup"]:
-        pull_matchups(a.seasons, a.weeks[0], a.weeks[1])
+        pull_matchups(a.seasons, a.weeks[0], a.weeks[1], league=a.league)
     elif a.reports == ["team_games"]:
         pull_team_games(a.seasons)
     elif a.league == "nfl" and a.reports is None:
