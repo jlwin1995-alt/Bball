@@ -34,17 +34,18 @@ def label(sl, wd, il, bk):
     return f"{parts[0][0]}/{parts[1][0]}"
 
 
-def roles(rows, week, win=3):
+def roles(rows, week, win=3, fx=None):
+    fx = fx or (lambda t: FIX.get(t, t))
     team_pp = {}
     for r in rows:
-        k = (FIX.get(r["team"], r["team"]), int(r["week"]))
+        k = (fx(r["team"]), int(r["week"]))
         team_pp[k] = max(team_pp.get(k, 0.0), num(r["pass_plays"]))
     by = {}
     for r in rows:
         w = int(r["week"])
         if w >= week or num(r["routes"]) <= 0:
             continue
-        by.setdefault((name_key(r["player"]), FIX.get(r["team"], r["team"])), []).append((w, r))
+        by.setdefault((name_key(r["player"]), fx(r["team"])), []).append((w, r))
     out = {}
     for key, gs in by.items():
         gs.sort(key=lambda x: x[0])
@@ -62,23 +63,23 @@ def roles(rows, week, win=3):
         out[key] = dict(label=label(sl, wd, il, bk), rr=round(routes / pp * 100, 1) if pp else None, sl=round(sl), wd=round(wd), il=round(il), bk=round(bk),
                         tprr=round(tg_all / rt_all, 3) if rt_all else None, yprr=round(sum(num(r["yards"]) for _, r in gs) / rt_all, 2) if rt_all else None,
                         grade=round(num(rec[-1][1]["grades_pass_route"]), 1), g=len(gs),
-                        weekly=[round(num(r["routes"]) / team_pp[(FIX.get(r["team"], r["team"]), w)] * 100, 1) if team_pp.get((FIX.get(r["team"], r["team"]), w)) else None for w, r in gs])
+                        weekly=[round(num(r["routes"]) / team_pp[(fx(r["team"]), w)] * 100, 1) if team_pp.get((fx(r["team"]), w)) else None for w, r in gs])
     return out
 
 
-def refresh_current(season, raw="data/raw"):
+def refresh_current(season, raw="data/raw", league="nfl"):
     """Re-pull the most recent weeks (the API is cheap: one call per week) and merge them into pff_receiving_<season>.csv. Skips quietly without PFF_API_KEY."""
     from . import pff_hist
     key = os.environ.get("PFF_API_KEY", "").strip()
     if not key:
         print("PFF_API_KEY not set; PFF roles not refreshed")
         return
-    path = f"{raw}/pff_hist/pff_receiving_{season}.csv"
+    path = f"{raw}/pff_hist/pff_receiving_{season}.csv" if league == "nfl" else f"{raw}/pff_hist/{league}_receiving_{season}.csv"
     old = load(path)
     last = max([int(r["week"]) for r in old] or [0])
     new = []
-    for wk in range(max(1, last - 1), min(last + 2, 23)):    # the last two weeks on file (late stat corrections) and the next one
-        r = pff_hist.get("/v1/facet/receiving/summary", dict(league="nfl", season=season, week=wk), key)
+    for wk in range(max(0 if league != "nfl" else 1, last - 1), min(last + 2, 23)):    # the last two weeks on file (late stat corrections) and the next one
+        r = pff_hist.get("/v1/facet/receiving/summary", dict(league=league, season=season, week=wk), key)
         if r.status_code != 200:
             print(f"PFF week {wk}: HTTP {r.status_code}")
             continue
