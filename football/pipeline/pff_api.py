@@ -96,6 +96,10 @@ def batch(calls):
             for lg in j.get("leagues", []):
                 print("   league", lg.get("slug"), "| seasons", lg.get("seasons", [])[:12], "| default", lg.get("default_season"), lg.get("default_week"))
             continue
+        if isinstance(j, dict):
+            sc = {k: v for k, v in j.items() if not isinstance(v, (list, dict))}
+            if sc:
+                print("   scalars:", json.dumps(sc, default=str)[:400])
         rows = None
         for k, v in (j.items() if isinstance(j, dict) else []):
             if isinstance(v, list) and v and isinstance(v[0], dict):
@@ -108,7 +112,7 @@ def batch(calls):
             print(f"   {k}: {len(v)} rows, {len(v[0])} columns:")
             print("   " + ", ".join(v[0].keys()))
             if sample:
-                print("   sample:", json.dumps(v[0], default=str)[:700])
+                print("   sample:", json.dumps(v[0], default=str)[:900])
         time.sleep(0.8)
 
 
