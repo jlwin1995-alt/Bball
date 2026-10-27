@@ -52,6 +52,8 @@ const formPill = f => f === "HOT" ? `<span class="pill hot">HOT</span>` : f === 
 const vsOpp = r => (r.home ? "vs " : "@ ") + esc(r.opp);
 const usViewSel = () => `<label>View <select id="usview">${["Season share", "Weekly trend"].map(s => `<option ${F.usView === s ? "selected" : ""}>${s}</option>`).join("")}</select></label>`;
 const moveCell = (v, pts = true) => v == null ? "" : `<span class="${v >= 5 ? "good" : v <= -5 ? "bad" : "mut"}">${v > 0 ? "+" : ""}${num(v, 1)}${pts ? "" : "%"}</span>`;
+const MU_TIP = "Strength of the opposing coverage against his position group (PFF receiver-versus-defender data, season to date): the target-weighted coverage grade of the defenders thrown at by that group. Rank 32 = the weakest coverage in the league. A visual aid only: tested as a model input it did not improve the projections.";
+const muCell = m => !m ? "" : `<span class="pill mu-${m.label.toLowerCase()}" title="${esc(MU_TIP)}${m.defs?.length ? "\n\nLikely coverage: " + m.defs.map(d => `${d.name} (${d.pos}, coverage ${d.rk}/${d.n}, ${d.share}% of the group's targets)`).join("; ") : ""}">${m.label} <span class="zs">${m.rank}/${m.of}</span></span>`;
 const roleCell = ro => !ro ? "" : `<span title="Slot ${ro.sl}% · Wide ${ro.wd}% · Inline ${ro.il}% · Backfield ${ro.bk}% of his pass routes, last 3 games (PFF)">${esc(ro.label)}</span>`;
 function UsageTrend() {
   const win = D.meta.window || 3;
@@ -176,6 +178,7 @@ const pages = {
       ...(det ? [{k: "cint", h: "INT", v: r => r.c.int, f: r => r.c.att > 0 ? num(r.c.int, 2) : ""}, {k: "cfum", h: "Fum", v: r => r.c.fum, f: r => num(r.c.fum, 2)}] : []),
       {k: "cpts", h: CFG.mean ? "Mean Pts" : "Proj Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`},
       {k: "lean", h: "Lean", l: 1, t: leanTip, v: r => { const b = playerLines(r)[0]; return b?.z == null ? null : Math.abs(b.z); }, f: r => { const b = bestLean(r); return b ? leanPill(b) : ""; }},
+      {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)},
       {k: "ovp", h: "Opp vs Pos", t: "What the opponent gives up to this player's position group on his main market (rate-based, defence only), and where it ranks among the slate's defences (1 = most generous)",
         v: r => r.ovp, f: r => r.ovp == null ? "" : `${signed(r.ovp)}% <span class="mut">${esc(r.ork || "")}</span>`}];
     return `<h2>Projections — Week ${D.meta.week}</h2>
@@ -207,6 +210,7 @@ const pages = {
         {k: "ctd", h: "TD", v: r => r.c.rushTD + r.c.recTD + r.c.passTD, f: r => num(r.c.rushTD + r.c.recTD + r.c.passTD, 2)},
         {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`},
         {k: "role", h: "Role (PFF)", l: 1, t: "Alignment and routes per team pass play over the last 3 games (PFF); hover for the split", v: r => r.role?.rr, f: r => r.role ? `${roleCell(r.role)} <span class="mut">${num(r.role.rr, 0)}%</span>` : ""},
+        {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)},
         {k: "ovp", h: "Opp vs Pos", t: "What the opponent gives up to this player's position group, and where it ranks among this week's defences (1 = most generous)", v: r => r.ovp,
           f: r => r.ovp == null ? "" : `${signed(r.ovp)}% <span class="mut">${esc(r.ork || "")}</span>`},
         {k: "lines", h: "Lines · strongest lean", l: 1, t: "Click to open every posted line for this player", v: r => { const b = playerLines(r)[0]; return b?.z == null ? null : Math.abs(b.z); }, f: linesCell}];

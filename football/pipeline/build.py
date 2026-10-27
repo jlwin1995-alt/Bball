@@ -3,7 +3,7 @@
     python -m pipeline.build [--raw data/raw] [--out site/data] [--no-log] [--no-weather] [--week N]
 """
 import argparse, datetime as dt, json, os, re, sys
-from . import config as C, analysis, scorecard, weather, results, legacy, teamstats, pff_roles, lines as lines_mod
+from . import config as C, analysis, scorecard, weather, results, legacy, teamstats, pff_roles, pff_matchups, lines as lines_mod
 from .model import (load_weekly, nfl_core, derive, params, rnd, td_adj, td_base, opp_pos_factor, pos_group, REC_POS, num)
 from .slate import load_csv, target_week, matchups, kickoffs, statuses, depth_map, week_games, game_label, history_gaps
 
@@ -87,6 +87,14 @@ def role_of(pffr, pl):
     return None if x is None or pl["pos"] == "QB" else {k: x[k] for k in ("label", "rr", "sl", "wd", "il", "bk", "tprr", "yprr", "grade", "weekly")}
 
 
+def mu_of(pffmu, pl):
+    """The opposing coverage's strength for a WR / TE / RB (PFF pairs), without defender names unless PFF_SHOW_DEFENDERS."""
+    x = pffmu.get(pl["opp"], {}).get(pl["grp"] if pl["grp"] in ("WR", "TE", "RB") else "")
+    if not x:
+        return None
+    return dict(x) if C.PFF_SHOW_DEFENDERS else {k: v for k, v in x.items() if k != "defs"}
+
+
 def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=None):
     os.makedirs(out, exist_ok=True)
     P = params()
@@ -145,6 +153,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     for x in hist:
         team_games.setdefault(x["team"], set()).add(x["week"])
     early_exit = {pid for (pid, wk), v in analysis.partial_games(f"{raw}/snaps.csv", rows, pbp_path=f"{raw}/pbp_slim.csv").items() if wk >= week - P["RET_WEEKS"]}
+    pffmu = pff_matchups.matchups(raw, C.SEASON, week)
     pffr = pff_roles.roles(pff_roles.load(f"{raw}/pff_hist/pff_receiving_{C.SEASON}.csv"), week)
     for pl in core["players"]:
         d = derive(pl, W, P)
@@ -158,7 +167,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
         k0 = kick.get(pl["team"])
         proj.append(dict(
             id=pl["id"], name=pl["name"], pos=pl["pos"], grp=pl["grp"], team=pl["team"], opp=pl["opp"], home=int(pl["siteTag"] == "vs"),
-            game=game_label(away, home), ko=utc(k0), status=status.get(pl["id"], ""), depth=dpt.get(pl["id"]), shift=int((pl["team"], pl["pos"]) in shift and pl["id"] not in out_ids), ret=ret, g=pl["g"], rest=pl["rest"], role=role_of(pffr, pl),
+            game=game_label(away, home), ko=utc(k0), status=status.get(pl["id"], ""), depth=dpt.get(pl["id"]), shift=int((pl["team"], pl["pos"]) in shift and pl["id"] not in out_ids), ret=ret, g=pl["g"], rest=pl["rest"], role=role_of(pffr, pl), mu=mu_of(pffmu, pl),
             wind=r(pl["wind"], 1) if pl["wind"] != "" else None,
             # volumes (rounded to one decimal, as displayed) and the rates the browser multiplies them by when you override a volume
             car=d["car"], tgt=d["tgt"], att=d["att"], ypc=r(pl["ypc"], 4), cr=r(pl["cr"], 4), ypr=r(pl["ypr"], 4), ypa=r(pl["ypa"], 4), cmp=r(pl["compRate"], 4),
