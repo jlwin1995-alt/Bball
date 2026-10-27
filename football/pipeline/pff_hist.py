@@ -41,6 +41,10 @@ REPORTS = {
     "rushing": ("/v1/facet/rushing/summary", "rushing_summary", ["player_id", "player", "team", "team_name", "position", "player_game_count", "attempts", "run_plays", "yards", "ypa",
                                                                   "touchdowns", "targets", "receptions", "routes", "total_touches", "yards_after_contact", "elusive_rating", "grades_run",
                                                                   "grades_offense", "scrambles"], None),
+    "passblock": ("/v1/facet/offense/pass_blocking", None, ["player_id", "player", "team", "position", "player_game_count", "snap_counts_pass_play", "snap_counts_pass_block", "pressures_allowed",
+                                                            "sacks_allowed", "hits_allowed", "hurries_allowed", "grades_pass_block", "pbe", "pass_block_percent"], None),
+    "passrush": ("/v1/facet/defense/pass_rush", None, ["player_id", "player", "team", "position", "player_game_count", "snap_counts_pass_play", "snap_counts_pass_rush", "total_pressures", "sacks",
+                                                       "hits", "hurries", "pass_rush_win_rate", "pass_rush_percent", "grades_pass_rush_defense"], None),
     "offense": ("/v1/facet/offense/summary", "offense_summary", ["player_id", "player", "team", "team_name", "position", "player_game_count", "snap_counts_total", "snap_counts_pass",
                                                                   "snap_counts_run", "snap_counts_pass_route", "snap_counts_pass_block", "snap_counts_run_block", "snap_counts_total_pass",
                                                                   "snap_counts_total_run", "grades_offense", "grades_pass_route", "grades_run_block", "grades_pass_block"], SKILL),
@@ -64,7 +68,8 @@ def pull(league, seasons, w0, w1, reports, out="data/raw/pff_hist", key=None):
                     print(f"{league} {rep} {s} wk {wk}: HTTP {r.status_code} {r.text[:120]}")
                     time.sleep(0.8)
                     continue
-                data = r.json().get(rk, [])
+                body = r.json()
+                data = body.get(rk, []) if rk else next((v for v in body.values() if isinstance(v, list) and v and isinstance(v[0], dict)), [])    # rk None: the one list in the response
                 n0 = len(data)
                 for x in data:
                     if keep_pos and x.get("position") not in keep_pos:
