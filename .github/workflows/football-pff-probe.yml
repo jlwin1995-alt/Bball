@@ -1,0 +1,29 @@
+name: Football PFF docs probe
+
+# Manual. Prints PFF's developer guide (and the pages it links to) to the job log so the endpoints, auth scheme and limits can be read. Does not use the API key and commits nothing.
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Start page"
+        type: string
+        default: "https://developer.pff.com/guide/"
+      depth:
+        description: "Link levels to follow on the same host (0 = just the page)"
+        type: string
+        default: "1"
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - run: python -m pipeline.pff_probe --url "${{ github.event.inputs.url }}" --depth "${{ github.event.inputs.depth }}"
+        working-directory: football
