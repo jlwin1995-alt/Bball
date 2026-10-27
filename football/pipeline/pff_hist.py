@@ -80,6 +80,46 @@ def pull(league, seasons, w0, w1, reports, out="data/raw/pff_hist", key=None):
                 print(f"{league} {rep} {s}: {len(rows)} rows written", flush=True)
 
 
+def pull_team_games(seasons, out="data/raw/pff_hist", key=None):
+    """Per-game PFF team grades (offense, pass, run, pass block, run block, coverage, pass rush, run defence ...) for every franchise: /v1/teams/summary, one call per franchise and season.
+    Also the franchise id -> abbreviation map from /v1/teams/overview. Writes team_games_<season>.csv with every column the API returns."""
+    key = key or os.environ.get("PFF_API_KEY", "").strip()
+    if not key:
+        sys.exit("PFF_API_KEY is not set")
+    os.makedirs(out, exist_ok=True)
+    for s in seasons:
+        ov = get("/v1/teams/overview", dict(league="nfl", season=s), key)
+        abbr = {}
+        if ov.status_code == 200:
+            for x in ov.json().get("teams", ov.json().get("overview", [])) if isinstance(ov.json(), dict) else []:
+                abbr[x.get("franchise_id")] = x.get("abbreviation")
+            if not abbr:
+                body = ov.json()
+                lst = next((v for v in body.values() if isinstance(v, list)), []) if isinstance(body, dict) else []
+                abbr = {x.get("franchise_id"): x.get("abbreviation") for x in lst}
+        rows, cols = [], []
+        for fid in range(1, 33):
+            r = get("/v1/teams/summary", dict(league="nfl", season=s, franchise_id=fid), key)
+            if r.status_code != 200:
+                print(f"{s} franchise {fid}: HTTP {r.status_code} {r.text[:120]}")
+                time.sleep(0.8)
+                continue
+            body = r.json()
+            data = next((v for v in body.values() if isinstance(v, list)), []) if isinstance(body, dict) else body
+            for x in data:
+                x = dict(x, season=s, team=abbr.get(fid, fid))
+                rows.append(x)
+                cols += [k for k in x if k not in cols]
+            print(f"{s} franchise {fid} ({abbr.get(fid)}): {len(data)} games (remaining {r.headers.get('x-ratelimit-remaining')})", flush=True)
+            time.sleep(0.8)
+        if rows:
+            with open(f"{out}/team_games_{s}.csv", "w", newline="") as f:
+                w = csv.DictWriter(f, fieldnames=cols)
+                w.writeheader()
+                w.writerows(rows)
+            print(f"{s}: {len(rows)} team-games written; columns: {', '.join(cols)}")
+
+
 def main(seasons, w0, w1, out="data/raw/pff_hist"):
     key = os.environ.get("PFF_API_KEY", "").strip()
     if not key:
@@ -112,7 +152,9 @@ if __name__ == "__main__":
     ap.add_argument("--weeks", type=int, nargs=2, default=[1, 18])
     ap.add_argument("--reports", nargs="+", default=None)
     a = ap.parse_args()
-    if a.league == "nfl" and a.reports is None:
+    if a.reports == ["team_games"]:
+        pull_team_games(a.seasons)
+    elif a.league == "nfl" and a.reports is None:
         main(a.seasons, a.weeks[0], a.weeks[1])
     else:
         pull(a.league, a.seasons, a.weeks[0], a.weeks[1], a.reports or list(REPORTS))
