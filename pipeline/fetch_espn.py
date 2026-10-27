@@ -147,7 +147,7 @@ def fetch_injuries():
         for i in team.get("injuries", []):
             ath = i.get("athlete", {})
             inj.append(dict(pid=injury_pid(ath), name=ath.get("displayName"), team=(ath.get("team") or {}).get("abbreviation", team.get("displayName")),
-                            status=i.get("status")))
+                            status=i.get("status"), note=i.get("shortComment") or "", ts=i.get("date") or ""))
     return inj
 
 
@@ -212,7 +212,7 @@ def main(backfill=False, preseason=False):
         print("rosters skipped:", e)
 
     inj = fetch_injuries()
-    pd.DataFrame(inj, columns=["pid", "name", "team", "status"]).to_csv(f"{RAW}/injuries.csv", index=False)
+    pd.DataFrame(inj, columns=["pid", "name", "team", "status", "note", "ts"]).to_csv(f"{RAW}/injuries.csv", index=False)
     print(f"injuries.csv: {len(inj)} entries, {sum(1 for r in inj if r['pid'])} with a player id")
 
 
