@@ -111,9 +111,10 @@ const pages = {
     if (!games.length) return `<h2>Game Board</h2><p class="sub">No games with projections yet.</p>`;
     if (!F.game || !games.some(g => g.game === F.game)) F.game = (games.find(g => !started(g.ko)) || games[0]).game;
     const g = games.find(x => x.game === F.game), all = proj().filter(p => p.game === g.game);
+    const UT = Object.fromEntries((D.usage_trend || []).map(u => [u.id, u]));
     const mk = t => {
       const rows = all.filter(p => p.team === t);
-      const cols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, roleCol(), {k: "prole", h: "Alignment (PFF)", l: 1, t: "Where he lines up on his pass routes over the last 3 games (PFF) and routes per team pass play", v: r => r.role?.rr, f: r => r.role ? `${roleCell(r.role)} <span class="mut">${num(r.role.rr, 0)}%</span>` : ""}, {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)}, {k: "ccar", h: "Car", v: r => r.c.car, f: r => num(r.c.car)}, {k: "cry", h: "Rush", v: r => r.c.rushY, f: r => num(r.c.rushY, 0)},
+      const cols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, roleCol(), {k: "prole", h: "Alignment (PFF)", l: 1, t: "Where he lines up on his pass routes over the last 3 games (PFF) and routes per team pass play", v: r => r.role?.rr, f: r => r.role ? `${roleCell(r.role)} <span class="mut">${num(r.role.rr, 0)}%</span>` : ""}, {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)}, usageCol(r => UT[r.id], true), {k: "ccar", h: "Car", v: r => r.c.car, f: r => num(r.c.car)}, {k: "cry", h: "Rush", v: r => r.c.rushY, f: r => num(r.c.rushY, 0)},
         {k: "crec", h: "Rec", v: r => r.c.rec, f: r => num(r.c.rec)}, {k: "crecy", h: "Rec Yds", v: r => r.c.recY, f: r => num(r.c.recY, 0)},
         {k: "catt", h: "Att", v: r => r.c.att, f: r => r.c.att > 0 ? num(r.c.att) : ""}, {k: "cpy", h: "Pass Yds", v: r => r.c.passY, f: r => r.c.att > 0 ? num(r.c.passY, 0) : ""},
         {k: "ctd", h: "TD", v: r => r.c.rushTD + r.c.recTD + r.c.passTD, f: r => num(r.c.rushTD + r.c.recTD + r.c.passTD, 2)}, {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`}, ...(D.lines?.rows?.length ? [leanCol] : [])];
