@@ -51,7 +51,6 @@ const statusPill = s => s ? `<span class="pill ${isOut(s) || /doubt/i.test(s) ? 
 const formPill = f => f === "HOT" ? `<span class="pill hot">HOT</span>` : f === "COLD" ? `<span class="pill cold">COLD</span>` : `<span class="mut">${esc(f || "")}</span>`;
 const vsOpp = r => (r.home ? "vs " : "@ ") + esc(r.opp);
 const usViewSel = () => `<label>View <select id="usview">${["Season share", "Weekly trend"].map(s => `<option ${F.usView === s ? "selected" : ""}>${s}</option>`).join("")}</select></label>`;
-const moveCell = (v, pts = true) => v == null ? "" : `<span class="${v >= 5 ? "good" : v <= -5 ? "bad" : "mut"}">${v > 0 ? "+" : ""}${num(v, 1)}${pts ? "" : "%"}</span>`;
 function UsageTrend() {
   const win = D.meta.window || 3;
   const rows = D.usage_trend.filter(passes).filter(r => !F.minG || r.g >= F.minG);
@@ -78,12 +77,6 @@ function UsageTrend() {
     ${table(cols, rows, {id: "ustr", sort: {key: "flag"}})}`;
 }
 
-function spark(a) {
-  if (!a || a.length < 2) return "";
-  const w = 70, h = 18, mx = Math.max(...a, 1), mn = Math.min(...a, 0), step = w / (a.length - 1);
-  const pts = a.map((v, i) => `${(i * step).toFixed(1)},${(h - 1 - (v - mn) / (mx - mn || 1) * (h - 2)).toFixed(1)}`).join(" ");
-  return `<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><polyline points="${pts}" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>`;
-}
 const ovrCell = (r, key, shown) => `<input class="ovr" data-id="${esc(r.id)}" data-key="${key}" value="${OVR[r.id]?.[key] ?? ""}" placeholder="${num(shown)}">`;
 
 // Posted lines for one player (from the last odds pull), each scored against the model's current median projection
