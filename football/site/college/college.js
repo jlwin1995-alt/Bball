@@ -19,7 +19,8 @@ const calcFor = p => {
 };
 const proj = () => D.projections.map(p => ({...p, c: calcFor(p)}));
 const siteTag = r => r.site === "N" ? "vs " + esc(r.opp) + " (neutral)" : (r.site === "vs" ? "vs " : "@ ") + esc(r.opp);
-const noLineTag = p => p.noline ? ` <span class="pill bkp" title="The books are pricing this team's players and he has no prop line. In weeks 7-8 only 41% of such players (projected 10+ opportunities) played, against 96% of those with a line: treat him as likely out or not featuring.">no line</span>` : "";
+const noLineTag = p => p.returning ? ` <span class="pill start" title="Missed his team's last 2 games but a prop line is posted: he looks set to return. Only 4 such cases so far (2 played, at about 0.8 of projected volume), so this is a tag, not an adjustment.">returning</span>`
+  : p.noline ? ` <span class="pill bkp" title="${p.nl_absent ? "Missed his team's last 2 games and has no prop line while the books are pricing his team: 15% of such players played in weeks 7-9." : "The books are pricing this team's players and he has no prop line. In weeks 7-8 only 41% of such players (projected 10+ opportunities) played, against 96% of those with a line."} Treat him as likely out or not featuring; his teammates' projections already assume it.">no line</span>` : "";
 const nameCols = [{k: "name", h: "Player", l: 1, f: r => esc(r.name) + noLineTag(r)}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}];
 const UTM = () => (UTM.c ||= Object.fromEntries((D.usage_trend || []).map(u => [u.id, u])));
 // A RISING player (his share of the team's work up 5+ points over the last 3 games) has a history that understates his role: in the college backtest his projections ran 28% low on carries,
