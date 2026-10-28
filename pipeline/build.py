@@ -171,6 +171,11 @@ def main(raw="data/raw", out="site/data"):
         rg = f"{raw}/rehearsal_games.csv"                           # preseason dress rehearsal of the same pipeline
         results_mod.main(raw, out, pd.read_csv(rg, dtype={"pid": str}) if os.path.exists(rg) else pd.DataFrame(columns=["date", "pid"]),
                          log=scorecard.REHEARSAL_LOG, subdir="results_rehearsal", rehearsal=True)
+        try:                                                        # each player's record against his own projection vs soft / tough defences (display only)
+            from . import splits as splits_mod
+            splits_mod.write(games, set(P["pid"].astype(str)), out)
+        except Exception as e:                                      # never block the site build on this extra
+            print("splits skipped:", e)
     print(f"logged {logged} rows; projected {len(P)} players for {cov['slate_date']}  (out: {cov['out']})")
 
 

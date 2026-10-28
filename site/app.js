@@ -514,6 +514,19 @@ const pages = {
       return c.slice(0, 2).map(({s, x, rel, weak}) => { const soft = x.rank <= 10;
         return `<span class="${weak ? "mut" : soft ? "good" : "bad"}" title="${esc(r.opp)} has allowed ${x.v > 0 ? "+" : ""}${num(x.v, 1)}% per-minute ${LABEL[s]} to ${{G: "guards", F: "forwards", C: "centers"}[r.pos]}: rank ${x.rank} of ${x.of} (1 = softest). Reliability ${rel ?? "n/a"}${weak ? " (mostly noise)" : ""}. Display only.">${LABEL[s]}${soft ? "▲" : "▼"}${x.rank}</span>`; }).join(" ");
     };
+    // his record against his own projection vs defences like tonight's (team-wide rank per stat, 1 = softest of 30). Display only.
+    const SPL = D.splits || {}, MR = {};
+    for (const s of ["pts", "reb", "ast", "fg3m"]) (D.matchups || []).filter(r => r[s + "_raw"] != null).sort((a, b) => b[s + "_raw"] - a[s + "_raw"]).forEach((r, i) => { (MR[r.team] = MR[r.team] || {})[s] = i + 1; });
+    const splitCell = r => {
+      const sp = SPL[r.pid]; if (!sp || r.c.min === 0) return "";
+      const out = [];
+      for (const s of ["pts", "reb", "ast", "fg3m"]) {
+        const rk = MR[r.opp]?.[s]; if (!rk || (rk > 10 && rk < 21) || !sp[s]) continue;
+        const soft = rk <= 10, [n, o] = sp[s][soft ? "s" : "t"], [na, oa] = sp[s].a; if (n < 3) continue;
+        out.push(`<span class="${n < 5 ? "mut" : ""}" title="${esc(r.name)} went over his own pregame ${LABEL[s]} projection in ${o} of ${n} games against the ${soft ? "softest" : "toughest"} 10 defences for ${LABEL[s]} (${esc(r.opp)} is #${rk} of 30 tonight, 1 = softest), since 2024-25. All games: ${oa} of ${na} (${num(100 * oa / Math.max(na, 1), 0)}%).${n < 5 ? " Fewer than 5 games: treat as noise." : ""}">${LABEL[s]}${soft ? "▲" : "▼"} ${o}/${n}</span>`);
+      }
+      return out.join(" ");
+    };
     const games = [...new Set(D.projections.filter(p => p.home).map(p => p.team + "|" + p.opp))].sort();
     F.game = F.game && games.includes(F.game) ? F.game : games[0];
     const [home, away] = (F.game || "|").split("|");
@@ -524,7 +537,8 @@ const pages = {
         ...["pts", "reb", "ast", "fg3m"].map(s => ({k: "c" + s, h: LABEL[s], t: "Projection [posted line]. Line = sportsbook consensus, else PrizePicks. Green O / orange U = the model is past your edge threshold (Config) on that side; hover for each book's line.",
           v: r => cellVal(r, s), f: r => boardCell(r, s)})),
         {k: "cfp", h: "FP", v: r => r.c.fp, f: r => `<b>${boardCell(r, "fp")}</b>`},
-        {k: "cvs", h: "Opp vs pos", c: "opt", l: 1, t: "Where the opposing defence ranks against his position (guards / forwards / centers) on that stat: ▲ = among the softest 10 of 30, ▼ = among the toughest 10; the number is the rank. Grey = split-half reliability under 0.2 (mostly noise). Display only: it is not in the projections.", v: r => { const x = vsRank[r.opp]?.[r.pos + "_pts"]; return x ? x.rank : 99; }, f: vsCell}];
+        {k: "cvs", h: "Opp vs pos", c: "opt", l: 1, t: "Where the opposing defence ranks against his position (guards / forwards / centers) on that stat: ▲ = among the softest 10 of 30, ▼ = among the toughest 10; the number is the rank. Grey = split-half reliability under 0.2 (mostly noise). Display only: it is not in the projections.", v: r => { const x = vsRank[r.opp]?.[r.pos + "_pts"]; return x ? x.rank : 99; }, f: vsCell},
+        {k: "csp", h: "Over proj vs this D", c: "opt", l: 1, t: "Games he beat his own pregame projection against defences like tonight's: ▲ = opponent is among the softest 10 for that stat, ▼ = among the toughest 10; over / games, since 2024-25. Grey = under 5 games. Display only: a 2024-25 / 2025-26 test found this record does not predict his next game.", f: splitCell}];
       return `<div><h3>${esc(t)} ${t === home ? "(home)" : "(away)"}</h3>${table(cols, rows, {id: "gb" + t, tight: true, sort: {key: "cfp"}, rowClass: r => r.c.min === 0 ? "out" : ""})}</div>`;
     };
     const h0 = D.projections.find(p => p.team === home && p.exp_margin != null);
@@ -867,7 +881,7 @@ document.addEventListener("click", e => {
 async function boot() {
   const saved = store.get("cfg", {}); if (saved.ver !== 2 && saved.preset === "DraftKings") { delete saved.preset; delete saved.scoring; }   // default scoring changed to PrizePicks; keep other saved settings
   CFG = {...CFG, ...saved}; OVR = store.get("ovr", {}); LINES = store.get("lines", []);
-  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "shots", "shotchart", "scorecard", "spread", "lines", "players"];
+  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "shots", "shotchart", "scorecard", "spread", "lines", "players", "splits"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   try { const r = await fetch("data/results/index.json", {cache: "no-cache"}); if (r.ok) D.rIdx = await r.json(); } catch (e) {}
   try { const r = await fetch("data/results_rehearsal/index.json", {cache: "no-cache"}); if (r.ok) D.rIdxR = await r.json(); } catch (e) {}
