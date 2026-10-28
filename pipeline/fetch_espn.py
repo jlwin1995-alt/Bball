@@ -39,13 +39,17 @@ def scoreboard(day):
     return get(f"{BASE}/scoreboard", dates=day.strftime("%Y%m%d"), limit=100).get("events", [])
 
 
+NBA_TEAMS = set("ATL BOS BKN CHA CHI CLE DAL DEN DET GS HOU IND LAC LAL MEM MIA MIL MIN NO NY OKC ORL PHI PHX POR SAC SA TOR UTAH WSH".split())
+
+
 def teams_of(comp):
     """{'home': ABBR, 'away': ABBR}, or None if either side is not an NBA team. Preseason slates include
-    international clubs whose ESPN entries have no abbreviation; those games are skipped, never crashed on."""
+    international clubs whose ESPN entries have no abbreviation, and the All-Star Game is played by made-up teams
+    (STARS / STRIPES / WORLD, and the Rising Stars teams); those games are skipped, never crashed on or counted."""
     out = {}
     for c in comp.get("competitors", []):
         ab = (c.get("team") or {}).get("abbreviation")
-        if not ab:
+        if not ab or ab not in NBA_TEAMS:
             return None
         out[c["homeAway"]] = ab
     return out if len(out) == 2 else None

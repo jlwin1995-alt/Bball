@@ -85,7 +85,7 @@ function filters(extra = "") {
   return `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}">
   <label>Pos <select id="pos">${["", "G", "F", "C"].map(p => `<option ${F.pos === p ? "selected" : ""} value="${p}">${p || "All"}</option>`).join("")}</select></label>${extra}</div>`;
 }
-const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lside: "", lbucket: "", lcombo: false, lpicks: false, rday: "", vstat: "pts", sview: "today", smode: "soft", cteam: "", cplayer: "", cheat: "fg", cdots: "all", rmode: null, rlines: false, rpicks: false, range: true};
+const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lside: "", lbucket: "", lcombo: false, lpicks: false, rday: "", vstat: "pts", vpos: "G", sview: "today", smode: "soft", cteam: "", cplayer: "", cheat: "fg", cdots: "all", rmode: null, rlines: false, rpicks: false, range: true};
 const RES = {};                                     // results/<date>.json cache
 function passes(r) {
   if (F.pos && r.pos !== F.pos) return false;
@@ -257,6 +257,16 @@ function liveLines() {
     ${filters(extra)}${table(cols, rows, {id: "live", sort: {key: "edge"}})}`;
 }
 
+// Softest and toughest 10 defences for one position and stat, with the split-half reliability beside it. Display only (see the note under the heading).
+function vsTop10(T, st, pos, rel) {
+  const key = r => r[pos + "_" + st], rows = T.vspos.filter(r => key(r) != null).sort((a, b) => key(b) - key(a));
+  if (rows.length < 20) return "";
+  const rv = rel[pos + "_" + st], tag = rv == null ? "unknown" : rv < 0.2 ? "mostly noise" : rv < 0.4 ? "weak signal" : "some signal";
+  const li = r => `<li><b>${esc(r.team)}</b> <span class="${key(r) > 1 ? "good" : key(r) < -1 ? "bad" : "mut"}">${key(r) > 0 ? "+" : ""}${num(key(r), 1)}%</span></li>`;
+  const col = (title, arr) => `<div><h3>${title}</h3><ol class="movers">${arr.map(li).join("")}</ol></div>`;
+  return `<p class="banner">Reliability for ${{G: "guards", F: "forwards", C: "centers"}[pos]} ${LABEL[st]}: <b>${rv ?? "n/a"}</b> (${tag}). Early in the season most of this ranking is schedule and a few big games, not a stable trait. Treat it as context, not a pick; it is to be rechecked after about 10 more games per team.</p>
+    <div class="cols2">${col("Softest 10 (allows the most)", rows.slice(0, 10))}${col("Toughest 10 (allows the least)", rows.slice(-10).reverse())}</div>`;
+}
 function vsPosition() {
   const T = D.tiers;
   if (!T || !T.vspos || !T.vspos.length) return "";
@@ -264,7 +274,9 @@ function vsPosition() {
   const cell = pos => ({k: pos, h: {G: "Guards", F: "Forwards", C: "Centers"}[pos], t: `Reliability (split-half): ${rel[pos + "_" + st] ?? "n/a"}`,
     v: r => r[pos + "_" + st], f: r => { const x = r[pos + "_" + st]; return x == null ? "" : `<span class="${x > 1 ? "good" : x < -1 ? "bad" : "mut"}">${x > 0 ? "+" : ""}${num(x, 1)}%</span>`; }});
   return `<h3>Vs position</h3><p class="sub">Per-minute ${LABEL[st]} each defence allows to guards, forwards and centers, relative to the league at that position (green = soft). Shrunk toward zero by minutes seen. <b>Display only:</b> as a projection input it added nothing in a walk-forward test (the position-specific part beyond the team-wide matchup was noise and the two halves of the season disagreed), so the projections do not use it. Split-half reliability for ${LABEL[st]}: guards ${rel["G_" + st] ?? "–"}, forwards ${rel["F_" + st] ?? "–"}, centers ${rel["C_" + st] ?? "–"}.</p>
-    <div class="bar"><label>Stat <select id="vstat">${STATS.map(s => `<option value="${s}" ${s === st ? "selected" : ""}>${LABEL[s]}</option>`).join("")}</select></label></div>
+    <div class="bar"><label>Stat <select id="vstat">${STATS.map(s => `<option value="${s}" ${s === st ? "selected" : ""}>${LABEL[s]}</option>`).join("")}</select></label>
+      <label>Position <select id="vpos">${[["G", "Guards"], ["F", "Forwards"], ["C", "Centers"]].map(([v, t]) => `<option value="${v}" ${F.vpos === v ? "selected" : ""}>${t}</option>`).join("")}</select></label></div>
+    ${vsTop10(T, st, F.vpos, rel)}
     ${table([{k: "team", h: "Team", l: 1}, cell("G"), cell("F"), cell("C")], T.vspos, {id: "vspos", sort: {key: "G"}})}`;
 }
 
@@ -813,6 +825,7 @@ document.addEventListener("change", e => {
   else if (t.id === "cdots") { F.cdots = t.value; render(); }
   else if (t.id === "cplayer") { const p = (D.shots?.players || []).find(x => x.name.toLowerCase() === t.value.trim().toLowerCase()); if (p) { F.cplayer = p.pid; F.cteam = ""; render(); } }
   else if (t.id === "vstat") { F.vstat = t.value; render(); }
+  else if (t.id === "vpos") { F.vpos = t.value; render(); }
   else if (t.id === "rmode") { F.rmode = t.value; F.rday = ""; render(); }
   else if (t.id === "rlines") { F.rlines = t.checked; render(); }
   else if (t.id === "rpicks") { F.rpicks = t.checked; render(); }
