@@ -85,7 +85,7 @@ function filters(extra = "") {
   return `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}">
   <label>Pos <select id="pos">${["", "G", "F", "C"].map(p => `<option ${F.pos === p ? "selected" : ""} value="${p}">${p || "All"}</option>`).join("")}</select></label>${extra}</div>`;
 }
-const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lside: "", lbucket: "", lpicks: false, rday: "", vstat: "pts", sview: "today", smode: "soft", cteam: "", cplayer: "", cheat: "fg", cdots: "all", rmode: null, rlines: false, rpicks: false, range: true};
+const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lside: "", lbucket: "", lcombo: false, lpicks: false, rday: "", vstat: "pts", sview: "today", smode: "soft", cteam: "", cplayer: "", cheat: "fg", cdots: "all", rmode: null, rlines: false, rpicks: false, range: true};
 const RES = {};                                     // results/<date>.json cache
 function passes(r) {
   if (F.pos && r.pos !== F.pos) return false;
@@ -94,6 +94,7 @@ function passes(r) {
 }
 document.addEventListener("input", e => {
   if (e.target.id === "q") { F.q = e.target.value; render(true, "q"); }
+  if (e.target.id === "lvpaste") LIVE.paste = e.target.value;         // kept across the 30 s redraw, no redraw while typing
 });
 document.addEventListener("change", e => {
   if (e.target.id === "rng") { F.range = e.target.checked; render(true); }
@@ -102,6 +103,7 @@ document.addEventListener("change", e => {
   if (e.target.id === "lstat") { F.lstat = e.target.value; render(true); }
   if (e.target.id === "lgame") { F.lgame = e.target.value; render(true); }
   if (e.target.dataset && e.target.dataset.lv) { LIVE.lines[e.target.dataset.lv] = e.target.value.trim(); store.set("livelines", LIVE.lines); render(true, e.target.id); }
+  if (e.target.id === "lcombo") { F.lcombo = e.target.checked; render(true); }
   if (e.target.id === "lside") { F.lside = e.target.value; render(true); }
   if (e.target.id === "lbucket") { F.lbucket = e.target.value; render(true); }
   if (e.target.id === "lpicks") { F.lpicks = e.target.checked; render(true); }
@@ -114,7 +116,7 @@ const statusPill = s => s ? `<span class="pill ${s === "Out" ? "bad" : ""}">${es
 
 // ---------- Live tab: polls ESPN straight from the browser (no credits, no CI) ------------------------------
 const ESPN = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba";
-const LIVE = {games: null, box: {}, err: null, ts: null, timer: null, snap: {}, out: {}, lines: store.get("livelines", {})};
+const LIVE = {games: null, box: {}, err: null, ts: null, timer: null, snap: {}, out: {}, lines: store.get("livelines", {}), paste: "", pasteMsg: ""};
 // Second-half minutes from the halftime state, fitted on 26,600 player-games (2025-26 + this season): minutes = a + b*usual + c*first-half minutes
 // + d*starter - a blowout term (halftime margin past 10). Average miss 3.2-3.4 min vs 5.3-6.1 for "usual minus minutes played".
 const HALF = {a: 2.6109, usual: 0.1221, h1: 0.4872, starter: 1.4666, hinge: 0.0618, hingeS: -0.2737};
@@ -136,6 +138,29 @@ function parseBox(j) {
     }
   }
   return rows;
+}
+const normName = n => String(n || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[.'’]/g, "").replace(/\b(jr|sr|ii|iii|iv)\b/g, "").replace(/[^a-z ]+/g, " ").replace(/\s+/g, " ").trim();
+const LSTAT = [[/(pts?|points?)\s*\+\s*(rebs?|rebounds?)\s*\+\s*(asts?|assists?)|\bpra\b/i, "pra"], [/(rebs?|rebounds?)\s*\+\s*(asts?|assists?)|\bra\b/i, "ra"], [/(pts?|points?)\s*\+\s*(rebs?|rebounds?)|\bpr\b/i, "pr"],
+  [/(pts?|points?)\s*\+\s*(asts?|assists?)|\bpa\b/i, "pa"], [/3\s*-?\s*pt\s*made|3pm|threes?|3-?pointers?( made)?/i, "fg3m"], [/\b(pts?|points?)\b/i, "pts"], [/\b(rebs?|rebounds?)\b/i, "reb"], [/\b(asts?|assists?)\b/i, "ast"]];
+function applyPaste(text) {
+  const all = Object.values(LIVE.box).flat(), byFull = {}, byLast = {};
+  for (const b of all) { const k = normName(b.name); (byFull[k] = byFull[k] || []).push(b); const l = k.split(" ").pop(); (byLast[l] = byLast[l] || []).push(b); }
+  let n = 0, prev = ""; const bad = [];
+  for (const raw of String(text).split(/\n+/)) {
+    const line = raw.trim(); if (!line) continue;
+    const st = (LSTAT.find(([re]) => re.test(line)) || [])[1];
+    const cleaned = line.replace(/cur\.?\s*\d+(\.\d+)?/i, " ");
+    const nums = cleaned.match(/\d+(?:\.\d+)?/g);
+    if (!st || !nums) { prev = line; continue; }                          // a name line: the stat line follows
+    const ln = nums[nums.length - 1];
+    let nm = normName(cleaned.replace(/\d+(?:\.\d+)?/g, " ").replace(LSTAT.find(([, s2]) => s2 === st)[0], " ").replace(/\b(more|less|over|under|points?|rebounds?|assists?)\b/gi, " "));
+    if (!nm) nm = normName(prev);
+    const hit = byFull[nm] || (byFull[nm.split(" ").slice(-2).join(" ")]) || (byLast[nm.split(" ").pop()]?.length === 1 ? byLast[nm.split(" ").pop()] : null);
+    if (!hit || hit.length !== 1) { bad.push(line.slice(0, 40)); continue; }
+    LIVE.lines[hit[0].pid + "|" + st] = ln; n++; prev = "";
+  }
+  store.set("livelines", LIVE.lines);
+  LIVE.pasteMsg = `Applied ${n} line${n === 1 ? "" : "s"}${bad.length ? `; couldn't place: ${bad.slice(0, 4).join(" | ")}${bad.length > 4 ? ` (+${bad.length - 4} more)` : ""}` : ""}.`;
 }
 const clockMin = c => { const m = /^(\d+):(\d+)/.exec(c || ""); return m ? +m[1] + m[2] / 60 : 0; };
 async function liveRefresh() {
@@ -602,6 +627,12 @@ const pages = {
           if (live && q && ln != null && ln !== "") { const [a, bb] = sp[st] || [1, 0.3], full = q.min * q.per(st), mr = Math.max(remain * q.per(st), 0.01);
             const sd = Math.max((a + bb * full) * Math.sqrt(mr / Math.max(full, 0.1)), 0.3), pr = sides(ln, o["f_" + st], sd); o["p_" + st] = pr; }
         }
+        for (const [ck, comp] of Object.entries(COMBO)) {                // PTS+REB+AST etc.: sum of the parts
+          o[ck] = comp.reduce((a, c) => a + b[c], 0); o["f_" + ck] = q ? comp.reduce((a, c) => a + o["f_" + c], 0) : null; o["l_" + ck] = lineOf[b.pid + "|" + ck] ?? null;
+          const ln = LIVE.lines[b.pid + "|" + ck];
+          if (live && q && ln != null && ln !== "") { const [a, bb] = sp[ck] || [1, 0.3], per = comp.reduce((x, c) => x + q.per(c), 0), full = q.min * per, mr = Math.max(remain * per, 0.01);
+            const sd = Math.max((a + bb * full) * Math.sqrt(mr / Math.max(full, 0.1)), 0.3); o["p_" + ck] = sides(ln, o["f_" + ck], sd); }
+        }
         o.remain = remain; return o;
       });
       const cell = st => ({k: st, h: LABEL[st], t: "so far → projected final; [line] = pregame consensus, else PrizePicks. Type a live line in the box for P(over). Green = already over, orange = on pace to go over.",
@@ -610,12 +641,16 @@ const pages = {
           const ln = LIVE.lines[r.pid + "|" + st] ?? "", p = r["p_" + st];
           const box = live && !r.gone && r.q ? `<br><input class="ovr lvl" id="lv_${r.pid}_${st}" data-lv="${r.pid}|${st}" value="${esc(ln)}" placeholder="live line" style="width:4.5em">${p ? ` <b class="${p.o >= p.u ? "good" : "bad"}">${p.o >= p.u ? "O" : "U"} ${num(Math.max(p.o, p.u) * 100, 0)}%</b>` : ""}` : "";
           return `${r[st]}${f != null ? ` <span class="mut">→</span> <span class="${cls}">${num(f)}</span>` : ""}${l != null ? ` <span class="mut">[${l}]</span>` : ""}${box}`; }});
-      const cols = [{k: "name", h: "Player", l: 1, f: r => esc(r.name) + (r.gone ? ` <span class="pill hot" title="${esc(LIVE.out[r.pid])}">OUT · VOID</span>` : "")}, {k: "team", h: "Team", l: 1}, {k: "min", h: "MIN", t: "minutes so far (→ projected final minutes while live)", v: r => r.min, f: r => num(r.min, 0) + (live && !r.gone && r.q ? ` <span class="mut">→ ${num(r.min + r.remain, 0)}</span>` : "")}, ...STATS_SHOWN.map(cell)];
+      const cols = [{k: "name", h: "Player", l: 1, f: r => esc(r.name) + (r.gone ? ` <span class="pill hot" title="${esc(LIVE.out[r.pid])}">OUT · VOID</span>` : "")}, {k: "team", h: "Team", l: 1}, {k: "min", h: "MIN", t: "minutes so far (→ projected final minutes while live)", v: r => r.min, f: r => num(r.min, 0) + (live && !r.gone && r.q ? ` <span class="mut">→ ${num(r.min + r.remain, 0)}</span>` : "")}, ...[...STATS_SHOWN, ...Object.keys(COMBO).filter(ck => F.lcombo || Object.entries(LIVE.lines).some(([k, v]) => k.endsWith("|" + ck) && v !== ""))].map(cell)];
       return `<div class="card" style="grid-column:1/-1"><div>${badge}${head} <span class="mut">· ${esc(g.detail)}${live && g.period >= 3 && !sn ? " · halftime minutes estimated (page wasn't open at halftime)" : ""}</span></div>
         <div style="margin-top:8px">${rows.length ? table(cols, rows, {id: "live" + g.id, sort: {key: "min"}}) : `<span class="mut">No box score yet.</span>`}</div></div>`;
     };
     return `<h2>Live</h2><p class="sub">Today's games, updated every 30 s${ago != null ? ` (refreshed ${ago}s ago)` : ""}${LIVE.err ? ` — <b>last refresh failed: ${esc(LIVE.err)}</b>` : ""}.
       Each stat shows <b>so far → projected final</b>: the player's per-minute rate times the minutes still expected, with the pregame line in brackets. Minutes still expected come from the <b>halftime model</b> (usual minutes, minutes played in the first half, starter or not, and a blowout cut once the margin passes 10), not "usual minus played". Type a <b>live line</b> in a stat's box to get P(over/under) for that leg (only while the game is on); players ESPN reports as not returning show <b>OUT · VOID</b>. Players in today's slate use the matchup-adjusted projection (and your Min OVR); everyone else uses season rates. Fouls are not modelled (they added almost nothing once first-half minutes are in).</p>
+      <details class="doc" ${LIVE.pasteMsg || LIVE.paste ? "open" : ""}><summary><b>Paste live lines</b> <span class="mut">(from the PrizePicks board or a list)</span></summary>
+        <p class="sub">One line per leg, e.g. <code>Luka Doncic points 38.5</code>, <code>Austin Reaves 27.5 Points</code>, <code>Lillard rebs+asts 6.5</code>. A copied PrizePicks card works too (name line, then <code>Cur. 16 38.5 Points</code>). Stats: points, rebounds, assists, 3-PT made, and the Pts / Rebs / Asts combinations. Names match against the players in today's box scores.</p>
+        <textarea id="lvpaste" rows="5" style="width:100%" placeholder="Luka Doncic points 38.5">${esc(LIVE.paste)}</textarea>
+        <div class="bar"><button id="lvapply">Apply lines</button> <button id="lvclear">Clear all live lines</button> <label><input type="checkbox" id="lcombo" ${F.lcombo ? "checked" : ""}> show combo stats</label> <span class="mut">${esc(LIVE.pasteMsg)}</span></div></details>
       ${games.length ? `<div class="cards" style="grid-template-columns:1fr">${games.map(card).join("")}</div>` : `<p class="sub">No games on ESPN's scoreboard today.</p>`}`;
   },
 
@@ -788,6 +823,8 @@ document.addEventListener("click", e => {
   const t = e.target;
   if (t.classList && t.classList.contains("scgo")) { e.preventDefault(); const [pid, opp] = t.dataset.sc.split("|"); F.cplayer = pid; F.cteam = opp; F.sview = "chart"; render(); window.scrollTo(0, 0); return; }
   if (t.id === "clr") { OVR = {}; store.set("ovr", OVR); render(); }
+  if (t.id === "lvapply") { const box = document.getElementById("lvpaste"); LIVE.paste = box ? box.value : LIVE.paste; applyPaste(LIVE.paste); LIVE.paste = ""; render(); }
+  if (t.id === "lvclear") { LIVE.lines = {}; store.set("livelines", LIVE.lines); LIVE.pasteMsg = "Cleared."; render(); }
   if (t.id === "ladd") {
     const line = document.getElementById("ll").value; if (line === "") return;
     LINES.push({pid: document.getElementById("lp").value, stat: document.getElementById("ls").value, line, over: document.getElementById("lo").value, under: document.getElementById("lu").value});
