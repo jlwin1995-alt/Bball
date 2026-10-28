@@ -16,6 +16,30 @@ const POS = ["QB", "RB", "WR", "TE"];
 // stat key (as the model and the odds feed name it) -> field on the calc() result
 const MKT = {passY: "passY", rushY: "rushY", recY: "recY", rec: "rec", comp: "comp", sacks: "sacks"};
 const mktSpec = k => D.meta.markets[k];
+// Opposing defence tier on a market (toughest 8 / middle 16 / softest 8 of 32, by allowed per game to the position group going into the week) and what the lines actually did against that tier.
+const HR_TIP = "How the opposing defence ranks against this player's position group on this market (allowed per game this season; SOFT = softest 8, TOUGH = toughest 8). Hover for the actual hit rates against that tier. Display only.";
+const HR_LAB = {tough: "TOUGH", mid: "MID", soft: "SOFT"}, HR_CLS = {tough: "mu-hard", mid: "mu-even", soft: "mu-great"};
+function oppTierCell(r) {
+  const x = D.hitrates?.tiers?.[r.stat]?.[r.opp];
+  if (!x) return "";
+  const H = D.hitrates, own = H.lines?.find(l => l.stat === r.stat && l.tier === x.tier), all = H.lines?.find(l => l.stat === "all" && l.tier === x.tier), h = H.hist?.find(l => l.stat === r.stat && l.tier === x.tier);
+  const tip = [`${r.opp} ranks ${x.rank} of ${x.of} (1 = toughest) against this position group on ${r.stat}.`,
+    all ? `This season's graded lines against ${HR_LAB[x.tier].toLowerCase()} defences: the OVER hit ${num(all.over, 0)}% (${all.n} lines); the model's side ${num(all.model, 0)}%.` : "",
+    own && own.n >= 20 ? `This market only: Over ${num(own.over, 0)}% (${own.n}).` : "",
+    h ? `2023-25, a line at the projection: actual went over ${num(h.over, 0)}% of ${h.n} games, actual / projected ${h.ratio}, median miss ${h.miss > 0 ? "+" : ""}${h.miss}.` : ""].filter(Boolean).join("\n");
+  return `<span class="pill ${HR_CLS[x.tier]}" title="${esc(tip)}">${HR_LAB[x.tier]} <span class="zs">${x.rank}/${x.of}</span></span>${all ? ` <span class="mut">Over ${num(all.over, 0)}%</span>` : ""}`;
+}
+function hitrateTable() {
+  const H = D.hitrates; if (!H) return "";
+  const tiers = ["tough", "mid", "soft"], lab = {tough: "Toughest 8", mid: "Middle 16", soft: "Softest 8"};
+  const stats = ["all", ...new Set((H.hist || []).map(x => x.stat))];
+  const rows = stats.map(s => ({s, ...Object.fromEntries(tiers.flatMap(t => [[t + "_l", H.lines?.find(x => x.stat === s && x.tier === t)], [t + "_h", H.hist?.find(x => x.stat === s && x.tier === t)]]))}));
+  const cols = [{k: "s", h: "Market", l: 1, f: r => r.s === "all" ? "<b>All markets</b>" : esc(D.meta.markets[r.s]?.label || r.s)},
+    ...tiers.flatMap(t => [{k: t + "_l", h: `${lab[t]}: lines, Over %`, t: "This season's graded consensus lines: share that went OVER (pushes dropped), and the number of lines", v: r => r[t + "_l"]?.over, f: r => r[t + "_l"] ? `${num(r[t + "_l"].over, 0)}% <span class="mut">n=${r[t + "_l"].n}</span>` : ""},
+      {k: t + "_h", h: `${lab[t]}: 2023-25 over projection %`, t: "2023-25 walk-forward: share of games where the actual went over the model's projection (a line at the projection)", v: r => r[t + "_h"]?.over, f: r => r[t + "_h"] ? `${num(r[t + "_h"].over, 0)}% <span class="mut">n=${r[t + "_h"].n}</span>` : ""}])];
+  return `<h3>Actual hit rates against the toughest and softest defences</h3><p class="sub">Defences are ranked on each market by what they allowed per game to that position group going into the week. "Lines" is how often the OVER actually hit on this season's posted consensus lines; the 2023-25 columns use the model's projection as the line over three seasons (no historical lines). Over rates are higher against soft defences on both. Break-even at -110 is 52.4%. Display only: the model's own defence adjustment is damped, which is why a gap remains.</p>${table(cols, rows, {id: "hrt"})}`;
+}
+
 const warn = e => e != null && Math.abs(e) >= 15 ? ` <span title="An edge this large is usually the model having a player's role wrong (injury news, a depth-chart change, a game that has already started), not a bargain. Check before trusting it." style="cursor:help">⚠</span>` : "";
 
 const isOut = s => /^(out|ir)/i.test(s || "");
@@ -353,7 +377,7 @@ const pages = {
         const p = byId[r.id]; if (!p) return null;
         const spec = mktSpec(r.stat), m = p.c[MKT[r.stat]], c = r.cons, pp = r.dfs.prizepicks;
         const st = Date.now() >= Date.parse(r.commence), outp = isOut(p.status);
-        const o = {started: st, pid: p.id, gb: p.game, name: p.name, pos: p.pos, team: p.team, game: r.game, stat: r.stat, m, c, r, pp, ud: r.dfs.underdog ?? r.dfs.pick6};
+        const o = {started: st, pid: p.id, gb: p.game, name: p.name, pos: p.pos, team: p.team, opp: p.opp, game: r.game, stat: r.stat, m, c, r, pp, ud: r.dfs.underdog ?? r.dfs.pick6};
         if (c) { const sd = FB.sides(c.line, m, spec); o.po = sd.o; o.edge = (sd.o - c.p_over) * 100; o.z = zOf(spec, m, c.line); o.tier = st || outp || noLean(p) ? "" : leanTier(o.z); o.pick = st ? "LIVE" : outp ? "OUT" : Math.abs(o.edge) >= CFG.edgeMin ? (o.edge > 0 ? "OVER" : "UNDER") : ""; }
         if (pp != null) { const sd = FB.sides(pp, m, spec); o.side = sd.o >= sd.u ? "OVER" : "UNDER"; o.pw = Math.max(sd.o, sd.u); o.ppEdge = (o.pw - BE) * 100;
           o.ppPick = st ? "LIVE" : outp ? "OUT" : o.ppEdge >= CFG.edgeMin ? "PP " + o.side : ""; o.gap = c ? pp - c.line : null; }
@@ -367,6 +391,7 @@ const pages = {
       const cols = [{k: "name", h: "Player", l: 1, f: r => gbLink(r.name, r.gb, r.pid)}, {k: "team", h: "Team", l: 1},
         {k: "game", h: "Game", l: 1, f: r => esc(r.game) + (r.started ? ` <span class="pill hot" title="Kicked off: these are the last PRE-game lines. The model's pregame probability no longer applies, so no pick is shown.">LIVE</span>` : "")},
         {k: "stat", h: "Market", l: 1, f: r => esc(mktSpec(r.stat).label)}, {k: "m", h: "Proj", t: "Median projection, with your volume overrides", f: r => num(r.m)},
+        {k: "od", h: "Opp D", t: HR_TIP, v: r => D.hitrates?.tiers?.[r.stat]?.[r.opp]?.rank ?? null, f: r => oppTierCell(r)},
         {k: "cl", h: "Cons line", t: "Median sportsbook line; hover for every book", v: r => r.c?.line, f: r => r.c ? `<span title="${esc(tip(r))}">${r.c.line} <span class="mut">${r.c.n}/${r.c.n_books}</span></span>` : ""},
         {k: "cp", h: "Cons P(over)", t: "Average vig-free P(over) of the books at the consensus line", v: r => r.c?.p_over, f: r => r.c ? num(r.c.p_over * 100) + "%" : ""},
         {k: "fo", h: "Fair odds", t: "Over / under, from the consensus probability", v: r => r.c?.p_over, f: r => r.c ? `${FB.amer(r.c.p_over)} / ${FB.amer(1 - r.c.p_over)}` : ""},
@@ -387,6 +412,7 @@ const pages = {
       live = `<p class="sub">Sportsbook consensus (median line; vig removed) beside PrizePicks / Underdog, with the model's edge against each${credits}. Updated ${mins < 90 ? mins + " min" : Math.round(mins / 60) + " h"} ago${mins > 360 ? " — <b>stale, lines move</b>" : ""}. DFS prices are nominal, so PrizePicks edge is measured against your break-even (Config) rather than odds. A k-pick entry paying M× needs M^(−1/k) per leg.</p>
         ${filters(extra)}${table(cols, rows, {id: "live", sort: {key: "edge"}})}`;
     }
+    live += hitrateTable();
     const own = LINES.map((l, i) => {
       const p = byId[l.id]; if (!p) return "";
       const spec = mktSpec(l.stat), m = p.c[MKT[l.stat]], sd = FB.sides(l.line, m, spec);
@@ -601,7 +627,7 @@ document.addEventListener("click", e => {
 async function boot() {
   CFG = {...CFG, ...store.get("cfg", {})}; OVR = store.get("ovr", {}); LINES = store.get("lines", []);
   if (!CFG.scoring || Object.keys(CFG.scoring).some(k => !(k in SCORE_LABEL))) CFG = {...CFG, preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}};
-  const names = ["projections", "games", "teams", "matchups", "efficiency", "usage", "trends", "weather", "usage_trend", "coverage", "scorecard", "meta", "lines", "fp_lines"];
+  const names = ["projections", "games", "teams", "matchups", "efficiency", "usage", "trends", "weather", "usage_trend", "hitrates", "coverage", "scorecard", "meta", "lines", "fp_lines"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   if (!D.projections || !D.meta) { view().innerHTML = "<p>No data found in <code>data/</code>. Run <code>python -m pipeline.build</code>.</p>"; return; }
   await loadBacktests();
