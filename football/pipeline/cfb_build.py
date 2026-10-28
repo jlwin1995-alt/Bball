@@ -469,7 +469,7 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
                        comp=r(core["def_comp"].get(t, 1.0)), faces=", ".join(sorted(faces.get(t, [])))))
     json.dump(teamstats.build(teamstats.cfb_team_games(rows, games), keep=teamstats.fbs_teams(games)), open(f"{out}/teams.json", "w"), separators=(",", ":"))
     json.dump(proj, open(f"{out}/projections.json", "w"), separators=(",", ":"))
-    json.dump(cfb_usage.usage_trend(rows, s["conf"], raw=raw, season=season), open(f"{out}/usage_trend.json", "w"), separators=(",", ":"))
+    json.dump(cfb_usage.usage_trend(rows, {x["team"]: x["conference"] for x in rows if x.get("conference")}, raw=raw, season=season), open(f"{out}/usage_trend.json", "w"), separators=(",", ":"))
     json.dump(games_out, open(f"{out}/games.json", "w"), separators=(",", ":"))
     props_lines(raw, out, season, week)
     json.dump(dict(week=week, rows=dr, lg=dict(ypc=r(core["LG_YPC"], 3), ypr=r(core["LG_YPR"], 3), ypa=r(core["LG_YPA"], 3),
