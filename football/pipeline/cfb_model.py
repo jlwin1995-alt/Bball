@@ -180,6 +180,20 @@ def cfb_core(rows, matchup, conf, P):
             seen = {x["week"]: x for x in PL[i]["weeks"]}
             hits = sum(1 for w in want if w in seen and seen[w]["att"] >= 5)
             p_play[i] = (hits + prior_p * 0.5) / (len(want) + prior_p)
+    # CFB_ABSENT_GAMES / CFB_ABSENT_W: college has no injury feed, so a player who played earlier but has no box-score row in his team's last N games is treated as probably out: his share of
+    # the team's carries and receptions counts for ABSENT_W (0 = not at all) in the denominator, so the men who have been playing take the volume. His own projection is unchanged.
+    absent_w = {}
+    n_abs = int(P.get("CFB_ABSENT_GAMES", 0) or 0)
+    if n_abs:
+        tw = {}
+        for r in rows:
+            if r["team"] and r["week"]:
+                tw.setdefault(r["team"], set()).add(r["week"])
+        last_n = {t: sorted(ws)[-n_abs:] for t, ws in tw.items() if len(ws) > n_abs}
+        for i in pool:
+            want = last_n.get(PL[i]["team"])
+            if want and len(PL[i]["weeks"]) >= 2 and not any(x["week"] in want for x in PL[i]["weeks"]):
+                absent_w[i] = float(P.get("CFB_ABSENT_W", 0.0))
     scale = {}
     for t in team_base:
         scale[t] = dict(car=1.0, rec=1.0, att=1.0)
@@ -188,11 +202,11 @@ def cfb_core(rows, matchup, conf, P):
             # pie among the other ball carriers: team carries minus what the QBs are expected to take
             if k == "car" and qb_fixed:
                 qb_tot = nsum(raw[i]["car"] for i in pool if PL[i]["team"] == t and is_qb(PL[i]))
-                tot = nsum(raw[i]["car"] for i in pool if PL[i]["team"] == t and not is_qb(PL[i]))
+                tot = nsum(raw[i]["car"] * absent_w.get(i, 1.0) for i in pool if PL[i]["team"] == t and not is_qb(PL[i]))
                 if tot > 0:
                     scale[t]["car"] = max(1 - C.CFB_TEAM_SCALE_CAP, min(1 + C.CFB_TEAM_SCALE_CAP, max(team_base[t]["car"] - qb_tot, 0.0) / tot))
                 continue
-            tot = nsum(raw[i][k] * (p_play.get(i, 1.0) if k == "att" else 1.0) for i in pool if PL[i]["team"] == t)
+            tot = nsum(raw[i][k] * (p_play.get(i, 1.0) if k == "att" else absent_w.get(i, 1.0)) for i in pool if PL[i]["team"] == t)
             if tot > 0:
                 scale[t][k] = max(1 - C.CFB_TEAM_SCALE_CAP, min(1 + C.CFB_TEAM_SCALE_CAP, team_base[t][k] / tot))
     # team projected volume after the rescale, so a share adds to 100% across the team (receiving share is a share of RECEPTIONS)
