@@ -385,3 +385,12 @@ Live: a "no line" pill beside the player's name on the college boards (`noline` 
 Players who missed their team's last 2 games and averaged 4+ opportunities when they played: 154 in weeks 7-9. Only 4 had a prop line (the books price a team's top few): 2 played, at 0.84 of projected volume. 59 had no line on a priced team: **15% played**. 91 were on teams the books had not priced yet: 11% played. So a two-game absence is mostly a continuing absence, and the line is the only thing that separates the few who come back.
 - **"returning" tag** (`returning` in `projections.json`, green pill beside the name): missed the last 2 games and a line is now posted. A tag only: 4 cases cannot support an adjustment, and the 2 who played came back at about 0.8 of projected volume, so no lean is suppressed. Re-check when there are 15 or so.
 - **No-line rule extended** (live, same `CFB_NOLINE_OUT` switch): a player on a priced team with no line who missed the last 2 games (4+ opportunities a game when he played) is treated as out in the team's carry / reception pool even when his projected volume is under the 10-opportunity bar (`nl_absent`). Teammates' carries MAE, weeks 7-8 (356 player-games): none 1.895, current rule 1.746, with the extension 1.722 (receptions 1.374 / 1.370 / 1.366). Small on top of the current rule (-1.4%), on two weeks; included in the two-week recheck.
+
+### Run / pass tendency on the Game Boards
+
+The Team comparison card on the NFL and college Game Boards has tendency rows under the usual ones (descriptive, not good or bad: no winner is marked, ranked high to low, 1 = highest):
+- **Pass rate (all plays):** NFL (passes + sacks) / (passes + sacks + runs); college attempts / (attempts + rushes), from the box scores the model already uses;
+- **Pass rate faced:** the same number for the opponents' plays against this defence (how teams attack them: game script and what the defence invites);
+- **Plays per game:** passes + runs a game, a pace proxy (box scores omit kneels and some plays, so the level runs a few below official counts; the ranking is what counts);
+- **NFL only: pass rate on 1st / 2nd down in quarters 1-3** from the play-by-play (`pbp_slim`), a neutral-situation tendency without garbage time or third-and-long.
+`pipeline/teamstats.py`; the game-script test in this README found the spread and total move team volume (favourites run more, higher totals pass more), so read the tendency next to the line on the Game Board header. Display only.

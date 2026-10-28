@@ -218,7 +218,7 @@ const pages = {
       <div class="gamehead"><div><span>Kickoff</span><b>${esc(koLabel(g.ko))}</b></div><div><span>Stadium</span><b>${esc(g.stadium)}</b></div>
         <div><span>Weather</span><b>${wx}</b></div>${g.spread == null ? "" : `<div><span>Line (nflverse)</span><b>${esc(sp)} · O/U ${num(g.total)}</b></div>
         <div><span>Implied total</span><b>${esc(g.away)} ${num(g.away_imp)} – ${esc(g.home)} ${num(g.home_imp)}</b></div>`}</div>
-      ${compareCard({...D.teams, note: "Net passing yards (minus sack yards); turnovers are giveaways, takeaways are the opponents' giveaways; first downs are passing + rushing. Completed games only."}, g.away, g.home)}
+      ${compareCard({...D.teams, note: "Net passing yards (minus sack yards); turnovers are giveaways, takeaways are the opponents' giveaways; first downs are passing + rushing. Completed games only. The last four rows are tendencies, not good or bad: pass rate is passes (with sacks) over passes + runs, \"faced\" is how opponents attacked this defence, plays are passes + runs a game (a pace proxy), and the 1st / 2nd down rate is passes over all plays on those downs in quarters 1-3 (a neutral-situation rate)."}, g.away, g.home)}
       <div class="stack">${mk(g.away)}${mk(g.home)}</div>`;
   },
 
