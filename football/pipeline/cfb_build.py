@@ -447,21 +447,25 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
     meta_in = json.load(open(f"{d}/cfb_meta.json")) if os.path.exists(f"{d}/cfb_meta.json") else {}
     gaps = [w for w in meta_in.get("done", {}) if int(w) < week and meta_in.get("fetched", {}).get(w) != meta_in["done"][w]]
     kick = {t: m["start"] for t, m in s["matchup"].items()}
-    proj = []
-    for pl in core["players"]:
-        x = derive(pl, W)
-        proj.append(dict(id=pl["id"], name=pl["name"], pos=pl["pos"], team=pl["team"], conf=pl["conf"], opp=pl["opp"], site=pl["siteTag"], game=label(pl["team"], pl["opp"], pl["siteTag"]),
-                         ko=pl["start"] or None, g=pl["g"], car=pl["car"], rec=pl["rec"], att=pl["att"], ypc=r(pl["ypc"], 4), ypr=r(pl["ypr"], 4), ypa=r(pl["ypa"], 4),
-                         cmp=r(pl["compRate"], 4), rtd_r=r(pl["rushTdRate"], 5), rectd_r=r(pl["recTdRate"], 5), ptd_r=r(pl["ptdRate"], 5), int_r=r(pl["intRate"], 5),
-                         fum_r=r(pl["fumRate"], 6), a_rush=r(pl["a_rush"], 4), a_rec=r(pl["a_rec"], 4), a_pass=r(pl["a_pass"], 4), a_comp=r(pl["a_comp"], 4),
-                         a_rtd=r(pl["a_rtd"], 4), a_rectd=r(pl["a_rectd"], 4), a_ptd=r(pl["a_ptd"], 4), tcar=r(pl["tcar"], 1), trec=r(pl["trec"], 1),
-                         ry=r(x["rushY"], 2), recy=r(x["recY"], 2), py=r(x["passY"], 2), comp=r(x["comp"], 3), rtd=r(x["rushTD"], 4), rectd=r(x["recTD"], 4),
-                         ptd=r(x["passTD"], 4), int=r(x["int"], 4), fum=r(x["fum"], 4), pts=r(x["pts"], 2)))
-    proj.sort(key=lambda x: -(x["car"] + x["rec"] + x["att"] * 0.5))
-    rl = roles(rows, proj)
-    for x in proj:
-        x["depth"] = rl.get(x["id"])
-    pff_college(raw, season, week, proj)
+    def make_proj(core):
+        proj = []
+        for pl in core["players"]:
+            x = derive(pl, W)
+            proj.append(dict(id=pl["id"], name=pl["name"], pos=pl["pos"], team=pl["team"], conf=pl["conf"], opp=pl["opp"], site=pl["siteTag"], game=label(pl["team"], pl["opp"], pl["siteTag"]),
+                             ko=pl["start"] or None, g=pl["g"], car=pl["car"], rec=pl["rec"], att=pl["att"], ypc=r(pl["ypc"], 4), ypr=r(pl["ypr"], 4), ypa=r(pl["ypa"], 4),
+                             cmp=r(pl["compRate"], 4), rtd_r=r(pl["rushTdRate"], 5), rectd_r=r(pl["recTdRate"], 5), ptd_r=r(pl["ptdRate"], 5), int_r=r(pl["intRate"], 5),
+                             fum_r=r(pl["fumRate"], 6), a_rush=r(pl["a_rush"], 4), a_rec=r(pl["a_rec"], 4), a_pass=r(pl["a_pass"], 4), a_comp=r(pl["a_comp"], 4),
+                             a_rtd=r(pl["a_rtd"], 4), a_rectd=r(pl["a_rectd"], 4), a_ptd=r(pl["a_ptd"], 4), tcar=r(pl["tcar"], 1), trec=r(pl["trec"], 1),
+                             ry=r(x["rushY"], 2), recy=r(x["recY"], 2), py=r(x["passY"], 2), comp=r(x["comp"], 3), rtd=r(x["rushTD"], 4), rectd=r(x["recTD"], 4),
+                             ptd=r(x["passTD"], 4), int=r(x["int"], 4), fum=r(x["fum"], 4), pts=r(x["pts"], 2)))
+        proj.sort(key=lambda x: -(x["car"] + x["rec"] + x["att"] * 0.5))
+        rl = roles(rows, proj)
+        for x in proj:
+            x["depth"] = rl.get(x["id"])
+        pff_college(raw, season, week, proj)
+        return proj
+
+    proj = make_proj(core)
     games_out = []
     for g in s["games"]:
         games_out.append(dict(game=label(g["homeTeam"], g["awayTeam"], "N" if g["neutral"] else "vs"), away=g["awayTeam"], home=g["homeTeam"], neutral=g["neutral"],
@@ -489,6 +493,13 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
     json.dump(games_out, open(f"{out}/games.json", "w"), separators=(",", ":"))
     props_lines(raw, out, season, week)
     n_nl = noline_flags(proj, f"{out}/lines.json")
+    if C.CFB_NOLINE_OUT and n_nl:
+        # live from week 9: players the books are not pricing on a priced team are treated as out in the team's carry / reception pool (README: teammates' carries MAE -8.6% in weeks 7-8)
+        out_ids = {x["id"] for x in proj if x["noline"]}
+        proj = make_proj(cfb_core(rows, s["matchup"], s["conf"], dict(P, CFB_OUT_IDS=out_ids, CFB_ABSENT_W=0.0)))
+        noline_flags(proj, f"{out}/lines.json")
+        json.dump(proj, open(f"{out}/projections.json", "w"), separators=(",", ":"))
+        print(f"college: {len(out_ids)} no-line players treated as out in the team pool")
     json.dump(proj, open(f"{out}/projections.json", "w"), separators=(",", ":"))
     print(f"college no-line flags: {n_nl}")
     json.dump(dict(week=week, rows=dr, lg=dict(ypc=r(core["LG_YPC"], 3), ypr=r(core["LG_YPR"], 3), ypa=r(core["LG_YPA"], 3),
