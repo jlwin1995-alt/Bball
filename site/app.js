@@ -497,6 +497,23 @@ const pages = {
       const tip = [...(L.books || []).map(x => `${x.b} ${x.line}`), ...Object.entries(L.dfs || {}).map(([k, v]) => `${k} ${v}`)].join("\n");
       return `<span title="${esc(tip)}">${num(m)} <span class="mut">[${line}]</span>${lean ? ` <b class="${lean === "O" ? "good" : "bad"}">${lean}</b>` : ""}</span>${rangeLine(s, m)}`;
     };
+    // opposing defence vs his position: shown only where it is in the softest or toughest 10 for that stat (display only; see Matchups > Vs position)
+    const VT = D.tiers?.vspos || [], VR = D.tiers?.vspos_rel || {}, vsRank = {};
+    for (const pos of ["G", "F", "C"]) for (const s of ["pts", "reb", "ast", "fg3m"]) {
+      const k = pos + "_" + s, ord = VT.filter(r => r[k] != null).sort((a, b) => b[k] - a[k]);
+      ord.forEach((r, i) => { (vsRank[r.team] = vsRank[r.team] || {})[k] = {rank: i + 1, of: ord.length, v: r[k]}; });
+    }
+    const vsCell = r => {                                    // at most the two most telling stats: reliable ones first, then the most extreme rank
+      if (r.c.min === 0) return "";
+      const c = [];
+      for (const s of ["pts", "reb", "ast", "fg3m"]) {
+        const x = vsRank[r.opp]?.[r.pos + "_" + s]; if (!x || (x.rank > 10 && x.rank <= x.of - 10)) continue;
+        const rel = VR[r.pos + "_" + s]; c.push({s, x, rel, weak: rel == null || rel < 0.2, ext: Math.abs(x.rank - (x.of + 1) / 2)});
+      }
+      c.sort((a, b) => a.weak - b.weak || b.ext - a.ext);
+      return c.slice(0, 2).map(({s, x, rel, weak}) => { const soft = x.rank <= 10;
+        return `<span class="${weak ? "mut" : soft ? "good" : "bad"}" title="${esc(r.opp)} has allowed ${x.v > 0 ? "+" : ""}${num(x.v, 1)}% per-minute ${LABEL[s]} to ${{G: "guards", F: "forwards", C: "centers"}[r.pos]}: rank ${x.rank} of ${x.of} (1 = softest). Reliability ${rel ?? "n/a"}${weak ? " (mostly noise)" : ""}. Display only.">${LABEL[s]}${soft ? "▲" : "▼"}${x.rank}</span>`; }).join(" ");
+    };
     const games = [...new Set(D.projections.filter(p => p.home).map(p => p.team + "|" + p.opp))].sort();
     F.game = F.game && games.includes(F.game) ? F.game : games[0];
     const [home, away] = (F.game || "|").split("|");
@@ -506,12 +523,13 @@ const pages = {
         {k: "cmin", h: "Min", v: r => r.c.min, f: r => num(r.c.min)},
         ...["pts", "reb", "ast", "fg3m"].map(s => ({k: "c" + s, h: LABEL[s], t: "Projection [posted line]. Line = sportsbook consensus, else PrizePicks. Green O / orange U = the model is past your edge threshold (Config) on that side; hover for each book's line.",
           v: r => cellVal(r, s), f: r => boardCell(r, s)})),
-        {k: "cfp", h: "FP", v: r => r.c.fp, f: r => `<b>${boardCell(r, "fp")}</b>`}];
+        {k: "cfp", h: "FP", v: r => r.c.fp, f: r => `<b>${boardCell(r, "fp")}</b>`},
+        {k: "cvs", h: "Opp vs pos", c: "opt", l: 1, t: "Where the opposing defence ranks against his position (guards / forwards / centers) on that stat: ▲ = among the softest 10 of 30, ▼ = among the toughest 10; the number is the rank. Grey = split-half reliability under 0.2 (mostly noise). Display only: it is not in the projections.", v: r => { const x = vsRank[r.opp]?.[r.pos + "_pts"]; return x ? x.rank : 99; }, f: vsCell}];
       return `<div><h3>${esc(t)} ${t === home ? "(home)" : "(away)"}</h3>${table(cols, rows, {id: "gb" + t, tight: true, sort: {key: "cfp"}, rowClass: r => r.c.min === 0 ? "out" : ""})}</div>`;
     };
     const h0 = D.projections.find(p => p.team === home && p.exp_margin != null);
     const env = h0 ? ` Expected margin ${esc(home)} ${h0.exp_margin >= 0 ? "+" : ""}${num(h0.exp_margin)} (from each team's average point differential, a stand-in for the spread); pace ${h0.pace_f >= 1 ? "+" : ""}${num((h0.pace_f - 1) * 100)}% vs league.` : "";
-    return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected fantasy points. [Line] = consensus, else PrizePicks; <b class="good">O</b> / <b class="bad">U</b> = a side past your edge threshold; grey = projection ± a typical miss (Methodology).${env}</p>
+    return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected fantasy points. [Line] = consensus, else PrizePicks; <b class="good">O</b> / <b class="bad">U</b> = a side past your edge threshold; grey = projection ± a typical miss (Methodology). <b>Opp vs pos</b> flags up to two stats where the opposing defence is among the softest (▲) or toughest (▼) 10 against his position, reliable ones first; grey means the stat is mostly noise so far.${env}</p>
       <div class="bar">${rangeBox()}<select id="game">${games.map(g => `<option value="${g}" ${g === F.game ? "selected" : ""}>${g.split("|")[1]} @ ${g.split("|")[0]}</option>`).join("")}</select></div>
       <div class="two">${mk(away)}${mk(home)}</div>`;
   },
