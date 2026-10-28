@@ -134,11 +134,12 @@ def main(raw="data/raw", out="site/data", games=None, log=None, subdir="results"
     LG = pd.read_csv(lines_mod.LOG, dtype={"pid": str}) if (not rehearsal and os.path.exists(lines_mod.LOG)) else pd.DataFrame()
     sp = json.load(open(f"{raw}/spread.json")) if os.path.exists(f"{raw}/spread.json") else {}
     spread = {**C.SPREAD_DEFAULT, **sp}
-    try:
-        voids_mod.update(raw, games=G)
-    except Exception as e:                                   # never block the results on the void bookkeeping
-        print("voids skipped:", e)
-    days, detail = build(L, G, LG, spread, voids_mod.load())
+    if not rehearsal:                                        # the preseason rehearsal has its own box scores: never write them into the real void log
+        try:
+            voids_mod.update(raw, games=G)
+        except Exception as e:                               # never block the results on the void bookkeeping
+            print("voids skipped:", e)
+    days, detail = build(L, G, LG, spread, voids_mod.load() if not rehearsal else {})
     for date, rows in detail.items():
         json.dump(rows, open(f"{out}/{subdir}/{date}.json", "w"), separators=(",", ":"))
     json.dump({"days": days, **meta}, open(f"{out}/{subdir}/index.json", "w"), separators=(",", ":"))
