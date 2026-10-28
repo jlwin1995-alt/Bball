@@ -20,6 +20,10 @@ const calcFor = p => {
 const proj = () => D.projections.map(p => ({...p, c: calcFor(p)}));
 const siteTag = r => r.site === "N" ? "vs " + esc(r.opp) + " (neutral)" : (r.site === "vs" ? "vs " : "@ ") + esc(r.opp);
 const nameCols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}];
+const UTM = () => (UTM.c ||= Object.fromEntries((D.usage_trend || []).map(u => [u.id, u])));
+// A RISING player (his share of the team's work up 5+ points over the last 3 games) has a history that understates his role: in the college backtest his projections ran 28% low on carries,
+// so an UNDER lean on him is the stale history talking (no Under lean; Overs are kept). Same idea as the NFL's thin / role-shift / returning-star tags.
+const riserUnder = (p, z) => z < 0 && UTM()[p.id]?.flag === "RISING";
 const roleCol = () => depthCol(depthTip(true), true);
 const F = {q: "", pos: "", team: "", conf: "", hideStarted: false, game: "", year: "", minG: 0};
 const ovrCell = (r, key, shown) => `<input class="ovr" data-id="${esc(r.id)}" data-key="${key}" value="${OVR[r.id]?.[key] ?? ""}" placeholder="${num(shown)}">`;
@@ -39,7 +43,7 @@ function playerLines(p) {
     const spec = specOf(r.stat), m = p.c[r.stat], c = r.cons, sd = c ? FB.sides(c.line, m, spec) : null, st = Date.now() >= Date.parse(r.commence);
     const z = c ? zOf(spec, m, c.line) : null;
     return {r, spec, m, c, po: sd?.o, edge: sd ? (sd.o - c.p_over) * 100 : null, pp: r.dfs.prizepicks, ud: r.dfs.underdog ?? r.dfs.pick6, started: st, z,
-      tier: !st && z != null && m > 0 && !isThin(p) ? leanTier(z) : "", side: z == null ? null : z > 0 ? "OVER" : "UNDER"};
+      tier: !st && z != null && m > 0 && !isThin(p) && !riserUnder(p, z) ? leanTier(z) : "", side: z == null ? null : z > 0 ? "OVER" : "UNDER"};
   }).sort((a, b) => Math.abs(b.z ?? 0) - Math.abs(a.z ?? 0));
 }
 function leanBlock(L) {
@@ -80,7 +84,7 @@ const pages = {
     let rows = proj().filter(passes);
     if (F.hideStarted) rows = rows.filter(r => !started(r.ko));
     const det = CFG.detail;
-    const cols = [...nameCols, roleCol(), {k: "prole", h: "Alignment (PFF)", l: 1, t: "Where he lines up on his pass routes over the last 3 games (PFF) and routes per team pass play", v: r => r.role?.rr, f: r => r.role ? `${roleCell(r.role)} <span class="mut">${num(r.role.rr, 0)}%</span>` : ""}, {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)}, {k: "conf", h: "Conf", l: 1}, {k: "opp", h: "Opp", l: 1, f: siteTag, v: r => r.opp},
+    const cols = [...nameCols, roleCol(), {k: "prole", h: "Alignment (PFF)", l: 1, t: "Where he lines up on his pass routes over the last 3 games (PFF) and routes per team pass play", v: r => r.role?.rr, f: r => r.role ? `${roleCell(r.role)} <span class="mut">${num(r.role.rr, 0)}%</span>` : ""}, usageCol(r => UTM()[r.id], true), {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)}, {k: "conf", h: "Conf", l: 1}, {k: "opp", h: "Opp", l: 1, f: siteTag, v: r => r.opp},
       ...(det ? [{k: "g", h: "G", t: "Games in this season's sample"}] : []),
       {k: "caro", h: "Car OVR", t: "Type carries to override. Teammates are NOT re-scaled. Saved on this device.", v: r => OVR[r.id]?.car, f: r => ovrCell(r, "car", r.car)},
       {k: "ccar", h: "Car", v: r => r.c.car, f: r => num(r.c.car)},
@@ -139,7 +143,7 @@ const pages = {
       if (!p || !spec) return null;
       const m = p.c[r.stat], c = r.cons, st = Date.now() >= Date.parse(r.commence), z = c ? zOf(spec, m, c.line) : null, sd = c ? FB.sides(c.line, m, spec) : null;
       return {pid: p.id, gb: p.game, name: p.name, pos: p.pos, team: p.team, game: r.game, label: spec.label, m, c, z, st, pp: r.dfs.prizepicks, ud: r.dfs.underdog ?? r.dfs.pick6,
-        tier: st || z == null || m <= 0 || isThin(p) ? "" : leanTier(z), side: z == null ? null : z > 0 ? "OVER" : "UNDER", edge: sd ? (sd.o - c.p_over) * 100 : null, ko: r.commence};
+        tier: st || z == null || m <= 0 || isThin(p) || riserUnder(p, z) ? "" : leanTier(z), side: z == null ? null : z > 0 ? "OVER" : "UNDER", edge: sd ? (sd.o - c.p_over) * 100 : null, ko: r.commence};
     }).filter(Boolean).filter(r => (!F.q || (r.name + " " + r.team).toLowerCase().includes(F.q.trim().toLowerCase())) && (!F.pos || r.pos === F.pos));
     const upd = /[zZ]|[+-]\d\d:?\d\d$/.test(L.updated) ? L.updated : L.updated + "Z", mins = Math.max(0, Math.round((Date.now() - Date.parse(upd)) / 60000));
     const cols = [{k: "name", h: "Player", l: 1, f: r => gbLink(r.name, r.gb, r.pid)}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}, {k: "label", h: "Market", l: 1},
