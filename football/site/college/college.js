@@ -1,7 +1,7 @@
 "use strict";
 // College football. Same engine and look as the NFL page, with what CollegeFootballData actually reports: no targets (receptions are projected
 // directly), no sacks, no weather, no injury report and no 2-point conversions. Player-prop lines (when books post them) give leans, as on the NFL page.
-const TABS = ["Projections", "Game Board", "Lines", "Leaders", "Matchups", "Scorecard", "Backtest", "Config", "Methodology"];
+const TABS = ["Projections", "Game Board", "Lines", "Leaders", "Matchups", "Usage", "Scorecard", "Backtest", "Config", "Methodology"];
 const D = {};
 const store = makeStore("gmc_");
 let CFG = {preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}, detail: false, mean: false};
@@ -21,7 +21,7 @@ const proj = () => D.projections.map(p => ({...p, c: calcFor(p)}));
 const siteTag = r => r.site === "N" ? "vs " + esc(r.opp) + " (neutral)" : (r.site === "vs" ? "vs " : "@ ") + esc(r.opp);
 const nameCols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}];
 const roleCol = () => depthCol(depthTip(true), true);
-const F = {q: "", pos: "", team: "", conf: "", hideStarted: false, game: "", year: ""};
+const F = {q: "", pos: "", team: "", conf: "", hideStarted: false, game: "", year: "", minG: 0};
 const ovrCell = (r, key, shown) => `<input class="ovr" data-id="${esc(r.id)}" data-key="${key}" value="${OVR[r.id]?.[key] ?? ""}" placeholder="${num(shown)}">`;
 
 // Player-prop lines for college (The Odds API; thin: mostly each team's top few players, and posted late). A lean is the model vs the consensus
@@ -162,6 +162,31 @@ const pages = {
         .map(x => `<li><b>${esc(x.r.name)}</b> <span>${esc(x.r.team)} · ${num(x.v, dp)}</span></li>`).join("")}</ol></div>`).join("")}</div>`;
   },
 
+  Usage() {
+    const win = 3;
+    if (!D.usage_trend) return `<h2>Usage</h2><p class="sub">No usage data yet.</p>`;
+    const rows = D.usage_trend.filter(r => (!F.pos || r.pos === F.pos) && (!F.team || r.team === F.team) && (!F.conf || r.conf === F.conf)
+      && (!F.q || (r.name + " " + r.team).toLowerCase().includes(F.q.toLowerCase())) && (!F.minG || r.g >= F.minG));
+    const flagPill = f => f ? `<span class="pill ${f === "RISING" ? "lean-strong" : "lean-lean"}">${f}</span>` : "";
+    const cols = [...nameCols, {k: "conf", h: "Conf", l: 1}, {k: "g", h: "G"},
+      {k: "flag", h: "Role", l: 1, t: "RISING / FALLING: his main share (reception share for WR/TE, share of the team's carries + receptions for RB) moved 5 points or more", f: r => flagPill(r.flag), v: r => r.move},
+      {k: "rec_b", h: "Rec share before", t: "Share of the team's receptions in the games before the window (the whole season when fewer than 2 games precede it). College box scores carry no targets, so receptions stand in", f: r => num(r.rec_b)},
+      {k: "rec_r", h: `last ${win}`, f: r => `<b>${num(r.rec_r)}</b>`}, {k: "rec_d", h: "Δ", f: r => moveCell(r.rec_d)}, {k: "rec_w", h: "Weekly rec %", v: null, f: r => spark(r.rec_w.map(v => v ?? 0))},
+      {k: "car_b", h: "Carry share before", f: r => num(r.car_b)}, {k: "car_r", h: `last ${win}`, f: r => `<b>${num(r.car_r)}</b>`}, {k: "car_d", h: "Δ", f: r => moveCell(r.car_d)},
+      {k: "car_w", h: "Weekly carry %", v: null, f: r => spark(r.car_w.map(v => v ?? 0))},
+      {k: "opp_r", h: `Opp share last ${win}`, t: "Share of the team's carries + receptions", f: r => num(r.opp_r)}, {k: "opp_d", h: "Δ", f: r => moveCell(r.opp_d)},
+      {k: "snap_r", h: "Snap % (PFF)", t: "Offensive snaps over the team's plays, last 3 games (PFF); blank when PFF has no row", f: r => r.snap_r == null ? "" : num(r.snap_r, 0)}, {k: "snap_d", h: "Δ", f: r => moveCell(r.snap_d)},
+      {k: "route_r", h: "Route % (PFF)", t: "Routes run per team pass play, last 3 games (PFF)", f: r => r.route_r == null ? "" : num(r.route_r, 0)}, {k: "route_d", h: "Δ", f: r => moveCell(r.route_d)},
+      {k: "route_w", h: "Weekly route %", v: null, f: r => r.route_w?.some(v => v != null) ? spark(r.route_w.map(v => v ?? 0)) : ""},
+      {k: "tm_d", h: "Team vol Δ", t: "The team's own receptions a game (carries for a back) over the same split: a team-wide drop makes a raw-count fall look like a role change when the share did not move", f: r => moveCell(r.tm_d, false)}];
+    const movers = dir => rows.filter(r => r.move != null && (dir > 0 ? r.move >= 5 : r.move <= -5)).sort((a, b) => dir * (b.move - a.move)).slice(0, 8);
+    const list = (title, arr) => `<div><h3>${title}</h3>${arr.length ? `<ul class="movers">${arr.map(r => `<li><b>${esc(r.name)}</b> <span class="mut">${esc(r.pos)} · ${esc(r.team)}</span> ${r.pos === "RB" ? "opp share" : "reception share"} ${num(r.pos === "RB" ? r.opp_b : r.rec_b)}% → <b>${num(r.pos === "RB" ? r.opp_r : r.rec_r)}%</b> (${moveCell(r.move)}) ${r.snap_d != null ? `<span class="mut">· snaps ${num(r.snap_b, 0)}% → ${num(r.snap_r, 0)}%</span>` : ""}</li>`).join("")}</ul>` : `<p class="mut">None moved 5 points.</p>`}</div>`;
+    return `<h2>Usage</h2><p class="sub">How each college rusher's and receiver's role has moved: the last ${win} games against the games before them (share of the team's carries and receptions from the box scores, snap % and route % from PFF). The sparklines are week by week. A <b>Team vol Δ</b> next to a drop tells you whether the team simply ran or threw less. Display only: usage changes did not predict projection misses in the NFL tests, and college rosters shuffle more (injuries, blowouts).</p>
+      ${filters(`<label>Min games <input id="ming" type="number" min="0" max="18" style="width:60px" value="${F.minG}"></label>`)}
+      <div class="cols2">${list("Biggest risers", movers(1))}${list("Biggest fallers", movers(-1))}</div>
+      ${table(cols, rows, {id: "ustr", sort: {key: "flag"}})}`;
+  },
+
   Matchups() {
     const M = D.matchups, a = k => r => adj(r[k]);
     const cols = [{k: "team", h: "Defense", l: 1}, {k: "conf", h: "Conf", l: 1}, {k: "car", h: "Carries faced"}, {k: "ypc", h: "Y/C allowed", f: r => num(r.ypc, 2)}, {k: "rush", h: "Rush Adj", f: a("rush")},
@@ -251,6 +276,7 @@ document.addEventListener("change", e => {
     store.set("ovr", OVR); render();
   }
   else if (t.id === "pos") { F.pos = t.value; render(true); } else if (t.id === "conf") { F.conf = t.value; render(true); } else if (t.id === "team") { F.team = t.value; render(true); }
+  else if (t.id === "ming") { F.minG = +t.value || 0; render(true); }
   else if (t.id === "game") { F.game = t.value; render(); } else if (t.id === "year") { F.year = t.value; render(); }
   else if (t.id === "hidestarted") { F.hideStarted = t.checked; render(true); } else if (t.id === "detail") { CFG.detail = t.checked; store.set("cfg", CFG); render(true); }
   else if (t.id === "preset") { CFG.preset = t.value; if (FB.SCORING[t.value]) CFG.scoring = {...FB.SCORING[t.value]}; store.set("cfg", CFG); render(); }
@@ -262,7 +288,7 @@ document.addEventListener("click", e => { if (e.target.id === "clr") { OVR = {};
 async function boot() {
   CFG = {...CFG, ...store.get("cfg", {})}; OVR = store.get("ovr", {});
   if (!CFG.scoring || Object.keys(CFG.scoring).some(k => !(k in SCORE_LABEL) && k !== "two")) CFG = {...CFG, preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}};
-  await Promise.all(["projections", "games", "teams", "matchups", "scorecard", "meta"].map(async n => { try { const r = await fetch(`../data/cfb/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
+  await Promise.all(["projections", "games", "teams", "matchups", "scorecard", "meta", "usage_trend"].map(async n => { try { const r = await fetch(`../data/cfb/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   if (!D.projections || !D.meta) {
     view().innerHTML = `<div class="doc"><h2>No college data yet</h2><p>College football needs a free CollegeFootballData key. Get one at <a href="https://collegefootballdata.com/key">collegefootballdata.com/key</a>, add it as the <code>CFBD_API_KEY</code> repository secret (Settings → Secrets and variables → Actions), and run the "Football refresh data and deploy" workflow. College data appears here once it has run during the college season.</p></div>`;
     return;
