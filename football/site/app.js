@@ -191,6 +191,7 @@ const pages = {
       const chip = (p, h) => a[p + "_pts"] == null ? "" : `<span class="pill" title="${esc(opp)} has allowed ${num(a[p + "_pts"], 1)} PPR points a game to ${h}s: rank ${a[p + "_rank"]} of 32 (1 = most), ${a[p + "_vs"] >= 0 ? "+" : ""}${num(a[p + "_vs"] * 100, 0)}% vs the league average">${h} <b>${num(a[p + "_pts"], 1)}</b> <span class="mut">#${a[p + "_rank"]} ${a[p + "_vs"] >= 0 ? "+" : ""}${num(a[p + "_vs"] * 100, 0)}%</span></span>`;
       return `<p class="sub">${esc(opp)} defence has allowed (PPR pts a game, #1 = most): ${chip("qb", "QB")} ${chip("rb", "RB")} ${chip("wr", "WR")} ${chip("te", "TE")}</p>`;
     };
+    const UT = Object.fromEntries((D.usage_trend || []).map(u => [u.id, u]));
     const mk = t => {
       const rows = all.filter(p => p.team === t && p.game === g.game);
       const cols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "status", h: "Status", l: 1, f: r => statusPill(r.status)}, depthCol(depthTip(false, D.meta.depth_ts)),
@@ -201,6 +202,7 @@ const pages = {
         {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`},
         {k: "role", h: "Role (PFF)", l: 1, t: "Alignment and routes per team pass play over the last 3 games (PFF); hover for the split", v: r => r.role?.rr, f: r => r.role ? `${roleCell(r.role)} <span class="mut">${num(r.role.rr, 0)}%</span>` : ""},
         {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)},
+        usageCol(r => UT[r.id], false),
         {k: "ovp", h: "Opp vs Pos", t: "What the opponent gives up to this player's position group, and where it ranks among this week's defences (1 = most generous)", v: r => r.ovp,
           f: r => r.ovp == null ? "" : `${signed(r.ovp)}% <span class="mut">${esc(r.ork || "")}</span>`},
         {k: "lines", h: "Lines · strongest lean", l: 1, t: "Click to open every posted line for this player", v: r => { const b = playerLines(r)[0]; return b?.z == null ? null : Math.abs(b.z); }, f: linesCell}];

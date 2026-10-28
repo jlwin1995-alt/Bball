@@ -136,3 +136,17 @@ function spark(a) {
   const pts = a.map((v, i) => `${(i * step).toFixed(1)},${(h - 1 - (v - mn) / (mx - mn || 1) * (h - 2)).toFixed(1)}`).join(" ");
   return `<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><polyline points="${pts}" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>`;
 }
+
+// Recent usage beside a player on the Game Board: his main share of the team's work over the last 3 games, the move against the games before, and the weekly line.
+// RB: carries + targets (receptions in college); WR/TE and everyone else with targets: target share (reception share in college). Display only.
+const USAGE_TIP = "Share of the team's work, last 3 games, and the move in points against the games before (green/red at 5+). RB: carries + targets (college: carries + receptions). WR/TE: target share (college: reception share). The line is week by week. Display only: usage trends have not improved the projections.";
+function usageCell(u, college) {
+  if (!u) return "";
+  const k = u.pos === "RB" ? "opp" : college ? "rec" : "tgt", lab = u.pos === "RB" ? "opp" : college ? "rec" : "tgt";
+  if (u[k + "_r"] == null) return "";
+  const flag = u.flag ? `<span class="pill ${u.flag === "RISING" ? "lean-strong" : "lean-lean"}">${u.flag}</span> ` : "";
+  const bits = [`${lab} ${num(u[k + "_b"])}% → ${num(u[k + "_r"])}%`, u.snap_r != null ? `snaps ${num(u.snap_b, 0)}% → ${num(u.snap_r, 0)}%` : "",
+    u.pos === "RB" && u.car_r != null ? `carries ${num(u.car_b)}% → ${num(u.car_r)}%` : "", u.tm_d != null ? `team volume ${u.tm_d > 0 ? "+" : ""}${num(u.tm_d, 1)}%` : ""].filter(Boolean);
+  return `<span title="${esc(bits.join("\n"))}">${flag}<span class="mut">${lab}</span> <b>${num(u[k + "_r"])}%</b> ${moveCell(u[k + "_d"])} ${spark((u[k + "_w"] || []).map(v => v ?? 0))}</span>`;
+}
+const usageCol = (getU, college) => ({k: "utr", h: "Usage trend", l: 1, t: USAGE_TIP, v: r => { const u = getU(r); return u ? u[(u.pos === "RB" ? "opp" : college ? "rec" : "tgt") + "_r"] : null; }, f: r => usageCell(getU(r), college)});
