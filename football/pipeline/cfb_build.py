@@ -383,6 +383,22 @@ def backtest(rows, games, W, P, from_week=None):
     return dict(pts_fit=pts_fit, weeks=used, scored=nscored, excluded=nskip, thin=len(used) < 3, table=table, spread=spread, mean_factor=rnd(pa["act"] / pa["pred"], 3) if pa["pred"] else None)
 
 
+def noline_flags(proj, lines_path, opp_min=10.0):
+    """x["noline"] = 1 for a player projected for real volume (carries + receptions + attempts / 2 >= opp_min) on a team the books are pricing (2+ players with a line) who has no line himself.
+    Props are posted for the players expected to play: in weeks 7-8 only 41% of such players played (96% of those with a line), see the README. Only meaningful once lines are posted."""
+    try:
+        rows = json.load(open(lines_path))["rows"]
+    except (OSError, ValueError, KeyError):
+        rows = []
+    priced = {}
+    for r_ in rows:
+        priced.setdefault(r_["team"], set()).add(r_["id"])
+    for x in proj:
+        opp = x["car"] + x["rec"] + x["att"] / 2
+        x["noline"] = int(opp >= opp_min and len(priced.get(x["team"], ())) >= 2 and x["id"] not in priced[x["team"]])
+    return sum(x["noline"] for x in proj)
+
+
 def pff_college(raw, season, week, proj):
     """PFF alignment / routes ("role") and opposing-coverage strength ("mu") on each WR / TE / RB projection (display only; skipped when the PFF files are missing)."""
     from . import pff_roles, pff_matchups, pff_teams
@@ -472,6 +488,9 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
     json.dump(cfb_usage.usage_trend(rows, {x["team"]: x["conference"] for x in rows if x.get("conference")}, raw=raw, season=season), open(f"{out}/usage_trend.json", "w"), separators=(",", ":"))
     json.dump(games_out, open(f"{out}/games.json", "w"), separators=(",", ":"))
     props_lines(raw, out, season, week)
+    n_nl = noline_flags(proj, f"{out}/lines.json")
+    json.dump(proj, open(f"{out}/projections.json", "w"), separators=(",", ":"))
+    print(f"college no-line flags: {n_nl}")
     json.dump(dict(week=week, rows=dr, lg=dict(ypc=r(core["LG_YPC"], 3), ypr=r(core["LG_YPR"], 3), ypa=r(core["LG_YPA"], 3),
                                                  qb=dict(ypc=r(core["rush_base"]["QB"]["ypc"], 2), other=r(core["rush_base"]["OTHER"]["ypc"], 2)))),
               open(f"{out}/matchups.json", "w"), separators=(",", ":"))
