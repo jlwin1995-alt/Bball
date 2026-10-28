@@ -101,6 +101,7 @@ document.addEventListener("change", e => {
   if (e.target.id === "ming") { F.ming = +e.target.value || 0; render(true); }
   if (e.target.id === "lstat") { F.lstat = e.target.value; render(true); }
   if (e.target.id === "lgame") { F.lgame = e.target.value; render(true); }
+  if (e.target.dataset && e.target.dataset.lv) { LIVE.lines[e.target.dataset.lv] = e.target.value.trim(); store.set("livelines", LIVE.lines); render(true, e.target.id); }
   if (e.target.id === "lside") { F.lside = e.target.value; render(true); }
   if (e.target.id === "lbucket") { F.lbucket = e.target.value; render(true); }
   if (e.target.id === "lpicks") { F.lpicks = e.target.checked; render(true); }
@@ -113,7 +114,12 @@ const statusPill = s => s ? `<span class="pill ${s === "Out" ? "bad" : ""}">${es
 
 // ---------- Live tab: polls ESPN straight from the browser (no credits, no CI) ------------------------------
 const ESPN = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba";
-const LIVE = {games: null, box: {}, err: null, ts: null, timer: null};
+const LIVE = {games: null, box: {}, err: null, ts: null, timer: null, snap: {}, out: {}, lines: store.get("livelines", {})};
+// Second-half minutes from the halftime state, fitted on 26,600 player-games (2025-26 + this season): minutes = a + b*usual + c*first-half minutes
+// + d*starter - a blowout term (halftime margin past 10). Average miss 3.2-3.4 min vs 5.3-6.1 for "usual minus minutes played".
+const HALF = {a: 2.6109, usual: 0.1221, h1: 0.4872, starter: 1.4666, hinge: 0.0618, hingeS: -0.2737};
+const halfMin = (usual, h1, starter, absm) => { const h = Math.max(absm - 10, 0); return Math.max(HALF.a + HALF.usual * usual + HALF.h1 * h1 + HALF.starter * starter + HALF.hinge * h * usual / 30 + HALF.hingeS * h * starter, 0); };
+const LEFT = /won'?t return|will not return|did not return|didn'?t return|not return|ruled out for the (rest|remainder)|left .{0,40}game|exited/i;
 function parseBox(j) {
   const rows = [];
   for (const tm of (j.boxscore?.players || [])) {
@@ -124,24 +130,35 @@ function parseBox(j) {
         const st = a.stats || []; if (a.didNotPlay || !st.length) continue;
         const mn = parseFloat(st[ix("minutes")]); if (!(mn > 0)) continue;
         const n = key => { const v = st[ix(key)]; return v == null ? 0 : +v || 0; };
-        rows.push({pid: String(a.athlete.id), name: a.athlete.displayName, team: ab, min: mn, pts: n("points"), reb: n("rebounds"), ast: n("assists"),
+        rows.push({pid: String(a.athlete.id), name: a.athlete.displayName, team: ab, starter: a.starter ? 1 : 0, min: mn, pts: n("points"), reb: n("rebounds"), ast: n("assists"),
           fg3m: +String(st[ix("threePointFieldGoalsMade-threePointFieldGoalsAttempted")] ?? "0").split("-")[0] || 0, stl: n("steals"), blk: n("blocks"), tov: n("turnovers")});
       }
     }
   }
   return rows;
 }
+const clockMin = c => { const m = /^(\d+):(\d+)/.exec(c || ""); return m ? +m[1] + m[2] / 60 : 0; };
 async function liveRefresh() {
   try {
     const sb = await (await fetch(`${ESPN}/scoreboard`, {cache: "no-store"})).json();
     LIVE.games = (sb.events || []).map(e => {
       const c = e.competitions[0], st = e.status.type, t = {};
       for (const x of c.competitors) t[x.homeAway] = {ab: x.team.abbreviation || x.team.shortDisplayName || x.team.displayName || "?", score: +x.score || 0};
-      return {id: e.id, state: st.state, detail: st.shortDetail, home: t.home, away: t.away, tip: e.date};
+      return {id: e.id, state: st.state, detail: st.shortDetail, period: e.status.period || 0, clock: e.status.displayClock || "", home: t.home, away: t.away, tip: e.date};
     });
     await Promise.all(LIVE.games.filter(g => g.state === "in" || (g.state === "post" && !LIVE.box[g.id])).map(async g => {
       LIVE.box[g.id] = parseBox(await (await fetch(`${ESPN}/summary?event=${g.id}`, {cache: "no-store"})).json());
+      if (g.state === "in" && (/half/i.test(g.detail) && !/1st|2nd|3rd|4th/i.test(g.detail) || (g.period === 3 && !LIVE.snap[g.id] && clockMin(g.clock) >= 11.5)))   // first look at halftime (or the first seconds of Q3)
+        LIVE.snap[g.id] = {h1: Object.fromEntries(LIVE.box[g.id].map(b => [b.pid, b.min])), margin: g.home.score - g.away.score};
     }));
+    try {                                                      // players ESPN says left hurt and will not return
+      const inj = await (await fetch(`${ESPN}/injuries`, {cache: "no-store"})).json();
+      LIVE.out = {};
+      for (const tm of inj.injuries || []) for (const i of tm.injuries || []) {
+        const a = i.athlete || {}, id = a.id || ((a.links || []).map(l => /\/id\/(\d+)/.exec(l.href || "")).find(Boolean) || [])[1];
+        if (id && LEFT.test(i.shortComment || "") && Date.now() - Date.parse(i.date) < 8 * 3600e3) LIVE.out[String(id)] = i.shortComment;
+      }
+    } catch (e) { /* the injury feed is a bonus: keep the board up without it */ }
     LIVE.err = null; LIVE.ts = Date.now();
   } catch (e) { LIVE.err = String(e && e.message || e); }
   if (page === "Live") render(true);
@@ -562,26 +579,43 @@ const pages = {
     for (const r of (D.lines?.rows || [])) lineOf[r.pid + "|" + r.stat] = r.cons?.line ?? r.dfs?.prizepicks ?? null;
     const order = {in: 0, pre: 1, post: 2}, games = [...LIVE.games].sort((a, b) => order[a.state] - order[b.state] || Date.parse(a.tip) - Date.parse(b.tip));
     const ago = LIVE.ts ? Math.round((Date.now() - LIVE.ts) / 1000) : null;
-    const STATS_SHOWN = ["pts", "reb", "ast", "fg3m"];
+    const STATS_SHOWN = ["pts", "reb", "ast", "fg3m"], sp = D.spread || D.meta.spread;
     const card = g => {
       const head = `<strong>${esc(g.away.ab)} ${g.away.score}</strong> @ <strong>${esc(g.home.ab)} ${g.home.score}</strong>`;
       if (g.state === "pre") return `<div class="card"><span>${head.replace(/ \d+<\/strong>/g, "</strong>")}</span><br><span class="mut">tip ${new Date(g.tip).toLocaleTimeString([], {hour: "numeric", minute: "2-digit"})}</span></div>`;
       const badge = g.state === "in" ? `<span class="pill hot">LIVE</span> ` : `<span class="pill">FINAL</span> `;
+      const live = g.state === "in", sn = LIVE.snap[g.id], diff = g.home.score - g.away.score;
+      const elapsed = !live ? 48 : g.period <= 4 ? (g.period - 1) * 12 + (12 - clockMin(g.clock)) : 48 + (g.period - 4) * 5 - clockMin(g.clock);
       const rows = (LIVE.box[g.id] || []).map(b => {
-        const q = rateOf(b.pid), remain = g.state === "post" || !q ? 0 : Math.max(q.min - b.min, 0), o = {...b, q};
-        for (const st of STATS_SHOWN) { o["f_" + st] = q ? b[st] + remain * q.per(st) : null; o["l_" + st] = lineOf[b.pid + "|" + st] ?? null; }
-        return o;
+        const q = rateOf(b.pid), o = {...b, q, gone: live && LIVE.out[b.pid] != null}, sideDiff = b.team === g.home.ab ? diff : -diff;
+        let remain = 0;
+        if (live && q && !o.gone) {
+          const absm = Math.abs(sn ? sn.margin : diff), after = g.period >= 3;
+          const h1 = after ? (sn && sn.h1[b.pid] != null ? sn.h1[b.pid] : Math.min(b.min * 24 / Math.max(elapsed, 24), 24)) : (elapsed >= 4 ? Math.min(b.min * 24 / elapsed, 24) : q.min / 2);
+          const h2 = halfMin(q.min, h1, b.starter, absm);
+          remain = Math.max(after ? h2 - Math.max(b.min - h1, 0) : h1 + h2 - b.min, 0);
+          if (g.period > 4) remain = Math.max(q.min - b.min, 0);       // overtime: no halftime model, fall back to usual minutes
+        }
+        for (const st of STATS_SHOWN) {
+          o["f_" + st] = q ? b[st] + remain * q.per(st) : null; o["l_" + st] = lineOf[b.pid + "|" + st] ?? null;
+          const ln = LIVE.lines[b.pid + "|" + st];
+          if (live && q && ln != null && ln !== "") { const [a, bb] = sp[st] || [1, 0.3], full = q.min * q.per(st), mr = Math.max(remain * q.per(st), 0.01);
+            const sd = Math.max((a + bb * full) * Math.sqrt(mr / Math.max(full, 0.1)), 0.3), pr = sides(ln, o["f_" + st], sd); o["p_" + st] = pr; }
+        }
+        o.remain = remain; return o;
       });
-      const cell = st => ({k: st, h: LABEL[st], t: "now → projected final (model rate × minutes still expected); [line] = consensus, else PrizePicks. Green = already over the line, orange = on pace to go over.",
+      const cell = st => ({k: st, h: LABEL[st], t: "so far → projected final; [line] = pregame consensus, else PrizePicks. Type a live line in the box for P(over). Green = already over, orange = on pace to go over.",
         v: r => r["f_" + st] ?? r[st], f: r => { const f = r["f_" + st], l = r["l_" + st]; if (f == null && l == null) return String(r[st]);
           const cls = l != null ? (r[st] > l ? "good" : (f ?? r[st]) > l ? "" : "mut") : "";
-          return `${r[st]}${f != null ? ` <span class="mut">→</span> <span class="${cls}">${num(f)}</span>` : ""}${l != null ? ` <span class="mut">[${l}]</span>` : ""}`; }});
-      const cols = [{k: "name", h: "Player", l: 1}, {k: "team", h: "Team", l: 1}, {k: "min", h: "MIN", f: r => num(r.min, 0)}, ...STATS_SHOWN.map(cell)];
-      return `<div class="card" style="grid-column:1/-1"><div>${badge}${head} <span class="mut">· ${esc(g.detail)}</span></div>
+          const ln = LIVE.lines[r.pid + "|" + st] ?? "", p = r["p_" + st];
+          const box = live && !r.gone && r.q ? `<br><input class="ovr lvl" id="lv_${r.pid}_${st}" data-lv="${r.pid}|${st}" value="${esc(ln)}" placeholder="live line" style="width:4.5em">${p ? ` <b class="${p.o >= p.u ? "good" : "bad"}">${p.o >= p.u ? "O" : "U"} ${num(Math.max(p.o, p.u) * 100, 0)}%</b>` : ""}` : "";
+          return `${r[st]}${f != null ? ` <span class="mut">→</span> <span class="${cls}">${num(f)}</span>` : ""}${l != null ? ` <span class="mut">[${l}]</span>` : ""}${box}`; }});
+      const cols = [{k: "name", h: "Player", l: 1, f: r => esc(r.name) + (r.gone ? ` <span class="pill hot" title="${esc(LIVE.out[r.pid])}">OUT · VOID</span>` : "")}, {k: "team", h: "Team", l: 1}, {k: "min", h: "MIN", t: "minutes so far (→ projected final minutes while live)", v: r => r.min, f: r => num(r.min, 0) + (live && !r.gone && r.q ? ` <span class="mut">→ ${num(r.min + r.remain, 0)}</span>` : "")}, ...STATS_SHOWN.map(cell)];
+      return `<div class="card" style="grid-column:1/-1"><div>${badge}${head} <span class="mut">· ${esc(g.detail)}${live && g.period >= 3 && !sn ? " · halftime minutes estimated (page wasn't open at halftime)" : ""}</span></div>
         <div style="margin-top:8px">${rows.length ? table(cols, rows, {id: "live" + g.id, sort: {key: "min"}}) : `<span class="mut">No box score yet.</span>`}</div></div>`;
     };
     return `<h2>Live</h2><p class="sub">Today's games, updated every 30 s${ago != null ? ` (refreshed ${ago}s ago)` : ""}${LIVE.err ? ` — <b>last refresh failed: ${esc(LIVE.err)}</b>` : ""}.
-      Each stat shows <b>now → projected final</b> from the player's per-minute rate and the minutes still expected, with the posted line in brackets. Players in today's slate use the matchup-adjusted projection (and your Min OVR); everyone else uses season rates with no matchup adjustment. Blowouts and foul trouble aren't modelled.</p>
+      Each stat shows <b>so far → projected final</b>: the player's per-minute rate times the minutes still expected, with the pregame line in brackets. Minutes still expected come from the <b>halftime model</b> (usual minutes, minutes played in the first half, starter or not, and a blowout cut once the margin passes 10), not "usual minus played". Type a <b>live line</b> in a stat's box to get P(over/under) for that leg (only while the game is on); players ESPN reports as not returning show <b>OUT · VOID</b>. Players in today's slate use the matchup-adjusted projection (and your Min OVR); everyone else uses season rates. Fouls are not modelled (they added almost nothing once first-half minutes are in).</p>
       ${games.length ? `<div class="cards" style="grid-template-columns:1fr">${games.map(card).join("")}</div>` : `<p class="sub">No games on ESPN's scoreboard today.</p>`}`;
   },
 
