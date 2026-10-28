@@ -52,9 +52,9 @@ function compareCard(T, away, home) {
     const x = a[r.k], y = h[r.k];
     if (x == null || y == null) return "";
     const tot = Math.abs(x) + Math.abs(y), pa = tot ? Math.abs(x) / tot * 100 : 50;
-    const better = x === y ? 0 : ((x > y) === r.higher ? -1 : 1);       // -1 = away side better, 1 = home side better
+    const better = r.neutral || x === y ? 0 : ((x > y) === r.higher ? -1 : 1);       // -1 = away side better, 1 = home side better
     const cell = (v, rk, win) => `<b class="${win ? "win" : ""}">${num(v, r.dp)}</b> <span class="mut">#${rk}</span>`;
-    return `<div class="cmp"><div class="cmpv l">${cell(x, a[r.k + "_rk"], better === -1)}</div><div class="cmpl">${esc(r.label)}
+    return `<div class="cmp"><div class="cmpv l">${cell(x, a[r.k + "_rk"], better === -1)}</div><div class="cmpl">${esc(r.label)}${r.neutral ? ' <span class="mut">(#1 = highest)</span>' : ""}
       <div class="cmpbar"><i class="${better === -1 ? "win" : ""}" style="width:${pa.toFixed(1)}%"></i><i class="${better === 1 ? "win" : ""}" style="width:${(100 - pa).toFixed(1)}%"></i></div></div>
       <div class="cmpv r">${cell(y, h[r.k + "_rk"], better === 1)}</div></div>`;
   };

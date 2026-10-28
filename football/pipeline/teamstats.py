@@ -18,7 +18,25 @@ ROWS = [("ppg", "Points per game", True, 1), ("papg", "Points allowed per game",
         ("fd", "First downs", True, 1), ("fd_a", "First downs allowed", False, 1)]
 
 
-def build(team_games, keep=None):
+# tendency rows are descriptive, not good or bad: ranked high to low (1 = most), shown without a winner on the Game Board
+TENDENCY = [("pass_rate", "Pass rate (all plays)", 1), ("pass_rate_a", "Pass rate faced", 1), ("plays", "Plays per game (pass + run)", 1)]
+TENDENCY_NFL = [("pass_n", "Pass rate, 1st / 2nd down (Q1-3)", 1)]
+
+
+def neutral_pass_rates(pbp_path):
+    """NFL: share of 1st / 2nd down plays in quarters 1-3 that were passes (pbp_slim), per offence. A neutral-situation tendency: no garbage time, no 3rd-and-long."""
+    import csv, os
+    if not os.path.exists(pbp_path):
+        return {}
+    n, p = {}, {}
+    for r in csv.DictReader(open(pbp_path, newline="")):
+        if r["down"] in ("1", "2", "1.0", "2.0") and r["qtr"] in ("1", "2", "3", "1.0", "2.0", "3.0") and (r["passer_player_id"] or r["rusher_player_id"]):
+            n[r["posteam"]] = n.get(r["posteam"], 0) + 1
+            p[r["posteam"]] = p.get(r["posteam"], 0) + (1 if r["passer_player_id"] else 0)
+    return {t: p[t] / n[t] * 100 for t in n if n[t] >= 40}
+
+
+def build(team_games, keep=None, neutral=None):
     """team_games: list of dict(team, opp, pts, pts_a, pass_y, rush_y, to, fd or None). -> {team: stats + ranks}"""
     by = {}
     for g in team_games:
@@ -35,12 +53,18 @@ def build(team_games, keep=None):
         m = lambda xs, k: sum(x[k] for x in xs) / len(xs) if xs else None
         fd = m(gs, "fd") if all(g["fd"] is not None for g in gs) else None
         fd_a = m(theirs, "fd") if theirs and all(x["fd"] is not None for x in theirs) else None
-        out[t] = dict(g=n, ppg=m(gs, "pts"), papg=m(theirs, "pts"), ypg=m(gs, "pass_y") + m(gs, "rush_y") if gs else None,
+        sm = lambda xs, k: sum(x.get(k, 0.0) for x in xs)
+        pr = lambda xs: (sm(xs, "att") / (sm(xs, "att") + sm(xs, "car")) * 100) if xs and (sm(xs, "att") + sm(xs, "car")) else None
+        out[t] = dict(g=n, pass_rate=pr(gs), pass_rate_a=pr(theirs), plays=(sm(gs, "att") + sm(gs, "car")) / n if n else None, ppg=m(gs, "pts"), papg=m(theirs, "pts"), ypg=m(gs, "pass_y") + m(gs, "rush_y") if gs else None,
                       ypg_a=(m(theirs, "pass_y") + m(theirs, "rush_y")) if theirs else None, pass_=m(gs, "pass_y"), pass_a=m(theirs, "pass_y"),
                       rush=m(gs, "rush_y"), rush_a=m(theirs, "rush_y"), to=m(gs, "to"), ta=m(theirs, "to"), fd=fd, fd_a=fd_a)
     out = {t: {("pass" if k == "pass_" else k): v for k, v in s.items()} for t, s in out.items() if keep is None or t in keep}
     # rank 1 = best in the league on that stat (highest for gains, lowest for allowed / turnovers)
-    for key, _, higher, _ in ROWS:
+    for t, v in (neutral or {}).items():
+        if t in out:
+            out[t]["pass_n"] = v
+    tend = TENDENCY + (TENDENCY_NFL if neutral else [])
+    for key, _, higher, _ in ROWS + [(k, l, True, d) for k, l, d in tend]:
         have = [(t, s[key]) for t, s in out.items() if s.get(key) is not None]
         have.sort(key=lambda x: -x[1] if higher else x[1])
         for i, (t, _) in enumerate(have):
@@ -49,7 +73,9 @@ def build(team_games, keep=None):
         for k, v in list(s.items()):
             if isinstance(v, float):
                 s[k] = rnd(v, 2)
-    return dict(rows=[dict(k=k, label=l, higher=h, dp=d) for k, l, h, d in ROWS if any(s.get(k) is not None for s in out.values())], teams=out, n=len(out))
+    rows = [dict(k=k, label=l, higher=h, dp=d) for k, l, h, d in ROWS if any(s.get(k) is not None for s in out.values())]
+    rows += [dict(k=k, label=l, higher=True, dp=d, neutral=True) for k, l, d in tend if any(s.get(k) is not None for s in out.values())]
+    return dict(rows=rows, teams=out, n=len(out))
 
 
 def nfl_team_games(rows, sched):
@@ -66,7 +92,9 @@ def nfl_team_games(rows, sched):
         k = (r["team"], int(r["week"]))
         if k not in played:
             continue
-        a = agg.setdefault(k, dict(pass_y=0.0, rush_y=0.0, to=0.0, fd=0.0))
+        a = agg.setdefault(k, dict(pass_y=0.0, rush_y=0.0, to=0.0, fd=0.0, att=0.0, car=0.0))
+        a["att"] += r["attempts"] + r["sacks_suffered"]
+        a["car"] += r["carries"]
         a["pass_y"] += r["passing_yards"] - r["sack_yards_lost"]
         a["rush_y"] += r["rushing_yards"]
         a["to"] += r["passing_interceptions"] + r["rushing_fumbles_lost"] + r["receiving_fumbles_lost"] + r["sack_fumbles_lost"]
@@ -107,7 +135,9 @@ def cfb_team_games(rows, games):
         k = (r["team"], int(r["week"]))
         if k not in done:
             continue
-        a = agg.setdefault(k, dict(pass_y=0.0, rush_y=0.0, to=0.0, fd=None))
+        a = agg.setdefault(k, dict(pass_y=0.0, rush_y=0.0, to=0.0, fd=None, att=0.0, car=0.0))
+        a["att"] += r["attempts"]
+        a["car"] += r["carries"]
         a["pass_y"] += r["passing_yards"]
         a["rush_y"] += r["rushing_yards"]
         a["to"] += r["interceptions"] + r["fumbles_lost"]

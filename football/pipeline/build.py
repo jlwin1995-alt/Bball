@@ -214,7 +214,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     dump(ut, out, "usage_trend.json")
     dump(analysis.trends(Pl), out, "trends.json")
     dump(analysis.coverage(team_week, live), out, "coverage.json")
-    dump(teamstats.build(teamstats.nfl_team_games(rows, sched)), out, "teams.json")
+    dump(teamstats.build(teamstats.nfl_team_games(rows, sched), neutral=teamstats.neutral_pass_rates(f"{raw}/pbp_slim.csv")), out, "teams.json")
 
     # --- Accuracy log (written ONCE per week, before the games) and its scorecard --------------------------------------------------------
     gaps = history_gaps(rows, sched, week)
