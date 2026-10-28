@@ -1277,27 +1277,59 @@ commence,game,player_id,name,team,stat,cons_line,cons_p_over,n_books,pp_line,ud_
 2026-10-28T00:00:00Z,Sam Houston @ Missouri State,5384799,MJ Dowdy,Sam Houston,rushY,37.5,0.5,1,,,2026-10-27T12:05:24+00:00,9
 2026-10-28T00:00:00Z,Sam Houston @ Missouri State,5154284,Ramone Green Jr.,Missouri State,rushY,29.5,0.5,1,,,2026-10-27T12:05:24+00:00,9
 2026-10-28T00:00:00Z,Sam Houston @ Missouri State,5296832,Tim Burns Jr.,Sam Houston,recY,44.5,0.5,1,,,2026-10-27T12:05:24+00:00,9
-2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,4685436,Antonio Martin,Middle Tennessee,rushY,34.5,0.5203,1,35.5,,2026-10-28T01:10:58+00:00,9
-2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5091830,Cam'Ron Lacy,Middle Tennessee,recY,58.5,0.5,1,58.5,,2026-10-28T01:10:58+00:00,9
-2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5081089,Dylan Gary,Kennesaw State,rec,3.5,0.4592,1,,,2026-10-28T01:10:58+00:00,9
-2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5081089,Dylan Gary,Kennesaw State,recY,36.5,0.5,1,33.5,,2026-10-28T01:10:58+00:00,9
 2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5147191,Javon Rogers,Kennesaw State,rec,,,,3.5,,2026-10-28T01:10:58+00:00,9
-2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5147191,Javon Rogers,Kennesaw State,recY,40.5,0.5,1,40.5,,2026-10-28T01:10:58+00:00,9
-2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5217200,Neo Clifton,Middle Tennessee,rec,2.5,0.5408,1,,,2026-10-28T01:10:58+00:00,9
-2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5217200,Neo Clifton,Middle Tennessee,recY,38.5,0.5,1,38.5,,2026-10-28T01:10:58+00:00,9
-2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,4870645,Rickie Collins,Kennesaw State,passY,,,,207.5,,2026-10-28T01:10:58+00:00,9
-2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,4870645,Rickie Collins,Kennesaw State,rushY,,,,29.5,,2026-10-28T01:10:58+00:00,9
-2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5194626,Roman Gagliano,Middle Tennessee,passY,214.5,0.5,1,214.5,,2026-10-28T01:10:58+00:00,9
-2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5306988,Terrence Brown Jr.,Middle Tennessee,rushY,45.5,0.5,1,,,2026-10-28T01:10:58+00:00,9
-2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5295460,AJ Williams III,New Mexico State,recY,32.5,0.5,1,,,2026-10-28T01:10:58+00:00,9
-2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5152503,Adam Damante,New Mexico State,passY,189.5,0.5,1,188.5,,2026-10-28T01:10:58+00:00,9
-2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5122157,Caden Creel,Jacksonville State,passY,227.5,0.5,1,227.5,,2026-10-28T01:10:58+00:00,9
-2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5122157,Caden Creel,Jacksonville State,rushY,60.5,0.5,1,60.5,,2026-10-28T01:10:58+00:00,9
-2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5160197,Darius Cannon,Jacksonville State,recY,28.5,0.5,1,28.5,,2026-10-28T01:10:58+00:00,9
-2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5069231,Deondre Johnson,Jacksonville State,recY,55.5,0.5,1,57.5,,2026-10-28T01:10:58+00:00,9
-2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5226551,Jalen Likely,Jacksonville State,rushY,,,,31.5,,2026-10-28T01:10:58+00:00,9
-2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5220253,James Jones,New Mexico State,rushY,102.5,0.5,1,102.5,,2026-10-28T01:10:58+00:00,9
-2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5087930,Jamill Williams,Jacksonville State,recY,29.5,0.5,1,29.5,,2026-10-28T01:10:58+00:00,9
-2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5301984,Josiah Thomas,New Mexico State,recY,27.5,0.5,1,27.5,,2026-10-28T01:10:58+00:00,9
-2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5265478,Luke Gilbert,Jacksonville State,recY,32.5,0.5,1,32.5,,2026-10-28T01:10:58+00:00,9
-2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5161162,Ronnel Johnson,Jacksonville State,recY,,,,28.5,,2026-10-28T01:10:58+00:00,9
+2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,4685436,Antonio Martin,Middle Tennessee,rushY,38.5,0.5,1,38.5,,2026-10-28T19:09:08+00:00,9
+2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5168788,Brayden Munroe,Kennesaw State,rec,,,,3.5,,2026-10-28T19:09:08+00:00,9
+2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5168788,Brayden Munroe,Kennesaw State,recY,,,,38.5,,2026-10-28T19:09:08+00:00,9
+2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5091830,Cam'Ron Lacy,Middle Tennessee,recY,58.5,0.5,1,58.5,,2026-10-28T19:09:08+00:00,9
+2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5083103,Davis Bryson,Kennesaw State,recY,,,,15.5,,2026-10-28T19:09:08+00:00,9
+2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5081089,Dylan Gary,Kennesaw State,rec,3.5,0.5101,1,3.5,,2026-10-28T19:09:08+00:00,9
+2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5081089,Dylan Gary,Kennesaw State,recY,36.5,0.5,1,36.5,,2026-10-28T19:09:08+00:00,9
+2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5147191,Javon Rogers,Kennesaw State,recY,40.5,0.5,1,40.5,,2026-10-28T19:09:08+00:00,9
+2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,4603185,Markus Allen,Middle Tennessee,recY,,,,11.5,,2026-10-28T19:09:08+00:00,9
+2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5217200,Neo Clifton,Middle Tennessee,rec,2.5,0.5306,1,2.5,,2026-10-28T19:09:08+00:00,9
+2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5217200,Neo Clifton,Middle Tennessee,recY,38.5,0.5,1,38.5,,2026-10-28T19:09:08+00:00,9
+2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,4870645,Rickie Collins,Kennesaw State,passY,199.5,0.5101,1,199.5,,2026-10-28T19:09:08+00:00,9
+2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,4870645,Rickie Collins,Kennesaw State,rushY,34.5,0.5203,1,34.5,,2026-10-28T19:09:08+00:00,9
+2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5194626,Roman Gagliano,Middle Tennessee,passY,214.5,0.5,1,214.5,,2026-10-28T19:09:08+00:00,9
+2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5194626,Roman Gagliano,Middle Tennessee,rushY,,,,17.5,,2026-10-28T19:09:08+00:00,9
+2026-10-28T23:00:00Z,Kennesaw State @ Middle Tennessee,5306988,Terrence Brown Jr.,Middle Tennessee,rushY,59.5,0.5,1,,,2026-10-28T19:09:08+00:00,9
+2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5295460,AJ Williams III,New Mexico State,recY,39.5,0.5,1,,,2026-10-28T19:09:08+00:00,9
+2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5152503,Adam Damante,New Mexico State,passY,189.5,0.5101,1,190.5,,2026-10-28T19:09:08+00:00,9
+2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5122157,Caden Creel,Jacksonville State,passY,227.5,0.5,1,227.5,,2026-10-28T19:09:08+00:00,9
+2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5122157,Caden Creel,Jacksonville State,rushY,60.5,0.5,1,60.5,,2026-10-28T19:09:08+00:00,9
+2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5160197,Darius Cannon,Jacksonville State,recY,28.5,0.5,1,28.5,,2026-10-28T19:09:08+00:00,9
+2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5069231,Deondre Johnson,Jacksonville State,recY,55.5,0.5,1,57.5,,2026-10-28T19:09:08+00:00,9
+2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5226551,Jalen Likely,Jacksonville State,rushY,,,,31.5,,2026-10-28T19:09:08+00:00,9
+2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5220253,James Jones,New Mexico State,rushY,102.5,0.5,1,102.5,,2026-10-28T19:09:08+00:00,9
+2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5087930,Jamill Williams,Jacksonville State,recY,29.5,0.5,1,29.5,,2026-10-28T19:09:08+00:00,9
+2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5301984,Josiah Thomas,New Mexico State,recY,29.5,0.502,2,28.5,,2026-10-28T19:09:08+00:00,9
+2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5265478,Luke Gilbert,Jacksonville State,recY,29.5,0.5,1,29.5,,2026-10-28T19:09:08+00:00,9
+2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5161162,Ronnel Johnson,Jacksonville State,recY,,,,27.5,,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5295066,Brec Long,North Texas,recY,,,,11.5,11.5,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4869991,Caden Veltkamp,Florida Atlantic,passY,316.5,0.5,1,316.5,316.5,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4869991,Caden Veltkamp,Florida Atlantic,rushY,,,,4.5,4.5,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5153978,Camden Coleman,James Madison,passY,228.5,0.5,1,,,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5153978,Camden Coleman,James Madison,rushY,12.5,0.5,1,,,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5301871,Cole Keller,James Madison,recY,33.5,0.5,1,,,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5165803,Corey Scott,James Madison,recY,47.5,0.5,1,,,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4914830,Easton Messer,Florida Atlantic,recY,106.5,0.5,1,106.5,106.5,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5215500,Ethan Ervin,Florida Atlantic,recY,,,,2.5,2.5,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5215500,Ethan Ervin,Florida Atlantic,rushY,36.5,0.5,1,36.5,36.5,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4911971,Jahiem White,North Texas,rec,3.5,0.5,1,3.5,3.5,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4911971,Jahiem White,North Texas,recY,29.5,0.5,1,29.5,29.5,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4911971,Jahiem White,North Texas,rushY,134.5,0.5,1,134.5,134.5,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5301873,Jeremiah Harrison,James Madison,recY,28.5,0.5,1,,,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5120317,Jordan Lovett,Troy,rushY,47.5,0.5,1,,,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5122082,Justin Stevenson,North Texas,rec,6.5,0.4621,1,,,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5122082,Justin Stevenson,North Texas,recY,100.5,0.5,1,103.5,,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4920163,Kelby Valsin,Florida Atlantic,recY,84.5,0.5,1,86.5,84.5,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5194308,Kyle Koch,North Texas,rec,3.5,0.5282,1,3.5,,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5194308,Kyle Koch,North Texas,recY,41.5,0.5,1,41.5,,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5390418,Leonard Farrow,Florida Atlantic,rushY,,,,23.5,24.5,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4827049,Max Reese,North Texas,rec,2.5,0.4621,1,,,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4827049,Max Reese,North Texas,recY,29.5,0.5061,1,29.5,,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5214955,Michael Scott,James Madison,recY,38.5,0.5,1,,,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5078105,TJ Lott,Troy,recY,17.5,0.5,1,,,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4801307,Tayven Jackson,North Texas,passY,314.5,0.5,1,314.5,314.5,2026-10-28T19:09:08+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4801307,Tayven Jackson,North Texas,rushY,,,,14.5,15.5,2026-10-28T19:09:08+00:00,9
