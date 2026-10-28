@@ -194,6 +194,9 @@ def cfb_core(rows, matchup, conf, P):
             want = last_n.get(PL[i]["team"])
             if want and len(PL[i]["weeks"]) >= 2 and not any(x["week"] in want for x in PL[i]["weeks"]):
                 absent_w[i] = float(P.get("CFB_ABSENT_W", 0.0))
+    for i in pool:                                              # players an outside signal says are out (no prop line on a priced team): same treatment
+        if i in (P.get("CFB_OUT_IDS") or ()):
+            absent_w[i] = float(P.get("CFB_ABSENT_W", 0.0))
     scale = {}
     for t in team_base:
         scale[t] = dict(car=1.0, rec=1.0, att=1.0)

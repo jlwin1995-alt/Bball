@@ -370,3 +370,12 @@ Walk-forward, weeks 5+ of 2025 and 2026, RB / WR / TE (7,824 player-games):
 ### College Projections table: usage-trend flag, and no Under lean on a RISING player
 
 The college Projections table now has the same "Usage trend" column as the Game Board (share of the team's work over the last 3 games, the move, the weekly line, RISING / FALLING at 5+ points). A RISING player's history understates his role (risers' carries ran 28% under the projection in the backtest above), so an UNDER lean on him is the stale history talking: no Under lean is flagged for a RISING player (`riserUnder` in `college.js`); Over leans are kept, and FALLING players are unchanged (their bias is not one-sided). Example: Connor Lair, projected 30 rushing yards against a 51.5 line (-0.60 sigma, an Under) after 14 and 15 carries in his last two games.
+
+### College availability from prop lines: "no line" and "line removed" (weeks 7-8)
+
+`pipeline/cfb_noline.py`. College has no injury feed, but books only price players they expect to play (and mostly a team's top few). The college line log covers weeks 7-8 (graded against the box scores): 482 projected RB / WR / TE / QB player-games on teams with 2+ priced players, projected for 6+ opportunities (carries + receptions + attempts / 2):
+- **has a line** (331): played 96.4%, actual / projected opportunities 1.10;
+- **no line** (151): played 55.6%, 1.00 among those who played; at 10+ projected opportunities (76): played 40.8%, actual / projected 0.80 (vs 245 with a line: 95.9%, 1.07);
+- **line removed** (had one last week, none now, team still priced; only 13): played 61.5%, actual / projected 0.57 (too few to use);
+- **teammates of a no-line player** with the no-line players taken out of the team's carry / reception pool (`CFB_OUT_IDS`, the same denominator rule as the absent-player knob; 295 teammate player-games): carries MAE 2.058 -> 1.880 (-8.6%), bias -24.5% -> -8.7%; receptions flat (1.339 -> 1.335).
+Live: a "no line" pill beside the player's name on the college boards (`noline` in `projections.json`, computed after the odds pull for players projected 10+ opportunities on a team with 2+ priced players; 3 today, among them Missouri State's QB Skyler Locklear). The books post college props late, so the flag appears only in the hours before kickoff, and only for games that have been priced. Not applied to the projections: two weeks and one threshold are too little to switch the redistribution on (`CFB_OUT_IDS` stays unused); re-run after weeks 9 and 10 and adopt it if the carries gain holds.
