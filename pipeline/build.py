@@ -171,6 +171,11 @@ def main(raw="data/raw", out="site/data"):
         rg = f"{raw}/rehearsal_games.csv"                           # preseason dress rehearsal of the same pipeline
         results_mod.main(raw, out, pd.read_csv(rg, dtype={"pid": str}) if os.path.exists(rg) else pd.DataFrame(columns=["date", "pid"]),
                          log=scorecard.REHEARSAL_LOG, subdir="results_rehearsal", rehearsal=True)
+        try:                                                        # how much of the model's P(win) at the PrizePicks line the record supports
+            from . import calibrate as calibrate_mod
+            calibrate_mod.main(f"{out}/results", out, raw)
+        except Exception as e:
+            print("calibration skipped:", e)
         try:                                                        # each player's record against his own projection vs soft / tough defences (display only)
             from . import splits as splits_mod
             splits_mod.write(games, set(P["pid"].astype(str)), out)
