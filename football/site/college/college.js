@@ -86,7 +86,7 @@ const pages = {
     let rows = proj().filter(passes);
     if (F.hideStarted) rows = rows.filter(r => !started(r.ko));
     const det = CFG.detail;
-    const cols = [...nameCols, roleCol(), {k: "prole", h: "Alignment (PFF)", l: 1, t: "Where he lines up on his pass routes over the last 3 games (PFF) and routes per team pass play", v: r => r.role?.rr, f: r => r.role ? `${roleCell(r.role)} <span class="mut">${num(r.role.rr, 0)}%</span>` : ""}, usageCol(r => UTM()[r.id], true), {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)}, {k: "conf", h: "Conf", l: 1}, {k: "opp", h: "Opp", l: 1, f: siteTag, v: r => r.opp},
+    const cols = [...nameCols, roleCol(), {k: "prole", h: "Alignment (PFF)", l: 1, t: "Where he lines up on his pass routes over the last 3 games (PFF) and routes per team pass play", v: r => r.role?.rr, f: r => r.role ? `${roleCell(r.role)} <span class="mut">${num(r.role.rr, 0)}%</span>` : ""}, usageCol(r => UTM()[r.id], true), oppMainCol, {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)}, {k: "conf", h: "Conf", l: 1}, {k: "opp", h: "Opp", l: 1, f: siteTag, v: r => r.opp},
       ...(det ? [{k: "g", h: "G", t: "Games in this season's sample"}] : []),
       {k: "caro", h: "Car OVR", t: "Type carries to override. Teammates are NOT re-scaled. Saved on this device.", v: r => OVR[r.id]?.car, f: r => ovrCell(r, "car", r.car)},
       {k: "ccar", h: "Car", v: r => r.c.car, f: r => num(r.c.car)},
@@ -120,7 +120,7 @@ const pages = {
     const UT = Object.fromEntries((D.usage_trend || []).map(u => [u.id, u]));
     const mk = t => {
       const rows = all.filter(p => p.team === t);
-      const cols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, roleCol(), {k: "prole", h: "Alignment (PFF)", l: 1, t: "Where he lines up on his pass routes over the last 3 games (PFF) and routes per team pass play", v: r => r.role?.rr, f: r => r.role ? `${roleCell(r.role)} <span class="mut">${num(r.role.rr, 0)}%</span>` : ""}, {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)}, usageCol(r => UT[r.id], true), {k: "ccar", h: "Car", v: r => r.c.car, f: r => num(r.c.car)}, {k: "cry", h: "Rush", v: r => r.c.rushY, f: r => num(r.c.rushY, 0)},
+      const cols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, roleCol(), {k: "prole", h: "Alignment (PFF)", l: 1, t: "Where he lines up on his pass routes over the last 3 games (PFF) and routes per team pass play", v: r => r.role?.rr, f: r => r.role ? `${roleCell(r.role)} <span class="mut">${num(r.role.rr, 0)}%</span>` : ""}, oppMainCol, {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)}, usageCol(r => UT[r.id], true), {k: "ccar", h: "Car", v: r => r.c.car, f: r => num(r.c.car)}, {k: "cry", h: "Rush", v: r => r.c.rushY, f: r => num(r.c.rushY, 0)},
         {k: "crec", h: "Rec", v: r => r.c.rec, f: r => num(r.c.rec)}, {k: "crecy", h: "Rec Yds", v: r => r.c.recY, f: r => num(r.c.recY, 0)},
         {k: "catt", h: "Att", v: r => r.c.att, f: r => r.c.att > 0 ? num(r.c.att) : ""}, {k: "cpy", h: "Pass Yds", v: r => r.c.passY, f: r => r.c.att > 0 ? num(r.c.passY, 0) : ""},
         {k: "ctd", h: "TD", v: r => r.c.rushTD + r.c.recTD + r.c.passTD, f: r => num(r.c.rushTD + r.c.recTD + r.c.passTD, 2)}, {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`}, ...(D.lines?.rows?.length ? [leanCol] : [])];
@@ -137,7 +137,7 @@ const pages = {
     const L = D.lines;
     if (!L || !L.rows?.length) {
       const M = L?.meta || D.oddsmeta, games = (M?.games || []).map(g => `<li>${esc(g.game)} — kickoff ${koLabel(g.commence)}: ${g.props ? g.props + " props posted" : "<b>no player props posted yet</b>"}</li>`).join("");
-      return `<h2>College Lines</h2><p class="sub">No college player props pulled yet. Books post them late, often the day before: the odds workflow pulls games starting in the next ${D.meta.props_horizon ?? 30} hours and fills this page in on its own.</p>${games ? `<ul class="sub">${games}</ul>` : ""}`;
+      return `<h2>College Lines</h2>${hitrateTable()}<p class="sub">No college player props pulled yet. Books post them late, often the day before: the odds workflow pulls games starting in the next ${D.meta.props_horizon ?? 30} hours and fills this page in on its own.</p>${games ? `<ul class="sub">${games}</ul>` : ""}`;
     }
     const byId = Object.fromEntries(proj().map(p => [p.id, p]));
     const rows = L.rows.map(r => {
@@ -155,7 +155,7 @@ const pages = {
       {k: "pick", h: "Lean", l: 1, v: r => r.tier ? Math.abs(r.z) : 0, f: r => r.st ? `<span class="pill hot">LIVE</span>` : r.tier ? `<span class="pill lean-${r.tier}">${r.tier === "strong" ? "STRONG " : ""}${r.side}</span>` : ""},
       {k: "pp", h: "PrizePicks", f: r => r.pp ?? ""}, {k: "ud", h: "UD/Pick6", f: r => r.ud ?? ""}, {k: "game", h: "Game", l: 1}];
     const strong = rows.filter(r => r.tier === "strong").length;
-    return `<h2>College Lines</h2><p class="sub">${rows.length} player props across ${L.games.length} games, last pulled ${mins < 90 ? mins + " min" : Math.round(mins / 60) + " h"} ago. Consensus is the median sportsbook line with the vig removed; the lean is the model's median projection against it, in standard deviations of the market (college sigma fitted by the backtest: ${Object.values(L.specs).map(x => x.label + (x.src === "college" ? "" : "*")).join(", ")}; * = NFL fit until enough college rows). <b>${strong}</b> strong. Books post college props for only the top few players per team, so most players have no line. Only STRONG leans are flagged: on week 7 they won 47 of 63 (75%) while smaller gaps won about half. That is one slate, so treat the size of the edge with caution.</p>
+    return `<h2>College Lines</h2>${hitrateTable()}<p class="sub">${rows.length} player props across ${L.games.length} games, last pulled ${mins < 90 ? mins + " min" : Math.round(mins / 60) + " h"} ago. Consensus is the median sportsbook line with the vig removed; the lean is the model's median projection against it, in standard deviations of the market (college sigma fitted by the backtest: ${Object.values(L.specs).map(x => x.label + (x.src === "college" ? "" : "*")).join(", ")}; * = NFL fit until enough college rows). <b>${strong}</b> strong. Books post college props for only the top few players per team, so most players have no line. Only STRONG leans are flagged: on week 7 they won 47 of 63 (75%) while smaller gaps won about half. That is one slate, so treat the size of the edge with caution.</p>
       <div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}"><label>Pos <select id="pos">${["", ...POS].map(p => `<option ${F.pos === p ? "selected" : ""} value="${p}">${p || "All"}</option>`).join("")}</select></label></div>
       ${table(cols, rows, {id: "cl", sort: {key: "z"}, rowClass: r => r.st ? "started" : r.tier ? "lean-" + r.tier + "-row" : ""})}`;
   },
@@ -295,7 +295,7 @@ document.addEventListener("click", e => { if (e.target.id === "clr") { OVR = {};
 async function boot() {
   CFG = {...CFG, ...store.get("cfg", {})}; OVR = store.get("ovr", {});
   if (!CFG.scoring || Object.keys(CFG.scoring).some(k => !(k in SCORE_LABEL) && k !== "two")) CFG = {...CFG, preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}};
-  await Promise.all(["projections", "games", "teams", "matchups", "scorecard", "meta", "usage_trend"].map(async n => { try { const r = await fetch(`../data/cfb/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
+  await Promise.all(["projections", "games", "teams", "matchups", "scorecard", "meta", "usage_trend", "hitrates"].map(async n => { try { const r = await fetch(`../data/cfb/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   if (!D.projections || !D.meta) {
     view().innerHTML = `<div class="doc"><h2>No college data yet</h2><p>College football needs a free CollegeFootballData key. Get one at <a href="https://collegefootballdata.com/key">collegefootballdata.com/key</a>, add it as the <code>CFBD_API_KEY</code> repository secret (Settings → Secrets and variables → Actions), and run the "Football refresh data and deploy" workflow. College data appears here once it has run during the college season.</p></div>`;
     return;

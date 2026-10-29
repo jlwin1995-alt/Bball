@@ -208,7 +208,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     Pl, team_week, live = analysis.aggregate(rows, snaps)
     dump(analysis.efficiency(Pl), out, "efficiency.json")
     dump(analysis.usage(Pl), out, "usage.json")
-    dump(dict(season=C.SEASON, tiers=hitrates.tiers_now(rows), lines=hitrates.line_table(raw), hist=hitrates.hist_table()), out, "hitrates.json")
+    dump(dict(season=C.SEASON, years="2023-25", note="Over rates are higher against soft defences on both. The model's own defence adjustment is damped, which is why a gap remains.", tiers=hitrates.tiers_now(rows), lines=hitrates.line_table(raw), hist=hitrates.hist_table()), out, "hitrates.json")
     ut = analysis.usage_trend(Pl)
     for u in ut:
         u["role"] = role_of(pffr, u)
