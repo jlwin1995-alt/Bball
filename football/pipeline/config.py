@@ -220,7 +220,7 @@ ODDS_HORIZON_HOURS = float(__import__("os").environ.get("ODDS_HORIZON_HOURS") or
 ODDS_MIN_INTERVAL_MIN = 90         # a scheduled pull is skipped if the previous check was this recent, so backup runs cost no credits
 ODDS_MIN_CREDITS = 500             # stop pulling when the API reports fewer credits than this remaining
 ODDS_KEEP_STARTED_HOURS = 6        # keep a game's last PREGAME lines on the site this long after kickoff (books pull props at kickoff)
-PP_BREAKEVEN = 0.577               # PrizePicks per-leg break-even (2 legs at 3x); edit if you play differently
+PP_BREAKEVEN = 0.544               # PrizePicks per-leg break-even (set to 54.4% on Oct 29 from the actual payout; was 0.577 = 2 legs at 3x)
 RESULTS_EDGE_PP = 4.0              # model-vs-line gap (percentage points) that counts as a "pick" when grading line results
 
 # nflverse abbreviations (what rosters, schedules and projections use) <- the names The Odds API spells out

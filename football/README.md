@@ -63,7 +63,7 @@ so the tiers are a way to sort, not a promise. Thresholds are `LEAN` in `site/ap
 
 Each pull keeps the **last pregame** consensus and PrizePicks line per game, player and market in `data/log/lines_log.csv` (overwritten while a game
 hasn't kicked off, never touched after). `pipeline/results.py` joins that to the frozen projections and the box scores and writes `site/data/results/`.
-A pick is a gap of at least 4 points between the model and the book (`RESULTS_EDGE_PP`); PrizePicks picks must clear a 57.7% per-leg break-even (`PP_BREAKEVEN`).
+A pick is a gap of at least 4 points between the model and the book (`RESULTS_EDGE_PP`); PrizePicks picks must clear a 54.4% per-leg break-even (`PP_BREAKEVEN`).
 
 ### College football
 

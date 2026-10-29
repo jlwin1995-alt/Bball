@@ -19,6 +19,7 @@ REHEARSAL_LOG = "data/log/rehearsal_log.csv"       # preseason dress rehearsal: 
 
 def stamp():
     knobs = {k: getattr(C, k) for k in dir(C) if k.isupper() and k not in ("SEASON", "CUR_START", "PRIOR_START", "PRIOR_END", "NAME_ALIASES", "ODDS_MARKETS", "ODDS_BOOKS", "DFS_BOOKS")}
+    knobs["PP_BREAKEVEN"] = 0.577          # grading-only knob, pinned at its old value so editing it does not start a new record (it does not change any projection)
     return hashlib.sha1(json.dumps(knobs, sort_keys=True, default=str).encode()).hexdigest()[:8]
 
 
