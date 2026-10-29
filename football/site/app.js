@@ -29,6 +29,9 @@ function oppTierCell(r) {
     h ? `2023-25, a line at the projection: actual went over ${num(h.over, 0)}% of ${h.n} games, actual / projected ${h.ratio}, median miss ${h.miss > 0 ? "+" : ""}${h.miss}.` : ""].filter(Boolean).join("\n");
   return `<span class="pill ${HR_CLS[x.tier]}" title="${esc(tip)}">${HR_LAB[x.tier]} <span class="zs">${x.rank}/${x.of}</span></span>${all ? ` <span class="mut">Over ${num(all.over, 0)}%</span>` : ""}`;
 }
+const MAIN_MKT = {QB: "passY", RB: "rushY", WR: "recY", TE: "recY"};
+const oppMain = r => MAIN_MKT[r.pos] ? oppTierCell({stat: MAIN_MKT[r.pos], opp: r.opp}) : "";
+const oppMainCol = {k: "odm", h: "Opp D tier", l: 1, t: HR_TIP + " Shown for his main market: passing yards (QB), rushing yards (RB), receiving yards (WR / TE).", v: r => D.hitrates?.tiers?.[MAIN_MKT[r.pos]]?.[r.opp]?.rank ?? null, f: oppMain};
 function hitrateTable() {
   const H = D.hitrates; if (!H) return "";
   const tiers = ["tough", "mid", "soft"], lab = {tough: "Toughest 8", mid: "Middle 16", soft: "Softest 8"};
@@ -193,7 +196,7 @@ const pages = {
       {k: "cpts", h: CFG.mean ? "Mean Pts" : "Proj Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`},
       {k: "lean", h: "Lean", l: 1, t: leanTip, v: r => { const b = playerLines(r)[0]; return b?.z == null ? null : Math.abs(b.z); }, f: r => { const b = bestLean(r); return b ? leanPill(b) : ""; }},
       {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)},
-      {k: "ovp", h: "Opp vs Pos", t: "What the opponent gives up to this player's position group on his main market (rate-based, defence only), and where it ranks among the slate's defences (1 = most generous)",
+      oppMainCol, {k: "ovp", h: "Opp vs Pos", t: "What the opponent gives up to this player's position group on his main market (rate-based, defence only), and where it ranks among the slate's defences (1 = most generous)",
         v: r => r.ovp, f: r => r.ovp == null ? "" : `${signed(r.ovp)}% <span class="mut">${esc(r.ork || "")}</span>`}];
     return `<h2>Projections — Week ${D.meta.week}</h2>
       <p class="sub">${CFG.mean ? "Mean" : "Median"} points for every player with a game this week. Shaded <b>OVR</b> boxes are yours; everything recalculates instantly (teammates are not re-scaled). Scoring: ${esc(CFG.preset)}.</p>
@@ -227,7 +230,7 @@ const pages = {
         {k: "role", h: "Role (PFF)", l: 1, t: "Alignment and routes per team pass play over the last 3 games (PFF); hover for the split", v: r => r.role?.rr, f: r => r.role ? `${roleCell(r.role)} <span class="mut">${num(r.role.rr, 0)}%</span>` : ""},
         {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)},
         usageCol(r => UT[r.id], false),
-        {k: "ovp", h: "Opp vs Pos", t: "What the opponent gives up to this player's position group, and where it ranks among this week's defences (1 = most generous)", v: r => r.ovp,
+        oppMainCol, {k: "ovp", h: "Opp vs Pos", t: "What the opponent gives up to this player's position group, and where it ranks among this week's defences (1 = most generous)", v: r => r.ovp,
           f: r => r.ovp == null ? "" : `${signed(r.ovp)}% <span class="mut">${esc(r.ork || "")}</span>`},
         {k: "lines", h: "Lines · strongest lean", l: 1, t: "Click to open every posted line for this player", v: r => { const b = playerLines(r)[0]; return b?.z == null ? null : Math.abs(b.z); }, f: linesCell}];
       const live = rows.filter(r => !isOut(r.status)), nOut = rows.length - live.length;
@@ -412,7 +415,7 @@ const pages = {
       live = `<p class="sub">Sportsbook consensus (median line; vig removed) beside PrizePicks / Underdog, with the model's edge against each${credits}. Updated ${mins < 90 ? mins + " min" : Math.round(mins / 60) + " h"} ago${mins > 360 ? " — <b>stale, lines move</b>" : ""}. DFS prices are nominal, so PrizePicks edge is measured against your break-even (Config) rather than odds. A k-pick entry paying M× needs M^(−1/k) per leg.</p>
         ${filters(extra)}${table(cols, rows, {id: "live", sort: {key: "edge"}})}`;
     }
-    live += hitrateTable();
+    live = hitrateTable() + live;
     const own = LINES.map((l, i) => {
       const p = byId[l.id]; if (!p) return "";
       const spec = mktSpec(l.stat), m = p.c[MKT[l.stat]], sd = FB.sides(l.line, m, spec);
