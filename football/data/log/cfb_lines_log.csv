@@ -1306,30 +1306,60 @@ commence,game,player_id,name,team,stat,cons_line,cons_p_over,n_books,pp_line,ud_
 2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5301984,Josiah Thomas,New Mexico State,recY,29.5,0.502,2,28.5,,2026-10-28T19:09:08+00:00,9
 2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5265478,Luke Gilbert,Jacksonville State,recY,29.5,0.5,1,29.5,,2026-10-28T19:09:08+00:00,9
 2026-10-29T00:00:00Z,Jacksonville State @ New Mexico State,5161162,Ronnel Johnson,Jacksonville State,recY,,,,27.5,,2026-10-28T19:09:08+00:00,9
-2026-10-29T23:30:00Z,Troy @ James Madison,5078105,TJ Lott,Troy,recY,17.5,0.5,1,,,2026-10-28T19:09:08+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5295066,Brec Long,North Texas,recY,,,,10.5,10.5,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4869991,Caden Veltkamp,Florida Atlantic,passY,316.5,0.5,1,316.5,316.5,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4869991,Caden Veltkamp,Florida Atlantic,rushY,,,,5.5,5.5,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Troy @ James Madison,5153978,Camden Coleman,James Madison,passY,228.5,0.5,1,,,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Troy @ James Madison,5153978,Camden Coleman,James Madison,rushY,12.5,0.5,1,,,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Troy @ James Madison,5301871,Cole Keller,James Madison,recY,33.5,0.5,1,,,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Troy @ James Madison,5165803,Corey Scott,James Madison,recY,47.5,0.5,1,,,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4914830,Easton Messer,Florida Atlantic,recY,106.5,0.5,1,106.5,106.5,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5215500,Ethan Ervin,Florida Atlantic,recY,,,,2.5,2.5,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5215500,Ethan Ervin,Florida Atlantic,rushY,36.5,0.5,1,36.5,36.5,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4911971,Jahiem White,North Texas,rec,3.5,0.5,1,3.5,3.5,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4911971,Jahiem White,North Texas,recY,29.5,0.5,1,29.5,29.5,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4911971,Jahiem White,North Texas,rushY,138.5,0.5,1,137.5,138.5,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Troy @ James Madison,5301873,Jeremiah Harrison,James Madison,recY,32.5,0.5,1,,,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Troy @ James Madison,5120317,Jordan Lovett,Troy,rushY,50.5,0.5,1,,,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5122082,Justin Stevenson,North Texas,rec,6.5,0.4621,1,6.5,,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5122082,Justin Stevenson,North Texas,recY,100.5,0.5,1,103.5,,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4920163,Kelby Valsin,Florida Atlantic,recY,84.5,0.5,1,86.5,84.5,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5194308,Kyle Koch,North Texas,rec,3.5,0.5282,1,3.5,,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5194308,Kyle Koch,North Texas,recY,41.5,0.5,1,41.5,,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5390418,Leonard Farrow,Florida Atlantic,rushY,,,,24.5,24.5,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4827049,Max Reese,North Texas,rec,2.5,0.4621,1,,,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4827049,Max Reese,North Texas,recY,29.5,0.5061,1,29.5,,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Troy @ James Madison,5214955,Michael Scott,James Madison,recY,39.5,0.5,1,,,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4801307,Tayven Jackson,North Texas,passY,314.5,0.5,1,314.5,314.5,2026-10-29T02:06:15+00:00,9
-2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4801307,Tayven Jackson,North Texas,rushY,,,,14.5,14.5,2026-10-29T02:06:15+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5078227,Braeden Wisloski,James Madison,recY,35.5,0.5,1,,,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5295066,Brec Long,North Texas,recY,,,,10.5,11.5,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4869991,Caden Veltkamp,Florida Atlantic,passY,317.5,0.5,1,317.5,317.5,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4869991,Caden Veltkamp,Florida Atlantic,rushY,,,,5.5,5.5,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5153978,Camden Coleman,James Madison,passY,215.5,0.5,1,,,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5153978,Camden Coleman,James Madison,rushY,12.5,0.5051,2,,,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5301871,Cole Keller,James Madison,recY,33.5,0.5,1,,,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5165803,Corey Scott,James Madison,recY,44.5,0.5,1,,,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4914830,Easton Messer,Florida Atlantic,rec,8.5,0.5717,1,9.0,,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4914830,Easton Messer,Florida Atlantic,recY,109.5,0.5051,2,108.5,109.5,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5215500,Ethan Ervin,Florida Atlantic,recY,,,,2.5,2.5,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5215500,Ethan Ervin,Florida Atlantic,rushY,36.5,0.5,1,36.5,36.5,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5150277,Jace Petty,Troy,recY,24.5,0.5101,1,,,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4911971,Jahiem White,North Texas,rec,3.5,0.5,2,3.5,3.5,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4911971,Jahiem White,North Texas,recY,29.5,0.5306,1,31.5,31.5,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4911971,Jahiem White,North Texas,rushY,138.5,0.5,1,138.5,138.5,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5301873,Jeremiah Harrison,James Madison,recY,32.5,0.5,1,,,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5120317,Jordan Lovett,Troy,rushY,42.5,0.5,1,,,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5122082,Justin Stevenson,North Texas,rec,6.5,0.4657,2,6.0,,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5122082,Justin Stevenson,North Texas,recY,103.5,0.5,1,103.5,99.5,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4920163,Kelby Valsin,Florida Atlantic,rec,7.5,0.5,1,7.5,7.5,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4920163,Kelby Valsin,Florida Atlantic,recY,89.5,0.5,2,86.5,89.5,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5194308,Kyle Koch,North Texas,rec,3.5,0.5,1,3.5,3.5,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5194308,Kyle Koch,North Texas,recY,44.5,0.5,1,44.5,42.5,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,5390418,Leonard Farrow,Florida Atlantic,rushY,,,,25.5,24.5,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4827049,Max Reese,North Texas,rec,2.5,0.4621,1,,,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4827049,Max Reese,North Texas,recY,29.5,0.5061,1,29.5,29.5,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5214955,Michael Scott,James Madison,recY,39.5,0.5,1,,,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Troy @ James Madison,5078105,TJ Lott,Troy,recY,19.5,0.4797,1,,,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4801307,Tayven Jackson,North Texas,passY,314.5,0.5,1,314.5,314.5,2026-10-29T19:32:16+00:00,9
+2026-10-29T23:30:00Z,Florida Atlantic @ North Texas,4801307,Tayven Jackson,North Texas,rushY,,,,13.5,13.5,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:00:00Z,Tulane @ Charlotte,4801306,Conner Harrell,Charlotte,passY,199.5,0.5,2,199.5,199.5,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:00:00Z,Tulane @ Charlotte,5228760,Derrick Eley,Charlotte,recY,42.5,0.503,2,42.5,42.5,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:00:00Z,Tulane @ Charlotte,5150834,Destyn Hill,Tulane,rec,3.5,0.5101,1,3.5,3.5,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:00:00Z,Tulane @ Charlotte,5150834,Destyn Hill,Tulane,recY,47.5,0.5,1,47.5,47.5,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:00:00Z,Tulane @ Charlotte,5091744,Garrett Mmahat,Tulane,recY,22.5,0.5,1,22.5,,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:00:00Z,Tulane @ Charlotte,4879655,Henry Rutledge,Charlotte,rushY,47.5,0.5,1,47.5,47.5,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:00:00Z,Tulane @ Charlotte,5153730,Jaden Barnes,Charlotte,recY,54.5,0.5051,2,54.5,54.5,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:00:00Z,Tulane @ Charlotte,5156879,Jaylen Hampton,Charlotte,recY,27.5,0.5,1,27.5,,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:00:00Z,Tulane @ Charlotte,5218820,Johnnie Daniels,Tulane,rushY,59.5,0.5,1,59.5,,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:00:00Z,Tulane @ Charlotte,5148741,Khamani Alexander,Charlotte,rushY,24.5,0.5051,2,24.5,,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:00:00Z,Tulane @ Charlotte,4837391,Maurice Turner,Tulane,rushY,60.5,0.5,1,59.5,,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:00:00Z,Tulane @ Charlotte,5291713,Trace Johnson,Tulane,passY,197.5,0.5,1,197.5,197.5,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:00:00Z,Tulane @ Charlotte,5291713,Trace Johnson,Tulane,rushY,,,,10.5,10.5,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:30:00Z,Baylor @ UCF,5295723,Caden Knighten,Baylor,rushY,,,,29.5,,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:30:00Z,Baylor @ UCF,5148656,Caden Piening,UCF,recY,23.5,0.5101,1,19.5,,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:30:00Z,Baylor @ UCF,5079555,D.J. Lagway,Baylor,passY,242.5,0.5051,2,242.5,242.5,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:30:00Z,Baylor @ UCF,5136049,Duke Watson,UCF,rushY,67.5,0.5,1,67.5,67.5,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:30:00Z,Baylor @ UCF,4896289,Gavin Freeman,Baylor,rec,7.5,0.4899,1,7.5,7.5,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:30:00Z,Baylor @ UCF,4896289,Gavin Freeman,Baylor,recY,84.5,0.5203,1,85.5,85.5,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:30:00Z,Baylor @ UCF,5079627,Jadon Porter,Baylor,rec,1.5,0.5408,1,1.5,,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:30:00Z,Baylor @ UCF,5079627,Jadon Porter,Baylor,recY,22.5,0.5,1,22.5,22.5,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:30:00Z,Baylor @ UCF,5085337,Keyone Jenkins,UCF,passY,235.5,0.5,1,235.5,235.5,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:30:00Z,Baylor @ UCF,5085337,Keyone Jenkins,UCF,rushY,9.5,0.5101,1,11.5,10.5,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:30:00Z,Baylor @ UCF,4896389,Louis Brown,Baylor,rec,3.5,0.4367,1,,,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:30:00Z,Baylor @ UCF,4896389,Louis Brown,Baylor,recY,39.5,0.5,1,39.5,39.5,2026-10-29T19:32:16+00:00,9
+2026-10-30T23:30:00Z,Baylor @ UCF,5142600,Waden Charles,UCF,recY,33.5,0.5,1,33.5,33.5,2026-10-29T19:32:16+00:00,9
