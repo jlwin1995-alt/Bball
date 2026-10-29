@@ -150,3 +150,31 @@ function usageCell(u, college) {
   return `<span title="${esc(bits.join("\n"))}">${flag}<span class="mut">${lab}</span> <b>${num(u[k + "_r"])}%</b> ${moveCell(u[k + "_d"])} ${spark((u[k + "_w"] || []).map(v => v ?? 0))}</span>`;
 }
 const usageCol = (getU, college) => ({k: "utr", h: "Usage trend", l: 1, t: USAGE_TIP, v: r => { const u = getU(r); return u ? u[(u.pos === "RB" ? "opp" : college ? "rec" : "tgt") + "_r"] : null; }, f: r => usageCell(getU(r), college)});
+
+const mktLabel = s => D.meta?.markets?.[s]?.label || D.lines?.specs?.[s]?.label || s;
+// Opposing defence tier on a market (toughest 8 / middle 16 / softest 8 of 32, by allowed per game to the position group going into the week) and what the lines actually did against that tier.
+const HR_TIP = "How the opposing defence ranks against this player's position group on this market (allowed per game this season; SOFT = softest 8, TOUGH = toughest 8). Hover for the actual hit rates against that tier. Display only.";
+const HR_LAB = {tough: "TOUGH", mid: "MID", soft: "SOFT"}, HR_CLS = {tough: "mu-hard", mid: "mu-even", soft: "mu-great"};
+function oppTierCell(r) {
+  const x = D.hitrates?.tiers?.[r.stat]?.[r.opp];
+  if (!x) return "";
+  const H = D.hitrates, own = H.lines?.find(l => l.stat === r.stat && l.tier === x.tier), all = H.lines?.find(l => l.stat === "all" && l.tier === x.tier), h = H.hist?.find(l => l.stat === r.stat && l.tier === x.tier);
+  const tip = [`${r.opp} ranks ${x.rank} of ${x.of} (1 = toughest) against this position group on ${r.stat}.`,
+    all ? `This season's graded lines against ${HR_LAB[x.tier].toLowerCase()} defences: the OVER hit ${num(all.over, 0)}% (${all.n} lines); the model's side ${num(all.model, 0)}%.` : "",
+    own && own.n >= 20 ? `This market only: Over ${num(own.over, 0)}% (${own.n}).` : "",
+    h ? `${H.years}, a line at the projection: actual went over ${num(h.over, 0)}% of ${h.n} games, actual / projected ${h.ratio}, median miss ${h.miss > 0 ? "+" : ""}${h.miss}.` : ""].filter(Boolean).join("\n");
+  return `<span class="pill ${HR_CLS[x.tier]}" title="${esc(tip)}">${HR_LAB[x.tier]} <span class="zs">${x.rank}/${x.of}</span></span>${all ? ` <span class="mut">Over ${num(all.over, 0)}%</span>` : ""}`;
+}
+const MAIN_MKT = {QB: "passY", RB: "rushY", WR: "recY", TE: "recY"};
+const oppMain = r => MAIN_MKT[r.pos] ? oppTierCell({stat: MAIN_MKT[r.pos], opp: r.opp}) : "";
+const oppMainCol = {k: "odm", h: "Opp D tier", l: 1, t: HR_TIP + " Shown for his main market: passing yards (QB), rushing yards (RB), receiving yards (WR / TE).", v: r => D.hitrates?.tiers?.[MAIN_MKT[r.pos]]?.[r.opp]?.rank ?? null, f: oppMain};
+function hitrateTable() {
+  const H = D.hitrates; if (!H) return "";
+  const tiers = ["tough", "mid", "soft"], lab = {tough: "Toughest quarter", mid: "Middle half", soft: "Softest quarter"};
+  const stats = ["all", ...new Set((H.hist || []).map(x => x.stat))];
+  const rows = stats.map(s => ({s, ...Object.fromEntries(tiers.flatMap(t => [[t + "_l", H.lines?.find(x => x.stat === s && x.tier === t)], [t + "_h", H.hist?.find(x => x.stat === s && x.tier === t)]]))}));
+  const cols = [{k: "s", h: "Market", l: 1, f: r => r.s === "all" ? "<b>All markets</b>" : esc(mktLabel(r.s))},
+    ...tiers.flatMap(t => [{k: t + "_l", h: `${lab[t]}: lines, Over %`, t: "This season's graded consensus lines: share that went OVER (pushes dropped), and the number of lines", v: r => r[t + "_l"]?.over, f: r => r[t + "_l"] ? `${num(r[t + "_l"].over, 0)}% <span class="mut">n=${r[t + "_l"].n}</span>` : ""},
+      {k: t + "_h", h: `${lab[t]}: ${H.years} over projection %`, t: `${H.years} walk-forward: share of games where the actual went over the model's projection (a line at the projection)`, v: r => r[t + "_h"]?.over, f: r => r[t + "_h"] ? `${num(r[t + "_h"].over, 0)}% <span class="mut">n=${r[t + "_h"].n}</span>` : ""}])];
+  return `<h3>Actual hit rates against the toughest and softest defences</h3><p class="sub">Defences are ranked on each market by what they allowed per game to that position group going into the week. "Lines" is how often the OVER actually hit on this season's posted consensus lines; the ${H.years} columns use the model's projection as the line (no historical lines). ${H.note || ""} Break-even at -110 is 52.4%. Display only.</p>${table(cols, rows, {id: "hrt"})}`;
+}

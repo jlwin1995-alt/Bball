@@ -9,7 +9,7 @@ from .cfb_model import cfb_core, derive, load_rows, actual_pts, STATS as RAWSTAT
 from .cfb_data import read_csv
 from .model import params, rnd, nsum
 from .scorecard import read_tag
-from . import cfb_lines, cfb_usage, teamstats
+from . import cfb_hitrates, cfb_lines, cfb_usage, teamstats
 
 LOG = "data/log/cfb_log.csv"
 # market key -> (label, actual field, floor): `floor` is the projection size below which a player is not counted in that row
@@ -507,6 +507,7 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
     json.dump(proj, open(f"{out}/projections.json", "w"), separators=(",", ":"))
     json.dump(cfb_usage.usage_trend(rows, {x["team"]: x["conference"] for x in rows if x.get("conference")}, raw=raw, season=season), open(f"{out}/usage_trend.json", "w"), separators=(",", ":"))
     json.dump(games_out, open(f"{out}/games.json", "w"), separators=(",", ":"))
+    json.dump(dict(season=season, years="2025-26", note=cfb_hitrates.NOTE, tiers=cfb_hitrates.tiers_now(rows, games), lines=cfb_hitrates.line_table(rows, games), hist=cfb_hitrates.hist_table()), open(f"{out}/hitrates.json", "w"), separators=(",", ":"))
     props_lines(raw, out, season, week)
     n_nl = noline_flags(proj, f"{out}/lines.json", rows)
     if C.CFB_NOLINE_OUT and n_nl:
