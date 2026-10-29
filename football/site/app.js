@@ -2,7 +2,7 @@
 // ---------- state ----------------------------------------------------------
 const TABS = ["Projections", "Game Board", "Leaders", "Matchups", "Efficiency", "Usage", "Trends", "Weather", "Lines", "Results", "Scorecard", "Backtest", "Config", "Methodology"];
 const D = {};
-let CFG = {preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}, mean: false, detail: false, edgeMin: 4, ppBE: 57.7};
+let CFG = {preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}, mean: false, detail: false, edgeMin: 4, ppBE: 54.4};
 let LINES = [];
 const RES = {}, RES_PENDING = {};                    // results/<season>-<week>.json cache                                     // your own typed lines [{id, stat, line, over, under}]
 let OVR = {};                                       // {playerId: {car, tgt, rec, att}}
@@ -506,7 +506,7 @@ const pages = {
       <div class="bar">${Object.entries(SCORE_LABEL).map(([k, l]) => `<label>${l} <input data-sc="${k}" type="number" step="0.01" style="width:70px" value="${sc[k]}"></label>`).join("")}</div>
       <div class="bar"><label>Edge threshold (pp) <input id="edge" type="number" step="0.5" style="width:70px" value="${CFG.edgeMin}"></label>
         <label>PrizePicks per-leg break-even % <input id="ppbe" type="number" step="0.1" style="width:70px" value="${CFG.ppBE}"></label></div>
-      <p class="mut">The edge threshold is the smallest gap between the model's probability and the book's that the Lines tab will call a pick: below about 4 points you are inside the model's own calibration error. A k-pick PrizePicks entry paying M× needs M^(−1/k) per leg (2 picks at 3× = 57.7%).</p>
+      <p class="mut">The edge threshold is the smallest gap between the model's probability and the book's that the Lines tab will call a pick: below about 4 points you are inside the model's own calibration error. A k-pick PrizePicks entry paying M× needs M^(−1/k) per leg (your current break-even is 54.4%).</p>
       <p class="mut">Median vs mean: Proj Pts lands on the <b>median</b> outcome (the actual beat it 52.5% of the time across 2024-25), which is what you want against a posted line. Scoring is right-skewed, so the mean is about ${num((D.meta.mean_factor - 1) * 100, 0)}% higher: for season-long or DFS expected value use <b>Mean</b>, which multiplies by MEAN_FACTOR = ${D.meta.mean_factor}. Neither is a correction of the other.</p>
       <p><button id="clr">Clear all volume overrides</button></p>`;
   },
@@ -586,7 +586,7 @@ document.addEventListener("change", e => {
   else if (t.id === "lpicks") { F.lpicks = t.checked; render(); }
   else if (t.id === "lstrong") { F.lstrong = t.checked; render(); }
   else if (t.id === "edge") { CFG.edgeMin = +t.value || 0; store.set("cfg", CFG); }
-  else if (t.id === "ppbe") { CFG.ppBE = +t.value || 57.7; store.set("cfg", CFG); render(); }
+  else if (t.id === "ppbe") { CFG.ppBE = +t.value || 54.4; store.set("cfg", CFG); render(); }
   else if (t.classList.contains("ln")) { LINES[+t.dataset.i][t.dataset.f] = t.value; store.set("lines", LINES); render(); }
 });
 document.addEventListener("click", e => {
@@ -602,7 +602,8 @@ document.addEventListener("click", e => {
 });
 
 async function boot() {
-  CFG = {...CFG, ...store.get("cfg", {})}; OVR = store.get("ovr", {}); LINES = store.get("lines", []);
+  { const sv = store.get("cfg", {}); if (sv.ppBE === 57.7) delete sv.ppBE; CFG = {...CFG, ...sv}; }   // break-even default changed to 54.4% (Oct 29): drop the old default from saved settings
+  OVR = store.get("ovr", {}); LINES = store.get("lines", []);
   if (!CFG.scoring || Object.keys(CFG.scoring).some(k => !(k in SCORE_LABEL))) CFG = {...CFG, preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}};
   const names = ["projections", "games", "teams", "matchups", "efficiency", "usage", "trends", "weather", "usage_trend", "hitrates", "coverage", "scorecard", "meta", "lines", "fp_lines"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));

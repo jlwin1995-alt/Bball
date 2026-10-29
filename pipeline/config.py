@@ -155,4 +155,4 @@ ODDS_KEEP_STARTED_HOURS = 5        # keep a game's last PREGAME lines on the sit
 # --- Results tab ---------------------------------------------------------------------------------------------------
 RESULTS_MIN_PROJ_MIN = 15.0        # players projected for fewer minutes are shown but not counted in the headline error numbers
 RESULTS_EDGE_PP = 4.0              # model-vs-line gap (percentage points) that counts as a "pick" when grading line results
-PP_BREAKEVEN = 0.577               # PrizePicks per-leg break-even used to grade PrizePicks picks (2 legs at 3x); edit if you play differently
+PP_BREAKEVEN = 0.544               # PrizePicks per-leg break-even used to grade PrizePicks picks (set to 54.4% on Oct 29 from the actual payout; was 0.577 = 2 legs at 3x). Grading only: not in the settings stamp

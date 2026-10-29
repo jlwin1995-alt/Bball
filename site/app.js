@@ -10,7 +10,7 @@ const PRESETS = {
   FanDuel: {pts: 1, fg3m: 0, reb: 1.2, ast: 1.5, stl: 3, blk: 3, tov: -1},
 };
 const D = {};
-let CFG = {ver: 2, preset: "PrizePicks", scoring: {...PRESETS.PrizePicks}, mean: false, edgeMin: 4, ppBE: 57.7};
+let CFG = {ver: 2, preset: "PrizePicks", scoring: {...PRESETS.PrizePicks}, mean: false, edgeMin: 4, ppBE: 54.4};
 let OVR = {}, LINES = [];
 const store = {
   get(k, d) { try { const v = localStorage.getItem("hm_" + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
@@ -205,7 +205,7 @@ async function loadResultsDay(date) {
 const pct1 = (h, n) => n ? `${(h / n * 100).toFixed(1)}% <span class="mut">(${h}/${n})</span>` : "—";
 
 const warn = e => e != null && Math.abs(e) >= 15 ? ` <span title="An edge this large is usually the model having the minutes or role wrong (injury news, rotation change), not a bargain. Check before trusting it." style="cursor:help">⚠</span>` : "";
-const LBUCKETS = [["50-55", "50–55%"], ["55-57.7", "55–57.7% (under break-even)"], ["57.7-65", "57.7–65%"], ["57-65", "57–65%"], ["60-65", "60–65%"], ["65-70", "65–70%"], ["70-101", "70%+"]];
+const LBUCKETS = [["50-54.4", "50–54.4% (under break-even)"], ["54.4-57.7", "54.4–57.7%"], ["57.7-65", "57.7–65%"], ["57-65", "57–65%"], ["60-65", "60–65%"], ["65-70", "65–70%"], ["70-101", "70%+"]];
 // Calibrated P(win) at the PrizePicks line: 0.5 + beta x (model P - 0.5), beta fitted on the graded record (pipeline/calibrate.py, refit each refresh).
 const calBeta = side => { const c = D.calib; if (!c) return null; const x = c[side] && c[side].beta != null ? c[side] : c.all; return x && x.beta != null ? x.beta : null; };
 const calP = r => { if (r.pw == null || !r.side) return null; const b = calBeta(r.side); return b == null ? null : 0.5 + b * (r.pw - 0.5); };
@@ -801,7 +801,7 @@ const pages = {
       <div class="bar"><label>Scoring preset <select id="preset">${[...Object.keys(PRESETS), "Custom"].map(p => `<option ${CFG.preset === p ? "selected" : ""}>${p}</option>`).join("")}</select></label></div>
       <div class="bar">${STATS.map(row).join("")}</div>
       <div class="bar"><label>Projection type <select id="mean"><option value="0" ${CFG.mean ? "" : "selected"}>Median-style (use vs lines)</option><option value="1" ${CFG.mean ? "selected" : ""}>Mean (use for season-long value)</option></select></label>
-        <label>Line edge threshold (pp) <input id="edge" size="3" value="${CFG.edgeMin}"></label><label title="A k-pick PrizePicks entry paying M× needs M^(-1/k) per leg: 2 picks at 3× = 57.7%. Check the current payout table.">PrizePicks break-even % <input id="ppbe" size="4" value="${CFG.ppBE}"></label><label>Mean factor <b>${D.meta.mean_factor}</b> (pipeline)</label></div>
+        <label>Line edge threshold (pp) <input id="edge" size="3" value="${CFG.edgeMin}"></label><label title="A k-pick PrizePicks entry paying M× needs M^(-1/k) per leg: your current break-even is 54.4%. Check the current payout table.">PrizePicks break-even % <input id="ppbe" size="4" value="${CFG.ppBE}"></label><label>Mean factor <b>${D.meta.mean_factor}</b> (pipeline)</label></div>
       <p class="sub">Double-double / triple-double bonuses are not modelled, so a book's totals can run slightly above the site's.</p>
       <div class="cards">${card2("Rolling window", D.meta.rolling_window + " games")}${card2("Season", D.meta.season)}${card2("Data generated", D.meta.generated.slice(0, 16).replace("T", " ") + " UTC")}</div>
       <h3>Coverage</h3><div class="cards">${Object.entries(D.coverage).map(([k, v]) => card2(k.replace(/_/g, " "), v ?? "—")).join("")}</div>`;
@@ -868,7 +868,7 @@ document.addEventListener("change", e => {
   else if (t.id === "rlines") { F.rlines = t.checked; render(); }
   else if (t.id === "rpicks") { F.rpicks = t.checked; render(); }
   else if (t.id === "edge") { CFG.edgeMin = +t.value || 0; store.set("cfg", CFG); }
-  else if (t.id === "ppbe") { CFG.ppBE = +t.value || 57.7; store.set("cfg", CFG); render(); }
+  else if (t.id === "ppbe") { CFG.ppBE = +t.value || 54.4; store.set("cfg", CFG); render(); }
 });
 document.addEventListener("click", e => {
   const t = e.target;
@@ -886,6 +886,7 @@ document.addEventListener("click", e => {
 
 async function boot() {
   const saved = store.get("cfg", {}); if (saved.ver !== 2 && saved.preset === "DraftKings") { delete saved.preset; delete saved.scoring; }   // default scoring changed to PrizePicks; keep other saved settings
+  if (saved.ppBE === 57.7) delete saved.ppBE;                                   // break-even default changed to 54.4% (Oct 29): drop the old default from saved settings, keep any other value
   CFG = {...CFG, ...saved}; OVR = store.get("ovr", {}); LINES = store.get("lines", []);
   const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "shots", "shotchart", "scorecard", "spread", "lines", "players", "splits", "calib"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
