@@ -386,7 +386,6 @@ id,season,week,home,away,home_spread,total,n_spread,n_total,open_spread,open_tot
 401858425,2026,1,Indiana,North Texas,-40.0,56.75,2,2,-40.5,55.5
 401862823,2026,10,Army,Air Force,-5.5,51.5,1,1,-6.0,52.5
 401858430,2026,1,Nebraska,Ohio,-23.75,47.0,2,2,-23.5,47.5
-401867838,2026,9,Dartmouth,Harvard,9.5,42.5,1,1,10.0,42.5
 401856658,2026,1,Georgia,Tennessee State,-49.25,55.25,2,2,-47.25,55.5
 401856777,2026,1,Cincinnati,Boston College,-7.0,51.25,2,2,-9.5,54.5
 401862695,2026,1,Memphis,Arkansas State,-10.5,52.25,2,2,-10.5,55.5
@@ -395,6 +394,7 @@ id,season,week,home,away,home_spread,total,n_spread,n_total,open_spread,open_tot
 401867969,2026,9,Morgan State,South Carolina State,7.0,52.5,1,1,7.0,51.5
 401858432,2026,1,Ohio State,Ball State,-50.75,56.0,2,2,-50.0,56.5
 401867809,2026,9,Brown,Pennsylvania,-3.0,40.5,1,1,-3.0,40.5
+401867838,2026,9,Dartmouth,Harvard,9.5,44.5,1,1,10.0,42.5
 401867903,2026,9,Central Connecticut,Robert Morris,-10.0,57.5,1,1,-10.0,57.5
 401868362,2026,9,Mississippi Valley State,Alcorn State,11.5,60.5,1,1,11.5,60.5
 401866678,2026,9,Monmouth,Bryant,-13.5,55.5,1,1,-13.5,55.5
