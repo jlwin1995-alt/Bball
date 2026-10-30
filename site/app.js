@@ -85,7 +85,7 @@ function filters(extra = "") {
   return `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}">
   <label>Pos <select id="pos">${["", "G", "F", "C"].map(p => `<option ${F.pos === p ? "selected" : ""} value="${p}">${p || "All"}</option>`).join("")}</select></label>${extra}</div>`;
 }
-const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lside: "", lbucket: "", lcombo: false, lpicks: false, rday: "", vstat: "pts", vpos: "G", sview: "today", smode: "soft", cteam: "", cplayer: "", cheat: "fg", cdots: "all", rmode: null, rlines: false, rpicks: false, range: true};
+const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lside: "", lbucket: "", lcombo: false, lhl: false, lpicks: false, rday: "", vstat: "pts", vpos: "G", sview: "today", smode: "soft", cteam: "", cplayer: "", cheat: "fg", cdots: "all", rmode: null, rlines: false, rpicks: false, range: true};
 const RES = {};                                     // results/<date>.json cache
 function passes(r) {
   if (F.pos && r.pos !== F.pos) return false;
@@ -103,6 +103,7 @@ document.addEventListener("change", e => {
   if (e.target.id === "lstat") { F.lstat = e.target.value; render(true); }
   if (e.target.id === "lgame") { F.lgame = e.target.value; render(true); }
   if (e.target.dataset && e.target.dataset.lv) { LIVE.lines[e.target.dataset.lv] = e.target.value.trim(); store.set("livelines", LIVE.lines); render(true, e.target.id); }
+  if (e.target.id === "lhl") { F.lhl = e.target.checked; render(true); }
   if (e.target.id === "lcombo") { F.lcombo = e.target.checked; render(true); }
   if (e.target.id === "lside") { F.lside = e.target.value; render(true); }
   if (e.target.id === "lbucket") { F.lbucket = e.target.value; render(true); }
@@ -235,6 +236,10 @@ function liveLines() {
   }).filter(Boolean).filter(passes);
   if (F.lstat) rows = rows.filter(r => r.stat === F.lstat);
   if (F.lgame) rows = rows.filter(r => r.game === F.lgame);
+  const HL = D.highlights, hlOf = {};
+  for (const t of (HL?.today || [])) hlOf[t.pid + "|" + t.stat] = t;
+  const hlFlag = r => { const t = hlOf[r.r.pid + "|" + r.stat]; return t && t.side === (r.side === "OVER" ? "O" : "U") ? t : null; };
+  if (F.lhl) rows = rows.filter(r => hlFlag(r));
   if (F.lside) rows = rows.filter(r => r.side === F.lside);                   // PrizePicks side (the better side at the PrizePicks line)
   if (F.lbucket) { const [lo, hi] = F.lbucket.split("-").map(Number); rows = rows.filter(r => r.pw != null && r.pw * 100 >= lo && r.pw * 100 < hi); }
   if (F.lpicks) rows = rows.filter(r => (r.pick && r.pick !== "OUT" && r.pick !== "LIVE") || (r.ppPick && r.ppPick !== "OUT" && r.ppPick !== "LIVE"));
@@ -250,6 +255,9 @@ function liveLines() {
     {k: "pp", h: "PrizePicks", v: r => r.pp, f: r => r.pp ?? ""},
     {k: "gap", h: "PP − cons", t: "Positive: PrizePicks line is higher than the books' (easier UNDER); negative: lower (easier OVER)", v: r => r.gap, f: r => r.gap == null ? "" : `<span class="${r.gap < 0 ? "good" : r.gap > 0 ? "bad" : "mut"}">${r.gap > 0 ? "+" : ""}${num(r.gap)}</span>`},
     {k: "pw", h: "PP P(win)", t: "Model probability of the better side at the PrizePicks line", v: r => r.pw, f: r => r.pw == null ? "" : `${r.side[0]} ${num(r.pw * 100)}%`},
+    {k: "hl", h: "Flag", l: 1, t: "BACKED: a leg type whose graded PrizePicks record has held above break-even so far (small sample, found by looking at many cuts: best supported, not an edge). CAUTION: the model's own 70%+ Overs, a cold spot. Hover the pill for the record.", v: r => { const t = hlFlag(r); return t ? (t.kind === "backed" ? 2 : 1) : 0; },
+      f: r => { const t = hlFlag(r); if (!t) return ""; const sg = (HL.segments || []).find(x => x.id === t.seg) || {};
+        return `<span class="pill ${t.kind === "backed" ? "lean-strong" : "hot"}" title="${esc(sg.label)}: ${num((sg.hit || 0) * 100, 1)}% over ${sg.n} graded lines (first half of the dates ${num((sg.hitA || 0) * 100, 0)}%, second ${num((sg.hitB || 0) * 100, 0)}%)">${t.kind === "backed" ? "BACKED" : "CAUTION"}</span>`; }},
     {k: "cal", h: "Cal P(win)", t: CAL_TIP(), v: r => calP(r), f: r => { const c = calP(r); return c == null ? "" : `<span class="${c >= BE ? "good" : "mut"}">${num(c * 100, 1)}%</span>`; }},
     {k: "ppEdge", h: "PP edge pp", t: `vs your break-even of ${CFG.ppBE}% (Config)`, v: r => r.ppEdge, f: r => r.ppEdge == null ? "" : `<span class="${r.ppEdge > 0 ? "good" : "bad"}">${num(r.ppEdge)}</span>`},
     {k: "ppPick", h: "PP pick", l: 1, f: r => r.ppPick ? `<b>${r.ppPick}</b>${r.ppPick === "OUT" || r.ppPick === "LIVE" ? "" : warn(r.ppEdge)}` : ""}];
@@ -258,9 +266,17 @@ function liveLines() {
     <label>Game <select id="lgame"><option value="">All</option>${games.map(g => `<option ${F.lgame === g ? "selected" : ""}>${esc(g)}</option>`).join("")}</select></label>
     <label>Side <select id="lside"><option value="">Over + Under</option><option value="OVER" ${F.lside === "OVER" ? "selected" : ""}>Overs</option><option value="UNDER" ${F.lside === "UNDER" ? "selected" : ""}>Unders</option></select></label>
     <label title="Model probability of the better side at the PrizePicks line (PP P(win)). Filters to rows that have a PrizePicks line.">PP P(win) <select id="lbucket"><option value="">Any</option>${LBUCKETS.map(([v, t]) => `<option value="${v}" ${F.lbucket === v ? "selected" : ""}>${t}</option>`).join("")}</select></label>
-    <label><input type="checkbox" id="lpicks" ${F.lpicks ? "checked" : ""}> picks only</label>`;
+    <label><input type="checkbox" id="lpicks" ${F.lpicks ? "checked" : ""}> picks only</label>
+    <label><input type="checkbox" id="lhl" ${F.lhl ? "checked" : ""}> flagged only</label>`;
+  const hlCard = (() => {
+    if (!HL || !(HL.segments || []).some(x => x.active)) return "";
+    const on = (HL.segments || []).filter(x => x.active), by = id => (HL.today || []).filter(t => t.seg === id);
+    const seg = x => { const legs = by(x.id).slice(0, 8), more = by(x.id).length - legs.length;
+      return `<li><b>${esc(x.label)}</b> <span class="mut">${num(x.hit * 100, 1)}% over ${x.n} graded lines (halves ${num((x.hitA || 0) * 100, 0)}% / ${num((x.hitB || 0) * 100, 0)}%)${x.kind === "caution" ? " — skip or fade" : ""}</span>
+        ${legs.length ? `<br>${legs.map(t => `${esc(t.name)} <span class="mut">${esc(t.team)}</span> ${LABEL[t.stat]} ${t.side === "O" ? "O" : "U"} ${t.line} <span class="mut">(${num(t.pw * 100, 0)}%${t.status ? ", " + esc(t.status) : ""})</span>`).join(" · ")}${more > 0 ? ` <span class="mut">+${more} more</span>` : ""}` : `<br><span class="mut">none tonight</span>`}</li>`; };
+    return `<div class="doc"><h3>Today's highlights</h3><p class="sub">Leg types whose graded PrizePicks record has held up (break-even ${num(HL.breakeven * 100, 1)}%), recomputed on every refresh and shown only while they hold. <b>Best supported so far, not an edge:</b> they were found by looking at many cuts of a few hundred legs. Calibrated P(win) still says about 50–53% for everything.</p><ul class="movers">${on.map(seg).join("")}</ul></div>`; })();
   return `<p class="sub">Sportsbook consensus (median line; vig removed) beside PrizePicks, with the model's edge against each${credits}. Updated ${mins < 90 ? mins + " min" : Math.round(mins / 60) + " h"} ago${mins > 360 ? " — <b>stale, lines move</b>" : ""}. DFS prices are nominal, so PrizePicks edge is measured against your break-even (Config) rather than odds. A k-pick entry paying M× needs M^(−1/k) per leg. <b>Cal P(win)</b> is the model's PP P(win) shrunk toward 50% by how much it has actually held up on graded lines (hover the header for the numbers): provisional, to be reviewed Nov 3.</p>
-    ${filters(extra)}${table(cols, rows, {id: "live", sort: {key: "edge"}})}`;
+    ${hlCard}${filters(extra)}${table(cols, rows, {id: "live", sort: {key: "edge"}})}`;
 }
 
 // Softest and toughest 10 defences for one position and stat, with the split-half reliability beside it. Display only (see the note under the heading).
@@ -889,7 +905,7 @@ async function boot() {
   const saved = store.get("cfg", {}); if (saved.ver !== 2 && saved.preset === "DraftKings") { delete saved.preset; delete saved.scoring; }   // default scoring changed to PrizePicks; keep other saved settings
   if (saved.ppBE === 57.7) delete saved.ppBE;                                   // break-even default changed to 54.4% (Oct 29): drop the old default from saved settings, keep any other value
   CFG = {...CFG, ...saved}; OVR = store.get("ovr", {}); LINES = store.get("lines", []);
-  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "shots", "shotchart", "scorecard", "spread", "lines", "players", "splits", "calib"];
+  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "shots", "shotchart", "scorecard", "spread", "lines", "players", "splits", "calib", "highlights"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   try { const r = await fetch("data/results/index.json", {cache: "no-cache"}); if (r.ok) D.rIdx = await r.json(); } catch (e) {}
   try { const r = await fetch("data/results_rehearsal/index.json", {cache: "no-cache"}); if (r.ok) D.rIdxR = await r.json(); } catch (e) {}
