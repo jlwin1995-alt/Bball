@@ -178,3 +178,19 @@ function hitrateTable() {
       {k: t + "_h", h: `${lab[t]}: ${H.years} over projection %`, t: `${H.years} walk-forward: share of games where the actual went over the model's projection (a line at the projection)`, v: r => r[t + "_h"]?.over, f: r => r[t + "_h"] ? `${num(r[t + "_h"].over, 0)}% <span class="mut">n=${r[t + "_h"].n}</span>` : ""}])];
   return `<h3>Actual hit rates against the toughest and softest defences</h3><p class="sub">Defences are ranked on each market by what they allowed per game to that position group going into the week. "Lines" is how often the OVER actually hit on this season's posted consensus lines; the ${H.years} columns use the model's projection as the line (no historical lines). ${H.note || ""} Break-even at -110 is 52.4%. Display only.</p>${table(cols, rows, {id: "hrt"})}`;
 }
+
+// High-total games: the market total, in tiers fitted on completed games (README "High-scoring games"). Players in the top total tercile beat their projections more often (NFL 1.17 actual / projected
+// vs 1.10; college 1.12 vs 1.07); nothing in the projections uses the total. Before a college total is posted, the teams' scoring and points-allowed averages stand in (top quintile).
+const TOT_TIERS = {nfl: {hi: 47, shoot: 50, tip: "NFL, weeks 5+ of 2023-25 (855 games): market total 50+ averaged 53.1 actual points (34% reached 55+), under 45 averaged 42.3 (16%). Players in the top-third totals (47+) beat their projection 53% of the time (actual / projected points 1.17) against 49% (1.10) in lower-total games."},
+  cfb: {hi: 55, shoot: 62, exp: 58, tip: "College, weeks 5+ of 2025-26 (802 games): market total 62+ averaged 65.3 actual points (56% reached 65+), under 55 averaged 49.4 (17.5%). Players in the top-third totals (55+) beat their projection 50% of the time (actual / projected points 1.12) against 46% (1.07)."}};
+function totalFlag(g, college) {
+  const T = TOT_TIERS[college ? "cfb" : "nfl"];
+  if (g.total != null) {
+    const lvl = g.total >= T.shoot ? "shoot" : g.total >= T.hi ? "high" : "";
+    return lvl ? {lvl, label: lvl === "shoot" ? "SHOOTOUT" : "HIGH TOTAL", tip: `Market total ${g.total}. ${T.tip}`} : null;
+  }
+  if (college && g.exp_total != null && g.exp_total >= T.exp) return {lvl: "model", label: "HIGH TOTAL (model)", tip: `No market total yet; the teams' scoring and points-allowed averages give an expected total of ${g.exp_total} (top fifth of games: actual 58.3 vs 50.8 for the rest, 35% reaching 65+ against 20%). ${T.tip}`};
+  return null;
+}
+const totalPill = (g, college) => { const f = totalFlag(g, college); return f ? ` <span class="pill ${f.lvl === "shoot" ? "hot" : "lean-lean"}" title="${esc(f.tip)}">${f.label}</span>` : ""; };
+const totalTag = (g, college) => { const f = totalFlag(g, college); return f ? " · " + f.label : ""; };
