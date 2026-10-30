@@ -503,7 +503,13 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
         dr.append(dict(team=t, conf=s["conf"].get(t, ""), car=a["car"], ypc=r(a["ry"] / a["car"], 2) if a["car"] else None, rush=r(core["def_rush"].get(t, 1.0)),
                        rec=a["rec"], ypr_a=r(a["recy"] / a["rec"], 2) if a["rec"] else None, recadj=r(core["def_rec"].get(t, 1.0)), pass_=r(core["def_pass"].get(t, 1.0)),
                        comp=r(core["def_comp"].get(t, 1.0)), faces=", ".join(sorted(faces.get(t, [])))))
-    json.dump(teamstats.build(teamstats.cfb_team_games(rows, games), keep=teamstats.fbs_teams(games)), open(f"{out}/teams.json", "w"), separators=(",", ":"))
+    tstats = teamstats.build(teamstats.cfb_team_games(rows, games), keep=teamstats.fbs_teams(games))
+    json.dump(tstats, open(f"{out}/teams.json", "w"), separators=(",", ":"))
+    # expected total from each team's scoring and what it allows (used for the high-total flag before the books post a total; README "High-scoring games")
+    for g in games_out:
+        h, a = tstats["teams"].get(g["home"]), tstats["teams"].get(g["away"])
+        if h and a and min(h["g"], a["g"]) >= 3 and None not in (h.get("ppg"), h.get("papg"), a.get("ppg"), a.get("papg")):
+            g["exp_total"] = round(((h["ppg"] + a["papg"]) + (a["ppg"] + h["papg"])) / 2, 1)
     json.dump(proj, open(f"{out}/projections.json", "w"), separators=(",", ":"))
     json.dump(cfb_usage.usage_trend(rows, {x["team"]: x["conference"] for x in rows if x.get("conference")}, raw=raw, season=season), open(f"{out}/usage_trend.json", "w"), separators=(",", ":"))
     json.dump(games_out, open(f"{out}/games.json", "w"), separators=(",", ":"))
