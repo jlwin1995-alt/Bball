@@ -1,9 +1,9 @@
 {
- "question": "Yaxel Lendeborg stats this season",
+ "question": "Anthony Black stats without Desmond Bane in 2025-26",
  "status": 200,
  "rate_headers": {
   "x-quota-limit": "1500",
-  "x-quota-remaining": "1499",
+  "x-quota-remaining": "1491",
   "x-quota-reset": "2026-11-30T21:44:10.000Z",
   "x-ratelimit-limit": "12",
   "x-ratelimit-remaining": "11"
@@ -11,11 +11,11 @@
  "response": {
   "type": "stats",
   "input": {
-   "original": "Yaxel Lendeborg stats this season"
+   "original": "Anthony Black stats without Desmond Bane in 2025-26"
   },
   "answer": {
-   "text": "Yaxel Lendeborg has averaged 22.6 points, 9.2 rebounds and 4.0 assists in 5 games this season.",
-   "markdown": "[Yaxel Lendeborg](https://www.statmuse.com/nba/player/yaxel-lendeborg-30683) has averaged 22.6 points, 9.2 rebounds and 4.0 assists in 5 games this season."
+   "text": "I understood your question, but there were no results.",
+   "markdown": "I understood your question, but there were no results."
   },
   "query": {
    "stats": [
@@ -59,178 +59,7 @@
    ]
   },
   "data": {
-   "results": [
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 30683,
-       "longName": "Yaxel Lendeborg"
-      },
-      {
-       "type": "seasonYear",
-       "seasonYear": 2027,
-       "display": "2026-27"
-      },
-      {
-       "type": "team",
-       "teamId": 6,
-       "shortName": "Warriors",
-       "abbreviation": "GSW"
-      }
-     ],
-     "stats": {
-      "GamesPlayed": {
-       "value": 5,
-       "display": "5"
-      },
-      "MinutesPlayedPerGame": {
-       "value": 33.6,
-       "display": "33.6"
-      },
-      "PointsPerGame": {
-       "value": 22.6,
-       "display": "22.6"
-      },
-      "ReboundsPerGame": {
-       "value": 9.2,
-       "display": "9.2"
-      },
-      "AssistsPerGame": {
-       "value": 4,
-       "display": "4.0"
-      },
-      "StealsPerGame": {
-       "value": 1,
-       "display": "1.0"
-      },
-      "BlocksPerGame": {
-       "value": 0.6,
-       "display": "0.6"
-      },
-      "FieldGoalsMadePerGame": {
-       "value": 7.6,
-       "display": "7.6"
-      },
-      "FieldGoalsAttemptedPerGame": {
-       "value": 16,
-       "display": "16.0"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.475,
-       "display": "47.5"
-      },
-      "ThreePointsMadePerGame": {
-       "value": 2.2,
-       "display": "2.2"
-      },
-      "ThreePointsAttemptedPerGame": {
-       "value": 6.2,
-       "display": "6.2"
-      },
-      "ThreePointPercentage": {
-       "value": 0.35483871,
-       "display": "35.5"
-      },
-      "FreeThrowsMadePerGame": {
-       "value": 5.2,
-       "display": "5.2"
-      },
-      "FreeThrowsAttemptedPerGame": {
-       "value": 7,
-       "display": "7.0"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.74285714,
-       "display": "74.3"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.59224319,
-       "display": "59.2"
-      },
-      "OffensiveReboundsPerGame": {
-       "value": 4,
-       "display": "4.0"
-      },
-      "DefensiveReboundsPerGame": {
-       "value": 5.2,
-       "display": "5.2"
-      },
-      "TurnoversPerGame": {
-       "value": 3.6,
-       "display": "3.6"
-      },
-      "MinutesPlayed": {
-       "value": 168,
-       "display": "168"
-      },
-      "Points": {
-       "value": 113,
-       "display": "113"
-      },
-      "Rebounds": {
-       "value": 46,
-       "display": "46"
-      },
-      "Assists": {
-       "value": 20,
-       "display": "20"
-      },
-      "Steals": {
-       "value": 5,
-       "display": "5"
-      },
-      "Blocks": {
-       "value": 3,
-       "display": "3"
-      },
-      "FieldGoalsMade": {
-       "value": 38,
-       "display": "38"
-      },
-      "FieldGoalsAttempted": {
-       "value": 80,
-       "display": "80"
-      },
-      "ThreePointsMade": {
-       "value": 11,
-       "display": "11"
-      },
-      "ThreePointsAttempted": {
-       "value": 31,
-       "display": "31"
-      },
-      "FreeThrowsMade": {
-       "value": 26,
-       "display": "26"
-      },
-      "FreeThrowsAttempted": {
-       "value": 35,
-       "display": "35"
-      },
-      "OffensiveRebounds": {
-       "value": 20,
-       "display": "20"
-      },
-      "DefensiveRebounds": {
-       "value": 26,
-       "display": "26"
-      },
-      "Turnovers": {
-       "value": 18,
-       "display": "18"
-      },
-      "PersonalFouls": {
-       "value": 12,
-       "display": "12"
-      },
-      "PlusMinus": {
-       "value": 4,
-       "display": "+4"
-      }
-     }
-    }
-   ]
+   "results": []
   }
  }
 }

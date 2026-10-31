@@ -1,19 +1,230 @@
 {
- "question": "NBA player prop lines for tonight",
- "status": 400,
+ "question": "Desmond Bane stats second half 2025-26",
+ "status": 200,
  "rate_headers": {
   "x-quota-limit": "1500",
-  "x-quota-remaining": "1493",
+  "x-quota-remaining": "1485",
   "x-quota-reset": "2026-11-30T21:44:10.000Z",
   "x-ratelimit-limit": "12",
   "x-ratelimit-remaining": "11"
  },
  "response": {
-  "type": "https://api.statmuse.com/errors/not-understood",
-  "status": 400,
-  "title": "Not Understood",
-  "detail": "I didn't understand your question.",
-  "instance": "/sports/nba/v1/ask",
-  "traceId": "aabb6173-9870-46f5-b76f-c15539956ab7"
+  "type": "stats",
+  "input": {
+   "original": "Desmond Bane stats second half 2025-26"
+  },
+  "answer": {
+   "text": "Desmond Bane averaged 10.6 points, 2.1 assists and 2.0 rebounds in 82 games in the second half in 2025-26.",
+   "markdown": "[Desmond Bane](https://www.statmuse.com/nba/player/desmond-bane-10181) averaged 10.6 points, 2.1 assists and 2.0 rebounds in 82 games in the second half in 2025-26."
+  },
+  "query": {
+   "stats": [
+    "GamesPlayed",
+    "MinutesPlayedPerGame",
+    "PointsPerGame",
+    "ReboundsPerGame",
+    "AssistsPerGame",
+    "StealsPerGame",
+    "BlocksPerGame",
+    "FieldGoalsMadePerGame",
+    "FieldGoalsAttemptedPerGame",
+    "FieldGoalPercentage",
+    "ThreePointsMadePerGame",
+    "ThreePointsAttemptedPerGame",
+    "ThreePointPercentage",
+    "FreeThrowsMadePerGame",
+    "FreeThrowsAttemptedPerGame",
+    "FreeThrowPercentage",
+    "TrueShootingPercentage",
+    "OffensiveReboundsPerGame",
+    "DefensiveReboundsPerGame",
+    "TurnoversPerGame",
+    "MinutesPlayed",
+    "Points",
+    "Rebounds",
+    "Assists",
+    "Steals",
+    "Blocks",
+    "FieldGoalsMade",
+    "FieldGoalsAttempted",
+    "ThreePointsMade",
+    "ThreePointsAttempted",
+    "FreeThrowsMade",
+    "FreeThrowsAttempted",
+    "OffensiveRebounds",
+    "DefensiveRebounds",
+    "Turnovers",
+    "PersonalFouls",
+    "PlusMinus"
+   ]
+  },
+  "data": {
+   "results": [
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 10181,
+       "longName": "Desmond Bane"
+      },
+      {
+       "type": "seasonYear",
+       "seasonYear": 2026,
+       "display": "2025-26"
+      }
+     ],
+     "stats": {
+      "GamesPlayed": {
+       "value": 82,
+       "display": "82"
+      },
+      "MinutesPlayedPerGame": {
+       "value": 16.9495935,
+       "display": "16.9"
+      },
+      "PointsPerGame": {
+       "value": 10.56097561,
+       "display": "10.6"
+      },
+      "ReboundsPerGame": {
+       "value": 2.03658537,
+       "display": "2.0"
+      },
+      "AssistsPerGame": {
+       "value": 2.06097561,
+       "display": "2.1"
+      },
+      "StealsPerGame": {
+       "value": 0.40243902,
+       "display": "0.4"
+      },
+      "BlocksPerGame": {
+       "value": 0.26829268,
+       "display": "0.3"
+      },
+      "FieldGoalsMadePerGame": {
+       "value": 3.7804878,
+       "display": "3.8"
+      },
+      "FieldGoalsAttemptedPerGame": {
+       "value": 7.6097561,
+       "display": "7.6"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.49679487,
+       "display": "49.7"
+      },
+      "ThreePointsMadePerGame": {
+       "value": 1.01219512,
+       "display": "1.0"
+      },
+      "ThreePointsAttemptedPerGame": {
+       "value": 2.42682927,
+       "display": "2.4"
+      },
+      "ThreePointPercentage": {
+       "value": 0.41708543,
+       "display": "41.7"
+      },
+      "FreeThrowsMadePerGame": {
+       "value": 1.98780488,
+       "display": "2.0"
+      },
+      "FreeThrowsAttemptedPerGame": {
+       "value": 2.20731707,
+       "display": "2.2"
+      },
+      "FreeThrowPercentage": {
+       "value": 0.90055249,
+       "display": "90.1"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.6153715,
+       "display": "61.5"
+      },
+      "OffensiveReboundsPerGame": {
+       "value": 0.57317073,
+       "display": "0.6"
+      },
+      "DefensiveReboundsPerGame": {
+       "value": 1.46341463,
+       "display": "1.5"
+      },
+      "TurnoversPerGame": {
+       "value": 0.91463415,
+       "display": "0.9"
+      },
+      "MinutesPlayed": {
+       "value": 1389.86666667,
+       "display": "1,390"
+      },
+      "Points": {
+       "value": 866,
+       "display": "866"
+      },
+      "Rebounds": {
+       "value": 167,
+       "display": "167"
+      },
+      "Assists": {
+       "value": 169,
+       "display": "169"
+      },
+      "Steals": {
+       "value": 33,
+       "display": "33"
+      },
+      "Blocks": {
+       "value": 22,
+       "display": "22"
+      },
+      "FieldGoalsMade": {
+       "value": 310,
+       "display": "310"
+      },
+      "FieldGoalsAttempted": {
+       "value": 624,
+       "display": "624"
+      },
+      "ThreePointsMade": {
+       "value": 83,
+       "display": "83"
+      },
+      "ThreePointsAttempted": {
+       "value": 199,
+       "display": "199"
+      },
+      "FreeThrowsMade": {
+       "value": 163,
+       "display": "163"
+      },
+      "FreeThrowsAttempted": {
+       "value": 181,
+       "display": "181"
+      },
+      "OffensiveRebounds": {
+       "value": 47,
+       "display": "47"
+      },
+      "DefensiveRebounds": {
+       "value": 120,
+       "display": "120"
+      },
+      "Turnovers": {
+       "value": 75,
+       "display": "75"
+      },
+      "PersonalFouls": {
+       "value": 140,
+       "display": "140"
+      },
+      "PlusMinus": {
+       "value": 18,
+       "display": "+18"
+      }
+     }
+    }
+   ]
+  }
  }
 }
