@@ -194,6 +194,10 @@ def cfb_core(rows, matchup, conf, P):
             want = last_n.get(PL[i]["team"])
             if want and len(PL[i]["weeks"]) >= 2 and not any(x["week"] in want for x in PL[i]["weeks"]):
                 absent_w[i] = float(P.get("CFB_ABSENT_W", 0.0))
+    out_qb = {i for i in pool if i in (P.get("CFB_OUT_IDS") or ()) and is_qb(PL[i])}
+    out_qb_teams = {PL[i]["team"] for i in out_qb}
+    for i in out_qb:                                            # an out quarterback's attempts are not part of the team's weighted attempts at all
+        p_play[i] = 0.0
     for i in pool:                                              # players an outside signal says are out (no prop line on a priced team): same treatment
         if i in (P.get("CFB_OUT_IDS") or ()):
             absent_w[i] = float(P.get("CFB_ABSENT_W", 0.0))
@@ -211,7 +215,10 @@ def cfb_core(rows, matchup, conf, P):
                 continue
             tot = nsum(raw[i][k] * (p_play.get(i, 1.0) if k == "att" else absent_w.get(i, 1.0)) for i in pool if PL[i]["team"] == t)
             if tot > 0:
-                scale[t][k] = max(1 - C.CFB_TEAM_SCALE_CAP, min(1 + C.CFB_TEAM_SCALE_CAP, team_base[t][k] / tot))
+                hi = C.CFB_TEAM_SCALE_CAP
+                if k == "att" and any(i in out_qb for i in pool if PL[i]["team"] == t):
+                    hi = P.get("CFB_OUT_QB_CAP", 10.0)            # the starter is out (manual override): the backup takes the team's attempts, not a +20% nudge
+                scale[t][k] = max(1 - C.CFB_TEAM_SCALE_CAP, min(1 + hi, team_base[t][k] / tot))
     # team projected volume after the rescale, so a share adds to 100% across the team (receiving share is a share of RECEPTIONS)
     team_car, team_rec = {}, {}
     for i in ids:
@@ -224,6 +231,9 @@ def cfb_core(rows, matchup, conf, P):
         p = PL[i]
         m = matchup[p["team"]]
         car, rec, att = (raw[i][k] * scale[p["team"]][k] for k in ("car", "rec", "att"))
+        if p["team"] in out_qb_teams and is_qb(p):
+            # the starter is out (manual override): the named replacement throws the team's attempts, every other quarterback keeps his own garbage-time share
+            att = raw[i]["att"] * (min(P.get("CFB_OUT_QB_CAP", 10.0), team_base[p["team"]]["att"] * 0.97 / raw[i]["att"]) if i in (P.get("CFB_STARTER_IDS") or ()) and raw[i]["att"] > 0 else 1.0)
         if qb_fixed and is_qb(p):
             car = raw[i]["car"]
         if car < 0.5 and rec < 0.5 and att < 1:
