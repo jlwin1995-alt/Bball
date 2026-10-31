@@ -549,6 +549,16 @@ const pages = {
       }
       return out.join(" ");
     };
+    // teammates with / without a rotation man who is out tonight, from our box scores since he joined the team (display only; see pipeline/absence.py)
+    const ABS = D.absence?.players || {}, sgn = (x, d = 1) => (x >= 0 ? "+" : "") + num(x, d), lastName = n => n.replace(/ (Jr\.|Sr\.|II|III|IV)$/, "").split(" ").pop();
+    const absCell = r => {
+      const rows = ABS[r.pid]; if (!rows || r.c.min === 0) return "";
+      return [...rows].sort((a, b) => Math.abs(b[12] - b[11]) - Math.abs(a[12] - a[11])).slice(0, 2).map(x => {
+        const [sn, non, noff] = x, dm = x[4] - x[3], df = x[12] - x[11], weak = noff < 5;
+        const tip = `${r.name} in ${non} games with ${sn} vs ${noff} games without him (same team, since ${sn} joined): minutes ${num(x[3])} / ${num(x[4])}, points ${num(x[5])} / ${num(x[6])}, rebounds ${num(x[7])} / ${num(x[8])}, assists ${num(x[9])} / ${num(x[10])}, fantasy points ${num(x[11])} / ${num(x[12])}. The games without him often have other absences too. Display only: a 2025-26 test found these splits add little beyond the projection.${weak ? " Fewer than 5 games without him: treat as noise." : ""}`;
+        return `<span class="${weak ? "mut" : df >= 3 ? "good" : df <= -3 ? "bad" : ""}" title="${esc(tip)}">no ${esc(lastName(sn))} ${sgn(dm)}m ${sgn(df)} FP (${noff}g)</span>`;
+      }).join("<br>");
+    };
     const games = [...new Set(D.projections.filter(p => p.home).map(p => p.team + "|" + p.opp))].sort();
     F.game = F.game && games.includes(F.game) ? F.game : games[0];
     const [home, away] = (F.game || "|").split("|");
@@ -559,13 +569,15 @@ const pages = {
         ...["pts", "reb", "ast", "fg3m"].map(s => ({k: "c" + s, h: LABEL[s], t: "Projection [posted line]. Line = sportsbook consensus, else PrizePicks. Green O / orange U = the model is past your edge threshold (Config) on that side; hover for each book's line.",
           v: r => cellVal(r, s), f: r => boardCell(r, s)})),
         {k: "cfp", h: "FP", v: r => r.c.fp, f: r => `<b>${boardCell(r, "fp")}</b>`},
+        {k: "cab", h: "Without his teammate", c: "opt", l: 1, t: "How he has done in games without a rotation teammate who is out tonight (same team, box scores since that teammate joined): change in minutes and fantasy points vs the games WITH him, and the number of games without. Green / red = 3+ fantasy points either way; grey = under 5 games without. Hover for the full split. Display only.", v: r => Math.max(0, ...(ABS[r.pid] || []).map(x => Math.abs(x[12] - x[11]))), f: absCell},
         {k: "cvs", h: "Opp vs pos", c: "opt", l: 1, t: "Where the opposing defence ranks against his position (guards / forwards / centers) on that stat: ▲ = among the softest 10 of 30, ▼ = among the toughest 10; the number is the rank. Grey = split-half reliability under 0.2 (mostly noise). Display only: it is not in the projections.", v: r => { const x = vsRank[r.opp]?.[r.pos + "_pts"]; return x ? x.rank : 99; }, f: vsCell},
         {k: "csp", h: "Over proj vs this D", c: "opt", l: 1, t: "Games he beat his own pregame projection against defences like tonight's: ▲ = opponent is among the softest 10 for that stat, ▼ = among the toughest 10; over / games, since 2024-25. Grey = under 5 games. Display only: a 2024-25 / 2025-26 test found this record does not predict his next game.", f: splitCell}];
-      return `<div><h3>${esc(t)} ${t === home ? "(home)" : "(away)"}</h3>${table(cols, rows, {id: "gb" + t, tight: true, sort: {key: "cfp"}, rowClass: r => r.c.min === 0 ? "out" : ""})}</div>`;
+      const st = (D.absence?.stars?.[t] || []).map(x => `${esc(x.name)} (${num(x.min)} min)`).join(", ");
+      return `<div><h3>${esc(t)} ${t === home ? "(home)" : "(away)"}</h3>${st ? `<p class="sub">Rotation out: ${st}</p>` : ""}${table(cols, rows, {id: "gb" + t, tight: true, sort: {key: "cfp"}, rowClass: r => r.c.min === 0 ? "out" : ""})}</div>`;
     };
     const h0 = D.projections.find(p => p.team === home && p.exp_margin != null);
     const env = h0 ? ` Expected margin ${esc(home)} ${h0.exp_margin >= 0 ? "+" : ""}${num(h0.exp_margin)} (from each team's average point differential, a stand-in for the spread); pace ${h0.pace_f >= 1 ? "+" : ""}${num((h0.pace_f - 1) * 100)}% vs league.` : "";
-    return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected fantasy points. [Line] = consensus, else PrizePicks; <b class="good">O</b> / <b class="bad">U</b> = a side past your edge threshold; grey = projection ± a typical miss (Methodology). <b>Opp vs pos</b> flags up to two stats where the opposing defence is among the softest (▲) or toughest (▼) 10 against his position, reliable ones first; grey means the stat is mostly noise so far.${env}</p>
+    return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected fantasy points. [Line] = consensus, else PrizePicks; <b class="good">O</b> / <b class="bad">U</b> = a side past your edge threshold; grey = projection ± a typical miss (Methodology). <b>Opp vs pos</b> flags up to two stats where the opposing defence is among the softest (▲) or toughest (▼) 10 against his position, reliable ones first; grey means the stat is mostly noise so far. <b>Without his teammate</b> shows how he has done when a rotation teammate who is out tonight has missed games (small samples; display only).${env}</p>
       <div class="bar">${rangeBox()}<select id="game">${games.map(g => `<option value="${g}" ${g === F.game ? "selected" : ""}>${g.split("|")[1]} @ ${g.split("|")[0]}</option>`).join("")}</select></div>
       <div class="two">${mk(away)}${mk(home)}</div>`;
   },
@@ -905,7 +917,7 @@ async function boot() {
   const saved = store.get("cfg", {}); if (saved.ver !== 2 && saved.preset === "DraftKings") { delete saved.preset; delete saved.scoring; }   // default scoring changed to PrizePicks; keep other saved settings
   if (saved.ppBE === 57.7) delete saved.ppBE;                                   // break-even default changed to 54.4% (Oct 29): drop the old default from saved settings, keep any other value
   CFG = {...CFG, ...saved}; OVR = store.get("ovr", {}); LINES = store.get("lines", []);
-  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "shots", "shotchart", "scorecard", "spread", "lines", "players", "splits", "calib", "highlights"];
+  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "shots", "shotchart", "scorecard", "spread", "lines", "players", "splits", "calib", "highlights", "absence"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   try { const r = await fetch("data/results/index.json", {cache: "no-cache"}); if (r.ok) D.rIdx = await r.json(); } catch (e) {}
   try { const r = await fetch("data/results_rehearsal/index.json", {cache: "no-cache"}); if (r.ok) D.rIdxR = await r.json(); } catch (e) {}
