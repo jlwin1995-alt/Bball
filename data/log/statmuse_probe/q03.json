@@ -1,0 +1,236 @@
+{
+ "question": "Jayson Tatum points per game in 2022-23",
+ "status": 200,
+ "rate_headers": {
+  "x-quota-limit": "1500",
+  "x-quota-remaining": "1497",
+  "x-quota-reset": "2026-11-30T21:44:10.000Z",
+  "x-ratelimit-limit": "12",
+  "x-ratelimit-remaining": "11"
+ },
+ "response": {
+  "type": "stats",
+  "input": {
+   "original": "Jayson Tatum points per game in 2022-23"
+  },
+  "answer": {
+   "text": "Jayson Tatum averaged 30.1 points per game in 2022-23.",
+   "markdown": "[Jayson Tatum](https://www.statmuse.com/nba/player/jayson-tatum-9582) averaged 30.1 points per game in 2022-23."
+  },
+  "query": {
+   "stats": [
+    "PointsPerGame",
+    "GamesPlayed",
+    "MinutesPlayedPerGame",
+    "ReboundsPerGame",
+    "AssistsPerGame",
+    "StealsPerGame",
+    "BlocksPerGame",
+    "FieldGoalsMadePerGame",
+    "FieldGoalsAttemptedPerGame",
+    "FieldGoalPercentage",
+    "ThreePointsMadePerGame",
+    "ThreePointsAttemptedPerGame",
+    "ThreePointPercentage",
+    "FreeThrowsMadePerGame",
+    "FreeThrowsAttemptedPerGame",
+    "FreeThrowPercentage",
+    "TrueShootingPercentage",
+    "OffensiveReboundsPerGame",
+    "DefensiveReboundsPerGame",
+    "TurnoversPerGame",
+    "MinutesPlayed",
+    "Points",
+    "Rebounds",
+    "Assists",
+    "Steals",
+    "Blocks",
+    "FieldGoalsMade",
+    "FieldGoalsAttempted",
+    "ThreePointsMade",
+    "ThreePointsAttempted",
+    "FreeThrowsMade",
+    "FreeThrowsAttempted",
+    "OffensiveRebounds",
+    "DefensiveRebounds",
+    "Turnovers",
+    "PersonalFouls",
+    "PlusMinus"
+   ]
+  },
+  "data": {
+   "results": [
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 9582,
+       "longName": "Jayson Tatum"
+      },
+      {
+       "type": "seasonYear",
+       "seasonYear": 2023,
+       "display": "2022-23"
+      },
+      {
+       "type": "team",
+       "teamId": 1,
+       "shortName": "Celtics",
+       "abbreviation": "BOS"
+      }
+     ],
+     "stats": {
+      "PointsPerGame": {
+       "value": 30.06756757,
+       "display": "30.1"
+      },
+      "GamesPlayed": {
+       "value": 74,
+       "display": "74"
+      },
+      "MinutesPlayedPerGame": {
+       "value": 36.91891892,
+       "display": "36.9"
+      },
+      "ReboundsPerGame": {
+       "value": 8.77027027,
+       "display": "8.8"
+      },
+      "AssistsPerGame": {
+       "value": 4.62162162,
+       "display": "4.6"
+      },
+      "StealsPerGame": {
+       "value": 1.05405405,
+       "display": "1.1"
+      },
+      "BlocksPerGame": {
+       "value": 0.68918919,
+       "display": "0.7"
+      },
+      "FieldGoalsMadePerGame": {
+       "value": 9.82432432,
+       "display": "9.8"
+      },
+      "FieldGoalsAttemptedPerGame": {
+       "value": 21.06756757,
+       "display": "21.1"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.46632457,
+       "display": "46.6"
+      },
+      "ThreePointsMadePerGame": {
+       "value": 3.24324324,
+       "display": "3.2"
+      },
+      "ThreePointsAttemptedPerGame": {
+       "value": 9.27027027,
+       "display": "9.3"
+      },
+      "ThreePointPercentage": {
+       "value": 0.34985423,
+       "display": "35.0"
+      },
+      "FreeThrowsMadePerGame": {
+       "value": 7.17567568,
+       "display": "7.2"
+      },
+      "FreeThrowsAttemptedPerGame": {
+       "value": 8.40540541,
+       "display": "8.4"
+      },
+      "FreeThrowPercentage": {
+       "value": 0.85369775,
+       "display": "85.4"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.60703451,
+       "display": "60.7"
+      },
+      "OffensiveReboundsPerGame": {
+       "value": 1.05405405,
+       "display": "1.1"
+      },
+      "DefensiveReboundsPerGame": {
+       "value": 7.71621622,
+       "display": "7.7"
+      },
+      "TurnoversPerGame": {
+       "value": 2.87837838,
+       "display": "2.9"
+      },
+      "MinutesPlayed": {
+       "value": 2732,
+       "display": "2,732"
+      },
+      "Points": {
+       "value": 2225,
+       "display": "2,225"
+      },
+      "Rebounds": {
+       "value": 649,
+       "display": "649"
+      },
+      "Assists": {
+       "value": 342,
+       "display": "342"
+      },
+      "Steals": {
+       "value": 78,
+       "display": "78"
+      },
+      "Blocks": {
+       "value": 51,
+       "display": "51"
+      },
+      "FieldGoalsMade": {
+       "value": 727,
+       "display": "727"
+      },
+      "FieldGoalsAttempted": {
+       "value": 1559,
+       "display": "1,559"
+      },
+      "ThreePointsMade": {
+       "value": 240,
+       "display": "240"
+      },
+      "ThreePointsAttempted": {
+       "value": 686,
+       "display": "686"
+      },
+      "FreeThrowsMade": {
+       "value": 531,
+       "display": "531"
+      },
+      "FreeThrowsAttempted": {
+       "value": 622,
+       "display": "622"
+      },
+      "OffensiveRebounds": {
+       "value": 78,
+       "display": "78"
+      },
+      "DefensiveRebounds": {
+       "value": 571,
+       "display": "571"
+      },
+      "Turnovers": {
+       "value": 213,
+       "display": "213"
+      },
+      "PersonalFouls": {
+       "value": 160,
+       "display": "160"
+      },
+      "PlusMinus": {
+       "value": 470,
+       "display": "+470"
+      }
+     }
+    }
+   ]
+  }
+ }
+}

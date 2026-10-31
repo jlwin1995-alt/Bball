@@ -1,0 +1,24 @@
+q01 [200]    3129 bytes  Yaxel Lendeborg stats this season
+     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[37]", null]}, "data": {"results": ["list[1]", null]}}
+     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1499', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
+q02 [200]   66631 bytes  Jayson Tatum game log 2023-24
+     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[21]", null]}, "data": {"results": ["list[50]", null]}}
+     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1498', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
+q03 [200]    3207 bytes  Jayson Tatum points per game in 2022-23
+     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[37]", null]}, "data": {"results": ["list[1]", null]}}
+     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1497', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
+q04 [200]   66157 bytes  Nikola Jokic game log 2019-20
+     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[21]", null]}, "data": {"results": ["list[50]", null]}}
+     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1496', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
+q05 [200]    3103 bytes  Anthony Black minutes per game when Desmond Bane played vs did not play this season
+     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[37]", null]}, "data": {"results": ["list[1]", null]}}
+     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1495', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
+q06 [200]    1923 bytes  How many times has Cade Cunningham scored over 24.5 points this season
+     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[22]", null]}, "data": {"results": ["list[1]", null]}}
+     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1494', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
+q07 [400]     222 bytes  NBA player prop lines for tonight
+     shape: {"type": "str", "status": "int", "title": "str", "detail": "str", "instance": "str", "traceId": "str"}
+     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1493', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
+q08 [200]    1827 bytes  Cooper Flagg last 5 games
+     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[21]", null]}, "data": {"results": ["list[1]", null]}}
+     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1492', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}

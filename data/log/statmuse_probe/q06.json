@@ -1,0 +1,155 @@
+{
+ "question": "How many times has Cade Cunningham scored over 24.5 points this season",
+ "status": 200,
+ "rate_headers": {
+  "x-quota-limit": "1500",
+  "x-quota-remaining": "1494",
+  "x-quota-reset": "2026-11-30T21:44:10.000Z",
+  "x-ratelimit-limit": "12",
+  "x-ratelimit-remaining": "11"
+ },
+ "response": {
+  "type": "stats",
+  "input": {
+   "original": "How many times has Cade Cunningham scored over 24.5 points this season"
+  },
+  "answer": {
+   "text": "Cade Cunningham has 2 games played with more than 24.5 points this season.",
+   "markdown": "[Cade Cunningham](https://www.statmuse.com/nba/player/cade-cunningham-10303) has 2 games played with more than 24.5 points this season."
+  },
+  "query": {
+   "stats": [
+    "GamesPlayed",
+    "Points",
+    "MinutesPlayed",
+    "Rebounds",
+    "Assists",
+    "Steals",
+    "Blocks",
+    "FieldGoalsMade",
+    "FieldGoalsAttempted",
+    "FieldGoalPercentage",
+    "ThreePointsMade",
+    "ThreePointsAttempted",
+    "ThreePointPercentage",
+    "FreeThrowsMade",
+    "FreeThrowsAttempted",
+    "FreeThrowPercentage",
+    "TrueShootingPercentage",
+    "OffensiveRebounds",
+    "DefensiveRebounds",
+    "Turnovers",
+    "PersonalFouls",
+    "PlusMinus"
+   ]
+  },
+  "data": {
+   "results": [
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 10303,
+       "longName": "Cade Cunningham"
+      },
+      {
+       "type": "seasonYear",
+       "seasonYear": 2027,
+       "display": "2026-27"
+      }
+     ],
+     "stats": {
+      "GamesPlayed": {
+       "value": 2,
+       "display": "2"
+      },
+      "Points": {
+       "value": 56,
+       "display": "56"
+      },
+      "MinutesPlayed": {
+       "value": 71.85,
+       "display": "72"
+      },
+      "Rebounds": {
+       "value": 13,
+       "display": "13"
+      },
+      "Assists": {
+       "value": 15,
+       "display": "15"
+      },
+      "Steals": {
+       "value": 4,
+       "display": "4"
+      },
+      "Blocks": {
+       "value": 2,
+       "display": "2"
+      },
+      "FieldGoalsMade": {
+       "value": 19,
+       "display": "19"
+      },
+      "FieldGoalsAttempted": {
+       "value": 41,
+       "display": "41"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.46341463,
+       "display": "46.3"
+      },
+      "ThreePointsMade": {
+       "value": 7,
+       "display": "7"
+      },
+      "ThreePointsAttempted": {
+       "value": 17,
+       "display": "17"
+      },
+      "ThreePointPercentage": {
+       "value": 0.41176471,
+       "display": "41.2"
+      },
+      "FreeThrowsMade": {
+       "value": 11,
+       "display": "11"
+      },
+      "FreeThrowsAttempted": {
+       "value": 16,
+       "display": "16"
+      },
+      "FreeThrowPercentage": {
+       "value": 0.6875,
+       "display": "68.8"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.58284763,
+       "display": "58.3"
+      },
+      "OffensiveRebounds": {
+       "value": 0,
+       "display": "0"
+      },
+      "DefensiveRebounds": {
+       "value": 13,
+       "display": "13"
+      },
+      "Turnovers": {
+       "value": 5,
+       "display": "5"
+      },
+      "PersonalFouls": {
+       "value": 5,
+       "display": "5"
+      },
+      "PlusMinus": {
+       "value": 20,
+       "display": "+20"
+      }
+     }
+    }
+   ]
+  }
+ }
+}
