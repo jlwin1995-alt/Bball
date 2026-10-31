@@ -186,6 +186,11 @@ def main(raw="data/raw", out="site/data"):
             splits_mod.write(games, set(P["pid"].astype(str)), out)
         except Exception as e:                                      # never block the site build on this extra
             print("splits skipped:", e)
+        try:                                                        # teammates with / without a rotation man who is out tonight (display only)
+            from . import absence as absence_mod
+            absence_mod.main(P, games, out)
+        except Exception as e:
+            print("absence splits skipped:", e)
     print(f"logged {logged} rows; projected {len(P)} players for {cov['slate_date']}  (out: {cov['out']})")
 
 
