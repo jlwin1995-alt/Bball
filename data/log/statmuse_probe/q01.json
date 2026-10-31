@@ -1,9 +1,9 @@
 {
- "question": "Anthony Black stats without Desmond Bane in 2025-26",
+ "question": "Evan Mobley career stats against the Indiana Pacers",
  "status": 200,
  "rate_headers": {
   "x-quota-limit": "1500",
-  "x-quota-remaining": "1491",
+  "x-quota-remaining": "1483",
   "x-quota-reset": "2026-11-30T21:44:10.000Z",
   "x-ratelimit-limit": "12",
   "x-ratelimit-remaining": "11"
@@ -11,34 +11,14 @@
  "response": {
   "type": "stats",
   "input": {
-   "original": "Anthony Black stats without Desmond Bane in 2025-26"
+   "original": "Evan Mobley career stats against the Indiana Pacers"
   },
   "answer": {
-   "text": "I understood your question, but there were no results.",
-   "markdown": "I understood your question, but there were no results."
+   "text": "Evan Mobley has averaged 17.2 points, 9.1 rebounds and 3.3 assists in 16 games against the Pacers in his career.",
+   "markdown": "[Evan Mobley](https://www.statmuse.com/nba/player/evan-mobley-10337) has averaged 17.2 points, 9.1 rebounds and 3.3 assists in 16 games against the [Pacers](https://www.statmuse.com/nba/team/indiana-pacers-franchise-30/history) in his career."
   },
   "query": {
    "stats": [
-    "GamesPlayed",
-    "MinutesPlayedPerGame",
-    "PointsPerGame",
-    "ReboundsPerGame",
-    "AssistsPerGame",
-    "StealsPerGame",
-    "BlocksPerGame",
-    "FieldGoalsMadePerGame",
-    "FieldGoalsAttemptedPerGame",
-    "FieldGoalPercentage",
-    "ThreePointsMadePerGame",
-    "ThreePointsAttemptedPerGame",
-    "ThreePointPercentage",
-    "FreeThrowsMadePerGame",
-    "FreeThrowsAttemptedPerGame",
-    "FreeThrowPercentage",
-    "TrueShootingPercentage",
-    "OffensiveReboundsPerGame",
-    "DefensiveReboundsPerGame",
-    "TurnoversPerGame",
     "MinutesPlayed",
     "Points",
     "Rebounds",
@@ -47,10 +27,14 @@
     "Blocks",
     "FieldGoalsMade",
     "FieldGoalsAttempted",
+    "FieldGoalPercentage",
     "ThreePointsMade",
     "ThreePointsAttempted",
+    "ThreePointPercentage",
     "FreeThrowsMade",
     "FreeThrowsAttempted",
+    "FreeThrowPercentage",
+    "TrueShootingPercentage",
     "OffensiveRebounds",
     "DefensiveRebounds",
     "Turnovers",
@@ -59,7 +43,103 @@
    ]
   },
   "data": {
-   "results": []
+   "results": [
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 10337,
+       "longName": "Evan Mobley"
+      }
+     ],
+     "stats": {
+      "MinutesPlayed": {
+       "value": 522.25,
+       "display": "522"
+      },
+      "Points": {
+       "value": 275,
+       "display": "275"
+      },
+      "Rebounds": {
+       "value": 145,
+       "display": "145"
+      },
+      "Assists": {
+       "value": 52,
+       "display": "52"
+      },
+      "Steals": {
+       "value": 15,
+       "display": "15"
+      },
+      "Blocks": {
+       "value": 35,
+       "display": "35"
+      },
+      "FieldGoalsMade": {
+       "value": 110,
+       "display": "110"
+      },
+      "FieldGoalsAttempted": {
+       "value": 201,
+       "display": "201"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.54726368,
+       "display": "54.7"
+      },
+      "ThreePointsMade": {
+       "value": 7,
+       "display": "7"
+      },
+      "ThreePointsAttempted": {
+       "value": 26,
+       "display": "26"
+      },
+      "ThreePointPercentage": {
+       "value": 0.26923077,
+       "display": "26.9"
+      },
+      "FreeThrowsMade": {
+       "value": 48,
+       "display": "48"
+      },
+      "FreeThrowsAttempted": {
+       "value": 64,
+       "display": "64"
+      },
+      "FreeThrowPercentage": {
+       "value": 0.75,
+       "display": "75.0"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.60001746,
+       "display": "60.0"
+      },
+      "OffensiveRebounds": {
+       "value": 34,
+       "display": "34"
+      },
+      "DefensiveRebounds": {
+       "value": 111,
+       "display": "111"
+      },
+      "Turnovers": {
+       "value": 24,
+       "display": "24"
+      },
+      "PersonalFouls": {
+       "value": 43,
+       "display": "43"
+      },
+      "PlusMinus": {
+       "value": 77,
+       "display": "+77"
+      }
+     }
+    }
+   ]
   }
  }
 }

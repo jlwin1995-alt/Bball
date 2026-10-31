@@ -1,24 +1,24 @@
-q01 [200]     985 bytes  Anthony Black stats without Desmond Bane in 2025-26
-     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[37]", null]}, "data": {"results": ["list[0]", null]}}
-     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1491', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
-q02 [200]    3086 bytes  Jayson Tatum first half points per game 2025-26
-     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[37]", null]}, "data": {"results": ["list[1]", null]}}
-     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1490', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
-q03 [200]    3109 bytes  Jayson Tatum fourth quarter minutes per game 2025-26
-     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[37]", null]}, "data": {"results": ["list[1]", null]}}
-     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1489', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
-q04 [200]    1982 bytes  Paul Reed stats in games Jalen Duren did not play 2025-26
+q01 [200]    1951 bytes  Evan Mobley career stats against the Indiana Pacers
      shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[21]", null]}, "data": {"results": ["list[1]", null]}}
-     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1488', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
-q05 [200]   40535 bytes  Jayson Tatum game log 2022-23 first 30 games
-     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[21]", null]}, "data": {"results": ["list[30]", null]}}
-     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1487', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
-q06 [200]    1835 bytes  Yaxel Lendeborg last 10 games
+     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1483', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
+q02 [200]   21643 bytes  Evan Mobley game log against the Pacers
+     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[21]", null]}, "data": {"results": ["list[16]", null]}}
+     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1482', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
+q03 [200]    3158 bytes  Evan Mobley career averages against Myles Turner
+     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[37]", null]}, "data": {"results": ["list[1]", null]}}
+     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1481', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
+q04 [200]    3135 bytes  Evan Mobley stats when guarded by Myles Turner
+     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[37]", null]}, "data": {"results": ["list[1]", null]}}
+     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1480', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
+q05 [200]   15104 bytes  Myles Turner defensive matchup data against Evan Mobley
+     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[21]", null]}, "data": {"results": ["list[11]", null]}}
+     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1479', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
+q06 [200]    3158 bytes  Evan Mobley points per game against the Milwaukee Bucks
+     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[37]", null]}, "data": {"results": ["list[1]", null]}}
+     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1478', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
+q07 [200]    2034 bytes  Evan Mobley playoff stats against the Pacers 2025
      shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[21]", null]}, "data": {"results": ["list[1]", null]}}
-     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1486', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
-q07 [200]    3233 bytes  Desmond Bane stats second half 2025-26
-     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[37]", null]}, "data": {"results": ["list[1]", null]}}
-     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1485', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
-q08 [200]    3153 bytes  Anthony Black minutes per game 2025-26
-     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[37]", null]}, "data": {"results": ["list[1]", null]}}
-     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1484', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
+     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1477', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}
+q08 [200]   15051 bytes  Evan Mobley player tracking matchup stats vs Myles Turner
+     shape: {"type": "str", "input": {"original": "str"}, "answer": {"text": "str", "markdown": "str"}, "query": {"stats": ["list[21]", null]}, "data": {"results": ["list[11]", null]}}
+     rate: {'x-quota-limit': '1500', 'x-quota-remaining': '1476', 'x-quota-reset': '2026-11-30T21:44:10.000Z', 'x-ratelimit-limit': '12', 'x-ratelimit-remaining': '11'}

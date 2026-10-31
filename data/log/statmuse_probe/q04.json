@@ -1,9 +1,9 @@
 {
- "question": "Paul Reed stats in games Jalen Duren did not play 2025-26",
+ "question": "Evan Mobley stats when guarded by Myles Turner",
  "status": 200,
  "rate_headers": {
   "x-quota-limit": "1500",
-  "x-quota-remaining": "1488",
+  "x-quota-remaining": "1480",
   "x-quota-reset": "2026-11-30T21:44:10.000Z",
   "x-ratelimit-limit": "12",
   "x-ratelimit-remaining": "11"
@@ -11,14 +11,34 @@
  "response": {
   "type": "stats",
   "input": {
-   "original": "Paul Reed stats in games Jalen Duren did not play 2025-26"
+   "original": "Evan Mobley stats when guarded by Myles Turner"
   },
   "answer": {
-   "text": "Paul Reed averaged 15.3 points, 7.8 rebounds and 3.3 assists in 12 games without Jalen Duren in 2025-26.",
-   "markdown": "[Paul Reed](https://www.statmuse.com/nba/player/paul-reed-10166) averaged 15.3 points, 7.8 rebounds and 3.3 assists in 12 games without [Jalen Duren](https://www.statmuse.com/nba/player/jalen-duren-10447) in 2025-26."
+   "text": "Evan Mobley has averaged 18.2 points, 8.8 rebounds and 3.6 assists in 5 games this season.",
+   "markdown": "[Evan Mobley](https://www.statmuse.com/nba/player/evan-mobley-10337) has averaged 18.2 points, 8.8 rebounds and 3.6 assists in 5 games this season."
   },
   "query": {
    "stats": [
+    "GamesPlayed",
+    "MinutesPlayedPerGame",
+    "PointsPerGame",
+    "ReboundsPerGame",
+    "AssistsPerGame",
+    "StealsPerGame",
+    "BlocksPerGame",
+    "FieldGoalsMadePerGame",
+    "FieldGoalsAttemptedPerGame",
+    "FieldGoalPercentage",
+    "ThreePointsMadePerGame",
+    "ThreePointsAttemptedPerGame",
+    "ThreePointPercentage",
+    "FreeThrowsMadePerGame",
+    "FreeThrowsAttemptedPerGame",
+    "FreeThrowPercentage",
+    "TrueShootingPercentage",
+    "OffensiveReboundsPerGame",
+    "DefensiveReboundsPerGame",
+    "TurnoversPerGame",
     "MinutesPlayed",
     "Points",
     "Rebounds",
@@ -27,14 +47,10 @@
     "Blocks",
     "FieldGoalsMade",
     "FieldGoalsAttempted",
-    "FieldGoalPercentage",
     "ThreePointsMade",
     "ThreePointsAttempted",
-    "ThreePointPercentage",
     "FreeThrowsMade",
     "FreeThrowsAttempted",
-    "FreeThrowPercentage",
-    "TrueShootingPercentage",
     "OffensiveRebounds",
     "DefensiveRebounds",
     "Turnovers",
@@ -48,99 +64,169 @@
      "context": [
       {
        "type": "player",
-       "playerId": 10166,
-       "longName": "Paul Reed"
+       "playerId": 10337,
+       "longName": "Evan Mobley"
       },
       {
        "type": "seasonYear",
-       "seasonYear": 2026,
-       "display": "2025-26"
+       "seasonYear": 2027,
+       "display": "2026-27"
+      },
+      {
+       "type": "team",
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
       }
      ],
      "stats": {
-      "MinutesPlayed": {
-       "value": 323.55,
-       "display": "324"
+      "GamesPlayed": {
+       "value": 5,
+       "display": "5"
       },
-      "Points": {
-       "value": 183,
-       "display": "183"
+      "MinutesPlayedPerGame": {
+       "value": 34.4,
+       "display": "34.4"
       },
-      "Rebounds": {
-       "value": 94,
-       "display": "94"
+      "PointsPerGame": {
+       "value": 18.2,
+       "display": "18.2"
       },
-      "Assists": {
-       "value": 39,
-       "display": "39"
+      "ReboundsPerGame": {
+       "value": 8.8,
+       "display": "8.8"
       },
-      "Steals": {
-       "value": 23,
-       "display": "23"
+      "AssistsPerGame": {
+       "value": 3.6,
+       "display": "3.6"
       },
-      "Blocks": {
-       "value": 22,
-       "display": "22"
+      "StealsPerGame": {
+       "value": 0.4,
+       "display": "0.4"
       },
-      "FieldGoalsMade": {
-       "value": 75,
-       "display": "75"
+      "BlocksPerGame": {
+       "value": 1.2,
+       "display": "1.2"
       },
-      "FieldGoalsAttempted": {
-       "value": 121,
-       "display": "121"
+      "FieldGoalsMadePerGame": {
+       "value": 6.4,
+       "display": "6.4"
+      },
+      "FieldGoalsAttemptedPerGame": {
+       "value": 11.6,
+       "display": "11.6"
       },
       "FieldGoalPercentage": {
-       "value": 0.61983471,
-       "display": "62.0"
+       "value": 0.55172414,
+       "display": "55.2"
       },
-      "ThreePointsMade": {
-       "value": 7,
-       "display": "7"
+      "ThreePointsMadePerGame": {
+       "value": 2.4,
+       "display": "2.4"
       },
-      "ThreePointsAttempted": {
-       "value": 19,
-       "display": "19"
+      "ThreePointsAttemptedPerGame": {
+       "value": 4.2,
+       "display": "4.2"
       },
       "ThreePointPercentage": {
-       "value": 0.36842105,
-       "display": "36.8"
+       "value": 0.57142857,
+       "display": "57.1"
       },
-      "FreeThrowsMade": {
-       "value": 26,
-       "display": "26"
+      "FreeThrowsMadePerGame": {
+       "value": 3,
+       "display": "3.0"
       },
-      "FreeThrowsAttempted": {
-       "value": 33,
-       "display": "33"
+      "FreeThrowsAttemptedPerGame": {
+       "value": 4.8,
+       "display": "4.8"
       },
       "FreeThrowPercentage": {
-       "value": 0.78787879,
-       "display": "78.8"
+       "value": 0.625,
+       "display": "62.5"
       },
       "TrueShootingPercentage": {
-       "value": 0.6751771,
-       "display": "67.5"
+       "value": 0.66365228,
+       "display": "66.4"
       },
-      "OffensiveRebounds": {
-       "value": 39,
-       "display": "39"
+      "OffensiveReboundsPerGame": {
+       "value": 2.2,
+       "display": "2.2"
       },
-      "DefensiveRebounds": {
-       "value": 55,
-       "display": "55"
+      "DefensiveReboundsPerGame": {
+       "value": 6.6,
+       "display": "6.6"
       },
-      "Turnovers": {
+      "TurnoversPerGame": {
+       "value": 1.4,
+       "display": "1.4"
+      },
+      "MinutesPlayed": {
+       "value": 172,
+       "display": "172"
+      },
+      "Points": {
+       "value": 91,
+       "display": "91"
+      },
+      "Rebounds": {
+       "value": 44,
+       "display": "44"
+      },
+      "Assists": {
+       "value": 18,
+       "display": "18"
+      },
+      "Steals": {
+       "value": 2,
+       "display": "2"
+      },
+      "Blocks": {
+       "value": 6,
+       "display": "6"
+      },
+      "FieldGoalsMade": {
+       "value": 32,
+       "display": "32"
+      },
+      "FieldGoalsAttempted": {
+       "value": 58,
+       "display": "58"
+      },
+      "ThreePointsMade": {
+       "value": 12,
+       "display": "12"
+      },
+      "ThreePointsAttempted": {
        "value": 21,
        "display": "21"
       },
-      "PersonalFouls": {
+      "FreeThrowsMade": {
+       "value": 15,
+       "display": "15"
+      },
+      "FreeThrowsAttempted": {
+       "value": 24,
+       "display": "24"
+      },
+      "OffensiveRebounds": {
+       "value": 11,
+       "display": "11"
+      },
+      "DefensiveRebounds": {
        "value": 33,
        "display": "33"
       },
+      "Turnovers": {
+       "value": 7,
+       "display": "7"
+      },
+      "PersonalFouls": {
+       "value": 10,
+       "display": "10"
+      },
       "PlusMinus": {
-       "value": 150,
-       "display": "+150"
+       "value": -26,
+       "display": "-26"
       }
      }
     }

@@ -1,9 +1,9 @@
 {
- "question": "Jayson Tatum game log 2022-23 first 30 games",
+ "question": "Myles Turner defensive matchup data against Evan Mobley",
  "status": 200,
  "rate_headers": {
   "x-quota-limit": "1500",
-  "x-quota-remaining": "1487",
+  "x-quota-remaining": "1479",
   "x-quota-reset": "2026-11-30T21:44:10.000Z",
   "x-ratelimit-limit": "12",
   "x-ratelimit-remaining": "11"
@@ -11,11 +11,11 @@
  "response": {
   "type": "stats",
   "input": {
-   "original": "Jayson Tatum game log 2022-23 first 30 games"
+   "original": "Myles Turner defensive matchup data against Evan Mobley"
   },
   "answer": {
-   "text": "Jayson Tatum dropped 41 points and added 5 rebounds against the Pacers on December 21, 2022.",
-   "markdown": "[Jayson Tatum](https://www.statmuse.com/nba/player/jayson-tatum-9582) dropped 41 points and added 5 rebounds against the [Pacers](https://www.statmuse.com/nba/team/2022-23-indiana-pacers-30/2023) on [December 21, 2022](https://www.statmuse.com/nba/game/12-21-2022-ind-at-bos-73595)."
+   "text": "Myles Turner games versus Evan Mobley",
+   "markdown": "[Myles Turner](https://www.statmuse.com/nba/player/myles-turner-9299) games versus [Evan Mobley](https://www.statmuse.com/nba/player/evan-mobley-10337)"
   },
   "query": {
    "stats": [
@@ -48,117 +48,117 @@
      "context": [
       {
        "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
+       "playerId": 9299,
+       "longName": "Myles Turner"
       },
       {
        "type": "game",
-       "gameId": 73595,
-       "gameDate": "2022-12-21",
-       "alignment": "home",
+       "gameId": 77455,
+       "gameDate": "2025-11-17",
+       "alignment": "away",
        "result": "loss",
        "score": {
-        "points": 112,
-        "opponentPoints": 117
+        "points": 106,
+        "opponentPoints": 118
        }
       },
       {
        "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
+       "teamId": 39,
+       "shortName": "Bucks",
+       "abbreviation": "MIL"
       },
       {
        "type": "opponent",
-       "teamId": 30,
-       "shortName": "Pacers",
-       "abbreviation": "IND"
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
       }
      ],
      "stats": {
       "MinutesPlayed": {
-       "value": 41.05,
-       "display": "41"
+       "value": 37.16666667,
+       "display": "37"
       },
       "Points": {
-       "value": 41,
-       "display": "41"
+       "value": 15,
+       "display": "15"
       },
       "Rebounds": {
-       "value": 5,
-       "display": "5"
+       "value": 7,
+       "display": "7"
       },
       "Assists": {
-       "value": 4,
-       "display": "4"
-      },
-      "Steals": {
        "value": 2,
        "display": "2"
+      },
+      "Steals": {
+       "value": 3,
+       "display": "3"
       },
       "Blocks": {
        "value": 1,
        "display": "1"
       },
       "FieldGoalsMade": {
-       "value": 13,
-       "display": "13"
+       "value": 4,
+       "display": "4"
       },
       "FieldGoalsAttempted": {
-       "value": 25,
-       "display": "25"
+       "value": 9,
+       "display": "9"
       },
       "FieldGoalPercentage": {
-       "value": 0.52,
-       "display": "52.0"
+       "value": 0.44444444,
+       "display": "44.4"
       },
       "ThreePointsMade": {
        "value": 4,
        "display": "4"
       },
       "ThreePointsAttempted": {
-       "value": 11,
-       "display": "11"
+       "value": 5,
+       "display": "5"
       },
       "ThreePointPercentage": {
-       "value": 0.36363636,
-       "display": "36.4"
+       "value": 0.8,
+       "display": "80.0"
       },
       "FreeThrowsMade": {
-       "value": 11,
-       "display": "11"
+       "value": 3,
+       "display": "3"
       },
       "FreeThrowsAttempted": {
-       "value": 13,
-       "display": "13"
+       "value": 4,
+       "display": "4"
       },
       "FreeThrowPercentage": {
-       "value": 0.84615385,
-       "display": "84.6"
+       "value": 0.75,
+       "display": "75.0"
       },
       "TrueShootingPercentage": {
-       "value": 0.66731771,
-       "display": "66.7"
+       "value": 0.69702602,
+       "display": "69.7"
       },
       "OffensiveRebounds": {
        "value": 1,
        "display": "1"
       },
       "DefensiveRebounds": {
-       "value": 4,
-       "display": "4"
+       "value": 6,
+       "display": "6"
       },
       "Turnovers": {
        "value": 2,
        "display": "2"
       },
       "PersonalFouls": {
-       "value": 0,
-       "display": "0"
+       "value": 1,
+       "display": "1"
       },
       "PlusMinus": {
-       "value": 4,
-       "display": "+4"
+       "value": 1,
+       "display": "+1"
       }
      }
     },
@@ -166,113 +166,467 @@
      "context": [
       {
        "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
+       "playerId": 9299,
+       "longName": "Myles Turner"
       },
       {
        "type": "game",
-       "gameId": 73559,
-       "gameDate": "2022-12-16",
-       "alignment": "home",
+       "gameId": 77321,
+       "gameDate": "2025-10-26",
+       "alignment": "away",
        "result": "loss",
        "score": {
-        "points": 109,
-        "opponentPoints": 117
+        "points": 113,
+        "opponentPoints": 118
        }
       },
       {
        "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
+       "teamId": 39,
+       "shortName": "Bucks",
+       "abbreviation": "MIL"
       },
       {
        "type": "opponent",
-       "teamId": 50,
-       "shortName": "Magic",
-       "abbreviation": "ORL"
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
       }
      ],
      "stats": {
       "MinutesPlayed": {
-       "value": 38.05,
-       "display": "38"
-      },
-      "Points": {
-       "value": 31,
+       "value": 31.16666667,
        "display": "31"
       },
+      "Points": {
+       "value": 13,
+       "display": "13"
+      },
       "Rebounds": {
-       "value": 7,
-       "display": "7"
+       "value": 6,
+       "display": "6"
       },
       "Assists": {
-       "value": 3,
-       "display": "3"
-      },
-      "Steals": {
        "value": 2,
        "display": "2"
       },
+      "Steals": {
+       "value": 1,
+       "display": "1"
+      },
       "Blocks": {
-       "value": 0,
-       "display": "0"
+       "value": 2,
+       "display": "2"
       },
       "FieldGoalsMade": {
-       "value": 9,
-       "display": "9"
+       "value": 5,
+       "display": "5"
       },
       "FieldGoalsAttempted": {
-       "value": 20,
-       "display": "20"
+       "value": 12,
+       "display": "12"
       },
       "FieldGoalPercentage": {
-       "value": 0.45,
-       "display": "45.0"
+       "value": 0.41666667,
+       "display": "41.7"
       },
       "ThreePointsMade": {
        "value": 2,
        "display": "2"
       },
       "ThreePointsAttempted": {
-       "value": 8,
-       "display": "8"
+       "value": 6,
+       "display": "6"
+      },
+      "ThreePointPercentage": {
+       "value": 0.33333333,
+       "display": "33.3"
+      },
+      "FreeThrowsMade": {
+       "value": 1,
+       "display": "1"
+      },
+      "FreeThrowsAttempted": {
+       "value": 2,
+       "display": "2"
+      },
+      "FreeThrowPercentage": {
+       "value": 0.5,
+       "display": "50.0"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.50465839,
+       "display": "50.5"
+      },
+      "OffensiveRebounds": {
+       "value": 1,
+       "display": "1"
+      },
+      "DefensiveRebounds": {
+       "value": 5,
+       "display": "5"
+      },
+      "Turnovers": {
+       "value": 3,
+       "display": "3"
+      },
+      "PersonalFouls": {
+       "value": 4,
+       "display": "4"
+      },
+      "PlusMinus": {
+       "value": 1,
+       "display": "+1"
+      }
+     }
+    },
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 9299,
+       "longName": "Myles Turner"
+      },
+      {
+       "type": "game",
+       "gameId": 76348,
+       "gameDate": "2025-01-14",
+       "alignment": "home",
+       "result": "loss",
+       "score": {
+        "points": 117,
+        "opponentPoints": 127
+       }
+      },
+      {
+       "type": "team",
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
+      },
+      {
+       "type": "opponent",
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
+      }
+     ],
+     "stats": {
+      "MinutesPlayed": {
+       "value": 29.55,
+       "display": "30"
+      },
+      "Points": {
+       "value": 17,
+       "display": "17"
+      },
+      "Rebounds": {
+       "value": 5,
+       "display": "5"
+      },
+      "Assists": {
+       "value": 0,
+       "display": "0"
+      },
+      "Steals": {
+       "value": 1,
+       "display": "1"
+      },
+      "Blocks": {
+       "value": 0,
+       "display": "0"
+      },
+      "FieldGoalsMade": {
+       "value": 5,
+       "display": "5"
+      },
+      "FieldGoalsAttempted": {
+       "value": 11,
+       "display": "11"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.45454545,
+       "display": "45.5"
+      },
+      "ThreePointsMade": {
+       "value": 1,
+       "display": "1"
+      },
+      "ThreePointsAttempted": {
+       "value": 4,
+       "display": "4"
       },
       "ThreePointPercentage": {
        "value": 0.25,
        "display": "25.0"
       },
       "FreeThrowsMade": {
-       "value": 11,
-       "display": "11"
+       "value": 6,
+       "display": "6"
       },
       "FreeThrowsAttempted": {
-       "value": 12,
-       "display": "12"
+       "value": 6,
+       "display": "6"
       },
       "FreeThrowPercentage": {
-       "value": 0.91666667,
-       "display": "91.7"
+       "value": 1,
+       "display": "100.0"
       },
       "TrueShootingPercentage": {
-       "value": 0.61313291,
-       "display": "61.3"
+       "value": 0.62316716,
+       "display": "62.3"
       },
       "OffensiveRebounds": {
-       "value": 3,
-       "display": "3"
+       "value": 1,
+       "display": "1"
       },
       "DefensiveRebounds": {
        "value": 4,
        "display": "4"
       },
       "Turnovers": {
+       "value": 1,
+       "display": "1"
+      },
+      "PersonalFouls": {
+       "value": 3,
+       "display": "3"
+      },
+      "PlusMinus": {
+       "value": -20,
+       "display": "-20"
+      }
+     }
+    },
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 9299,
+       "longName": "Myles Turner"
+      },
+      {
+       "type": "game",
+       "gameId": 76337,
+       "gameDate": "2025-01-12",
+       "alignment": "away",
+       "result": "win",
+       "score": {
+        "points": 108,
+        "opponentPoints": 93
+       }
+      },
+      {
+       "type": "team",
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
+      },
+      {
+       "type": "opponent",
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
+      }
+     ],
+     "stats": {
+      "MinutesPlayed": {
+       "value": 28.63333333,
+       "display": "29"
+      },
+      "Points": {
+       "value": 15,
+       "display": "15"
+      },
+      "Rebounds": {
+       "value": 10,
+       "display": "10"
+      },
+      "Assists": {
+       "value": 1,
+       "display": "1"
+      },
+      "Steals": {
+       "value": 0,
+       "display": "0"
+      },
+      "Blocks": {
+       "value": 0,
+       "display": "0"
+      },
+      "FieldGoalsMade": {
+       "value": 5,
+       "display": "5"
+      },
+      "FieldGoalsAttempted": {
+       "value": 10,
+       "display": "10"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.5,
+       "display": "50.0"
+      },
+      "ThreePointsMade": {
+       "value": 2,
+       "display": "2"
+      },
+      "ThreePointsAttempted": {
+       "value": 6,
+       "display": "6"
+      },
+      "ThreePointPercentage": {
+       "value": 0.33333333,
+       "display": "33.3"
+      },
+      "FreeThrowsMade": {
+       "value": 3,
+       "display": "3"
+      },
+      "FreeThrowsAttempted": {
+       "value": 5,
+       "display": "5"
+      },
+      "FreeThrowPercentage": {
+       "value": 0.6,
+       "display": "60.0"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.6147541,
+       "display": "61.5"
+      },
+      "OffensiveRebounds": {
+       "value": 3,
+       "display": "3"
+      },
+      "DefensiveRebounds": {
+       "value": 7,
+       "display": "7"
+      },
+      "Turnovers": {
+       "value": 0,
+       "display": "0"
+      },
+      "PersonalFouls": {
+       "value": 4,
+       "display": "4"
+      },
+      "PlusMinus": {
+       "value": 3,
+       "display": "+3"
+      }
+     }
+    },
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 9299,
+       "longName": "Myles Turner"
+      },
+      {
+       "type": "game",
+       "gameId": 75621,
+       "gameDate": "2024-04-12",
+       "alignment": "away",
+       "result": "loss",
+       "score": {
+        "points": 120,
+        "opponentPoints": 129
+       }
+      },
+      {
+       "type": "team",
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
+      },
+      {
+       "type": "opponent",
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
+      }
+     ],
+     "stats": {
+      "MinutesPlayed": {
+       "value": 28.46666667,
+       "display": "28"
+      },
+      "Points": {
+       "value": 17,
+       "display": "17"
+      },
+      "Rebounds": {
+       "value": 6,
+       "display": "6"
+      },
+      "Assists": {
+       "value": 5,
+       "display": "5"
+      },
+      "Steals": {
+       "value": 0,
+       "display": "0"
+      },
+      "Blocks": {
+       "value": 1,
+       "display": "1"
+      },
+      "FieldGoalsMade": {
+       "value": 6,
+       "display": "6"
+      },
+      "FieldGoalsAttempted": {
+       "value": 11,
+       "display": "11"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.54545455,
+       "display": "54.5"
+      },
+      "ThreePointsMade": {
+       "value": 1,
+       "display": "1"
+      },
+      "ThreePointsAttempted": {
+       "value": 5,
+       "display": "5"
+      },
+      "ThreePointPercentage": {
+       "value": 0.2,
+       "display": "20.0"
+      },
+      "FreeThrowsMade": {
+       "value": 4,
+       "display": "4"
+      },
+      "FreeThrowsAttempted": {
+       "value": 6,
+       "display": "6"
+      },
+      "FreeThrowPercentage": {
+       "value": 0.66666667,
+       "display": "66.7"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.62316716,
+       "display": "62.3"
+      },
+      "OffensiveRebounds": {
+       "value": 0,
+       "display": "0"
+      },
+      "DefensiveRebounds": {
+       "value": 6,
+       "display": "6"
+      },
+      "Turnovers": {
        "value": 2,
        "display": "2"
       },
       "PersonalFouls": {
-       "value": 1,
-       "display": "1"
+       "value": 0,
+       "display": "0"
       },
       "PlusMinus": {
        "value": -10,
@@ -284,1497 +638,81 @@
      "context": [
       {
        "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
+       "playerId": 9299,
+       "longName": "Myles Turner"
       },
       {
        "type": "game",
-       "gameId": 73539,
-       "gameDate": "2022-12-13",
-       "alignment": "away",
+       "gameId": 74519,
+       "gameDate": "2023-11-03",
+       "alignment": "home",
        "result": "win",
        "score": {
-        "points": 122,
-        "opponentPoints": 118
+        "points": 121,
+        "opponentPoints": 116
        }
       },
       {
        "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
       },
       {
        "type": "opponent",
-       "teamId": 15,
-       "shortName": "Lakers",
-       "abbreviation": "LAL"
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
       }
      ],
      "stats": {
       "MinutesPlayed": {
-       "value": 43.91666667,
-       "display": "44"
-      },
-      "Points": {
-       "value": 44,
-       "display": "44"
-      },
-      "Rebounds": {
-       "value": 9,
-       "display": "9"
-      },
-      "Assists": {
-       "value": 6,
-       "display": "6"
-      },
-      "Steals": {
-       "value": 0,
-       "display": "0"
-      },
-      "Blocks": {
-       "value": 1,
-       "display": "1"
-      },
-      "FieldGoalsMade": {
-       "value": 15,
-       "display": "15"
-      },
-      "FieldGoalsAttempted": {
-       "value": 29,
-       "display": "29"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.51724138,
-       "display": "51.7"
-      },
-      "ThreePointsMade": {
-       "value": 5,
-       "display": "5"
-      },
-      "ThreePointsAttempted": {
-       "value": 10,
-       "display": "10"
-      },
-      "ThreePointPercentage": {
-       "value": 0.5,
-       "display": "50.0"
-      },
-      "FreeThrowsMade": {
-       "value": 9,
-       "display": "9"
-      },
-      "FreeThrowsAttempted": {
-       "value": 10,
-       "display": "10"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.9,
-       "display": "90.0"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.65868263,
-       "display": "65.9"
-      },
-      "OffensiveRebounds": {
-       "value": 1,
-       "display": "1"
-      },
-      "DefensiveRebounds": {
-       "value": 8,
-       "display": "8"
-      },
-      "Turnovers": {
-       "value": 4,
-       "display": "4"
-      },
-      "PersonalFouls": {
-       "value": 1,
-       "display": "1"
-      },
-      "PlusMinus": {
-       "value": 12,
-       "display": "+12"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73534,
-       "gameDate": "2022-12-12",
-       "alignment": "away",
-       "result": "loss",
-       "score": {
-        "points": 93,
-        "opponentPoints": 113
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 41,
-       "shortName": "Clippers",
-       "abbreviation": "LAC"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 36.56666667,
-       "display": "37"
-      },
-      "Points": {
-       "value": 20,
-       "display": "20"
-      },
-      "Rebounds": {
-       "value": 11,
-       "display": "11"
-      },
-      "Assists": {
-       "value": 4,
-       "display": "4"
-      },
-      "Steals": {
-       "value": 1,
-       "display": "1"
-      },
-      "Blocks": {
-       "value": 0,
-       "display": "0"
-      },
-      "FieldGoalsMade": {
-       "value": 7,
-       "display": "7"
-      },
-      "FieldGoalsAttempted": {
-       "value": 20,
-       "display": "20"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.35,
-       "display": "35.0"
-      },
-      "ThreePointsMade": {
-       "value": 2,
-       "display": "2"
-      },
-      "ThreePointsAttempted": {
-       "value": 8,
-       "display": "8"
-      },
-      "ThreePointPercentage": {
-       "value": 0.25,
-       "display": "25.0"
-      },
-      "FreeThrowsMade": {
-       "value": 4,
-       "display": "4"
-      },
-      "FreeThrowsAttempted": {
-       "value": 4,
-       "display": "4"
-      },
-      "FreeThrowPercentage": {
-       "value": 1,
-       "display": "100.0"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.45955882,
-       "display": "46.0"
-      },
-      "OffensiveRebounds": {
-       "value": 2,
-       "display": "2"
-      },
-      "DefensiveRebounds": {
-       "value": 9,
-       "display": "9"
-      },
-      "Turnovers": {
-       "value": 3,
-       "display": "3"
-      },
-      "PersonalFouls": {
-       "value": 3,
-       "display": "3"
-      },
-      "PlusMinus": {
-       "value": -18,
-       "display": "-18"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73518,
-       "gameDate": "2022-12-10",
-       "alignment": "away",
-       "result": "loss",
-       "score": {
-        "points": 107,
-        "opponentPoints": 123
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 6,
-       "shortName": "Warriors",
-       "abbreviation": "GSW"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 39.73333333,
-       "display": "40"
-      },
-      "Points": {
-       "value": 18,
-       "display": "18"
-      },
-      "Rebounds": {
-       "value": 7,
-       "display": "7"
-      },
-      "Assists": {
-       "value": 2,
-       "display": "2"
-      },
-      "Steals": {
-       "value": 3,
-       "display": "3"
-      },
-      "Blocks": {
-       "value": 1,
-       "display": "1"
-      },
-      "FieldGoalsMade": {
-       "value": 6,
-       "display": "6"
-      },
-      "FieldGoalsAttempted": {
-       "value": 21,
-       "display": "21"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.28571429,
-       "display": "28.6"
-      },
-      "ThreePointsMade": {
-       "value": 2,
-       "display": "2"
-      },
-      "ThreePointsAttempted": {
-       "value": 9,
-       "display": "9"
-      },
-      "ThreePointPercentage": {
-       "value": 0.22222222,
-       "display": "22.2"
-      },
-      "FreeThrowsMade": {
-       "value": 4,
-       "display": "4"
-      },
-      "FreeThrowsAttempted": {
-       "value": 7,
-       "display": "7"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.57142857,
-       "display": "57.1"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.37375415,
-       "display": "37.4"
-      },
-      "OffensiveRebounds": {
-       "value": 1,
-       "display": "1"
-      },
-      "DefensiveRebounds": {
-       "value": 6,
-       "display": "6"
-      },
-      "Turnovers": {
-       "value": 2,
-       "display": "2"
-      },
-      "PersonalFouls": {
-       "value": 2,
-       "display": "2"
-      },
-      "PlusMinus": {
-       "value": -13,
-       "display": "-13"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73499,
-       "gameDate": "2022-12-07",
-       "alignment": "away",
-       "result": "win",
-       "score": {
-        "points": 125,
-        "opponentPoints": 98
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 40,
-       "shortName": "Suns",
-       "abbreviation": "PHX"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 29.1,
-       "display": "29"
-      },
-      "Points": {
-       "value": 25,
-       "display": "25"
-      },
-      "Rebounds": {
-       "value": 5,
-       "display": "5"
-      },
-      "Assists": {
-       "value": 2,
-       "display": "2"
-      },
-      "Steals": {
-       "value": 2,
-       "display": "2"
-      },
-      "Blocks": {
-       "value": 0,
-       "display": "0"
-      },
-      "FieldGoalsMade": {
-       "value": 9,
-       "display": "9"
-      },
-      "FieldGoalsAttempted": {
-       "value": 19,
-       "display": "19"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.47368421,
-       "display": "47.4"
-      },
-      "ThreePointsMade": {
-       "value": 3,
-       "display": "3"
-      },
-      "ThreePointsAttempted": {
-       "value": 8,
-       "display": "8"
-      },
-      "ThreePointPercentage": {
-       "value": 0.375,
-       "display": "37.5"
-      },
-      "FreeThrowsMade": {
-       "value": 4,
-       "display": "4"
-      },
-      "FreeThrowsAttempted": {
-       "value": 6,
-       "display": "6"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.66666667,
-       "display": "66.7"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.57763401,
-       "display": "57.8"
-      },
-      "OffensiveRebounds": {
-       "value": 0,
-       "display": "0"
-      },
-      "DefensiveRebounds": {
-       "value": 5,
-       "display": "5"
-      },
-      "Turnovers": {
-       "value": 3,
-       "display": "3"
-      },
-      "PersonalFouls": {
-       "value": 2,
-       "display": "2"
-      },
-      "PlusMinus": {
-       "value": 26,
-       "display": "+26"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73481,
-       "gameDate": "2022-12-05",
-       "alignment": "away",
-       "result": "win",
-       "score": {
-        "points": 116,
-        "opponentPoints": 110
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 51,
-       "shortName": "Raptors",
-       "abbreviation": "TOR"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 38.73333333,
-       "display": "39"
-      },
-      "Points": {
-       "value": 31,
+       "value": 30.61666667,
        "display": "31"
       },
+      "Points": {
+       "value": 27,
+       "display": "27"
+      },
       "Rebounds": {
-       "value": 12,
-       "display": "12"
+       "value": 9,
+       "display": "9"
       },
       "Assists": {
-       "value": 3,
-       "display": "3"
+       "value": 0,
+       "display": "0"
       },
       "Steals": {
-       "value": 1,
-       "display": "1"
+       "value": 2,
+       "display": "2"
       },
       "Blocks": {
-       "value": 1,
-       "display": "1"
+       "value": 2,
+       "display": "2"
       },
       "FieldGoalsMade": {
-       "value": 11,
-       "display": "11"
+       "value": 9,
+       "display": "9"
       },
       "FieldGoalsAttempted": {
-       "value": 24,
-       "display": "24"
+       "value": 14,
+       "display": "14"
       },
       "FieldGoalPercentage": {
-       "value": 0.45833333,
-       "display": "45.8"
+       "value": 0.64285714,
+       "display": "64.3"
       },
       "ThreePointsMade": {
-       "value": 5,
-       "display": "5"
-      },
-      "ThreePointsAttempted": {
-       "value": 10,
-       "display": "10"
-      },
-      "ThreePointPercentage": {
-       "value": 0.5,
-       "display": "50.0"
-      },
-      "FreeThrowsMade": {
        "value": 4,
        "display": "4"
       },
-      "FreeThrowsAttempted": {
+      "ThreePointsAttempted": {
        "value": 5,
        "display": "5"
       },
-      "FreeThrowPercentage": {
+      "ThreePointPercentage": {
        "value": 0.8,
        "display": "80.0"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.59160305,
-       "display": "59.2"
-      },
-      "OffensiveRebounds": {
-       "value": 3,
-       "display": "3"
-      },
-      "DefensiveRebounds": {
-       "value": 9,
-       "display": "9"
-      },
-      "Turnovers": {
-       "value": 4,
-       "display": "4"
-      },
-      "PersonalFouls": {
-       "value": 2,
-       "display": "2"
-      },
-      "PlusMinus": {
-       "value": 9,
-       "display": "+9"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73472,
-       "gameDate": "2022-12-04",
-       "alignment": "away",
-       "result": "win",
-       "score": {
-        "points": 103,
-        "opponentPoints": 92
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 33,
-       "shortName": "Nets",
-       "abbreviation": "BKN"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 36.63333333,
-       "display": "37"
-      },
-      "Points": {
-       "value": 29,
-       "display": "29"
-      },
-      "Rebounds": {
-       "value": 11,
-       "display": "11"
-      },
-      "Assists": {
-       "value": 1,
-       "display": "1"
-      },
-      "Steals": {
-       "value": 4,
-       "display": "4"
-      },
-      "Blocks": {
-       "value": 0,
-       "display": "0"
-      },
-      "FieldGoalsMade": {
-       "value": 10,
-       "display": "10"
-      },
-      "FieldGoalsAttempted": {
-       "value": 19,
-       "display": "19"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.52631579,
-       "display": "52.6"
-      },
-      "ThreePointsMade": {
-       "value": 3,
-       "display": "3"
-      },
-      "ThreePointsAttempted": {
-       "value": 6,
-       "display": "6"
-      },
-      "ThreePointPercentage": {
-       "value": 0.5,
-       "display": "50.0"
-      },
-      "FreeThrowsMade": {
-       "value": 6,
-       "display": "6"
-      },
-      "FreeThrowsAttempted": {
-       "value": 6,
-       "display": "6"
-      },
-      "FreeThrowPercentage": {
-       "value": 1,
-       "display": "100.0"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.67005545,
-       "display": "67.0"
-      },
-      "OffensiveRebounds": {
-       "value": 2,
-       "display": "2"
-      },
-      "DefensiveRebounds": {
-       "value": 9,
-       "display": "9"
-      },
-      "Turnovers": {
-       "value": 9,
-       "display": "9"
-      },
-      "PersonalFouls": {
-       "value": 3,
-       "display": "3"
-      },
-      "PlusMinus": {
-       "value": 12,
-       "display": "+12"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73457,
-       "gameDate": "2022-12-02",
-       "alignment": "home",
-       "result": "loss",
-       "score": {
-        "points": 116,
-        "opponentPoints": 120
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 48,
-       "shortName": "Heat",
-       "abbreviation": "MIA"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 41.03333333,
-       "display": "41"
-      },
-      "Points": {
-       "value": 14,
-       "display": "14"
-      },
-      "Rebounds": {
-       "value": 12,
-       "display": "12"
-      },
-      "Assists": {
-       "value": 3,
-       "display": "3"
-      },
-      "Steals": {
-       "value": 0,
-       "display": "0"
-      },
-      "Blocks": {
-       "value": 0,
-       "display": "0"
-      },
-      "FieldGoalsMade": {
-       "value": 5,
-       "display": "5"
-      },
-      "FieldGoalsAttempted": {
-       "value": 18,
-       "display": "18"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.27777778,
-       "display": "27.8"
-      },
-      "ThreePointsMade": {
-       "value": 0,
-       "display": "0"
-      },
-      "ThreePointsAttempted": {
-       "value": 7,
-       "display": "7"
-      },
-      "ThreePointPercentage": {
-       "value": 0,
-       "display": "0.0"
-      },
-      "FreeThrowsMade": {
-       "value": 4,
-       "display": "4"
-      },
-      "FreeThrowsAttempted": {
-       "value": 6,
-       "display": "6"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.66666667,
-       "display": "66.7"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.33914729,
-       "display": "33.9"
-      },
-      "OffensiveRebounds": {
-       "value": 3,
-       "display": "3"
-      },
-      "DefensiveRebounds": {
-       "value": 9,
-       "display": "9"
-      },
-      "Turnovers": {
-       "value": 5,
-       "display": "5"
-      },
-      "PersonalFouls": {
-       "value": 4,
-       "display": "4"
-      },
-      "PlusMinus": {
-       "value": 0,
-       "display": "0"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73440,
-       "gameDate": "2022-11-30",
-       "alignment": "home",
-       "result": "win",
-       "score": {
-        "points": 134,
-        "opponentPoints": 121
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 48,
-       "shortName": "Heat",
-       "abbreviation": "MIA"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 39.21666667,
-       "display": "39"
-      },
-      "Points": {
-       "value": 49,
-       "display": "49"
-      },
-      "Rebounds": {
-       "value": 11,
-       "display": "11"
-      },
-      "Assists": {
-       "value": 3,
-       "display": "3"
-      },
-      "Steals": {
-       "value": 2,
-       "display": "2"
-      },
-      "Blocks": {
-       "value": 0,
-       "display": "0"
-      },
-      "FieldGoalsMade": {
-       "value": 15,
-       "display": "15"
-      },
-      "FieldGoalsAttempted": {
-       "value": 25,
-       "display": "25"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.6,
-       "display": "60.0"
-      },
-      "ThreePointsMade": {
-       "value": 8,
-       "display": "8"
-      },
-      "ThreePointsAttempted": {
-       "value": 12,
-       "display": "12"
-      },
-      "ThreePointPercentage": {
-       "value": 0.66666667,
-       "display": "66.7"
-      },
-      "FreeThrowsMade": {
-       "value": 11,
-       "display": "11"
-      },
-      "FreeThrowsAttempted": {
-       "value": 12,
-       "display": "12"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.91666667,
-       "display": "91.7"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.80911493,
-       "display": "80.9"
-      },
-      "OffensiveRebounds": {
-       "value": 1,
-       "display": "1"
-      },
-      "DefensiveRebounds": {
-       "value": 10,
-       "display": "10"
-      },
-      "Turnovers": {
-       "value": 1,
-       "display": "1"
-      },
-      "PersonalFouls": {
-       "value": 3,
-       "display": "3"
-      },
-      "PlusMinus": {
-       "value": 29,
-       "display": "+29"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73427,
-       "gameDate": "2022-11-28",
-       "alignment": "home",
-       "result": "win",
-       "score": {
-        "points": 140,
-        "opponentPoints": 105
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 53,
-       "shortName": "Hornets",
-       "abbreviation": "CHA"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 29.83333333,
-       "display": "30"
-      },
-      "Points": {
-       "value": 35,
-       "display": "35"
-      },
-      "Rebounds": {
-       "value": 3,
-       "display": "3"
-      },
-      "Assists": {
-       "value": 3,
-       "display": "3"
-      },
-      "Steals": {
-       "value": 2,
-       "display": "2"
-      },
-      "Blocks": {
-       "value": 1,
-       "display": "1"
-      },
-      "FieldGoalsMade": {
-       "value": 15,
-       "display": "15"
-      },
-      "FieldGoalsAttempted": {
-       "value": 28,
-       "display": "28"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.53571429,
-       "display": "53.6"
-      },
-      "ThreePointsMade": {
-       "value": 4,
-       "display": "4"
-      },
-      "ThreePointsAttempted": {
-       "value": 14,
-       "display": "14"
-      },
-      "ThreePointPercentage": {
-       "value": 0.28571429,
-       "display": "28.6"
-      },
-      "FreeThrowsMade": {
-       "value": 1,
-       "display": "1"
-      },
-      "FreeThrowsAttempted": {
-       "value": 1,
-       "display": "1"
-      },
-      "FreeThrowPercentage": {
-       "value": 1,
-       "display": "100.0"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.61533052,
-       "display": "61.5"
-      },
-      "OffensiveRebounds": {
-       "value": 0,
-       "display": "0"
-      },
-      "DefensiveRebounds": {
-       "value": 3,
-       "display": "3"
-      },
-      "Turnovers": {
-       "value": 0,
-       "display": "0"
-      },
-      "PersonalFouls": {
-       "value": 3,
-       "display": "3"
-      },
-      "PlusMinus": {
-       "value": 45,
-       "display": "+45"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73403,
-       "gameDate": "2022-11-25",
-       "alignment": "home",
-       "result": "win",
-       "score": {
-        "points": 122,
-        "opponentPoints": 104
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 16,
-       "shortName": "Kings",
-       "abbreviation": "SAC"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 31.15,
-       "display": "31"
-      },
-      "Points": {
-       "value": 30,
-       "display": "30"
-      },
-      "Rebounds": {
-       "value": 8,
-       "display": "8"
-      },
-      "Assists": {
-       "value": 4,
-       "display": "4"
-      },
-      "Steals": {
-       "value": 1,
-       "display": "1"
-      },
-      "Blocks": {
-       "value": 0,
-       "display": "0"
-      },
-      "FieldGoalsMade": {
-       "value": 10,
-       "display": "10"
-      },
-      "FieldGoalsAttempted": {
-       "value": 17,
-       "display": "17"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.58823529,
-       "display": "58.8"
-      },
-      "ThreePointsMade": {
-       "value": 2,
-       "display": "2"
-      },
-      "ThreePointsAttempted": {
-       "value": 6,
-       "display": "6"
-      },
-      "ThreePointPercentage": {
-       "value": 0.33333333,
-       "display": "33.3"
-      },
-      "FreeThrowsMade": {
-       "value": 8,
-       "display": "8"
-      },
-      "FreeThrowsAttempted": {
-       "value": 9,
-       "display": "9"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.88888889,
-       "display": "88.9"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.71564885,
-       "display": "71.6"
-      },
-      "OffensiveRebounds": {
-       "value": 1,
-       "display": "1"
-      },
-      "DefensiveRebounds": {
-       "value": 7,
-       "display": "7"
-      },
-      "Turnovers": {
-       "value": 3,
-       "display": "3"
-      },
-      "PersonalFouls": {
-       "value": 4,
-       "display": "4"
-      },
-      "PlusMinus": {
-       "value": 12,
-       "display": "+12"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73391,
-       "gameDate": "2022-11-23",
-       "alignment": "home",
-       "result": "win",
-       "score": {
-        "points": 125,
-        "opponentPoints": 112
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 46,
-       "shortName": "Mavericks",
-       "abbreviation": "DAL"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 36.81666667,
-       "display": "37"
-      },
-      "Points": {
-       "value": 37,
-       "display": "37"
-      },
-      "Rebounds": {
-       "value": 13,
-       "display": "13"
-      },
-      "Assists": {
-       "value": 5,
-       "display": "5"
-      },
-      "Steals": {
-       "value": 0,
-       "display": "0"
-      },
-      "Blocks": {
-       "value": 2,
-       "display": "2"
-      },
-      "FieldGoalsMade": {
-       "value": 11,
-       "display": "11"
-      },
-      "FieldGoalsAttempted": {
-       "value": 24,
-       "display": "24"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.45833333,
-       "display": "45.8"
-      },
-      "ThreePointsMade": {
-       "value": 2,
-       "display": "2"
-      },
-      "ThreePointsAttempted": {
-       "value": 7,
-       "display": "7"
-      },
-      "ThreePointPercentage": {
-       "value": 0.28571429,
-       "display": "28.6"
-      },
-      "FreeThrowsMade": {
-       "value": 13,
-       "display": "13"
-      },
-      "FreeThrowsAttempted": {
-       "value": 15,
-       "display": "15"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.86666667,
-       "display": "86.7"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.60457516,
-       "display": "60.5"
-      },
-      "OffensiveRebounds": {
-       "value": 3,
-       "display": "3"
-      },
-      "DefensiveRebounds": {
-       "value": 10,
-       "display": "10"
-      },
-      "Turnovers": {
-       "value": 2,
-       "display": "2"
-      },
-      "PersonalFouls": {
-       "value": 1,
-       "display": "1"
-      },
-      "PlusMinus": {
-       "value": 14,
-       "display": "+14"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73376,
-       "gameDate": "2022-11-21",
-       "alignment": "away",
-       "result": "loss",
-       "score": {
-        "points": 107,
-        "opponentPoints": 121
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 25,
-       "shortName": "Bulls",
-       "abbreviation": "CHI"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 35.76666667,
-       "display": "36"
-      },
-      "Points": {
-       "value": 28,
-       "display": "28"
-      },
-      "Rebounds": {
-       "value": 11,
-       "display": "11"
-      },
-      "Assists": {
-       "value": 7,
-       "display": "7"
-      },
-      "Steals": {
-       "value": 0,
-       "display": "0"
-      },
-      "Blocks": {
-       "value": 0,
-       "display": "0"
-      },
-      "FieldGoalsMade": {
-       "value": 9,
-       "display": "9"
-      },
-      "FieldGoalsAttempted": {
-       "value": 19,
-       "display": "19"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.47368421,
-       "display": "47.4"
-      },
-      "ThreePointsMade": {
-       "value": 4,
-       "display": "4"
-      },
-      "ThreePointsAttempted": {
-       "value": 10,
-       "display": "10"
-      },
-      "ThreePointPercentage": {
-       "value": 0.4,
-       "display": "40.0"
-      },
-      "FreeThrowsMade": {
-       "value": 6,
-       "display": "6"
-      },
-      "FreeThrowsAttempted": {
-       "value": 7,
-       "display": "7"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.85714286,
-       "display": "85.7"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.63405797,
-       "display": "63.4"
-      },
-      "OffensiveRebounds": {
-       "value": 2,
-       "display": "2"
-      },
-      "DefensiveRebounds": {
-       "value": 9,
-       "display": "9"
-      },
-      "Turnovers": {
-       "value": 4,
-       "display": "4"
-      },
-      "PersonalFouls": {
-       "value": 1,
-       "display": "1"
-      },
-      "PlusMinus": {
-       "value": -13,
-       "display": "-13"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73355,
-       "gameDate": "2022-11-18",
-       "alignment": "away",
-       "result": "win",
-       "score": {
-        "points": 117,
-        "opponentPoints": 109
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 47,
-       "shortName": "Pelicans",
-       "abbreviation": "NOP"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 39.46666667,
-       "display": "39"
-      },
-      "Points": {
-       "value": 19,
-       "display": "19"
-      },
-      "Rebounds": {
-       "value": 7,
-       "display": "7"
-      },
-      "Assists": {
-       "value": 10,
-       "display": "10"
-      },
-      "Steals": {
-       "value": 0,
-       "display": "0"
-      },
-      "Blocks": {
-       "value": 0,
-       "display": "0"
-      },
-      "FieldGoalsMade": {
-       "value": 6,
-       "display": "6"
-      },
-      "FieldGoalsAttempted": {
-       "value": 18,
-       "display": "18"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.33333333,
-       "display": "33.3"
-      },
-      "ThreePointsMade": {
-       "value": 2,
-       "display": "2"
-      },
-      "ThreePointsAttempted": {
-       "value": 10,
-       "display": "10"
-      },
-      "ThreePointPercentage": {
-       "value": 0.2,
-       "display": "20.0"
       },
       "FreeThrowsMade": {
        "value": 5,
@@ -1789,24 +727,24 @@
        "display": "83.3"
       },
       "TrueShootingPercentage": {
-       "value": 0.46027132,
-       "display": "46.0"
+       "value": 0.81129808,
+       "display": "81.1"
       },
       "OffensiveRebounds": {
-       "value": 0,
-       "display": "0"
+       "value": 1,
+       "display": "1"
       },
       "DefensiveRebounds": {
-       "value": 7,
-       "display": "7"
+       "value": 8,
+       "display": "8"
       },
       "Turnovers": {
        "value": 3,
        "display": "3"
       },
       "PersonalFouls": {
-       "value": 1,
-       "display": "1"
+       "value": 4,
+       "display": "4"
       },
       "PlusMinus": {
        "value": 11,
@@ -1818,117 +756,117 @@
      "context": [
       {
        "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
+       "playerId": 9299,
+       "longName": "Myles Turner"
       },
       {
        "type": "game",
-       "gameId": 73340,
-       "gameDate": "2022-11-16",
+       "gameId": 74478,
+       "gameDate": "2023-10-28",
        "alignment": "away",
        "result": "win",
        "score": {
-        "points": 126,
-        "opponentPoints": 101
+        "points": 125,
+        "opponentPoints": 113
        }
       },
       {
        "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
       },
       {
        "type": "opponent",
-       "teamId": 22,
-       "shortName": "Hawks",
-       "abbreviation": "ATL"
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
       }
      ],
      "stats": {
       "MinutesPlayed": {
-       "value": 32.9,
-       "display": "33"
+       "value": 29.41666667,
+       "display": "29"
       },
       "Points": {
-       "value": 19,
-       "display": "19"
+       "value": 20,
+       "display": "20"
       },
       "Rebounds": {
+       "value": 12,
+       "display": "12"
+      },
+      "Assists": {
+       "value": 1,
+       "display": "1"
+      },
+      "Steals": {
+       "value": 0,
+       "display": "0"
+      },
+      "Blocks": {
+       "value": 2,
+       "display": "2"
+      },
+      "FieldGoalsMade": {
        "value": 7,
        "display": "7"
       },
-      "Assists": {
-       "value": 8,
-       "display": "8"
-      },
-      "Steals": {
-       "value": 1,
-       "display": "1"
-      },
-      "Blocks": {
-       "value": 1,
-       "display": "1"
-      },
-      "FieldGoalsMade": {
-       "value": 6,
-       "display": "6"
-      },
       "FieldGoalsAttempted": {
-       "value": 19,
-       "display": "19"
+       "value": 14,
+       "display": "14"
       },
       "FieldGoalPercentage": {
-       "value": 0.31578947,
-       "display": "31.6"
+       "value": 0.5,
+       "display": "50.0"
       },
       "ThreePointsMade": {
-       "value": 3,
-       "display": "3"
+       "value": 1,
+       "display": "1"
       },
       "ThreePointsAttempted": {
-       "value": 10,
-       "display": "10"
+       "value": 5,
+       "display": "5"
       },
       "ThreePointPercentage": {
-       "value": 0.3,
-       "display": "30.0"
+       "value": 0.2,
+       "display": "20.0"
       },
       "FreeThrowsMade": {
-       "value": 4,
-       "display": "4"
+       "value": 5,
+       "display": "5"
       },
       "FreeThrowsAttempted": {
-       "value": 4,
-       "display": "4"
+       "value": 5,
+       "display": "5"
       },
       "FreeThrowPercentage": {
        "value": 1,
        "display": "100.0"
       },
       "TrueShootingPercentage": {
-       "value": 0.45761079,
-       "display": "45.8"
+       "value": 0.61728395,
+       "display": "61.7"
       },
       "OffensiveRebounds": {
        "value": 1,
        "display": "1"
       },
       "DefensiveRebounds": {
-       "value": 6,
-       "display": "6"
+       "value": 11,
+       "display": "11"
       },
       "Turnovers": {
        "value": 2,
        "display": "2"
       },
       "PersonalFouls": {
-       "value": 1,
-       "display": "1"
+       "value": 5,
+       "display": "5"
       },
       "PlusMinus": {
-       "value": 28,
-       "display": "+28"
+       "value": -5,
+       "display": "-5"
       }
      }
     },
@@ -1936,37 +874,37 @@
      "context": [
       {
        "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
+       "playerId": 9299,
+       "longName": "Myles Turner"
       },
       {
        "type": "game",
-       "gameId": 73328,
-       "gameDate": "2022-11-14",
+       "gameId": 73928,
+       "gameDate": "2023-02-05",
        "alignment": "home",
-       "result": "win",
+       "result": "loss",
        "score": {
-        "points": 126,
+        "points": 103,
         "opponentPoints": 122
        }
       },
       {
        "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
       },
       {
        "type": "opponent",
-       "teamId": 38,
-       "shortName": "Thunder",
-       "abbreviation": "OKC"
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
       }
      ],
      "stats": {
       "MinutesPlayed": {
-       "value": 38,
-       "display": "38"
+       "value": 24.46666667,
+       "display": "24"
       },
       "Points": {
        "value": 27,
@@ -1977,12 +915,12 @@
        "display": "10"
       },
       "Assists": {
-       "value": 1,
-       "display": "1"
+       "value": 0,
+       "display": "0"
       },
       "Steals": {
-       "value": 3,
-       "display": "3"
+       "value": 1,
+       "display": "1"
       },
       "Blocks": {
        "value": 3,
@@ -1993,410 +931,170 @@
        "display": "9"
       },
       "FieldGoalsAttempted": {
-       "value": 23,
-       "display": "23"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.39130435,
-       "display": "39.1"
-      },
-      "ThreePointsMade": {
-       "value": 1,
-       "display": "1"
-      },
-      "ThreePointsAttempted": {
-       "value": 9,
-       "display": "9"
-      },
-      "ThreePointPercentage": {
-       "value": 0.11111111,
-       "display": "11.1"
-      },
-      "FreeThrowsMade": {
-       "value": 8,
-       "display": "8"
-      },
-      "FreeThrowsAttempted": {
-       "value": 10,
-       "display": "10"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.8,
-       "display": "80.0"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.49270073,
-       "display": "49.3"
-      },
-      "OffensiveRebounds": {
-       "value": 1,
-       "display": "1"
-      },
-      "DefensiveRebounds": {
-       "value": 9,
-       "display": "9"
-      },
-      "Turnovers": {
-       "value": 1,
-       "display": "1"
-      },
-      "PersonalFouls": {
-       "value": 2,
-       "display": "2"
-      },
-      "PlusMinus": {
-       "value": 2,
-       "display": "+2"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73312,
-       "gameDate": "2022-11-12",
-       "alignment": "away",
-       "result": "win",
-       "score": {
-        "points": 117,
-        "opponentPoints": 108
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 13,
-       "shortName": "Pistons",
-       "abbreviation": "DET"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 40.98333333,
-       "display": "41"
-      },
-      "Points": {
-       "value": 43,
-       "display": "43"
-      },
-      "Rebounds": {
-       "value": 10,
-       "display": "10"
-      },
-      "Assists": {
-       "value": 3,
-       "display": "3"
-      },
-      "Steals": {
-       "value": 1,
-       "display": "1"
-      },
-      "Blocks": {
-       "value": 1,
-       "display": "1"
-      },
-      "FieldGoalsMade": {
-       "value": 14,
-       "display": "14"
-      },
-      "FieldGoalsAttempted": {
-       "value": 28,
-       "display": "28"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.5,
-       "display": "50.0"
-      },
-      "ThreePointsMade": {
-       "value": 7,
-       "display": "7"
-      },
-      "ThreePointsAttempted": {
-       "value": 14,
-       "display": "14"
-      },
-      "ThreePointPercentage": {
-       "value": 0.5,
-       "display": "50.0"
-      },
-      "FreeThrowsMade": {
-       "value": 8,
-       "display": "8"
-      },
-      "FreeThrowsAttempted": {
-       "value": 10,
-       "display": "10"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.8,
-       "display": "80.0"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.66358025,
-       "display": "66.4"
-      },
-      "OffensiveRebounds": {
-       "value": 2,
-       "display": "2"
-      },
-      "DefensiveRebounds": {
-       "value": 8,
-       "display": "8"
-      },
-      "Turnovers": {
-       "value": 3,
-       "display": "3"
-      },
-      "PersonalFouls": {
-       "value": 2,
-       "display": "2"
-      },
-      "PlusMinus": {
-       "value": 7,
-       "display": "+7"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73303,
-       "gameDate": "2022-11-11",
-       "alignment": "home",
-       "result": "win",
-       "score": {
-        "points": 131,
-        "opponentPoints": 112
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 28,
-       "shortName": "Nuggets",
-       "abbreviation": "DEN"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 37.31666667,
-       "display": "37"
-      },
-      "Points": {
-       "value": 34,
-       "display": "34"
-      },
-      "Rebounds": {
-       "value": 8,
-       "display": "8"
-      },
-      "Assists": {
-       "value": 5,
-       "display": "5"
-      },
-      "Steals": {
-       "value": 0,
-       "display": "0"
-      },
-      "Blocks": {
-       "value": 0,
-       "display": "0"
-      },
-      "FieldGoalsMade": {
-       "value": 11,
-       "display": "11"
-      },
-      "FieldGoalsAttempted": {
-       "value": 21,
-       "display": "21"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.52380952,
-       "display": "52.4"
-      },
-      "ThreePointsMade": {
-       "value": 2,
-       "display": "2"
-      },
-      "ThreePointsAttempted": {
-       "value": 7,
-       "display": "7"
-      },
-      "ThreePointPercentage": {
-       "value": 0.28571429,
-       "display": "28.6"
-      },
-      "FreeThrowsMade": {
-       "value": 10,
-       "display": "10"
-      },
-      "FreeThrowsAttempted": {
-       "value": 11,
-       "display": "11"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.90909091,
-       "display": "90.9"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.65789474,
-       "display": "65.8"
-      },
-      "OffensiveRebounds": {
-       "value": 0,
-       "display": "0"
-      },
-      "DefensiveRebounds": {
-       "value": 8,
-       "display": "8"
-      },
-      "Turnovers": {
-       "value": 1,
-       "display": "1"
-      },
-      "PersonalFouls": {
-       "value": 4,
-       "display": "4"
-      },
-      "PlusMinus": {
        "value": 18,
-       "display": "+18"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73289,
-       "gameDate": "2022-11-09",
-       "alignment": "home",
-       "result": "win",
-       "score": {
-        "points": 128,
-        "opponentPoints": 112
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 13,
-       "shortName": "Pistons",
-       "abbreviation": "DET"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 31.58333333,
-       "display": "32"
-      },
-      "Points": {
-       "value": 31,
-       "display": "31"
-      },
-      "Rebounds": {
-       "value": 1,
-       "display": "1"
-      },
-      "Assists": {
-       "value": 5,
-       "display": "5"
-      },
-      "Steals": {
-       "value": 1,
-       "display": "1"
-      },
-      "Blocks": {
-       "value": 1,
-       "display": "1"
-      },
-      "FieldGoalsMade": {
-       "value": 10,
-       "display": "10"
-      },
-      "FieldGoalsAttempted": {
-       "value": 20,
-       "display": "20"
+       "display": "18"
       },
       "FieldGoalPercentage": {
        "value": 0.5,
        "display": "50.0"
       },
       "ThreePointsMade": {
-       "value": 5,
-       "display": "5"
+       "value": 2,
+       "display": "2"
       },
       "ThreePointsAttempted": {
-       "value": 11,
-       "display": "11"
-      },
-      "ThreePointPercentage": {
-       "value": 0.45454545,
-       "display": "45.5"
-      },
-      "FreeThrowsMade": {
        "value": 6,
        "display": "6"
       },
+      "ThreePointPercentage": {
+       "value": 0.33333333,
+       "display": "33.3"
+      },
+      "FreeThrowsMade": {
+       "value": 7,
+       "display": "7"
+      },
       "FreeThrowsAttempted": {
        "value": 7,
        "display": "7"
       },
       "FreeThrowPercentage": {
-       "value": 0.85714286,
-       "display": "85.7"
+       "value": 1,
+       "display": "100.0"
       },
       "TrueShootingPercentage": {
-       "value": 0.67157712,
-       "display": "67.2"
+       "value": 0.64041746,
+       "display": "64.0"
       },
       "OffensiveRebounds": {
-       "value": 0,
-       "display": "0"
+       "value": 4,
+       "display": "4"
       },
       "DefensiveRebounds": {
-       "value": 1,
-       "display": "1"
+       "value": 6,
+       "display": "6"
       },
       "Turnovers": {
-       "value": 1,
-       "display": "1"
+       "value": 2,
+       "display": "2"
       },
       "PersonalFouls": {
        "value": 4,
        "display": "4"
+      },
+      "PlusMinus": {
+       "value": -12,
+       "display": "-12"
+      }
+     }
+    },
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 9299,
+       "longName": "Myles Turner"
+      },
+      {
+       "type": "game",
+       "gameId": 73649,
+       "gameDate": "2022-12-29",
+       "alignment": "home",
+       "result": "win",
+       "score": {
+        "points": 135,
+        "opponentPoints": 126
+       }
+      },
+      {
+       "type": "team",
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
+      },
+      {
+       "type": "opponent",
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
+      }
+     ],
+     "stats": {
+      "MinutesPlayed": {
+       "value": 34.83333333,
+       "display": "35"
+      },
+      "Points": {
+       "value": 14,
+       "display": "14"
+      },
+      "Rebounds": {
+       "value": 12,
+       "display": "12"
+      },
+      "Assists": {
+       "value": 3,
+       "display": "3"
+      },
+      "Steals": {
+       "value": 0,
+       "display": "0"
+      },
+      "Blocks": {
+       "value": 6,
+       "display": "6"
+      },
+      "FieldGoalsMade": {
+       "value": 6,
+       "display": "6"
+      },
+      "FieldGoalsAttempted": {
+       "value": 11,
+       "display": "11"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.54545455,
+       "display": "54.5"
+      },
+      "ThreePointsMade": {
+       "value": 2,
+       "display": "2"
+      },
+      "ThreePointsAttempted": {
+       "value": 4,
+       "display": "4"
+      },
+      "ThreePointPercentage": {
+       "value": 0.5,
+       "display": "50.0"
+      },
+      "FreeThrowsMade": {
+       "value": 0,
+       "display": "0"
+      },
+      "FreeThrowsAttempted": {
+       "value": 0,
+       "display": "0"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.63636364,
+       "display": "63.6"
+      },
+      "OffensiveRebounds": {
+       "value": 2,
+       "display": "2"
+      },
+      "DefensiveRebounds": {
+       "value": 10,
+       "display": "10"
+      },
+      "Turnovers": {
+       "value": 0,
+       "display": "0"
+      },
+      "PersonalFouls": {
+       "value": 2,
+       "display": "2"
       },
       "PlusMinus": {
        "value": 16,
@@ -2408,379 +1106,25 @@
      "context": [
       {
        "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
+       "playerId": 9299,
+       "longName": "Myles Turner"
       },
       {
        "type": "game",
-       "gameId": 73278,
-       "gameDate": "2022-11-07",
+       "gameId": 73556,
+       "gameDate": "2022-12-16",
        "alignment": "away",
-       "result": "win",
+       "result": "loss",
        "score": {
-        "points": 109,
-        "opponentPoints": 106
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 52,
-       "shortName": "Grizzlies",
-       "abbreviation": "MEM"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 39.58333333,
-       "display": "40"
-      },
-      "Points": {
-       "value": 39,
-       "display": "39"
-      },
-      "Rebounds": {
-       "value": 3,
-       "display": "3"
-      },
-      "Assists": {
-       "value": 2,
-       "display": "2"
-      },
-      "Steals": {
-       "value": 0,
-       "display": "0"
-      },
-      "Blocks": {
-       "value": 2,
-       "display": "2"
-      },
-      "FieldGoalsMade": {
-       "value": 12,
-       "display": "12"
-      },
-      "FieldGoalsAttempted": {
-       "value": 25,
-       "display": "25"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.48,
-       "display": "48.0"
-      },
-      "ThreePointsMade": {
-       "value": 3,
-       "display": "3"
-      },
-      "ThreePointsAttempted": {
-       "value": 11,
-       "display": "11"
-      },
-      "ThreePointPercentage": {
-       "value": 0.27272727,
-       "display": "27.3"
-      },
-      "FreeThrowsMade": {
-       "value": 12,
-       "display": "12"
-      },
-      "FreeThrowsAttempted": {
-       "value": 16,
-       "display": "16"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.75,
-       "display": "75.0"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.60861423,
-       "display": "60.9"
-      },
-      "OffensiveRebounds": {
-       "value": 0,
-       "display": "0"
-      },
-      "DefensiveRebounds": {
-       "value": 3,
-       "display": "3"
-      },
-      "Turnovers": {
-       "value": 2,
-       "display": "2"
-      },
-      "PersonalFouls": {
-       "value": 2,
-       "display": "2"
-      },
-      "PlusMinus": {
-       "value": 15,
-       "display": "+15"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73259,
-       "gameDate": "2022-11-05",
-       "alignment": "away",
-       "result": "win",
-       "score": {
-        "points": 133,
+        "points": 112,
         "opponentPoints": 118
        }
       },
       {
        "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 5,
-       "shortName": "Knicks",
-       "abbreviation": "NYK"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 36.51666667,
-       "display": "37"
-      },
-      "Points": {
-       "value": 26,
-       "display": "26"
-      },
-      "Rebounds": {
-       "value": 4,
-       "display": "4"
-      },
-      "Assists": {
-       "value": 5,
-       "display": "5"
-      },
-      "Steals": {
-       "value": 1,
-       "display": "1"
-      },
-      "Blocks": {
-       "value": 2,
-       "display": "2"
-      },
-      "FieldGoalsMade": {
-       "value": 8,
-       "display": "8"
-      },
-      "FieldGoalsAttempted": {
-       "value": 17,
-       "display": "17"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.47058824,
-       "display": "47.1"
-      },
-      "ThreePointsMade": {
-       "value": 6,
-       "display": "6"
-      },
-      "ThreePointsAttempted": {
-       "value": 13,
-       "display": "13"
-      },
-      "ThreePointPercentage": {
-       "value": 0.46153846,
-       "display": "46.2"
-      },
-      "FreeThrowsMade": {
-       "value": 4,
-       "display": "4"
-      },
-      "FreeThrowsAttempted": {
-       "value": 4,
-       "display": "4"
-      },
-      "FreeThrowPercentage": {
-       "value": 1,
-       "display": "100.0"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.69296375,
-       "display": "69.3"
-      },
-      "OffensiveRebounds": {
-       "value": 0,
-       "display": "0"
-      },
-      "DefensiveRebounds": {
-       "value": 4,
-       "display": "4"
-      },
-      "Turnovers": {
-       "value": 3,
-       "display": "3"
-      },
-      "PersonalFouls": {
-       "value": 3,
-       "display": "3"
-      },
-      "PlusMinus": {
-       "value": 12,
-       "display": "+12"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73251,
-       "gameDate": "2022-11-04",
-       "alignment": "home",
-       "result": "win",
-       "score": {
-        "points": 123,
-        "opponentPoints": 119
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 25,
-       "shortName": "Bulls",
-       "abbreviation": "CHI"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 40.05,
-       "display": "40"
-      },
-      "Points": {
-       "value": 36,
-       "display": "36"
-      },
-      "Rebounds": {
-       "value": 12,
-       "display": "12"
-      },
-      "Assists": {
-       "value": 6,
-       "display": "6"
-      },
-      "Steals": {
-       "value": 1,
-       "display": "1"
-      },
-      "Blocks": {
-       "value": 1,
-       "display": "1"
-      },
-      "FieldGoalsMade": {
-       "value": 8,
-       "display": "8"
-      },
-      "FieldGoalsAttempted": {
-       "value": 23,
-       "display": "23"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.34782609,
-       "display": "34.8"
-      },
-      "ThreePointsMade": {
-       "value": 3,
-       "display": "3"
-      },
-      "ThreePointsAttempted": {
-       "value": 10,
-       "display": "10"
-      },
-      "ThreePointPercentage": {
-       "value": 0.3,
-       "display": "30.0"
-      },
-      "FreeThrowsMade": {
-       "value": 17,
-       "display": "17"
-      },
-      "FreeThrowsAttempted": {
-       "value": 20,
-       "display": "20"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.85,
-       "display": "85.0"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.56603774,
-       "display": "56.6"
-      },
-      "OffensiveRebounds": {
-       "value": 2,
-       "display": "2"
-      },
-      "DefensiveRebounds": {
-       "value": 10,
-       "display": "10"
-      },
-      "Turnovers": {
-       "value": 1,
-       "display": "1"
-      },
-      "PersonalFouls": {
-       "value": 4,
-       "display": "4"
-      },
-      "PlusMinus": {
-       "value": 11,
-       "display": "+11"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73240,
-       "gameDate": "2022-11-02",
-       "alignment": "away",
-       "result": "loss",
-       "score": {
-        "points": 113,
-        "opponentPoints": 114
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
       },
       {
        "type": "opponent",
@@ -2791,560 +1135,84 @@
      ],
      "stats": {
       "MinutesPlayed": {
-       "value": 42.86666667,
-       "display": "43"
+       "value": 30.06666667,
+       "display": "30"
       },
       "Points": {
-       "value": 26,
-       "display": "26"
-      },
-      "Rebounds": {
        "value": 12,
        "display": "12"
       },
-      "Assists": {
-       "value": 6,
-       "display": "6"
-      },
-      "Steals": {
-       "value": 1,
-       "display": "1"
-      },
-      "Blocks": {
-       "value": 4,
-       "display": "4"
-      },
-      "FieldGoalsMade": {
-       "value": 8,
-       "display": "8"
-      },
-      "FieldGoalsAttempted": {
-       "value": 21,
-       "display": "21"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.38095238,
-       "display": "38.1"
-      },
-      "ThreePointsMade": {
-       "value": 2,
-       "display": "2"
-      },
-      "ThreePointsAttempted": {
-       "value": 9,
-       "display": "9"
-      },
-      "ThreePointPercentage": {
-       "value": 0.22222222,
-       "display": "22.2"
-      },
-      "FreeThrowsMade": {
-       "value": 8,
-       "display": "8"
-      },
-      "FreeThrowsAttempted": {
-       "value": 8,
-       "display": "8"
-      },
-      "FreeThrowPercentage": {
-       "value": 1,
-       "display": "100.0"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.53017945,
-       "display": "53.0"
-      },
-      "OffensiveRebounds": {
-       "value": 3,
-       "display": "3"
-      },
-      "DefensiveRebounds": {
-       "value": 9,
-       "display": "9"
-      },
-      "Turnovers": {
-       "value": 6,
-       "display": "6"
-      },
-      "PersonalFouls": {
-       "value": 0,
-       "display": "0"
-      },
-      "PlusMinus": {
-       "value": -16,
-       "display": "-16"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73215,
-       "gameDate": "2022-10-30",
-       "alignment": "home",
-       "result": "win",
-       "score": {
-        "points": 112,
-        "opponentPoints": 94
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 24,
-       "shortName": "Wizards",
-       "abbreviation": "WAS"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 27.41666667,
-       "display": "27"
-      },
-      "Points": {
-       "value": 23,
-       "display": "23"
-      },
       "Rebounds": {
-       "value": 4,
-       "display": "4"
-      },
-      "Assists": {
-       "value": 3,
-       "display": "3"
-      },
-      "Steals": {
-       "value": 1,
-       "display": "1"
-      },
-      "Blocks": {
-       "value": 0,
-       "display": "0"
-      },
-      "FieldGoalsMade": {
-       "value": 8,
-       "display": "8"
-      },
-      "FieldGoalsAttempted": {
-       "value": 15,
-       "display": "15"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.53333333,
-       "display": "53.3"
-      },
-      "ThreePointsMade": {
-       "value": 5,
-       "display": "5"
-      },
-      "ThreePointsAttempted": {
-       "value": 10,
-       "display": "10"
-      },
-      "ThreePointPercentage": {
-       "value": 0.5,
-       "display": "50.0"
-      },
-      "FreeThrowsMade": {
-       "value": 2,
-       "display": "2"
-      },
-      "FreeThrowsAttempted": {
-       "value": 2,
-       "display": "2"
-      },
-      "FreeThrowPercentage": {
-       "value": 1,
-       "display": "100.0"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.72418136,
-       "display": "72.4"
-      },
-      "OffensiveRebounds": {
-       "value": 0,
-       "display": "0"
-      },
-      "DefensiveRebounds": {
-       "value": 4,
-       "display": "4"
-      },
-      "Turnovers": {
-       "value": 4,
-       "display": "4"
-      },
-      "PersonalFouls": {
-       "value": 0,
-       "display": "0"
-      },
-      "PlusMinus": {
-       "value": 10,
-       "display": "+10"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73200,
-       "gameDate": "2022-10-28",
-       "alignment": "home",
-       "result": "loss",
-       "score": {
-        "points": 123,
-        "opponentPoints": 132
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 42,
-       "shortName": "Cavaliers",
-       "abbreviation": "CLE"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 42.16666667,
-       "display": "42"
-      },
-      "Points": {
-       "value": 32,
-       "display": "32"
-      },
-      "Rebounds": {
-       "value": 7,
-       "display": "7"
-      },
-      "Assists": {
-       "value": 4,
-       "display": "4"
-      },
-      "Steals": {
-       "value": 1,
-       "display": "1"
-      },
-      "Blocks": {
-       "value": 1,
-       "display": "1"
-      },
-      "FieldGoalsMade": {
        "value": 11,
        "display": "11"
       },
-      "FieldGoalsAttempted": {
-       "value": 19,
-       "display": "19"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.57894737,
-       "display": "57.9"
-      },
-      "ThreePointsMade": {
-       "value": 3,
-       "display": "3"
-      },
-      "ThreePointsAttempted": {
-       "value": 7,
-       "display": "7"
-      },
-      "ThreePointPercentage": {
-       "value": 0.42857143,
-       "display": "42.9"
-      },
-      "FreeThrowsMade": {
-       "value": 7,
-       "display": "7"
-      },
-      "FreeThrowsAttempted": {
-       "value": 8,
-       "display": "8"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.875,
-       "display": "87.5"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.71047957,
-       "display": "71.0"
-      },
-      "OffensiveRebounds": {
-       "value": 1,
-       "display": "1"
-      },
-      "DefensiveRebounds": {
-       "value": 6,
-       "display": "6"
-      },
-      "Turnovers": {
-       "value": 4,
-       "display": "4"
-      },
-      "PersonalFouls": {
-       "value": 4,
-       "display": "4"
-      },
-      "PlusMinus": {
-       "value": -10,
-       "display": "-10"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73173,
-       "gameDate": "2022-10-24",
-       "alignment": "away",
-       "result": "loss",
-       "score": {
-        "points": 102,
-        "opponentPoints": 120
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 25,
-       "shortName": "Bulls",
-       "abbreviation": "CHI"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 35.43333333,
-       "display": "35"
-      },
-      "Points": {
-       "value": 26,
-       "display": "26"
-      },
-      "Rebounds": {
-       "value": 8,
-       "display": "8"
-      },
       "Assists": {
+       "value": 0,
+       "display": "0"
+      },
+      "Steals": {
+       "value": 0,
+       "display": "0"
+      },
+      "Blocks": {
+       "value": 0,
+       "display": "0"
+      },
+      "FieldGoalsMade": {
        "value": 5,
        "display": "5"
       },
-      "Steals": {
-       "value": 0,
-       "display": "0"
-      },
-      "Blocks": {
-       "value": 0,
-       "display": "0"
-      },
-      "FieldGoalsMade": {
-       "value": 8,
-       "display": "8"
-      },
       "FieldGoalsAttempted": {
-       "value": 18,
-       "display": "18"
+       "value": 9,
+       "display": "9"
       },
       "FieldGoalPercentage": {
-       "value": 0.44444444,
-       "display": "44.4"
+       "value": 0.55555556,
+       "display": "55.6"
       },
       "ThreePointsMade": {
-       "value": 4,
-       "display": "4"
-      },
-      "ThreePointsAttempted": {
-       "value": 8,
-       "display": "8"
-      },
-      "ThreePointPercentage": {
-       "value": 0.5,
-       "display": "50.0"
-      },
-      "FreeThrowsMade": {
-       "value": 6,
-       "display": "6"
-      },
-      "FreeThrowsAttempted": {
-       "value": 6,
-       "display": "6"
-      },
-      "FreeThrowPercentage": {
-       "value": 1,
-       "display": "100.0"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.62984496,
-       "display": "63.0"
-      },
-      "OffensiveRebounds": {
-       "value": 0,
-       "display": "0"
-      },
-      "DefensiveRebounds": {
-       "value": 8,
-       "display": "8"
-      },
-      "Turnovers": {
-       "value": 1,
-       "display": "1"
-      },
-      "PersonalFouls": {
        "value": 2,
        "display": "2"
       },
-      "PlusMinus": {
-       "value": -8,
-       "display": "-8"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73156,
-       "gameDate": "2022-10-22",
-       "alignment": "away",
-       "result": "win",
-       "score": {
-        "points": 126,
-        "opponentPoints": 120
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 50,
-       "shortName": "Magic",
-       "abbreviation": "ORL"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 37.65,
-       "display": "38"
-      },
-      "Points": {
-       "value": 40,
-       "display": "40"
-      },
-      "Rebounds": {
-       "value": 8,
-       "display": "8"
-      },
-      "Assists": {
-       "value": 1,
-       "display": "1"
-      },
-      "Steals": {
-       "value": 1,
-       "display": "1"
-      },
-      "Blocks": {
-       "value": 2,
-       "display": "2"
-      },
-      "FieldGoalsMade": {
-       "value": 14,
-       "display": "14"
-      },
-      "FieldGoalsAttempted": {
-       "value": 21,
-       "display": "21"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.66666667,
-       "display": "66.7"
-      },
-      "ThreePointsMade": {
-       "value": 4,
-       "display": "4"
-      },
       "ThreePointsAttempted": {
-       "value": 10,
-       "display": "10"
+       "value": 5,
+       "display": "5"
       },
       "ThreePointPercentage": {
        "value": 0.4,
        "display": "40.0"
       },
       "FreeThrowsMade": {
-       "value": 8,
-       "display": "8"
+       "value": 0,
+       "display": "0"
       },
       "FreeThrowsAttempted": {
-       "value": 9,
-       "display": "9"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.88888889,
-       "display": "88.9"
+       "value": 0,
+       "display": "0"
       },
       "TrueShootingPercentage": {
-       "value": 0.80128205,
-       "display": "80.1"
+       "value": 0.66666667,
+       "display": "66.7"
       },
       "OffensiveRebounds": {
        "value": 0,
        "display": "0"
       },
       "DefensiveRebounds": {
-       "value": 8,
-       "display": "8"
+       "value": 11,
+       "display": "11"
       },
       "Turnovers": {
-       "value": 1,
-       "display": "1"
+       "value": 0,
+       "display": "0"
       },
       "PersonalFouls": {
-       "value": 2,
-       "display": "2"
+       "value": 4,
+       "display": "4"
       },
       "PlusMinus": {
-       "value": 6,
-       "display": "+6"
+       "value": 1,
+       "display": "+1"
       }
      }
     },
@@ -3352,235 +1220,117 @@
      "context": [
       {
        "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
+       "playerId": 9299,
+       "longName": "Myles Turner"
       },
       {
        "type": "game",
-       "gameId": 73148,
-       "gameDate": "2022-10-21",
+       "gameId": 72338,
+       "gameDate": "2022-01-02",
        "alignment": "away",
-       "result": "win",
+       "result": "loss",
        "score": {
-        "points": 111,
-        "opponentPoints": 104
+        "points": 104,
+        "opponentPoints": 108
        }
       },
       {
        "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
       },
       {
        "type": "opponent",
-       "teamId": 48,
-       "shortName": "Heat",
-       "abbreviation": "MIA"
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
       }
      ],
      "stats": {
       "MinutesPlayed": {
-       "value": 36.78333333,
+       "value": 36.8,
        "display": "37"
       },
       "Points": {
-       "value": 29,
-       "display": "29"
+       "value": 12,
+       "display": "12"
       },
       "Rebounds": {
-       "value": 5,
-       "display": "5"
-      },
-      "Assists": {
-       "value": 4,
-       "display": "4"
-      },
-      "Steals": {
-       "value": 1,
-       "display": "1"
-      },
-      "Blocks": {
-       "value": 2,
-       "display": "2"
-      },
-      "FieldGoalsMade": {
        "value": 10,
        "display": "10"
       },
-      "FieldGoalsAttempted": {
-       "value": 22,
-       "display": "22"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.45454545,
-       "display": "45.5"
-      },
-      "ThreePointsMade": {
-       "value": 2,
-       "display": "2"
-      },
-      "ThreePointsAttempted": {
-       "value": 7,
-       "display": "7"
-      },
-      "ThreePointPercentage": {
-       "value": 0.28571429,
-       "display": "28.6"
-      },
-      "FreeThrowsMade": {
-       "value": 7,
-       "display": "7"
-      },
-      "FreeThrowsAttempted": {
-       "value": 7,
-       "display": "7"
-      },
-      "FreeThrowPercentage": {
-       "value": 1,
-       "display": "100.0"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.57814992,
-       "display": "57.8"
-      },
-      "OffensiveRebounds": {
-       "value": 2,
-       "display": "2"
-      },
-      "DefensiveRebounds": {
+      "Assists": {
        "value": 3,
        "display": "3"
       },
-      "Turnovers": {
+      "Steals": {
        "value": 2,
        "display": "2"
       },
-      "PersonalFouls": {
-       "value": 1,
-       "display": "1"
+      "Blocks": {
+       "value": 3,
+       "display": "3"
       },
-      "PlusMinus": {
-       "value": -1,
-       "display": "-1"
-      }
-     }
-    },
-    {
-     "context": [
-      {
-       "type": "player",
-       "playerId": 9582,
-       "longName": "Jayson Tatum"
-      },
-      {
-       "type": "game",
-       "gameId": 73127,
-       "gameDate": "2022-10-18",
-       "alignment": "home",
-       "result": "win",
-       "score": {
-        "points": 126,
-        "opponentPoints": 117
-       }
-      },
-      {
-       "type": "team",
-       "teamId": 1,
-       "shortName": "Celtics",
-       "abbreviation": "BOS"
-      },
-      {
-       "type": "opponent",
-       "teamId": 21,
-       "shortName": "76ers",
-       "abbreviation": "PHI"
-      }
-     ],
-     "stats": {
-      "MinutesPlayed": {
-       "value": 38.61666667,
-       "display": "39"
-      },
-      "Points": {
-       "value": 35,
-       "display": "35"
-      },
-      "Rebounds": {
-       "value": 12,
-       "display": "12"
-      },
-      "Assists": {
+      "FieldGoalsMade": {
        "value": 4,
        "display": "4"
       },
-      "Steals": {
-       "value": 1,
-       "display": "1"
-      },
-      "Blocks": {
-       "value": 1,
-       "display": "1"
-      },
-      "FieldGoalsMade": {
-       "value": 13,
-       "display": "13"
-      },
       "FieldGoalsAttempted": {
-       "value": 20,
-       "display": "20"
+       "value": 11,
+       "display": "11"
       },
       "FieldGoalPercentage": {
-       "value": 0.65,
-       "display": "65.0"
+       "value": 0.36363636,
+       "display": "36.4"
       },
       "ThreePointsMade": {
        "value": 2,
        "display": "2"
       },
       "ThreePointsAttempted": {
-       "value": 7,
-       "display": "7"
+       "value": 5,
+       "display": "5"
       },
       "ThreePointPercentage": {
-       "value": 0.28571429,
-       "display": "28.6"
+       "value": 0.4,
+       "display": "40.0"
       },
       "FreeThrowsMade": {
-       "value": 7,
-       "display": "7"
+       "value": 2,
+       "display": "2"
       },
       "FreeThrowsAttempted": {
-       "value": 9,
-       "display": "9"
+       "value": 4,
+       "display": "4"
       },
       "FreeThrowPercentage": {
-       "value": 0.77777778,
-       "display": "77.8"
+       "value": 0.5,
+       "display": "50.0"
       },
       "TrueShootingPercentage": {
-       "value": 0.73038397,
-       "display": "73.0"
+       "value": 0.47021944,
+       "display": "47.0"
       },
       "OffensiveRebounds": {
-       "value": 0,
-       "display": "0"
+       "value": 5,
+       "display": "5"
       },
       "DefensiveRebounds": {
-       "value": 12,
-       "display": "12"
+       "value": 5,
+       "display": "5"
       },
       "Turnovers": {
        "value": 3,
        "display": "3"
       },
       "PersonalFouls": {
-       "value": 1,
-       "display": "1"
+       "value": 5,
+       "display": "5"
       },
       "PlusMinus": {
-       "value": 10,
-       "display": "+10"
+       "value": 1,
+       "display": "+1"
       }
      }
     }
