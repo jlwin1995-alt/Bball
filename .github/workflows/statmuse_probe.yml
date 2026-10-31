@@ -1,0 +1,52 @@
+name: StatMuse probe
+
+# One-off: asks the StatMuse API a short list of questions and commits the raw answers to data/log/statmuse_probe/ so the response shape, history depth
+# and coverage can be read before anything is integrated. Costs one request per question (1,500 a billing period). Needs the repository secret
+# STATMUSE_API_KEY; without it this does nothing. Nothing in the site or the model reads these files.
+on:
+  workflow_dispatch:
+    inputs:
+      queries:
+        description: "Questions to ask, one per line (blank = the built-in list of 8)"
+        type: string
+        default: ""
+      max:
+        description: "Most questions to send"
+        type: string
+        default: "10"
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: refresh
+      cancel-in-progress: false
+    env:
+      STATMUSE_API_KEY: ${{ secrets.STATMUSE_API_KEY }}
+      QUERIES: ${{ github.event.inputs.queries }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Ask StatMuse
+        run: |
+          args=()
+          while IFS= read -r line; do [ -n "$line" ] && args+=(--query "$line"); done <<< "$QUERIES"
+          python -m pipeline.statmuse_probe --max "${{ github.event.inputs.max || '10' }}" "${args[@]}"
+      - name: Commit the answers
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/log/statmuse_probe
+          git diff --cached --quiet && exit 0
+          git commit -m "StatMuse probe"
+          for i in 1 2 3; do
+            git pull --rebase -X theirs origin main && git push && exit 0
+            git rebase --abort 2>/dev/null || true
+            sleep $((i * 5))
+          done
+          echo "::error::could not push the probe commit"; exit 1
