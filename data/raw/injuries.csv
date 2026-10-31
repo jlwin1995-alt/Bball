@@ -8,7 +8,7 @@ pid,name,team,status,note,ts
 4395651,Coby White,CHA,Out,"Head coach Charles Lee said Monday that White (calf) remains without a timeline for a return, though Lee added that he'll have a better idea of where things stand following the Hornets' two-game road trip, Rod Boone of The Charlotte Observer reports.",2026-10-26T22:41Z
 4066218,Grant Williams,CHA,Out,"Williams (hamstring) will be re-evaluated following Charlotte's upcoming two-game road trip, Rod Boone reports.",2026-10-26T22:34Z
 4684269,Kylan Boswell,CHA,Out,Boswell (knee) is out for Wednesday's season opener against the Nets.,2026-10-20T20:55Z
-4848625,Dailyn Swain,CHI,Out,Swain (back) has been ruled out for Friday's game against Boston.,2026-10-30T21:50Z
+4848625,Dailyn Swain,CHI,Day-To-Day,Swain (back) has been ruled out for Friday's game against Boston.,2026-10-31T04:59Z
 4278067,Nic Claxton,CHI,Out,"Claxton (hamstring) participated in individual drills Monday morning and hopes to join the team for practice next week, Joe Cowley of the Chicago Sun-Times reports.",2026-10-26T22:20Z
 4683747,Jaylon Tyson,CLE,Out,Tyson (ankle) has been ruled out for Saturday's game against the Bucks.,2026-10-30T20:52Z
 5041951,Meleek Thomas,CLE,Day-To-Day,Thomas (foot) is questionable for Saturday's game against the Bucks.,2026-10-30T20:51Z
@@ -38,7 +38,7 @@ pid,name,team,status,note,ts
 3913176,Brandon Ingram,LAC,Out,"Ingram (Achilles) is making progress but is set to miss at least one more week, Ohm Youngmisuk of ESPN.com reports.",2026-10-29T01:00Z
 6580,Bradley Beal,LAC,Out,"Beal (knee) will not be ready for the start of the regular season, NBA writer Justin Russo reports.",2026-10-15T01:03Z
 4396818,Jordan Miller,LAC,Out,"Miller underwent surgery Wednesday to repair a torn left rotator cuff and will be re-evaluated in six months, per Law Murray of The Athletic.",2026-08-26T20:04Z
-4433137,Ziaire Williams,LAL,Out,"Williams has been ruled out for Friday's game against the Warriors due to left foot injury management, Mark Medina of TheSportingTribune.com reports.",2026-10-30T20:05Z
+4433137,Ziaire Williams,LAL,Day-To-Day,"Williams has been ruled out for Friday's game against the Warriors due to left foot injury management, Mark Medina of TheSportingTribune.com reports.",2026-10-31T04:52Z
 5060631,Adou Thiero,LAL,Out,Thiero (knee) has been ruled out for Friday's game against the Warriors.,2026-10-30T00:05Z
 4431785,Scotty Pippen Jr.,MEM,Day-To-Day,Pippen (back) is listed as questionable for Saturday's game against the Kings.,2026-10-30T22:35Z
 4065733,Ty Jerome,MEM,Day-To-Day,Jerome (back) is listed as questionable for Saturday's game against the Kings.,2026-10-30T22:29Z
@@ -59,7 +59,7 @@ pid,name,team,status,note,ts
 4432573,Paolo Banchero,ORL,Out,"Banchero is expected to be sidelined for the next four-to-six weeks due to a right high-ankle sprain, Shams Charania of ESPN reports.",2026-10-24T16:47Z
 5214637,Noah Penda,ORL,Out,"Penda was diagnosed with a partially torn right hamstring Saturday, Jason Beede of the Orlando Sentinel reports.",2026-10-17T22:19Z
 5107251,Izaiyah Nelson,ORL,Out,"Team president Jeff Weltman said Monday that Nelson (ankle) remains about a month away from returning to the court after offseason surgery, per Philip Rossman-Reich of OrlandoMagicDaily.com.",2026-09-28T21:33Z
-3917376,Jaylen Brown,PHI,Out,Brown (knee) is out for Friday's game against the Knicks.,2026-10-30T21:50Z
+3917376,Jaylen Brown,PHI,Day-To-Day,Brown (knee) is out for Friday's game against the Knicks.,2026-10-31T04:58Z
 4432446,Jabari Walker,PHI,Out,Walker (knee) has been ruled out for Friday's game versus New York.,2026-10-29T21:34Z
 3904625,Tacko Fall,PHI,Out,Fall (quadriceps) is out for Wednesday's game in Indiana.,2026-10-27T21:10Z
 4870562,Dominick Barlow,PHI,Out,"Barlow will miss at least the next two weeks of action due to a lumbar spine bone stress response, Adam Aaronson of PhillyVoice.com reports.",2026-10-19T21:07Z
