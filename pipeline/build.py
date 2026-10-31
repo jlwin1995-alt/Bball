@@ -176,6 +176,11 @@ def main(raw="data/raw", out="site/data"):
             calibrate_mod.main(f"{out}/results", out, raw)
         except Exception as e:
             print("calibration skipped:", e)
+        try:                                                        # pregame highlights: leg types whose graded record has held up (display only)
+            from . import highlights as highlights_mod
+            highlights_mod.main(out, raw)
+        except Exception as e:
+            print("highlights skipped:", e)
         try:                                                        # each player's record against his own projection vs soft / tough defences (display only)
             from . import splits as splits_mod
             splits_mod.write(games, set(P["pid"].astype(str)), out)
