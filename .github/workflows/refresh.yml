@@ -38,6 +38,9 @@ jobs:
         run: python -m pipeline.backtest --every 5 --write-spread
       - name: Build site data (and log the next slate before tip-off)
         run: python -m pipeline.build
+      - name: Log DARKO's projections beside ours (research only)
+        # DARKO's public MCP endpoint needs no key; this only writes data/log/darko_proj.csv on the first run after the pre-tip slate log. Soft-fail.
+        run: python -m pipeline.darko_log || echo "::warning::DARKO projections could not be logged"
       - name: Commit data
         # If main moved while this job ran (a re-run of an old commit, or a merge mid-run), rebase our freshly
         # generated data onto it instead of failing. Only data/ and site/data/ are touched, and where both sides
