@@ -415,6 +415,18 @@ def noline_flags(proj, lines_path, rows=None, opp_min=10.0, absent_games=2, abse
     return sum(x["noline"] for x in proj)
 
 
+OUT_FILE = "data/log/cfb_out_overrides.csv"
+
+
+def load_out(week, path=OUT_FILE):
+    """data/log/cfb_out_overrides.csv (player_id,week,status,name,note): news the box scores cannot show (college has no injury feed). status "out": the player is not projected and his
+    team's carries / receptions / attempts go to the men who remain (a QB's attempts go to the backup, uncapped); status "starter": a tag only (the player is stepping in). -> {player_id: row}"""
+    try:
+        return {x["player_id"]: x for x in read_csv(path) if str(x["week"]) == str(week)}
+    except FileNotFoundError:
+        return {}
+
+
 def pff_college(raw, season, week, proj):
     """PFF alignment / routes ("role") and opposing-coverage strength ("mu") on each WR / TE / RB projection (display only; skipped when the PFF files are missing)."""
     from . import pff_roles, pff_matchups, pff_teams
@@ -459,13 +471,18 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
         return 0
     week = min(targets)
     s = sched[week]
-    core = cfb_core(rows, s["matchup"], s["conf"], P)
+    manual = load_out(week)
+    out_ids = {i for i, r_ in manual.items() if r_.get("status") == "out"}
+    starter_ids = {i for i, r_ in manual.items() if r_.get("status") == "starter"}
+    core = cfb_core(rows, s["matchup"], s["conf"], dict(P, CFB_OUT_IDS=out_ids, CFB_ABSENT_W=0.0, CFB_STARTER_IDS=starter_ids) if out_ids else P)
     meta_in = json.load(open(f"{d}/cfb_meta.json")) if os.path.exists(f"{d}/cfb_meta.json") else {}
     gaps = [w for w in meta_in.get("done", {}) if int(w) < week and meta_in.get("fetched", {}).get(w) != meta_in["done"][w]]
     kick = {t: m["start"] for t, m in s["matchup"].items()}
     def make_proj(core):
         proj = []
         for pl in core["players"]:
+            if pl["id"] in out_ids:
+                pl = dict(pl, car=0.0, rec=0.0, att=0.0)           # ruled out (manual override): nothing projected, his volume went to his teammates
             x = derive(pl, W)
             proj.append(dict(id=pl["id"], name=pl["name"], pos=pl["pos"], team=pl["team"], conf=pl["conf"], opp=pl["opp"], site=pl["siteTag"], game=label(pl["team"], pl["opp"], pl["siteTag"]),
                              ko=pl["start"] or None, g=pl["g"], car=pl["car"], rec=pl["rec"], att=pl["att"], ypc=r(pl["ypc"], 4), ypr=r(pl["ypr"], 4), ypa=r(pl["ypa"], 4),
@@ -479,6 +496,11 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
         for x in proj:
             x["depth"] = rl.get(x["id"])
         pff_college(raw, season, week, proj)
+        for x in proj:
+            m_ = manual.get(x["id"])
+            x["out"] = int(x["id"] in out_ids)
+            x["note"] = m_.get("note") if m_ else None
+            x["starter"] = int(bool(m_) and m_.get("status") == "starter")
         return proj
 
     proj = make_proj(core)
@@ -518,11 +540,11 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
     n_nl = noline_flags(proj, f"{out}/lines.json", rows)
     if C.CFB_NOLINE_OUT and n_nl:
         # live from week 9: players the books are not pricing on a priced team are treated as out in the team's carry / reception pool (README: teammates' carries MAE -8.6% in weeks 7-8)
-        out_ids = {x["id"] for x in proj if x["noline"]}
-        proj = make_proj(cfb_core(rows, s["matchup"], s["conf"], dict(P, CFB_OUT_IDS=out_ids, CFB_ABSENT_W=0.0)))
+        nl_ids = {x["id"] for x in proj if x["noline"]}
+        proj = make_proj(cfb_core(rows, s["matchup"], s["conf"], dict(P, CFB_OUT_IDS=nl_ids | out_ids, CFB_ABSENT_W=0.0, CFB_STARTER_IDS=starter_ids)))
         noline_flags(proj, f"{out}/lines.json", rows)
         json.dump(proj, open(f"{out}/projections.json", "w"), separators=(",", ":"))
-        print(f"college: {len(out_ids)} no-line players treated as out in the team pool")
+        print(f"college: {len(nl_ids)} no-line players treated as out in the team pool")
     json.dump(proj, open(f"{out}/projections.json", "w"), separators=(",", ":"))
     print(f"college no-line flags: {n_nl}")
     json.dump(dict(week=week, rows=dr, lg=dict(ypc=r(core["LG_YPC"], 3), ypr=r(core["LG_YPR"], 3), ypa=r(core["LG_YPA"], 3),

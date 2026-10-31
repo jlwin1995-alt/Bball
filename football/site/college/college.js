@@ -19,8 +19,10 @@ const calcFor = p => {
 };
 const proj = () => D.projections.map(p => ({...p, c: calcFor(p)}));
 const siteTag = r => r.site === "N" ? "vs " + esc(r.opp) + " (neutral)" : (r.site === "vs" ? "vs " : "@ ") + esc(r.opp);
-const noLineTag = p => p.returning ? ` <span class="pill start" title="Missed his team's last 2 games but a prop line is posted: he looks set to return. Only 4 such cases so far (2 played, at about 0.8 of projected volume), so this is a tag, not an adjustment.">returning</span>`
-  : p.noline ? ` <span class="pill bkp" title="${p.nl_absent ? "Missed his team's last 2 games and has no prop line while the books are pricing his team: 15% of such players played in weeks 7-9." : "The books are pricing this team's players and he has no prop line. In weeks 7-8 only 41% of such players (projected 10+ opportunities) played, against 96% of those with a line."} Treat him as likely out or not featuring; his teammates' projections already assume it.">no line</span>` : "";
+const statusTag = p => p.out ? ` <span class="pill bad" title="${esc(p.note || "Ruled out")}. Nothing is projected for him and his team's volume goes to his teammates.">OUT</span>`
+  : p.starter ? ` <span class="pill start" title="${esc(p.note || "Starting in place of an injured teammate")}. His volume is the team's (a manual override: college has no injury feed), so his own history is a poor guide.">STARTING</span>` : "";
+const noLineTag = p => statusTag(p) || (p.returning ? ` <span class="pill start" title="Missed his team's last 2 games but a prop line is posted: he looks set to return. Only 4 such cases so far (2 played, at about 0.8 of projected volume), so this is a tag, not an adjustment.">returning</span>`
+  : p.noline ? ` <span class="pill bkp" title="${p.nl_absent ? "Missed his team's last 2 games and has no prop line while the books are pricing his team: 15% of such players played in weeks 7-9." : "The books are pricing this team's players and he has no prop line. In weeks 7-8 only 41% of such players (projected 10+ opportunities) played, against 96% of those with a line."} Treat him as likely out or not featuring; his teammates' projections already assume it.">no line</span>` : "");
 const nameCols = [{k: "name", h: "Player", l: 1, f: r => esc(r.name) + noLineTag(r)}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}];
 const UTM = () => (UTM.c ||= Object.fromEntries((D.usage_trend || []).map(u => [u.id, u])));
 // A RISING player (his share of the team's work up 5+ points over the last 3 games) has a history that understates his role: in the college backtest his projections ran 28% low on carries,
@@ -45,7 +47,7 @@ function playerLines(p) {
     const spec = specOf(r.stat), m = p.c[r.stat], c = r.cons, sd = c ? FB.sides(c.line, m, spec) : null, st = Date.now() >= Date.parse(r.commence);
     const z = c ? zOf(spec, m, c.line) : null;
     return {r, spec, m, c, po: sd?.o, edge: sd ? (sd.o - c.p_over) * 100 : null, pp: r.dfs.prizepicks, ud: r.dfs.underdog ?? r.dfs.pick6, started: st, z,
-      tier: !st && z != null && m > 0 && !isThin(p) && !riserUnder(p, z) ? leanTier(z) : "", side: z == null ? null : z > 0 ? "OVER" : "UNDER"};
+      tier: !st && z != null && m > 0 && !isThin(p) && !p.out && !riserUnder(p, z) ? leanTier(z) : "", side: z == null ? null : z > 0 ? "OVER" : "UNDER"};
   }).sort((a, b) => Math.abs(b.z ?? 0) - Math.abs(a.z ?? 0));
 }
 function leanBlock(L) {
@@ -145,7 +147,7 @@ const pages = {
       if (!p || !spec) return null;
       const m = p.c[r.stat], c = r.cons, st = Date.now() >= Date.parse(r.commence), z = c ? zOf(spec, m, c.line) : null, sd = c ? FB.sides(c.line, m, spec) : null;
       return {pid: p.id, gb: p.game, name: p.name, pos: p.pos, team: p.team, game: r.game, label: spec.label, m, c, z, st, pp: r.dfs.prizepicks, ud: r.dfs.underdog ?? r.dfs.pick6,
-        tier: st || z == null || m <= 0 || isThin(p) || riserUnder(p, z) ? "" : leanTier(z), side: z == null ? null : z > 0 ? "OVER" : "UNDER", edge: sd ? (sd.o - c.p_over) * 100 : null, ko: r.commence};
+        tier: st || z == null || m <= 0 || isThin(p) || p.out || riserUnder(p, z) ? "" : leanTier(z), side: z == null ? null : z > 0 ? "OVER" : "UNDER", edge: sd ? (sd.o - c.p_over) * 100 : null, ko: r.commence};
     }).filter(Boolean).filter(r => (!F.q || (r.name + " " + r.team).toLowerCase().includes(F.q.trim().toLowerCase())) && (!F.pos || r.pos === F.pos));
     const upd = /[zZ]|[+-]\d\d:?\d\d$/.test(L.updated) ? L.updated : L.updated + "Z", mins = Math.max(0, Math.round((Date.now() - Date.parse(upd)) / 60000));
     const cols = [{k: "name", h: "Player", l: 1, f: r => gbLink(r.name, r.gb, r.pid)}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}, {k: "label", h: "Market", l: 1},
