@@ -1,9 +1,9 @@
 {
- "question": "Anthony Black minutes per game 2025-26",
+ "question": "Evan Mobley player tracking matchup stats vs Myles Turner",
  "status": 200,
  "rate_headers": {
   "x-quota-limit": "1500",
-  "x-quota-remaining": "1484",
+  "x-quota-remaining": "1476",
   "x-quota-reset": "2026-11-30T21:44:10.000Z",
   "x-ratelimit-limit": "12",
   "x-ratelimit-remaining": "11"
@@ -11,34 +11,14 @@
  "response": {
   "type": "stats",
   "input": {
-   "original": "Anthony Black minutes per game 2025-26"
+   "original": "Evan Mobley player tracking matchup stats vs Myles Turner"
   },
   "answer": {
-   "text": "Anthony Black had 29.8 minutes per game in 2025-26.",
-   "markdown": "[Anthony Black](https://www.statmuse.com/nba/player/anthony-black-30257) had 29.8 minutes per game in 2025-26."
+   "text": "Evan Mobley games versus Myles Turner",
+   "markdown": "[Evan Mobley](https://www.statmuse.com/nba/player/evan-mobley-10337) games versus [Myles Turner](https://www.statmuse.com/nba/player/myles-turner-9299)"
   },
   "query": {
    "stats": [
-    "MinutesPlayedPerGame",
-    "GamesPlayed",
-    "PointsPerGame",
-    "ReboundsPerGame",
-    "AssistsPerGame",
-    "StealsPerGame",
-    "BlocksPerGame",
-    "FieldGoalsMadePerGame",
-    "FieldGoalsAttemptedPerGame",
-    "FieldGoalPercentage",
-    "ThreePointsMadePerGame",
-    "ThreePointsAttemptedPerGame",
-    "ThreePointPercentage",
-    "FreeThrowsMadePerGame",
-    "FreeThrowsAttemptedPerGame",
-    "FreeThrowPercentage",
-    "TrueShootingPercentage",
-    "OffensiveReboundsPerGame",
-    "DefensiveReboundsPerGame",
-    "TurnoversPerGame",
     "MinutesPlayed",
     "Points",
     "Rebounds",
@@ -47,10 +27,14 @@
     "Blocks",
     "FieldGoalsMade",
     "FieldGoalsAttempted",
+    "FieldGoalPercentage",
     "ThreePointsMade",
     "ThreePointsAttempted",
+    "ThreePointPercentage",
     "FreeThrowsMade",
     "FreeThrowsAttempted",
+    "FreeThrowPercentage",
+    "TrueShootingPercentage",
     "OffensiveRebounds",
     "DefensiveRebounds",
     "Turnovers",
@@ -64,169 +48,1289 @@
      "context": [
       {
        "type": "player",
-       "playerId": 30257,
-       "longName": "Anthony Black"
+       "playerId": 10337,
+       "longName": "Evan Mobley"
       },
       {
-       "type": "seasonYear",
-       "seasonYear": 2026,
-       "display": "2025-26"
+       "type": "game",
+       "gameId": 77455,
+       "gameDate": "2025-11-17",
+       "alignment": "home",
+       "result": "win",
+       "score": {
+        "points": 118,
+        "opponentPoints": 106
+       }
       },
       {
        "type": "team",
-       "teamId": 50,
-       "shortName": "Magic",
-       "abbreviation": "ORL"
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
+      },
+      {
+       "type": "opponent",
+       "teamId": 39,
+       "shortName": "Bucks",
+       "abbreviation": "MIL"
       }
      ],
      "stats": {
-      "MinutesPlayedPerGame": {
-       "value": 29.84375,
-       "display": "29.8"
-      },
-      "GamesPlayed": {
-       "value": 64,
-       "display": "64"
-      },
-      "PointsPerGame": {
-       "value": 14.984375,
-       "display": "15.0"
-      },
-      "ReboundsPerGame": {
-       "value": 3.8125,
-       "display": "3.8"
-      },
-      "AssistsPerGame": {
-       "value": 3.6875,
-       "display": "3.7"
-      },
-      "StealsPerGame": {
-       "value": 1.421875,
-       "display": "1.4"
-      },
-      "BlocksPerGame": {
-       "value": 0.703125,
-       "display": "0.7"
-      },
-      "FieldGoalsMadePerGame": {
-       "value": 5.390625,
-       "display": "5.4"
-      },
-      "FieldGoalsAttemptedPerGame": {
-       "value": 12.0625,
-       "display": "12.1"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.44689119,
-       "display": "44.7"
-      },
-      "ThreePointsMadePerGame": {
-       "value": 1.5625,
-       "display": "1.6"
-      },
-      "ThreePointsAttemptedPerGame": {
-       "value": 4.6875,
-       "display": "4.7"
-      },
-      "ThreePointPercentage": {
-       "value": 0.33333333,
-       "display": "33.3"
-      },
-      "FreeThrowsMadePerGame": {
-       "value": 2.640625,
-       "display": "2.6"
-      },
-      "FreeThrowsAttemptedPerGame": {
-       "value": 3.609375,
-       "display": "3.6"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.73160173,
-       "display": "73.2"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.54885307,
-       "display": "54.9"
-      },
-      "OffensiveReboundsPerGame": {
-       "value": 0.734375,
-       "display": "0.7"
-      },
-      "DefensiveReboundsPerGame": {
-       "value": 3.078125,
-       "display": "3.1"
-      },
-      "TurnoversPerGame": {
-       "value": 2.0625,
-       "display": "2.1"
-      },
       "MinutesPlayed": {
-       "value": 1910,
-       "display": "1,910"
+       "value": 36.03333333,
+       "display": "36"
       },
       "Points": {
-       "value": 959,
-       "display": "959"
+       "value": 14,
+       "display": "14"
       },
       "Rebounds": {
-       "value": 244,
-       "display": "244"
+       "value": 6,
+       "display": "6"
       },
       "Assists": {
-       "value": 236,
-       "display": "236"
+       "value": 6,
+       "display": "6"
       },
       "Steals": {
-       "value": 91,
-       "display": "91"
+       "value": 0,
+       "display": "0"
       },
       "Blocks": {
-       "value": 45,
-       "display": "45"
+       "value": 1,
+       "display": "1"
       },
       "FieldGoalsMade": {
-       "value": 345,
-       "display": "345"
+       "value": 4,
+       "display": "4"
       },
       "FieldGoalsAttempted": {
-       "value": 772,
-       "display": "772"
+       "value": 9,
+       "display": "9"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.44444444,
+       "display": "44.4"
       },
       "ThreePointsMade": {
-       "value": 100,
-       "display": "100"
+       "value": 1,
+       "display": "1"
       },
       "ThreePointsAttempted": {
-       "value": 300,
-       "display": "300"
+       "value": 2,
+       "display": "2"
+      },
+      "ThreePointPercentage": {
+       "value": 0.5,
+       "display": "50.0"
       },
       "FreeThrowsMade": {
-       "value": 169,
-       "display": "169"
+       "value": 5,
+       "display": "5"
       },
       "FreeThrowsAttempted": {
-       "value": 231,
-       "display": "231"
+       "value": 8,
+       "display": "8"
+      },
+      "FreeThrowPercentage": {
+       "value": 0.625,
+       "display": "62.5"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.55910543,
+       "display": "55.9"
       },
       "OffensiveRebounds": {
-       "value": 47,
-       "display": "47"
+       "value": 0,
+       "display": "0"
       },
       "DefensiveRebounds": {
-       "value": 197,
-       "display": "197"
+       "value": 6,
+       "display": "6"
       },
       "Turnovers": {
-       "value": 132,
-       "display": "132"
+       "value": 6,
+       "display": "6"
       },
       "PersonalFouls": {
-       "value": 170,
-       "display": "170"
+       "value": 4,
+       "display": "4"
       },
       "PlusMinus": {
-       "value": -14,
-       "display": "-14"
+       "value": 5,
+       "display": "+5"
+      }
+     }
+    },
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 10337,
+       "longName": "Evan Mobley"
+      },
+      {
+       "type": "game",
+       "gameId": 77321,
+       "gameDate": "2025-10-26",
+       "alignment": "home",
+       "result": "win",
+       "score": {
+        "points": 118,
+        "opponentPoints": 113
+       }
+      },
+      {
+       "type": "team",
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
+      },
+      {
+       "type": "opponent",
+       "teamId": 39,
+       "shortName": "Bucks",
+       "abbreviation": "MIL"
+      }
+     ],
+     "stats": {
+      "MinutesPlayed": {
+       "value": 34.03333333,
+       "display": "34"
+      },
+      "Points": {
+       "value": 23,
+       "display": "23"
+      },
+      "Rebounds": {
+       "value": 8,
+       "display": "8"
+      },
+      "Assists": {
+       "value": 6,
+       "display": "6"
+      },
+      "Steals": {
+       "value": 3,
+       "display": "3"
+      },
+      "Blocks": {
+       "value": 2,
+       "display": "2"
+      },
+      "FieldGoalsMade": {
+       "value": 5,
+       "display": "5"
+      },
+      "FieldGoalsAttempted": {
+       "value": 13,
+       "display": "13"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.38461538,
+       "display": "38.5"
+      },
+      "ThreePointsMade": {
+       "value": 1,
+       "display": "1"
+      },
+      "ThreePointsAttempted": {
+       "value": 5,
+       "display": "5"
+      },
+      "ThreePointPercentage": {
+       "value": 0.2,
+       "display": "20.0"
+      },
+      "FreeThrowsMade": {
+       "value": 12,
+       "display": "12"
+      },
+      "FreeThrowsAttempted": {
+       "value": 12,
+       "display": "12"
+      },
+      "FreeThrowPercentage": {
+       "value": 1,
+       "display": "100.0"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.62910284,
+       "display": "62.9"
+      },
+      "OffensiveRebounds": {
+       "value": 1,
+       "display": "1"
+      },
+      "DefensiveRebounds": {
+       "value": 7,
+       "display": "7"
+      },
+      "Turnovers": {
+       "value": 2,
+       "display": "2"
+      },
+      "PersonalFouls": {
+       "value": 4,
+       "display": "4"
+      },
+      "PlusMinus": {
+       "value": 16,
+       "display": "+16"
+      }
+     }
+    },
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 10337,
+       "longName": "Evan Mobley"
+      },
+      {
+       "type": "game",
+       "gameId": 76348,
+       "gameDate": "2025-01-14",
+       "alignment": "away",
+       "result": "win",
+       "score": {
+        "points": 127,
+        "opponentPoints": 117
+       }
+      },
+      {
+       "type": "team",
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
+      },
+      {
+       "type": "opponent",
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
+      }
+     ],
+     "stats": {
+      "MinutesPlayed": {
+       "value": 32.56666667,
+       "display": "33"
+      },
+      "Points": {
+       "value": 22,
+       "display": "22"
+      },
+      "Rebounds": {
+       "value": 13,
+       "display": "13"
+      },
+      "Assists": {
+       "value": 1,
+       "display": "1"
+      },
+      "Steals": {
+       "value": 0,
+       "display": "0"
+      },
+      "Blocks": {
+       "value": 1,
+       "display": "1"
+      },
+      "FieldGoalsMade": {
+       "value": 8,
+       "display": "8"
+      },
+      "FieldGoalsAttempted": {
+       "value": 12,
+       "display": "12"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.66666667,
+       "display": "66.7"
+      },
+      "ThreePointsMade": {
+       "value": 3,
+       "display": "3"
+      },
+      "ThreePointsAttempted": {
+       "value": 4,
+       "display": "4"
+      },
+      "ThreePointPercentage": {
+       "value": 0.75,
+       "display": "75.0"
+      },
+      "FreeThrowsMade": {
+       "value": 3,
+       "display": "3"
+      },
+      "FreeThrowsAttempted": {
+       "value": 5,
+       "display": "5"
+      },
+      "FreeThrowPercentage": {
+       "value": 0.6,
+       "display": "60.0"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.77464789,
+       "display": "77.5"
+      },
+      "OffensiveRebounds": {
+       "value": 3,
+       "display": "3"
+      },
+      "DefensiveRebounds": {
+       "value": 10,
+       "display": "10"
+      },
+      "Turnovers": {
+       "value": 1,
+       "display": "1"
+      },
+      "PersonalFouls": {
+       "value": 1,
+       "display": "1"
+      },
+      "PlusMinus": {
+       "value": 11,
+       "display": "+11"
+      }
+     }
+    },
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 10337,
+       "longName": "Evan Mobley"
+      },
+      {
+       "type": "game",
+       "gameId": 76337,
+       "gameDate": "2025-01-12",
+       "alignment": "home",
+       "result": "loss",
+       "score": {
+        "points": 93,
+        "opponentPoints": 108
+       }
+      },
+      {
+       "type": "team",
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
+      },
+      {
+       "type": "opponent",
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
+      }
+     ],
+     "stats": {
+      "MinutesPlayed": {
+       "value": 30.83333333,
+       "display": "31"
+      },
+      "Points": {
+       "value": 16,
+       "display": "16"
+      },
+      "Rebounds": {
+       "value": 12,
+       "display": "12"
+      },
+      "Assists": {
+       "value": 1,
+       "display": "1"
+      },
+      "Steals": {
+       "value": 0,
+       "display": "0"
+      },
+      "Blocks": {
+       "value": 1,
+       "display": "1"
+      },
+      "FieldGoalsMade": {
+       "value": 6,
+       "display": "6"
+      },
+      "FieldGoalsAttempted": {
+       "value": 10,
+       "display": "10"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.6,
+       "display": "60.0"
+      },
+      "ThreePointsMade": {
+       "value": 1,
+       "display": "1"
+      },
+      "ThreePointsAttempted": {
+       "value": 2,
+       "display": "2"
+      },
+      "ThreePointPercentage": {
+       "value": 0.5,
+       "display": "50.0"
+      },
+      "FreeThrowsMade": {
+       "value": 3,
+       "display": "3"
+      },
+      "FreeThrowsAttempted": {
+       "value": 3,
+       "display": "3"
+      },
+      "FreeThrowPercentage": {
+       "value": 1,
+       "display": "100.0"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.70671378,
+       "display": "70.7"
+      },
+      "OffensiveRebounds": {
+       "value": 0,
+       "display": "0"
+      },
+      "DefensiveRebounds": {
+       "value": 12,
+       "display": "12"
+      },
+      "Turnovers": {
+       "value": 0,
+       "display": "0"
+      },
+      "PersonalFouls": {
+       "value": 1,
+       "display": "1"
+      },
+      "PlusMinus": {
+       "value": -3,
+       "display": "-3"
+      }
+     }
+    },
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 10337,
+       "longName": "Evan Mobley"
+      },
+      {
+       "type": "game",
+       "gameId": 75621,
+       "gameDate": "2024-04-12",
+       "alignment": "home",
+       "result": "win",
+       "score": {
+        "points": 129,
+        "opponentPoints": 120
+       }
+      },
+      {
+       "type": "team",
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
+      },
+      {
+       "type": "opponent",
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
+      }
+     ],
+     "stats": {
+      "MinutesPlayed": {
+       "value": 29.26666667,
+       "display": "29"
+      },
+      "Points": {
+       "value": 12,
+       "display": "12"
+      },
+      "Rebounds": {
+       "value": 5,
+       "display": "5"
+      },
+      "Assists": {
+       "value": 2,
+       "display": "2"
+      },
+      "Steals": {
+       "value": 0,
+       "display": "0"
+      },
+      "Blocks": {
+       "value": 1,
+       "display": "1"
+      },
+      "FieldGoalsMade": {
+       "value": 6,
+       "display": "6"
+      },
+      "FieldGoalsAttempted": {
+       "value": 7,
+       "display": "7"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.85714286,
+       "display": "85.7"
+      },
+      "ThreePointsMade": {
+       "value": 0,
+       "display": "0"
+      },
+      "ThreePointsAttempted": {
+       "value": 1,
+       "display": "1"
+      },
+      "ThreePointPercentage": {
+       "value": 0,
+       "display": "0.0"
+      },
+      "FreeThrowsMade": {
+       "value": 0,
+       "display": "0"
+      },
+      "FreeThrowsAttempted": {
+       "value": 0,
+       "display": "0"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.85714286,
+       "display": "85.7"
+      },
+      "OffensiveRebounds": {
+       "value": 1,
+       "display": "1"
+      },
+      "DefensiveRebounds": {
+       "value": 4,
+       "display": "4"
+      },
+      "Turnovers": {
+       "value": 1,
+       "display": "1"
+      },
+      "PersonalFouls": {
+       "value": 5,
+       "display": "5"
+      },
+      "PlusMinus": {
+       "value": -3,
+       "display": "-3"
+      }
+     }
+    },
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 10337,
+       "longName": "Evan Mobley"
+      },
+      {
+       "type": "game",
+       "gameId": 74519,
+       "gameDate": "2023-11-03",
+       "alignment": "away",
+       "result": "loss",
+       "score": {
+        "points": 116,
+        "opponentPoints": 121
+       }
+      },
+      {
+       "type": "team",
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
+      },
+      {
+       "type": "opponent",
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
+      }
+     ],
+     "stats": {
+      "MinutesPlayed": {
+       "value": 35.85,
+       "display": "36"
+      },
+      "Points": {
+       "value": 14,
+       "display": "14"
+      },
+      "Rebounds": {
+       "value": 10,
+       "display": "10"
+      },
+      "Assists": {
+       "value": 5,
+       "display": "5"
+      },
+      "Steals": {
+       "value": 3,
+       "display": "3"
+      },
+      "Blocks": {
+       "value": 4,
+       "display": "4"
+      },
+      "FieldGoalsMade": {
+       "value": 7,
+       "display": "7"
+      },
+      "FieldGoalsAttempted": {
+       "value": 13,
+       "display": "13"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.53846154,
+       "display": "53.8"
+      },
+      "ThreePointsMade": {
+       "value": 0,
+       "display": "0"
+      },
+      "ThreePointsAttempted": {
+       "value": 2,
+       "display": "2"
+      },
+      "ThreePointPercentage": {
+       "value": 0,
+       "display": "0.0"
+      },
+      "FreeThrowsMade": {
+       "value": 0,
+       "display": "0"
+      },
+      "FreeThrowsAttempted": {
+       "value": 0,
+       "display": "0"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.53846154,
+       "display": "53.8"
+      },
+      "OffensiveRebounds": {
+       "value": 2,
+       "display": "2"
+      },
+      "DefensiveRebounds": {
+       "value": 8,
+       "display": "8"
+      },
+      "Turnovers": {
+       "value": 2,
+       "display": "2"
+      },
+      "PersonalFouls": {
+       "value": 2,
+       "display": "2"
+      },
+      "PlusMinus": {
+       "value": 11,
+       "display": "+11"
+      }
+     }
+    },
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 10337,
+       "longName": "Evan Mobley"
+      },
+      {
+       "type": "game",
+       "gameId": 74478,
+       "gameDate": "2023-10-28",
+       "alignment": "home",
+       "result": "loss",
+       "score": {
+        "points": 113,
+        "opponentPoints": 125
+       }
+      },
+      {
+       "type": "team",
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
+      },
+      {
+       "type": "opponent",
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
+      }
+     ],
+     "stats": {
+      "MinutesPlayed": {
+       "value": 33.2,
+       "display": "33"
+      },
+      "Points": {
+       "value": 33,
+       "display": "33"
+      },
+      "Rebounds": {
+       "value": 14,
+       "display": "14"
+      },
+      "Assists": {
+       "value": 3,
+       "display": "3"
+      },
+      "Steals": {
+       "value": 0,
+       "display": "0"
+      },
+      "Blocks": {
+       "value": 3,
+       "display": "3"
+      },
+      "FieldGoalsMade": {
+       "value": 12,
+       "display": "12"
+      },
+      "FieldGoalsAttempted": {
+       "value": 22,
+       "display": "22"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.54545455,
+       "display": "54.5"
+      },
+      "ThreePointsMade": {
+       "value": 1,
+       "display": "1"
+      },
+      "ThreePointsAttempted": {
+       "value": 1,
+       "display": "1"
+      },
+      "ThreePointPercentage": {
+       "value": 1,
+       "display": "100.0"
+      },
+      "FreeThrowsMade": {
+       "value": 8,
+       "display": "8"
+      },
+      "FreeThrowsAttempted": {
+       "value": 10,
+       "display": "10"
+      },
+      "FreeThrowPercentage": {
+       "value": 0.8,
+       "display": "80.0"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.625,
+       "display": "62.5"
+      },
+      "OffensiveRebounds": {
+       "value": 5,
+       "display": "5"
+      },
+      "DefensiveRebounds": {
+       "value": 9,
+       "display": "9"
+      },
+      "Turnovers": {
+       "value": 2,
+       "display": "2"
+      },
+      "PersonalFouls": {
+       "value": 4,
+       "display": "4"
+      },
+      "PlusMinus": {
+       "value": -15,
+       "display": "-15"
+      }
+     }
+    },
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 10337,
+       "longName": "Evan Mobley"
+      },
+      {
+       "type": "game",
+       "gameId": 73928,
+       "gameDate": "2023-02-05",
+       "alignment": "away",
+       "result": "win",
+       "score": {
+        "points": 122,
+        "opponentPoints": 103
+       }
+      },
+      {
+       "type": "team",
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
+      },
+      {
+       "type": "opponent",
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
+      }
+     ],
+     "stats": {
+      "MinutesPlayed": {
+       "value": 30.93333333,
+       "display": "31"
+      },
+      "Points": {
+       "value": 17,
+       "display": "17"
+      },
+      "Rebounds": {
+       "value": 10,
+       "display": "10"
+      },
+      "Assists": {
+       "value": 4,
+       "display": "4"
+      },
+      "Steals": {
+       "value": 1,
+       "display": "1"
+      },
+      "Blocks": {
+       "value": 3,
+       "display": "3"
+      },
+      "FieldGoalsMade": {
+       "value": 7,
+       "display": "7"
+      },
+      "FieldGoalsAttempted": {
+       "value": 12,
+       "display": "12"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.58333333,
+       "display": "58.3"
+      },
+      "ThreePointsMade": {
+       "value": 0,
+       "display": "0"
+      },
+      "ThreePointsAttempted": {
+       "value": 1,
+       "display": "1"
+      },
+      "ThreePointPercentage": {
+       "value": 0,
+       "display": "0.0"
+      },
+      "FreeThrowsMade": {
+       "value": 3,
+       "display": "3"
+      },
+      "FreeThrowsAttempted": {
+       "value": 4,
+       "display": "4"
+      },
+      "FreeThrowPercentage": {
+       "value": 0.75,
+       "display": "75.0"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.61773256,
+       "display": "61.8"
+      },
+      "OffensiveRebounds": {
+       "value": 1,
+       "display": "1"
+      },
+      "DefensiveRebounds": {
+       "value": 9,
+       "display": "9"
+      },
+      "Turnovers": {
+       "value": 0,
+       "display": "0"
+      },
+      "PersonalFouls": {
+       "value": 4,
+       "display": "4"
+      },
+      "PlusMinus": {
+       "value": 18,
+       "display": "+18"
+      }
+     }
+    },
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 10337,
+       "longName": "Evan Mobley"
+      },
+      {
+       "type": "game",
+       "gameId": 73649,
+       "gameDate": "2022-12-29",
+       "alignment": "away",
+       "result": "loss",
+       "score": {
+        "points": 126,
+        "opponentPoints": 135
+       }
+      },
+      {
+       "type": "team",
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
+      },
+      {
+       "type": "opponent",
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
+      }
+     ],
+     "stats": {
+      "MinutesPlayed": {
+       "value": 31.93333333,
+       "display": "32"
+      },
+      "Points": {
+       "value": 13,
+       "display": "13"
+      },
+      "Rebounds": {
+       "value": 7,
+       "display": "7"
+      },
+      "Assists": {
+       "value": 7,
+       "display": "7"
+      },
+      "Steals": {
+       "value": 2,
+       "display": "2"
+      },
+      "Blocks": {
+       "value": 1,
+       "display": "1"
+      },
+      "FieldGoalsMade": {
+       "value": 5,
+       "display": "5"
+      },
+      "FieldGoalsAttempted": {
+       "value": 10,
+       "display": "10"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.5,
+       "display": "50.0"
+      },
+      "ThreePointsMade": {
+       "value": 0,
+       "display": "0"
+      },
+      "ThreePointsAttempted": {
+       "value": 1,
+       "display": "1"
+      },
+      "ThreePointPercentage": {
+       "value": 0,
+       "display": "0.0"
+      },
+      "FreeThrowsMade": {
+       "value": 3,
+       "display": "3"
+      },
+      "FreeThrowsAttempted": {
+       "value": 3,
+       "display": "3"
+      },
+      "FreeThrowPercentage": {
+       "value": 1,
+       "display": "100.0"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.57420495,
+       "display": "57.4"
+      },
+      "OffensiveRebounds": {
+       "value": 5,
+       "display": "5"
+      },
+      "DefensiveRebounds": {
+       "value": 2,
+       "display": "2"
+      },
+      "Turnovers": {
+       "value": 3,
+       "display": "3"
+      },
+      "PersonalFouls": {
+       "value": 2,
+       "display": "2"
+      },
+      "PlusMinus": {
+       "value": -18,
+       "display": "-18"
+      }
+     }
+    },
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 10337,
+       "longName": "Evan Mobley"
+      },
+      {
+       "type": "game",
+       "gameId": 73556,
+       "gameDate": "2022-12-16",
+       "alignment": "home",
+       "result": "win",
+       "score": {
+        "points": 118,
+        "opponentPoints": 112
+       }
+      },
+      {
+       "type": "team",
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
+      },
+      {
+       "type": "opponent",
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
+      }
+     ],
+     "stats": {
+      "MinutesPlayed": {
+       "value": 31.1,
+       "display": "31"
+      },
+      "Points": {
+       "value": 16,
+       "display": "16"
+      },
+      "Rebounds": {
+       "value": 9,
+       "display": "9"
+      },
+      "Assists": {
+       "value": 2,
+       "display": "2"
+      },
+      "Steals": {
+       "value": 0,
+       "display": "0"
+      },
+      "Blocks": {
+       "value": 2,
+       "display": "2"
+      },
+      "FieldGoalsMade": {
+       "value": 6,
+       "display": "6"
+      },
+      "FieldGoalsAttempted": {
+       "value": 10,
+       "display": "10"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.6,
+       "display": "60.0"
+      },
+      "ThreePointsMade": {
+       "value": 1,
+       "display": "1"
+      },
+      "ThreePointsAttempted": {
+       "value": 2,
+       "display": "2"
+      },
+      "ThreePointPercentage": {
+       "value": 0.5,
+       "display": "50.0"
+      },
+      "FreeThrowsMade": {
+       "value": 3,
+       "display": "3"
+      },
+      "FreeThrowsAttempted": {
+       "value": 4,
+       "display": "4"
+      },
+      "FreeThrowPercentage": {
+       "value": 0.75,
+       "display": "75.0"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.68027211,
+       "display": "68.0"
+      },
+      "OffensiveRebounds": {
+       "value": 0,
+       "display": "0"
+      },
+      "DefensiveRebounds": {
+       "value": 9,
+       "display": "9"
+      },
+      "Turnovers": {
+       "value": 1,
+       "display": "1"
+      },
+      "PersonalFouls": {
+       "value": 2,
+       "display": "2"
+      },
+      "PlusMinus": {
+       "value": 10,
+       "display": "+10"
+      }
+     }
+    },
+    {
+     "context": [
+      {
+       "type": "player",
+       "playerId": 10337,
+       "longName": "Evan Mobley"
+      },
+      {
+       "type": "game",
+       "gameId": 72338,
+       "gameDate": "2022-01-02",
+       "alignment": "home",
+       "result": "win",
+       "score": {
+        "points": 108,
+        "opponentPoints": 104
+       }
+      },
+      {
+       "type": "team",
+       "teamId": 42,
+       "shortName": "Cavaliers",
+       "abbreviation": "CLE"
+      },
+      {
+       "type": "opponent",
+       "teamId": 30,
+       "shortName": "Pacers",
+       "abbreviation": "IND"
+      }
+     ],
+     "stats": {
+      "MinutesPlayed": {
+       "value": 34.71666667,
+       "display": "35"
+      },
+      "Points": {
+       "value": 24,
+       "display": "24"
+      },
+      "Rebounds": {
+       "value": 9,
+       "display": "9"
+      },
+      "Assists": {
+       "value": 4,
+       "display": "4"
+      },
+      "Steals": {
+       "value": 0,
+       "display": "0"
+      },
+      "Blocks": {
+       "value": 0,
+       "display": "0"
+      },
+      "FieldGoalsMade": {
+       "value": 11,
+       "display": "11"
+      },
+      "FieldGoalsAttempted": {
+       "value": 16,
+       "display": "16"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.6875,
+       "display": "68.8"
+      },
+      "ThreePointsMade": {
+       "value": 0,
+       "display": "0"
+      },
+      "ThreePointsAttempted": {
+       "value": 2,
+       "display": "2"
+      },
+      "ThreePointPercentage": {
+       "value": 0,
+       "display": "0.0"
+      },
+      "FreeThrowsMade": {
+       "value": 2,
+       "display": "2"
+      },
+      "FreeThrowsAttempted": {
+       "value": 4,
+       "display": "4"
+      },
+      "FreeThrowPercentage": {
+       "value": 0.5,
+       "display": "50.0"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.67567568,
+       "display": "67.6"
+      },
+      "OffensiveRebounds": {
+       "value": 1,
+       "display": "1"
+      },
+      "DefensiveRebounds": {
+       "value": 8,
+       "display": "8"
+      },
+      "Turnovers": {
+       "value": 3,
+       "display": "3"
+      },
+      "PersonalFouls": {
+       "value": 3,
+       "display": "3"
+      },
+      "PlusMinus": {
+       "value": -8,
+       "display": "-8"
       }
      }
     }

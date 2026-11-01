@@ -1,9 +1,9 @@
 {
- "question": "Yaxel Lendeborg last 10 games",
+ "question": "Evan Mobley points per game against the Milwaukee Bucks",
  "status": 200,
  "rate_headers": {
   "x-quota-limit": "1500",
-  "x-quota-remaining": "1486",
+  "x-quota-remaining": "1478",
   "x-quota-reset": "2026-11-30T21:44:10.000Z",
   "x-ratelimit-limit": "12",
   "x-ratelimit-remaining": "11"
@@ -11,14 +11,34 @@
  "response": {
   "type": "stats",
   "input": {
-   "original": "Yaxel Lendeborg last 10 games"
+   "original": "Evan Mobley points per game against the Milwaukee Bucks"
   },
   "answer": {
-   "text": "Yaxel Lendeborg has averaged 22.6 points, 9.2 rebounds and 4.0 assists in 5 games in his last 10 games.",
-   "markdown": "[Yaxel Lendeborg](https://www.statmuse.com/nba/player/yaxel-lendeborg-30683) has averaged 22.6 points, 9.2 rebounds and 4.0 assists in 5 games in his last 10 games."
+   "text": "Evan Mobley has averaged 17.3 points per game against the Bucks in his career.",
+   "markdown": "[Evan Mobley](https://www.statmuse.com/nba/player/evan-mobley-10337) has averaged 17.3 points per game against the [Bucks](https://www.statmuse.com/nba/team/milwaukee-bucks-franchise-39/history) in his career."
   },
   "query": {
    "stats": [
+    "PointsPerGame",
+    "GamesPlayed",
+    "MinutesPlayedPerGame",
+    "ReboundsPerGame",
+    "AssistsPerGame",
+    "StealsPerGame",
+    "BlocksPerGame",
+    "FieldGoalsMadePerGame",
+    "FieldGoalsAttemptedPerGame",
+    "FieldGoalPercentage",
+    "ThreePointsMadePerGame",
+    "ThreePointsAttemptedPerGame",
+    "ThreePointPercentage",
+    "FreeThrowsMadePerGame",
+    "FreeThrowsAttemptedPerGame",
+    "FreeThrowPercentage",
+    "TrueShootingPercentage",
+    "OffensiveReboundsPerGame",
+    "DefensiveReboundsPerGame",
+    "TurnoversPerGame",
     "MinutesPlayed",
     "Points",
     "Rebounds",
@@ -27,14 +47,10 @@
     "Blocks",
     "FieldGoalsMade",
     "FieldGoalsAttempted",
-    "FieldGoalPercentage",
     "ThreePointsMade",
     "ThreePointsAttempted",
-    "ThreePointPercentage",
     "FreeThrowsMade",
     "FreeThrowsAttempted",
-    "FreeThrowPercentage",
-    "TrueShootingPercentage",
     "OffensiveRebounds",
     "DefensiveRebounds",
     "Turnovers",
@@ -48,94 +64,158 @@
      "context": [
       {
        "type": "player",
-       "playerId": 30683,
-       "longName": "Yaxel Lendeborg"
+       "playerId": 10337,
+       "longName": "Evan Mobley"
       }
      ],
      "stats": {
+      "PointsPerGame": {
+       "value": 17.28571429,
+       "display": "17.3"
+      },
+      "GamesPlayed": {
+       "value": 14,
+       "display": "14"
+      },
+      "MinutesPlayedPerGame": {
+       "value": 30.79166667,
+       "display": "30.8"
+      },
+      "ReboundsPerGame": {
+       "value": 7.5,
+       "display": "7.5"
+      },
+      "AssistsPerGame": {
+       "value": 2.71428571,
+       "display": "2.7"
+      },
+      "StealsPerGame": {
+       "value": 0.85714286,
+       "display": "0.9"
+      },
+      "BlocksPerGame": {
+       "value": 1.35714286,
+       "display": "1.4"
+      },
+      "FieldGoalsMadePerGame": {
+       "value": 6.71428571,
+       "display": "6.7"
+      },
+      "FieldGoalsAttemptedPerGame": {
+       "value": 13.28571429,
+       "display": "13.3"
+      },
+      "FieldGoalPercentage": {
+       "value": 0.50537634,
+       "display": "50.5"
+      },
+      "ThreePointsMadePerGame": {
+       "value": 0.5,
+       "display": "0.5"
+      },
+      "ThreePointsAttemptedPerGame": {
+       "value": 2.28571429,
+       "display": "2.3"
+      },
+      "ThreePointPercentage": {
+       "value": 0.21875,
+       "display": "21.9"
+      },
+      "FreeThrowsMadePerGame": {
+       "value": 3.35714286,
+       "display": "3.4"
+      },
+      "FreeThrowsAttemptedPerGame": {
+       "value": 4.57142857,
+       "display": "4.6"
+      },
+      "FreeThrowPercentage": {
+       "value": 0.734375,
+       "display": "73.4"
+      },
+      "TrueShootingPercentage": {
+       "value": 0.56499813,
+       "display": "56.5"
+      },
+      "OffensiveReboundsPerGame": {
+       "value": 2,
+       "display": "2.0"
+      },
+      "DefensiveReboundsPerGame": {
+       "value": 5.5,
+       "display": "5.5"
+      },
+      "TurnoversPerGame": {
+       "value": 1.64285714,
+       "display": "1.6"
+      },
       "MinutesPlayed": {
-       "value": 167.95,
-       "display": "168"
+       "value": 431.08333333,
+       "display": "431"
       },
       "Points": {
-       "value": 113,
-       "display": "113"
+       "value": 242,
+       "display": "242"
       },
       "Rebounds": {
-       "value": 46,
-       "display": "46"
+       "value": 105,
+       "display": "105"
       },
       "Assists": {
-       "value": 20,
-       "display": "20"
-      },
-      "Steals": {
-       "value": 5,
-       "display": "5"
-      },
-      "Blocks": {
-       "value": 3,
-       "display": "3"
-      },
-      "FieldGoalsMade": {
        "value": 38,
        "display": "38"
       },
-      "FieldGoalsAttempted": {
-       "value": 80,
-       "display": "80"
-      },
-      "FieldGoalPercentage": {
-       "value": 0.475,
-       "display": "47.5"
-      },
-      "ThreePointsMade": {
-       "value": 11,
-       "display": "11"
-      },
-      "ThreePointsAttempted": {
-       "value": 31,
-       "display": "31"
-      },
-      "ThreePointPercentage": {
-       "value": 0.35483871,
-       "display": "35.5"
-      },
-      "FreeThrowsMade": {
-       "value": 26,
-       "display": "26"
-      },
-      "FreeThrowsAttempted": {
-       "value": 35,
-       "display": "35"
-      },
-      "FreeThrowPercentage": {
-       "value": 0.74285714,
-       "display": "74.3"
-      },
-      "TrueShootingPercentage": {
-       "value": 0.59224319,
-       "display": "59.2"
-      },
-      "OffensiveRebounds": {
-       "value": 20,
-       "display": "20"
-      },
-      "DefensiveRebounds": {
-       "value": 26,
-       "display": "26"
-      },
-      "Turnovers": {
-       "value": 18,
-       "display": "18"
-      },
-      "PersonalFouls": {
+      "Steals": {
        "value": 12,
        "display": "12"
       },
+      "Blocks": {
+       "value": 19,
+       "display": "19"
+      },
+      "FieldGoalsMade": {
+       "value": 94,
+       "display": "94"
+      },
+      "FieldGoalsAttempted": {
+       "value": 186,
+       "display": "186"
+      },
+      "ThreePointsMade": {
+       "value": 7,
+       "display": "7"
+      },
+      "ThreePointsAttempted": {
+       "value": 32,
+       "display": "32"
+      },
+      "FreeThrowsMade": {
+       "value": 47,
+       "display": "47"
+      },
+      "FreeThrowsAttempted": {
+       "value": 64,
+       "display": "64"
+      },
+      "OffensiveRebounds": {
+       "value": 28,
+       "display": "28"
+      },
+      "DefensiveRebounds": {
+       "value": 77,
+       "display": "77"
+      },
+      "Turnovers": {
+       "value": 23,
+       "display": "23"
+      },
+      "PersonalFouls": {
+       "value": 33,
+       "display": "33"
+      },
       "PlusMinus": {
-       "value": 4,
-       "display": "+4"
+       "value": 73,
+       "display": "+73"
       }
      }
     }
