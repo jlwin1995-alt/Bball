@@ -47,7 +47,7 @@ def walk_nfl(W):
                     continue
                 d, z = derive(pl, W, P), actual(a, W)
                 for st in GROUPS:
-                    out.append((st, pl["pos"], d[st], z[st]))
+                    out.append((st, pl["pos"], d[st], z[st], season))
     return out
 
 
@@ -57,7 +57,7 @@ def walk_cfb(W):
     from .cfb_model import cfb_core, derive, load_rows
     from .model import params
     out = []
-    for wp, gp in (("data/raw/cfb_hist/cfb_weekly_2025.csv", "data/raw/cfb_hist/cfb_games_2025.csv"), ("data/raw/cfb_weekly.csv", "data/raw/cfb_games.csv")):
+    for yr, (wp, gp) in zip((2025, 2026), (("data/raw/cfb_hist/cfb_weekly_2025.csv", "data/raw/cfb_hist/cfb_games_2025.csv"), ("data/raw/cfb_weekly.csv", "data/raw/cfb_games.csv"))):
         rows, games = load_rows(wp), read_csv(gp)
         sched, skip = schedule(games), excluded_games(games)
         for wk in sorted({int(x["week"]) for x in rows}):
@@ -80,13 +80,13 @@ def walk_cfb(W):
                                     a["rushing_tds"] * W["rushTd"], a["receiving_tds"] * W["recTd"], a["passing_tds"] * W["passTd"], a["interceptions"] * W["intr"], a["fumbles_lost"] * W["fum"]]),
                            rushY=a["rushing_yards"], recY=a["receiving_yards"], passY=a["passing_yards"], rec=a["receptions"])
                 for st in GROUPS:
-                    out.append((st, pl["pos"], d[st], act[st]))
+                    out.append((st, pl["pos"], d[st], act[st], yr))
     return out
 
 
 def fit(pairs):
     g = defaultdict(list)
-    for st, pos, p, a in pairs:
+    for st, pos, p, a, *_ in pairs:
         if st in MIN_PROJ and p >= MIN_PROJ[st] and pos in GROUPS[st]:
             g[(st, pos)].append((p, a - p))
     out = {}

@@ -242,6 +242,7 @@ CFB_MIN_OPPS = 8                   # season carries + receptions + attempts a pl
 CFB_QB_MIN_ATT = 5                 # season pass attempts before a player counts as a QB
 CFB_PRIOR_CAR = 30
 CFB_PRIOR_REC = 18
+CFB_POS_YPR = True      # shrink each receiver's yards per catch toward his own position group (RB/TE/WR), not one league-wide figure
 CFB_PRIOR_ATT = 35
 CFB_K_DEF_RUSH = 50
 CFB_K_DEF_REC = 45
@@ -273,6 +274,6 @@ CFB_POWER_CONFS = {"SEC", "Big Ten", "Big 12", "ACC"}
 CFB_POWER_INDEPENDENTS = {"Notre Dame"}
 CFB_MODEL_KEYS = [
     "ROLLING_WINDOW", "DEF_ADJ_CAP", "CATCH_CAP_FRACTION", "RECENT_WEIGHT", "RECENT_WEIGHT_ATT", "PRIOR_FUMBLES", "LAMBDA_RUSH_TD", "LAMBDA_REC_TD",
-    "LAMBDA_PASS_TD", "LG_PASS_TD", "LG_INT", "CFB_CONFERENCE", "CFB_MIN_OPPS", "CFB_QB_MIN_ATT", "CFB_PRIOR_CAR", "CFB_PRIOR_REC", "CFB_PRIOR_ATT",
+    "LAMBDA_PASS_TD", "LG_PASS_TD", "LG_INT", "CFB_CONFERENCE", "CFB_MIN_OPPS", "CFB_QB_MIN_ATT", "CFB_PRIOR_CAR", "CFB_PRIOR_REC", "CFB_POS_YPR", "CFB_PRIOR_ATT",
     "CFB_K_DEF_RUSH", "CFB_K_DEF_REC", "CFB_K_DEF_PASS", "CFB_K_TEAM_VOL", "CFB_TEAM_SCALE_CAP", "CFB_SCALE_ALL", "CFB_CONCENTRATE_ATT", "CFB_PLAY_PRIOR", "DEFAULT_SCORING",
 ]
