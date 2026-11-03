@@ -1,0 +1,30 @@
+name: CBB lines probe (one-off)
+
+on:
+  push:
+    branches: [claude/cbb-lines-probe]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests pandas
+      - run: python -m pipeline.cbb_lines_probe
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+      - name: Commit the answers to this branch
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/log/cbb_probe
+          git diff --cached --quiet && exit 0
+          git commit -m "CBB lines probe"
+          git push
