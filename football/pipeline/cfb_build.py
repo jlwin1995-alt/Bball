@@ -536,6 +536,10 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
     json.dump(cfb_usage.usage_trend(rows, {x["team"]: x["conference"] for x in rows if x.get("conference")}, raw=raw, season=season), open(f"{out}/usage_trend.json", "w"), separators=(",", ":"))
     json.dump(games_out, open(f"{out}/games.json", "w"), separators=(",", ":"))
     try:
+        json.dump(json.load(open("data/ranges.json"))["cfb"], open(f"{out}/ranges.json", "w"), separators=(",", ":"))
+    except (OSError, KeyError, ValueError) as e:
+        print(f"typical ranges not published: {e}")
+    try:
         json.dump(cal_prob.fit(cal_prob.graded_cfb(line_specs(out, season), season=str(season))), open(f"{out}/calprob.json", "w"), separators=(",", ":"))
     except (OSError, KeyError, ValueError, ZeroDivisionError) as e:
         print(f"college calibrated probabilities not refit: {e}")

@@ -213,6 +213,10 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
         dump(cal_prob.fit(cal_prob.graded_nfl(prob.SPEC)), out, "calprob.json")
     except (OSError, KeyError, ValueError, ZeroDivisionError) as e:
         print(f"calibrated probabilities not refit: {e}")
+    try:
+        dump(json.load(open("data/ranges.json"))["nfl"], out, "ranges.json")
+    except (OSError, KeyError, ValueError) as e:
+        print(f"typical ranges not published: {e}")
     ut = analysis.usage_trend(Pl)
     for u in ut:
         u["role"] = role_of(pffr, u)
