@@ -2,7 +2,7 @@
 
     ODDS_API_KEY=... python -m pipeline.cbb_lines_probe
 
-Free calls first (/sports, /sports/basketball_ncaab/events cost no credits), then a very small paid sample: the first 4 events that start within 30 hours get the
+Free calls first (/sports, /sports/basketball_ncaab/events cost no credits), then a very small paid sample: the first N_EVENTS events (env, default 4) that start within HOURS (env, default 30) get the
 points / rebounds / assists / threes markets from the same sportsbooks and DFS books the NBA pull uses. Saves the raw answers, never the key. Research only.
 """
 import json, os, sys, time
@@ -14,29 +14,31 @@ BASE = "https://api.the-odds-api.com/v4"
 OUT = "data/log/cbb_probe"
 SPORT = "basketball_ncaab"
 MARKETS = ["player_points", "player_rebounds", "player_assists", "player_threes"]
-N_EVENTS = 4
+N_EVENTS = int(os.environ.get("N_EVENTS", "4"))
+HOURS = float(os.environ.get("HOURS", "30"))
 
 
 def main():
     key = os.environ.get("ODDS_API_KEY")
     if not key: sys.exit("no ODDS_API_KEY")
-    os.makedirs(OUT, exist_ok=True); s = requests.Session(); lines = []
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M"); OUT_RUN = f"{OUT}/{stamp}"
+    os.makedirs(OUT_RUN, exist_ok=True); s = requests.Session(); lines = []
     r = s.get(f"{BASE}/sports", params={"apiKey": key}, timeout=30); lines.append(f"/sports {r.status_code} credits_left={r.headers.get('x-requests-remaining')}")
     sports = r.json() if r.ok else []
-    json.dump([x for x in sports if "basketball" in x.get("key", "")], open(f"{OUT}/sports.json", "w"), indent=1)
+    json.dump([x for x in sports if "basketball" in x.get("key", "")], open(f"{OUT_RUN}/sports.json", "w"), indent=1)
     lines.append("basketball sports: " + ", ".join(f"{x['key']}(active={x.get('active')})" for x in sports if "basketball" in x.get("key", "")))
     r = s.get(f"{BASE}/sports/{SPORT}/events", params={"apiKey": key, "dateFormat": "iso"}, timeout=30); lines.append(f"/events {r.status_code}")
     ev = r.json() if r.ok else []
-    json.dump(ev, open(f"{OUT}/events.json", "w"), indent=1); lines.append(f"events listed: {len(ev)}")
-    now = datetime.now(timezone.utc); soon = [e for e in ev if now <= datetime.fromisoformat(e["commence_time"].replace("Z", "+00:00")) <= now + timedelta(hours=30)]
-    lines.append(f"events starting within 30h: {len(soon)}")
+    json.dump(ev, open(f"{OUT_RUN}/events.json", "w"), indent=1); lines.append(f"events listed: {len(ev)}")
+    now = datetime.now(timezone.utc); soon = [e for e in ev if now <= datetime.fromisoformat(e["commence_time"].replace("Z", "+00:00")) <= now + timedelta(hours=HOURS)]
+    lines.append(f"events starting within the window: {len(soon)}")
     books = C.ODDS_BOOKS + C.DFS_BOOKS
     for i, e in enumerate(soon[:N_EVENTS]):
         rr = s.get(f"{BASE}/sports/{SPORT}/events/{e['id']}/odds", timeout=40, params={"apiKey": key, "bookmakers": ",".join(books), "markets": ",".join(MARKETS), "oddsFormat": "american", "dateFormat": "iso"})
         left = rr.headers.get("x-requests-remaining"); used = rr.headers.get("x-requests-last")
         if not rr.ok:
             lines.append(f"{e['away_team']} @ {e['home_team']}: {rr.status_code} {rr.text[:150]}"); continue
-        j = rr.json(); json.dump(j, open(f"{OUT}/odds_{i}.json", "w"))
+        j = rr.json(); json.dump(j, open(f"{OUT_RUN}/odds_{i}.json", "w"))
         per = {}
         for b in j.get("bookmakers", []):
             for m in b.get("markets", []):
@@ -44,7 +46,7 @@ def main():
         summ = "; ".join(f"{b}: " + ", ".join(f"{m} {len(p)}p" for m, p in ms.items()) for b, ms in per.items()) or "NO PLAYER PROPS"
         lines.append(f"{e['away_team']} @ {e['home_team']} ({e['commence_time']}): credits used {used}, left {left} | {summ}")
         time.sleep(1)
-    open(f"{OUT}/summary.txt", "w").write("\n".join(lines) + "\n"); print("\n".join(lines))
+    open(f"{OUT_RUN}/summary.txt", "w").write("\n".join(lines) + "\n"); print("\n".join(lines))
 
 
 if __name__ == "__main__":
