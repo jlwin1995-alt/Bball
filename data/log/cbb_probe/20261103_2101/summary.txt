@@ -1,0 +1,23 @@
+/sports 200 credits_left=19239
+basketball sports: basketball_euroleague(active=True), basketball_nba(active=True), basketball_nba_championship_winner(active=True), basketball_nbl(active=True), basketball_ncaab(active=True), basketball_ncaab_championship_winner(active=True), basketball_wncaab(active=True)
+/events 200
+events listed: 24
+conference table: 289 teams
+events starting within the window: 19
+Wofford Terriers [unmapped (mid/low major or non-D1)] @ Tennessee Volunteers [Southeastern] (2026-11-03T23:00:00Z): credits used 0, left 19239 | NO PLAYER PROPS
+Wagner Seahawks [Northeast] @ Boston College Eagles [Atlantic Coast] (2026-11-04T00:00:00Z): credits used 0, left 19239 | NO PLAYER PROPS
+Coppin St Eagles [Mid-Eastern Athletic] @ Virginia Tech Hokies [Atlantic Coast] (2026-11-04T00:00:00Z): credits used 0, left 19239 | NO PLAYER PROPS
+Fort Wayne Mastodons [unmapped (mid/low major or non-D1)] @ Duquesne Dukes [Atlantic 10] (2026-11-04T00:00:00Z): credits used 0, left 19239 | NO PLAYER PROPS
+Hampton Pirates [Coastal Athletic Association] @ Georgia Tech Yellow Jackets [Atlantic Coast] (2026-11-04T00:00:00Z): credits used 0, left 19239 | NO PLAYER PROPS
+Holy Cross Crusaders [Patriot League] @ Rhode Island Rams [Atlantic 10] (2026-11-04T00:00:00Z): credits used 0, left 19239 | NO PLAYER PROPS
+Manhattan Jaspers [Metro] @ Kentucky Wildcats [Southeastern] (2026-11-04T00:00:00Z): credits used 0, left 19239 | NO PLAYER PROPS
+Stetson Hatters [Atlantic Sun] @ South Carolina Gamecocks [Southeastern] (2026-11-04T00:00:00Z): credits used 0, left 19239 | NO PLAYER PROPS
+Sam Houston St Bearkats [unmapped (mid/low major or non-D1)] @ Alabama Crimson Tide [Southeastern] (2026-11-04T00:30:00Z): credits used 0, left 19239 | NO PLAYER PROPS
+Drexel Dragons [Coastal Athletic Association] @ Virginia Cavaliers [Atlantic Coast] (2026-11-04T00:30:00Z): credits used 0, left 19239 | NO PLAYER PROPS
+Alabama St Hornets [unmapped (mid/low major or non-D1)] @ Texas A&M Aggies [Southeastern] (2026-11-04T01:00:00Z): credits used 0, left 19239 | NO PLAYER PROPS
+Arkansas-Pine Bluff Golden Lions [unmapped (mid/low major or non-D1)] @ Arkansas Razorbacks [Southeastern] (2026-11-04T01:00:00Z): credits used 0, left 19239 | NO PLAYER PROPS
+Cleveland St Vikings [Horizon League] @ Missouri Tigers [Southeastern] (2026-11-04T01:00:00Z): credits used 0, left 19239 | NO PLAYER PROPS
+Lipscomb Bisons [Atlantic Sun] @ Iowa Hawkeyes [Big Ten] (2026-11-04T01:00:00Z): credits used 8, left 19231 | underdog: player_assists 1p, player_points 3p, player_rebounds 1p, player_threes 1p; prizepicks: player_assists 2p, player_points 3p, player_rebounds 2p, player_threes 3p
+South Dakota St Jackrabbits [unmapped (mid/low major or non-D1)] @ Kansas St Wildcats [Big 12] (2026-11-04T01:00:00Z): credits used 0, left 19231 | NO PLAYER PROPS
+New Orleans Privateers [unmapped (mid/low major or non-D1)] @ LSU Tigers [Southeastern] (2026-11-04T01:00:00Z): credits used 0, left 19231 | NO PLAYER PROPS
+window events by conference tag (away | home): Atlantic Sun @ Big Ten; Atlantic Sun @ Southeastern; Atlantic Sun @ unmapped (mid/low major or non-D1); Big Sky @ Mountain West; Coastal Athletic Association @ Atlantic Coast; Horizon League @ Southeastern; Metro @ Southeastern; Mid-Eastern Athletic @ Atlantic Coast; Northeast @ Atlantic Coast; Patriot League @ Atlantic 10; unmapped (mid/low major or non-D1) @ Atlantic 10; unmapped (mid/low major or non-D1) @ Big 12; unmapped (mid/low major or non-D1) @ Pac-12; unmapped (mid/low major or non-D1) @ Southeastern
