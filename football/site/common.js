@@ -215,3 +215,4 @@ const RANGE_TIP = "Typical range: in past weeks the actual result landed between
 const statRange = (stat, pos, x, dec = 0) => { const r = rangeAt(stat, pos, x); return r ? `${num(r[0], dec)}–${num(r[1], dec)}` : ""; };
 const ptsRange = r => { const ppr = r.c.ppr, g = rangeAt("pts", r.pos, ppr); if (!g || !(ppr > 0)) return null; const s = r.c.pts / ppr; return [g[0] * s, g[1] * s]; };
 const rangeCol = () => ({k: "crng", h: "Range", t: RANGE_TIP + (CFG.mean ? " (Built around the median; the column beside it is the mean.)" : ""), v: r => ptsRange(r)?.[1] ?? null, f: r => { const g = ptsRange(r); return g ? `<span class="mut">${num(g[0], 0)}–${num(g[1], 0)}</span>` : ""; }});
+const rg = (stat, r, x, html, dec = 0) => { const g = statRange(stat, r.pos, x, dec); return g && html !== "" ? `<span title="${esc("Typical range " + g + " (80% of past outcomes)")}" style="cursor:help">${html}</span>` : html; };
