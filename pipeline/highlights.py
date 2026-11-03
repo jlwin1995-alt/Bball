@@ -25,6 +25,11 @@ SEGMENTS = [
     {"id": "reb_over", "kind": "backed", "label": "Rebound Overs", "test": lambda s, st, pw: s == "O" and st == "reb"},
     {"id": "ast_under", "kind": "backed", "label": "Assist Unders", "test": lambda s, st, pw: s == "U" and st == "ast"},
     {"id": "over70", "kind": "caution", "label": "Model Overs at 70%+", "test": lambda s, st, pw: s == "O" and pw >= 0.70},
+    # Added Nov 3 with the user's agreement after the one-week recheck (Oct 20-Nov 2, 8,650 graded lines): the model's Unders at 65%+ hit 57.3% over 784 lines
+    # (90% lower bound 55.0%; halves 58.5% / 56.5%), the only bucket at or above break-even; Overs in every bucket did not. Fantasy Score lines are not in this
+    # segment's record (this module does not handle them). Exploratory and not yet proven: the record was 60.5% with no rotation player out for the team (n 423),
+    # 44.2% with one out (138) and 58.4% with two or more (161), so each leg shows how many rotation players are out.
+    {"id": "under65", "kind": "backed", "label": "Model Unders at 65%+", "test": lambda s, st, pw: s == "U" and pw >= 0.65},
 ]
 
 
@@ -71,6 +76,8 @@ def build(out="site/data", raw="data/raw"):
     if os.path.exists(lp) and os.path.exists(pp_):
         sp = _spread(raw)
         P = {p["pid"]: p for p in json.load(open(pp_))}
+        ap = f"{out}/absence.json"                       # rotation players out tonight by team (pipeline/absence.py), shown on each leg
+        stars = json.load(open(ap)).get("stars", {}) if os.path.exists(ap) else {}
         act = [s for s in SEGMENTS if any(x["id"] == s["id"] and x["active"] for x in segs)]
         for r in json.load(open(lp)).get("rows", []):
             p = P.get(r["pid"]); pl = (r.get("dfs") or {}).get("prizepicks"); k = r["stat"]
@@ -82,7 +89,8 @@ def build(out="site/data", raw="data/raw"):
             for s in act:
                 if s["test"](side, k, pw) and (s["kind"] == "caution" or pw >= SHOW_PW):
                     today.append({"pid": r["pid"], "name": p["name"], "team": p["team"], "game": r["game"], "stat": k, "side": side, "line": pl, "pw": round(pw, 3),
-                                  "proj": round(m, 1), "min": round(p["min"]), "status": p.get("status") or "", "seg": s["id"], "kind": s["kind"]})
+                                  "proj": round(m, 1), "min": round(p["min"]), "status": p.get("status") or "", "seg": s["id"], "kind": s["kind"],
+                                  "out": len(stars.get(p["team"], []))})
     today.sort(key=lambda x: (x["kind"] != "backed", -x["pw"]))
     return {"asof": os.path.basename(sorted(glob.glob(f"{out}/results/20??-??-??.json"))[-1])[:10] if glob.glob(f"{out}/results/20??-??-??.json") else None,
             "breakeven": be, "min_n": MIN_N, "caution_below": CAUTION_BELOW, "split_at": mid, "segments": segs, "today": today}
