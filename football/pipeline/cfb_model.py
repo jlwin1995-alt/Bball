@@ -19,6 +19,11 @@ def js_order(d):
     return ints + [k for k in ks if not (k.isdigit() and (k == "0" or not k.startswith("0")))]
 
 
+def pos_group(pos):
+    s = str(pos or "").upper()
+    return "RB" if s in ("RB", "FB") else "TE" if s == "TE" else "QB" if s == "QB" else "WR"
+
+
 def is_qb(p):
     return str(p["pos"] or "").upper().startswith("QB") or p["attempts"] >= C.CFB_QB_MIN_ATT or p["passing_yards"] >= 40
 
@@ -67,6 +72,11 @@ def cfb_core(rows, matchup, conf, P):
         team_weeks.setdefault(t, set()).add(w)
         tt["car"] += r["carries"]; tt["rec"] += r["receptions"]; tt["att"] += r["attempts"]
 
+    pg = {}
+    for r in rows:
+        g = pos_group(r["position"])
+        a = pg.setdefault(g, [0.0, 0.0]); a[0] += r["receptions"]; a[1] += r["receiving_yards"]
+    POS_YPR = {g: a[1] / a[0] for g, a in pg.items() if a[0] >= 200}
     LG_YPC = lg["ry"] / lg["car"] if lg["car"] else 4.5
     LG_YPR = lg["recy"] / lg["rec"] if lg["rec"] else 11.5
     LG_YPA = lg["py"] / lg["att"] if lg["att"] else 7.5
@@ -246,7 +256,7 @@ def cfb_core(rows, matchup, conf, P):
             id=i, name=p["name"], pos=p["pos"], team=p["team"], conf=p["conf"] or conf.get(p["team"]) or "", opp=m["opp"], siteTag=m["site"], start=m.get("start") or "",
             g=p["g"], car=rnd(car, 1), rec=rnd(rec, 1), att=rnd(att, 1),
             ypc=(p["rushing_yards"] + pc * rb["ypc"]) / (p["carries"] + pc),
-            ypr=(p["receiving_yards"] + C.CFB_PRIOR_REC * LG_YPR) / (p["receptions"] + C.CFB_PRIOR_REC),
+            ypr=(p["receiving_yards"] + C.CFB_PRIOR_REC * (POS_YPR.get(pos_group(p["pos"]), LG_YPR) if P.get("CFB_POS_YPR") else LG_YPR)) / (p["receptions"] + C.CFB_PRIOR_REC),
             ypa=(p["passing_yards"] + C.CFB_PRIOR_ATT * LG_YPA) / (p["attempts"] + C.CFB_PRIOR_ATT),
             compRate=(p["completions"] + C.CFB_PRIOR_ATT * LG_COMP) / (p["attempts"] + C.CFB_PRIOR_ATT),
             rushTdRate=(p["rushing_tds"] + pc * rb["td"]) / (p["carries"] + pc),
