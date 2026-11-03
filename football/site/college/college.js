@@ -94,16 +94,16 @@ const pages = {
       {k: "caro", h: "Car OVR", t: "Type carries to override. Teammates are NOT re-scaled. Saved on this device.", v: r => OVR[r.id]?.car, f: r => ovrCell(r, "car", r.car)},
       {k: "ccar", h: "Car", v: r => r.c.car, f: r => num(r.c.car)},
       ...(det ? [{k: "ccsh", h: "Car %", v: r => r.c.carSh, f: r => num(r.c.carSh)}, {k: "ypc", h: "Y/C", f: r => num(r.ypc, 2)}, {k: "arush", h: "Rush Adj", v: r => r.a_rush, f: r => adj(r.a_rush)}] : []),
-      {k: "cry", h: "Rush Yds", v: r => r.c.rushY, f: r => num(r.c.rushY)},
+      {k: "cry", h: "Rush Yds", v: r => r.c.rushY, f: r => rg("rushY", r, r.c.rushY, num(r.c.rushY), 0)},
       {k: "reco", h: "Rec OVR", t: "Type receptions to override", v: r => OVR[r.id]?.rec, f: r => ovrCell(r, "rec", r.rec)},
-      {k: "crec", h: "Rec", v: r => r.c.rec, f: r => num(r.c.rec)},
+      {k: "crec", h: "Rec", v: r => r.c.rec, f: r => rg("rec", r, r.c.rec, num(r.c.rec, 1), 1)},
       ...(det ? [{k: "crsh", h: "Rec %", t: "Share of the team's projected RECEPTIONS (college has no target data)", v: r => r.c.recSh, f: r => num(r.c.recSh)},
         {k: "ypr", h: "Y/Rec", f: r => num(r.ypr, 1)}, {k: "arec", h: "Rec Adj", v: r => r.a_rec, f: r => adj(r.a_rec)}] : []),
-      {k: "crecy", h: "Rec Yds", v: r => r.c.recY, f: r => num(r.c.recY)},
+      {k: "crecy", h: "Rec Yds", v: r => r.c.recY, f: r => rg("recY", r, r.c.recY, num(r.c.recY), 0)},
       {k: "atto", h: "Att OVR", t: "Type pass attempts to override", v: r => OVR[r.id]?.att, f: r => ovrCell(r, "att", r.att)},
       {k: "catt", h: "Att", v: r => r.c.att, f: r => num(r.c.att)}, {k: "ccomp", h: "Comp", v: r => r.c.comp, f: r => r.c.att > 0 ? num(r.c.comp) : ""},
       ...(det ? [{k: "ypa", h: "Y/A", f: r => r.c.att > 0 ? num(r.ypa, 2) : ""}, {k: "apass", h: "Pass Adj", v: r => r.a_pass, f: r => r.c.att > 0 ? adj(r.a_pass) : ""}] : []),
-      {k: "cpy", h: "Pass Yds", v: r => r.c.passY, f: r => r.c.att > 0 ? num(r.c.passY) : ""},
+      {k: "cpy", h: "Pass Yds", v: r => r.c.passY, f: r => r.c.att > 0 ? rg("passY", r, r.c.passY, num(r.c.passY), 0) : ""},
       {k: "crtd", h: "Rush TD", v: r => r.c.rushTD, f: r => num(r.c.rushTD, 2)}, {k: "crectd", h: "Rec TD", v: r => r.c.recTD, f: r => num(r.c.recTD, 2)},
       {k: "cptd", h: "Pass TD", v: r => r.c.passTD, f: r => r.c.att > 0 ? num(r.c.passTD, 2) : ""},
       ...(det ? [{k: "cint", h: "INT", v: r => r.c.int, f: r => r.c.att > 0 ? num(r.c.int, 2) : ""}, {k: "cfum", h: "Fum", v: r => r.c.fum, f: r => num(r.c.fum, 2)}] : []),
@@ -123,9 +123,9 @@ const pages = {
     const UT = Object.fromEntries((D.usage_trend || []).map(u => [u.id, u]));
     const mk = t => {
       const rows = all.filter(p => p.team === t);
-      const cols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, roleCol(), {k: "prole", h: "Alignment (PFF)", l: 1, t: "Where he lines up on his pass routes over the last 3 games (PFF) and routes per team pass play", v: r => r.role?.rr, f: r => r.role ? `${roleCell(r.role)} <span class="mut">${num(r.role.rr, 0)}%</span>` : ""}, oppMainCol, {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)}, usageCol(r => UT[r.id], true), {k: "ccar", h: "Car", v: r => r.c.car, f: r => num(r.c.car)}, {k: "cry", h: "Rush", v: r => r.c.rushY, f: r => num(r.c.rushY, 0)},
-        {k: "crec", h: "Rec", v: r => r.c.rec, f: r => num(r.c.rec)}, {k: "crecy", h: "Rec Yds", v: r => r.c.recY, f: r => num(r.c.recY, 0)},
-        {k: "catt", h: "Att", v: r => r.c.att, f: r => r.c.att > 0 ? num(r.c.att) : ""}, {k: "cpy", h: "Pass Yds", v: r => r.c.passY, f: r => r.c.att > 0 ? num(r.c.passY, 0) : ""},
+      const cols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, roleCol(), {k: "prole", h: "Alignment (PFF)", l: 1, t: "Where he lines up on his pass routes over the last 3 games (PFF) and routes per team pass play", v: r => r.role?.rr, f: r => r.role ? `${roleCell(r.role)} <span class="mut">${num(r.role.rr, 0)}%</span>` : ""}, oppMainCol, {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)}, usageCol(r => UT[r.id], true), {k: "ccar", h: "Car", v: r => r.c.car, f: r => num(r.c.car)}, {k: "cry", h: "Rush", v: r => r.c.rushY, f: r => rg("rushY", r, r.c.rushY, num(r.c.rushY), 0)},
+        {k: "crec", h: "Rec", v: r => r.c.rec, f: r => rg("rec", r, r.c.rec, num(r.c.rec, 1), 1)}, {k: "crecy", h: "Rec Yds", v: r => r.c.recY, f: r => rg("recY", r, r.c.recY, num(r.c.recY), 0)},
+        {k: "catt", h: "Att", v: r => r.c.att, f: r => r.c.att > 0 ? num(r.c.att) : ""}, {k: "cpy", h: "Pass Yds", v: r => r.c.passY, f: r => r.c.att > 0 ? rg("passY", r, r.c.passY, num(r.c.passY), 0) : ""},
         {k: "ctd", h: "TD", v: r => r.c.rushTD + r.c.recTD + r.c.passTD, f: r => num(r.c.rushTD + r.c.recTD + r.c.passTD, 2)}, {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`}, rangeCol(), ...(D.lines?.rows?.length ? [leanCol] : [])];
       return `<div><h3>${esc(t)} <span class="mut">· ${num(rows.reduce((a, r) => a + r.c.shown, 0))} projected pts across ${rows.length} players</span></h3>${table(cols, rows, {id: "gb" + t, sort: {key: "cpts"}, rowClass: r => [leanRow(r), focusRow(r)].filter(Boolean).join(" ")})}</div>`;
     };
