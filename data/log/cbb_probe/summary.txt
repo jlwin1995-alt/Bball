@@ -1,0 +1,9 @@
+/sports 200 credits_left=19256
+basketball sports: basketball_euroleague(active=True), basketball_nba(active=True), basketball_nba_championship_winner(active=True), basketball_nbl(active=True), basketball_ncaab(active=True), basketball_ncaab_championship_winner(active=True), basketball_wncaab(active=True)
+/events 200
+events listed: 67
+events starting within 30h: 23
+East Tennessee St Buccaneers @ Arizona St Sun Devils (2026-11-03T03:00:00Z): credits used 0, left 19256 | NO PLAYER PROPS
+UCLA Bruins @ Arizona Wildcats (2026-11-03T03:00:00Z): credits used 8, left 19248 | williamhill_us: player_points 4p, player_rebounds 1p; fanduel: player_points 6p, player_rebounds 1p; prizepicks: player_assists 1p, player_points 9p, player_rebounds 3p; betmgm: player_assists 1p, player_points 8p, player_rebounds 6p, player_threes 6p; underdog: player_assists 1p, player_points 6p, player_rebounds 2p
+Colgate Raiders @ Washington Huskies (2026-11-03T03:00:00Z): credits used 0, left 19248 | NO PLAYER PROPS
+Montana St Bobcats @ Colorado St Rams (2026-11-03T03:00:00Z): credits used 0, left 19248 | NO PLAYER PROPS
