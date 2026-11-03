@@ -355,7 +355,7 @@ const pages = {
         const spec = mktSpec(r.stat), m = p.c[MKT[r.stat]], c = r.cons, pp = r.dfs.prizepicks;
         const st = Date.now() >= Date.parse(r.commence), outp = isOut(p.status);
         const o = {started: st, pid: p.id, gb: p.game, name: p.name, pos: p.pos, team: p.team, opp: p.opp, game: r.game, stat: r.stat, m, c, r, pp, ud: r.dfs.underdog ?? r.dfs.pick6};
-        if (c) { const sd = FB.sides(c.line, m, spec); o.po = sd.o; o.edge = (sd.o - c.p_over) * 100; o.z = zOf(spec, m, c.line); o.tier = st || outp || noLean(p) ? "" : leanTier(o.z); o.pick = st ? "LIVE" : outp ? "OUT" : Math.abs(o.edge) >= CFG.edgeMin ? (o.edge > 0 ? "OVER" : "UNDER") : ""; }
+        if (c) { const sd = FB.sides(c.line, m, spec); o.po = sd.o; o.cpo = calP(sd.o); o.cedge = o.cpo == null ? null : (o.cpo - c.p_over) * 100; o.edge = (sd.o - c.p_over) * 100; o.z = zOf(spec, m, c.line); o.tier = st || outp || noLean(p) ? "" : leanTier(o.z); o.pick = st ? "LIVE" : outp ? "OUT" : Math.abs(o.edge) >= CFG.edgeMin ? (o.edge > 0 ? "OVER" : "UNDER") : ""; }
         if (pp != null) { const sd = FB.sides(pp, m, spec); o.side = sd.o >= sd.u ? "OVER" : "UNDER"; o.pw = Math.max(sd.o, sd.u); o.ppEdge = (o.pw - BE) * 100;
           o.ppPick = st ? "LIVE" : outp ? "OUT" : o.ppEdge >= CFG.edgeMin ? "PP " + o.side : ""; o.gap = c ? pp - c.line : null; }
         return o;
@@ -373,8 +373,10 @@ const pages = {
         {k: "cp", h: "Cons P(over)", t: "Average vig-free P(over) of the books at the consensus line", v: r => r.c?.p_over, f: r => r.c ? num(r.c.p_over * 100) + "%" : ""},
         {k: "fo", h: "Fair odds", t: "Over / under, from the consensus probability", v: r => r.c?.p_over, f: r => r.c ? `${FB.amer(r.c.p_over)} / ${FB.amer(1 - r.c.p_over)}` : ""},
         {k: "po", h: "Model P(over)", v: r => r.po, f: r => r.po == null ? "" : num(r.po * 100) + "%"},
+        {k: "cpo", h: "Cal P(over)", t: calTip(), v: r => r.cpo, f: r => r.cpo == null ? "" : num(r.cpo * 100) + "%"},
         {k: "z", h: "Lean σ", t: leanTip, v: r => r.z == null ? null : Math.abs(r.z), f: r => r.z == null ? "" : `${r.tier ? `<span class="pill lean-${r.tier}">${r.tier === "strong" ? "STRONG " : ""}${r.z > 0 ? "OVER" : "UNDER"}</span> ` : ""}<span class="mut">${r.z > 0 ? "+" : ""}${num(r.z, 2)}</span>`},
         {k: "edge", h: "Edge pp", v: r => r.edge, f: r => r.edge == null ? "" : `<span class="${r.edge > 0 ? "good" : "bad"}">${num(r.edge)}</span>`},
+        {k: "cedge", h: "Cal edge pp", t: "Edge against the book using the calibrated probability. " + calTip(), v: r => r.cedge, f: r => r.cedge == null ? "" : `<span class="${r.cedge > 0 ? "good" : "bad"}">${num(r.cedge)}</span>`},
         {k: "pick", h: "Pick", l: 1, f: r => r.pick ? `<b>${r.pick}</b>${r.pick === "OUT" || r.pick === "LIVE" ? "" : warn(r.edge)}` : ""},
         {k: "pp", h: "PrizePicks", v: r => r.pp, f: r => r.pp ?? ""},
         {k: "gap", h: "PP − cons", t: "Positive: PrizePicks line is higher than the books' (easier UNDER); negative: lower (easier OVER)", v: r => r.gap, f: r => r.gap == null ? "" : `<span class="${r.gap < 0 ? "good" : r.gap > 0 ? "bad" : "mut"}">${r.gap > 0 ? "+" : ""}${num(r.gap)}</span>`},
@@ -605,7 +607,7 @@ async function boot() {
   { const sv = store.get("cfg", {}); if (sv.ppBE === 57.7) delete sv.ppBE; CFG = {...CFG, ...sv}; }   // break-even default changed to 54.4% (Oct 29): drop the old default from saved settings
   OVR = store.get("ovr", {}); LINES = store.get("lines", []);
   if (!CFG.scoring || Object.keys(CFG.scoring).some(k => !(k in SCORE_LABEL))) CFG = {...CFG, preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}};
-  const names = ["projections", "games", "teams", "matchups", "efficiency", "usage", "trends", "weather", "usage_trend", "hitrates", "coverage", "scorecard", "meta", "lines", "fp_lines"];
+  const names = ["projections", "games", "teams", "matchups", "efficiency", "usage", "trends", "weather", "usage_trend", "hitrates", "calprob", "coverage", "scorecard", "meta", "lines", "fp_lines"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   if (!D.projections || !D.meta) { view().innerHTML = "<p>No data found in <code>data/</code>. Run <code>python -m pipeline.build</code>.</p>"; return; }
   await loadBacktests();

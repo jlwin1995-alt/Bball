@@ -194,3 +194,10 @@ function totalFlag(g, college) {
 }
 const totalPill = (g, college) => { const f = totalFlag(g, college); return f ? ` <span class="pill ${f.lvl === "shoot" ? "hot" : "lean-lean"}" title="${esc(f.tip)}">${f.label}</span>` : ""; };
 const totalTag = (g, college) => { const f = totalFlag(g, college); return f ? " · " + f.label : ""; };
+
+// Calibrated P(over): the model's P(over) at a posted line has been overconfident (about 60% on the side it picks, hit about 52% this season), so it is shrunk toward 50% by a factor beta
+// fitted per league and per side on every graded line (`calprob.json`, refit on each refresh): Cal P = 0.5 + beta x (P - 0.5). Display only; the projections and lean tiers are unchanged.
+const calBeta = po => { const C = D.calprob; const b = C && (po > 0.5 ? C.over : C.under); return b && b.beta != null ? b.beta : null; };
+const calP = po => { const b = calBeta(po); return b == null ? null : 0.5 + b * (po - 0.5); };
+const calTip = () => { const C = D.calprob; if (!C) return "Calibrated probability"; const s = k => C[k] && C[k].beta != null ? `${C[k].beta} ± ${C[k].se} (n=${C[k].n})` : "not enough lines yet";
+  return `Cal P(over) = 0.5 + beta × (model P − 0.5). The model's P(over) has been overconfident: on the side it picks it averaged ${C.model_conf}% and hit ${C.actual_hit}% over ${C.n} graded lines (weeks ${C.weeks.join(", ")}). beta, Overs ${s("over")}, Unders ${s("under")}; refit on every refresh. Display only.`; };

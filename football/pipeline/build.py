@@ -3,7 +3,7 @@
     python -m pipeline.build [--raw data/raw] [--out site/data] [--no-log] [--no-weather] [--week N]
 """
 import argparse, datetime as dt, json, os, re, sys
-from . import config as C, analysis, scorecard, weather, results, legacy, teamstats, pff_roles, pff_matchups, hitrates, lines as lines_mod
+from . import config as C, analysis, scorecard, weather, results, legacy, teamstats, pff_roles, pff_matchups, hitrates, cal_prob, prob, lines as lines_mod
 from .model import (load_weekly, nfl_core, derive, params, rnd, td_adj, td_base, opp_pos_factor, pos_group, REC_POS, num)
 from .slate import load_csv, target_week, matchups, kickoffs, statuses, depth_map, week_games, game_label, history_gaps
 
@@ -209,6 +209,10 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     dump(analysis.efficiency(Pl), out, "efficiency.json")
     dump(analysis.usage(Pl), out, "usage.json")
     dump(dict(season=C.SEASON, years="2023-25", note="Over rates are higher against soft defences on both. The model's own defence adjustment is damped, which is why a gap remains.", tiers=hitrates.tiers_now(rows), lines=hitrates.line_table(raw), hist=hitrates.hist_table()), out, "hitrates.json")
+    try:
+        dump(cal_prob.fit(cal_prob.graded_nfl(prob.SPEC)), out, "calprob.json")
+    except (OSError, KeyError, ValueError, ZeroDivisionError) as e:
+        print(f"calibrated probabilities not refit: {e}")
     ut = analysis.usage_trend(Pl)
     for u in ut:
         u["role"] = role_of(pffr, u)
