@@ -28,6 +28,7 @@ const koLabel = iso => { const d = koDate(iso); return d ? d.toLocaleString(unde
 function calcFor(p) {
   const c = FB.calc(p, OVR[p.id], CFG.scoring, D.meta);
   c.shown = c.pts * (CFG.mean ? D.meta.mean_factor : 1);         // Proj Pts is a MEDIAN; Mean = median x MEAN_FACTOR
+  c.ppr = CFG.preset === "Full PPR" ? c.pts : FB.calc(p, OVR[p.id], FB.SCORING["Full PPR"], D.meta).pts;
   return c;
 }
 const proj = () => D.projections.map(p => ({...p, c: calcFor(p)}));
@@ -167,7 +168,7 @@ const pages = {
       {k: "crectd", h: "Rec TD", v: r => r.c.recTD, f: r => num(r.c.recTD, 2)},
       {k: "cptd", h: "Pass TD", v: r => r.c.passTD, f: r => r.c.att > 0 ? num(r.c.passTD, 2) : ""},
       ...(det ? [{k: "cint", h: "INT", v: r => r.c.int, f: r => r.c.att > 0 ? num(r.c.int, 2) : ""}, {k: "cfum", h: "Fum", v: r => r.c.fum, f: r => num(r.c.fum, 2)}] : []),
-      {k: "cpts", h: CFG.mean ? "Mean Pts" : "Proj Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`},
+      {k: "cpts", h: CFG.mean ? "Mean Pts" : "Proj Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`}, rangeCol(),
       {k: "lean", h: "Lean", l: 1, t: leanTip, v: r => { const b = playerLines(r)[0]; return b?.z == null ? null : Math.abs(b.z); }, f: r => { const b = bestLean(r); return b ? leanPill(b) : ""; }},
       {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)},
       oppMainCol, {k: "ovp", h: "Opp vs Pos", t: "What the opponent gives up to this player's position group on his main market (rate-based, defence only), and where it ranks among the slate's defences (1 = most generous)",
@@ -200,7 +201,7 @@ const pages = {
         {k: "crec", h: "Rec", v: r => r.c.rec, f: r => num(r.c.rec)}, {k: "crecy", h: "Rec Yds", v: r => r.c.recY, f: r => num(r.c.recY, 0)},
         {k: "catt", h: "Att", v: r => r.c.att, f: r => r.c.att > 0 ? num(r.c.att) : ""}, {k: "cpy", h: "Pass Yds", v: r => r.c.passY, f: r => r.c.att > 0 ? num(r.c.passY, 0) : ""},
         {k: "ctd", h: "TD", v: r => r.c.rushTD + r.c.recTD + r.c.passTD, f: r => num(r.c.rushTD + r.c.recTD + r.c.passTD, 2)},
-        {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`},
+        {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`}, rangeCol(),
         {k: "role", h: "Role (PFF)", l: 1, t: "Alignment and routes per team pass play over the last 3 games (PFF); hover for the split", v: r => r.role?.rr, f: r => r.role ? `${roleCell(r.role)} <span class="mut">${num(r.role.rr, 0)}%</span>` : ""},
         {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)},
         usageCol(r => UT[r.id], false),
@@ -607,7 +608,7 @@ async function boot() {
   { const sv = store.get("cfg", {}); if (sv.ppBE === 57.7) delete sv.ppBE; CFG = {...CFG, ...sv}; }   // break-even default changed to 54.4% (Oct 29): drop the old default from saved settings
   OVR = store.get("ovr", {}); LINES = store.get("lines", []);
   if (!CFG.scoring || Object.keys(CFG.scoring).some(k => !(k in SCORE_LABEL))) CFG = {...CFG, preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}};
-  const names = ["projections", "games", "teams", "matchups", "efficiency", "usage", "trends", "weather", "usage_trend", "hitrates", "calprob", "coverage", "scorecard", "meta", "lines", "fp_lines"];
+  const names = ["projections", "games", "teams", "matchups", "efficiency", "usage", "trends", "weather", "usage_trend", "hitrates", "calprob", "ranges", "coverage", "scorecard", "meta", "lines", "fp_lines"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   if (!D.projections || !D.meta) { view().innerHTML = "<p>No data found in <code>data/</code>. Run <code>python -m pipeline.build</code>.</p>"; return; }
   await loadBacktests();

@@ -201,3 +201,17 @@ const calBeta = po => { const C = D.calprob; const b = C && (po > 0.5 ? C.over :
 const calP = po => { const b = calBeta(po); return b == null ? null : 0.5 + b * (po - 0.5); };
 const calTip = () => { const C = D.calprob; if (!C) return "Calibrated probability"; const s = k => C[k] && C[k].beta != null ? `${C[k].beta} ± ${C[k].se} (n=${C[k].n})` : "not enough lines yet";
   return `Cal P(over) = 0.5 + beta × (model P − 0.5). The model's P(over) has been overconfident: on the side it picks it averaged ${C.model_conf}% and hit ${C.actual_hit}% over ${C.n} graded lines (weeks ${C.weeks.join(", ")}). beta, Overs ${s("over")}, Unders ${s("under")}; refit on every refresh. Display only.`; };
+
+// Typical range of a projection (`ranges.json`, refit by pipeline/ranges.py): in walk-forward backtests the actual result landed between "low" and "high" 80% of the time (10th to 90th percentile of
+// actual - projection, by position, stat and projection size). Display only. Points are fitted in Full PPR; other presets are scaled by shown/PPR.
+const rangeAt = (stat, pos, x) => {
+  const g = D.ranges?.[stat]?.[pos]; if (!g || !g.bins?.length || !(x >= g.min)) return null;
+  const b = g.bins; let lo, hi;
+  if (x <= b[0][0]) [, lo, hi] = b[0]; else if (x >= b[b.length - 1][0]) [, lo, hi] = b[b.length - 1];
+  else { const i = b.findIndex(v => v[0] >= x), a = b[i - 1], c = b[i], t = (x - a[0]) / (c[0] - a[0]); lo = a[1] + t * (c[1] - a[1]); hi = a[2] + t * (c[2] - a[2]); }
+  return [Math.max(0, x + lo), x + hi];
+};
+const RANGE_TIP = "Typical range: in past weeks the actual result landed between these two numbers 80% of the time (10th to 90th percentile of the miss for this position and projection size, from walk-forward backtests). It is a spread of outcomes around the median projection, not a floor or a ceiling, and the top end is further from the projection than the bottom.";
+const statRange = (stat, pos, x, dec = 0) => { const r = rangeAt(stat, pos, x); return r ? `${num(r[0], dec)}–${num(r[1], dec)}` : ""; };
+const ptsRange = r => { const ppr = r.c.ppr, g = rangeAt("pts", r.pos, ppr); if (!g || !(ppr > 0)) return null; const s = r.c.pts / ppr; return [g[0] * s, g[1] * s]; };
+const rangeCol = () => ({k: "crng", h: "Range", t: RANGE_TIP + (CFG.mean ? " (Built around the median; the column beside it is the mean.)" : ""), v: r => ptsRange(r)?.[1] ?? null, f: r => { const g = ptsRange(r); return g ? `<span class="mut">${num(g[0], 0)}–${num(g[1], 0)}</span>` : ""; }});
