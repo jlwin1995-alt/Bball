@@ -40,6 +40,9 @@ def grade(actual, line, side):
     return (actual > line) if side == "O" else (actual < line)
 
 
+CAT_KEYS = ("pp", "ppo", "ppu", "co", "coo", "cou")   # the order of the 12-number list stored per stat in each day's "cat"
+
+
 def add_combos(df, cols):
     for c, parts in C.COMBOS.items():
         for suf in cols:
@@ -65,6 +68,7 @@ def build(L, G, LG, spread, V=None):
     for date, d in M.groupby("date"):
         rows, tally = [], {k: [0, 0] for k in ("cons", "picks", "picks_o", "picks_u", "pp", "pp_picks", "pp_picks_o", "pp_picks_u", "u65")}   # *_o / *_u: the same picks by side; u65: the Under 65%+ segment (no Fantasy Score, as in highlights.py)
         nvoid = 0
+        cat = {}                                          # per stat: PrizePicks picks / Overs / Unders, consensus picks / Overs / Unders as [n, wins] pairs (CAT_KEYS order)
         for r in d.itertuples():
             s_out = {}
             vd = V.get((str(date), str(r.pid)))
@@ -91,6 +95,8 @@ def build(L, G, LG, spread, V=None):
                                 if gg is not None and vd is None:
                                     tally["picks"][0] += 1; tally["picks"][1] += int(gg)
                                     tally["picks_" + pc.lower()][0] += 1; tally["picks_" + pc.lower()][1] += int(gg)
+                                    for kk in ("co", "co" + pc.lower()):
+                                        c_ = cat.setdefault(st, {k_: [0, 0] for k_ in CAT_KEYS})[kk]; c_[0] += 1; c_[1] += int(gg)
                         if pd.notna(ln.pp_line):
                             pl = float(ln.pp_line)
                             po, pu = sides(pl, p, sd)
@@ -104,6 +110,8 @@ def build(L, G, LG, spread, V=None):
                                 if gg is not None and vd is None:
                                     tally["pp_picks"][0] += 1; tally["pp_picks"][1] += int(gg)
                                     tally["pp_picks_" + side.lower()][0] += 1; tally["pp_picks_" + side.lower()][1] += int(gg)
+                                    for kk in ("pp", "pp" + side.lower()):
+                                        c_ = cat.setdefault(st, {k_: [0, 0] for k_ in CAT_KEYS})[kk]; c_[0] += 1; c_[1] += int(gg)
                             if st != "fp" and side == "U" and max(po, pu) >= 0.65 and g is not None and vd is None:
                                 tally["u65"][0] += 1; tally["u65"][1] += int(g)
                 s_out[st] = [round(p, 1), round(a, 1), cl, pl, pc, pk]
@@ -114,7 +122,7 @@ def build(L, G, LG, spread, V=None):
                      "min_mae": round(float((big["min_p"] - big["min_a"]).abs().mean()), 2) if len(big) else None,
                      "fp_mae": round(float((big["fp_p"] - big["fp_a"]).abs().mean()), 2) if len(big) else None,
                      "fp_bias": round(float((big["fp_p"].sum() - big["fp_a"].sum()) / big["fp_a"].sum() * 100), 1) if len(big) and big["fp_a"].sum() else None,
-                     "voids": nvoid, **tally})
+                     "voids": nvoid, **tally, "cat": {st: [x for k_ in CAT_KEYS for x in v[k_]] for st, v in cat.items()}})
         detail[str(date)] = rows
     return sorted(days, key=lambda x: x["date"], reverse=True), detail
 
