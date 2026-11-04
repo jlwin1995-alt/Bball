@@ -768,6 +768,32 @@ const pages = {
     const tot = k => [days.reduce((a, d) => a + d[k][0], 0), days.reduce((a, d) => a + d[k][1], 0)];
     const card = (v, l) => `<div class="card"><b>${v}</b><span>${l}</span></div>`;
     const [cn, ch] = tot("cons"), [kn, kh] = tot("picks"), [pn, ph] = tot("pp"), [qn, qh] = tot("pp_picks");
+    // running tally: cumulative record since the first graded day, for the picks and for the sides (older index rows without the split fields count as zero)
+    const asc = [...days].reverse(), BEp = I.pp_breakeven * 100;
+    const acc = k => { let n = 0, w = 0; return asc.map(d => { const v = d[k] || [0, 0]; n += v[0]; w += v[1]; return [n, w]; }); };
+    const RT = {pp: acc("pp_picks"), ppo: acc("pp_picks_o"), ppu: acc("pp_picks_u"), co: acc("picks"), cu: acc("picks_u"), co2: acc("picks_o"), u65: acc("u65")};
+    const rec = (a, be) => a[0] ? `<span class="${a[1] / a[0] * 100 >= be ? "good" : ""}">${a[1]}–${a[0] - a[1]} · ${num(a[1] / a[0] * 100, 1)}%</span>` : "—";
+    const last = k => RT[k][RT[k].length - 1], hasSplit = asc.some(d => d.pp_picks_u);
+    const tallyCols = [{k: "date", h: "Day", l: 1},
+      {k: "dd", h: "PP picks that day", t: "The model's PrizePicks picks that day (wins–losses, voids out)", f: r => rec([asc[r.i].pp_picks[0], asc[r.i].pp_picks[1]], BEp)},
+      {k: "pp", h: "Running PP picks", t: `Cumulative since the first graded day. Green = at or above your ${num(BEp, 1)}% break-even.`, f: r => rec(RT.pp[r.i], BEp)},
+      ...(hasSplit ? [{k: "ppo", h: "Overs", f: r => rec(RT.ppo[r.i], BEp)}, {k: "ppu", h: "Unders", f: r => rec(RT.ppu[r.i], BEp)},
+        {k: "u65", h: "Unders 65%+", t: "The model's Unders at 65%+ P(win) on every PrizePicks line (the backed highlight segment; Fantasy Score lines not included)", f: r => rec(RT.u65[r.i], BEp)}] : []),
+      {k: "co", h: "Running vs consensus picks", t: "Picks against the sportsbook consensus line; break-even about 52.4% at −110", f: r => rec(RT.co[r.i], 52.4)}];
+    const tallyRows = asc.map((d, i) => ({date: d.date, i})).reverse();
+    const spark = (() => {
+      if (asc.length < 3) return "";
+      const ser = [["PP picks", "pp", "var(--acc)"], ...(hasSplit ? [["PP Unders", "ppu", "var(--good)"], ["PP Overs", "ppo", "var(--bad)"]] : [])];
+      const W = 640, H = 150, X0 = 34, ys = [];
+      ser.forEach(([, k]) => RT[k].forEach((a, i) => { if (i >= 2 && a[0] >= 30) ys.push(a[1] / a[0] * 100); }));
+      if (!ys.length) return "";
+      const lo = Math.min(45, Math.floor(Math.min(...ys) - 1)), hi = Math.max(60, Math.ceil(Math.max(...ys) + 1)), X = i => X0 + (W - X0 - 6) * i / Math.max(asc.length - 1, 1), Y = v => 8 + (H - 22) * (hi - v) / (hi - lo);
+      const lines = ser.map(([lab, k, col]) => { const pts = RT[k].map((a, i) => (i >= 2 && a[0] >= 30) ? `${X(i).toFixed(1)},${Y(a[1] / a[0] * 100).toFixed(1)}` : null).filter(Boolean).join(" ");
+        return pts ? `<polyline points="${pts}" fill="none" stroke="${col}" stroke-width="2"/>` : ""; }).join("");
+      const ticks = [lo, Math.round((lo + hi) / 2), hi].map(v => `<text x="${X0 - 4}" y="${Y(v) + 3}" text-anchor="end" font-size="10" fill="var(--mut)">${v}%</text>`).join("");
+      return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Running hit rate of the model's PrizePicks picks by day">${ticks}<line x1="${X0}" x2="${W - 6}" y1="${Y(BEp)}" y2="${Y(BEp)}" stroke="var(--mut)" stroke-dasharray="4 3"/><text x="${W - 8}" y="${Y(BEp) - 3}" text-anchor="end" font-size="10" fill="var(--mut)">break-even ${num(BEp, 1)}%</text>${lines}
+        <text x="${X0}" y="${H - 2}" font-size="10" fill="var(--mut)">${esc(asc[0].date)}</text><text x="${W - 6}" y="${H - 2}" text-anchor="end" font-size="10" fill="var(--mut)">${esc(asc[asc.length - 1].date)}</text></svg>
+        <div class="mut" style="font-size:12px">${ser.map(([lab, , col]) => `<span style="color:${col}">━</span> ${lab}`).join(" &nbsp; ")} &nbsp; running hit rate (from the third day, once there are 30+ picks)</div>`; })();
     if (!F.rday || !days.some(d => d.date === F.rday)) F.rday = days[0].date;
     loadResultsDay(F.rday);
     const dayCols = [{k: "date", h: "Day", l: 1}, {k: "n", h: "Players", t: `Projected for ${I.min_proj}+ minutes`}, {k: "min_mae", h: "Min MAE", f: r => num(r.min_mae, 1)}, {k: "fp_mae", h: "FP MAE", f: r => num(r.fp_mae, 1)},
@@ -804,6 +830,8 @@ const pages = {
     return `<h2>Results</h2>${toggle}${banner}<p class="sub">What the model said before the game vs what happened. Pregame projections are frozen before tip-off; lines are the last pregame consensus (and PrizePicks) pull. A single day is a few hundred coin flips, so judge the hit rates over weeks, not days: against a −110 market a bettor needs about 52.4% to break even, and PrizePicks needs about ${(I.pp_breakeven * 100).toFixed(1)}% per leg.</p>
       <div class="cards">${card(days.length, "graded game days")}${card(sum("n"), "player-games (15+ min)")}${card(num(wavg("min_mae"), 1), "minutes MAE")}${card(num(wavg("fp_mae"), 1), "fantasy-points MAE")}${card(num(wavg("fp_bias"), 1) + "%", "fantasy-points bias")}</div>
       <div class="cards">${card(pct1(ch, cn), "model side vs consensus line")}${card(pct1(kh, kn), "picks vs consensus")}${card(pct1(ph, pn), "model side vs PrizePicks")}${card(pct1(qh, qn), "PrizePicks picks")}</div>
+      <h3>Running tally</h3><div class="cards">${card(rec(last("pp"), BEp), "PrizePicks picks")}${hasSplit ? card(rec(last("ppo"), BEp), "PP Overs") + card(rec(last("ppu"), BEp), "PP Unders") + card(rec(last("u65"), BEp), "Unders 65%+") : ""}${card(rec(last("co"), 52.4), "picks vs consensus")}</div>
+      ${spark}${table(tallyCols, tallyRows, {id: "tally", sort: {key: "date"}})}
       <div class="bar"><label>Day <select id="rday">${days.map(d => `<option value="${d.date}" ${d.date === F.rday ? "selected" : ""}>${d.date}</option>`).join("")}</select></label></div>
       ${body}
       <h3>All graded days</h3>${table(dayCols, days, {id: "resdays", sort: {key: "date"}})}`;

@@ -63,7 +63,7 @@ def build(L, G, LG, spread, V=None):
             lk[(str(r.date), str(r.pid), r.stat)] = r
     days, detail = [], {}
     for date, d in M.groupby("date"):
-        rows, tally = [], {k: [0, 0] for k in ("cons", "picks", "pp", "pp_picks")}
+        rows, tally = [], {k: [0, 0] for k in ("cons", "picks", "picks_o", "picks_u", "pp", "pp_picks", "pp_picks_o", "pp_picks_u", "u65")}   # *_o / *_u: the same picks by side; u65: the Under 65%+ segment (no Fantasy Score, as in highlights.py)
         nvoid = 0
         for r in d.itertuples():
             s_out = {}
@@ -90,6 +90,7 @@ def build(L, G, LG, spread, V=None):
                                 gg = grade(a, cl, pc)
                                 if gg is not None and vd is None:
                                     tally["picks"][0] += 1; tally["picks"][1] += int(gg)
+                                    tally["picks_" + pc.lower()][0] += 1; tally["picks_" + pc.lower()][1] += int(gg)
                         if pd.notna(ln.pp_line):
                             pl = float(ln.pp_line)
                             po, pu = sides(pl, p, sd)
@@ -102,6 +103,9 @@ def build(L, G, LG, spread, V=None):
                                 pk = side
                                 if gg is not None and vd is None:
                                     tally["pp_picks"][0] += 1; tally["pp_picks"][1] += int(gg)
+                                    tally["pp_picks_" + side.lower()][0] += 1; tally["pp_picks_" + side.lower()][1] += int(gg)
+                            if st != "fp" and side == "U" and max(po, pu) >= 0.65 and g is not None and vd is None:
+                                tally["u65"][0] += 1; tally["u65"][1] += int(g)
                 s_out[st] = [round(p, 1), round(a, 1), cl, pl, pc, pk]
             rows.append({"pid": r.pid, "n": r.name, "t": r.team, "mp": round(float(r.min_p), 1), "ma": round(float(r.min_a), 1),
                          "fp": [round(float(r.fp_p), 1), round(float(r.fp_a), 1)], "s": s_out, **({"v": vd} if vd else {})})
