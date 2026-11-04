@@ -1,4 +1,69 @@
 ts,event,commence,game,home,away,player,stat,book,line,over,under
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Keldric Luster,passY,fanduel,198.5,-114,-114
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Jabari Smith Jr.,recY,fanduel,27.5,-118,-112
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Donovan Hamilton,recY,fanduel,36.5,-114,-114
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Jamarion McDougle,recY,fanduel,33.5,-114,-114
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Jabari Smith Jr.,rec,fanduel,4.5,144,-194
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Donovan Hamilton,rec,fanduel,3.5,134,-180
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Jamarion McDougle,rec,fanduel,3.5,144,-194
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,TJ Horton,rushY,fanduel,44.5,-112,-118
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Keldric Luster,rushY,fanduel,40.5,-118,-114
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Keldric Luster,passY,espnbet,199.5,-115,-115
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Donovan Hamilton,recY,espnbet,34.5,-130,100
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Jamarion McDougle,recY,espnbet,34.5,-115,-115
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Donovan Hamilton,rec,espnbet,3.5,135,-180
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,TJ Horton,rushY,espnbet,44.5,-120,-110
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Keldric Luster,rushY,espnbet,41.5,-115,-115
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Keldric Luster,passY,underdog,198.5,-137,-137
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Donovan Hamilton,recY,underdog,36.5,-137,-137
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Jamarion McDougle,recY,underdog,33.5,-137,-137
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Jabari Smith Jr.,recY,underdog,27.5,-137,-137
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Keldric Luster,rushY,underdog,40.5,-137,-137
+2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,TJ Horton,rushY,underdog,44.5,-137,-137
+2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Jackson Sharman,passY,fanduel,168.5,-114,-114
+2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,John Alan Richter,passY,fanduel,251.5,-114,-114
+2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Daryl Barnett Jr.,recY,fanduel,29.5,-114,-114
+2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Bryson Hammer,recY,fanduel,48.5,-114,-114
+2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Onterrio Smith Jr.,recY,fanduel,35.5,-114,-114
+2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Raiden Brown,recY,fanduel,21.5,-114,-114
+2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Adjatay Dabbs,recY,fanduel,68.5,-114,-114
+2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Matt Coleman,recY,fanduel,32.5,-114,-114
+2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Isaiah Ene,rushY,fanduel,42.5,-114,-114
+2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,John Alan Richter,passY,espnbet,253.5,-115,-115
+2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Jackson Sharman,passY,espnbet,169.5,-120,-110
+2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Adjatay Dabbs,recY,espnbet,69.5,-115,-115
+2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Onterrio Smith Jr.,recY,espnbet,34.5,-125,-105
+2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Raiden Brown,recY,espnbet,23.5,-105,-125
+2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Matt Coleman,recY,espnbet,33.5,-110,-120
+2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,CJ Miller,rushY,espnbet,84.5,-115,-115
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Jadyn Glasser,passY,fanduel,185.5,-114,-114
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Nick Devereaux,recY,fanduel,32.5,-114,-114
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Benson Prosper,recY,fanduel,27.5,-114,-114
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joey Mattord,recY,fanduel,17.5,-114,-114
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joshua Long,recY,fanduel,32.5,-114,-114
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Harold Mack,recY,fanduel,29.5,-114,-114
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Vaughn Blue,rushY,fanduel,27.5,-114,-114
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Jayden Clerveaux,rushY,fanduel,34.5,-114,-114
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Amareon Blue,rushY,fanduel,37.5,-114,-114
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joey Mattord,rushY,fanduel,26.5,-114,-114
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Braydon Bennett,rushY,fanduel,20.5,-114,-114
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Harold Mack,recY,espnbet,29.5,-120,-110
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Nick Devereaux,recY,espnbet,34.5,-105,-125
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joshua Long,recY,espnbet,33.5,-110,-120
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joey Mattord,recY,espnbet,17.5,-120,-110
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Jayden Clerveaux,rushY,espnbet,34.5,-120,-110
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joey Mattord,rushY,espnbet,27.5,-110,-120
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Jadyn Glasser,passY,prizepicks,185.5,-137,-137
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joshua Long,recY,prizepicks,32.5,-137,-137
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Nick Devereaux,recY,prizepicks,32.5,-137,-137
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Harold Mack,recY,prizepicks,29.5,-137,-137
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Benson Prosper,recY,prizepicks,27.5,-137,-137
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joey Mattord,recY,prizepicks,17.5,-137,-137
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Amareon Blue,rushY,prizepicks,37.5,-137,-137
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Jayden Clerveaux,rushY,prizepicks,34.5,-137,-137
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Vaughn Blue,rushY,prizepicks,27.5,-137,-137
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joey Mattord,rushY,prizepicks,26.5,-137,-137
+2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Braydon Bennett,rushY,prizepicks,20.5,-137,-137
 2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Brayden Roggow,passY,fanduel,205.5,-114,-114
 2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Nick Poulos,passY,fanduel,202.5,-114,-114
 2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Jordan Gant,recY,fanduel,11.5,-118,-112

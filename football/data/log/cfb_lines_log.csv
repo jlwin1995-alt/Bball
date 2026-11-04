@@ -1992,3 +1992,31 @@ commence,game,player_id,name,team,stat,cons_line,cons_p_over,n_books,pp_line,ud_
 2026-11-04T01:00:00Z,Buffalo @ Miami (OH),4876642,Maleek Huggins,Miami (OH),recY,39.5,0.5051,2,39.5,,2026-11-03T06:32:20+00:00,10
 2026-11-04T01:00:00Z,Buffalo @ Miami (OH),5151369,Messiah Burch,Buffalo,rushY,102.5,0.5061,1,102.5,,2026-11-03T06:32:20+00:00,10
 2026-11-04T01:00:00Z,Buffalo @ Miami (OH),5153885,Rodney Nelson,Miami (OH),rushY,53.5,0.5,1,53.5,,2026-11-03T06:32:20+00:00,10
+2026-11-05T00:00:00Z,Toledo @ Sacramento State,5153399,Adjatay Dabbs,Toledo,recY,68.5,0.5,1,,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:00:00Z,Toledo @ Sacramento State,5162858,Bryson Hammer,Toledo,recY,48.5,0.5,1,,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:00:00Z,Toledo @ Sacramento State,5092811,CJ Miller,Toledo,rushY,84.5,0.5,1,,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:00:00Z,Toledo @ Sacramento State,5230932,Daryl Barnett Jr.,Toledo,recY,29.5,0.5,1,,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,5191056,Donovan Hamilton,Ball State,rec,3.5,0.3988,2,,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,5191056,Donovan Hamilton,Ball State,recY,34.5,0.5306,1,,36.5,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:00:00Z,Toledo @ Sacramento State,5161820,Isaiah Ene,Sacramento State,rushY,42.5,0.5,1,,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,5078533,Jabari Smith,Ball State,rec,4.5,0.3831,1,,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,5078533,Jabari Smith,Ball State,recY,27.5,0.5061,1,,27.5,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:00:00Z,Toledo @ Sacramento State,5158748,Jackson Sharman,Sacramento State,passY,168.5,0.5,1,,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,5222761,Jamarion McDougle,Ball State,rec,3.5,0.3831,1,,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,5222761,Jamarion McDougle,Ball State,recY,33.5,0.5,1,,33.5,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:00:00Z,Toledo @ Sacramento State,5082330,John Alan Richter,Toledo,passY,251.5,0.5,1,,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,5075392,Keldric Luster,Ball State,passY,198.5,0.5,1,,198.5,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,5075392,Keldric Luster,Ball State,rushY,40.5,0.504,1,,40.5,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:00:00Z,Toledo @ Sacramento State,5152796,Onterrio Smith Jr.,Sacramento State,recY,34.5,0.5203,1,,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:00:00Z,Toledo @ Sacramento State,5158759,Raiden Brown,Sacramento State,recY,21.5,0.5,1,,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,5077876,TJ Horton,Ball State,rushY,44.5,0.502,2,,44.5,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,5222594,Amareon Blue,Eastern Michigan,rushY,37.5,0.5,1,37.5,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,4608922,Braydon Bennett,Eastern Michigan,rushY,20.5,0.5,1,20.5,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,5211694,Harold Mack,Eastern Michigan,recY,29.5,0.5051,2,29.5,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,5149056,Jadyn Glasser,Central Michigan,passY,185.5,0.5,1,185.5,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,5157391,Jayden Clerveaux,Central Michigan,rushY,34.5,0.5051,2,34.5,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,5125733,Joey Mattord,Eastern Michigan,recY,17.5,0.5051,2,17.5,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,5125733,Joey Mattord,Eastern Michigan,rushY,26.5,0.5,1,26.5,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,5295532,Joshua Long,Eastern Michigan,recY,32.5,0.5,1,32.5,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,5083205,Nick Devereaux,Eastern Michigan,recY,32.5,0.5,1,32.5,,2026-11-04T02:10:00+00:00,10
+2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,5122147,Vaughn Blue,Central Michigan,rushY,27.5,0.5,1,27.5,,2026-11-04T02:10:00+00:00,10
