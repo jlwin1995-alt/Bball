@@ -85,7 +85,7 @@ function filters(extra = "") {
   return `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}">
   <label>Pos <select id="pos">${["", "G", "F", "C"].map(p => `<option ${F.pos === p ? "selected" : ""} value="${p}">${p || "All"}</option>`).join("")}</select></label>${extra}</div>`;
 }
-const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lside: "", lbucket: "", lcombo: false, lhl: false, lpicks: false, rday: "", vstat: "pts", vpos: "G", sview: "today", smode: "soft", cteam: "", cplayer: "", cheat: "fg", cdots: "all", rmode: null, rlines: false, rpicks: false, range: true};
+const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lside: "", lbucket: "", lcombo: false, lhl: false, lpicks: false, rday: "", rcat: "", vstat: "pts", vpos: "G", sview: "today", smode: "soft", cteam: "", cplayer: "", cheat: "fg", cdots: "all", rmode: null, rlines: false, rpicks: false, range: true};
 const RES = {};                                     // results/<date>.json cache
 function passes(r) {
   if (F.pos && r.pos !== F.pos) return false;
@@ -770,15 +770,20 @@ const pages = {
     const [cn, ch] = tot("cons"), [kn, kh] = tot("picks"), [pn, ph] = tot("pp"), [qn, qh] = tot("pp_picks");
     // running tally: cumulative record since the first graded day, for the picks and for the sides (older index rows without the split fields count as zero)
     const asc = [...days].reverse(), BEp = I.pp_breakeven * 100;
-    const acc = k => { let n = 0, w = 0; return asc.map(d => { const v = d[k] || [0, 0]; n += v[0]; w += v[1]; return [n, w]; }); };
-    const RT = {pp: acc("pp_picks"), ppo: acc("pp_picks_o"), ppu: acc("pp_picks_u"), co: acc("picks"), cu: acc("picks_u"), co2: acc("picks_o"), u65: acc("u65")};
+    const CATK = ["pp", "ppo", "ppu", "co", "coo", "cou"], ALLK = {pp: "pp_picks", ppo: "pp_picks_o", ppu: "pp_picks_u", co: "picks", coo: "picks_o", cou: "picks_u", u65: "u65"};
+    const cats = [...new Set(days.flatMap(d => Object.keys(d.cat || {})))].sort((a, b) => STATS.concat(["pra", "pr", "pa", "ra", "fp"]).indexOf(a) - STATS.concat(["pra", "pr", "pa", "ra", "fp"]).indexOf(b));
+    if (F.rcat && !cats.includes(F.rcat)) F.rcat = "";
+    const pick = (d, k, c) => { if (!c) return d[ALLK[k]] || [0, 0]; const v = (d.cat || {})[c], i = CATK.indexOf(k); return v && i >= 0 ? [v[2 * i], v[2 * i + 1]] : [0, 0]; };
+    const acc = (k, c) => { let n = 0, w = 0; return asc.map(d => { const v = pick(d, k, c); n += v[0]; w += v[1]; return [n, w]; }); };
+    const RT = {pp: acc("pp", F.rcat), ppo: acc("ppo", F.rcat), ppu: acc("ppu", F.rcat), co: acc("co", F.rcat), u65: acc("u65", "")};
+    const catRows = cats.map(c => ({c, v: Object.fromEntries(CATK.map(k => [k, acc(k, c).pop() || [0, 0]]))}));
     const rec = (a, be) => a[0] ? `<span class="${a[1] / a[0] * 100 >= be ? "good" : ""}">${a[1]}–${a[0] - a[1]} · ${num(a[1] / a[0] * 100, 1)}%</span>` : "—";
-    const last = k => RT[k][RT[k].length - 1], hasSplit = asc.some(d => d.pp_picks_u);
+    const last = k => RT[k][RT[k].length - 1], hasSplit = asc.some(d => d.pp_picks_u), catName = F.rcat ? (LABEL[F.rcat] || F.rcat) : "all categories";
     const tallyCols = [{k: "date", h: "Day", l: 1},
-      {k: "dd", h: "PP picks that day", t: "The model's PrizePicks picks that day (wins–losses, voids out)", f: r => rec([asc[r.i].pp_picks[0], asc[r.i].pp_picks[1]], BEp)},
+      {k: "dd", h: "PP picks that day", t: "The model's PrizePicks picks that day (wins–losses, voids out)", f: r => rec(pick(asc[r.i], "pp", F.rcat), BEp)},
       {k: "pp", h: "Running PP picks", t: `Cumulative since the first graded day. Green = at or above your ${num(BEp, 1)}% break-even.`, f: r => rec(RT.pp[r.i], BEp)},
       ...(hasSplit ? [{k: "ppo", h: "Overs", f: r => rec(RT.ppo[r.i], BEp)}, {k: "ppu", h: "Unders", f: r => rec(RT.ppu[r.i], BEp)},
-        {k: "u65", h: "Unders 65%+", t: "The model's Unders at 65%+ P(win) on every PrizePicks line (the backed highlight segment; Fantasy Score lines not included)", f: r => rec(RT.u65[r.i], BEp)}] : []),
+        ...(F.rcat ? [] : [{k: "u65", h: "Unders 65%+", t: "The model's Unders at 65%+ P(win) on every PrizePicks line (the backed highlight segment; Fantasy Score lines not included)", f: r => rec(RT.u65[r.i], BEp)}])] : []),
       {k: "co", h: "Running vs consensus picks", t: "Picks against the sportsbook consensus line; break-even about 52.4% at −110", f: r => rec(RT.co[r.i], 52.4)}];
     const tallyRows = asc.map((d, i) => ({date: d.date, i})).reverse();
     const spark = (() => {
@@ -830,8 +835,14 @@ const pages = {
     return `<h2>Results</h2>${toggle}${banner}<p class="sub">What the model said before the game vs what happened. Pregame projections are frozen before tip-off; lines are the last pregame consensus (and PrizePicks) pull. A single day is a few hundred coin flips, so judge the hit rates over weeks, not days: against a −110 market a bettor needs about 52.4% to break even, and PrizePicks needs about ${(I.pp_breakeven * 100).toFixed(1)}% per leg.</p>
       <div class="cards">${card(days.length, "graded game days")}${card(sum("n"), "player-games (15+ min)")}${card(num(wavg("min_mae"), 1), "minutes MAE")}${card(num(wavg("fp_mae"), 1), "fantasy-points MAE")}${card(num(wavg("fp_bias"), 1) + "%", "fantasy-points bias")}</div>
       <div class="cards">${card(pct1(ch, cn), "model side vs consensus line")}${card(pct1(kh, kn), "picks vs consensus")}${card(pct1(ph, pn), "model side vs PrizePicks")}${card(pct1(qh, qn), "PrizePicks picks")}</div>
-      <h3>Running tally</h3><div class="cards">${card(rec(last("pp"), BEp), "PrizePicks picks")}${hasSplit ? card(rec(last("ppo"), BEp), "PP Overs") + card(rec(last("ppu"), BEp), "PP Unders") + card(rec(last("u65"), BEp), "Unders 65%+") : ""}${card(rec(last("co"), 52.4), "picks vs consensus")}</div>
+      <h3>Running tally</h3><div class="bar"><label>Category <select id="rcat"><option value="">All categories</option>${cats.map(c => `<option value="${c}" ${c === F.rcat ? "selected" : ""}>${esc(LABEL[c] || c)}</option>`).join("")}</select></label><span class="mut">${esc(catName)}: the model's picks only (a line where the model's edge clears your threshold), voids out</span></div>
+      <div class="cards">${card(rec(last("pp"), BEp), "PrizePicks picks")}${hasSplit ? card(rec(last("ppo"), BEp), "PP Overs") + card(rec(last("ppu"), BEp), "PP Unders") + (F.rcat ? "" : card(rec(last("u65"), BEp), "Unders 65%+")) : ""}${card(rec(last("co"), 52.4), "picks vs consensus")}</div>
       ${spark}${table(tallyCols, tallyRows, {id: "tally", sort: {key: "date"}})}
+      ${catRows.length ? `<h3>By category (running, all graded days)</h3>${table([{k: "c", h: "Category", l: 1, f: r => `<a href="#" data-rcat="${r.c}">${esc(LABEL[r.c] || r.c)}</a>`, v: r => LABEL[r.c] || r.c},
+        {k: "pp", h: "PP picks", t: "The model's PrizePicks picks in this category (green at or above your break-even)", v: r => r.v.pp[0] ? r.v.pp[1] / r.v.pp[0] : null, f: r => rec(r.v.pp, BEp)},
+        {k: "ppo", h: "Overs", v: r => r.v.ppo[0] ? r.v.ppo[1] / r.v.ppo[0] : null, f: r => rec(r.v.ppo, BEp)}, {k: "ppu", h: "Unders", v: r => r.v.ppu[0] ? r.v.ppu[1] / r.v.ppu[0] : null, f: r => rec(r.v.ppu, BEp)},
+        {k: "co", h: "Consensus picks", t: "Picks against the sportsbook consensus line (break-even about 52.4% at −110)", v: r => r.v.co[0] ? r.v.co[1] / r.v.co[0] : null, f: r => rec(r.v.co, 52.4)},
+        {k: "coo", h: "Overs", v: r => r.v.coo[0] ? r.v.coo[1] / r.v.coo[0] : null, f: r => rec(r.v.coo, 52.4)}, {k: "cou", h: "Unders", v: r => r.v.cou[0] ? r.v.cou[1] / r.v.cou[0] : null, f: r => rec(r.v.cou, 52.4)}], catRows, {id: "tallycat", sort: {key: "pp"}})}<p class="mut">Click a category name to switch the running tally above to it.</p>` : ""}
       <div class="bar"><label>Day <select id="rday">${days.map(d => `<option value="${d.date}" ${d.date === F.rday ? "selected" : ""}>${d.date}</option>`).join("")}</select></label></div>
       ${body}
       <h3>All graded days</h3>${table(dayCols, days, {id: "resdays", sort: {key: "date"}})}`;
@@ -913,6 +924,7 @@ document.addEventListener("change", e => {
   else if (t.dataset.sc) { CFG.scoring[t.dataset.sc] = +t.value || 0; CFG.preset = "Custom"; store.set("cfg", CFG); render(); }
   else if (t.id === "mean") { CFG.mean = t.value === "1"; store.set("cfg", CFG); render(); }
   else if (t.id === "rday") { F.rday = t.value; render(); }
+  else if (t.id === "rcat") { F.rcat = t.value; render(); }
   else if (t.id === "sview") { F.sview = t.value; render(); }
   else if (t.id === "smode") { F.smode = t.value; render(); }
   else if (t.id === "cteam") { F.cteam = t.value; render(); }
@@ -930,6 +942,7 @@ document.addEventListener("change", e => {
 document.addEventListener("click", e => {
   const t = e.target;
   if (t.classList && t.classList.contains("scgo")) { e.preventDefault(); const [pid, opp] = t.dataset.sc.split("|"); F.cplayer = pid; F.cteam = opp; F.sview = "chart"; render(); window.scrollTo(0, 0); return; }
+  if (t.dataset && t.dataset.rcat !== undefined) { e.preventDefault(); F.rcat = t.dataset.rcat; render(); window.scrollTo(0, 0); return; }
   if (t.id === "clr") { OVR = {}; store.set("ovr", OVR); render(); }
   if (t.id === "lvapply") { const box = document.getElementById("lvpaste"); LIVE.paste = box ? box.value : LIVE.paste; applyPaste(LIVE.paste); LIVE.paste = ""; render(); }
   if (t.id === "lvclear") { LIVE.lines = {}; store.set("livelines", LIVE.lines); LIVE.pasteMsg = "Cleared."; render(); }
