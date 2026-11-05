@@ -1,110 +1,302 @@
 ts,event,commence,game,home,away,player,stat,book,line,over,under
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Keldric Luster,passY,fanduel,198.5,-114,-114
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Jabari Smith Jr.,recY,fanduel,27.5,-118,-112
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Donovan Hamilton,recY,fanduel,36.5,-114,-114
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Jamarion McDougle,recY,fanduel,33.5,-114,-114
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Jabari Smith Jr.,rec,fanduel,4.5,144,-194
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Donovan Hamilton,rec,fanduel,3.5,134,-180
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Jamarion McDougle,rec,fanduel,3.5,144,-194
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,TJ Horton,rushY,fanduel,44.5,-112,-118
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Keldric Luster,rushY,fanduel,40.5,-118,-114
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Keldric Luster,passY,espnbet,199.5,-115,-115
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Donovan Hamilton,recY,espnbet,34.5,-130,100
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Jamarion McDougle,recY,espnbet,34.5,-115,-115
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Donovan Hamilton,rec,espnbet,3.5,135,-180
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,TJ Horton,rushY,espnbet,44.5,-120,-110
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Keldric Luster,rushY,espnbet,41.5,-115,-115
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Keldric Luster,passY,underdog,198.5,-137,-137
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Donovan Hamilton,recY,underdog,36.5,-137,-137
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Jamarion McDougle,recY,underdog,33.5,-137,-137
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Jabari Smith Jr.,recY,underdog,27.5,-137,-137
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,Keldric Luster,rushY,underdog,40.5,-137,-137
-2026-11-04T02:10:00+00:00,6ee8ad6eb7454d13bebc0806a10cc861,2026-11-05T00:00:00Z,Ball State @ UMass Minutemen,UMass Minutemen,Ball State,TJ Horton,rushY,underdog,44.5,-137,-137
-2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Jackson Sharman,passY,fanduel,168.5,-114,-114
-2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,John Alan Richter,passY,fanduel,251.5,-114,-114
-2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Daryl Barnett Jr.,recY,fanduel,29.5,-114,-114
-2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Bryson Hammer,recY,fanduel,48.5,-114,-114
-2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Onterrio Smith Jr.,recY,fanduel,35.5,-114,-114
-2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Raiden Brown,recY,fanduel,21.5,-114,-114
-2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Adjatay Dabbs,recY,fanduel,68.5,-114,-114
-2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Matt Coleman,recY,fanduel,32.5,-114,-114
-2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Isaiah Ene,rushY,fanduel,42.5,-114,-114
-2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,John Alan Richter,passY,espnbet,253.5,-115,-115
-2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Jackson Sharman,passY,espnbet,169.5,-120,-110
-2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Adjatay Dabbs,recY,espnbet,69.5,-115,-115
-2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Onterrio Smith Jr.,recY,espnbet,34.5,-125,-105
-2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Raiden Brown,recY,espnbet,23.5,-105,-125
-2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,Matt Coleman,recY,espnbet,33.5,-110,-120
-2026-11-04T02:10:00+00:00,7db0ce3fddd5c735e599b1085c9b5cef,2026-11-05T00:00:00Z,Toledo @ Sacramento State,Sacramento State,Toledo,CJ Miller,rushY,espnbet,84.5,-115,-115
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Jadyn Glasser,passY,fanduel,185.5,-114,-114
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Nick Devereaux,recY,fanduel,32.5,-114,-114
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Benson Prosper,recY,fanduel,27.5,-114,-114
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joey Mattord,recY,fanduel,17.5,-114,-114
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joshua Long,recY,fanduel,32.5,-114,-114
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Harold Mack,recY,fanduel,29.5,-114,-114
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Vaughn Blue,rushY,fanduel,27.5,-114,-114
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Jayden Clerveaux,rushY,fanduel,34.5,-114,-114
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Amareon Blue,rushY,fanduel,37.5,-114,-114
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joey Mattord,rushY,fanduel,26.5,-114,-114
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Braydon Bennett,rushY,fanduel,20.5,-114,-114
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Harold Mack,recY,espnbet,29.5,-120,-110
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Nick Devereaux,recY,espnbet,34.5,-105,-125
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joshua Long,recY,espnbet,33.5,-110,-120
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joey Mattord,recY,espnbet,17.5,-120,-110
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Jayden Clerveaux,rushY,espnbet,34.5,-120,-110
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joey Mattord,rushY,espnbet,27.5,-110,-120
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Jadyn Glasser,passY,prizepicks,185.5,-137,-137
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joshua Long,recY,prizepicks,32.5,-137,-137
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Nick Devereaux,recY,prizepicks,32.5,-137,-137
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Harold Mack,recY,prizepicks,29.5,-137,-137
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Benson Prosper,recY,prizepicks,27.5,-137,-137
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joey Mattord,recY,prizepicks,17.5,-137,-137
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Amareon Blue,rushY,prizepicks,37.5,-137,-137
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Jayden Clerveaux,rushY,prizepicks,34.5,-137,-137
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Vaughn Blue,rushY,prizepicks,27.5,-137,-137
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Joey Mattord,rushY,prizepicks,26.5,-137,-137
-2026-11-04T02:10:00+00:00,e5c8c0aaad6dc26e9ede547783d854d2,2026-11-05T00:30:00Z,Central Michigan @ Eastern Michigan,Eastern Michigan,Central Michigan,Braydon Bennett,rushY,prizepicks,20.5,-137,-137
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Brayden Roggow,passY,fanduel,205.5,-114,-114
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Nick Poulos,passY,fanduel,202.5,-114,-114
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Jordan Gant,recY,fanduel,11.5,-118,-112
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Kyan Mason,recY,fanduel,34.5,-114,-114
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Dom Dorwart,recY,fanduel,36.5,-114,-114
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Marcel Williams,recY,fanduel,39.5,-114,-114
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Riley Neer,recY,fanduel,56.5,-114,-114
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Preston Bowman,recY,fanduel,31.5,-118,-114
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Miles Burris,recY,fanduel,29.5,-114,-114
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Victor Rosa,rushY,fanduel,46.5,-114,-114
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Duncan Brune,rushY,fanduel,70.5,-114,-114
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Nick Poulos,rushY,fanduel,32.5,-112,-118
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Jordan Gant,rushY,fanduel,82.5,-118,-114
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Nick Poulos,passY,espnbet,204.5,-115,-115
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Brayden Roggow,passY,espnbet,209.5,-110,-120
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Dom Dorwart,recY,espnbet,37.5,-115,-115
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Jordan Gant,recY,espnbet,14.5,110,-140
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Jordan Gant,rushY,espnbet,84.5,-115,-115
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Duncan Brune,rushY,espnbet,71.5,-115,-115
-2026-11-03T06:32:20+00:00,c0ddb68355a79fb70194e95b75c037ca,2026-11-04T00:00:00Z,Ohio @ Akron,Akron,Ohio,Nick Poulos,rushY,espnbet,34.5,-105,-125
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Jason Wright,passY,fanduel,149.5,-114,-114
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Caleb Heavner,passY,fanduel,193.5,-114,-114
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Chance Morrow,recY,fanduel,42.5,-114,-114
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Damarion Witten,recY,fanduel,31.5,-114,-114
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Clint Walker,recY,fanduel,24.5,-114,-114
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Maleek Huggins,recY,fanduel,39.5,-114,-114
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,D'Shawntae Jones,rushY,fanduel,25.5,-118,-112
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Caleb Heavner,rushY,fanduel,38.5,-114,-114
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Rodney Nelson,rushY,fanduel,53.5,-114,-114
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Messiah Burch,rushY,fanduel,102.5,-118,-112
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Jason Wright,rushY,fanduel,21.5,-114,-114
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Maleek Huggins,recY,espnbet,39.5,-120,-110
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Messiah Burch,rushY,espnbet,105.5,-115,-115
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Rodney Nelson,rushY,espnbet,54.5,-115,-115
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Caleb Heavner,passY,prizepicks,193.5,-137,-137
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Jason Wright,passY,prizepicks,149.5,-137,-137
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Chance Morrow,recY,prizepicks,42.5,-137,-137
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Maleek Huggins,recY,prizepicks,39.5,-137,-137
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Damarion Witten,recY,prizepicks,31.5,-137,-137
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Messiah Burch,rushY,prizepicks,102.5,-137,-137
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Rodney Nelson,rushY,prizepicks,53.5,-137,-137
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Caleb Heavner,rushY,prizepicks,38.5,-137,-137
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,D'Shawntae Jones,rushY,prizepicks,25.5,-137,-137
-2026-11-03T06:32:20+00:00,657053f4734af94664beb750813257bb,2026-11-04T01:00:00Z,Buffalo @ Miami (OH),Miami (OH),Buffalo,Jason Wright,rushY,prizepicks,21.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Owen McCown,passY,fanduel,264.5,-114,-114
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Caden Veltkamp,passY,fanduel,345.5,-114,-114
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Mekhi Anderson,recY,fanduel,38.5,-114,-114
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,AJ Wilson,recY,fanduel,28.5,-114,-114
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Easton Messer,recY,fanduel,109.5,-114,-114
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,DJ Allen Jr.,recY,fanduel,33.5,-114,-114
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Dominique Henry,recY,fanduel,51.5,-114,-114
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Kelby Valsin,recY,fanduel,82.5,-114,-114
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,David Amador II,recY,fanduel,59.5,-114,-114
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Easton Messer,rec,fanduel,10.5,116,-154
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Kelby Valsin,rec,fanduel,6.5,112,-148
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Dominique Henry,rec,fanduel,4.5,-130,-102
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,AJ Wilson,rec,fanduel,2.5,106,-140
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,DJ Allen Jr.,rec,fanduel,3.5,144,-194
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,David Amador II,rec,fanduel,6.5,106,-140
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Mekhi Anderson,rec,fanduel,3.5,-136,102
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Leonard Farrow,rushY,fanduel,50.5,-114,-114
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Will Henderson III,rushY,fanduel,89.5,-114,-114
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Caden Veltkamp,passY,betrivers,345.5,-124,
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Owen McCown,passY,betrivers,262.5,-130,
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Mekhi Anderson,recY,betrivers,37.5,-124,
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,DJ Allen Jr.,recY,betrivers,33.5,-120,
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Kelby Valsin,recY,betrivers,85.5,-118,
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,AJ Wilson,recY,betrivers,29.5,-127,
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Easton Messer,recY,betrivers,109.5,-124,
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,David Amador II,recY,betrivers,59.5,-122,
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Dominique Henry,recY,betrivers,51.5,-124,
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Will Henderson III,rushY,betrivers,88.5,-117,
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Leonard Farrow,rushY,betrivers,51.5,-120,
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Caden Veltkamp,passY,espnbet,349.5,-110,-120
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Owen McCown,passY,espnbet,264.5,-115,-115
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Kelby Valsin,recY,espnbet,84.5,-120,-110
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Easton Messer,recY,espnbet,112.5,-115,-115
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Mekhi Anderson,recY,espnbet,39.5,-125,-105
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,David Amador II,recY,espnbet,64.5,-105,-125
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,AJ Wilson,recY,espnbet,29.5,-130,100
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Kelby Valsin,rec,espnbet,6.5,110,-140
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Easton Messer,rec,espnbet,9.5,-135,105
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,David Amador II,rec,espnbet,6.5,105,-135
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Mekhi Anderson,rec,espnbet,3.5,-135,105
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,AJ Wilson,rec,espnbet,2.5,105,-135
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Will Henderson III,rushY,espnbet,94.5,-110,-120
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Owen McCown,passY,underdog,264.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Caden Veltkamp,passY,underdog,345.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Will Henderson III,recY,underdog,11.5,-137,
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Easton Messer,recY,underdog,109.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Dominique Henry,recY,underdog,51.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,AJ Wilson,recY,underdog,28.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,David Amador II,recY,underdog,59.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Kelby Valsin,recY,underdog,82.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Mekhi Anderson,recY,underdog,38.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,DJ Allen Jr.,recY,underdog,33.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Leonard Farrow,recY,underdog,9.5,-137,
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Owen Pollock,recY,underdog,6.5,-137,
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Will Henderson III,rushY,underdog,89.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Leonard Farrow,rushY,underdog,50.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Caden Veltkamp,passY,prizepicks,348.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Owen McCown,passY,prizepicks,264.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Easton Messer,recY,prizepicks,109.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Kelby Valsin,recY,prizepicks,80.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,David Amador II,recY,prizepicks,59.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Dominique Henry,recY,prizepicks,51.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Mekhi Anderson,recY,prizepicks,38.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,DJ Allen Jr.,recY,prizepicks,33.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,AJ Wilson,recY,prizepicks,28.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Leonard Farrow,recY,prizepicks,9.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Will Henderson III,recY,prizepicks,7.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Owen Pollock,recY,prizepicks,6.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Easton Messer,rec,prizepicks,10.0,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,David Amador II,rec,prizepicks,6.0,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Dominique Henry,rec,prizepicks,4.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Will Henderson III,rushY,prizepicks,89.5,-137,-137
+2026-11-05T20:36:29+00:00,5af84fe49ccd4f304f9af0dce0a0db56,2026-11-06T00:30:00Z,UTSA @ Florida Atlantic,Florida Atlantic,UTSA,Leonard Farrow,rushY,prizepicks,50.5,-137,-137
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Landry Lyddy,passY,fanduel,209.5,-114,-114
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Michael Scott,recY,fanduel,38.5,-118,-112
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Steven Robinson,recY,fanduel,14.5,-114,-114
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Corey Scott,recY,fanduel,41.5,-114,-114
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Jeremiah Harrison,recY,fanduel,26.5,-118,-112
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Mario Sanders,recY,fanduel,69.5,-114,-114
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Seth Cromwell,recY,fanduel,10.5,-114,-114
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Braeden Wisloski,recY,fanduel,36.5,-114,-114
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Cole Keller,recY,fanduel,33.5,-114,-114
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Corey Scott,rec,fanduel,2.5,-130,-102
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Michael Scott,rec,fanduel,2.5,-158,118
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Jeremiah Harrison,rec,fanduel,2.5,116,-154
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Braeden Wisloski,rec,fanduel,3.5,116,-154
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Mario Sanders,rec,fanduel,5.5,-114,-114
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Cole Keller,rec,fanduel,2.5,106,-140
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Seth Cromwell,rushY,fanduel,92.5,-114,-114
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Steven Robinson,rushY,fanduel,73.5,-114,-114
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Nick Herman,rushY,fanduel,34.5,-118,-112
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Camden Coleman,passY,betrivers,209.5,-118,
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Landry Lyddy,passY,betrivers,205.5,-118,
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Mario Sanders,recY,betrivers,70.5,-121,
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Jeremiah Harrison,recY,betrivers,29.5,-122,
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Michael Scott,recY,betrivers,39.5,-122,
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Corey Scott,recY,betrivers,40.5,-118,
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Braeden Wisloski,recY,betrivers,33.5,-121,
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Cole Keller,recY,betrivers,31.5,-121,
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Steven Robinson,recY,betrivers,16.5,-117,
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Seth Cromwell,rushY,betrivers,86.5,-120,
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Nick Herman,rushY,betrivers,34.5,-118,
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Steven Robinson,rushY,betrivers,75.5,-118,
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Landry Lyddy,passY,espnbet,209.5,-120,-110
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Camden Coleman,passY,espnbet,209.5,-110,-120
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Mario Sanders,recY,espnbet,69.5,-120,-110
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Jeremiah Harrison,recY,espnbet,29.5,-130,100
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Braeden Wisloski,recY,espnbet,39.5,-105,-125
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Cole Keller,recY,espnbet,34.5,-115,-115
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Mario Sanders,rec,espnbet,5.5,-115,-115
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Braeden Wisloski,rec,espnbet,3.5,115,-150
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Jeremiah Harrison,rec,espnbet,2.5,120,-155
+2026-11-05T20:36:29+00:00,c93b343bc3151a39a9541c0af3b22123,2026-11-06T01:00:00Z,James Madison @ Southern Miss,Southern Miss,James Madison,Camden Coleman,rushY,espnbet,16.5,-125,-105
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Kevin Jennings,passY,fanduel,277.5,-114,-114
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Ethan Grunkemeyer,passY,fanduel,247.5,-114,-114
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jalen Hale,recY,fanduel,27.5,-114,-114
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Yannick Smith,recY,fanduel,58.5,-114,-114
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jeffrey Overton Jr.,recY,fanduel,19.5,-112,-118
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Randy Pittman Jr.,recY,fanduel,24.5,-114,-114
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Yamir Knight,recY,fanduel,56.5,-114,-114
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Que'Sean Brown,recY,fanduel,64.5,-114,-114
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jalen Cooper,recY,fanduel,35.5,-114,-114
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Ayden Greene,recY,fanduel,27.5,-114,-114
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Luke Reynolds,recY,fanduel,50.5,-114,-114
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Yamir Knight,rec,fanduel,4.5,-114,-114
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jeffrey Overton Jr.,rec,fanduel,2.5,116,-154
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Yannick Smith,rec,fanduel,3.5,-148,112
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Randy Pittman Jr.,rec,fanduel,3.5,144,-194
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jalen Cooper,rec,fanduel,2.5,-130,-102
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jalen Hale,rec,fanduel,2.5,154,-210
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Ayden Greene,rec,fanduel,2.5,162,-220
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Luke Reynolds,rec,fanduel,5.5,106,-140
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Que'Sean Brown,rec,fanduel,5.5,-102,-130
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Kendrick Raphael,rushY,fanduel,85.5,-114,-114
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jeffrey Overton Jr.,rushY,fanduel,68.5,-114,-114
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Kevin Jennings,rushY,fanduel,14.5,-114,-114
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Kevin Jennings,passY,espnbet,274.5,-115,-115
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Ethan Grunkemeyer,passY,espnbet,244.5,-105,-125
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Luke Reynolds,recY,espnbet,49.5,-125,-105
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Davion Brown,recY,espnbet,65.5,-110,-120
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Yamir Knight,recY,espnbet,57.5,-110,-120
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Ayden Greene,recY,espnbet,24.5,-130,100
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jalen Cooper,recY,espnbet,39.5,-105,-125
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Theo Melin Ohrstrom,recY,espnbet,24.5,-115,-115
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Randy Pittman Jr.,recY,espnbet,25.5,-110,-120
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jeffrey Overton Jr.,recY,espnbet,19.5,100,-130
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Luke Reynolds,rec,espnbet,5.5,105,-135
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Yamir Knight,rec,espnbet,4.5,-115,-115
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Davion Brown,rec,espnbet,5.5,100,-130
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jalen Cooper,rec,espnbet,2.5,-130,100
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Ayden Greene,rec,espnbet,2.5,160,-220
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Randy Pittman Jr.,rec,espnbet,3.5,140,-190
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Kendrick Raphael,rushY,espnbet,79.5,-125,-105
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jeffrey Overton Jr.,rushY,espnbet,74.5,-105,-125
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Kevin Jennings,rushY,espnbet,14.5,-125,-105
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Kevin Jennings,passY,prizepicks,276.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Ethan Grunkemeyer,passY,prizepicks,247.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Que'Sean Brown,recY,prizepicks,64.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Yannick Smith,recY,prizepicks,58.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Yamir Knight,recY,prizepicks,56.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Luke Reynolds,recY,prizepicks,50.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jalen Cooper,recY,prizepicks,35.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jalen Hale,recY,prizepicks,27.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Ayden Greene,recY,prizepicks,27.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Randy Pittman Jr.,recY,prizepicks,24.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Theo Melin Ohrstrom,recY,prizepicks,21.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jeffrey Overton Jr.,recY,prizepicks,19.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Que'Sean Brown,rec,prizepicks,5.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Luke Reynolds,rec,prizepicks,5.0,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Yamir Knight,rec,prizepicks,4.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Kendrick Raphael,rushY,prizepicks,85.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jeffrey Overton Jr.,rushY,prizepicks,68.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Kevin Jennings,rushY,prizepicks,14.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Kevin Jennings,passY,underdog,276.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Ethan Grunkemeyer,passY,underdog,247.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jeffrey Overton Jr.,recY,underdog,19.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jalen Cooper,recY,underdog,35.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Yamir Knight,recY,underdog,56.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Ayden Greene,recY,underdog,27.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jalen Hale,recY,underdog,27.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Que'Sean Brown,recY,underdog,64.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Yannick Smith,recY,underdog,58.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Randy Pittman Jr.,recY,underdog,24.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Theo Melin Ohrstrom,recY,underdog,24.5,-137,
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Luke Reynolds,recY,underdog,50.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Yamir Knight,rec,underdog,4.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Kevin Jennings,rushY,underdog,14.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Jeffrey Overton Jr.,rushY,underdog,68.5,-137,-137
+2026-11-05T20:36:29+00:00,11da04c7d3fba48caf11a5d8b66b8ccd,2026-11-07T00:00:00Z,Virginia Tech @ SMU,SMU,Virginia Tech,Kendrick Raphael,rushY,underdog,85.5,-137,-137
+2026-11-05T20:36:29+00:00,5172093e8533ea39f59c5d2c63c743b9,2026-11-07T00:30:00Z,South Florida @ East Carolina,East Carolina,South Florida,Mitch Griffis,passY,fanduel,172.5,-114,-114
+2026-11-05T20:36:29+00:00,5172093e8533ea39f59c5d2c63c743b9,2026-11-07T00:30:00Z,South Florida @ East Carolina,East Carolina,South Florida,Bryson Rodgers,recY,fanduel,34.5,-114,-114
+2026-11-05T20:36:29+00:00,5172093e8533ea39f59c5d2c63c743b9,2026-11-07T00:30:00Z,South Florida @ East Carolina,East Carolina,South Florida,Landon Sides,recY,fanduel,49.5,-118,-112
+2026-11-05T20:36:29+00:00,5172093e8533ea39f59c5d2c63c743b9,2026-11-07T00:30:00Z,South Florida @ East Carolina,East Carolina,South Florida,Landon Sides,rec,fanduel,5.5,130,-174
+2026-11-05T20:36:29+00:00,5172093e8533ea39f59c5d2c63c743b9,2026-11-07T00:30:00Z,South Florida @ East Carolina,East Carolina,South Florida,Bryson Rodgers,rec,fanduel,3.5,102,-136
+2026-11-05T20:36:29+00:00,5172093e8533ea39f59c5d2c63c743b9,2026-11-07T00:30:00Z,South Florida @ East Carolina,East Carolina,South Florida,TJ Engleman Jr.,rushY,fanduel,83.5,-114,-114
+2026-11-05T20:36:29+00:00,5172093e8533ea39f59c5d2c63c743b9,2026-11-07T00:30:00Z,South Florida @ East Carolina,East Carolina,South Florida,D.J. Crowther,rushY,fanduel,65.5,-114,-114
+2026-11-05T20:36:29+00:00,5172093e8533ea39f59c5d2c63c743b9,2026-11-07T00:30:00Z,South Florida @ East Carolina,East Carolina,South Florida,Mitch Griffis,passY,prizepicks,172.5,-137,-137
+2026-11-05T20:36:29+00:00,5172093e8533ea39f59c5d2c63c743b9,2026-11-07T00:30:00Z,South Florida @ East Carolina,East Carolina,South Florida,Landon Sides,recY,prizepicks,49.5,-137,-137
+2026-11-05T20:36:29+00:00,5172093e8533ea39f59c5d2c63c743b9,2026-11-07T00:30:00Z,South Florida @ East Carolina,East Carolina,South Florida,Bryson Rodgers,recY,prizepicks,34.5,-137,-137
+2026-11-05T20:36:29+00:00,5172093e8533ea39f59c5d2c63c743b9,2026-11-07T00:30:00Z,South Florida @ East Carolina,East Carolina,South Florida,TJ Engleman Jr.,rushY,prizepicks,83.5,-137,-137
+2026-11-05T20:36:29+00:00,5172093e8533ea39f59c5d2c63c743b9,2026-11-07T00:30:00Z,South Florida @ East Carolina,East Carolina,South Florida,D.J. Crowther,rushY,prizepicks,65.5,-137,-137
+2026-11-05T20:36:29+00:00,5172093e8533ea39f59c5d2c63c743b9,2026-11-07T00:30:00Z,South Florida @ East Carolina,East Carolina,South Florida,Mitch Griffis,passY,underdog,172.5,-137,-137
+2026-11-05T20:36:29+00:00,5172093e8533ea39f59c5d2c63c743b9,2026-11-07T00:30:00Z,South Florida @ East Carolina,East Carolina,South Florida,Bryson Rodgers,recY,underdog,34.5,-137,-137
+2026-11-05T20:36:29+00:00,5172093e8533ea39f59c5d2c63c743b9,2026-11-07T00:30:00Z,South Florida @ East Carolina,East Carolina,South Florida,Landon Sides,recY,underdog,49.5,-137,-137
+2026-11-05T20:36:29+00:00,5172093e8533ea39f59c5d2c63c743b9,2026-11-07T00:30:00Z,South Florida @ East Carolina,East Carolina,South Florida,TJ Engleman Jr.,rushY,underdog,83.5,-137,-137
+2026-11-05T20:36:29+00:00,5172093e8533ea39f59c5d2c63c743b9,2026-11-07T00:30:00Z,South Florida @ East Carolina,East Carolina,South Florida,D.J. Crowther,rushY,underdog,65.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Katin Houser,passY,fanduel,220.5,-114,-114
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Anthony Colandrea,passY,fanduel,227.5,-114,-114
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Hudson Clement,recY,fanduel,53.5,-114,-114
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Collin Dixon,recY,fanduel,84.5,-114,-114
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Luke Lindenmeyer,recY,fanduel,29.5,-114,-114
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Jacory Barney Jr.,recY,fanduel,46.5,-114,-114
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Nyziah Hunter,recY,fanduel,28.5,-114,-114
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Kwazi Gilmer,recY,fanduel,56.5,-114,-114
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Hudson Clement,rec,fanduel,3.5,-172,128
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Jacory Barney Jr.,rec,fanduel,3.5,-158,118
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Collin Dixon,rec,fanduel,6.5,-102,-130
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Kwazi Gilmer,rec,fanduel,4.5,-138,104
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Luke Lindenmeyer,rec,fanduel,3.5,106,-140
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Nyziah Hunter,rec,fanduel,2.5,-158,118
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Aidan Laughery,rushY,fanduel,58.5,-112,-118
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Anthony Colandrea,rushY,fanduel,39.5,-114,-114
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Katin Houser,rushY,fanduel,10.5,-114,-114
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Jamal Rule,rushY,fanduel,70.5,-114,-114
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Anthony Colandrea,passY,espnbet,230.5,-110,-120
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Katin Houser,passY,espnbet,214.5,-120,-110
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Kwazi Gilmer,recY,espnbet,59.5,-115,-115
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Collin Dixon,recY,espnbet,85.5,-105,-125
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Hudson Clement,recY,espnbet,54.5,-105,-125
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Jacory Barney Jr.,recY,espnbet,49.5,-105,-125
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Nyziah Hunter,recY,espnbet,29.5,-115,-115
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Luke Lindenmeyer,recY,espnbet,29.5,-120,-110
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Collin Dixon,rec,espnbet,6.5,100,-130
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Kwazi Gilmer,rec,espnbet,4.5,-135,105
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Jacory Barney Jr.,rec,espnbet,3.5,-155,120
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Hudson Clement,rec,espnbet,3.5,-170,130
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Luke Lindenmeyer,rec,espnbet,3.5,110,-140
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Nyziah Hunter,rec,espnbet,2.5,-155,120
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Aidan Laughery,rushY,espnbet,59.5,100,-130
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Jamal Rule,rushY,espnbet,69.5,-115,-115
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Jordan Anderson,rushY,espnbet,29.5,-105,-125
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Anthony Colandrea,rushY,espnbet,39.5,-120,-110
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Katin Houser,rushY,espnbet,12.5,100,-130
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Anthony Colandrea,passY,prizepicks,227.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Katin Houser,passY,prizepicks,220.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Collin Dixon,recY,prizepicks,82.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Kwazi Gilmer,recY,prizepicks,56.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Hudson Clement,recY,prizepicks,53.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Jacory Barney Jr.,recY,prizepicks,46.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Luke Lindenmeyer,recY,prizepicks,29.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Nyziah Hunter,recY,prizepicks,28.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Brayden Trimble,recY,prizepicks,16.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Kaden Feagin,recY,prizepicks,9.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Aidan Laughery,recY,prizepicks,7.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Christian Abney,recY,prizepicks,5.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Jamal Rule,recY,prizepicks,3.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Collin Dixon,rec,prizepicks,6.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Kwazi Gilmer,rec,prizepicks,4.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Nyziah Hunter,rec,prizepicks,3.0,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Aidan Laughery,rec,prizepicks,1.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Jamal Rule,rushY,prizepicks,70.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Aidan Laughery,rushY,prizepicks,58.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Anthony Colandrea,rushY,prizepicks,39.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Jordan Anderson,rushY,prizepicks,27.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Javari Barnett,rushY,prizepicks,17.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Katin Houser,rushY,prizepicks,9.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Anthony Colandrea,passY,underdog,227.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Katin Houser,passY,underdog,220.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Aidan Laughery,recY,underdog,7.5,-137,
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Kaden Feagin,recY,underdog,9.5,-137,
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Brayden Trimble,recY,underdog,16.5,-137,
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Jacory Barney Jr.,recY,underdog,46.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Kwazi Gilmer,recY,underdog,56.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Collin Dixon,recY,underdog,84.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Hudson Clement,recY,underdog,53.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Nyziah Hunter,recY,underdog,28.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Luke Lindenmeyer,recY,underdog,29.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Christian Abney,recY,underdog,5.5,-137,
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Jamal Rule,recY,underdog,3.5,-137,
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Aidan Laughery,rec,underdog,1.5,-137,
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Anthony Colandrea,rushY,underdog,39.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Katin Houser,rushY,underdog,10.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Aidan Laughery,rushY,underdog,58.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Jordan Anderson,rushY,underdog,27.5,-137,
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Jamal Rule,rushY,underdog,70.5,-137,-137
+2026-11-05T20:36:29+00:00,59047d3be974c2ec05c7e6282752287b,2026-11-07T01:00:00Z,Nebraska @ Illinois,Illinois,Nebraska,Javari Barnett,rushY,underdog,17.5,-137,
+2026-11-05T20:36:29+00:00,45fdbdbe6ed3d9922fa8b26b8a885f0e,2026-11-07T02:00:00Z,New Mexico @ Nevada,Nevada,New Mexico,Gary Givens III,recY,fanduel,33.5,-114,-114
+2026-11-05T20:36:29+00:00,45fdbdbe6ed3d9922fa8b26b8a885f0e,2026-11-07T02:00:00Z,New Mexico @ Nevada,Nevada,New Mexico,Scottre Humphrey,rushY,fanduel,71.5,-114,-114
+2026-11-05T20:36:29+00:00,45fdbdbe6ed3d9922fa8b26b8a885f0e,2026-11-07T02:00:00Z,New Mexico @ Nevada,Nevada,New Mexico,Herschel Turner,rushY,fanduel,39.5,-114,-114
+2026-11-05T20:36:29+00:00,45fdbdbe6ed3d9922fa8b26b8a885f0e,2026-11-07T02:00:00Z,New Mexico @ Nevada,Nevada,New Mexico,Kiefer Sibley,rushY,fanduel,63.5,-114,-114
+2026-11-05T20:36:29+00:00,45fdbdbe6ed3d9922fa8b26b8a885f0e,2026-11-07T02:00:00Z,New Mexico @ Nevada,Nevada,New Mexico,Dominic Kelley,rushY,fanduel,51.5,-114,-114
+2026-11-05T20:36:29+00:00,45fdbdbe6ed3d9922fa8b26b8a885f0e,2026-11-07T02:00:00Z,New Mexico @ Nevada,Nevada,New Mexico,Gary Givens III,recY,prizepicks,33.5,-137,-137
+2026-11-05T20:36:29+00:00,45fdbdbe6ed3d9922fa8b26b8a885f0e,2026-11-07T02:00:00Z,New Mexico @ Nevada,Nevada,New Mexico,Scottre Humphrey,rushY,prizepicks,71.5,-137,-137
+2026-11-05T20:36:29+00:00,45fdbdbe6ed3d9922fa8b26b8a885f0e,2026-11-07T02:00:00Z,New Mexico @ Nevada,Nevada,New Mexico,Kiefer Sibley,rushY,prizepicks,63.5,-137,-137
+2026-11-05T20:36:29+00:00,45fdbdbe6ed3d9922fa8b26b8a885f0e,2026-11-07T02:00:00Z,New Mexico @ Nevada,Nevada,New Mexico,Dominic Kelley,rushY,prizepicks,51.5,-137,-137
+2026-11-05T20:36:29+00:00,45fdbdbe6ed3d9922fa8b26b8a885f0e,2026-11-07T02:00:00Z,New Mexico @ Nevada,Nevada,New Mexico,Herschel Turner,rushY,prizepicks,39.5,-137,-137
+2026-11-05T20:36:29+00:00,45fdbdbe6ed3d9922fa8b26b8a885f0e,2026-11-07T02:00:00Z,New Mexico @ Nevada,Nevada,New Mexico,Gary Givens III,recY,underdog,33.5,-137,-137
+2026-11-05T20:36:29+00:00,45fdbdbe6ed3d9922fa8b26b8a885f0e,2026-11-07T02:00:00Z,New Mexico @ Nevada,Nevada,New Mexico,Scottre Humphrey,rushY,underdog,71.5,-137,-137
+2026-11-05T20:36:29+00:00,45fdbdbe6ed3d9922fa8b26b8a885f0e,2026-11-07T02:00:00Z,New Mexico @ Nevada,Nevada,New Mexico,Dominic Kelley,rushY,underdog,51.5,-137,-137
+2026-11-05T20:36:29+00:00,45fdbdbe6ed3d9922fa8b26b8a885f0e,2026-11-07T02:00:00Z,New Mexico @ Nevada,Nevada,New Mexico,Herschel Turner,rushY,underdog,39.5,-137,-137
+2026-11-05T20:36:29+00:00,45fdbdbe6ed3d9922fa8b26b8a885f0e,2026-11-07T02:00:00Z,New Mexico @ Nevada,Nevada,New Mexico,Kiefer Sibley,rushY,underdog,63.5,-137,-137
