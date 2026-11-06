@@ -1,5 +1,5 @@
 pid,name,team,status,note,ts
-4585618,Keshon Gilbert,ATL,Out,"Gilbert (knee) is available for Friday's preseason finale against the Mavericks, Brad Rowland of the Locked On Podcast Network reports.",2026-11-05T22:41Z
+4585618,Keshon Gilbert,ATL,Out,Gilbert is out for Friday's game against the Wizards due to left knee inflammation.,2026-11-05T22:41Z
 4873201,Asa Newell,ATL,Out,Newell (toe) is out for Friday's game against Washington.,2026-11-05T22:33Z
 3146557,Jock Landale,ATL,Out,Landale (hip) has been ruled out for Friday's game against the Wizards.,2026-11-05T22:12Z
 4701230,Jalen Johnson,ATL,Day-To-Day,Johnson is questionable to suit up for Friday's game against Washington.,2026-11-05T22:08Z
@@ -32,7 +32,7 @@ pid,name,team,status,note,ts
 4432181,Julian Strawther,DEN,Out,"Strawther (knee) was diagnosed with a left knee sprain Friday and will be re-evaluated in six weeks, Vinny Benedetto of The Denver Gazette reports.",2026-10-17T00:52Z
 4395702,Isaiah Joe,DET,Out,Joe (hip) has been ruled out for Wednesday's game against Philadelphia.,2026-11-03T21:18Z
 4433621,Jalen Duren,DET,Out,"Duren will be re-evaluated in two weeks due to a right hamstring strain, Eric Vincent of ClutchPoints.com reports.",2026-10-25T14:56Z
-4997536,Gui Santos,GS,Out,Santos (knee) has been ruled out for Thursday's game against the Heat.,2026-11-05T00:52Z
+4997536,Gui Santos,GS,Day-To-Day,Santos (knee) has been ruled out for Thursday's game against the Heat.,2026-11-06T05:46Z
 3102531,Kristaps Porzingis,GS,Out,"The Warriors have stopped issuing salary payments to Porzingis, who remains away from the team and is considering retirement, Anthony Slater and Shams Charania of ESPN reported Wednesday.",2026-11-04T17:00Z
 4432171,Moses Moody,GS,Out,"Moody (knee) is progressing toward a potential return between December and January after rupturing his left patellar tendon in March, Anthony Slater of ESPN reports.",2026-10-16T16:14Z
 6430,Jimmy Butler III,GS,Out,"Butler (knee) could return sometime between January and February as he continues recovering from a torn right ACL, Anthony Slater of ESPN reports.",2026-10-16T16:11Z
@@ -47,10 +47,10 @@ pid,name,team,status,note,ts
 3913176,Brandon Ingram,LAC,Out,The Clippers recalled Ingram (Achilles) from the G League's San Diego Clippers on Sunday.,2026-11-02T16:01Z
 6580,Bradley Beal,LAC,Out,"Beal (knee) will not be ready for the start of the regular season, NBA writer Justin Russo reports.",2026-10-15T01:03Z
 4396818,Jordan Miller,LAC,Out,"Miller underwent surgery Wednesday to repair a torn left rotator cuff and will be re-evaluated in six months, per Law Murray of The Athletic.",2026-08-26T20:04Z
-5060631,Adou Thiero,LAL,Out,"The Lakers recalled Thiero (knee) from the G League's Coachella Valley Lakers on Thursday, per Ryan Ward of SI.com.",2026-11-05T18:30Z
+4278580,Sandro Mamukelashvili,LAL,Day-To-Day,Mamukelashvili (illness) is listed as questionable for Friday's game against Portland.,2026-11-06T01:03Z
 4432810,Isaiah Stewart,MEM,Out,Stewart (knee) has been ruled out for Friday's game against the Thunder.,2026-11-05T23:04Z
 4431785,Scotty Pippen Jr.,MEM,Out,Pippen (back) has been ruled out for Friday's game against Oklahoma City.,2026-11-05T23:03Z
-4697268,Kam Jones,MIL,Out,Jones (ankle) won't play Wednesday in Boston.,2026-11-05T23:02Z
+4697268,Kam Jones,MIL,Out,Jones (ankle/two-way player) is out for Friday's game against Toronto.,2026-11-06T00:26Z
 4432847,Terrence Shannon Jr.,MIN,Day-To-Day,Shannon (hip) is questionable for Friday's game against New Orleans.,2026-11-05T22:58Z
 4594268,Anthony Edwards,MIN,Out,"Edwards underwent a successful arthroscopic procedure on his right knee Thursday, the Timberwolves announced.",2026-10-29T18:33Z
 3934673,Donte DiVincenzo,MIN,Out,"DiVincenzo (Achilles) remains confident that he'll return during the 2026-27 season, Jon Krawczynski of The Athletic reports.",2026-10-05T20:53Z
@@ -71,18 +71,18 @@ pid,name,team,status,note,ts
 5105637,Adem Bona,PHI,Day-To-Day,"Bona (back) is doubtful to play in Friday's game against the Cavaliers, Ky Carlin of USA Today reports.",2026-11-05T22:18Z
 4870562,Dominick Barlow,PHI,Out,"Head coach Nick Nurse said Wednesday that Barlow (back) likely needs another 10-12 days before he's cleared to return to the court, Derek Bodner of AllPHLY.com reports.",2026-11-04T22:41Z
 4871141,Ariel Hukporti,PHI,Out,"Hukporti has sustained a season-ending ruptured right Achilles tendon, per Shams Charania of ESPN.",2026-10-06T19:17Z
-5105977,Rasheer Fleming,PHX,Out,Fleming is out for Thursday's game against the Magic due to a sprained left ankle.,2026-11-05T20:22Z
-4278402,Jordan Goodwin,PHX,Out,Goodwin (calf) is out for Thursday's game against Orlando.,2026-11-05T20:18Z
+4278402,Jordan Goodwin,PHX,Day-To-Day,Goodwin (calf) is out for Thursday's game against Orlando.,2026-11-06T04:56Z
+5105977,Rasheer Fleming,PHX,Day-To-Day,Fleming is out for Thursday's game against the Magic due to a sprained left ankle.,2026-11-06T04:56Z
 4701232,Mark Williams,PHX,Out,"Williams underwent surgery Thursday to repair a torn labrum in his left shoulder and will miss an extended period of time, Shams Charania of ESPN reports.",2026-09-11T16:03Z
 4578893,Vit Krejci,POR,Out,"Head coach Micah Nori said that Krejci suffered a left leg fracture during Wednesday's 132-119 win over the Suns, Brett Siegel of ClutchPoints.com reports.",2026-11-05T05:17Z
 4279888,Ja Morant,POR,Out,"Morant has been diagnosed with a Grade 2 left hamstring strain and is expected to miss four weeks, Portland announced Friday.",2026-10-30T18:45Z
 4914336,Shaedon Sharpe,POR,Out,"Sharpe suffered a torn meniscus in his knee and is expected to miss six months, per Shams Charania of ESPN.",2026-08-24T20:23Z
-4279318,Daeqwon Plowden,SAC,Day-To-Day,Plowden (illness) is out for Wednesday's game against the Lakers.,2026-11-05T15:05Z
 4898371,Maxime Raynaud,SAC,Out,"Raynaud (knee) is progressing in his rehabilitation and will be re-evaluated in approximately two weeks, Brenden Nunes of KHTK Sactown Sports 1140 reports.",2026-10-26T22:07Z
 4594327,Keegan Murray,SAC,Out,"Murray (ankle) will be re-evaluated in 10-to-14 days, NBA reporter Marc Stein reports.",2026-10-26T22:01Z
 3907387,Ben Simmons,SAC,Out,"Simmons underwent successful surgery Tuesday to repair a torn right Achilles tendon, James Ham of ESPN 1320 Sacramento reports.",2026-10-21T04:22Z
 6440,Tobias Harris,SA,Out,Harris (calf) is listed as out for Saturday's game against Minnesota.,2026-10-30T21:44Z
 5101845,Jayden Quaintance,SA,Out,"Quaintance has been around the team but has not yet been cleared for basketball activities, Matt Guzman of SI.com reports.",2026-10-05T21:43Z
+4433134,Scottie Barnes,TOR,Day-To-Day,Barnes (groin) is questionable to play Friday's game against the Bucks.,2026-11-06T01:26Z
 6450,Kawhi Leonard,TOR,Out,"Leonard has completed treatment to reduce swelling in his left knee and he will be re-evaluated in one week, Brett Siegel of ClutchPoints.com reports.",2026-11-04T00:14Z
 4432586,Nate Bittle,TOR,Out,Bittle (foot) is out for Monday's game against the Clippers and remains without a timetable to return.,2026-11-02T20:20Z
 3102530,Jusuf Nurkic,UTAH,Out,Nurkic (foot) is out for Wednesday's game against the Pelicans.,2026-11-03T23:07Z

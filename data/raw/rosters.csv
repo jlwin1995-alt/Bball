@@ -18,7 +18,6 @@ pid,name,team
 4397183,Aaron Wiggins,ATL
 4431714,Jalen Wilson,ATL
 4433188,Devin Carter,BOS
-5142621,Chris Cenac Jr.,BOS
 3195,Mike Conley,BOS
 4277951,Luka Garza,BOS
 4251,Paul George,BOS
@@ -52,6 +51,7 @@ pid,name,team
 5279130,Nolan Traore,BKN
 3150844,Moritz Wagner,BKN
 5107173,Danny Wolf,BKN
+5176517,Michael Ajayi,CHA
 3135045,Grayson Allen,CHA
 5060701,Christian Anderson,CHA
 4684269,Kylan Boswell,CHA
@@ -92,9 +92,9 @@ pid,name,team
 3992,James Harden,CLE
 2995706,Mario Hezonja,CLE
 4066757,Sam Merrill,CLE
-5177362,Riley Minix,CLE
 3908809,Donovan Mitchell,CLE
 4432158,Evan Mobley,CLE
+4702134,Norchad Omier,CLE
 4701233,Craig Porter Jr.,CLE
 5023693,Tyrese Proctor,CLE
 5041951,Meleek Thomas,CLE
@@ -186,7 +186,6 @@ pid,name,team
 4432639,Jabari Smith Jr.,HOU
 3136777,Jae'Sean Tate,HOU
 4684740,Amen Thompson,HOU
-5105837,Bruce Thornton,HOU
 4432827,Oscar Tshiebwe,HOU
 2991230,Fred VanVleet,HOU
 4431752,Kobe Brown,IND
