@@ -399,7 +399,6 @@ id,season,week,home,away,home_spread,total,n_spread,n_total,open_spread,open_tot
 401868056,2026,9,Abilene Christian,West Georgia,-15.5,48.5,1,1,-15.5,48.5
 401858429,2026,1,Michigan State,Toledo,-10.0,48.5,2,2,-10.5,49.5
 401866679,2026,9,North Carolina A&T,Elon,7.5,45.5,1,1,10.5,45.5
-401858512,2026,10,Minnesota,UCLA,3.75,38.0,2,2,6.5,41.0
 401856776,2026,1,Georgia Tech,Colorado,-6.5,53.0,2,2,-7.0,51.5
 401868107,2026,9,Utah Tech,Idaho State,16.5,55.5,1,1,17.5,56.5
 401868199,2026,9,Lindenwood,Tennessee State,-9.5,47.5,1,1,-9.5,47.5
@@ -413,6 +412,7 @@ id,season,week,home,away,home_spread,total,n_spread,n_total,open_spread,open_tot
 401866676,2026,9,Rhode Island,Maine,-10.5,45.5,1,1,-15.5,45.5
 401867861,2026,9,Northern Iowa,Indiana State,-8.5,53.5,1,1,-8.5,56.5
 401868223,2026,9,St. Thomas (MN),Davidson,-30.5,60.5,1,1,-28.5,59.5
+401858512,2026,10,Minnesota,UCLA,3.75,38.5,2,2,6.5,41.0
 401867969,2026,9,Morgan State,South Carolina State,7.0,52.5,1,1,7.0,51.5
 401867809,2026,9,Brown,Pennsylvania,-3.5,40.5,1,1,-3.0,40.5
 401868378,2026,9,Furman,Western Carolina,1.5,52.5,1,1,2.5,54.5
@@ -509,7 +509,6 @@ id,season,week,home,away,home_spread,total,n_spread,n_total,open_spread,open_tot
 401868165,2026,9,Weber State,UC Davis,1.5,67.5,1,1,1.5,68.5
 401858444,2026,2,UConn,Maryland,11.5,52.5,2,2,12.5,53.5
 401856738,2026,10,Auburn,Arkansas,-10.5,54.25,2,2,-11.5,50.75
-401871098,2026,10,Troy,Louisiana Tech,6.25,47.75,2,2,6.0,46.5
 401866457,2026,10,Sacramento State,Toledo,25.5,52.5,2,2,25.75,52.25
 401858286,2026,10,NC State,Duke,4.25,52.0,2,2,5.0,50.0
 401858515,2026,10,Purdue,Maryland,-5.0,57.0,2,2,-6.75,57.5
@@ -527,6 +526,7 @@ id,season,week,home,away,home_spread,total,n_spread,n_total,open_spread,open_tot
 401858289,2026,10,Boston College,Florida State,6.25,53.0,2,2,6.5,51.75
 401862822,2026,10,Tulane,Tulsa,3.0,50.25,2,2,2.0,49.25
 401864535,2026,10,UNLV,Wyoming,-3.75,48.5,2,2,-7.75,46.75
+401871098,2026,10,Troy,Louisiana Tech,6.25,47.75,2,2,6.0,46.5
 401858292,2026,10,UConn,North Carolina,7.5,55.0,2,2,7.75,52.75
 401864533,2026,10,Nevada,New Mexico,10.25,39.0,2,2,11.0,41.0
 401858287,2026,10,Georgia Tech,Louisville,14.75,62.5,2,2,14.0,60.0
