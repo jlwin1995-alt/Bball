@@ -2528,210 +2528,220 @@ commence,game,player_id,name,team,stat,cons_line,cons_p_over,n_books,pp_line,ud_
 2026-11-07T23:15:00Z,Kentucky @ Tennessee,5079580,Mike Matthews,Tennessee,recY,59.5,0.5,3,59.5,59.5,2026-11-07T18:37:15+00:00,10
 2026-11-07T23:15:00Z,Kentucky @ Tennessee,5136838,Willie Rodriguez,Kentucky,rec,4.5,0.4657,2,4.5,,2026-11-07T18:37:15+00:00,10
 2026-11-07T23:15:00Z,Kentucky @ Tennessee,5136838,Willie Rodriguez,Kentucky,recY,39.5,0.502,2,39.5,39.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,4873456,Addison Ostrenga,Iowa,rec,,,,1.5,1.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,4873456,Addison Ostrenga,Iowa,recY,,,,10.5,10.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Michigan State @ Michigan,5141572,Andrew Marsh,Michigan,rec,4.5,0.4455,2,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Michigan State @ Michigan,5141572,Andrew Marsh,Michigan,recY,45.5,0.5,1,45.5,45.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,5079369,C.J. Carr,Notre Dame,passY,259.5,0.5,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Air Force @ Army,5150297,Cale Hellums,Army,passY,69.5,0.5,1,72.5,72.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Air Force @ Army,5150297,Cale Hellums,Army,rushY,99.5,0.5,1,99.5,99.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,5224178,Caleb Cunningham,Ole Miss,rec,2.5,0.5061,1,2.5,2.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,5224178,Caleb Cunningham,Ole Miss,recY,27.5,0.5061,1,27.5,27.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5078244,Caleb Komolafe,Northwestern,rec,,,,1.5,1.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5078244,Caleb Komolafe,Northwestern,recY,,,,7.5,8.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5078244,Caleb Komolafe,Northwestern,rushY,58.5,0.5,1,58.5,58.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,5079647,Caleb Odom,Ole Miss,rec,3.5,0.3993,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,5079647,Caleb Odom,Ole Miss,recY,34.5,0.5306,1,35.5,35.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Colorado @ Arizona State,5209382,Cardae Mack,Arizona State,rushY,99.5,0.5081,2,99.5,99.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Michigan State @ Michigan,4869599,Chrishon Mccray,Michigan State,rec,3.5,0.4348,2,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Michigan State @ Michigan,4869599,Chrishon Mccray,Michigan State,recY,34.5,0.5102,2,34.5,34.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,4804878,Cooper Barkate,Miami,rec,4.5,0.5164,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,4804878,Cooper Barkate,Miami,recY,55.5,0.496,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,5263766,Craig Dandridge,Georgia,recY,38.5,0.5,1,38.5,38.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5218931,DJ Vonnahme,Iowa,rec,4.5,0.3831,1,4.0,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5218931,DJ Vonnahme,Iowa,recY,40.5,0.5,1,40.5,40.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,5199859,Dalen Penson,Georgia Tech,rec,3.5,0.5101,1,3.5,3.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,5199859,Dalen Penson,Georgia Tech,recY,49.5,0.4939,1,49.5,49.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,5121169,Darian Mensah,Miami,passY,223.5,0.5,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,5164365,Daylyn Upshaw,Miami,rec,3.5,0.5419,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,5164365,Daylyn Upshaw,Miami,recY,40.5,0.5,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Colorado @ Arizona State,4870860,DeAndre Moore Jr.,Colorado,rec,3.5,0.5,2,3.5,3.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Colorado @ Arizona State,4870860,DeAndre Moore Jr.,Colorado,recY,49.5,0.5,1,49.5,49.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Colorado @ Arizona State,5159831,Derek Eusebio,Arizona State,rec,3.5,0.5294,2,3.5,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Colorado @ Arizona State,5159831,Derek Eusebio,Arizona State,recY,42.5,0.5061,1,42.5,42.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,5152158,Deuce Alexander,Ole Miss,rec,4.5,0.5905,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,5152158,Deuce Alexander,Ole Miss,recY,66.5,0.5,1,66.5,66.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5222752,Drew Wagner,Northwestern,rec,3.5,0.4348,2,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5222752,Drew Wagner,Northwestern,recY,24.5,0.5203,1,26.5,26.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,5079561,Dwight Phillips Jr.,Georgia,rushY,39.5,0.5,1,40.5,40.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,5079503,Elija Lofton,Miami,rec,3.5,0.4919,2,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,5079503,Elija Lofton,Miami,recY,34.5,0.4929,2,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5300482,Evan James,Iowa,recY,,,,3.5,5.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Michigan State @ Michigan,4905609,Fredrick Moore,Michigan State,rec,2.5,0.4263,2,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Michigan State @ Michigan,4905609,Fredrick Moore,Michigan State,recY,20.5,0.5061,1,20.5,20.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Air Force @ Army,5295010,Gage LaDue,Air Force,rushY,43.5,0.5061,1,43.5,43.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Air Force @ Army,5293685,Godspower Nwawuihe,Army,rushY,62.5,0.5061,1,62.5,62.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5154734,Griffin Wilde,Northwestern,rec,4.5,0.5717,1,5.0,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5154734,Griffin Wilde,Northwestern,recY,67.5,0.5,1,67.5,67.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,4685578,Gunner Stockton,Georgia,passY,220.5,0.5,1,220.5,220.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,4685578,Gunner Stockton,Georgia,rushY,22.5,0.5,1,22.5,22.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5089314,Hank Brown,Iowa,passY,190.5,0.5,1,190.5,190.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Michigan State @ Michigan,5079494,Hogan Hansen,Michigan,rec,2.5,0.5101,1,,2.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Michigan State @ Michigan,5079494,Hogan Hansen,Michigan,recY,24.5,0.5,1,20.5,24.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,4711408,Horatio Fields,Ole Miss,rec,3.5,0.4542,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,4711408,Horatio Fields,Ole Miss,recY,37.5,0.5,1,37.5,37.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,5079349,Isaac Brown,Louisville,rec,2.5,0.4248,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,5079349,Isaac Brown,Louisville,recY,17.5,0.5,2,17.5,17.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,5079349,Isaac Brown,Louisville,rushY,69.5,0.4899,1,73.5,73.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Colorado @ Arizona State,5079771,Isaac Wilson,Colorado,passY,210.5,0.5,1,210.5,210.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Colorado @ Arizona State,5079771,Isaac Wilson,Colorado,rushY,,,,15.5,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Michigan State @ Michigan,5214557,JJ Buchanan,Michigan,rec,4.5,0.4919,2,4.5,4.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Michigan State @ Michigan,5214557,JJ Buchanan,Michigan,recY,60.5,0.5,1,60.5,60.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,4870768,Jaden Greathouse,Notre Dame,rec,3.5,0.4718,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,4870768,Jaden Greathouse,Notre Dame,recY,45.5,0.4939,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Colorado @ Arizona State,5209295,Jake Fette,Arizona State,passY,214.5,0.5,1,214.5,214.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,4685560,Jaleel Skinner,Louisville,recY,19.5,0.5306,1,21.5,21.5,2026-11-07T18:37:15+00:00,10
 2026-11-08T00:30:00Z,Colorado @ Arizona State,5301028,Jaquail Smith,Colorado,rec,,,,0.5,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Colorado @ Arizona State,5301028,Jaquail Smith,Colorado,recY,,,,0.5,0.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Colorado @ Arizona State,5301028,Jaquail Smith,Colorado,rushY,,,,29.5,30.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,5160496,Javian Mallory,Miami,rushY,45.5,0.5061,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,5159087,Jonaz Walton,Notre Dame,rushY,44.5,0.5101,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,5141362,Jordan Allen,Georgia Tech,rec,5.5,0.4452,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,5141362,Jordan Allen,Georgia Tech,recY,59.5,0.5,1,59.5,59.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,5150424,Jordan Faison,Notre Dame,rec,4.5,0.583,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,5150424,Jordan Faison,Notre Dame,recY,69.5,0.5061,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Colorado @ Arizona State,5189530,Joseph Williams,Colorado,rec,6.5,0.442,2,6.0,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Colorado @ Arizona State,5189530,Joseph Williams,Colorado,recY,71.5,0.5306,1,76.5,76.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,4870760,Justice Haynes,Georgia Tech,rushY,56.5,0.5,1,56.5,56.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Air Force @ Army,5223112,Kemper Hodges,Air Force,rushY,108.5,0.5,1,108.5,108.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Michigan State @ Michigan,5174993,Kenneth Williams,Michigan State,recY,,,,12.5,12.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Michigan State @ Michigan,5174993,Kenneth Williams,Michigan State,rushY,47.5,0.5,1,48.5,47.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,5215629,Kevin Roche Jr.,Georgia Tech,rec,4.5,0.4452,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,5215629,Kevin Roche Jr.,Georgia Tech,recY,33.5,0.5,1,33.5,33.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,4923046,Keyjuan Brown,Louisville,rushY,67.5,0.5,1,67.5,67.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,4870874,Lawson Luckie,Georgia,recY,20.5,0.5,1,20.5,20.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,5078278,Lincoln Kienholz,Louisville,passY,228.5,0.5,1,228.5,228.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,5078278,Lincoln Kienholz,Louisville,rushY,37.5,0.4939,1,37.5,37.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,5078453,London Humphreys,Georgia,recY,22.5,0.5,1,22.5,22.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5328488,Luke Dehnicke,Northwestern,rec,1.5,0.7423,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5328488,Luke Dehnicke,Northwestern,recY,31.5,0.5,1,31.5,31.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,5084286,Makhi Frazier,Ole Miss,rushY,41.5,0.5,1,41.5,41.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,4870736,Mark Fletcher Jr.,Miami,recY,8.5,0.4939,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,4870736,Mark Fletcher Jr.,Miami,rushY,54.5,0.5101,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,5079475,Micah Gilbert,Notre Dame,rec,2.5,0.5497,2,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,5079475,Micah Gilbert,Notre Dame,recY,31.5,0.5,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,5084047,Nate Frazier,Georgia,rushY,49.5,0.5,1,49.5,49.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,5189515,Nolan James Jr.,Notre Dame,recY,7.5,0.5,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Miami @ Notre Dame,5189515,Nolan James Jr.,Notre Dame,rushY,65.5,0.5061,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Colorado @ Arizona State,4870850,Omarion Miller,Arizona State,rec,3.5,0.5609,2,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Colorado @ Arizona State,4870850,Omarion Miller,Arizona State,recY,39.5,0.5306,1,42.5,42.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Air Force @ Army,5223119,Owen Allen,Air Force,rushY,60.5,0.5,1,60.5,60.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5138293,Reece Vander Zee,Iowa,rec,2.5,0.5545,2,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5138293,Reece Vander Zee,Iowa,recY,39.5,0.4898,2,39.5,39.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Colorado @ Arizona State,5031157,Reed Harris,Arizona State,rec,4.5,0.4929,2,4.5,4.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Colorado @ Arizona State,5031157,Reed Harris,Arizona State,recY,76.5,0.5,1,76.5,76.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Colorado @ Arizona State,4871081,Richard Young,Colorado,rushY,48.5,0.5,1,48.5,48.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Air Force @ Army,5223131,Rocco Conti,Air Force,rushY,32.5,0.5061,1,32.5,32.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Michigan State @ Michigan,5260691,Rodney Bullard Jr.,Michigan State,rec,2.5,0.375,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Michigan State @ Michigan,5260691,Rodney Bullard Jr.,Michigan State,recY,19.5,0.5306,1,20.5,20.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Air Force @ Army,5150316,Samari Howard,Army,rushY,25.5,0.5,1,25.5,25.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Michigan State @ Michigan,5159046,Savion Hiter,Michigan,rushY,61.5,0.5,1,61.5,61.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,5214395,Shekai Mills-Knight,Ole Miss,rushY,31.5,0.4939,1,31.5,31.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,5141671,Talyn Taylor,Georgia,recY,32.5,0.5,1,32.5,32.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Michigan State @ Michigan,5269403,Tommy Carr,Michigan,passY,195.5,0.5,1,195.5,195.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Michigan State @ Michigan,5269403,Tommy Carr,Michigan,rushY,27.5,0.5,1,27.5,27.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5300856,Tony Diaz,Iowa,rec,4.5,0.4348,2,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5300856,Tony Diaz,Iowa,recY,49.5,0.4949,2,49.5,49.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,5294063,Tre Richardson,Louisville,rec,5.5,0.4095,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,5294063,Tre Richardson,Louisville,recY,77.5,0.5,1,77.5,77.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,5103639,Trelain Maddox,Georgia Tech,rushY,29.5,0.4899,1,28.5,28.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,5085609,Treyshun Hurry,Louisville,rec,3.5,0.5408,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Louisville @ Georgia Tech,5085609,Treyshun Hurry,Louisville,recY,48.5,0.5,1,48.5,48.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,4911529,Trinidad Chambliss,Ole Miss,passY,259.5,0.5,1,259.5,261.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Georgia @ Ole Miss,4911529,Trinidad Chambliss,Ole Miss,rushY,18.5,0.5,1,18.5,18.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:30:00Z,Iowa @ Northwestern,5142226,Xavier Williams,Iowa,rushY,64.5,0.5,1,64.5,64.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,5125593,Bailey Stockton,Florida,rec,,,,3.5,3.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,5125593,Bailey Stockton,Florida,recY,,,,39.5,39.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,5141723,Dallas Wilson,Florida,rec,3.5,0.4415,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,5141723,Dallas Wilson,Florida,recY,35.5,0.5,1,35.5,35.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,5095360,Eric Singleton Jr.,Florida,rec,3.5,0.4858,1,3.5,3.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,5095360,Eric Singleton Jr.,Florida,recY,27.5,0.5061,1,27.5,29.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,5080703,Isaiah Sategna,Oklahoma,rec,4.5,0.5382,2,5.0,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,5080703,Isaiah Sategna,Oklahoma,recY,54.5,0.5101,1,56.5,56.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,5079322,Jadan Baugh,Florida,rec,,,,1.5,1.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,5079322,Jadan Baugh,Florida,recY,,,,8.5,8.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,5079322,Jadan Baugh,Florida,rushY,89.5,0.5051,2,89.5,89.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,4915980,John Mateer,Oklahoma,passY,191.5,0.5,1,194.5,193.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,4915980,John Mateer,Oklahoma,rushY,17.5,0.5,1,17.5,17.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,5079298,Lloyd Avant,Oklahoma,recY,,,,6.5,6.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,5079298,Lloyd Avant,Oklahoma,rushY,27.5,0.5,1,27.5,27.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,5218907,Luke Harpring,Florida,recY,,,,7.5,7.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,4907786,Rocky Beers,Oklahoma,rec,3.5,0.5731,2,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,4907786,Rocky Beers,Oklahoma,recY,39.5,0.5306,1,36.5,37.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T00:45:00Z,Oklahoma @ Florida,5295814,Tramell Jones Jr.,Florida,passY,196.5,0.5,1,196.5,196.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,Hawai'i @ UTEP,5079499,Audric Harris,Hawai'i,recY,37.5,0.496,1,37.5,37.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,Hawai'i @ UTEP,4869582,Cam Barfield,Hawai'i,rushY,36.5,0.5,1,36.5,36.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,4918103,Cam Cook,West Virginia,recY,11.5,0.5,2,11.5,11.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,4918103,Cam Cook,West Virginia,rushY,89.5,0.5,1,89.5,89.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5193580,Cameron Dickey,Texas Tech,recY,,,,4.5,4.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5193580,Cameron Dickey,Texas Tech,rushY,53.5,0.5,1,53.5,53.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,4916941,Coy Eakin,Texas Tech,recY,,,,26.5,,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5082584,DJ Epps,West Virginia,rec,,,,3.5,,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5082584,DJ Epps,West Virginia,recY,44.5,0.5203,1,45.5,45.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,Hawai'i @ UTEP,5079651,Devon Rice,Hawai'i,rushY,37.5,0.4939,1,37.5,37.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5086393,J'Koby Williams,Texas Tech,rec,2.5,0.4592,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5086393,J'Koby Williams,Texas Tech,recY,13.5,0.4718,1,13.5,,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5086393,J'Koby Williams,Texas Tech,rushY,95.5,0.5,1,95.5,95.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,Hawai'i @ UTEP,4877714,Jaden Smith,UTEP,rec,3.5,0.5905,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,Hawai'i @ UTEP,4877714,Jaden Smith,UTEP,recY,39.5,0.5,1,39.5,39.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,Hawai'i @ UTEP,5085972,Kainoa Carvalho,Hawai'i,rec,3.5,0.4718,1,3.5,,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,Hawai'i @ UTEP,5085972,Kainoa Carvalho,Hawai'i,recY,38.5,0.5,1,38.5,38.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,Hawai'i @ UTEP,4879292,Kam Thomas,UTEP,recY,35.5,0.5,1,35.5,35.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,4923295,Kenny Johnson,Texas Tech,recY,63.5,0.5,1,63.5,63.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,Hawai'i @ UTEP,5101124,Micah Alejado,Hawai'i,passY,280.5,0.5,1,280.5,280.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5079492,Micah Hudson,Texas Tech,rec,2.5,0.5506,1,2.5,,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5079492,Micah Hudson,Texas Tech,recY,34.5,0.5306,1,32.5,37.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5079465,Michael Hawkins Jr.,West Virginia,passY,183.5,0.5,1,183.5,183.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5079465,Michael Hawkins Jr.,West Virginia,rushY,77.5,0.5,1,77.5,77.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5151353,Prince Strachan,West Virginia,recY,34.5,0.4847,2,34.5,34.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,Hawai'i @ UTEP,5218881,Tama Uiliata,Hawai'i,rec,3.5,0.4248,1,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,Hawai'i @ UTEP,5218881,Tama Uiliata,Hawai'i,recY,29.5,0.5,1,29.5,29.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,Hawai'i @ UTEP,4685418,Tavorus Jones,UTEP,rushY,36.5,0.4939,1,36.5,36.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,4867887,Terrance Carter,Texas Tech,rec,,,,,3.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,4867887,Terrance Carter,Texas Tech,recY,32.5,0.5,1,32.5,32.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,4773919,Thomas Castellanos,Texas Tech,passY,219.5,0.5051,2,219.5,219.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T02:30:00Z,West Virginia @ Texas Tech,4773919,Thomas Castellanos,Texas Tech,rushY,64.5,0.5203,1,65.5,65.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,4917981,AJ Newberry,Oregon State,rec,2.5,0.5719,2,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,4917981,AJ Newberry,Oregon State,recY,24.5,0.5,1,24.5,24.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,4917981,AJ Newberry,Oregon State,rushY,45.5,0.504,1,45.5,45.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5079357,Aaron Butler,Oregon State,rec,2.5,0.4567,2,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5079357,Aaron Butler,Oregon State,recY,25.5,0.5,1,25.5,25.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5152414,Beau Sparks,Texas State,rec,4.5,0.5806,1,5.0,,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5152414,Beau Sparks,Texas State,recY,58.5,0.5,1,58.5,58.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5148803,Brad Jackson,Texas State,passY,248.5,0.5,1,248.5,248.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5148803,Brad Jackson,Texas State,rushY,48.5,0.5,1,48.5,48.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5212654,Braden Atkinson,Oregon State,passY,355.5,0.5,1,355.5,355.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5077873,Chris Dawn Jr.,Texas State,rec,5.5,0.4899,2,5.5,5.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5077873,Chris Dawn Jr.,Texas State,recY,59.5,0.5061,1,61.5,59.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5167313,Cornell Hatcher Jr.,Oregon State,rushY,36.5,0.4939,1,36.5,36.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5216509,Davian Jackson,Texas State,rushY,31.5,0.5061,1,31.5,31.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5088952,Eric Olsen,Oregon State,rec,4.5,0.5,2,4.5,4.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5088952,Eric Olsen,Oregon State,recY,48.5,0.5061,1,48.5,48.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Wyoming @ UNLV,4870607,Jackson Arnold,UNLV,passY,199.5,0.5,1,199.5,199.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Wyoming @ UNLV,4870607,Jackson Arnold,UNLV,rushY,59.5,0.5,1,59.5,59.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Wyoming @ UNLV,5125754,Jai'Den Thomas,UNLV,rushY,,,,89.5,89.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Wyoming @ UNLV,5193325,Jake Wilson,Wyoming,recY,27.5,0.5,1,27.5,27.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5289510,Jesse Legree,Oregon State,rec,6.5,0.5282,1,7.0,,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5289510,Jesse Legree,Oregon State,recY,120.5,0.5,1,120.5,120.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Wyoming @ UNLV,5149831,Kayden McGee,UNLV,recY,43.5,0.4939,1,43.5,43.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Wyoming @ UNLV,4685289,Keyan Burnett,UNLV,recY,,,,16.5,,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Wyoming @ UNLV,5227257,Markell Holman,Wyoming,rushY,45.5,0.5061,1,45.5,45.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Wyoming @ UNLV,5258056,Samuel Harris,Wyoming,rushY,32.5,0.504,1,,32.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Wyoming @ UNLV,4940235,Taeshaun Lyons,UNLV,recY,24.5,0.5061,1,24.5,24.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5088888,Torrance Burgess Jr.,Texas State,rec,2.5,0.5,2,2.5,2.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5088888,Torrance Burgess Jr.,Texas State,recY,14.5,0.5408,1,15.5,15.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5088888,Torrance Burgess Jr.,Texas State,rushY,79.5,0.5203,1,81.5,81.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Wyoming @ UNLV,4838536,Tyler Hughes,Wyoming,passY,152.5,0.5,1,152.5,152.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Wyoming @ UNLV,4838536,Tyler Hughes,Wyoming,rushY,70.5,0.5,1,70.5,70.5,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5138042,Zechariah Sample,Texas State,rec,1.5,0.5609,2,,,2026-11-07T18:37:15+00:00,10
-2026-11-08T03:30:00Z,Texas State @ Oregon State,5138042,Zechariah Sample,Texas State,recY,24.5,0.5,1,24.5,24.5,2026-11-07T18:37:15+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,4873456,Addison Ostrenga,Iowa,rec,,,,1.5,1.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,4873456,Addison Ostrenga,Iowa,recY,,,,10.5,10.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Air Force @ Army,5150297,Cale Hellums,Army,passY,69.5,0.5,1,69.5,72.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Air Force @ Army,5150297,Cale Hellums,Army,rushY,99.5,0.5,1,99.5,99.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5078244,Caleb Komolafe,Northwestern,rec,,,,1.5,1.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5078244,Caleb Komolafe,Northwestern,recY,,,,7.5,8.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5078244,Caleb Komolafe,Northwestern,rushY,58.5,0.5,1,58.5,58.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,5209382,Cardae Mack,Arizona State,rushY,99.5,0.5062,1,99.5,99.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5218931,DJ Vonnahme,Iowa,rec,4.5,0.3884,1,4.0,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5218931,DJ Vonnahme,Iowa,recY,40.5,0.5,1,40.5,40.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,5199859,Dalen Penson,Georgia Tech,rec,3.5,0.5103,2,3.5,3.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,5199859,Dalen Penson,Georgia Tech,recY,49.5,0.4938,1,49.5,49.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,4870860,DeAndre Moore Jr.,Colorado,rec,3.5,0.4949,2,3.5,3.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,4870860,DeAndre Moore Jr.,Colorado,recY,51.5,0.5,1,51.5,51.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,5159831,Derek Eusebio,Arizona State,rec,3.5,0.5277,2,4.0,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,5159831,Derek Eusebio,Arizona State,recY,39.5,0.5101,1,42.5,42.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5222752,Drew Wagner,Northwestern,rec,3.5,0.4368,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5222752,Drew Wagner,Northwestern,recY,24.5,0.5203,1,26.5,26.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5300482,Evan James,Iowa,recY,,,,2.5,5.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Air Force @ Army,5295010,Gage LaDue,Air Force,rushY,42.5,0.5,1,42.5,42.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Air Force @ Army,5293685,Godspower Nwawuihe,Army,rushY,62.5,0.5062,1,62.5,62.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5154734,Griffin Wilde,Northwestern,rec,4.5,0.5668,2,5.0,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5154734,Griffin Wilde,Northwestern,recY,67.5,0.5,1,67.5,67.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5089314,Hank Brown,Iowa,passY,189.5,0.5,1,190.5,190.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,5079349,Isaac Brown,Louisville,rec,2.5,0.4285,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,5079349,Isaac Brown,Louisville,recY,17.5,0.5,2,17.5,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,5079349,Isaac Brown,Louisville,rushY,64.5,0.5,1,64.5,64.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,5079771,Isaac Wilson,Colorado,passY,213.5,0.5,1,213.5,213.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,5079771,Isaac Wilson,Colorado,rushY,,,,15.5,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,5209295,Jake Fette,Arizona State,passY,209.5,0.5,1,209.5,211.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,4685560,Jaleel Skinner,Louisville,recY,19.5,0.5306,1,21.5,21.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,5301028,Jaquail Smith,Colorado,recY,,,,0.5,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,5301028,Jaquail Smith,Colorado,rushY,,,,29.5,29.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,5141362,Jordan Allen,Georgia Tech,rec,5.5,0.4494,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,5141362,Jordan Allen,Georgia Tech,recY,59.5,0.5,1,59.5,59.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,5189530,Joseph Williams,Colorado,rec,6.5,0.4438,2,6.0,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,5189530,Joseph Williams,Colorado,recY,71.5,0.4899,1,76.5,76.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,4870760,Justice Haynes,Georgia Tech,rushY,56.5,0.5,1,56.5,56.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Air Force @ Army,5223112,Kemper Hodges,Air Force,rushY,104.5,0.5,1,104.5,104.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,5215629,Kevin Roche Jr.,Georgia Tech,rec,4.5,0.4494,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,5215629,Kevin Roche Jr.,Georgia Tech,recY,33.5,0.5,1,33.5,33.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,4923046,Keyjuan Brown,Louisville,rushY,71.5,0.5,1,71.5,71.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,5078278,Lincoln Kienholz,Louisville,passY,228.5,0.5,1,228.5,228.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,5078278,Lincoln Kienholz,Louisville,rushY,37.5,0.4938,1,37.5,37.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5328488,Luke Dehnicke,Northwestern,rec,1.5,0.7423,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5328488,Luke Dehnicke,Northwestern,recY,31.5,0.5,1,31.5,31.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,4870850,Omarion Miller,Arizona State,rec,3.5,0.5525,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,4870850,Omarion Miller,Arizona State,recY,39.5,0.5203,1,42.5,42.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Air Force @ Army,5223119,Owen Allen,Air Force,rushY,60.5,0.5,1,60.5,60.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5138293,Reece Vander Zee,Iowa,rec,2.5,0.5525,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5138293,Reece Vander Zee,Iowa,recY,39.5,0.5051,2,39.5,39.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,5031157,Reed Harris,Arizona State,rec,4.5,0.4846,2,4.5,4.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,5031157,Reed Harris,Arizona State,recY,76.5,0.5,1,76.5,76.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,4871081,Richard Young,Colorado,recY,,,,0.5,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Colorado @ Arizona State,4871081,Richard Young,Colorado,rushY,48.5,0.5,1,48.5,48.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Air Force @ Army,5223131,Rocco Conti,Air Force,rushY,32.5,0.5062,1,32.5,32.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Air Force @ Army,5150316,Samari Howard,Army,rushY,25.5,0.5,1,25.5,25.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5300856,Tony Diaz,Iowa,rec,4.5,0.4368,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5300856,Tony Diaz,Iowa,recY,49.5,0.4949,2,49.5,49.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,5294063,Tre Richardson,Louisville,rec,4.5,0.5306,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,5294063,Tre Richardson,Louisville,recY,77.5,0.5,1,77.5,77.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,5103639,Trelain Maddox,Georgia Tech,rushY,29.5,0.5,1,28.5,28.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,5085609,Treyshun Hurry,Louisville,rec,3.5,0.5408,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Louisville @ Georgia Tech,5085609,Treyshun Hurry,Louisville,recY,50.5,0.5,1,50.5,50.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:35:00Z,Iowa @ Northwestern,5142226,Xavier Williams,Iowa,rushY,64.5,0.5,1,64.5,64.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,5146670,Alessio Milivojevic,Michigan State,passY,139.5,0.5,1,138.5,138.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,5141572,Andrew Marsh,Michigan,rec,4.5,0.4475,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,5141572,Andrew Marsh,Michigan,recY,44.5,0.5203,1,45.5,45.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,5079369,C.J. Carr,Notre Dame,passY,260.5,0.5051,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,4869599,Chrishon Mccray,Michigan State,rec,3.5,0.4368,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,4869599,Chrishon Mccray,Michigan State,recY,34.5,0.5,2,34.5,34.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,4804878,Cooper Barkate,Miami,rec,4.5,0.5174,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,4804878,Cooper Barkate,Miami,recY,55.5,0.4959,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,5121169,Darian Mensah,Miami,passY,223.5,0.5,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,5164365,Daylyn Upshaw,Miami,rec,3.5,0.5412,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,5164365,Daylyn Upshaw,Miami,recY,40.5,0.5,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,5079503,Elija Lofton,Miami,rec,3.5,0.4741,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,5079503,Elija Lofton,Miami,recY,34.5,0.493,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,4905609,Fredrick Moore,Michigan State,rec,2.5,0.4282,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,4905609,Fredrick Moore,Michigan State,recY,19.5,0.5408,1,20.5,20.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,5079494,Hogan Hansen,Michigan,rec,2.5,0.4797,1,,2.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,5079494,Hogan Hansen,Michigan,recY,24.5,0.4899,1,20.5,23.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,5214557,JJ Buchanan,Michigan,rec,4.5,0.4918,2,4.5,4.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,5214557,JJ Buchanan,Michigan,recY,60.5,0.5,1,60.5,60.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,4870768,Jaden Greathouse,Notre Dame,rec,3.5,0.4732,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,4870768,Jaden Greathouse,Notre Dame,recY,45.5,0.4969,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,5160496,Javian Mallory,Miami,rushY,38.5,0.4938,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,5159087,Jonaz Walton,Notre Dame,rushY,45.5,0.5,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,5150424,Jordan Faison,Notre Dame,rec,4.5,0.6134,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,5150424,Jordan Faison,Notre Dame,recY,69.5,0.5031,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,5174993,Kenneth Williams,Michigan State,recY,,,,11.5,11.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,5174993,Kenneth Williams,Michigan State,rushY,47.5,0.5,1,48.5,47.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,4870736,Mark Fletcher Jr.,Miami,recY,8.5,0.4969,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,4870736,Mark Fletcher Jr.,Miami,rushY,56.5,0.5,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,5079475,Micah Gilbert,Notre Dame,rec,2.5,0.5425,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,5079475,Micah Gilbert,Notre Dame,recY,31.5,0.5,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,5189515,Nolan James Jr.,Notre Dame,recY,7.5,0.5,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Miami @ Notre Dame,5189515,Nolan James Jr.,Notre Dame,rushY,65.5,0.5031,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,5260691,Rodney Bullard Jr.,Michigan State,rec,2.5,0.3983,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,5260691,Rodney Bullard Jr.,Michigan State,recY,19.5,0.5203,1,20.5,20.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,5159046,Savion Hiter,Michigan,rushY,61.5,0.5,1,61.5,61.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,5269403,Tommy Carr,Michigan,passY,195.5,0.5,1,195.5,195.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:40:00Z,Michigan State @ Michigan,5269403,Tommy Carr,Michigan,rushY,27.5,0.5,1,27.5,27.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,5125593,Bailey Stockton,Florida,rec,,,,3.5,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,5125593,Bailey Stockton,Florida,recY,,,,40.5,40.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5224178,Caleb Cunningham,Ole Miss,rec,2.5,0.5062,1,2.5,2.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5224178,Caleb Cunningham,Ole Miss,recY,27.5,0.5062,1,27.5,27.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5079647,Caleb Odom,Ole Miss,rec,3.5,0.4059,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5079647,Caleb Odom,Ole Miss,recY,37.5,0.5,1,35.5,35.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5263766,Craig Dandridge,Georgia,rec,3.5,0.4183,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5263766,Craig Dandridge,Georgia,recY,38.5,0.5,1,38.5,38.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,5141723,Dallas Wilson,Florida,rec,3.5,0.4412,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,5141723,Dallas Wilson,Florida,recY,35.5,0.5,1,35.5,35.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5152158,Deuce Alexander,Ole Miss,rec,4.5,0.5862,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5152158,Deuce Alexander,Ole Miss,recY,66.5,0.5,2,66.5,66.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5079561,Dwight Phillips Jr.,Georgia,rushY,40.5,0.5,1,40.5,40.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,5095360,Eric Singleton Jr.,Florida,rec,3.5,0.4896,1,3.5,3.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,5095360,Eric Singleton Jr.,Florida,recY,27.5,0.5062,1,27.5,27.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,4685578,Gunner Stockton,Georgia,passY,220.5,0.5,1,220.5,220.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,4685578,Gunner Stockton,Georgia,rushY,22.5,0.4964,2,22.5,22.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,4711408,Horatio Fields,Ole Miss,rec,3.5,0.457,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,4711408,Horatio Fields,Ole Miss,recY,39.5,0.4949,2,37.5,37.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,5080703,Isaiah Sategna,Oklahoma,rec,4.5,0.5379,2,5.0,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,5080703,Isaiah Sategna,Oklahoma,recY,54.5,0.5,1,58.5,58.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,5079322,Jadan Baugh,Florida,rec,,,,1.5,1.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,5079322,Jadan Baugh,Florida,recY,,,,8.5,8.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,5079322,Jadan Baugh,Florida,rushY,89.5,0.4949,2,89.5,89.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,4915980,John Mateer,Oklahoma,passY,181.5,0.5,1,184.5,181.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,4915980,John Mateer,Oklahoma,rushY,17.5,0.5,1,17.5,17.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,4870874,Lawson Luckie,Georgia,rec,1.5,0.5703,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,4870874,Lawson Luckie,Georgia,recY,20.5,0.5,1,20.5,20.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,5079298,Lloyd Avant,Oklahoma,recY,,,,6.5,6.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,5079298,Lloyd Avant,Oklahoma,rushY,27.5,0.5,1,27.5,27.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5078453,London Humphreys,Georgia,rec,2.5,0.4456,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5078453,London Humphreys,Georgia,recY,22.5,0.5,1,22.5,22.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,5218907,Luke Harpring,Florida,recY,,,,7.5,7.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5084286,Makhi Frazier,Ole Miss,rushY,41.5,0.5,1,41.5,41.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5084047,Nate Frazier,Georgia,rec,1.5,0.5544,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5084047,Nate Frazier,Georgia,recY,9.5,0.5,1,9.5,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5084047,Nate Frazier,Georgia,rushY,49.5,0.5,1,49.5,49.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,4907786,Rocky Beers,Oklahoma,rec,3.5,0.5708,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,4907786,Rocky Beers,Oklahoma,recY,41.5,0.5,1,36.5,41.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5214395,Shekai Mills-Knight,Ole Miss,rushY,31.5,0.4969,2,31.5,31.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5141671,Talyn Taylor,Georgia,rec,2.5,0.5,2,2.5,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,5141671,Talyn Taylor,Georgia,recY,32.5,0.5,1,32.5,32.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Oklahoma @ Florida,5295814,Tramell Jones Jr.,Florida,passY,196.5,0.5,1,196.5,196.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,4870912,Traylon Ray,Ole Miss,rec,1.5,0.5862,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,4870912,Traylon Ray,Ole Miss,recY,22.5,0.5,1,22.5,,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,4911529,Trinidad Chambliss,Ole Miss,passY,260.5,0.5,1,259.5,260.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T00:45:00Z,Georgia @ Ole Miss,4911529,Trinidad Chambliss,Ole Miss,rushY,18.5,0.5,1,18.5,18.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,Hawai'i @ UTEP,5079499,Audric Harris,Hawai'i,recY,37.5,0.4959,1,37.5,37.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,Hawai'i @ UTEP,4869582,Cam Barfield,Hawai'i,rushY,36.5,0.5,1,36.5,36.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,4918103,Cam Cook,West Virginia,recY,11.5,0.5,2,11.5,11.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,4918103,Cam Cook,West Virginia,rushY,89.5,0.5,1,89.5,89.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5193580,Cameron Dickey,Texas Tech,recY,,,,4.5,4.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5193580,Cameron Dickey,Texas Tech,rushY,53.5,0.5,1,53.5,53.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,4916941,Coy Eakin,Texas Tech,recY,,,,26.5,,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5082584,DJ Epps,West Virginia,rec,3.5,0.4279,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5082584,DJ Epps,West Virginia,recY,44.5,0.5,1,45.5,45.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,Hawai'i @ UTEP,5079651,Devon Rice,Hawai'i,rushY,37.5,0.4969,2,37.5,37.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5086393,J'Koby Williams,Texas Tech,rec,2.5,0.4694,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5086393,J'Koby Williams,Texas Tech,recY,13.5,0.4753,1,13.5,,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5086393,J'Koby Williams,Texas Tech,rushY,95.5,0.5,1,95.5,95.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,Hawai'i @ UTEP,4877714,Jaden Smith,UTEP,rec,3.5,0.5862,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,Hawai'i @ UTEP,4877714,Jaden Smith,UTEP,recY,39.5,0.5,1,39.5,39.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,Hawai'i @ UTEP,5085972,Kainoa Carvalho,Hawai'i,rec,3.5,0.4732,2,3.5,,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,Hawai'i @ UTEP,5085972,Kainoa Carvalho,Hawai'i,recY,38.5,0.5,1,38.5,38.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,Hawai'i @ UTEP,4879292,Kam Thomas,UTEP,recY,35.5,0.5,1,35.5,35.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,4923295,Kenny Johnson,Texas Tech,recY,63.5,0.5,1,64.5,64.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,Hawai'i @ UTEP,5101124,Micah Alejado,Hawai'i,passY,280.5,0.5,1,280.5,280.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5079492,Micah Hudson,Texas Tech,rec,2.5,0.5506,1,2.5,,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5079492,Micah Hudson,Texas Tech,recY,34.5,0.5101,1,32.5,37.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5079465,Michael Hawkins Jr.,West Virginia,passY,183.5,0.5,1,183.5,183.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5079465,Michael Hawkins Jr.,West Virginia,rushY,77.5,0.5,1,77.5,77.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,5151353,Prince Strachan,West Virginia,recY,34.5,0.5,2,34.5,34.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,Hawai'i @ UTEP,5218881,Tama Uiliata,Hawai'i,rec,3.5,0.4285,1,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,Hawai'i @ UTEP,5218881,Tama Uiliata,Hawai'i,recY,29.5,0.5,1,29.5,29.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,Hawai'i @ UTEP,4685418,Tavorus Jones,UTEP,rushY,36.5,0.4938,1,36.5,,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,4867887,Terrance Carter,Texas Tech,rec,,,,,3.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,4867887,Terrance Carter,Texas Tech,recY,32.5,0.5,1,32.5,32.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,4773919,Thomas Castellanos,Texas Tech,passY,219.5,0.5,1,219.5,219.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T02:30:00Z,West Virginia @ Texas Tech,4773919,Thomas Castellanos,Texas Tech,rushY,65.5,0.5,1,65.5,65.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,4917981,AJ Newberry,Oregon State,rec,2.5,0.5719,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,4917981,AJ Newberry,Oregon State,recY,24.5,0.5,1,24.5,24.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,4917981,AJ Newberry,Oregon State,rushY,45.5,0.504,1,45.5,45.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5079357,Aaron Butler,Oregon State,rec,2.5,0.4567,2,2.5,,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5079357,Aaron Butler,Oregon State,recY,25.5,0.5,1,25.5,25.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5152414,Beau Sparks,Texas State,rec,4.5,0.5806,1,5.0,,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5152414,Beau Sparks,Texas State,recY,58.5,0.5,1,58.5,58.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5148803,Brad Jackson,Texas State,passY,248.5,0.5,1,248.5,248.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5148803,Brad Jackson,Texas State,rushY,48.5,0.5,1,48.5,48.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5212654,Braden Atkinson,Oregon State,passY,354.5,0.5101,1,355.5,355.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5077873,Chris Dawn Jr.,Texas State,rec,5.5,0.4899,2,5.5,5.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5077873,Chris Dawn Jr.,Texas State,recY,59.5,0.5061,1,61.5,59.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5167313,Cornell Hatcher Jr.,Oregon State,rushY,36.5,0.4939,1,36.5,36.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5216509,Davian Jackson,Texas State,rushY,31.5,0.5061,1,31.5,31.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5088952,Eric Olsen,Oregon State,rec,4.5,0.5,2,4.5,4.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5088952,Eric Olsen,Oregon State,recY,48.5,0.5061,1,48.5,48.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Wyoming @ UNLV,4870607,Jackson Arnold,UNLV,passY,199.5,0.5,1,199.5,199.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Wyoming @ UNLV,4870607,Jackson Arnold,UNLV,rushY,59.5,0.5051,2,59.5,59.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Wyoming @ UNLV,5125754,Jai'Den Thomas,UNLV,rushY,90.5,0.4899,1,89.5,89.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Wyoming @ UNLV,5193325,Jake Wilson,Wyoming,recY,27.5,0.5,2,27.5,27.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5289510,Jesse Legree,Oregon State,rec,3.5,0.6113,1,7.0,,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5289510,Jesse Legree,Oregon State,recY,64.5,0.8394,1,120.5,120.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Wyoming @ UNLV,5149831,Kayden McGee,UNLV,recY,43.5,0.4939,1,43.5,43.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Wyoming @ UNLV,4685289,Keyan Burnett,UNLV,recY,,,,16.5,,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Wyoming @ UNLV,5227257,Markell Holman,Wyoming,rushY,45.5,0.5061,1,45.5,45.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Wyoming @ UNLV,5258056,Samuel Harris,Wyoming,rushY,32.5,0.504,1,,32.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Wyoming @ UNLV,4940235,Taeshaun Lyons,UNLV,recY,24.5,0.5061,1,24.5,24.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5088888,Torrance Burgess Jr.,Texas State,rec,2.5,0.5,2,2.5,2.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5088888,Torrance Burgess Jr.,Texas State,recY,15.5,0.4899,1,15.5,15.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5088888,Torrance Burgess Jr.,Texas State,rushY,81.5,0.504,1,81.5,81.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Wyoming @ UNLV,4838536,Tyler Hughes,Wyoming,passY,152.5,0.5,1,152.5,152.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Wyoming @ UNLV,4838536,Tyler Hughes,Wyoming,rushY,70.5,0.5,1,70.5,70.5,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5138042,Zechariah Sample,Texas State,rec,1.5,0.5609,2,,,2026-11-08T00:28:43+00:00,10
+2026-11-08T03:30:00Z,Texas State @ Oregon State,5138042,Zechariah Sample,Texas State,recY,24.5,0.5,1,24.5,24.5,2026-11-08T00:28:43+00:00,10
