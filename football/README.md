@@ -515,3 +515,19 @@ The NFL injury feed (nflverse) can lag late news, so `data/log/nfl_status_overri
 ### Watch item: Judkins Under against a soft Saints run defence (user request, 2026-11-08)
 
 Quinshon Judkins (CLE RB), CLE @ NO, Sunday 1 pm ET: rushing yards Under 64.5 (six books), projection 42.3 on 11.5 carries at 3.62 yards a carry, calibrated Under 56.5% against 50.5% priced. New Orleans is in the soft tier for rushing (31st of 32 by the tier table; the model's own factor for them is only +1.75%) and allows the most running-back points in the league (+36% against the average). The soft-tier Over rate on rushing-yards lines this season is 41.7% (n 48), so the Under side has held against soft run defences so far, but the sample is one season of lines. Record the result after the game: Judkins' rushing yards and carries against 64.5 and the projection, and whether the Saints' run-defence tier mattered. Add further RB Unders against soft run defences here as they are graded.
+
+### Weaker college pass-defence factor (test, 2026-11-08; not yet adopted)
+
+`pipeline/cfb_passdef.py`: walk-forward 2025-26, 1,728 QB games (100+ projected yards), the model's own pass factor `a_pass` (sd 0.093 across games at present) and the top-third QBs (projected 220+ yards) split by defence tier; median actual / projection:
+
+| Setting | QB passing yards MAE | Factor sd | Top-third QBs, tough / soft defence | All QBs, tough / soft |
+|---|---|---|---|---|
+| As now (prior weight 60, cap 0.15) | 71.37 | 0.093 | 1.10 (n 71) / 0.93 (n 317) | 1.05 / 0.94 |
+| Prior weight 150 | 71.07 | 0.071 | 1.06 / 0.96 | 1.02 / 0.96 |
+| Prior weight 400 | 71.10 | 0.044 | 1.02 (n 130) / 0.99 (n 259) | 0.98 / 0.98 |
+| Factor off | 71.35 | 0.020 | 0.99 / 1.00 | 1.00 / 1.00 |
+| Cap 0.10 | 71.17 | 0.076 | 1.06 / 0.95 | 1.03 / 0.95 |
+| Cap 0.05 | 71.22 | 0.048 | 1.02 / 0.98 | 0.99 / 0.98 |
+
+- Turning the factor off costs nothing (71.35 against 71.37): the college pass-defence factor adds no accuracy, and its size is what produced the top-QB over-adjustment (tough 1.10 against soft 0.93). Heavier smoothing (`CFB_K_DEF_PASS` 150-400) or a lower cap (0.05-0.10) removes the asymmetry and takes 0.4% off the MAE (71.37 -> 71.07-71.10). Prior weight 400 is the cleanest fix (1.02 against 0.99, factor sd 0.044). `CFB_K_DEF_PASS` also drives the college completion-rate factor.
+- Only one parameter on two seasons: choose from the grid, not fitted per season. Not applied; adopting it is a one-line change in `config.py` (`CFB_K_DEF_PASS`).
