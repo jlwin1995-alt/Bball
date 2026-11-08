@@ -86,14 +86,37 @@ def cfb_core(rows, matchup, conf, P):
     LG_COMP = lg["comp"] / lg["att"] if lg["att"] else 0.62
 
     def_rush, def_rec, def_pass, def_comp = {}, {}, {}, {}
+    sos = {}
+    if getattr(C, "CFB_SOS", ()):
+        # schedule-adjusted defence rating: what a defence allowed against what each opposing offence normally gets (that offence's own average over its OTHER games), instead of against the league average
+        tot, pair = {}, {}
+        for r in rows:
+            t_, d_ = r["team"], r["opponent"]
+            for tab, key in ((tot, t_), (pair, (t_, d_))):
+                x = tab.setdefault(key, [0.0, 0.0, 0.0, 0.0]); x[0] += r["attempts"]; x[1] += r["passing_yards"]; x[2] += r["receptions"]; x[3] += r["receiving_yards"]
+        exp = {}
+        for (t_, d_), x in pair.items():
+            T = tot[t_]
+            e = exp.setdefault(d_, [0.0, 0.0])
+            ao, ap = T[0] - x[0], T[1] - x[1]
+            e[0] += x[0] * (ap / ao if ao >= 60 else LG_YPA)
+            ro, rp = T[2] - x[2], T[3] - x[3]
+            e[1] += x[2] * (rp / ro if ro >= 25 else LG_YPR)
+        sos = exp
     DEF_LG_YPC = (lg_nq[1] / lg_nq[0]) if (qb_ids and lg_nq[0]) else LG_YPC       # the league figure a defence is compared with must be on the same footing
     for d, a in de.items():
         if a["car"]:
             def_rush[d] = clamp_to(regress((a["ry"] / a["car"]) / DEF_LG_YPC, a["car"], C.CFB_K_DEF_RUSH), cap)
         if a["rec"]:
-            def_rec[d] = clamp_to(regress((a["recy"] / a["rec"]) / LG_YPR, a["rec"], C.CFB_K_DEF_REC), cap)
+            if "rec" in getattr(C, "CFB_SOS", ()) and d in sos and sos[d][1] > 0:
+                def_rec[d] = clamp_to(regress(a["recy"] / sos[d][1], a["rec"], C.CFB_K_DEF_REC), cap)
+            else:
+                def_rec[d] = clamp_to(regress((a["recy"] / a["rec"]) / LG_YPR, a["rec"], C.CFB_K_DEF_REC), cap)
         if a["att"]:
-            def_pass[d] = clamp_to(regress((a["py"] / a["att"]) / LG_YPA, a["att"], C.CFB_K_DEF_PASS), cap)
+            if "pass" in getattr(C, "CFB_SOS", ()) and d in sos and sos[d][0] > 0:
+                def_pass[d] = clamp_to(regress(a["py"] / sos[d][0], a["att"], C.CFB_K_DEF_PASS), cap)
+            else:
+                def_pass[d] = clamp_to(regress((a["py"] / a["att"]) / LG_YPA, a["att"], C.CFB_K_DEF_PASS), cap)
             def_comp[d] = clamp_to(regress((a["comp"] / a["att"]) / LG_COMP, a["att"], C.CFB_K_DEF_PASS), cap * P["CATCH_CAP_FRACTION"])
 
     lg_team = dict(car=0.0, rec=0.0, att=0.0)
