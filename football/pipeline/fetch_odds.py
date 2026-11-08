@@ -213,6 +213,15 @@ def probe(session=None, base=None):
     j = s.get(f"{base}/events/{ev['id']}/markets", params={"apiKey": key, "regions": "us,us_dfs"}, timeout=30).json()
     for bk in j.get("bookmakers", []):
         print(f"  {bk['key']:<18} {', '.join(sorted(m['key'] for m in bk.get('markets', [])))[:400]}")
+    # volume markets (targets, attempts, carries) are what the model projects as inputs: list every book that posts one, in full
+    vol = {}
+    for bk in j.get("bookmakers", []):
+        for m in bk.get("markets", []):
+            if any(w in m["key"] for w in ("target", "attempt", "carr", "rush_rec", "longest")):
+                vol.setdefault(m["key"], []).append(bk["key"])
+    print("  volume / related markets and the books that post them:")
+    for k in sorted(vol):
+        print(f"    {k}: {', '.join(sorted(vol[k]))}")
     mk = ",".join(C.ODDS_MARKETS)
     if base == CFB_BASE:                                    # college: the NFL player-prop names, plus the college-only ones the API lists
         mk = ",".join(dict.fromkeys(list(C.ODDS_MARKETS) + ["player_pass_yds", "player_rush_yds", "player_reception_yds", "player_receptions", "player_anytime_td"]))
