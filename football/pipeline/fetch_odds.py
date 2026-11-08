@@ -210,6 +210,15 @@ def probe(session=None, base=None):
         print('no game that has not started'); return
     ev = evs[0]
     print(f"probing {ev['away_team']} @ {ev['home_team']} ({ev['commence_time']})")
+    # the market lists differ game to game: list the DFS apps' keys in full for the next few games and flag anything about targets
+    for e2 in evs[:5]:
+        jj = s.get(f"{base}/events/{e2['id']}/markets", params={"apiKey": key, "regions": "us,us_dfs"}, timeout=30).json()
+        for bk in jj.get("bookmakers", []):
+            if bk["key"] in ("prizepicks", "underdog", "pick6"):
+                ks = sorted(m["key"] for m in bk.get("markets", []))
+                print(f"  [{e2['away_team']} @ {e2['home_team']}] {bk['key']}: {len(ks)} markets; target-like: {[k for k in ks if 'target' in k or 'recept' in k or 'rec' in k]}")
+                if e2 is evs[0]:
+                    print("    full list:", ", ".join(ks))
     j = s.get(f"{base}/events/{ev['id']}/markets", params={"apiKey": key, "regions": "us,us_dfs"}, timeout=30).json()
     for bk in j.get("bookmakers", []):
         print(f"  {bk['key']:<18} {', '.join(sorted(m['key'] for m in bk.get('markets', [])))[:400]}")
