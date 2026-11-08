@@ -302,6 +302,14 @@ def nfl_core(rows, matchup, wx=None, P=None):
                 raw[i]["att"] *= w
                 raw[i]["car"] *= w
 
+    # a quarterback named as the starter by hand (data/log/nfl_status_overrides.csv, status "Starter", for a starter ruled Out): he throws the team's usual attempts, not the +20% nudge his thin
+    # backup history would get from the team rescale (the same fix as the college STARTER override); his rates stay regressed toward the league
+    for i in (P.get("STARTER_IDS") or ()):
+        if i in raw and PL[i]["pos"] == "QB" and PL[i]["team"] in team_base:
+            raw[i]["att"] = max(raw[i]["att"], team_base[PL[i]["team"]]["att"] * 0.97)
+            if i in p_play:
+                p_play[i]["att"] = 1.0
+
     scale = {}
     for t in team_base:
         scale[t] = dict(car=1.0, tgt=1.0, att=1.0)
