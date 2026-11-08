@@ -198,6 +198,7 @@ const pages = {
       const rows = all.filter(p => p.team === t && p.game === g.game);
       const cols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "status", h: "Status", l: 1, f: r => statusPill(r.status)}, depthCol(depthTip(false, D.meta.depth_ts)),
         {k: "ccar", h: "Car", v: r => r.c.car, f: r => num(r.c.car)}, {k: "cry", h: "Rush", v: r => r.c.rushY, f: r => rg("rushY", r, r.c.rushY, num(r.c.rushY), 0)},
+        {k: "ctgt", h: "Tgt", t: "Projected targets", v: r => r.c.tgt, f: r => num(r.c.tgt)}, {k: "ctsh", h: "Tgt %", t: "Share of the team's projected targets", v: r => r.c.tgtSh, f: r => r.c.tgt > 0 ? num(r.c.tgtSh, 0) : ""},
         {k: "crec", h: "Rec", v: r => r.c.rec, f: r => rg("rec", r, r.c.rec, num(r.c.rec, 1), 1)}, {k: "crecy", h: "Rec Yds", v: r => r.c.recY, f: r => rg("recY", r, r.c.recY, num(r.c.recY), 0)},
         {k: "catt", h: "Att", v: r => r.c.att, f: r => r.c.att > 0 ? num(r.c.att) : ""}, {k: "cpy", h: "Pass Yds", v: r => r.c.passY, f: r => r.c.att > 0 ? rg("passY", r, r.c.passY, num(r.c.passY), 0) : ""},
         {k: "ctd", h: "TD", v: r => r.c.rushTD + r.c.recTD + r.c.passTD, f: r => num(r.c.rushTD + r.c.recTD + r.c.passTD, 2)},
