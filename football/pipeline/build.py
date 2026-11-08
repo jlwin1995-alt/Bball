@@ -5,7 +5,7 @@
 import argparse, datetime as dt, json, os, re, sys
 from . import config as C, analysis, scorecard, weather, results, legacy, teamstats, pff_roles, pff_matchups, hitrates, cal_prob, prob, lines as lines_mod
 from .model import (load_weekly, nfl_core, derive, params, rnd, td_adj, td_base, opp_pos_factor, pos_group, REC_POS, num)
-from .slate import load_csv, target_week, matchups, kickoffs, statuses, depth_map, week_games, game_label, history_gaps
+from .slate import load_csv, target_week, matchups, kickoffs, statuses, manual_statuses, depth_map, week_games, game_label, history_gaps
 
 
 def dump(obj, out, name):
@@ -120,6 +120,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
 
     by_team_wx, wx_rows = weather.week_weather(sched, week, P, weather.load_overrides(), fetch=fetch_wx)
     status = statuses(inj, week)
+    status.update(manual_statuses(week))                # late news the injury feed has not caught yet (data/log/nfl_status_overrides.csv)
     out_ids = {i for i, st in status.items() if re.match(r"(out|ir)", st, re.I)}
     dpt = depth_map(load_csv(f"{raw}/depth.csv")) if os.path.exists(f"{raw}/depth.csv") else {}
     sit_fracs = {}

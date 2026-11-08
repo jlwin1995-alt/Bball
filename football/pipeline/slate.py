@@ -69,6 +69,16 @@ def statuses(injuries, week):
     return out
 
 
+def manual_statuses(week, path="data/log/nfl_status_overrides.csv"):
+    """News the injury feed has not caught yet: data/log/nfl_status_overrides.csv (gsis_id,week,status,name,note). -> gsis_id -> status for `week`; the status replaces the feed's for that player
+    (an "Out" or "IR" row removes him from the projections and his volume goes to his teammates, as for the feed's own Out)."""
+    try:
+        with open(path, newline="") as f:
+            return {r["gsis_id"]: r["status"] for r in csv.DictReader(f) if int(num(r.get("week"))) == week and r.get("gsis_id") and r.get("status")}
+    except FileNotFoundError:
+        return {}
+
+
 def history_gaps(rows, sched, week):
     """Games in weeks BEFORE `week` whose box scores are missing from the stats file.
 
