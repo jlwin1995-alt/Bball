@@ -242,6 +242,10 @@ CFB_MIN_OPPS = 8                   # season carries + receptions + attempts a pl
 CFB_QB_MIN_ATT = 5                 # season pass attempts before a player counts as a QB
 CFB_PRIOR_CAR = 30
 CFB_PRIOR_REC = 18
+CFB_STAT_SHRINK = True       # pull the projections of five stats toward the middle (regression to the mean): low ones beat the projection, high ones fall short. Test: README "Stat-level shrink".
+# position -> stat -> (a, b, threshold): shrunk = a + b x projection for projections at or above the threshold (least-absolute-deviation fit of actual on projection, college walk-forward 2025-26, projections
+# BEFORE this shrink); below the threshold the projection is scaled by the same factor f(threshold)/threshold, held within 0.5-1.15. Refit with `python -m pipeline.stat_shrink` (CFB_STAT_SHRINK off).
+CFB_STAT_SHRINK_FITS = {"RB": {"recY": (3.09, 0.395, 10.0), "rec": (0.57, 0.484, 1.0)}, "TE": {"recY": (9.79, 0.598, 10.0), "rec": (1.0, 0.618, 1.0)}, "QB": {"passY": (47.99, 0.724, 100.0)}}
 CFB_POS_YPR = True      # shrink each receiver's yards per catch toward his own position group (RB/TE/WR), not one league-wide figure
 CFB_PRIOR_ATT = 35
 CFB_K_DEF_RUSH = 50
@@ -274,6 +278,6 @@ CFB_POWER_CONFS = {"SEC", "Big Ten", "Big 12", "ACC"}
 CFB_POWER_INDEPENDENTS = {"Notre Dame"}
 CFB_MODEL_KEYS = [
     "ROLLING_WINDOW", "DEF_ADJ_CAP", "CATCH_CAP_FRACTION", "RECENT_WEIGHT", "RECENT_WEIGHT_ATT", "PRIOR_FUMBLES", "LAMBDA_RUSH_TD", "LAMBDA_REC_TD",
-    "LAMBDA_PASS_TD", "LG_PASS_TD", "LG_INT", "CFB_CONFERENCE", "CFB_MIN_OPPS", "CFB_QB_MIN_ATT", "CFB_PRIOR_CAR", "CFB_PRIOR_REC", "CFB_POS_YPR", "CFB_PRIOR_ATT",
+    "LAMBDA_PASS_TD", "LG_PASS_TD", "LG_INT", "CFB_CONFERENCE", "CFB_MIN_OPPS", "CFB_QB_MIN_ATT", "CFB_PRIOR_CAR", "CFB_PRIOR_REC", "CFB_POS_YPR", "CFB_STAT_SHRINK", "CFB_STAT_SHRINK_FITS", "CFB_PRIOR_ATT",
     "CFB_K_DEF_RUSH", "CFB_K_DEF_REC", "CFB_K_DEF_PASS", "CFB_K_TEAM_VOL", "CFB_TEAM_SCALE_CAP", "CFB_SCALE_ALL", "CFB_CONCENTRATE_ATT", "CFB_PLAY_PRIOR", "DEFAULT_SCORING",
 ]

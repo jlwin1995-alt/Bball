@@ -59,8 +59,11 @@
     const rushY = car * p.ypc * p.a_rush, recY = rec * p.ypr * p.a_rec, passY = att * p.ypa * p.a_pass;
     const rushTD = car * p.rtd_r * p.a_rtd, recTD = rec * p.rectd_r * p.a_rectd, passTD = att * p.ptd_r * p.a_ptd;
     const int = att * p.int_r, fum = (car + rec + att) * p.fum_r, comp = att * p.cmp * p.a_comp;
-    const r = {car, rec, att, rushY, recY, passY, comp, rushTD, recTD, passTD, int, fum, td: rushTD + recTD};
-    r.pts = rushY * W.rushYd + recY * W.recYd + passY * W.passYd + rec * W.rec + rushTD * W.rushTd + recTD * W.recTd + passTD * W.passTd + int * W.intr + fum * W.fum;
+    // regression to the mean for five stats (config CFB_STAT_SHRINK_FITS, sent per player as `shr`): shrunk = a + b x projection above the threshold, scaled by f(thr)/thr below it
+    const shr = (x, f) => !f || x <= 0 ? x : x >= f[2] ? Math.max(0, f[0] + f[1] * x) : x * Math.min(1.15, Math.max(0.5, (f[0] + f[1] * f[2]) / f[2]));
+    const S = p.shr || {}, recY2 = shr(recY, S.recY), passY2 = att > 0 ? shr(passY, S.passY) : passY, rec2 = shr(rec, S.rec);
+    const r = {car, rec: rec2, att, rushY, recY: recY2, passY: passY2, comp, rushTD, recTD, passTD, int, fum, td: rushTD + recTD};
+    r.pts = rushY * W.rushYd + recY2 * W.recYd + passY2 * W.passYd + rec2 * W.rec + rushTD * W.rushTd + recTD * W.recTd + passTD * W.passTd + int * W.intr + fum * W.fum;
     r.carSh = p.tcar ? car / p.tcar * 100 : null;
     r.recSh = p.trec ? rec / p.trec * 100 : null;
     return r;
