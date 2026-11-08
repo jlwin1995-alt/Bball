@@ -5,7 +5,7 @@
 """
 import argparse, csv, datetime as dt, hashlib, json, math, os, sys
 from . import config as C
-from .cfb_model import cfb_core, derive, load_rows, actual_pts, STATS as RAWSTATS
+from .cfb_model import cfb_core, derive, load_rows, actual_pts, shrink_fits, STATS as RAWSTATS
 from .cfb_data import read_csv
 from .model import params, rnd, nsum
 from .scorecard import read_tag
@@ -490,7 +490,8 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
                              fum_r=r(pl["fumRate"], 6), a_rush=r(pl["a_rush"], 4), a_rec=r(pl["a_rec"], 4), a_pass=r(pl["a_pass"], 4), a_comp=r(pl["a_comp"], 4),
                              a_rtd=r(pl["a_rtd"], 4), a_rectd=r(pl["a_rectd"], 4), a_ptd=r(pl["a_ptd"], 4), tcar=r(pl["tcar"], 1), trec=r(pl["trec"], 1),
                              ry=r(x["rushY"], 2), recy=r(x["recY"], 2), py=r(x["passY"], 2), comp=r(x["comp"], 3), rtd=r(x["rushTD"], 4), rectd=r(x["recTD"], 4),
-                             ptd=r(x["passTD"], 4), int=r(x["int"], 4), fum=r(x["fum"], 4), pts=r(x["pts"], 2)))
+                             ptd=r(x["passTD"], 4), int=r(x["int"], 4), fum=r(x["fum"], 4), pts=r(x["pts"], 2),
+                             shr={k: list(v) for k, v in shrink_fits(pl["pos"]).items()} or None))
         proj.sort(key=lambda x: -(x["car"] + x["rec"] + x["att"] * 0.5))
         rl = roles(rows, proj)
         for x in proj:

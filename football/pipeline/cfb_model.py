@@ -272,6 +272,25 @@ def cfb_core(rows, matchup, conf, P):
                 rush_base=rush_base)
 
 
+def shrink_group(pos):
+    s = str(pos or "").upper()
+    return "RB" if s in ("RB", "FB") else s if s in ("TE", "QB") else None
+
+
+def shrink(x, fit):
+    """Regression to the mean for one stat: a + b x at or above the threshold, scaled by the same factor below it (config CFB_STAT_SHRINK_FITS)."""
+    a, b, thr = fit
+    if x <= 0:
+        return x
+    if x >= thr:
+        return max(0.0, a + b * x)
+    return x * min(1.15, max(0.5, (a + b * thr) / thr))
+
+
+def shrink_fits(pos):
+    return C.CFB_STAT_SHRINK_FITS.get(shrink_group(pos), {}) if C.CFB_STAT_SHRINK else {}
+
+
 def derive(pl, W):
     """Stat line from a core record. Volumes are already rounded to one decimal, as displayed."""
     car, rec, att = pl["car"], pl["rec"], pl["att"]
@@ -284,6 +303,17 @@ def derive(pl, W):
     ints = att * pl["intRate"]
     fum = (car + rec + att) * pl["fumRate"]
     comp = att * pl["compRate"] * pl["a_comp"]
+    sh = shrink_fits(pl["pos"])
+    if sh:
+        # five stats pulled toward the middle: the stat line (and so the points) uses the shrunk numbers, fumbles / shares keep the raw volume
+        if "recY" in sh:
+            rec_y = shrink(rec_y, sh["recY"])
+        if "passY" in sh and att > 0:
+            pass_y = shrink(pass_y, sh["passY"])
+        rec_out = shrink(rec, sh["rec"]) if "rec" in sh else rec
+    else:
+        rec_out = rec
+    rec = rec_out
     pts = (rush_y * W["rushYd"] + rec_y * W["recYd"] + pass_y * W["passYd"] + rec * W["rec"] + rush_td * W["rushTd"] + rec_td * W["recTd"]
            + pass_td * W["passTd"] + ints * W["intr"] + fum * W["fum"])
     return dict(car=car, rec=rec, att=att, rushY=rush_y, recY=rec_y, passY=pass_y, comp=comp, rushTD=rush_td, recTD=rec_td, passTD=pass_td,
