@@ -531,3 +531,5 @@ Quinshon Judkins (CLE RB), CLE @ NO, Sunday 1 pm ET: rushing yards Under 64.5 (s
 
 - Turning the factor off costs nothing (71.35 against 71.37): the college pass-defence factor adds no accuracy, and its size is what produced the top-QB over-adjustment (tough 1.10 against soft 0.93). Heavier smoothing (`CFB_K_DEF_PASS` 150-400) or a lower cap (0.05-0.10) removes the asymmetry and takes 0.4% off the MAE (71.37 -> 71.07-71.10). Prior weight 400 is the cleanest fix (1.02 against 0.99, factor sd 0.044). `CFB_K_DEF_PASS` also drives the college completion-rate factor.
 - Only one parameter on two seasons: choose from the grid, not fitted per season. Not applied; adopting it is a one-line change in `config.py` (`CFB_K_DEF_PASS`).
+
+**Applied 2026-11-08: `CFB_K_DEF_PASS` 60 -> 400** (college pass-defence and completion-rate factors, per the table above). Scorecard stamp changes with it, so the headline restarts. Recheck the top-QB tough / soft split (should stay near 1.0 / 1.0) once two or three weeks are graded.
