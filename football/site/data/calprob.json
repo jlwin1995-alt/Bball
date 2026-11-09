@@ -1,1 +1,1 @@
-{"over":{"beta":0.02,"se":0.163,"n":914},"under":{"beta":0.326,"se":0.11,"n":1019},"model_conf":59.6,"actual_hit":52.0,"n":1933,"weeks":[5,6,7,8,9]}
+{"over":{"beta":0.01,"se":0.161,"n":927},"under":{"beta":0.322,"se":0.109,"n":1041},"model_conf":59.6,"actual_hit":51.9,"n":1968,"weeks":[5,6,7,8,9]}
