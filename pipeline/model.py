@@ -175,6 +175,7 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
     rest_mult = np.where(P["rest"] <= 1, C.B2B_MIN_MULT, np.where(P["rest"] >= 3, C.RESTED_MIN_MULT, 1.0))
     qm = np.where(P["status"].isin(["Questionable", "Day-To-Day"]), C.QUESTIONABLE_MIN_MULT, 1.0)
     P["min_raw"] = (C.RECENT_WEIGHT_MIN * P["min_r"] + (1 - C.RECENT_WEIGHT_MIN) * P["min_s"]) * rest_mult * qm
+    P["min_raw0"] = P["min_raw"]                                       # what he would play if he played: the usage pass below needs it
     P.loc[P["out"], "min_raw"] = 0.0
     if not minute_mult:                                              # regular-season slate: no-history players play ~1.1x their preseason minutes
         po = P["pre_only"] & ~P["out"]
@@ -234,6 +235,21 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
         P["adj_" + s] = adj
         P["rate_" + s] = P["pm_" + s] * adj * P["site_mult"] * (1 + C.PACE_STRENGTH * (P["pace_f"] - 1))           # per-minute, fully adjusted
         P[s] = P["min"] * P["rate_" + s]
+    if not minute_mult and (C.USAGE_PASS or C.GENERAL_SHRINK):    # see config.GENERAL_SHRINK / USAGE_PASS
+        rot = P["out"] & (P["min_s"] >= C.USAGE_PASS_MIN_S) & (P["pplay"] >= C.USAGE_PASS_PPLAY)
+        vacs = {s: (P["min_raw0"] * P["rate_" + s]).where(rot, 0.0).groupby(P["team"]).transform("sum") for s in (C.USAGE_PASS or {})}
+        for s in set(C.USAGE_PASS or {}) | set(C.GENERAL_SHRINK or {}):
+            base = P[s] * (1.0 - (C.GENERAL_SHRINK or {}).get(s, 0.0))
+            add = 0.0
+            if s in (C.USAGE_PASS or {}):
+                pres = base.where(~P["out"], 0.0)
+                sw = (pres.clip(lower=0.05) ** C.USAGE_PASS_KAPPA).where(~P["out"], 0.0)
+                tot = sw.groupby(P["team"]).transform("sum")
+                w = (sw / tot.where(tot > 0)).fillna(0.0)
+                add = np.where(P["out"], 0.0, np.minimum(C.USAGE_PASS[s] * vacs[s] * w, C.USAGE_PASS_CAP * pres))
+            P["ua_" + s] = add                                    # kept for the Game Board / debugging
+            P[s] = base + add
+            P["rate_" + s] = np.where(P["min"] > 0, P[s] / P["min"], P["rate_" + s])     # the site recomputes stats as minutes x rate
     P["date"] = day
     P["team_min_factor"] = fac
     return P.sort_values(["team", "min"], ascending=[True, False]).reset_index(drop=True), D

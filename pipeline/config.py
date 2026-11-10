@@ -64,6 +64,25 @@ MAX_MIN = 42.0
 RESCALE_STRENGTH = 0.25            # share of the team-240 rescale applied. MEASURED (pipeline.absence_test, 2025-26): full rescale over-credits teammates; 0.25 cuts minutes MAE 6% and fantasy-point MAE ~2% with absences known (~1% unknown), in both halves of the season
 RESCALE_STRENGTH_BENCH = 0.75      # share of the team-240 rescale applied to men below BENCH_MIN_CUT usual minutes (None = same as RESCALE_STRENGTH). MEASURED (2025-26 and 2024-25, absences known): with 2+ rotation men out, bench men are projected ~2.5 min low at 0.25 and ~1.2 at 0.75 (fantasy MAE 7.8 -> 7.6, bench overall bias +0.9 -> +0.2); starters are unbiased at 0.25 and get worse above it, so they keep it
 RESCALE_CLIP_BENCH = (0.80, 1.5)
+# General shrink + absent-player usage pass (Nov 10, 2026; v2). Two measured facts, fitted together (python -m pipeline.usage_test) on walk-forward 2024-25 and 2025-26 with absences known,
+# teammates projected 10+ min:
+#  1. GENERAL_SHRINK: with nobody out, players produce LESS than projected: points -8%, rebounds -6%, assists -5% (minutes -1.45, mostly: they play less than the conditional minutes say). The same over-projection
+#     shows live (fantasy-point bias +6 to +10% in Nov 2026). It reverses as rotation players go out (teammate bias -1.5 FP with nobody out, -0.5 with 1, -0.1 with 2, +0.7 with 3, +3.2 with 4+).
+#  2. USAGE_PASS: when rotation players are out, the men who play produce more per minute on top of the minutes the rescale moves: each present player gets USAGE_PASS[stat] x (production the
+#     absent men would have had: usual minutes x rates) x (his share of the present players' projected stat). The share is projection ** USAGE_PASS_KAPPA (0.5 = flatter than proportional): the extra
+#     goes more to the depth than to the top two (a top-2 teammate's weight was about half that of a rank-6+ player, 0.2 vs 0.55 per unit of vacated production under proportional shares).
+#     Only men normally in the rotation count (min_s >= USAGE_PASS_MIN_S and played >= USAGE_PASS_PPLAY of the last PLAY_WINDOW team games): someone out for weeks is already in his teammates' recent
+#     form. Capped at USAGE_PASS_CAP of a player's own stat.
+# Fitted on one season and tested on the other (fantasy-point MAE, 3 stats): 8.03 -> 7.93 and 7.85 -> 7.77 (-1.1%); 3+ out 8.32 -> 8.12 and 8.29 -> 8.07; nobody out 7.73 -> 7.60 and 7.56 -> 7.42.
+# The shrink and the pass only work together: the pass alone (applied to every team) hurt the 1-2 out cases because they are over-projected to begin with. Single star out (V 40-80): neutral (8.17 -> 8.15, 7.67 -> 7.67).
+# Tested and NOT added: an opponent term (the other team scores about +3 points per game against a team missing 100 FP, +0.18 points per missing steal or block, but per player it is tiny against an 8-point
+# typical miss: MAE 7.931 -> 7.933) and per-rank weights (they differ little once the shares are flattened).
+GENERAL_SHRINK = {"pts": 0.08, "reb": 0.06, "ast": 0.05}      # None / {} = off
+USAGE_PASS = {"pts": 0.43, "reb": 0.27, "ast": 0.34}          # None / {} = off
+USAGE_PASS_KAPPA = 0.5
+USAGE_PASS_MIN_S = 15.0
+USAGE_PASS_PPLAY = 0.6
+USAGE_PASS_CAP = 0.5
 BENCH_MIN_CUT = 20.0
 PLAY_WINDOW = 20                   # team games used to measure how often a player actually plays
 ACTIVE_DAYS = 21                   # a player must have played in this window to take minutes
