@@ -235,19 +235,20 @@ def project(games, slate, injuries=None, asof=None, rosters=None, minute_mult=No
         P["adj_" + s] = adj
         P["rate_" + s] = P["pm_" + s] * adj * P["site_mult"] * (1 + C.PACE_STRENGTH * (P["pace_f"] - 1))           # per-minute, fully adjusted
         P[s] = P["min"] * P["rate_" + s]
-    if not minute_mult and C.USAGE_PASS:                          # teammates of a depleted rotation produce more per minute (see config.USAGE_PASS)
+    if not minute_mult and (C.USAGE_PASS or C.GENERAL_SHRINK):    # see config.GENERAL_SHRINK / USAGE_PASS
         rot = P["out"] & (P["min_s"] >= C.USAGE_PASS_MIN_S) & (P["pplay"] >= C.USAGE_PASS_PPLAY)
-        vacs = {s: (P["min_raw0"] * P["rate_" + s]).where(rot, 0.0).groupby(P["team"]).transform("sum") for s in set(C.USAGE_PASS) | set(C.DEFAULT_SCORING)}
-        vac_fp = sum(w * vacs[s] for s, w in C.DEFAULT_SCORING.items())
-        big = (vac_fp >= C.USAGE_PASS_MIN_VAC) & ~P["out"]
-        P["vac_fp"] = vac_fp
-        for s, lam in C.USAGE_PASS.items():
-            pres = P[s].where(~P["out"], 0.0)
-            tot = pres.groupby(P["team"]).transform("sum")
-            w = (pres / tot.where(tot > 0)).fillna(0.0)
-            add = np.where(big, np.minimum(lam * vacs[s] * w, C.USAGE_PASS_CAP * pres), 0.0)
+        vacs = {s: (P["min_raw0"] * P["rate_" + s]).where(rot, 0.0).groupby(P["team"]).transform("sum") for s in (C.USAGE_PASS or {})}
+        for s in set(C.USAGE_PASS or {}) | set(C.GENERAL_SHRINK or {}):
+            base = P[s] * (1.0 - (C.GENERAL_SHRINK or {}).get(s, 0.0))
+            add = 0.0
+            if s in (C.USAGE_PASS or {}):
+                pres = base.where(~P["out"], 0.0)
+                sw = (pres.clip(lower=0.05) ** C.USAGE_PASS_KAPPA).where(~P["out"], 0.0)
+                tot = sw.groupby(P["team"]).transform("sum")
+                w = (sw / tot.where(tot > 0)).fillna(0.0)
+                add = np.where(P["out"], 0.0, np.minimum(C.USAGE_PASS[s] * vacs[s] * w, C.USAGE_PASS_CAP * pres))
             P["ua_" + s] = add                                    # kept for the Game Board / debugging
-            P[s] = P[s] + add
+            P[s] = base + add
             P["rate_" + s] = np.where(P["min"] > 0, P[s] / P["min"], P["rate_" + s])     # the site recomputes stats as minutes x rate
     P["date"] = day
     P["team_min_factor"] = fac
