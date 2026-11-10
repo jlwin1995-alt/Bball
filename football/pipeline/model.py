@@ -243,6 +243,8 @@ def nfl_core(rows, matchup, wx=None, P=None):
 
     def blend(p, key):
         w = sorted(p["weeks"], key=lambda x: x["week"])
+        if not w:                                                # a hand-named starter with no games at all (see STUBS)
+            return 0.0
         season = nsum(x[key] for x in w) / len(w)
         if len(w) < win:
             return season
@@ -250,6 +252,9 @@ def nfl_core(rows, matchup, wx=None, P=None):
         rw = P["RECENT_WEIGHT_ATT"] if key == "att" else P["RECENT_WEIGHT"]
         return rw * (nsum(x[key] for x in recent) / len(recent)) + (1 - rw) * season
 
+    for i_, info_ in (P.get("STUBS") or {}).items():              # a hand-named starter who has never played (no rows in the weekly file): an empty history, so every rate comes from the priors
+        if i_ not in PL:
+            PL[i_] = dict(name=info_["name"], pos=info_["pos"], grp=info_.get("grp") or info_["pos"], team=info_["team"], g=0, weeks=[], **{c: 0.0 for c in SUMS})
     for i_, t_ in (P.get("TEAM_OVERRIDE") or {}).items():         # a traded player the weekly file still shows with his old team (data/log/nfl_status_overrides.csv, `team` column)
         if i_ in PL:
             PL[i_]["team"] = t_

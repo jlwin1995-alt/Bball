@@ -8,3 +8,5 @@ gsis_id,week,status,name,note,team
 00-0029604,10,Starter,Kirk Cousins,Traded to Minnesota and the new starter (reported by the user 2026-11-10); his LV rows are his history,MIN
 00-0035228,10,Backup,Kyler Murray,Displaced as Minnesota's starter by the Cousins trade (assumed from the user's report; confirm),
 00-0041562,10,Starter,Fernando Mendoza,Las Vegas starter after the Cousins trade (reported by the user 2026-11-10),
+00-0035289,10,IR,Gardner Minshew,On injured reserve (reported by the user 2026-11-10),
+00-0041561,10,Starter,Carson Beck,Arizona starter with Minshew on IR; no games played yet so the rates come from the priors (reported by the user 2026-11-10),
