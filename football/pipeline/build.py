@@ -141,7 +141,12 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     if P.get("SIT_TD_W") and os.path.exists(f"{raw}/pbp_slim.csv"):
         from . import situation
         sit_fracs = situation.fracs(situation.load_plays(f"{raw}/pbp_slim.csv"), week, P)       # goal-line / red-zone shares from this season's plays before the target week
-    core = nfl_core(hist, mu, by_team_wx, dict(P, OUT_IDS=out_ids, STARTER_IDS=starter_ids, BACKUP_IDS=backup_ids, TEAM_OVERRIDE=team_override, QB1_IDS={i for i, d in dpt.items() if d["slot"] == "QB1"}, SIT_FRACS=sit_fracs))
+    import csv as _csv
+    depth_team = {r["gsis_id"]: (r["team"], r["pos_abb"]) for r in load_csv(f"{raw}/depth.csv")} if os.path.exists(f"{raw}/depth.csv") else {}
+    names = {r["gsis_id"]: r["name"] for r in _csv.DictReader(open("data/log/nfl_status_overrides.csv")) if r.get("gsis_id")} if os.path.exists("data/log/nfl_status_overrides.csv") else {}
+    known = {x["player_id"] for x in rows}
+    stubs = {i: dict(name=names.get(i, i), pos=depth_team[i][1] if i in depth_team else "QB", team=team_override.get(i) or (depth_team[i][0] if i in depth_team else ""), grp=depth_team[i][1] if i in depth_team else "QB") for i in starter_ids if i not in known and (i in depth_team or i in team_override)}
+    core = nfl_core(hist, mu, by_team_wx, dict(P, OUT_IDS=out_ids, STARTER_IDS=starter_ids, STUBS=stubs, BACKUP_IDS=backup_ids, TEAM_OVERRIDE=team_override, QB1_IDS={i for i, d in dpt.items() if d["slot"] == "QB1"}, SIT_FRACS=sit_fracs))
     # starters (depth chart rank 1, WR 1-3) the injury report lists Out or Doubtful, by team, for the Game Board warning
     outs = {}
     for x in inj:
