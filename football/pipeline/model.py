@@ -304,9 +304,15 @@ def nfl_core(rows, matchup, wx=None, P=None):
 
     # a quarterback named as the starter by hand (data/log/nfl_status_overrides.csv, status "Starter", for a starter ruled Out): he throws the team's usual attempts, not the +20% nudge his thin
     # backup history would get from the team rescale (the same fix as the college STARTER override); his rates stay regressed toward the league
-    for i in (P.get("STARTER_IDS") or ()):
+    starters = set(P.get("STARTER_IDS") or ())
+    if P.get("THIN_QB_ON"):
+        # the depth chart's QB1 with a thin career history (fewer than THIN_QB_ATT attempts) is treated the same way: the team's usual attempts and a typical quarterback's carries
+        starters |= {i for i in (P.get("QB1_IDS") or ()) if i in raw and PL[i]["pos"] == "QB" and PL[i]["attempts"] < P["THIN_QB_ATT"]}
+    for i in starters:
         if i in raw and PL[i]["pos"] == "QB" and PL[i]["team"] in team_base:
-            raw[i]["att"] = max(raw[i]["att"], team_base[PL[i]["team"]]["att"] * 0.97)
+            raw[i]["att"] = max(raw[i]["att"], team_base[PL[i]["team"]]["att"] * (P.get("THIN_QB_ATT_FRAC", 0.97) if PL[i]["attempts"] < P["THIN_QB_ATT"] else 0.97))
+            if P.get("THIN_QB_ON") and PL[i]["attempts"] < P["THIN_QB_ATT"]:
+                raw[i]["car"] = max(raw[i]["car"], P["THIN_QB_CAR"])
             if i in p_play:
                 p_play[i]["att"] = 1.0
 
@@ -393,7 +399,7 @@ def nfl_core(rows, matchup, wx=None, P=None):
             ypc=(p["rushing_yards"] + P["PRIOR_CARRIES"] * LG_YPC) / (p["carries"] + P["PRIOR_CARRIES"]),
             cr=(p["receptions"] + P["PRIOR_TARGETS"] * pb["catch"]) / (p["targets"] + P["PRIOR_TARGETS"]),
             ypr=(p["receiving_yards"] + P["PRIOR_TARGETS"] * pb["catch"] * pb["ypr"]) / (p["receptions"] + P["PRIOR_TARGETS"] * pb["catch"]),
-            ypa=(p["passing_yards"] + P["PRIOR_ATTEMPTS"] * C.LG_YPA) / (p["attempts"] + P["PRIOR_ATTEMPTS"]) * P.get("PASS_YPA_ADJ", 1.0),
+            ypa=(p["passing_yards"] + P["PRIOR_ATTEMPTS"] * C.LG_YPA) / (p["attempts"] + P["PRIOR_ATTEMPTS"]) * P.get("PASS_YPA_ADJ", 1.0) * (P.get("THIN_QB_YPA", 1.0) if (P.get("THIN_QB_ON") and i in starters and p["attempts"] < P["THIN_QB_ATT"]) else 1.0),
             compRate=(p["completions"] + P["PRIOR_ATTEMPTS"] * LG_COMP) / (p["attempts"] + P["PRIOR_ATTEMPTS"]) * P.get("COMP_ADJ", 1.0),
             # touchdown rates shrink toward the player's OFFENCE (regressing results on own history + team-without-him: +0.32 vs +0.34)
             rushTdRate=(p["rushing_tds"] + P["PRIOR_CARRIES"] * td_target(p, "rush")) / (p["carries"] + P["PRIOR_CARRIES"]),

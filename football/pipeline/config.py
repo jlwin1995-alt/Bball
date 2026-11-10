@@ -87,6 +87,11 @@ CFB_NOLINE_OUT = True              # college: a player projected for 10+ opportu
 PFF_SHOW_DEFENDERS = False         # publish the likely covering defenders (name, position, PFF coverage rank) with the matchup strength; off until PFF's terms on redistributing player-level data are confirmed
 OUT_QB = True                     # a quarterback listed OUT is removed from the pool (his attempts and carries go to the next man up)
 QB_PART = True                    # a backup quarterback's attempts and carries are weighted by how often he has played relative to the team's main passer (the 20% team-scale cap cannot shrink him)
+THIN_QB_ON = True                 # a depth-chart QB1 (or a hand-named Starter) with a thin career history throws the team's usual attempts and runs like a typical quarterback, not on his own tiny history
+THIN_QB_ATT = 60                  # career attempts (in the data window) below which a QB1 counts as thin-history
+THIN_QB_ATT_FRAC = 0.97          # his attempts as a fraction of the team's base attempts (97% is the Starter override's; thin-history starters threw about 90% of that)
+THIN_QB_YPA = 0.80                # multiplier on his yards per attempt (thin-history starters averaged 6.4 against a league 7.0+)
+THIN_QB_CAR = 3.2                 # his carries a game when thin (thin-history QBs who threw 10+ passes averaged 3.24 in 2023-26)
 QB_BACKUP_W = 0.1                 # with a healthy depth-chart QB1, a backup's attempts/carries are at most this fraction of his own history
 OUT_CAP = 1.0                     # how far (as a fraction) a team's carry rescale may rise when a back is out; 1.0 = up to double (3.0 and 6.0 tested, no difference)
 MEAN_FACTOR = 1.17                 # Proj Pts is a MEDIAN; x this gives the mean (scoring is right-skewed)
@@ -99,7 +104,7 @@ MODEL_KEYS = [
     "K_DEF_POS_WR", "K_DEF_POS_TE", "K_DEF_POS_RB", "K_TEAM_VOL", "TEAM_SCALE_CAP", "DEF_STRENGTH_RUSH", "DEF_STRENGTH_YPR", "DEF_STRENGTH_CATCH",
     "DEF_STRENGTH_PASS", "DEF_STRENGTH_COMP", "TEAM_TD_WEIGHT", "K_TEAM_TD", "EXPL_RUSH_WEIGHT", "EXPL_RUSH_SCALE", "CAL_PASS_SLOPE", "CAL_COMP_SLOPE",
     "LAMBDA_RUSH_TD", "LAMBDA_REC_TD", "LAMBDA_PASS_TD", "CONCENTRATE_ATTEMPTS", "CONCENTRATE_CARRIES", "CONCENTRATE_TARGETS", "PLAY_WINDOW",
-    "PLAY_PRIOR", "OUT_RB", "PASS_YPA_ADJ", "COMP_ADJ", "SIT_TD_W", "SIT_K_CAR", "SIT_K_TGT", "OUT_QB", "QB_PART", "QB_BACKUP_W", "OUT_CAP", "OUT_WR", "OUT_TGT_CAP", "LG_PASS_TD", "LG_INT", "LG_YPA", "WEATHER_ON", "WX_WIND_THRESHOLD", "WX_WIND_SLOPE", "WX_WIND_FLOOR", "WX_REC_DAMP", "WX_RUSH_SLOPE",
+    "PLAY_PRIOR", "OUT_RB", "PASS_YPA_ADJ", "COMP_ADJ", "SIT_TD_W", "SIT_K_CAR", "SIT_K_TGT", "OUT_QB", "QB_PART", "QB_BACKUP_W", "THIN_QB_ON", "THIN_QB_ATT", "THIN_QB_CAR", "THIN_QB_ATT_FRAC", "THIN_QB_YPA", "OUT_CAP", "OUT_WR", "OUT_TGT_CAP", "LG_PASS_TD", "LG_INT", "LG_YPA", "WEATHER_ON", "WX_WIND_THRESHOLD", "WX_WIND_SLOPE", "WX_WIND_FLOOR", "WX_REC_DAMP", "WX_RUSH_SLOPE",
     "DEFAULT_SCORING",
 ]
 
