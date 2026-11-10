@@ -5,7 +5,7 @@
 import argparse, datetime as dt, json, os, re, sys
 from . import config as C, analysis, scorecard, weather, results, legacy, teamstats, pff_roles, pff_matchups, hitrates, cal_prob, prob, lines as lines_mod
 from .model import (load_weekly, nfl_core, derive, params, rnd, td_adj, td_base, opp_pos_factor, pos_group, REC_POS, num)
-from .slate import load_csv, target_week, matchups, kickoffs, statuses, manual_statuses, depth_map, week_games, game_label, history_gaps
+from .slate import load_csv, target_week, matchups, kickoffs, statuses, manual_statuses, manual_teams, depth_map, week_games, game_label, history_gaps
 
 
 def dump(obj, out, name):
@@ -129,7 +129,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     if P.get("SIT_TD_W") and os.path.exists(f"{raw}/pbp_slim.csv"):
         from . import situation
         sit_fracs = situation.fracs(situation.load_plays(f"{raw}/pbp_slim.csv"), week, P)       # goal-line / red-zone shares from this season's plays before the target week
-    core = nfl_core(hist, mu, by_team_wx, dict(P, OUT_IDS=out_ids, STARTER_IDS=starter_ids, QB1_IDS={i for i, d in dpt.items() if d["slot"] == "QB1"}, SIT_FRACS=sit_fracs))
+    core = nfl_core(hist, mu, by_team_wx, dict(P, OUT_IDS=out_ids, STARTER_IDS=starter_ids, TEAM_OVERRIDE=manual_teams(week), QB1_IDS={i for i, d in dpt.items() if d["slot"] == "QB1"}, SIT_FRACS=sit_fracs))
     # starters (depth chart rank 1, WR 1-3) the injury report lists Out or Doubtful, by team, for the Game Board warning
     outs = {}
     for x in inj:
