@@ -123,13 +123,14 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     manual = manual_statuses(week)                       # late news the injury feed has not caught yet (data/log/nfl_status_overrides.csv)
     status.update(manual)
     starter_ids = {i for i, st in manual.items() if st.lower() == "starter"}
+    backup_ids = {i for i, st in manual.items() if st.lower() == "backup"}      # a quarterback named by hand as no longer the starter: his attempts and carries drop to the backup sliver
     out_ids = {i for i, st in status.items() if re.match(r"(out|ir)", st, re.I)}
     dpt = depth_map(load_csv(f"{raw}/depth.csv")) if os.path.exists(f"{raw}/depth.csv") else {}
     sit_fracs = {}
     if P.get("SIT_TD_W") and os.path.exists(f"{raw}/pbp_slim.csv"):
         from . import situation
         sit_fracs = situation.fracs(situation.load_plays(f"{raw}/pbp_slim.csv"), week, P)       # goal-line / red-zone shares from this season's plays before the target week
-    core = nfl_core(hist, mu, by_team_wx, dict(P, OUT_IDS=out_ids, STARTER_IDS=starter_ids, TEAM_OVERRIDE=manual_teams(week), QB1_IDS={i for i, d in dpt.items() if d["slot"] == "QB1"}, SIT_FRACS=sit_fracs))
+    core = nfl_core(hist, mu, by_team_wx, dict(P, OUT_IDS=out_ids, STARTER_IDS=starter_ids, BACKUP_IDS=backup_ids, TEAM_OVERRIDE=manual_teams(week), QB1_IDS={i for i, d in dpt.items() if d["slot"] == "QB1"}, SIT_FRACS=sit_fracs))
     # starters (depth chart rank 1, WR 1-3) the injury report lists Out or Doubtful, by team, for the Game Board warning
     outs = {}
     for x in inj:
