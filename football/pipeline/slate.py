@@ -79,6 +79,21 @@ def manual_statuses(week, path="data/log/nfl_status_overrides.csv"):
         return {}
 
 
+def depth_moves(rows, depth_rows):
+    """Trades and signings the weekly stats file cannot show yet: a player whose newest depth-chart row is for a different team than his last game. -> gsis_id -> (new team, old team)."""
+    last = {}
+    for r in rows:
+        k = r["player_id"]
+        if k not in last or int(r["week"]) >= last[k][0]:
+            last[k] = (int(r["week"]), r["team"])
+    out = {}
+    for r in depth_rows:
+        gid, t = r.get("gsis_id"), r.get("team")
+        if gid and t and gid in last and last[gid][1] != t:
+            out[gid] = (t, last[gid][1])
+    return out
+
+
 def manual_teams(week, path="data/log/nfl_status_overrides.csv"):
     """Optional `team` column of the same file: gsis_id -> team for a player who has changed teams (a trade the weekly file does not show yet). The player's history goes with him."""
     try:
