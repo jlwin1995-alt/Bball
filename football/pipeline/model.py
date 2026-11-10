@@ -250,6 +250,9 @@ def nfl_core(rows, matchup, wx=None, P=None):
         rw = P["RECENT_WEIGHT_ATT"] if key == "att" else P["RECENT_WEIGHT"]
         return rw * (nsum(x[key] for x in recent) / len(recent)) + (1 - rw) * season
 
+    for i_, t_ in (P.get("TEAM_OVERRIDE") or {}).items():         # a traded player the weekly file still shows with his old team (data/log/nfl_status_overrides.csv, `team` column)
+        if i_ in PL:
+            PL[i_]["team"] = t_
     out_ids = P.get("OUT_IDS") or set()
     out_rb = {i for i in out_ids if i in PL and PL[i]["team"] in matchup and (PL[i]["grp"] == "RB" or PL[i]["pos"] in ("RB", "FB"))} if P.get("OUT_RB") else set()
     ids = [i for i in PL if PL[i]["team"] in matchup and i not in out_rb]

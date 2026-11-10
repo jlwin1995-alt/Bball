@@ -79,6 +79,15 @@ def manual_statuses(week, path="data/log/nfl_status_overrides.csv"):
         return {}
 
 
+def manual_teams(week, path="data/log/nfl_status_overrides.csv"):
+    """Optional `team` column of the same file: gsis_id -> team for a player who has changed teams (a trade the weekly file does not show yet). The player's history goes with him."""
+    try:
+        with open(path, newline="") as f:
+            return {r["gsis_id"]: r["team"] for r in csv.DictReader(f) if int(num(r.get("week"))) == week and r.get("gsis_id") and r.get("team")}
+    except FileNotFoundError:
+        return {}
+
+
 def history_gaps(rows, sched, week):
     """Games in weeks BEFORE `week` whose box scores are missing from the stats file.
 
