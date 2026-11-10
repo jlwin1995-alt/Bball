@@ -64,6 +64,20 @@ MAX_MIN = 42.0
 RESCALE_STRENGTH = 0.25            # share of the team-240 rescale applied. MEASURED (pipeline.absence_test, 2025-26): full rescale over-credits teammates; 0.25 cuts minutes MAE 6% and fantasy-point MAE ~2% with absences known (~1% unknown), in both halves of the season
 RESCALE_STRENGTH_BENCH = 0.75      # share of the team-240 rescale applied to men below BENCH_MIN_CUT usual minutes (None = same as RESCALE_STRENGTH). MEASURED (2025-26 and 2024-25, absences known): with 2+ rotation men out, bench men are projected ~2.5 min low at 0.25 and ~1.2 at 0.75 (fantasy MAE 7.8 -> 7.6, bench overall bias +0.9 -> +0.2); starters are unbiased at 0.25 and get worse above it, so they keep it
 RESCALE_CLIP_BENCH = (0.80, 1.5)
+# Absent-player usage pass (Nov 10, 2026). When a team's rotation is badly depleted (Raptors, Nov 9: Barnes, Quickley, Murray-Boyles out), the men who play produce more PER MINUTE on top of the
+# extra minutes the rescale already gives them: each gets USAGE_PASS[stat] x (production the absent men would have had, from their usual minutes x rates) x (his share of the present players'
+# projected stat). MEASURED walk-forward on 2024-25 and 2025-26 with absences known, teammates projected 10+ min, regression of actual - projected on that product: it is real but only matters
+# when a lot is missing (teammate bias by number of rotation players out: -1.5 FP with none, -0.5 with 1, -0.1 with 2, +0.7 with 3, +3.2 with 4+). So it applies only when the absent men's
+# combined production is at least USAGE_PASS_MIN_VAC fantasy points (about 2-3 starters). Fitted on one season and applied to the other, on those rows it cut fantasy-point MAE 8.80 -> 8.60
+# and 8.82 -> 8.67 and took the bias from +3.1 / +2.7 to +0.4 / +1.8 (rows below the threshold are untouched). Pooled fits on rows over the threshold: points 0.19, rebounds 0.12, assists 0.19
+# (threes 0.05, not significant, so left out). Applying it to every team measurably HURT the 1-2 out cases (the model over-projects teammates a little at full strength), hence the threshold.
+# Only men normally in the rotation count (min_s >= USAGE_PASS_MIN_S and played >= USAGE_PASS_PPLAY of the last PLAY_WINDOW team games): someone out for weeks is already in his teammates' recent
+# form. Capped at USAGE_PASS_CAP of a player's own stat.
+USAGE_PASS = {"pts": 0.20, "reb": 0.12, "ast": 0.19}     # None / {} = off
+USAGE_PASS_MIN_VAC = 80.0
+USAGE_PASS_MIN_S = 15.0
+USAGE_PASS_PPLAY = 0.6
+USAGE_PASS_CAP = 0.5
 BENCH_MIN_CUT = 20.0
 PLAY_WINDOW = 20                   # team games used to measure how often a player actually plays
 ACTIVE_DAYS = 21                   # a player must have played in this window to take minutes
