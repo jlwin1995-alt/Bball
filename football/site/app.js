@@ -33,7 +33,7 @@ function calcFor(p) {
 }
 const proj = () => D.projections.map(p => ({...p, c: calcFor(p)}));
 
-const nameCols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}];
+const nameCols = [{k: "name", h: "Player", l: 1}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1, f: r => r.moved ? `${esc(r.team)} <span class="pill start" title="${esc("Moved from " + r.moved + " since his last game (the depth chart or a manual entry shows the new team); his history goes with him, but his new role is not known.")}">NEW</span>` : esc(r.team)}];
 const F = {q: "", pos: "", team: "", hideStarted: false, game: "", effView: "QB", usView: "Season share", year: "", minG: 0, lstat: "", lgame: "", lpicks: false, lstrong: false, rweek: "", rmkt: "pts", rlines: false, rpicks: false};
 function teams() { return [...new Set(D.projections.map(p => p.team))].sort(); }
 function filters(extra = "", {team = false} = {}) {

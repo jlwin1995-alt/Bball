@@ -5,7 +5,7 @@
 import argparse, datetime as dt, json, os, re, sys
 from . import config as C, analysis, scorecard, weather, results, legacy, teamstats, pff_roles, pff_matchups, hitrates, cal_prob, prob, lines as lines_mod
 from .model import (load_weekly, nfl_core, derive, params, rnd, td_adj, td_base, opp_pos_factor, pos_group, REC_POS, num)
-from .slate import load_csv, target_week, matchups, kickoffs, statuses, manual_statuses, manual_teams, depth_map, week_games, game_label, history_gaps
+from .slate import load_csv, target_week, matchups, kickoffs, statuses, manual_statuses, manual_teams, depth_moves, depth_map, week_games, game_label, history_gaps
 
 
 def dump(obj, out, name):
@@ -126,11 +126,22 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     backup_ids = {i for i, st in manual.items() if st.lower() == "backup"}      # a quarterback named by hand as no longer the starter: his attempts and carries drop to the backup sliver
     out_ids = {i for i, st in status.items() if re.match(r"(out|ir)", st, re.I)}
     dpt = depth_map(load_csv(f"{raw}/depth.csv")) if os.path.exists(f"{raw}/depth.csv") else {}
+    # players who changed teams since their last game (the depth chart already shows the new team); the hand-entered `team` column wins
+    rows_name = {x["player_id"]: x["player_display_name"] for x in rows}
+    moves = depth_moves(rows, load_csv(f"{raw}/depth.csv")) if os.path.exists(f"{raw}/depth.csv") else {}
+    team_override = {i: t for i, (t, _) in moves.items()}
+    team_override.update(manual_teams(week))
+    old_team = {i: o for i, (t, o) in moves.items()}
+    for x in rows:
+        if x["player_id"] in team_override and x["week"] < week:
+            old_team.setdefault(x["player_id"], x["team"])
+    if moves:
+        print(f"depth chart shows {len(moves)} players on a new team: " + ", ".join(f"{rows_name.get(i, i)} {o}->{t}" for i, (t, o) in list(moves.items())[:12]))
     sit_fracs = {}
     if P.get("SIT_TD_W") and os.path.exists(f"{raw}/pbp_slim.csv"):
         from . import situation
         sit_fracs = situation.fracs(situation.load_plays(f"{raw}/pbp_slim.csv"), week, P)       # goal-line / red-zone shares from this season's plays before the target week
-    core = nfl_core(hist, mu, by_team_wx, dict(P, OUT_IDS=out_ids, STARTER_IDS=starter_ids, BACKUP_IDS=backup_ids, TEAM_OVERRIDE=manual_teams(week), QB1_IDS={i for i, d in dpt.items() if d["slot"] == "QB1"}, SIT_FRACS=sit_fracs))
+    core = nfl_core(hist, mu, by_team_wx, dict(P, OUT_IDS=out_ids, STARTER_IDS=starter_ids, BACKUP_IDS=backup_ids, TEAM_OVERRIDE=team_override, QB1_IDS={i for i, d in dpt.items() if d["slot"] == "QB1"}, SIT_FRACS=sit_fracs))
     # starters (depth chart rank 1, WR 1-3) the injury report lists Out or Doubtful, by team, for the Game Board warning
     outs = {}
     for x in inj:
@@ -171,7 +182,7 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
         k0 = kick.get(pl["team"])
         proj.append(dict(
             id=pl["id"], name=pl["name"], pos=pl["pos"], grp=pl["grp"], team=pl["team"], opp=pl["opp"], home=int(pl["siteTag"] == "vs"),
-            game=game_label(away, home), ko=utc(k0), status=status.get(pl["id"], ""), depth=dpt.get(pl["id"]), shift=int((pl["team"], pl["pos"]) in shift and pl["id"] not in out_ids), ret=ret, g=pl["g"], rest=pl["rest"], role=role_of(pffr, pl), mu=mu_of(pffmu, pl),
+            game=game_label(away, home), ko=utc(k0), status=status.get(pl["id"], ""), moved=(old_team.get(pl["id"]) if team_override.get(pl["id"]) not in (None, old_team.get(pl["id"])) else None), depth=dpt.get(pl["id"]), shift=int((pl["team"], pl["pos"]) in shift and pl["id"] not in out_ids), ret=ret, g=pl["g"], rest=pl["rest"], role=role_of(pffr, pl), mu=mu_of(pffmu, pl),
             wind=r(pl["wind"], 1) if pl["wind"] != "" else None,
             # volumes (rounded to one decimal, as displayed) and the rates the browser multiplies them by when you override a volume
             car=d["car"], tgt=d["tgt"], att=d["att"], ypc=r(pl["ypc"], 4), cr=r(pl["cr"], 4), ypr=r(pl["ypr"], 4), ypa=r(pl["ypa"], 4), cmp=r(pl["compRate"], 4),
