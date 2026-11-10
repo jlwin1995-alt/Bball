@@ -307,6 +307,10 @@ def nfl_core(rows, matchup, wx=None, P=None):
 
     # a quarterback named as the starter by hand (data/log/nfl_status_overrides.csv, status "Starter", for a starter ruled Out): he throws the team's usual attempts, not the +20% nudge his thin
     # backup history would get from the team rescale (the same fix as the college STARTER override); his rates stay regressed toward the league
+    for i in (P.get("BACKUP_IDS") or ()):
+        if i in raw and PL[i]["pos"] == "QB":
+            raw[i]["att"] *= P["QB_BACKUP_W"]
+            raw[i]["car"] *= P["QB_BACKUP_W"]
     starters = set(P.get("STARTER_IDS") or ())
     if P.get("THIN_QB_ON"):
         # the depth chart's QB1 with a thin career history (fewer than THIN_QB_ATT attempts) is treated the same way: the team's usual attempts and a typical quarterback's carries
