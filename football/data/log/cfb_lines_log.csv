@@ -2783,37 +2783,37 @@ commence,game,player_id,name,team,stat,cons_line,cons_p_over,n_books,pp_line,ud_
 2026-11-11T01:00:00Z,Ohio @ Miami (OH),5228764,Riley Neer,Ohio,rec,4.5,0.5,2,,,2026-11-10T20:58:18+00:00,11
 2026-11-11T01:00:00Z,Ohio @ Miami (OH),5228764,Riley Neer,Ohio,recY,56.5,0.5,1,,,2026-11-10T20:58:18+00:00,11
 2026-11-11T01:00:00Z,Ohio @ Miami (OH),5153885,Rodney Nelson,Miami (OH),rushY,49.5,0.5102,2,,,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,5153399,Adjatay Dabbs,Toledo,rec,,,,,4.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,5153399,Adjatay Dabbs,Toledo,recY,60.5,0.5,1,,64.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,5164730,Autavius Ison,Toledo,rushY,48.5,0.5,1,,46.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,5162858,Bryson Hammer,Toledo,recY,38.5,0.5,1,,41.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,5092811,CJ Miller,Toledo,rushY,99.5,0.5,1,,101.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,4869601,Chance Morrow,Buffalo,rec,,,,5.5,5.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,4869601,Chance Morrow,Buffalo,recY,58.5,0.5061,1,58.5,58.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5387612,Clint Walker,Buffalo,recY,29.5,0.4939,1,,29.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5191056,Donovan Hamilton,Ball State,rec,,,,2.5,2.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5191056,Donovan Hamilton,Ball State,recY,33.5,0.5,1,33.5,33.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5295436,Dwayne Early Jr.,Buffalo,recY,24.5,0.5,1,24.5,24.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,5161820,Isaiah Ene,Sacramento State,rushY,30.5,0.5,1,,,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5078053,Isaiah Thacker,Ball State,recY,,,,26.5,26.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5078533,Jabari Smith,Ball State,recY,,,,11.5,11.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,5158748,Jackson Sharman,Sacramento State,passY,154.5,0.5,1,,,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,5149056,Jadyn Glasser,Central Michigan,passY,197.5,0.5,1,,,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5265528,Jalen Bonds,Ball State,recY,,,,9.5,9.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5265528,Jalen Bonds,Ball State,rushY,63.5,0.5,1,63.5,63.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5222761,Jamarion McDougle,Ball State,rec,,,,2.5,,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5222761,Jamarion McDougle,Ball State,recY,29.5,0.5,1,29.5,29.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5222591,Jason Wright,Buffalo,passY,185.5,0.5,1,185.5,185.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5222591,Jason Wright,Buffalo,rushY,21.5,0.5,1,21.5,21.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,5157391,Jayden Clerveaux,Central Michigan,rushY,39.5,0.5,1,,,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,5082330,John Alan Richter,Toledo,passY,228.5,0.5,1,,,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5075392,Keldric Luster,Ball State,passY,192.5,0.5,1,192.5,192.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5075392,Keldric Luster,Ball State,rushY,39.5,0.5,1,39.5,39.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5151369,Messiah Burch,Buffalo,recY,,,,5.5,6.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5151369,Messiah Burch,Buffalo,rushY,74.5,0.4939,1,74.5,74.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,5152796,Onterrio Smith Jr.,Sacramento State,recY,27.5,0.5,1,,,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5084704,Patrick Clacks III,Buffalo,recY,,,,20.5,20.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,5158759,Raiden Brown,Sacramento State,recY,25.5,0.5,1,,,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5077876,TJ Horton,Ball State,recY,,,,3.5,3.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Buffalo @ Ball State,5077876,TJ Horton,Ball State,rushY,35.5,0.5,1,35.5,35.5,2026-11-10T20:58:18+00:00,11
-2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,5122147,Vaughn Blue,Central Michigan,rushY,33.5,0.5,1,,,2026-11-10T20:58:18+00:00,11
+2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,5153399,Adjatay Dabbs,Toledo,rec,,,,,4.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,5153399,Adjatay Dabbs,Toledo,recY,60.5,0.5,1,,60.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,5164730,Autavius Ison,Toledo,rushY,48.5,0.5,1,,48.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,5162858,Bryson Hammer,Toledo,recY,38.5,0.5,1,,38.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,5092811,CJ Miller,Toledo,rushY,99.5,0.5,1,,99.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,4869601,Chance Morrow,Buffalo,rec,,,,5.5,5.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,4869601,Chance Morrow,Buffalo,recY,58.5,0.5061,1,58.5,58.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5387612,Clint Walker,Buffalo,recY,29.5,0.4939,1,,29.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5191056,Donovan Hamilton,Ball State,rec,,,,2.5,2.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5191056,Donovan Hamilton,Ball State,recY,33.5,0.5,1,33.5,33.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5295436,Dwayne Early Jr.,Buffalo,recY,24.5,0.5,1,24.5,24.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,5161820,Isaiah Ene,Sacramento State,rushY,30.5,0.5,1,,,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5078053,Isaiah Thacker,Ball State,recY,,,,27.5,27.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5078533,Jabari Smith,Ball State,recY,,,,11.5,11.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,5158748,Jackson Sharman,Sacramento State,passY,154.5,0.5,1,,,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,5149056,Jadyn Glasser,Central Michigan,passY,197.5,0.5,1,,,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5265528,Jalen Bonds,Ball State,recY,,,,9.5,9.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5265528,Jalen Bonds,Ball State,rushY,63.5,0.5,1,63.5,63.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5222761,Jamarion McDougle,Ball State,rec,,,,2.5,2.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5222761,Jamarion McDougle,Ball State,recY,29.5,0.5,1,29.5,29.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5222591,Jason Wright,Buffalo,passY,185.5,0.5,1,185.5,185.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5222591,Jason Wright,Buffalo,rushY,21.5,0.5,1,21.5,21.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,5157391,Jayden Clerveaux,Central Michigan,rushY,39.5,0.5,1,,,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,5082330,John Alan Richter,Toledo,passY,228.5,0.5,1,,228.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5075392,Keldric Luster,Ball State,passY,192.5,0.5,1,192.5,192.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5075392,Keldric Luster,Ball State,rushY,37.5,0.5,1,37.5,37.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5151369,Messiah Burch,Buffalo,recY,,,,5.5,6.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5151369,Messiah Burch,Buffalo,rushY,74.5,0.4939,1,74.5,74.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,5152796,Onterrio Smith Jr.,Sacramento State,recY,27.5,0.5,1,,,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5084704,Patrick Clacks III,Buffalo,recY,,,,21.5,21.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,5158759,Raiden Brown,Sacramento State,recY,25.5,0.5,1,,,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5077876,TJ Horton,Ball State,recY,,,,3.5,3.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Buffalo @ Ball State,5077876,TJ Horton,Ball State,rushY,35.5,0.5,1,35.5,35.5,2026-11-11T01:51:09+00:00,11
+2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,5122147,Vaughn Blue,Central Michigan,rushY,33.5,0.5,1,,,2026-11-11T01:51:09+00:00,11

@@ -1,4 +1,105 @@
 ts,event,commence,game,home,away,player,stat,book,line,over,under
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Keldric Luster,passY,fanduel,192.5,-114,-114
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jason Wright,passY,fanduel,185.5,-114,-114
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Dwayne Early Jr.,recY,fanduel,24.5,-114,-114
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Chance Morrow,recY,fanduel,58.5,-118,-112
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Clint Walker,recY,fanduel,29.5,-112,-118
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jamarion McDougle,recY,fanduel,29.5,-114,-114
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Donovan Hamilton,recY,fanduel,33.5,-114,-114
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Keldric Luster,rushY,fanduel,37.5,-114,-114
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Messiah Burch,rushY,fanduel,74.5,-112,-118
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jason Wright,rushY,fanduel,21.5,-114,-114
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jalen Bonds,rushY,fanduel,63.5,-114,-114
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,TJ Horton,rushY,fanduel,35.5,-114,-114
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jason Wright,passY,betrivers,189.5,-121,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Keldric Luster,passY,betrivers,196.5,-120,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Chance Morrow,recY,betrivers,58.5,-121,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Clint Walker,recY,betrivers,30.5,-115,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Donovan Hamilton,recY,betrivers,33.5,-118,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Isaiah Thacker,recY,betrivers,25.5,-118,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Patrick Clacks III,recY,betrivers,20.5,-125,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jamarion McDougle,recY,betrivers,29.5,-124,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Dwayne Early Jr.,recY,betrivers,24.5,-120,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jason Wright,rushY,betrivers,21.5,-124,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Keldric Luster,rushY,betrivers,38.5,-121,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Messiah Burch,rushY,betrivers,74.5,-122,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jalen Bonds,rushY,betrivers,64.5,-118,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,TJ Horton,rushY,betrivers,35.5,-118,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Keldric Luster,passY,prizepicks,192.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jason Wright,passY,prizepicks,185.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Chance Morrow,recY,prizepicks,58.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Donovan Hamilton,recY,prizepicks,33.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jamarion McDougle,recY,prizepicks,29.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Isaiah Thacker,recY,prizepicks,27.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Dwayne Early Jr.,recY,prizepicks,24.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Patrick Clacks III,recY,prizepicks,21.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jabari Smith Jr.,recY,prizepicks,11.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jalen Bonds,recY,prizepicks,9.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Messiah Burch,recY,prizepicks,5.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,TJ Horton,recY,prizepicks,3.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Chance Morrow,rec,prizepicks,5.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jamarion McDougle,rec,prizepicks,2.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Donovan Hamilton,rec,prizepicks,2.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Messiah Burch,rushY,prizepicks,74.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jalen Bonds,rushY,prizepicks,63.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Keldric Luster,rushY,prizepicks,37.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,TJ Horton,rushY,prizepicks,35.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jason Wright,rushY,prizepicks,21.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Keldric Luster,passY,underdog,192.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jason Wright,passY,underdog,185.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jalen Bonds,recY,underdog,9.5,-137,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Messiah Burch,recY,underdog,6.5,-137,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,TJ Horton,recY,underdog,3.5,-137,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Patrick Clacks III,recY,underdog,21.5,-137,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Dwayne Early Jr.,recY,underdog,24.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jabari Smith Jr.,recY,underdog,11.5,-137,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Isaiah Thacker,recY,underdog,27.5,-137,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jamarion McDougle,recY,underdog,29.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Chance Morrow,recY,underdog,58.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Donovan Hamilton,recY,underdog,33.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Clint Walker,recY,underdog,29.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jamarion McDougle,rec,underdog,2.5,-137,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Chance Morrow,rec,underdog,5.5,-137,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Donovan Hamilton,rec,underdog,2.5,-137,
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Keldric Luster,rushY,underdog,37.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jason Wright,rushY,underdog,21.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jalen Bonds,rushY,underdog,63.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Messiah Burch,rushY,underdog,74.5,-137,-137
+2026-11-11T01:51:09+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,TJ Horton,rushY,underdog,35.5,-137,-137
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Jackson Sharman,passY,fanduel,154.5,-114,-114
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Jadyn Glasser,passY,fanduel,197.5,-114,-114
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Onterrio Smith Jr.,recY,fanduel,27.5,-114,-114
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Matt Coleman,recY,fanduel,34.5,-114,-114
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Raiden Brown,recY,fanduel,25.5,-114,-114
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Jayden Clerveaux,rushY,fanduel,39.5,-114,-114
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Nick Woodford,rushY,fanduel,57.5,-114,-114
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Vaughn Blue,rushY,fanduel,33.5,-114,-114
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Isaiah Ene,rushY,fanduel,30.5,-114,-114
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Jackson Sharman,passY,betrivers,157.5,-115,
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Jadyn Glasser,passY,betrivers,197.5,-130,
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Onterrio Smith Jr.,recY,betrivers,27.5,-117,
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Raiden Brown,recY,betrivers,25.5,-122,
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Matt Coleman,recY,betrivers,33.5,-118,
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Nick Woodford,rushY,betrivers,58.5,-120,
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Isaiah Ene,rushY,betrivers,31.5,-117,
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Vaughn Blue,rushY,betrivers,33.5,-124,
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Cincere Rhaney,rushY,betrivers,19.5,-117,
+2026-11-11T01:51:09+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Jayden Clerveaux,rushY,betrivers,39.5,-121,
+2026-11-11T01:51:09+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,John Alan Richter,passY,fanduel,228.5,-114,-114
+2026-11-11T01:51:09+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,Adjatay Dabbs,recY,fanduel,60.5,-114,-114
+2026-11-11T01:51:09+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,Bryson Hammer,recY,fanduel,38.5,-114,-114
+2026-11-11T01:51:09+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,Autavius Ison,rushY,fanduel,48.5,-114,-114
+2026-11-11T01:51:09+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,CJ Miller,rushY,fanduel,99.5,-114,-114
+2026-11-11T01:51:09+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,John Alan Richter,passY,betrivers,229.5,-121,
+2026-11-11T01:51:09+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,Adjatay Dabbs,recY,betrivers,60.5,-120,
+2026-11-11T01:51:09+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,Bryson Hammer,recY,betrivers,38.5,-124,
+2026-11-11T01:51:09+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,Autavius Ison,rushY,betrivers,48.5,-118,
+2026-11-11T01:51:09+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,John Alan Richter,passY,underdog,228.5,-137,-137
+2026-11-11T01:51:09+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,Adjatay Dabbs,recY,underdog,60.5,-137,-137
+2026-11-11T01:51:09+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,Bryson Hammer,recY,underdog,38.5,-137,-137
+2026-11-11T01:51:09+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,Adjatay Dabbs,rec,underdog,4.5,-137,
+2026-11-11T01:51:09+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,CJ Miller,rushY,underdog,99.5,-137,-137
+2026-11-11T01:51:09+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,Autavius Ison,rushY,underdog,48.5,-137,-137
 2026-11-10T20:58:18+00:00,5fc2c0b99e391f74694276d2eb95146c,2026-11-11T00:00:00Z,Western Michigan @ Akron,Akron,Western Michigan,Broc Lowry,passY,fanduel,194.5,-114,-114
 2026-11-10T20:58:18+00:00,5fc2c0b99e391f74694276d2eb95146c,2026-11-11T00:00:00Z,Western Michigan @ Akron,Akron,Western Michigan,Cibastian Broughton,passY,fanduel,175.5,-114,-114
 2026-11-10T20:58:18+00:00,5fc2c0b99e391f74694276d2eb95146c,2026-11-11T00:00:00Z,Western Michigan @ Akron,Akron,Western Michigan,Aveion Chenault,recY,fanduel,65.5,-114,-114
@@ -126,88 +227,3 @@ ts,event,commence,game,home,away,player,stat,book,line,over,under
 2026-11-10T20:58:18+00:00,8f68604c47a7db841963eb62623db417,2026-11-11T01:00:00Z,Ohio @ Miami (OH),Miami (OH),Ohio,Rodney Nelson,rushY,betrivers,50.5,-117,
 2026-11-10T20:58:18+00:00,8f68604c47a7db841963eb62623db417,2026-11-11T01:00:00Z,Ohio @ Miami (OH),Miami (OH),Ohio,Nick Poulos,rushY,betrivers,41.5,-122,
 2026-11-10T20:58:18+00:00,8f68604c47a7db841963eb62623db417,2026-11-11T01:00:00Z,Ohio @ Miami (OH),Miami (OH),Ohio,Duncan Brune,rushY,betrivers,54.5,-120,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Keldric Luster,passY,fanduel,192.5,-114,-114
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jason Wright,passY,fanduel,185.5,-114,-114
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Dwayne Early Jr.,recY,fanduel,24.5,-114,-114
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Chance Morrow,recY,fanduel,58.5,-118,-112
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Clint Walker,recY,fanduel,29.5,-112,-118
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jamarion McDougle,recY,fanduel,29.5,-114,-114
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Donovan Hamilton,recY,fanduel,33.5,-114,-114
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Keldric Luster,rushY,fanduel,39.5,-114,-114
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Messiah Burch,rushY,fanduel,74.5,-112,-118
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jason Wright,rushY,fanduel,21.5,-114,-114
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jalen Bonds,rushY,fanduel,63.5,-114,-114
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,TJ Horton,rushY,fanduel,35.5,-114,-114
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jason Wright,passY,betrivers,189.5,-121,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Keldric Luster,passY,betrivers,196.5,-120,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Chance Morrow,recY,betrivers,58.5,-121,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Clint Walker,recY,betrivers,30.5,-115,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Donovan Hamilton,recY,betrivers,33.5,-118,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Isaiah Thacker,recY,betrivers,25.5,-118,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Patrick Clacks III,recY,betrivers,20.5,-125,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jamarion McDougle,recY,betrivers,29.5,-124,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Dwayne Early Jr.,recY,betrivers,24.5,-120,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jason Wright,rushY,betrivers,21.5,-124,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Keldric Luster,rushY,betrivers,38.5,-121,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Messiah Burch,rushY,betrivers,74.5,-122,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jalen Bonds,rushY,betrivers,64.5,-118,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,TJ Horton,rushY,betrivers,35.5,-118,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Keldric Luster,passY,prizepicks,192.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jason Wright,passY,prizepicks,185.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Chance Morrow,recY,prizepicks,58.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Donovan Hamilton,recY,prizepicks,33.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jamarion McDougle,recY,prizepicks,29.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Isaiah Thacker,recY,prizepicks,26.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Dwayne Early Jr.,recY,prizepicks,24.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Patrick Clacks III,recY,prizepicks,20.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jabari Smith Jr.,recY,prizepicks,11.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jalen Bonds,recY,prizepicks,9.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Messiah Burch,recY,prizepicks,5.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,TJ Horton,recY,prizepicks,3.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Chance Morrow,rec,prizepicks,5.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jamarion McDougle,rec,prizepicks,2.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Donovan Hamilton,rec,prizepicks,2.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Messiah Burch,rushY,prizepicks,74.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jalen Bonds,rushY,prizepicks,63.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Keldric Luster,rushY,prizepicks,39.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,TJ Horton,rushY,prizepicks,35.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jason Wright,rushY,prizepicks,21.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Keldric Luster,passY,underdog,192.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jason Wright,passY,underdog,185.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jalen Bonds,recY,underdog,9.5,-137,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,TJ Horton,recY,underdog,3.5,-137,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Messiah Burch,recY,underdog,6.5,-137,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Isaiah Thacker,recY,underdog,26.5,-137,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jabari Smith Jr.,recY,underdog,11.5,-137,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Dwayne Early Jr.,recY,underdog,24.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Chance Morrow,recY,underdog,58.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jamarion McDougle,recY,underdog,29.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Patrick Clacks III,recY,underdog,20.5,-137,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Donovan Hamilton,recY,underdog,33.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Clint Walker,recY,underdog,29.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Chance Morrow,rec,underdog,5.5,-137,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Donovan Hamilton,rec,underdog,2.5,-137,
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Keldric Luster,rushY,underdog,39.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jason Wright,rushY,underdog,21.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Jalen Bonds,rushY,underdog,63.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,TJ Horton,rushY,underdog,35.5,-137,-137
-2026-11-10T20:58:18+00:00,a8f5a967982255fd6be0435c3b213b0f,2026-11-12T00:30:00Z,Buffalo @ Ball State,Ball State,Buffalo,Messiah Burch,rushY,underdog,74.5,-137,-137
-2026-11-10T20:58:18+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Jackson Sharman,passY,fanduel,154.5,-114,-114
-2026-11-10T20:58:18+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Jadyn Glasser,passY,fanduel,197.5,-114,-114
-2026-11-10T20:58:18+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Onterrio Smith Jr.,recY,fanduel,27.5,-114,-114
-2026-11-10T20:58:18+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Matt Coleman,recY,fanduel,34.5,-114,-114
-2026-11-10T20:58:18+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Raiden Brown,recY,fanduel,25.5,-114,-114
-2026-11-10T20:58:18+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Jayden Clerveaux,rushY,fanduel,39.5,-114,-114
-2026-11-10T20:58:18+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Nick Woodford,rushY,fanduel,57.5,-114,-114
-2026-11-10T20:58:18+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Vaughn Blue,rushY,fanduel,33.5,-114,-114
-2026-11-10T20:58:18+00:00,88407c59161b47299b7d8f5d730f916c,2026-11-12T00:30:00Z,Sacramento State @ Central Michigan,Central Michigan,Sacramento State,Isaiah Ene,rushY,fanduel,30.5,-114,-114
-2026-11-10T20:58:18+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,John Alan Richter,passY,fanduel,228.5,-114,-114
-2026-11-10T20:58:18+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,Adjatay Dabbs,recY,fanduel,60.5,-114,-114
-2026-11-10T20:58:18+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,Bryson Hammer,recY,fanduel,38.5,-114,-114
-2026-11-10T20:58:18+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,Autavius Ison,rushY,fanduel,48.5,-114,-114
-2026-11-10T20:58:18+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,CJ Miller,rushY,fanduel,99.5,-114,-114
-2026-11-10T20:58:18+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,Adjatay Dabbs,recY,underdog,64.5,-137,
-2026-11-10T20:58:18+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,Bryson Hammer,recY,underdog,41.5,-137,
-2026-11-10T20:58:18+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,Adjatay Dabbs,rec,underdog,4.5,-137,
-2026-11-10T20:58:18+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,Autavius Ison,rushY,underdog,46.5,-137,
-2026-11-10T20:58:18+00:00,5129a94416920cd3c476cd56af387f47,2026-11-12T00:30:00Z,UMass Minutemen @ Toledo,Toledo,UMass Minutemen,CJ Miller,rushY,underdog,101.5,-137,
