@@ -28,7 +28,7 @@ def lines_by_week(path="data/log/cfb_lines_log.csv"):
     return by, team_n
 
 
-def run(opp_min=6.0, weeks=(7, 8)):
+def run(opp_min=6.0, weeks=(7, 8, 9, 10)):
     rows, games = load_rows("data/raw/cfb_weekly.csv"), read_csv("data/raw/cfb_games.csv")
     sched, skip = schedule(games), excluded_games(games)
     by, team_n = lines_by_week()
@@ -68,7 +68,7 @@ def summarize(res, label, f):
 
 if __name__ == "__main__":
     res = run()
-    print(f"{len(res)} projected player-games on priced teams (weeks 7-8)")
+    print(f"{len(res)} projected player-games on priced teams (weeks 7-10)")
     summarize(res, "has a line", lambda x: x["has"])
     summarize(res, "no line", lambda x: not x["has"])
     summarize(res, "no line, projected 10+ opps", lambda x: not x["has"] and x["proj"] >= 10)
@@ -77,7 +77,7 @@ if __name__ == "__main__":
     summarize(res, "had one last week, still has", lambda x: x["has"] and any(True for _ in [0]) and not x["removed"] and x["wk"] == 8)
 
 
-def teammates(opp_min=10.0, weeks=(7, 8)):
+def teammates(opp_min=10.0, weeks=(7, 8, 9, 10)):
     """Treat no-line players (projected opp_min+ opportunities, team priced) as out: do their teammates' projections improve?"""
     W = C.DEFAULT_SCORING
     rows, games = load_rows("data/raw/cfb_weekly.csv"), read_csv("data/raw/cfb_games.csv")
