@@ -18,6 +18,7 @@ pid,name,team
 4397183,Aaron Wiggins,ATL
 4431714,Jalen Wilson,ATL
 4433188,Devin Carter,BOS
+5142621,Chris Cenac Jr.,BOS
 3195,Mike Conley,BOS
 4277951,Luka Garza,BOS
 4251,Paul George,BOS
@@ -225,6 +226,7 @@ pid,name,team
 5254165,Keaton Wagler,LAC
 4683935,Blake Wesley,LAC
 5113969,Cameron Carr,LAL
+5105817,Carson Cooper,LAL
 3945274,Luka Doncic,LAL
 4397014,Quentin Grimes,LAL
 4868423,Jaden Hardy,LAL
@@ -233,7 +235,6 @@ pid,name,team
 4433136,Walker Kessler,LAL
 4592691,Jake LaRavia,LAL
 3155535,Kevon Looney,LAL
-4596528,Lawson Lovering,LAL
 4278580,Sandro Mamukelashvili,LAL
 4702972,Chris Manon,LAL
 5114350,AK Okereke,LAL
@@ -244,7 +245,6 @@ pid,name,team
 4278077,Jarred Vanderbilt,LAL
 4433137,Ziaire Williams,LAL
 5041935,Cameron Boozer,MEM
-5105817,Carson Cooper,MEM
 4903027,Cedric Coward,MEM
 4600663,Zach Edey,MEM
 2991070,Jerami Grant,MEM
@@ -303,7 +303,6 @@ pid,name,team
 3934673,Donte DiVincenzo,MIN
 4397002,Ayo Dosunmu,MIN
 4594268,Anthony Edwards,MIN
-5061585,Isaiah Evans,MIN
 3032976,Rudy Gobert,MIN
 4592492,Bones Hyland,MIN
 4433247,Jonathan Kuminga,MIN
