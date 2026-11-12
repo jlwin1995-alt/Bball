@@ -32,6 +32,12 @@ jobs:
         # ESPN play-by-play (one summary call per new game): shot coordinates, plus who started and every substitution (stints.csv.gz; the
         # older games are filled 350 per run until caught up). Soft-fail so it can never block the refresh.
         run: python -m pipeline.fetch_shots || echo "::warning::shot locations / stints could not be updated"
+      - name: Fetch the market spread and total for each game (research)
+        # ESPN's free game page (DraftKings): data/raw/game_lines.csv. Finished games once, upcoming games refreshed every run. Soft-fail.
+        run: python -m pipeline.fetch_game_lines || echo "::warning::game spreads and totals could not be fetched"
+      - name: Snapshot injuries with the availability tag from the note (research)
+        # data/log/injury_log.csv: one row per change per player per slate day; python -m pipeline.injury_log --report gives P(played) by tag. Soft-fail.
+        run: python -m pipeline.injury_log || echo "::warning::injury snapshot could not be logged"
       - name: Learn preseason minutes (once, before the season; cached in data/raw)
         run: test -f data/raw/preseason_minutes.json || python -m pipeline.preseason_minutes || echo "::warning::preseason minutes could not be learned; the site uses a rough default"
       - name: Fit spreads for the Lines tab
