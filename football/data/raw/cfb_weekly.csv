@@ -15610,6 +15610,28 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 10,5209945,Antwan Raymond,RB,Rutgers,Big Ten,Wisconsin,0,15.0,56.0,0.0,1.0,21.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 10,5280123,Aiden Gibson,RB,Rutgers,Big Ten,Wisconsin,0,1.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 10,5296378,Clay Thevenin,RB,Rutgers,Big Ten,Wisconsin,0,10.0,40.0,0.0,1.0,-2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5084582,Jordan Gant,RB,Akron,Mid-American,Western Michigan,1,9.0,61.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5110019,Kyan Mason,WR,Akron,Mid-American,Western Michigan,1,1.0,3.0,0.0,1.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5119873,Wyatt Hook,TE,Akron,Mid-American,Western Michigan,1,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5146708,Sean Patrick,RB,Akron,Mid-American,Western Michigan,1,1.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5157315,Connor Cravaack,TE,Akron,Mid-American,Western Michigan,1,0.0,0.0,0.0,2.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5193102,Miles Burris,WR,Akron,Mid-American,Western Michigan,1,0.0,0.0,0.0,3.0,55.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5193341,Marcel Williams,,Akron,Mid-American,Western Michigan,1,0.0,0.0,0.0,5.0,85.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5198324,Cibastian Broughton,QB,Akron,Mid-American,Western Michigan,1,8.0,-19.0,0.0,0.0,0.0,0.0,12.0,18.0,173.0,2.0,0.0,0.0
+11,4596437,AJ Green,RB,Western Michigan,Mid-American,Akron,0,7.0,34.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,4917858,Cole Cabana,RB,Western Michigan,Mid-American,Akron,0,9.0,107.0,1.0,1.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5074245,Broc Lowry,QB,Western Michigan,Mid-American,Akron,0,4.0,-4.0,0.0,0.0,0.0,0.0,15.0,15.0,149.0,1.0,0.0,0.0
+11,5075962,Baylin Brooks,WR,Western Michigan,Mid-American,Akron,0,0.0,0.0,0.0,8.0,78.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5085006,Jalen Buckley,RB,Western Michigan,Mid-American,Akron,0,23.0,121.0,2.0,1.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5121636,Adam Parks,TE,Western Michigan,Mid-American,Akron,0,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5145473,Mason Reynolds,QB,Western Michigan,Mid-American,Akron,0,5.0,42.0,0.0,0.0,0.0,0.0,7.0,8.0,57.0,2.0,0.0,0.0
+11,5153248,Jordon Thomas,,Western Michigan,Mid-American,Akron,0,1.0,-9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5155273,Egypt Nelson,WR,Western Michigan,Mid-American,Akron,0,0.0,0.0,0.0,3.0,30.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5157528,Nathan Levicki,TE,Western Michigan,Mid-American,Akron,0,0.0,0.0,0.0,4.0,25.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5164351,Aveion Chenault,WR,Western Michigan,Mid-American,Akron,0,0.0,0.0,0.0,2.0,26.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5276960,Donovan Triplett,RB,Western Michigan,Mid-American,Akron,0,7.0,69.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5296172,Keivin Boone-Nelson II,WR,Western Michigan,Mid-American,Akron,0,0.0,0.0,0.0,2.0,23.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,-7923, Team,,Western Michigan,Mid-American,Akron,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
 11,4875755,Mason Blakemore,RB,Kent State,Mid-American,Bowling Green,0,7.0,24.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 11,5027432,Ardell Banks,WR,Kent State,Mid-American,Bowling Green,0,0.0,0.0,0.0,1.0,35.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 11,5083407,Hunter Hopperton,FB,Kent State,Mid-American,Bowling Green,0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
@@ -15655,28 +15677,6 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 11,5236380,Irving Brown,RB,Ohio,Mid-American,Miami (OH),0,4.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 11,5244755,Levi Davis,QB,Ohio,Mid-American,Miami (OH),0,2.0,9.0,0.0,0.0,0.0,0.0,3.0,3.0,36.0,0.0,0.0,0.0
 11,5394403,Mac Capen,,Ohio,Mid-American,Miami (OH),0,0.0,0.0,0.0,1.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5084582,Jordan Gant,RB,Akron,Mid-American,Western Michigan,1,9.0,61.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5110019,Kyan Mason,WR,Akron,Mid-American,Western Michigan,1,1.0,3.0,0.0,1.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5119873,Wyatt Hook,TE,Akron,Mid-American,Western Michigan,1,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5146708,Sean Patrick,RB,Akron,Mid-American,Western Michigan,1,1.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5157315,Connor Cravaack,TE,Akron,Mid-American,Western Michigan,1,0.0,0.0,0.0,2.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5193102,Miles Burris,WR,Akron,Mid-American,Western Michigan,1,0.0,0.0,0.0,3.0,55.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5193341,Marcel Williams,,Akron,Mid-American,Western Michigan,1,0.0,0.0,0.0,5.0,85.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5198324,Cibastian Broughton,QB,Akron,Mid-American,Western Michigan,1,8.0,-19.0,0.0,0.0,0.0,0.0,12.0,18.0,173.0,2.0,0.0,0.0
-11,4596437,AJ Green,RB,Western Michigan,Mid-American,Akron,0,7.0,34.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,4917858,Cole Cabana,RB,Western Michigan,Mid-American,Akron,0,9.0,107.0,1.0,1.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5074245,Broc Lowry,QB,Western Michigan,Mid-American,Akron,0,4.0,-4.0,0.0,0.0,0.0,0.0,15.0,15.0,149.0,1.0,0.0,0.0
-11,5075962,Baylin Brooks,WR,Western Michigan,Mid-American,Akron,0,0.0,0.0,0.0,8.0,78.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5085006,Jalen Buckley,RB,Western Michigan,Mid-American,Akron,0,23.0,121.0,2.0,1.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5121636,Adam Parks,TE,Western Michigan,Mid-American,Akron,0,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5145473,Mason Reynolds,QB,Western Michigan,Mid-American,Akron,0,5.0,42.0,0.0,0.0,0.0,0.0,7.0,8.0,57.0,2.0,0.0,0.0
-11,5153248,Jordon Thomas,,Western Michigan,Mid-American,Akron,0,1.0,-9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5155273,Egypt Nelson,WR,Western Michigan,Mid-American,Akron,0,0.0,0.0,0.0,3.0,30.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5157528,Nathan Levicki,TE,Western Michigan,Mid-American,Akron,0,0.0,0.0,0.0,4.0,25.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5164351,Aveion Chenault,WR,Western Michigan,Mid-American,Akron,0,0.0,0.0,0.0,2.0,26.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5276960,Donovan Triplett,RB,Western Michigan,Mid-American,Akron,0,7.0,69.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5296172,Keivin Boone-Nelson II,WR,Western Michigan,Mid-American,Akron,0,0.0,0.0,0.0,2.0,23.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,-7923, Team,,Western Michigan,Mid-American,Akron,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
 11,4688904,Reece Adkins,TE,Massachusetts,Mid-American,Toledo,0,0.0,0.0,0.0,5.0,33.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 11,4920153,William Watson III,QB,Massachusetts,Mid-American,Toledo,0,1.0,-9.0,0.0,0.0,0.0,0.0,2.0,4.0,22.0,0.0,0.0,0.0
 11,5081363,Justin Williams-Thomas,RB,Massachusetts,Mid-American,Toledo,0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
@@ -15697,24 +15697,28 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 11,5164730,Autavius Ison,RB,Toledo,Mid-American,Massachusetts,1,8.0,21.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 11,5394415,Khamoni Robinson,QB,Toledo,Mid-American,Massachusetts,1,1.0,13.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 11,-7650, Team,,Toledo,Mid-American,Massachusetts,1,1.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,4899137,Johnny Thompson Jr.,RB,Ball State,Mid-American,Buffalo,1,3.0,4.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5075392,Keldric Luster,QB,Ball State,Mid-American,Buffalo,1,7.0,34.0,0.0,0.0,0.0,0.0,20.0,39.0,136.0,0.0,0.0,0.0
-11,5077876,TJ Horton,RB,Ball State,Mid-American,Buffalo,1,11.0,92.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5078053,Isaiah Thacker,WR,Ball State,Mid-American,Buffalo,1,2.0,14.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5078533,Jabari Smith,WR,Ball State,Mid-American,Buffalo,1,1.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5150865,Elijah Jackson,RB,Ball State,Mid-American,Buffalo,1,8.0,32.0,0.0,2.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5191056,Donovan Hamilton,WR,Ball State,Mid-American,Buffalo,1,0.0,0.0,0.0,11.0,104.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5222761,Jamarion McDougle,WR,Ball State,Mid-American,Buffalo,1,1.0,5.0,0.0,2.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5295205,Tate Hoover,TE,Ball State,Mid-American,Buffalo,1,0.0,0.0,0.0,2.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,4869601,Chance Morrow,WR,Buffalo,Mid-American,Ball State,0,0.0,0.0,0.0,1.0,14.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5084704,Patrick Clacks III,WR,Buffalo,Mid-American,Ball State,0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5150003,Terrance Shelton Jr.,RB,Buffalo,Mid-American,Ball State,0,10.0,92.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5151369,Messiah Burch,RB,Buffalo,Mid-American,Ball State,0,31.0,209.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5222591,Jason Wright,QB,Buffalo,Mid-American,Ball State,0,10.0,1.0,0.0,0.0,0.0,0.0,5.0,14.0,48.0,1.0,0.0,0.0
-11,5295436,Dwayne Early Jr.,WR,Buffalo,Mid-American,Ball State,0,0.0,0.0,0.0,1.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5387611,Jaylen Andrews,WR,Buffalo,Mid-American,Ball State,0,0.0,0.0,0.0,1.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,5387612,Clint Walker,TE,Buffalo,Mid-American,Ball State,0,0.0,0.0,0.0,1.0,30.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-11,-5463, Team,,Buffalo,Mid-American,Ball State,0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,4826505,Mudia Reuben,WR,South Florida,American Athletic,Memphis,1,1.0,-8.0,0.0,6.0,98.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,4870927,Bryson Rodgers,WR,South Florida,American Athletic,Memphis,1,0.0,0.0,0.0,6.0,49.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
+11,4870941,Cameron Seldon,WR,South Florida,American Athletic,Memphis,1,1.0,9.0,0.0,2.0,18.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5079542,Luke Kromenhoek,QB,South Florida,American Athletic,Memphis,1,30.0,146.0,1.0,0.0,0.0,0.0,22.0,37.0,271.0,3.0,0.0,0.0
+11,5117848,Evan Dangler,TE,South Florida,American Athletic,Memphis,1,0.0,0.0,0.0,2.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5146576,Joshua Porter,WR,South Florida,American Athletic,Memphis,1,0.0,0.0,0.0,2.0,26.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5154559,Jason Collins Jr.,RB,South Florida,American Athletic,Memphis,1,12.0,108.0,1.0,3.0,65.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5193089,Alvon Isaac,RB,South Florida,American Athletic,Memphis,1,1.0,-6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+11,5218443,Chase Garnett,RB,South Florida,American Athletic,Memphis,1,6.0,33.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5296023,Tray Kinkle,RB,South Florida,American Athletic,Memphis,1,0.0,0.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,-7376, Team,,South Florida,American Athletic,Memphis,1,1.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,4605477,Alante Brown,WR,Memphis,American Athletic,South Florida,0,0.0,0.0,0.0,1.0,19.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,4922983,Manny Covey,RB,Memphis,American Athletic,South Florida,0,6.0,35.0,0.0,2.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5079354,Braylon Burnside,WR,Memphis,American Athletic,South Florida,0,0.0,0.0,0.0,2.0,30.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5148995,Brady Kluse,WR,Memphis,American Athletic,South Florida,0,0.0,0.0,0.0,1.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5165807,Marcus Stokes,QB,Memphis,American Athletic,South Florida,0,8.0,73.0,2.0,0.0,0.0,0.0,15.0,31.0,313.0,3.0,0.0,0.0
+11,5220352,Hunter Tipton,TE,Memphis,American Athletic,South Florida,0,0.0,0.0,0.0,2.0,14.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5222671,Jaylin Carter,RB,Memphis,American Athletic,South Florida,0,21.0,109.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5229953,Aidan O'Callaghan,TE,Memphis,American Athletic,South Florida,0,0.0,0.0,0.0,1.0,53.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5264658,Jermane Hayes,WR,Memphis,American Athletic,South Florida,0,0.0,0.0,0.0,1.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5294438,Jemyri Davis,WR,Memphis,American Athletic,South Florida,0,0.0,0.0,0.0,5.0,161.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5382927,Jordan Thompson,RB,Memphis,American Athletic,South Florida,0,2.0,51.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 11,5122147,Vaughn Blue,RB,Central Michigan,Mid-American,Sacramento State,1,3.0,9.0,1.0,4.0,19.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 11,5146689,Brock Townsend,RB,Central Michigan,Mid-American,Sacramento State,1,5.0,58.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 11,5149056,Jadyn Glasser,QB,Central Michigan,Mid-American,Sacramento State,1,6.0,33.0,0.0,0.0,0.0,0.0,11.0,19.0,105.0,0.0,0.0,0.0
@@ -15734,3 +15738,42 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 11,5310132,Daniel Swinney,RB,Sacramento State,Mid-American,Central Michigan,0,2.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 11,5401458,Brian Salazar,QB,Sacramento State,Mid-American,Central Michigan,0,4.0,9.0,0.0,0.0,0.0,0.0,13.0,28.0,103.0,0.0,1.0,0.0
 11,-7244, Team,,Sacramento State,Mid-American,Central Michigan,0,1.0,-2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,4899137,Johnny Thompson Jr.,RB,Ball State,Mid-American,Buffalo,1,3.0,4.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5075392,Keldric Luster,QB,Ball State,Mid-American,Buffalo,1,7.0,34.0,0.0,0.0,0.0,0.0,20.0,39.0,136.0,0.0,0.0,0.0
+11,5077876,TJ Horton,RB,Ball State,Mid-American,Buffalo,1,11.0,92.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5078053,Isaiah Thacker,WR,Ball State,Mid-American,Buffalo,1,2.0,14.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5078533,Jabari Smith,WR,Ball State,Mid-American,Buffalo,1,1.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5150865,Elijah Jackson,RB,Ball State,Mid-American,Buffalo,1,8.0,32.0,0.0,2.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5191056,Donovan Hamilton,WR,Ball State,Mid-American,Buffalo,1,0.0,0.0,0.0,11.0,104.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5222761,Jamarion McDougle,WR,Ball State,Mid-American,Buffalo,1,1.0,5.0,0.0,2.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5295205,Tate Hoover,TE,Ball State,Mid-American,Buffalo,1,0.0,0.0,0.0,2.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,4869601,Chance Morrow,WR,Buffalo,Mid-American,Ball State,0,0.0,0.0,0.0,1.0,14.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5084704,Patrick Clacks III,WR,Buffalo,Mid-American,Ball State,0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5150003,Terrance Shelton Jr.,RB,Buffalo,Mid-American,Ball State,0,10.0,92.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5151369,Messiah Burch,RB,Buffalo,Mid-American,Ball State,0,31.0,209.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5222591,Jason Wright,QB,Buffalo,Mid-American,Ball State,0,10.0,1.0,0.0,0.0,0.0,0.0,5.0,14.0,48.0,1.0,0.0,0.0
+11,5295436,Dwayne Early Jr.,WR,Buffalo,Mid-American,Ball State,0,0.0,0.0,0.0,1.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5387611,Jaylen Andrews,WR,Buffalo,Mid-American,Ball State,0,0.0,0.0,0.0,1.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5387612,Clint Walker,TE,Buffalo,Mid-American,Ball State,0,0.0,0.0,0.0,1.0,30.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,-5463, Team,,Buffalo,Mid-American,Ball State,0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,4871010,Shelton Sampson Jr.,WR,Louisiana,Sun Belt,UL Monroe,0,0.0,0.0,0.0,2.0,15.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,4871091,D'Wayne' Winfield,QB,Louisiana,Sun Belt,UL Monroe,0,7.0,37.0,0.0,0.0,0.0,0.0,7.0,13.0,65.0,1.0,0.0,0.0
+11,5122096,Kedarius Wade,WR,Louisiana,Sun Belt,UL Monroe,0,2.0,20.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5141364,Russell Babineaux,WR,Louisiana,Sun Belt,UL Monroe,0,0.0,0.0,0.0,2.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5153377,Brock Chappell,TE,Louisiana,Sun Belt,UL Monroe,0,0.0,0.0,0.0,2.0,24.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5156928,Caden Jensen,TE,Louisiana,Sun Belt,UL Monroe,0,0.0,0.0,0.0,1.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5194804,Steven Blanco,RB,Louisiana,Sun Belt,UL Monroe,0,15.0,113.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5258999,JJ Garner,RB,Louisiana,Sun Belt,UL Monroe,0,9.0,104.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,4685184,Donald Chaney Jr.,RB,UL Monroe,Sun Belt,Louisiana,1,6.0,25.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5122054,Aidan Armenta,QB,UL Monroe,Sun Belt,Louisiana,1,4.0,22.0,0.0,0.0,0.0,0.0,7.0,12.0,62.0,0.0,0.0,0.0
+11,5122072,Nic Trujillo,WR,UL Monroe,Sun Belt,Louisiana,1,0.0,0.0,0.0,3.0,26.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5207934,Austin Carlisle,QB,UL Monroe,Sun Belt,Louisiana,1,21.0,102.0,1.0,0.0,0.0,0.0,9.0,14.0,42.0,1.0,1.0,1.0
+11,5218754,Parker Fulghum,WR,UL Monroe,Sun Belt,Louisiana,1,0.0,0.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5274368,Jaiden Tucker,WR,UL Monroe,Sun Belt,Louisiana,1,0.0,0.0,0.0,1.0,5.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5295371,Bryce Anderson,TE,UL Monroe,Sun Belt,Louisiana,1,0.0,0.0,0.0,4.0,34.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5295735,JP Coulter,WR,UL Monroe,Sun Belt,Louisiana,1,0.0,0.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5382841,LT Robinson,WR,UL Monroe,Sun Belt,Louisiana,1,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+11,5382856,Bryson Roland,RB,UL Monroe,Sun Belt,Louisiana,1,16.0,101.0,0.0,2.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5382869,Marcellus Jackson,WR,UL Monroe,Sun Belt,Louisiana,1,0.0,0.0,0.0,3.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,5447033,Darrion Gilliam,WR,UL Monroe,Sun Belt,Louisiana,1,0.0,0.0,0.0,1.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+11,-6368, Team,,UL Monroe,Sun Belt,Louisiana,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
