@@ -61,6 +61,9 @@ jobs:
         run: |
           python -m pipeline.cfb_build || echo "::warning::college build failed"
           python -m pipeline.cfb_build --backtest || true
+      - name: Player bias log (players who beat or miss their projections and lines; research only, soft-fail)
+        # data/log/player_bias.csv, cfb_player_bias.csv and their *_hist.csv (one block of flags per week); python -m pipeline.player_bias --report is the forward test, --backtest replays the season
+        run: python -m pipeline.player_bias || echo "::warning::player bias log could not be built"
       - name: Commit data
         # If main moved while this job ran, rebase our freshly generated data onto it instead of failing. Only football/data and
         # football/site/data are touched, and where both sides changed a generated file, ours (the newer build) wins.
