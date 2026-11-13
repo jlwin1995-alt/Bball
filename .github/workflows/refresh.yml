@@ -38,6 +38,9 @@ jobs:
       - name: Snapshot injuries with the availability tag from the note (research)
         # data/log/injury_log.csv: one row per change per player per slate day; python -m pipeline.injury_log --report gives P(played) by tag. Soft-fail.
         run: python -m pipeline.injury_log || echo "::warning::injury snapshot could not be logged"
+      - name: Log players who consistently beat or miss the projection and the line (research)
+        # data/log/player_bias.csv (rebuilt) and player_bias_hist.csv (one block of flags per day); python -m pipeline.player_bias --report is the forward test. Soft-fail.
+        run: python -m pipeline.player_bias || echo "::warning::player bias log could not be built"
       - name: Learn preseason minutes (once, before the season; cached in data/raw)
         run: test -f data/raw/preseason_minutes.json || python -m pipeline.preseason_minutes || echo "::warning::preseason minutes could not be learned; the site uses a rough default"
       - name: Fit spreads for the Lines tab
