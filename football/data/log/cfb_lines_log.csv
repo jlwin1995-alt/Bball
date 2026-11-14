@@ -2909,18 +2909,6 @@ commence,game,player_id,name,team,stat,cons_line,cons_p_over,n_books,pp_line,ud_
 2026-11-14T03:15:00Z,Houston @ Colorado,4871081,Richard Young,Colorado,rushY,45.5,0.5,1,45.5,45.5,2026-11-14T01:24:39+00:00,11
 2026-11-14T03:15:00Z,Houston @ Colorado,4879567,Trent Walker,Houston,rec,3.5,0.5225,2,3.5,,2026-11-14T01:24:39+00:00,11
 2026-11-14T03:15:00Z,Houston @ Colorado,4879567,Trent Walker,Houston,recY,43.5,0.5,1,42.5,42.5,2026-11-14T01:24:39+00:00,11
-2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,5079647,Caleb Odom,Ole Miss,recY,36.5,0.5,1,36.5,36.5,2026-11-14T07:24:57+00:00,11
-2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,5152158,Deuce Alexander,Ole Miss,recY,64.5,0.5,2,64.5,64.5,2026-11-14T07:24:57+00:00,11
-2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,4711408,Horatio Fields,Ole Miss,recY,44.5,0.5203,1,46.5,46.5,2026-11-14T07:24:57+00:00,11
-2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,5080703,Isaiah Sategna,Oklahoma,rec,5.5,0.4592,1,,,2026-11-14T07:24:57+00:00,11
-2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,5080703,Isaiah Sategna,Oklahoma,recY,60.5,0.4939,1,60.5,60.5,2026-11-14T07:24:57+00:00,11
-2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,4915980,John Mateer,Oklahoma,passY,224.5,0.5,1,224.5,224.5,2026-11-14T07:24:57+00:00,11
-2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,4915980,John Mateer,Oklahoma,rushY,28.5,0.4939,1,26.5,28.5,2026-11-14T07:24:57+00:00,11
-2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,5079298,Lloyd Avant,Oklahoma,rushY,38.5,0.5,1,38.5,38.5,2026-11-14T07:24:57+00:00,11
-2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,4907786,Rocky Beers,Oklahoma,rec,4.5,0.5203,1,4.5,4.5,2026-11-14T07:24:57+00:00,11
-2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,4907786,Rocky Beers,Oklahoma,recY,48.5,0.5,1,48.5,48.5,2026-11-14T07:24:57+00:00,11
-2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,4911529,Trinidad Chambliss,Ole Miss,passY,237.5,0.5,1,237.5,237.5,2026-11-14T07:24:57+00:00,11
-2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,4911529,Trinidad Chambliss,Ole Miss,rushY,14.5,0.5306,1,15.5,15.5,2026-11-14T07:24:57+00:00,11
 2026-11-14T17:00:00Z,Wisconsin @ Maryland,5078005,Abu Sama III,Wisconsin,rushY,54.5,0.5,2,54.5,,2026-11-14T07:24:57+00:00,11
 2026-11-14T17:00:00Z,Syracuse @ NC State,5154420,Ahmad Miller,Syracuse,rushY,76.5,0.5,1,76.5,76.5,2026-11-14T07:24:57+00:00,11
 2026-11-14T17:00:00Z,Cincinnati @ Iowa State,5219258,Aiden Flora,Iowa State,rec,2.5,0.4182,2,,,2026-11-14T07:24:57+00:00,11
@@ -3197,14 +3185,26 @@ commence,game,player_id,name,team,stat,cons_line,cons_p_over,n_books,pp_line,ud_
 2026-11-14T21:15:00Z,Auburn @ Mississippi State,4907671,Anthony Evans III,Mississippi State,recY,63.5,0.5,1,63.5,63.5,2026-11-14T07:24:57+00:00,11
 2026-11-14T21:15:00Z,Auburn @ Mississippi State,4880272,Byrum Brown,Auburn,passY,209.5,0.5203,1,212.5,212.5,2026-11-14T07:24:57+00:00,11
 2026-11-14T21:15:00Z,Auburn @ Mississippi State,4880272,Byrum Brown,Auburn,rushY,61.5,0.5061,1,61.5,61.5,2026-11-14T07:24:57+00:00,11
+2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,5079647,Caleb Odom,Ole Miss,recY,36.5,0.5,1,36.5,36.5,2026-11-14T07:24:57+00:00,11
 2026-11-14T21:15:00Z,Auburn @ Mississippi State,5081367,Chas Nimrod,Auburn,recY,49.5,0.5306,1,52.5,52.5,2026-11-14T07:24:57+00:00,11
+2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,5152158,Deuce Alexander,Ole Miss,recY,64.5,0.5,2,64.5,64.5,2026-11-14T07:24:57+00:00,11
 2026-11-14T21:15:00Z,Auburn @ Mississippi State,5220197,Fluff Bothwell,Mississippi State,recY,,,,13.5,13.5,2026-11-14T07:24:57+00:00,11
 2026-11-14T21:15:00Z,Auburn @ Mississippi State,5220197,Fluff Bothwell,Mississippi State,rushY,74.5,0.5101,1,78.5,78.5,2026-11-14T07:24:57+00:00,11
+2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,4711408,Horatio Fields,Ole Miss,recY,44.5,0.5203,1,46.5,46.5,2026-11-14T07:24:57+00:00,11
+2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,5080703,Isaiah Sategna,Oklahoma,rec,5.5,0.4592,1,,,2026-11-14T07:24:57+00:00,11
+2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,5080703,Isaiah Sategna,Oklahoma,recY,60.5,0.4939,1,60.5,60.5,2026-11-14T07:24:57+00:00,11
 2026-11-14T21:15:00Z,Auburn @ Mississippi State,4870642,Jeremiah Cobb,Auburn,recY,,,,9.5,9.5,2026-11-14T07:24:57+00:00,11
 2026-11-14T21:15:00Z,Auburn @ Mississippi State,4870642,Jeremiah Cobb,Auburn,rushY,45.5,0.5,1,45.5,45.5,2026-11-14T07:24:57+00:00,11
+2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,4915980,John Mateer,Oklahoma,passY,224.5,0.5,1,224.5,224.5,2026-11-14T07:24:57+00:00,11
+2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,4915980,John Mateer,Oklahoma,rushY,28.5,0.4939,1,26.5,28.5,2026-11-14T07:24:57+00:00,11
 2026-11-14T21:15:00Z,Auburn @ Mississippi State,5121879,Keshaun Singleton,Auburn,recY,53.5,0.5,1,53.5,53.5,2026-11-14T07:24:57+00:00,11
+2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,5079298,Lloyd Avant,Oklahoma,rushY,38.5,0.5,1,38.5,38.5,2026-11-14T07:24:57+00:00,11
 2026-11-14T21:15:00Z,Auburn @ Mississippi State,5076106,Marquis Johnson,Mississippi State,recY,42.5,0.5,1,42.5,42.5,2026-11-14T07:24:57+00:00,11
+2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,4907786,Rocky Beers,Oklahoma,rec,4.5,0.5203,1,4.5,4.5,2026-11-14T07:24:57+00:00,11
+2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,4907786,Rocky Beers,Oklahoma,recY,48.5,0.5,1,48.5,48.5,2026-11-14T07:24:57+00:00,11
 2026-11-14T21:15:00Z,Auburn @ Mississippi State,5146736,Sanfrisco Magee,Mississippi State,recY,39.5,0.5,1,39.5,,2026-11-14T07:24:57+00:00,11
+2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,4911529,Trinidad Chambliss,Ole Miss,passY,237.5,0.5,1,237.5,237.5,2026-11-14T07:24:57+00:00,11
+2026-11-14T21:15:00Z,Ole Miss @ Oklahoma,4911529,Trinidad Chambliss,Ole Miss,rushY,14.5,0.5306,1,15.5,15.5,2026-11-14T07:24:57+00:00,11
 2026-11-14T22:30:00Z,Washington @ Michigan State,5146670,Alessio Milivojevic,Michigan State,passY,189.5,0.5101,1,188.5,188.5,2026-11-14T07:24:57+00:00,11
 2026-11-14T22:30:00Z,Arizona State @ UCF,4911929,Alonza Barnett,UCF,passY,222.5,0.5,1,222.5,222.5,2026-11-14T07:24:57+00:00,11
 2026-11-14T22:30:00Z,Arizona State @ UCF,4911929,Alonza Barnett,UCF,rushY,26.5,0.5,1,26.5,26.5,2026-11-14T07:24:57+00:00,11
