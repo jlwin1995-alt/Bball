@@ -480,58 +480,90 @@ ts,event,commence,game,home,away,player,book,line,over,under
 2026-11-13T19:19:00+00:00,eff5d01c8683ed700c896743f0490989,2026-11-14T00:00:00Z,Florida State @ Pittsburgh,Pittsburgh,Florida State,Holden Geriner,prizepicks,13.5,-137,-137
 2026-11-13T19:19:00+00:00,eff5d01c8683ed700c896743f0490989,2026-11-14T00:00:00Z,Florida State @ Pittsburgh,Pittsburgh,Florida State,Micahi Danzy,prizepicks,13.0,-137,-137
 2026-11-13T19:19:00+00:00,eff5d01c8683ed700c896743f0490989,2026-11-14T00:00:00Z,Florida State @ Pittsburgh,Pittsburgh,Florida State,Jasen Lopez,prizepicks,10.5,-137,-137
-2026-11-13T19:19:00+00:00,bc528be865b10cd4a63a9e642c90d554,2026-11-14T02:00:00Z,Illinois @ UCLA,UCLA,Illinois,Collin Dixon,prizepicks,17.5,-137,-137
-2026-11-13T19:19:00+00:00,bc528be865b10cd4a63a9e642c90d554,2026-11-14T02:00:00Z,Illinois @ UCLA,UCLA,Illinois,Wayne Knight,prizepicks,17.5,-137,-137
-2026-11-13T19:19:00+00:00,bc528be865b10cd4a63a9e642c90d554,2026-11-14T02:00:00Z,Illinois @ UCLA,UCLA,Illinois,Ty Dieffenbach,prizepicks,16.0,-137,-137
-2026-11-13T19:19:00+00:00,bc528be865b10cd4a63a9e642c90d554,2026-11-14T02:00:00Z,Illinois @ UCLA,UCLA,Illinois,Katin Houser,prizepicks,14.0,-137,-137
-2026-11-13T19:19:00+00:00,bc528be865b10cd4a63a9e642c90d554,2026-11-14T02:00:00Z,Illinois @ UCLA,UCLA,Illinois,Hudson Clement,prizepicks,10.5,-137,-137
-2026-11-13T19:19:00+00:00,bc528be865b10cd4a63a9e642c90d554,2026-11-14T02:00:00Z,Illinois @ UCLA,UCLA,Illinois,Semaj Morgan,prizepicks,10.5,-137,-137
-2026-11-13T19:19:00+00:00,73d83d88b3a35eeb4bcf8462ff2070b2,2026-11-14T03:15:00Z,Houston @ Colorado,Colorado,Houston,Conner Weigman,prizepicks,23.5,-137,-137
-2026-11-13T19:19:00+00:00,73d83d88b3a35eeb4bcf8462ff2070b2,2026-11-14T03:15:00Z,Houston @ Colorado,Colorado,Houston,Joseph Williams,prizepicks,16.5,-137,-137
-2026-11-13T19:19:00+00:00,73d83d88b3a35eeb4bcf8462ff2070b2,2026-11-14T03:15:00Z,Houston @ Colorado,Colorado,Houston,Amare Thomas,prizepicks,14.5,-137,-137
-2026-11-13T19:19:00+00:00,73d83d88b3a35eeb4bcf8462ff2070b2,2026-11-14T03:15:00Z,Houston @ Colorado,Colorado,Houston,Isaac Wilson,prizepicks,13.5,-137,-137
-2026-11-13T19:19:00+00:00,73d83d88b3a35eeb4bcf8462ff2070b2,2026-11-14T03:15:00Z,Houston @ Colorado,Colorado,Houston,DeAndre Moore Jr.,prizepicks,11.5,-137,-137
-2026-11-13T19:19:00+00:00,73d83d88b3a35eeb4bcf8462ff2070b2,2026-11-14T03:15:00Z,Houston @ Colorado,Colorado,Houston,Patrick Overmyer,prizepicks,11.5,-137,-137
-2026-11-13T19:19:00+00:00,73d83d88b3a35eeb4bcf8462ff2070b2,2026-11-14T03:15:00Z,Houston @ Colorado,Colorado,Houston,Trent Walker,prizepicks,9.0,-137,-137
-2026-11-13T19:19:00+00:00,a195a61a5f2a3c5c0ed7ba7b313572e5,2026-11-14T17:00:00Z,Duke @ Miami,Miami,Duke,Darian Mensah,prizepicks,21.5,-137,-137
-2026-11-13T19:19:00+00:00,a195a61a5f2a3c5c0ed7ba7b313572e5,2026-11-14T17:00:00Z,Duke @ Miami,Miami,Duke,Nate Sheppard,prizepicks,21.0,-137,-137
-2026-11-13T19:19:00+00:00,a195a61a5f2a3c5c0ed7ba7b313572e5,2026-11-14T17:00:00Z,Duke @ Miami,Miami,Duke,Cooper Barkate,prizepicks,17.0,-137,-137
-2026-11-13T19:19:00+00:00,a195a61a5f2a3c5c0ed7ba7b313572e5,2026-11-14T17:00:00Z,Duke @ Miami,Miami,Duke,Mark Fletcher Jr.,prizepicks,14.5,-137,-137
-2026-11-13T19:19:00+00:00,a195a61a5f2a3c5c0ed7ba7b313572e5,2026-11-14T17:00:00Z,Duke @ Miami,Miami,Duke,Walker Eget,prizepicks,12.5,-137,-137
-2026-11-13T19:19:00+00:00,a195a61a5f2a3c5c0ed7ba7b313572e5,2026-11-14T17:00:00Z,Duke @ Miami,Miami,Duke,Elija Lofton,prizepicks,12.0,-137,-137
-2026-11-13T19:19:00+00:00,a195a61a5f2a3c5c0ed7ba7b313572e5,2026-11-14T17:00:00Z,Duke @ Miami,Miami,Duke,Daylyn Upshaw,prizepicks,9.5,-137,-137
-2026-11-13T19:19:00+00:00,862cc541ca98da17b20a964513c18435,2026-11-14T17:00:00Z,Wisconsin @ Maryland,Maryland,Wisconsin,Chris Durr Jr.,prizepicks,13.5,-137,-137
-2026-11-13T19:19:00+00:00,cf67bd8ed20036fea0a72f8a0d5836e7,2026-11-14T17:00:00Z,Syracuse @ NC State,NC State,Syracuse,Umari Hatcher,prizepicks,16.5,-137,-137
-2026-11-13T19:19:00+00:00,cf67bd8ed20036fea0a72f8a0d5836e7,2026-11-14T17:00:00Z,Syracuse @ NC State,NC State,Syracuse,Keenan Jackson,prizepicks,9.5,-137,-137
-2026-11-13T19:19:00+00:00,462e4e8a99f44d5c64f36987e966cd13,2026-11-14T17:00:00Z,Northwestern @ Ohio State,Ohio State,Northwestern,Jeremiah Smith,prizepicks,23.0,-137,-137
-2026-11-13T19:19:00+00:00,462e4e8a99f44d5c64f36987e966cd13,2026-11-14T17:00:00Z,Northwestern @ Ohio State,Ohio State,Northwestern,Bo Jackson,prizepicks,18.0,-137,-137
-2026-11-13T19:19:00+00:00,462e4e8a99f44d5c64f36987e966cd13,2026-11-14T17:00:00Z,Northwestern @ Ohio State,Ohio State,Northwestern,Luke Fahey,prizepicks,15.0,-137,-137
-2026-11-13T19:19:00+00:00,462e4e8a99f44d5c64f36987e966cd13,2026-11-14T17:00:00Z,Northwestern @ Ohio State,Ohio State,Northwestern,Griffin Wilde,prizepicks,12.0,-137,-137
-2026-11-13T19:19:00+00:00,462e4e8a99f44d5c64f36987e966cd13,2026-11-14T17:00:00Z,Northwestern @ Ohio State,Ohio State,Northwestern,Caleb Komolafe,prizepicks,9.0,-137,-137
-2026-11-13T19:19:00+00:00,b7d77aed1f8f75da7679a059e627dfee,2026-11-14T17:00:00Z,Wake Forest @ SMU,SMU,Wake Forest,Gio Lopez,prizepicks,22.0,-137,-137
-2026-11-13T19:19:00+00:00,b7d77aed1f8f75da7679a059e627dfee,2026-11-14T17:00:00Z,Wake Forest @ SMU,SMU,Wake Forest,Kevin Jennings,prizepicks,21.5,-137,-137
-2026-11-13T19:19:00+00:00,b7d77aed1f8f75da7679a059e627dfee,2026-11-14T17:00:00Z,Wake Forest @ SMU,SMU,Wake Forest,Carlos Hernandez,prizepicks,19.5,-137,-137
-2026-11-13T19:19:00+00:00,b7d77aed1f8f75da7679a059e627dfee,2026-11-14T17:00:00Z,Wake Forest @ SMU,SMU,Wake Forest,Yamir Knight,prizepicks,12.5,-137,-137
-2026-11-13T19:19:00+00:00,b7d77aed1f8f75da7679a059e627dfee,2026-11-14T17:00:00Z,Wake Forest @ SMU,SMU,Wake Forest,Yannick Smith,prizepicks,12.0,-137,-137
-2026-11-13T19:19:00+00:00,b7d77aed1f8f75da7679a059e627dfee,2026-11-14T17:00:00Z,Wake Forest @ SMU,SMU,Wake Forest,Jalen Cooper,prizepicks,10.5,-137,-137
-2026-11-13T19:19:00+00:00,b7d77aed1f8f75da7679a059e627dfee,2026-11-14T17:00:00Z,Wake Forest @ SMU,SMU,Wake Forest,Jack Foley,prizepicks,10.0,-137,-137
 2026-11-13T19:19:00+00:00,fe42d22bafb7d5f406317697dff44ee6,2026-11-14T17:45:00Z,Alabama @ Vanderbilt,Vanderbilt,Alabama,Keelon Russell,prizepicks,23.0,-137,-137
-2026-11-13T19:19:00+00:00,fe42d22bafb7d5f406317697dff44ee6,2026-11-14T17:45:00Z,Alabama @ Vanderbilt,Vanderbilt,Alabama,Junior Sherrill,prizepicks,15.0,-137,-137
-2026-11-13T19:19:00+00:00,fe42d22bafb7d5f406317697dff44ee6,2026-11-14T17:45:00Z,Alabama @ Vanderbilt,Vanderbilt,Alabama,Jared Curtis,prizepicks,13.5,-137,-137
-2026-11-13T19:19:00+00:00,fe42d22bafb7d5f406317697dff44ee6,2026-11-14T17:45:00Z,Alabama @ Vanderbilt,Vanderbilt,Alabama,Ryan Coleman-Williams,prizepicks,11.5,-137,-137
-2026-11-13T19:19:00+00:00,fe42d22bafb7d5f406317697dff44ee6,2026-11-14T17:45:00Z,Alabama @ Vanderbilt,Vanderbilt,Alabama,Rico Scott,prizepicks,11.0,-137,-137
-2026-11-13T19:19:00+00:00,7b3c2958dadc616a19ce7b9b1dd2a7e4,2026-11-15T00:30:00Z,Utah @ Arizona,Arizona,Utah,Devon Dampier,prizepicks,23.5,-137,-137
-2026-11-13T19:19:00+00:00,7b3c2958dadc616a19ce7b9b1dd2a7e4,2026-11-15T00:30:00Z,Utah @ Arizona,Arizona,Utah,Noah Fifita,prizepicks,19.5,-137,-137
-2026-11-13T19:19:00+00:00,7b3c2958dadc616a19ce7b9b1dd2a7e4,2026-11-15T00:30:00Z,Utah @ Arizona,Arizona,Utah,Wayshawn Parker,prizepicks,15.0,-137,-137
-2026-11-13T19:19:00+00:00,7b3c2958dadc616a19ce7b9b1dd2a7e4,2026-11-15T00:30:00Z,Utah @ Arizona,Arizona,Utah,Gio Richardson,prizepicks,14.0,-137,-137
-2026-11-13T19:19:00+00:00,7b3c2958dadc616a19ce7b9b1dd2a7e4,2026-11-15T00:30:00Z,Utah @ Arizona,Arizona,Utah,Isaiah Mizell,prizepicks,13.5,-137,-137
-2026-11-13T19:19:00+00:00,7b3c2958dadc616a19ce7b9b1dd2a7e4,2026-11-15T00:30:00Z,Utah @ Arizona,Arizona,Utah,Braden Pegan,prizepicks,13.0,-137,-137
-2026-11-13T19:19:00+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Sam Leavitt,prizepicks,20.5,-137,-137
-2026-11-13T19:19:00+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Dilin Jones,prizepicks,16.5,-137,-137
-2026-11-13T19:19:00+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Arch Manning,prizepicks,16.0,-137,-137
-2026-11-13T19:19:00+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Jackson Harris,prizepicks,15.5,-137,-137
-2026-11-13T19:19:00+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Trey'Dez Green,prizepicks,13.5,-137,-137
-2026-11-13T19:19:00+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Raleek Brown,prizepicks,12.5,-137,-137
-2026-11-13T19:19:00+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Ryan Wingo,prizepicks,11.5,-137,-137
-2026-11-13T19:19:00+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Cam Coleman,prizepicks,10.5,-137,-137
-2026-11-13T19:19:00+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Emmett Mosley V,prizepicks,10.0,-137,-137
+2026-11-14T01:24:39+00:00,bc528be865b10cd4a63a9e642c90d554,2026-11-14T02:00:00Z,Illinois @ UCLA,UCLA,Illinois,Collin Dixon,prizepicks,17.5,-137,-137
+2026-11-14T01:24:39+00:00,bc528be865b10cd4a63a9e642c90d554,2026-11-14T02:00:00Z,Illinois @ UCLA,UCLA,Illinois,Wayne Knight,prizepicks,17.5,-137,-137
+2026-11-14T01:24:39+00:00,bc528be865b10cd4a63a9e642c90d554,2026-11-14T02:00:00Z,Illinois @ UCLA,UCLA,Illinois,Ty Dieffenbach,prizepicks,16.0,-137,-137
+2026-11-14T01:24:39+00:00,bc528be865b10cd4a63a9e642c90d554,2026-11-14T02:00:00Z,Illinois @ UCLA,UCLA,Illinois,Katin Houser,prizepicks,14.5,-137,-137
+2026-11-14T01:24:39+00:00,bc528be865b10cd4a63a9e642c90d554,2026-11-14T02:00:00Z,Illinois @ UCLA,UCLA,Illinois,Semaj Morgan,prizepicks,10.5,-137,-137
+2026-11-14T01:24:39+00:00,bc528be865b10cd4a63a9e642c90d554,2026-11-14T02:00:00Z,Illinois @ UCLA,UCLA,Illinois,Hudson Clement,prizepicks,9.5,-137,-137
+2026-11-14T01:24:39+00:00,73d83d88b3a35eeb4bcf8462ff2070b2,2026-11-14T03:15:00Z,Houston @ Colorado,Colorado,Houston,Conner Weigman,prizepicks,24.5,-137,-137
+2026-11-14T01:24:39+00:00,73d83d88b3a35eeb4bcf8462ff2070b2,2026-11-14T03:15:00Z,Houston @ Colorado,Colorado,Houston,Joseph Williams,prizepicks,17.0,-137,-137
+2026-11-14T01:24:39+00:00,73d83d88b3a35eeb4bcf8462ff2070b2,2026-11-14T03:15:00Z,Houston @ Colorado,Colorado,Houston,Amare Thomas,prizepicks,14.5,-137,-137
+2026-11-14T01:24:39+00:00,73d83d88b3a35eeb4bcf8462ff2070b2,2026-11-14T03:15:00Z,Houston @ Colorado,Colorado,Houston,Isaac Wilson,prizepicks,13.5,-137,-137
+2026-11-14T01:24:39+00:00,73d83d88b3a35eeb4bcf8462ff2070b2,2026-11-14T03:15:00Z,Houston @ Colorado,Colorado,Houston,DeAndre Moore Jr.,prizepicks,11.5,-137,-137
+2026-11-14T01:24:39+00:00,73d83d88b3a35eeb4bcf8462ff2070b2,2026-11-14T03:15:00Z,Houston @ Colorado,Colorado,Houston,Patrick Overmyer,prizepicks,11.5,-137,-137
+2026-11-14T01:24:39+00:00,73d83d88b3a35eeb4bcf8462ff2070b2,2026-11-14T03:15:00Z,Houston @ Colorado,Colorado,Houston,Trent Walker,prizepicks,9.0,-137,-137
+2026-11-14T01:24:39+00:00,a195a61a5f2a3c5c0ed7ba7b313572e5,2026-11-14T17:00:00Z,Duke @ Miami,Miami,Duke,Darian Mensah,prizepicks,21.5,-137,-137
+2026-11-14T01:24:39+00:00,a195a61a5f2a3c5c0ed7ba7b313572e5,2026-11-14T17:00:00Z,Duke @ Miami,Miami,Duke,Nate Sheppard,prizepicks,21.0,-137,-137
+2026-11-14T01:24:39+00:00,a195a61a5f2a3c5c0ed7ba7b313572e5,2026-11-14T17:00:00Z,Duke @ Miami,Miami,Duke,Cooper Barkate,prizepicks,17.0,-137,-137
+2026-11-14T01:24:39+00:00,a195a61a5f2a3c5c0ed7ba7b313572e5,2026-11-14T17:00:00Z,Duke @ Miami,Miami,Duke,Mark Fletcher Jr.,prizepicks,14.5,-137,-137
+2026-11-14T01:24:39+00:00,a195a61a5f2a3c5c0ed7ba7b313572e5,2026-11-14T17:00:00Z,Duke @ Miami,Miami,Duke,Walker Eget,prizepicks,12.5,-137,-137
+2026-11-14T01:24:39+00:00,a195a61a5f2a3c5c0ed7ba7b313572e5,2026-11-14T17:00:00Z,Duke @ Miami,Miami,Duke,Elija Lofton,prizepicks,12.0,-137,-137
+2026-11-14T01:24:39+00:00,a195a61a5f2a3c5c0ed7ba7b313572e5,2026-11-14T17:00:00Z,Duke @ Miami,Miami,Duke,Daylyn Upshaw,prizepicks,9.5,-137,-137
+2026-11-14T01:24:39+00:00,862cc541ca98da17b20a964513c18435,2026-11-14T17:00:00Z,Wisconsin @ Maryland,Maryland,Wisconsin,Chris Durr Jr.,prizepicks,13.5,-137,-137
+2026-11-14T01:24:39+00:00,cf67bd8ed20036fea0a72f8a0d5836e7,2026-11-14T17:00:00Z,Syracuse @ NC State,NC State,Syracuse,Umari Hatcher,prizepicks,16.5,-137,-137
+2026-11-14T01:24:39+00:00,cf67bd8ed20036fea0a72f8a0d5836e7,2026-11-14T17:00:00Z,Syracuse @ NC State,NC State,Syracuse,Keenan Jackson,prizepicks,9.5,-137,-137
+2026-11-14T01:24:39+00:00,462e4e8a99f44d5c64f36987e966cd13,2026-11-14T17:00:00Z,Northwestern @ Ohio State,Ohio State,Northwestern,Jeremiah Smith,prizepicks,23.0,-137,-137
+2026-11-14T01:24:39+00:00,462e4e8a99f44d5c64f36987e966cd13,2026-11-14T17:00:00Z,Northwestern @ Ohio State,Ohio State,Northwestern,Bo Jackson,prizepicks,18.0,-137,-137
+2026-11-14T01:24:39+00:00,462e4e8a99f44d5c64f36987e966cd13,2026-11-14T17:00:00Z,Northwestern @ Ohio State,Ohio State,Northwestern,Luke Fahey,prizepicks,15.0,-137,-137
+2026-11-14T01:24:39+00:00,462e4e8a99f44d5c64f36987e966cd13,2026-11-14T17:00:00Z,Northwestern @ Ohio State,Ohio State,Northwestern,Griffin Wilde,prizepicks,12.0,-137,-137
+2026-11-14T01:24:39+00:00,462e4e8a99f44d5c64f36987e966cd13,2026-11-14T17:00:00Z,Northwestern @ Ohio State,Ohio State,Northwestern,Caleb Komolafe,prizepicks,9.0,-137,-137
+2026-11-14T01:24:39+00:00,b7d77aed1f8f75da7679a059e627dfee,2026-11-14T17:00:00Z,Wake Forest @ SMU,SMU,Wake Forest,Gio Lopez,prizepicks,22.0,-137,-137
+2026-11-14T01:24:39+00:00,b7d77aed1f8f75da7679a059e627dfee,2026-11-14T17:00:00Z,Wake Forest @ SMU,SMU,Wake Forest,Kevin Jennings,prizepicks,21.5,-137,-137
+2026-11-14T01:24:39+00:00,b7d77aed1f8f75da7679a059e627dfee,2026-11-14T17:00:00Z,Wake Forest @ SMU,SMU,Wake Forest,Carlos Hernandez,prizepicks,19.5,-137,-137
+2026-11-14T01:24:39+00:00,b7d77aed1f8f75da7679a059e627dfee,2026-11-14T17:00:00Z,Wake Forest @ SMU,SMU,Wake Forest,Yamir Knight,prizepicks,12.5,-137,-137
+2026-11-14T01:24:39+00:00,b7d77aed1f8f75da7679a059e627dfee,2026-11-14T17:00:00Z,Wake Forest @ SMU,SMU,Wake Forest,Yannick Smith,prizepicks,12.0,-137,-137
+2026-11-14T01:24:39+00:00,b7d77aed1f8f75da7679a059e627dfee,2026-11-14T17:00:00Z,Wake Forest @ SMU,SMU,Wake Forest,Jalen Cooper,prizepicks,10.5,-137,-137
+2026-11-14T01:24:39+00:00,b7d77aed1f8f75da7679a059e627dfee,2026-11-14T17:00:00Z,Wake Forest @ SMU,SMU,Wake Forest,Jack Foley,prizepicks,10.0,-137,-137
+2026-11-14T01:24:39+00:00,fe42d22bafb7d5f406317697dff44ee6,2026-11-14T17:45:00Z,Alabama @ Vanderbilt,Vanderbilt,Alabama,Junior Sherrill,prizepicks,15.0,-137,-137
+2026-11-14T01:24:39+00:00,fe42d22bafb7d5f406317697dff44ee6,2026-11-14T17:45:00Z,Alabama @ Vanderbilt,Vanderbilt,Alabama,Jared Curtis,prizepicks,13.5,-137,-137
+2026-11-14T01:24:39+00:00,fe42d22bafb7d5f406317697dff44ee6,2026-11-14T17:45:00Z,Alabama @ Vanderbilt,Vanderbilt,Alabama,Ryan Coleman-Williams,prizepicks,11.5,-137,-137
+2026-11-14T01:24:39+00:00,fe42d22bafb7d5f406317697dff44ee6,2026-11-14T17:45:00Z,Alabama @ Vanderbilt,Vanderbilt,Alabama,Rico Scott,prizepicks,11.0,-137,-137
+2026-11-14T01:24:39+00:00,5b6989e8ecca343c4de3e7d285b70aa3,2026-11-14T20:30:00Z,Baylor @ BYU,BYU,Baylor,Bear Bachmeier,prizepicks,23.5,-137,-137
+2026-11-14T01:24:39+00:00,5b6989e8ecca343c4de3e7d285b70aa3,2026-11-14T20:30:00Z,Baylor @ BYU,BYU,Baylor,Gavin Freeman,prizepicks,15.5,-137,-137
+2026-11-14T01:24:39+00:00,5b6989e8ecca343c4de3e7d285b70aa3,2026-11-14T20:30:00Z,Baylor @ BYU,BYU,Baylor,DJ Lagway,prizepicks,14.5,-137,-137
+2026-11-14T01:24:39+00:00,5b6989e8ecca343c4de3e7d285b70aa3,2026-11-14T20:30:00Z,Baylor @ BYU,BYU,Baylor,Legend Glasker,prizepicks,14.0,-137,-137
+2026-11-14T01:24:39+00:00,5b6989e8ecca343c4de3e7d285b70aa3,2026-11-14T20:30:00Z,Baylor @ BYU,BYU,Baylor,Kyler Kasper,prizepicks,11.0,-137,-137
+2026-11-14T01:24:39+00:00,5b6989e8ecca343c4de3e7d285b70aa3,2026-11-14T20:30:00Z,Baylor @ BYU,BYU,Baylor,Walker Lyons,prizepicks,10.5,-137,-137
+2026-11-14T01:24:39+00:00,107b8f81458dc555f99db1e929276a13,2026-11-14T20:30:00Z,Missouri @ Georgia,Georgia,Missouri,Gunner Stockton,prizepicks,20.5,-137,-137
+2026-11-14T01:24:39+00:00,107b8f81458dc555f99db1e929276a13,2026-11-14T20:30:00Z,Missouri @ Georgia,Georgia,Missouri,Austin Simmons,prizepicks,12.0,-137,-137
+2026-11-14T01:24:39+00:00,107b8f81458dc555f99db1e929276a13,2026-11-14T20:30:00Z,Missouri @ Georgia,Georgia,Missouri,Jamal Roberts,prizepicks,12.0,-137,-137
+2026-11-14T01:24:39+00:00,0da9451fe176ce110bdcf79c077bb223,2026-11-14T20:30:00Z,USC @ Indiana,Indiana,USC,Charlie Becker,prizepicks,17.5,-137,-137
+2026-11-14T01:24:39+00:00,0da9451fe176ce110bdcf79c077bb223,2026-11-14T20:30:00Z,USC @ Indiana,Indiana,USC,Jayden Maiava,prizepicks,14.5,-137,-137
+2026-11-14T01:24:39+00:00,0da9451fe176ce110bdcf79c077bb223,2026-11-14T20:30:00Z,USC @ Indiana,Indiana,USC,Lee Beebe Jr.,prizepicks,13.5,-137,-137
+2026-11-14T01:24:39+00:00,0da9451fe176ce110bdcf79c077bb223,2026-11-14T20:30:00Z,USC @ Indiana,Indiana,USC,Nick Marsh,prizepicks,12.5,-137,-137
+2026-11-14T01:24:39+00:00,0da9451fe176ce110bdcf79c077bb223,2026-11-14T20:30:00Z,USC @ Indiana,Indiana,USC,Trent Mosley,prizepicks,12.5,-137,-137
+2026-11-14T01:24:39+00:00,0da9451fe176ce110bdcf79c077bb223,2026-11-14T20:30:00Z,USC @ Indiana,Indiana,USC,King Miller,prizepicks,8.5,-137,-137
+2026-11-14T01:24:39+00:00,0da9451fe176ce110bdcf79c077bb223,2026-11-14T20:30:00Z,USC @ Indiana,Indiana,USC,Mark Bowman,prizepicks,8.0,-137,-137
+2026-11-14T01:24:39+00:00,4c76e6c2d67084d144ebe452d7d608a0,2026-11-14T20:30:00Z,Michigan @ Oregon,Oregon,Michigan,Dylan Raiola,prizepicks,14.5,-137,-137
+2026-11-14T01:24:39+00:00,4c76e6c2d67084d144ebe452d7d608a0,2026-11-14T20:30:00Z,Michigan @ Oregon,Oregon,Michigan,Dierre Hill Jr.,prizepicks,12.5,-137,-137
+2026-11-14T01:24:39+00:00,4c76e6c2d67084d144ebe452d7d608a0,2026-11-14T20:30:00Z,Michigan @ Oregon,Oregon,Michigan,Dakorien Moore,prizepicks,12.0,-137,-137
+2026-11-14T01:24:39+00:00,4c76e6c2d67084d144ebe452d7d608a0,2026-11-14T20:30:00Z,Michigan @ Oregon,Oregon,Michigan,Andrew Marsh,prizepicks,10.5,-137,-137
+2026-11-14T01:24:39+00:00,4c76e6c2d67084d144ebe452d7d608a0,2026-11-14T20:30:00Z,Michigan @ Oregon,Oregon,Michigan,JJ Buchanan,prizepicks,10.0,-137,-137
+2026-11-14T01:24:39+00:00,4c76e6c2d67084d144ebe452d7d608a0,2026-11-14T20:30:00Z,Michigan @ Oregon,Oregon,Michigan,Evan Stewart,prizepicks,9.0,-137,-137
+2026-11-14T01:24:39+00:00,4c76e6c2d67084d144ebe452d7d608a0,2026-11-14T20:30:00Z,Michigan @ Oregon,Oregon,Michigan,Jamari Johnson,prizepicks,9.0,-137,-137
+2026-11-14T01:24:39+00:00,7b3c2958dadc616a19ce7b9b1dd2a7e4,2026-11-15T00:30:00Z,Utah @ Arizona,Arizona,Utah,Devon Dampier,prizepicks,23.5,-137,-137
+2026-11-14T01:24:39+00:00,7b3c2958dadc616a19ce7b9b1dd2a7e4,2026-11-15T00:30:00Z,Utah @ Arizona,Arizona,Utah,Noah Fifita,prizepicks,19.5,-137,-137
+2026-11-14T01:24:39+00:00,7b3c2958dadc616a19ce7b9b1dd2a7e4,2026-11-15T00:30:00Z,Utah @ Arizona,Arizona,Utah,Wayshawn Parker,prizepicks,15.0,-137,-137
+2026-11-14T01:24:39+00:00,7b3c2958dadc616a19ce7b9b1dd2a7e4,2026-11-15T00:30:00Z,Utah @ Arizona,Arizona,Utah,Gio Richardson,prizepicks,15.0,-137,-137
+2026-11-14T01:24:39+00:00,7b3c2958dadc616a19ce7b9b1dd2a7e4,2026-11-15T00:30:00Z,Utah @ Arizona,Arizona,Utah,Isaiah Mizell,prizepicks,13.5,-137,-137
+2026-11-14T01:24:39+00:00,7b3c2958dadc616a19ce7b9b1dd2a7e4,2026-11-15T00:30:00Z,Utah @ Arizona,Arizona,Utah,Braden Pegan,prizepicks,13.0,-137,-137
+2026-11-14T01:24:39+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Sam Leavitt,prizepicks,20.5,-137,-137
+2026-11-14T01:24:39+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Dilin Jones,prizepicks,16.5,-137,-137
+2026-11-14T01:24:39+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Arch Manning,prizepicks,16.0,-137,-137
+2026-11-14T01:24:39+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Jackson Harris,prizepicks,16.0,-137,-137
+2026-11-14T01:24:39+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Trey'Dez Green,prizepicks,13.5,-137,-137
+2026-11-14T01:24:39+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Raleek Brown,prizepicks,12.5,-137,-137
+2026-11-14T01:24:39+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Ryan Wingo,prizepicks,11.5,-137,-137
+2026-11-14T01:24:39+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Cam Coleman,prizepicks,10.5,-137,-137
+2026-11-14T01:24:39+00:00,5f45291a1a5e01525b2e3aebe791c436,2026-11-15T00:30:00Z,Texas @ LSU,LSU,Texas,Emmett Mosley V,prizepicks,10.0,-137,-137
+2026-11-14T01:24:39+00:00,320a213c475110f032710dcd06c94e8e,2026-11-15T02:30:00Z,Texas Tech @ Oklahoma State,Oklahoma State,Texas Tech,Thomas Castellanos,prizepicks,27.5,-137,-137
+2026-11-14T01:24:39+00:00,320a213c475110f032710dcd06c94e8e,2026-11-15T02:30:00Z,Texas Tech @ Oklahoma State,Oklahoma State,Texas Tech,Drew Mestemaker,prizepicks,27.5,-137,-137
+2026-11-14T01:24:39+00:00,320a213c475110f032710dcd06c94e8e,2026-11-15T02:30:00Z,Texas Tech @ Oklahoma State,Oklahoma State,Texas Tech,Caleb Hawkins,prizepicks,27.5,-137,-137
+2026-11-14T01:24:39+00:00,320a213c475110f032710dcd06c94e8e,2026-11-15T02:30:00Z,Texas Tech @ Oklahoma State,Oklahoma State,Texas Tech,J'Koby Williams,prizepicks,21.5,-137,-137
+2026-11-14T01:24:39+00:00,320a213c475110f032710dcd06c94e8e,2026-11-15T02:30:00Z,Texas Tech @ Oklahoma State,Oklahoma State,Texas Tech,Justin Bowick,prizepicks,19.5,-137,-137
+2026-11-14T01:24:39+00:00,320a213c475110f032710dcd06c94e8e,2026-11-15T02:30:00Z,Texas Tech @ Oklahoma State,Oklahoma State,Texas Tech,Wyatt Young,prizepicks,16.5,-137,-137
+2026-11-14T01:24:39+00:00,320a213c475110f032710dcd06c94e8e,2026-11-15T02:30:00Z,Texas Tech @ Oklahoma State,Oklahoma State,Texas Tech,Kenny Johnson,prizepicks,15.5,-137,-137
+2026-11-14T01:24:39+00:00,320a213c475110f032710dcd06c94e8e,2026-11-15T02:30:00Z,Texas Tech @ Oklahoma State,Oklahoma State,Texas Tech,Terrance Carter Jr.,prizepicks,11.5,-137,-137
+2026-11-14T01:24:39+00:00,320a213c475110f032710dcd06c94e8e,2026-11-15T02:30:00Z,Texas Tech @ Oklahoma State,Oklahoma State,Texas Tech,Miles Coleman,prizepicks,10.5,-137,-137
