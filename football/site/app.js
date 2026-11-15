@@ -372,7 +372,8 @@ const pages = {
         {k: "stat", h: "Market", l: 1, f: r => esc(mktSpec(r.stat).label)}, {k: "m", h: "Proj", t: "Median projection, with your volume overrides", f: r => num(r.m)},
         {k: "od", h: "Opp D", t: HR_TIP, v: r => D.hitrates?.tiers?.[r.stat]?.[r.opp]?.rank ?? null, f: r => oppTierCell(r)},
         {k: "cl", h: "Cons line", t: "Median sportsbook line; hover for every book", v: r => r.c?.line, f: r => r.c ? `<span title="${esc(tip(r))}">${r.c.line} <span class="mut">${r.c.n}/${r.c.n_books}</span></span>` : ""},
-        {k: "cp", h: "Cons P(over)", t: "Average vig-free P(over) of the books at the consensus line", v: r => r.c?.p_over, f: r => r.c ? num(r.c.p_over * 100) + "%" : ""},
+        {k: "clr", h: "Cleared", t: "Times he beat this line in his last games (up to 10); hover for the games. ⚠ = the lean goes against his own record (UNDER with 40%+ cleared, OVER with 30% or less).", v: r => histRate(r.pid, r.stat, r.c?.line), f: r => histCell(r.pid, r.stat, r.c?.line, r.z)},
+                {k: "cp", h: "Cons P(over)", t: "Average vig-free P(over) of the books at the consensus line", v: r => r.c?.p_over, f: r => r.c ? num(r.c.p_over * 100) + "%" : ""},
         {k: "fo", h: "Fair odds", t: "Over / under, from the consensus probability", v: r => r.c?.p_over, f: r => r.c ? `${FB.amer(r.c.p_over)} / ${FB.amer(1 - r.c.p_over)}` : ""},
         {k: "po", h: "Model P(over)", v: r => r.po, f: r => r.po == null ? "" : num(r.po * 100) + "%"},
         {k: "cpo", h: "Cal P(over)", t: calTip(), v: r => r.cpo, f: r => r.cpo == null ? "" : num(r.cpo * 100) + "%"},
@@ -609,7 +610,7 @@ async function boot() {
   { const sv = store.get("cfg", {}); if (sv.ppBE === 57.7) delete sv.ppBE; CFG = {...CFG, ...sv}; }   // break-even default changed to 54.4% (Oct 29): drop the old default from saved settings
   OVR = store.get("ovr", {}); LINES = store.get("lines", []);
   if (!CFG.scoring || Object.keys(CFG.scoring).some(k => !(k in SCORE_LABEL))) CFG = {...CFG, preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}};
-  const names = ["projections", "games", "teams", "matchups", "efficiency", "usage", "trends", "weather", "usage_trend", "hitrates", "calprob", "ranges", "coverage", "scorecard", "meta", "lines", "fp_lines"];
+  const names = ["projections", "games", "teams", "matchups", "efficiency", "usage", "trends", "weather", "usage_trend", "hitrates", "calprob", "ranges", "hist", "coverage", "scorecard", "meta", "lines", "fp_lines"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   if (!D.projections || !D.meta) { view().innerHTML = "<p>No data found in <code>data/</code>. Run <code>python -m pipeline.build</code>.</p>"; return; }
   await loadBacktests();

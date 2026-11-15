@@ -147,12 +147,13 @@ const pages = {
       const p = byId[r.id], spec = specOf(r.stat);
       if (!p || !spec) return null;
       const m = p.c[r.stat], c = r.cons, st = Date.now() >= Date.parse(r.commence), z = c ? zOf(spec, m, c.line) : null, sd = c ? FB.sides(c.line, m, spec) : null;
-      return {pid: p.id, gb: p.game, name: p.name, pos: p.pos, team: p.team, game: r.game, label: spec.label, m, c, z, st, pp: r.dfs.prizepicks, ud: r.dfs.underdog ?? r.dfs.pick6,
+      return {pid: p.id, stat: r.stat, gb: p.game, name: p.name, pos: p.pos, team: p.team, game: r.game, label: spec.label, m, c, z, st, pp: r.dfs.prizepicks, ud: r.dfs.underdog ?? r.dfs.pick6,
         tier: st || z == null || m <= 0 || isThin(p) || p.out || riserUnder(p, z) ? "" : leanTier(z), side: z == null ? null : z > 0 ? "OVER" : "UNDER", edge: sd ? (sd.o - c.p_over) * 100 : null, po: sd ? sd.o : null, cpo: sd ? calP(sd.o) : null, cedge: sd && calP(sd.o) != null ? (calP(sd.o) - c.p_over) * 100 : null, ko: r.commence};
     }).filter(Boolean).filter(r => (!F.q || (r.name + " " + r.team).toLowerCase().includes(F.q.trim().toLowerCase())) && (!F.pos || r.pos === F.pos));
     const upd = /[zZ]|[+-]\d\d:?\d\d$/.test(L.updated) ? L.updated : L.updated + "Z", mins = Math.max(0, Math.round((Date.now() - Date.parse(upd)) / 60000));
     const cols = [{k: "name", h: "Player", l: 1, f: r => gbLink(r.name, r.gb, r.pid)}, {k: "pos", h: "Pos", l: 1}, {k: "team", h: "Team", l: 1}, {k: "label", h: "Market", l: 1},
       {k: "m", h: "Proj", f: r => num(r.m)}, {k: "line", h: "Line", v: r => r.c?.line, f: r => r.c ? r.c.line : ""},
+      {k: "clr", h: "Cleared", t: "Times he beat this line in his last games (up to 10); hover for the games. ⚠ = the lean goes against his own record (UNDER with 40%+ cleared, OVER with 30% or less).", v: r => histRate(r.pid, r.stat, r.c?.line), f: r => histCell(r.pid, r.stat, r.c?.line, r.z)},
       {k: "bpo", h: "Book %over", v: r => r.c?.p_over, f: r => r.c ? num(r.c.p_over * 100) : ""},
       {k: "mpo", h: "Model %over", v: r => r.po, f: r => r.po == null ? "" : num(r.po * 100)},
       {k: "cpo", h: "Cal %over", t: calTip(), v: r => r.cpo, f: r => r.cpo == null ? "" : num(r.cpo * 100)},
@@ -301,7 +302,7 @@ document.addEventListener("click", e => { if (e.target.id === "clr") { OVR = {};
 async function boot() {
   CFG = {...CFG, ...store.get("cfg", {})}; OVR = store.get("ovr", {});
   if (!CFG.scoring || Object.keys(CFG.scoring).some(k => !(k in SCORE_LABEL) && k !== "two")) CFG = {...CFG, preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}};
-  await Promise.all(["projections", "games", "teams", "matchups", "scorecard", "meta", "usage_trend", "hitrates", "calprob", "ranges"].map(async n => { try { const r = await fetch(`../data/cfb/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
+  await Promise.all(["projections", "games", "teams", "matchups", "scorecard", "meta", "usage_trend", "hitrates", "calprob", "ranges", "hist"].map(async n => { try { const r = await fetch(`../data/cfb/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   if (!D.projections || !D.meta) {
     view().innerHTML = `<div class="doc"><h2>No college data yet</h2><p>College football needs a free CollegeFootballData key. Get one at <a href="https://collegefootballdata.com/key">collegefootballdata.com/key</a>, add it as the <code>CFBD_API_KEY</code> repository secret (Settings → Secrets and variables → Actions), and run the "Football refresh data and deploy" workflow. College data appears here once it has run during the college season.</p></div>`;
     return;

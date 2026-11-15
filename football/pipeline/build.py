@@ -216,6 +216,8 @@ def main(raw="data/raw", out="site/data", log=True, fetch_wx=True, force_week=No
     from . import fp as FP
     FP.build("data/log/fp_lines_log.csv", proj, f"{out}/fp_lines.json", dict(mean=list(C.FP_MEAN), sigma=list(C.FP_SIGMA)))
     lines_mod.main(raw, out, {g["game"] for g in games})        # live lines + consensus, if odds.csv exists
+    from . import line_hist
+    print(f"game logs for the Lines tab: {line_hist.write(rows, f'{out}/hist.json')} players")
     dump(wx_rows, out, "weather.json")
     from . import situation as SIT
     allow, allow_lg = SIT.allowed(hist)

@@ -556,6 +556,8 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
         print(f"college: {len(nl_ids)} no-line players treated as out in the team pool")
     json.dump(proj, open(f"{out}/projections.json", "w"), separators=(",", ":"))
     print(f"college no-line flags: {n_nl}")
+    from . import line_hist
+    print(f"college game logs for the Lines tab: {line_hist.write(rows, f'{out}/hist.json', True)} players")
     json.dump(dict(week=week, rows=dr, lg=dict(ypc=r(core["LG_YPC"], 3), ypr=r(core["LG_YPR"], 3), ypa=r(core["LG_YPA"], 3),
                                                  qb=dict(ypc=r(core["rush_base"]["QB"]["ypc"], 2), other=r(core["rush_base"]["OTHER"]["ypc"], 2)))),
               open(f"{out}/matchups.json", "w"), separators=(",", ":"))
