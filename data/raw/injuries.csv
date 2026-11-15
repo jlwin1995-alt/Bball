@@ -4,22 +4,22 @@ pid,name,team,status,note,ts
 4585618,Keshon Gilbert,ATL,Out,Gilbert (knee) has been ruled out for Friday's game against the Bulls.,2026-11-12T23:10Z
 4873201,Asa Newell,ATL,Out,Newell (toe) has been ruled out for Friday's game against Chicago.,2026-11-12T23:08Z
 5105571,Henri Veesaar,ATL,Out,"Veesaar was diagnosed with a torn right ACL and is expected to miss the 2026-27 season, the Hawks announced Monday.",2026-09-21T19:50Z
-4278104,Michael Porter Jr.,BKN,Out,"Porter (personal) is out for Saturday's game against the Grizzlies, Brian Lewis of the New York Post reports.",2026-11-15T00:15Z
+4278104,Michael Porter Jr.,BKN,Day-To-Day,"Porter (personal) is out for Saturday's game against the Grizzlies, Brian Lewis of the New York Post reports.",2026-11-15T15:29Z
 5061575,Kon Knueppel,CHA,Out,Knueppel (hamstring) was diagnosed with a left hamstring strain Sunday and will be re-evaluated in four weeks.,2026-11-08T22:31Z
 3032979,Dennis Schroder,CHA,Out,"Schroder has been diagnosed with a left hamstring strain and will be reevaluated in two weeks, Michael Scotto of HoopsHype.com reports.",2026-11-08T22:26Z
-4397189,Jalen Smith,CHI,Out,"Smith (finger) has been ruled out for Saturday's game against Minnesota, K.C. Johnson of Chicago Sports Network reports.",2026-11-14T23:40Z
-4278067,Nic Claxton,CHI,Out,"Claxton (hamstring) is out for Saturday's game against the Timberwolves, K.C. Johnson of Chicago Sports Network reports.",2026-11-14T23:39Z
-5105555,Tobe Awaka,CHI,Out,Awaka has been ruled out for Saturday's game against the Timberwolves.,2026-11-14T18:10Z
+4397189,Jalen Smith,CHI,Day-To-Day,"Smith (finger) has been ruled out for Saturday's game against Minnesota, K.C. Johnson of Chicago Sports Network reports.",2026-11-15T15:30Z
+4278067,Nic Claxton,CHI,Day-To-Day,"Claxton (hamstring) is out for Saturday's game against the Timberwolves, K.C. Johnson of Chicago Sports Network reports.",2026-11-15T15:30Z
+5105555,Tobe Awaka,CHI,Day-To-Day,Awaka has been ruled out for Saturday's game against the Timberwolves.,2026-11-15T15:30Z
 5095151,Caleb Wilson,CHI,Out,"Wilson (hand) is expected to miss four to six weeks, Shams Charania of ESPN reports.",2026-11-12T21:35Z
-4576087,Peyton Watson,CLE,Out,Watson (hamstring) has been ruled out for Saturday's game against the Mavericks.,2026-11-14T22:59Z
-3992,James Harden,CLE,Out,Harden (calf) has been ruled out for Saturday's game against Dallas.,2026-11-14T22:57Z
-3908809,Donovan Mitchell,CLE,Out,Mitchell (knee) has been ruled out for Saturday's game against the Mavericks.,2026-11-14T22:56Z
-4066328,Jarrett Allen,CLE,Out,Allen (knee) has been ruled out for Saturday's game against the Mavericks.,2026-11-14T22:52Z
-4432158,Evan Mobley,CLE,Out,Mobley (toe) has been ruled out for Saturday's meeting with Dallas.,2026-11-14T18:33Z
+4066328,Jarrett Allen,CLE,Day-To-Day,Allen (knee) has been ruled out for Saturday's game against the Mavericks.,2026-11-15T15:26Z
+4576087,Peyton Watson,CLE,Day-To-Day,Watson (hamstring) has been ruled out for Saturday's game against the Mavericks.,2026-11-15T15:25Z
+4432158,Evan Mobley,CLE,Day-To-Day,Mobley (toe) has been ruled out for Saturday's meeting with Dallas.,2026-11-15T15:25Z
+3908809,Donovan Mitchell,CLE,Day-To-Day,Mitchell (knee) has been ruled out for Saturday's game against the Mavericks.,2026-11-15T15:25Z
+3992,James Harden,CLE,Day-To-Day,Harden (calf) has been ruled out for Saturday's game against Dallas.,2026-11-15T15:25Z
 4066757,Sam Merrill,CLE,Out,Merrill (elbow) is listed as out for Wednesday's game against the Knicks.,2026-11-10T22:12Z
 5106268,Nae'Qwan Tomlin,CLE,Out,"Tomlin is set to miss several weeks with a lower back stress reaction, Chris Fedor of The Cleveland Plain Dealer reports.",2026-10-20T15:11Z
-4278049,Daniel Gafford,DAL,Out,"Gafford (face) won't return to Saturday's game against the Cavaliers, Grant Afseth of DallasHoopsJournal.com reports.",2026-11-15T02:31Z
-4432582,Max Christie,DAL,Out,Christie (ankle) has been ruled out for Saturday's game against Cleveland.,2026-11-14T23:02Z
+4278049,Daniel Gafford,DAL,Day-To-Day,"Gafford (face) won't return to Saturday's game against the Cavaliers, Grant Afseth of DallasHoopsJournal.com reports.",2026-11-15T15:22Z
+4432582,Max Christie,DAL,Day-To-Day,Christie (ankle) has been ruled out for Saturday's game against Cleveland.,2026-11-15T15:22Z
 4683688,Dereck Lively II,DAL,Out,Lively (foot) is listed as out for Thursday's game in Minnesota.,2026-11-11T22:13Z
 5148538,Tarik Biberovic,DAL,Out,Biberovic (heel) is out for Thursday's game against Minnesota.,2026-11-11T22:12Z
 5279129,Sergio de Larrea,DAL,Out,De Larrea (knee) has been ruled out for Thursday's game at Minnesota.,2026-11-11T22:10Z
@@ -50,21 +50,21 @@ pid,name,team,status,note,ts
 5060631,Adou Thiero,LAL,Day-To-Day,Thiero (ankle) is questionable for Sunday's game against the Suns.,2026-11-15T00:40Z
 4277811,Collin Sexton,LAL,Day-To-Day,"Sexton (head) is questionable for Sunday's game against the Suns, Daniel Starkand of LakersNation.com reports.",2026-11-15T00:27Z
 4066457,Austin Reaves,LAL,Out,"Reaves (heel) has been ruled out for Sunday's game against the Suns, Daniel Starkand of LakersNation.com reports.",2026-11-15T00:17Z
-5105550,GG Jackson,MEM,Out,"According to Grizzlies head coach Tuomas Iisalo, Jackson suffered a ""relatively serious"" foot injury in Saturday's 129-110 win over Brooklyn, Michael Wallace of the Grizzlies' official site reports.",2026-11-15T04:09Z
-4600663,Zach Edey,MEM,Out,Edey (ankle) is listed as out for Saturday's game against the Nets.,2026-11-15T00:43Z
-2991070,Jerami Grant,MEM,Out,Grant (head) is out for Saturday's game against the Nets.,2026-11-15T00:35Z
+4600663,Zach Edey,MEM,Day-To-Day,Edey (ankle) is listed as out for Saturday's game against the Nets.,2026-11-15T15:29Z
+4065733,Ty Jerome,MEM,Day-To-Day,Jerome (hip) has been ruled out for Saturday's game against the Nets.,2026-11-15T15:28Z
+5105550,GG Jackson,MEM,Day-To-Day,"According to Grizzlies head coach Tuomas Iisalo, Jackson suffered a ""relatively serious"" foot injury in Saturday's 129-110 win over Brooklyn, Michael Wallace of the Grizzlies' official site reports.",2026-11-15T15:28Z
+2991070,Jerami Grant,MEM,Day-To-Day,Grant (head) is out for Saturday's game against the Nets.,2026-11-15T15:28Z
 4593016,Quinten Post,MEM,Out,Post (concussion) has been ruled out for Saturday's game against the Nets.,2026-11-14T19:47Z
-4065733,Ty Jerome,MEM,Out,Jerome (hip) has been ruled out for Saturday's game against the Nets.,2026-11-14T19:44Z
 4431785,Scotty Pippen Jr.,MEM,Out,"Pippen (back) remains out for Wednesday's game against Denver, Michael Wallace of the Grizzlies' official site reports.",2026-11-10T23:09Z
 5105462,Richie Saunders,MEM,Out,"Saunders signed a two-way contract with the Grizzlies on Saturday, Shams Charania of ESPN reports.",2026-11-07T17:24Z
-4601025,Pelle Larsson,MIA,Out,Larsson (illness) has been ruled out for Saturday's game against the Pistons.,2026-11-14T23:26Z
+4601025,Pelle Larsson,MIA,Day-To-Day,Larsson (illness) has been ruled out for Saturday's game against the Pistons.,2026-11-15T15:26Z
 4997526,Ousmane Dieng,MIL,Out,Dieng (finger) has been ruled out for Sunday's game against the Hawks.,2026-11-14T22:40Z
-4432247,Jaylen Clark,MIN,Out,"Clark (hamstring) has been ruled out for the remainder of Saturday's game against the Bulls, Sarah Todd of The Deseret News reports.",2026-11-15T02:08Z
+4432247,Jaylen Clark,MIN,Day-To-Day,"Clark (hamstring) has been ruled out for the remainder of Saturday's game against the Bulls, Sarah Todd of The Deseret News reports.",2026-11-15T15:31Z
 4594268,Anthony Edwards,MIN,Out,"Edwards underwent a successful arthroscopic procedure on his right knee Thursday, the Timberwolves announced.",2026-10-29T18:33Z
 3934673,Donte DiVincenzo,MIN,Out,"DiVincenzo (Achilles) remains confident that he'll return during the 2026-27 season, Jon Krawczynski of The Athletic reports.",2026-10-05T20:53Z
-4683634,Bennedict Mathurin,NO,Out,Mathurin is out for Saturday's game against the Nuggets due to left plantar fasciitis.,2026-11-14T23:06Z
+4576086,Bryce McGowens,NO,Day-To-Day,McGowens (elbow) has been ruled out for Saturday's game against the Nuggets.,2026-11-15T15:24Z
+4683634,Bennedict Mathurin,NO,Day-To-Day,Mathurin is out for Saturday's game against the Nuggets due to left plantar fasciitis.,2026-11-15T15:24Z
 4431675,Trendon Watford,NO,Out,Watford (ankle) has been ruled out for Saturday's game against Denver.,2026-11-14T17:58Z
-4576086,Bryce McGowens,NO,Out,McGowens (elbow) has been ruled out for Saturday's game against the Nuggets.,2026-11-14T17:55Z
 4397688,Trey Murphy III,NO,Out,Murphy (knees) has been ruled out for Saturday's game against the Nuggets.,2026-11-14T17:53Z
 3907497,Dejounte Murray,NO,Out,Murray (ankle) is out for Friday's game against Memphis.,2026-11-13T20:19Z
 4432823,Jaylin Williams,OKC,Out,Williams (back) has been ruled out for Sunday's game against the Kings.,2026-11-15T01:14Z
