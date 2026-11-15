@@ -216,3 +216,14 @@ const statRange = (stat, pos, x, dec = 0) => { const r = rangeAt(stat, pos, x); 
 const ptsRange = r => { const ppr = r.c.ppr, g = rangeAt("pts", r.pos, ppr); if (!g || !(ppr > 0)) return null; const s = r.c.pts / ppr; return [g[0] * s, g[1] * s]; };
 const rangeCol = () => ({k: "crng", h: "Range", t: RANGE_TIP + (CFG.mean ? " (Built around the median; the column beside it is the mean.)" : ""), v: r => ptsRange(r)?.[1] ?? null, f: r => { const g = ptsRange(r); return g ? `<span class="mut">${num(g[0], 0)}–${num(g[1], 0)}</span>` : ""; }});
 const rg = (stat, r, x, html, dec = 0) => { const g = statRange(stat, r.pos, x, dec); return g && html !== "" ? `<span title="${esc("Typical range " + g + " (80% of past outcomes)")}" style="cursor:help">${html}</span>` : html; };
+
+// "Cleared N of M": how many of his last games beat this posted line (box scores, `hist.json`; display only). A lean that goes against his own record is flagged: an UNDER on a player who cleared the line in 40% or more of
+// his recent games, an OVER on one who cleared it in 30% or less (high-confidence college Unders hit 52% when he had cleared the line in 40%+ of his prior games, 57% otherwise).
+const histOf = (id, stat) => D.hist?.[id]?.[stat] || null;
+const histRate = (id, stat, line) => { const h = histOf(id, stat); return h && line != null && h.length >= 3 ? h.filter(v => v > line).length / h.length : null; };
+const histCell = (id, stat, line, z) => {
+  const h = histOf(id, stat); if (!h || line == null) return "";
+  if (h.length < 3) return `<span class="mut" title="Only ${h.length} game${h.length === 1 ? "" : "s"} on record">n&lt;3</span>`;
+  const k = h.filter(v => v > line).length, rate = k / h.length, against = z != null && ((z < 0 && rate >= 0.4) || (z > 0 && rate <= 0.3));
+  return `<span class="${against ? "bad" : ""}" style="cursor:help" title="${esc(`Last ${h.length} games (oldest first): ${h.join(", ")}\nBeat the line ${line} in ${k} of ${h.length} (${Math.round(rate * 100)}%)${against ? "\nThe lean goes against his own record" : ""}`)}">${k}/${h.length}${against ? " ⚠" : ""}</span>`;
+};
