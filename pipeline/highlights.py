@@ -13,8 +13,10 @@ cuts of a small sample, so treat them as 'best supported so far', not as an edge
 """
 import argparse, glob, json, os
 import numpy as np
+import pandas as pd
 from . import config as C
 from . import results as R
+from . import absence as A
 
 MIN_N = 100
 SHOW_PW = 0.55                    # a backed segment lists tonight only its legs where the model is at least this sure (the record covers the whole segment)
@@ -22,14 +24,18 @@ CAUTION_BELOW = 0.47
 STATS = ["pts", "reb", "ast", "fg3m", "pra", "pr", "pa", "ra"]
 COMBO = {"pra": ["pts", "reb", "ast"], "pr": ["pts", "reb"], "pa": ["pts", "ast"], "ra": ["reb", "ast"]}
 SEGMENTS = [
-    {"id": "reb_over", "kind": "backed", "label": "Rebound Overs", "test": lambda s, st, pw: s == "O" and st == "reb"},
-    {"id": "ast_under", "kind": "backed", "label": "Assist Unders", "test": lambda s, st, pw: s == "U" and st == "ast"},
-    {"id": "over70", "kind": "caution", "label": "Model Overs at 70%+", "test": lambda s, st, pw: s == "O" and pw >= 0.70},
+    {"id": "reb_over", "kind": "backed", "label": "Rebound Overs", "test": lambda s, st, pw, out: s == "O" and st == "reb"},
+    {"id": "ast_under", "kind": "backed", "label": "Assist Unders", "test": lambda s, st, pw, out: s == "U" and st == "ast"},
+    {"id": "over70", "kind": "caution", "label": "Model Overs at 70%+", "test": lambda s, st, pw, out: s == "O" and pw >= 0.70},
     # Added Nov 3 with the user's agreement after the one-week recheck (Oct 20-Nov 2, 8,650 graded lines): the model's Unders at 65%+ hit 57.3% over 784 lines
     # (90% lower bound 55.0%; halves 58.5% / 56.5%), the only bucket at or above break-even; Overs in every bucket did not. Fantasy Score lines are not in this
     # segment's record (this module does not handle them). Exploratory and not yet proven: the record was 60.5% with no rotation player out for the team (n 423),
     # 44.2% with one out (138) and 58.4% with two or more (161), so each leg shows how many rotation players are out.
-    {"id": "under65", "kind": "backed", "label": "Model Unders at 65%+", "test": lambda s, st, pw: s == "U" and pw >= 0.65},
+    # Gated to NO rotation player out for the team on Nov 16 (agreed with the user) after the same cut on 1,138 graded legs: 64.2% with none out (n 525, 90% range 60.7-67.6%, halves 61.5% / 71.9%),
+    # 51.9% with one out (264) and 49.9% with two or more (349), i.e. at or below break-even whenever a teammate is out (the model under-credits the men who play; see USAGE_PASS). `out` for the
+    # record is counted after the fact (see rotation_out); for tonight's legs it is the injury-report count from absence.json. The legs this keeps out are counted in `withheld`.
+    {"id": "under65", "kind": "backed", "label": "Model Unders at 65%+ (no rotation player out)", "test": lambda s, st, pw, out: s == "U" and pw >= 0.65 and out == 0,
+     "withheld": lambda s, st, pw, out: s == "U" and pw >= 0.65 and out > 0},
 ]
 
 
@@ -37,13 +43,33 @@ def _spread(raw):
     return {**C.SPREAD_DEFAULT, **(json.load(open(f"{raw}/spread.json")) if os.path.exists(f"{raw}/spread.json") else {})}
 
 
+def rotation_out(raw, days):
+    """{day: {team: rotation players out}} for graded days, counted after the fact: a player who averaged STAR_MIN+ minutes over his last 10 games before the day (and played within
+    STAR_RECENT_DAYS) and did not play that day. The same rule as absence.py but with 'did not play' standing in for the injury report, which was not stored for old days."""
+    p = f"{raw}/games.csv"
+    if not os.path.exists(p) or not days: return {}
+    g = pd.read_csv(p, dtype={"pid": str}); g["date"] = pd.to_datetime(g["date"]); g = g[g["min"] > 0].sort_values("date")
+    res = {}
+    for day in days:
+        d = pd.Timestamp(day)
+        prior = g[(g["date"] < d) & (g["date"] >= d - pd.Timedelta(days=A.STAR_RECENT_DAYS))]
+        l10 = prior.groupby("pid").tail(10).groupby("pid").agg(avg=("min", "mean"), team=("team", "last"))
+        cand = l10[l10["avg"] >= A.STAR_MIN]
+        played = set(g.loc[g["date"] == d, "pid"])
+        res[day] = cand[~cand.index.isin(played)].groupby("team").size().to_dict()
+    return res
+
+
 def records(results_dir="site/data/results", raw="data/raw"):
     sp = _spread(raw)
     days = sorted(glob.glob(os.path.join(results_dir, "20??-??-??.json")))
     mid = os.path.basename(days[len(days) // 2])[:10] if days else ""
     rec = {s["id"]: {"n": 0, "w": 0, "nA": 0, "wA": 0, "nB": 0, "wB": 0} for s in SEGMENTS}
+    wh = {s["id"]: {"n": 0, "w": 0} for s in SEGMENTS if "withheld" in s}          # the legs a segment's gate keeps out, graded the same way
+    ro = rotation_out(raw, [os.path.basename(f)[:10] for f in days])
     for f in days:
         day = os.path.basename(f)[:10]; half = "A" if day < mid else "B"
+        outs = ro.get(day, {})
         for p in json.load(open(f)):
             if p.get("v"):
                 continue
@@ -56,14 +82,17 @@ def records(results_dir="site/data/results", raw="data/raw"):
                 g = R.grade(ac, pl, side)
                 if g is None:
                     continue
+                out = outs.get(p["t"], 0)
                 for s in SEGMENTS:
-                    if s["test"](side, k, pw):
+                    if s["test"](side, k, pw, out):
                         r = rec[s["id"]]; r["n"] += 1; r["w"] += int(g); r["n" + half] += 1; r["w" + half] += int(g)
-    return rec, mid
+                    elif "withheld" in s and s["withheld"](side, k, pw, out):
+                        wh[s["id"]]["n"] += 1; wh[s["id"]]["w"] += int(g)
+    return rec, mid, wh
 
 
 def build(out="site/data", raw="data/raw"):
-    rec, mid = records(os.path.join(out, "results"), raw)
+    rec, mid, wh = records(os.path.join(out, "results"), raw)
     be = C.PP_BREAKEVEN
     segs = []
     for s in SEGMENTS:
@@ -71,7 +100,7 @@ def build(out="site/data", raw="data/raw"):
         active = bool(r["n"] >= MIN_N and hit is not None and (hit >= be if s["kind"] == "backed" else hit <= CAUTION_BELOW))
         segs.append({"id": s["id"], "kind": s["kind"], "label": s["label"], "n": r["n"], "hit": None if hit is None else round(hit, 3),
                      "hitA": round(r["wA"] / r["nA"], 3) if r["nA"] else None, "hitB": round(r["wB"] / r["nB"], 3) if r["nB"] else None, "active": active})
-    today = []
+    today, held = [], {k: 0 for k in wh}
     lp, pp_ = f"{out}/lines.json", f"{out}/projections.json"
     if os.path.exists(lp) and os.path.exists(pp_):
         sp = _spread(raw)
@@ -86,14 +115,18 @@ def build(out="site/data", raw="data/raw"):
             m = sum(p["min"] * p["rate_" + c] for c in COMBO.get(k, [k]))
             a, b = sp.get(k, [1.0, 0.3]); sd = max(a + b * m, 0.1)
             po, pu = R.sides(pl, m, sd); side = "O" if po >= pu else "U"; pw = max(po, pu)
+            n_out = len(stars.get(p["team"], []))
             for s in act:
-                if s["test"](side, k, pw) and (s["kind"] == "caution" or pw >= SHOW_PW):
+                if s["test"](side, k, pw, n_out) and (s["kind"] == "caution" or pw >= SHOW_PW):
                     today.append({"pid": r["pid"], "name": p["name"], "team": p["team"], "game": r["game"], "stat": k, "side": side, "line": pl, "pw": round(pw, 3),
                                   "proj": round(m, 1), "min": round(p["min"]), "status": p.get("status") or "", "seg": s["id"], "kind": s["kind"],
-                                  "out": len(stars.get(p["team"], []))})
+                                  "out": n_out})
+                elif "withheld" in s and s["withheld"](side, k, pw, n_out):
+                    held[s["id"]] += 1
     today.sort(key=lambda x: (x["kind"] != "backed", -x["pw"]))
     return {"asof": os.path.basename(sorted(glob.glob(f"{out}/results/20??-??-??.json"))[-1])[:10] if glob.glob(f"{out}/results/20??-??-??.json") else None,
-            "breakeven": be, "min_n": MIN_N, "caution_below": CAUTION_BELOW, "split_at": mid, "segments": segs, "today": today}
+            "breakeven": be, "min_n": MIN_N, "caution_below": CAUTION_BELOW, "split_at": mid, "segments": segs, "today": today,
+            "withheld": {k: {"legs_today": held[k], "n": v["n"], "hit": round(v["w"] / v["n"], 3) if v["n"] else None} for k, v in wh.items()}}
 
 
 def main(out="site/data", raw="data/raw"):
