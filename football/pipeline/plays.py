@@ -6,7 +6,7 @@ Rules: two or more books, raw model confidence 62%+, depth-chart starter, no shi
 line, Unders on receptions and receiving yards only (no Overs, no rushing Unders), player cleared the line in under 40% of his last games, no Miami pass
 catchers. Sort: blend P(side) = market + BLEND_K x (model - market) on the side, BLEND_K 0.25 (README "Model against the market", 2026-11-16).
 """
-import json, sys
+import csv, json, sys
 from datetime import datetime, timezone
 from . import prob, config as C
 
@@ -14,7 +14,19 @@ BLEND_K = 0.25
 KEY = {"rushY": "ry", "recY": "recy", "rec": "rec", "passY": "py", "comp": "comp"}
 SPEC = {v[0]: dict(a=v[2], b=v[3], law=v[4]) for v in C.ODDS_MARKETS.values()}
 STATS = {"rec", "recY"}
-NO_TEAM = {"MIA"}
+GUARD_CSV = "data/log/plays_team_guard.csv"   # team, from_week, to_week (blank = open), reason: teams whose pass catchers are left off the list
+
+
+def team_guard(week, path=GUARD_CSV):
+    """-> {team: reason} for the teams guarded in `week`."""
+    out = {}
+    try:
+        for r in csv.DictReader(open(path)):
+            if int(r["from_week"] or 0) <= week and (not r["to_week"] or week <= int(r["to_week"])):
+                out[r["team"]] = r["reason"]
+    except FileNotFoundError:
+        pass
+    return out
 
 
 def swapped_teams(P):
@@ -32,6 +44,7 @@ def build(data="site/data", asof=None):
     H = json.load(open(f"{data}/hist.json"))
     now = asof or datetime.now(timezone.utc).isoformat()
     qb_new = swapped_teams(P)
+    guard = team_guard(int(json.load(open(f"{data}/meta.json")).get("week") or 0))
     out = []
     for r in L["rows"]:
         p, c, s = P.get(r["id"]), r.get("cons"), r["stat"]
@@ -55,7 +68,7 @@ def build(data="site/data", asof=None):
         if p["g"] < 3: why.append("thin")
         if not 0.55 <= (m / line if line else 9) <= 1.6: why.append("gap to line")
         if cl is not None and cl >= 0.4: why.append("cleared line %d%%" % round(cl * 100))
-        if p["team"] in NO_TEAM: why.append("team guard")
+        if p["pos"] != "QB" and p["team"] in guard: why.append("team guard: " + guard[p["team"]].split(";")[0])
         if p["pos"] != "QB" and p["team"] in qb_new: why.append("new quarterback")
         out.append(dict(name=p["name"], team=p["team"], game=r["game"], stat=s, side=side, line=line, proj=round(m, 1), conf=conf, market=mk,
                         blend=blend, cleared=cl, n=len(h), books=c["n_books"], why=why))
