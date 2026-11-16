@@ -1,6 +1,6 @@
 """Ranked NFL plays from the current board (the rules in README "Decision (2026-11-16)"), sorted by the blend probability.
 
-    python -m pipeline.plays [--all]      # --all also lists lines the rules dropped, with the reason
+    python -m pipeline.plays [--all] [--data DIR] [--asof ISO]   # --all lists the lines the rules dropped, with the reason; --data/--asof replay an old board
 
 Rules: two or more books, raw model confidence 62%+, depth-chart starter, no shift / returning / moved / status / thin flag, projection 0.55-1.6 of the
 line, Unders on receptions and receiving yards only (no Overs, no rushing Unders), player cleared the line in under 40% of his last games, no Miami pass
@@ -17,11 +17,21 @@ STATS = {"rec", "recY"}
 NO_TEAM = {"MIA"}
 
 
-def build(data="site/data"):
+def swapped_teams(P):
+    """Teams whose depth-chart quarterback is new to the job: moved at the deadline, a Starter override, or under 3 games of history."""
+    out = set()
+    for p in P.values():
+        if p["pos"] == "QB" and ((p.get("depth") or {}).get("st") or p["status"] == "Starter") and (p.get("moved") or p["status"] == "Starter" or p["g"] < 3):
+            out.add(p["team"])
+    return out
+
+
+def build(data="site/data", asof=None):
     L = json.load(open(f"{data}/lines.json"))
     P = {p["id"]: p for p in json.load(open(f"{data}/projections.json"))}
     H = json.load(open(f"{data}/hist.json"))
-    now = datetime.now(timezone.utc).isoformat()
+    now = asof or datetime.now(timezone.utc).isoformat()
+    qb_new = swapped_teams(P)
     out = []
     for r in L["rows"]:
         p, c, s = P.get(r["id"]), r.get("cons"), r["stat"]
@@ -46,13 +56,15 @@ def build(data="site/data"):
         if not 0.55 <= (m / line if line else 9) <= 1.6: why.append("gap to line")
         if cl is not None and cl >= 0.4: why.append("cleared line %d%%" % round(cl * 100))
         if p["team"] in NO_TEAM: why.append("team guard")
+        if p["pos"] != "QB" and p["team"] in qb_new: why.append("new quarterback")
         out.append(dict(name=p["name"], team=p["team"], game=r["game"], stat=s, side=side, line=line, proj=round(m, 1), conf=conf, market=mk,
                         blend=blend, cleared=cl, n=len(h), books=c["n_books"], why=why))
     return out
 
 
 def main():
-    rows = build()
+    arg = lambda k: sys.argv[sys.argv.index(k) + 1] if k in sys.argv else None
+    rows = build(arg("--data") or "site/data", arg("--asof"))
     ok = sorted((x for x in rows if not x["why"]), key=lambda x: -x["blend"])
     print(f"{len(ok)} plays (of {len(rows)} upcoming lines), sorted by blend P(side):")
     for i, x in enumerate(ok, 1):
