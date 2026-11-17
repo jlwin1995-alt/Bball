@@ -140,3 +140,6 @@ Prefer your own machine? `scripts/morning.sh` does the same refresh locally; add
 - Not modelled: opposing-offence strength inside the defence rating, pace as a separate term,
   double-double bonuses, blowout risk, redistributing minutes in the browser when you override a teammate.
 - Season constants (`SEASON`, `CUR_START`, …) in `config.py` need updating each year.
+
+### Frozen pick rules (research, v1)
+`pipeline/picks.py` freezes three rules and grades them forward: **R1** Unders with no rotation player out for the team, model P(win) >= 65% and projected minutes >= 20 (in sample 68% over 335 legs); **R2** Overs with exactly one rotation player out, P(win) >= 60% (58% over 572); **R3** (tracked only) the side a PrizePicks line 1.0+ off the sportsbook consensus points to (56% over 725). The cuts were found post hoc on the first 14,717 graded legs, so they are not shown on the site; each refresh appends to `data/log/picks_log.csv` (first and last sighting of every qualifying leg, so closing-line value can be measured), and `picks_summary.json` reports hit rate by leg and by player-day (legs on one player the same day are one bet) with 90% ranges. `python -m pipeline.picks --backtest` reproduces the in-sample table. A "skip if the market disagrees" filter and a skew-aware probability were tested and not adopted.

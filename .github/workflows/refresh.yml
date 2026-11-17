@@ -47,6 +47,11 @@ jobs:
         run: python -m pipeline.backtest --every 5 --write-spread
       - name: Build site data (and log the next slate before tip-off)
         run: python -m pipeline.build
+      - name: Log and grade the frozen pick rules (research)
+        # data/log/picks_log.csv (append-only per slate day, player, stat, rule: first and last sighting of each qualifying leg), picks_graded.csv and picks_summary.json (hit rate by leg and by player-day, closing-line value). Rules v1 are frozen in pipeline/picks.py. Soft-fail.
+        run: |
+          python -m pipeline.picks || echo "::warning::pick log could not be written"
+          python -m pipeline.picks --grade || echo "::warning::picks could not be graded"
       - name: Log DARKO's projections beside ours (research only)
         # DARKO's public MCP endpoint needs no key; this only writes data/log/darko_proj.csv on the first run after the pre-tip slate log. Soft-fail.
         run: python -m pipeline.darko_log || echo "::warning::DARKO projections could not be logged"
