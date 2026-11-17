@@ -1,106 +1,258 @@
 ts,event,commence,game,home,away,player,stat,book,line,over,under
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Joshua Long,recY,fanduel,34.5,-114,-114
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Aveion Chenault,recY,fanduel,50.5,-114,-114
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Benson Prosper,recY,fanduel,31.5,-114,-114
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Harold Mack,recY,fanduel,39.5,-114,-114
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Baylin Brooks,recY,fanduel,30.5,-114,-114
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Aveion Chenault,rec,fanduel,3.5,-140,106
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Joshua Long,rec,fanduel,3.5,-136,102
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Benson Prosper,rec,fanduel,2.5,-180,134
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Harold Mack,rec,fanduel,3.5,102,-136
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Amareon Blue,rushY,fanduel,37.5,-114,-114
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Jalen Buckley,rushY,fanduel,93.5,-118,-112
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Benson Prosper,recY,betrivers,30.5,-122,
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Aveion Chenault,recY,betrivers,51.5,-118,
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Baylin Brooks,recY,betrivers,30.5,-122,
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Joshua Long,recY,betrivers,34.5,-121,
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Harold Mack,recY,betrivers,38.5,-124,
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Jalen Buckley,rushY,betrivers,93.5,-120,
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Amareon Blue,rushY,betrivers,37.5,-121,
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Joshua Long,recY,williamhill_us,35.5,-115,-114
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Aveion Chenault,recY,williamhill_us,50.5,-115,-114
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Harold Mack,recY,williamhill_us,40.5,-115,-114
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Baylin Brooks,recY,williamhill_us,30.5,-115,-114
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Benson Prosper,recY,williamhill_us,31.5,-115,-114
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Amareon Blue,rushY,williamhill_us,38.5,-117,-113
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Jalen Buckley,rushY,williamhill_us,94.5,-128,-105
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Aveion Chenault,recY,prizepicks,50.5,-137,-137
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Harold Mack,recY,prizepicks,39.5,-137,-137
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Joshua Long,recY,prizepicks,34.5,-137,-137
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Benson Prosper,recY,prizepicks,31.5,-137,-137
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Baylin Brooks,recY,prizepicks,30.5,-137,-137
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Jalen Buckley,rushY,prizepicks,93.5,-137,-137
-2026-11-17T03:27:32+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Amareon Blue,rushY,prizepicks,37.5,-137,-137
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Keldric Luster,passY,fanduel,184.5,-114,-114
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Nick Poulos,passY,fanduel,220.5,-114,-114
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Riley Neer,recY,fanduel,57.5,-114,-114
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Dom Dorwart,recY,fanduel,46.5,-114,-114
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Donovan Hamilton,recY,fanduel,52.5,-118,-112
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Dom Dorwart,rec,fanduel,2.5,-130,-102
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Donovan Hamilton,rec,fanduel,3.5,-122,-108
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Riley Neer,rec,fanduel,4.5,-125,-106
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Nick Poulos,rushY,fanduel,42.5,-114,-114
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Keldric Luster,rushY,fanduel,32.5,-114,-114
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Duncan Brune,rushY,fanduel,62.5,-114,-114
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Keldric Luster,passY,betrivers,188.5,-118,
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Nick Poulos,passY,betrivers,224.5,-121,
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Donovan Hamilton,recY,betrivers,51.5,-122,
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Dom Dorwart,recY,betrivers,47.5,-122,
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Riley Neer,recY,betrivers,58.5,-118,
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Nick Poulos,rushY,betrivers,43.5,-118,
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Duncan Brune,rushY,betrivers,63.5,-117,
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Keldric Luster,rushY,betrivers,32.5,-117,
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Nick Poulos,passY,williamhill_us,219.5,-105,-128
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Keldric Luster,passY,williamhill_us,186.5,-114,-115
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Donovan Hamilton,recY,williamhill_us,52.5,-115,-115
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Riley Neer,recY,williamhill_us,58.5,-114,-115
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Dom Dorwart,recY,williamhill_us,48.5,-115,-114
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Riley Neer,rec,williamhill_us,4.5,-117,-113
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Dom Dorwart,rec,williamhill_us,2.5,-122,-108
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Donovan Hamilton,rec,williamhill_us,3.5,-130,100
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Keldric Luster,rushY,williamhill_us,31.5,-114,-115
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Duncan Brune,rushY,williamhill_us,63.5,-113,-117
-2026-11-17T03:27:32+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Nick Poulos,rushY,williamhill_us,44.5,-115,-114
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,passY,fanduel,215.5,-114,-114
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Maleek Huggins,recY,fanduel,45.5,-114,-114
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Wayne Harris,recY,fanduel,67.5,-114,-114
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Rodney Nelson,rushY,fanduel,46.5,-114,-114
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,rushY,fanduel,18.5,-114,-114
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),D'Shawntae Jones,rushY,fanduel,64.5,-114,-114
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,passY,betrivers,215.5,-120,
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Wayne Harris,recY,betrivers,67.5,-120,
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Braylon Isom,recY,betrivers,28.5,-121,
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Da'Realyst Clark,recY,betrivers,48.5,-121,
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Brendyn Smith,recY,betrivers,23.5,-125,
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Maleek Huggins,recY,betrivers,44.5,-124,
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Rodney Nelson,rushY,betrivers,46.5,-120,
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,rushY,betrivers,18.5,-127,
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),D'Shawntae Jones,rushY,betrivers,65.5,-118,
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,passY,williamhill_us,215.5,-115,-114
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Maleek Huggins,recY,williamhill_us,45.5,-115,-114
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Wayne Harris,recY,williamhill_us,66.5,-115,-115
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,rushY,williamhill_us,17.5,-113,-117
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Rodney Nelson,rushY,williamhill_us,45.5,-113,-117
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),D'Shawntae Jones,rushY,williamhill_us,64.5,-128,-105
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,passY,prizepicks,215.5,-137,-137
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Wayne Harris,recY,prizepicks,67.5,-137,-137
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Da'Realyst Clark,recY,prizepicks,51.5,-137,-137
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Maleek Huggins,recY,prizepicks,45.5,-137,-137
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Braylon Isom,recY,prizepicks,32.5,-137,-137
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Brendyn Smith,recY,prizepicks,24.5,-137,-137
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Rodney Nelson,recY,prizepicks,0.5,-137,-137
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Maleek Huggins,rec,prizepicks,3.5,-137,-137
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),D'Shawntae Jones,rushY,prizepicks,64.5,-137,-137
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Rodney Nelson,rushY,prizepicks,46.5,-137,-137
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,rushY,prizepicks,18.5,-137,-137
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,passY,underdog,215.5,-137,-137
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Rodney Nelson,recY,underdog,0.5,-137,
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Maleek Huggins,recY,underdog,45.5,-137,-137
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Wayne Harris,recY,underdog,67.5,-137,-137
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Braylon Isom,recY,underdog,32.5,-137,
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Da'Realyst Clark,recY,underdog,51.5,-137,
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Brendyn Smith,recY,underdog,24.5,-137,
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Maleek Huggins,rec,underdog,3.5,-137,
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,rushY,underdog,18.5,-137,-137
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Rodney Nelson,rushY,underdog,46.5,-137,-137
-2026-11-17T03:27:32+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),D'Shawntae Jones,rushY,underdog,64.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Joshua Long,recY,fanduel,34.5,-114,-114
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Aveion Chenault,recY,fanduel,50.5,-114,-114
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Benson Prosper,recY,fanduel,25.5,-114,-114
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Harold Mack,recY,fanduel,39.5,-114,-114
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Baylin Brooks,recY,fanduel,30.5,-114,-114
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Aveion Chenault,rec,fanduel,3.5,-125,-106
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Joshua Long,rec,fanduel,3.5,-136,102
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Benson Prosper,rec,fanduel,2.5,-180,134
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Harold Mack,rec,fanduel,3.5,102,-136
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Amareon Blue,rushY,fanduel,37.5,-114,-114
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Jalen Buckley,rushY,fanduel,109.5,-114,-114
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Aveion Chenault,recY,espnbet,51.5,-125,-105
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Harold Mack,recY,espnbet,39.5,-125,-105
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Baylin Brooks,recY,espnbet,34.5,-120,-110
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Joshua Long,recY,espnbet,34.5,-105,-125
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Jalen Buckley,rushY,espnbet,104.5,-120,-110
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Baylin Brooks,recY,betrivers,31.5,-118,
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Aveion Chenault,recY,betrivers,51.5,-121,
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Benson Prosper,recY,betrivers,31.5,-115,
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Joshua Long,recY,betrivers,34.5,-122,
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Harold Mack,recY,betrivers,38.5,-120,
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Jalen Buckley,rushY,betrivers,106.5,-121,
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Amareon Blue,rushY,betrivers,37.5,-118,
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Joshua Long,recY,williamhill_us,34.5,-115,-114
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Aveion Chenault,recY,williamhill_us,51.5,-115,-114
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Harold Mack,recY,williamhill_us,40.5,-115,-114
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Baylin Brooks,recY,williamhill_us,31.5,-115,-114
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Benson Prosper,recY,williamhill_us,26.5,-115,-114
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Aveion Chenault,rec,williamhill_us,3.5,-117,-113
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Joshua Long,rec,williamhill_us,3.5,-136,102
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Harold Mack,rec,williamhill_us,3.5,103,-136
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Amareon Blue,rushY,williamhill_us,38.5,-117,-113
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Jalen Buckley,rushY,williamhill_us,106.5,-128,-105
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Aveion Chenault,recY,prizepicks,50.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Harold Mack,recY,prizepicks,39.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Joshua Long,recY,prizepicks,34.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Baylin Brooks,recY,prizepicks,30.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Benson Prosper,recY,prizepicks,25.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Nick Devereaux,recY,prizepicks,24.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Jalen Buckley,recY,prizepicks,8.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Amareon Blue,recY,prizepicks,4.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Aveion Chenault,rec,prizepicks,3.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Nick Devereaux,rec,prizepicks,2.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Jalen Buckley,rushY,prizepicks,109.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Amareon Blue,rushY,prizepicks,37.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Jalen Buckley,recY,underdog,10.5,-137,
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Amareon Blue,recY,underdog,4.5,-137,
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Baylin Brooks,recY,underdog,30.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Benson Prosper,recY,underdog,25.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Nick Devereaux,recY,underdog,24.5,-137,
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Harold Mack,recY,underdog,39.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Aveion Chenault,recY,underdog,50.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Joshua Long,recY,underdog,34.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Nick Devereaux,rec,underdog,2.5,-137,
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Aveion Chenault,rec,underdog,3.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Jalen Buckley,rushY,underdog,109.5,-137,-137
+2026-11-17T20:22:41+00:00,0d8cfafd3da8fead51df5ec2e33e9382,2026-11-17T23:00:00Z,Eastern Michigan @ Western Michigan,Western Michigan,Eastern Michigan,Amareon Blue,rushY,underdog,37.5,-137,-137
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Keldric Luster,passY,fanduel,184.5,-114,-114
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Nick Poulos,passY,fanduel,220.5,-114,-114
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Donovan Hamilton,recY,fanduel,52.5,-114,-114
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Riley Neer,recY,fanduel,57.5,-114,-114
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Dom Dorwart,recY,fanduel,46.5,-114,-114
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Dom Dorwart,rec,fanduel,2.5,-130,-102
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Riley Neer,rec,fanduel,4.5,-125,-106
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Donovan Hamilton,rec,fanduel,3.5,-148,112
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Nick Poulos,rushY,fanduel,42.5,-114,-114
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Duncan Brune,rushY,fanduel,67.5,-114,-114
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Keldric Luster,rushY,fanduel,32.5,-114,-114
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Nick Poulos,passY,espnbet,219.5,-120,-110
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Keldric Luster,passY,espnbet,189.5,-110,-120
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Riley Neer,recY,espnbet,64.5,-105,-125
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Preston Bowman,recY,espnbet,39.5,-110,-120
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Dom Dorwart,recY,espnbet,54.5,-105,-125
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Donovan Hamilton,recY,espnbet,49.5,-125,-105
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Jamarion McDougle,recY,espnbet,27.5,-120,-110
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Dom Dorwart,rec,espnbet,2.5,-130,100
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Duncan Brune,rushY,espnbet,69.5,-120,-110
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Nick Poulos,rushY,espnbet,44.5,-125,-105
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Keldric Luster,rushY,espnbet,34.5,100,-130
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Keldric Luster,passY,betrivers,188.5,-129,
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Nick Poulos,passY,betrivers,224.5,-113,
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Donovan Hamilton,recY,betrivers,51.5,-125,
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Dom Dorwart,recY,betrivers,47.5,-122,
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Riley Neer,recY,betrivers,58.5,-118,
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Nick Poulos,rushY,betrivers,43.5,-118,
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Duncan Brune,rushY,betrivers,63.5,-117,
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Keldric Luster,rushY,betrivers,32.5,-117,
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Nick Poulos,passY,williamhill_us,218.5,-105,-128
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Keldric Luster,passY,williamhill_us,186.5,-114,-115
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Riley Neer,recY,williamhill_us,58.5,-114,-115
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Dom Dorwart,recY,williamhill_us,47.5,-115,-114
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Donovan Hamilton,recY,williamhill_us,52.5,-115,-115
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Riley Neer,rec,williamhill_us,4.5,-117,-113
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Dom Dorwart,rec,williamhill_us,2.5,-122,-108
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Donovan Hamilton,rec,williamhill_us,3.5,-139,106
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Keldric Luster,rushY,williamhill_us,32.5,-114,-115
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Duncan Brune,rushY,williamhill_us,67.5,-113,-117
+2026-11-17T20:22:41+00:00,5840d479fc52ad2b83d7feb802d4dd23,2026-11-18T00:00:00Z,Ball State @ Ohio,Ohio,Ball State,Nick Poulos,rushY,williamhill_us,44.5,-115,-114
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,passY,fanduel,215.5,-114,-114
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Maleek Huggins,recY,fanduel,45.5,-114,-114
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Wayne Harris,recY,fanduel,72.5,-114,-114
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Wayne Harris,rec,fanduel,4.5,-130,-102
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Rodney Nelson,rushY,fanduel,44.5,-114,-114
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,rushY,fanduel,18.5,-114,-114
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),D'Shawntae Jones,rushY,fanduel,68.5,-114,-114
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,passY,espnbet,212.5,-120,-110
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Braylon Isom,recY,espnbet,33.5,-105,-125
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Ayden Harris,recY,espnbet,69.5,-125,-105
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Maleek Huggins,recY,espnbet,49.5,-110,-120
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Rodney Nelson,rushY,espnbet,39.5,-130,100
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),D'Shawntae Jones,rushY,espnbet,69.5,-115,-115
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,rushY,espnbet,19.5,-105,-125
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,passY,betrivers,213.5,-120,
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Braylon Isom,recY,betrivers,30.5,-118,
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Wayne Harris,recY,betrivers,65.5,-122,
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Da'Realyst Clark,recY,betrivers,48.5,-121,
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Brendyn Smith,recY,betrivers,23.5,-124,
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Maleek Huggins,recY,betrivers,45.5,-122,
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Rodney Nelson,rushY,betrivers,45.5,-122,
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),D'Shawntae Jones,rushY,betrivers,67.5,-122,
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,rushY,betrivers,18.5,-125,
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,passY,williamhill_us,215.5,-115,-114
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Maleek Huggins,recY,williamhill_us,46.5,-115,-114
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Wayne Harris,recY,williamhill_us,71.5,-115,-115
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,rushY,williamhill_us,18.5,-113,-117
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Rodney Nelson,rushY,williamhill_us,44.5,-113,-117
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),D'Shawntae Jones,rushY,williamhill_us,69.5,-128,-105
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,passY,prizepicks,215.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Wayne Harris,recY,prizepicks,72.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Da'Realyst Clark,recY,prizepicks,49.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Maleek Huggins,recY,prizepicks,45.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Braylon Isom,recY,prizepicks,31.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Brendyn Smith,recY,prizepicks,23.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Rodney Nelson,recY,prizepicks,0.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Wayne Harris,rec,prizepicks,4.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Da'Realyst Clark,rec,prizepicks,3.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Maleek Huggins,rec,prizepicks,3.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),D'Shawntae Jones,rushY,prizepicks,68.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Rodney Nelson,rushY,prizepicks,44.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,rushY,prizepicks,18.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,passY,underdog,215.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Rodney Nelson,recY,underdog,0.5,-137,
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Wayne Harris,recY,underdog,72.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Maleek Huggins,recY,underdog,45.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Da'Realyst Clark,recY,underdog,49.5,-137,
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Braylon Isom,recY,underdog,31.5,-137,
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Brendyn Smith,recY,underdog,23.5,-137,
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Da'Realyst Clark,rec,underdog,3.5,-137,
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Dru DeShields,rushY,underdog,18.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),D'Shawntae Jones,rushY,underdog,68.5,-137,-137
+2026-11-17T20:22:41+00:00,792875fa96ecdf75559454c19c011768,2026-11-18T00:00:00Z,Miami (OH) @ Kent State,Kent State,Miami (OH),Rodney Nelson,rushY,underdog,44.5,-137,-137
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Cibastian Broughton,passY,fanduel,199.5,-114,-114
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Miles Burris,recY,fanduel,32.5,-114,-114
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Marcel Williams,recY,fanduel,44.5,-114,-114
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Jordan Gant,recY,fanduel,11.5,-114,-114
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Kyan Mason,recY,fanduel,34.5,-114,-114
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Kyan Mason,rec,fanduel,3.5,106,-140
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Marcel Williams,rec,fanduel,4.5,134,-180
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Miles Burris,rec,fanduel,3.5,-148,112
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Jordan Gant,rushY,fanduel,89.5,-114,-114
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Kyan Mason,recY,espnbet,34.5,-120,-110
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Miles Burris,recY,espnbet,38.5,-105,-125
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Jordan Gant,recY,espnbet,11.5,-115,-115
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Jordan Gant,rushY,espnbet,89.5,-105,-125
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Cibastian Broughton,passY,betrivers,202.5,-121,
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Marcel Williams,recY,betrivers,42.5,-124,
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Jordan Gant,recY,betrivers,11.5,-118,
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Miles Burris,recY,betrivers,31.5,-125,
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Kyan Mason,recY,betrivers,35.5,-118,
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Cibastian Broughton,rushY,betrivers,20.5,-121,
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Jordan Gant,rushY,betrivers,89.5,-120,
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Cibastian Broughton,passY,williamhill_us,200.5,-114,-115
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Marcel Williams,recY,williamhill_us,45.5,-113,-117
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Jordan Gant,recY,williamhill_us,11.5,-113,-117
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Kyan Mason,recY,williamhill_us,35.5,-114,-115
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Miles Burris,recY,williamhill_us,33.5,-113,-117
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Jordan Gant,rushY,williamhill_us,88.5,-114,-115
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Cibastian Broughton,passY,underdog,199.5,-137,-137
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Jordan Gant,recY,underdog,11.5,-137,-137
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Miles Burris,recY,underdog,32.5,-137,-137
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Marcel Williams,recY,underdog,44.5,-137,-137
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Kyan Mason,recY,underdog,34.5,-137,-137
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Cibastian Broughton,rushY,underdog,20.5,-137,
+2026-11-17T20:22:41+00:00,ef5f5ac74b2228e8521c289fdbc6af93,2026-11-19T00:00:00Z,Akron @ UMass Minutemen,UMass Minutemen,Akron,Jordan Gant,rushY,underdog,89.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jadyn Glasser,passY,fanduel,147.5,-114,-114
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jason Wright,passY,fanduel,170.5,-114,-114
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Dwayne Early Jr.,recY,fanduel,24.5,-114,-114
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Chance Morrow,recY,fanduel,69.5,-114,-114
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Clint Walker,recY,fanduel,20.5,-114,-114
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Chance Morrow,rec,fanduel,5.5,-108,-122
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Dwayne Early Jr.,rec,fanduel,2.5,116,-154
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Clint Walker,rec,fanduel,2.5,-102,-130
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jayden Clerveaux,rushY,fanduel,47.5,-114,-114
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Messiah Burch,rushY,fanduel,95.5,-114,-114
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Nick Woodford,rushY,fanduel,70.5,-114,-114
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Terrance Shelton Jr.,rushY,fanduel,47.5,-114,-114
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jason Wright,rushY,fanduel,12.5,-114,-114
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jadyn Glasser,passY,espnbet,147.5,-115,-115
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jason Wright,passY,espnbet,179.5,-110,-120
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Chance Morrow,recY,espnbet,69.5,-120,-110
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Dwayne Early Jr.,recY,espnbet,27.5,-120,-110
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Clint Walker,recY,espnbet,20.5,-110,-120
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Nick Woodford,rushY,espnbet,69.5,-125,-105
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Messiah Burch,rushY,espnbet,94.5,-110,-120
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jayden Clerveaux,rushY,espnbet,48.5,-115,-115
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jason Wright,rushY,espnbet,13.5,-110,-120
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jadyn Glasser,passY,betrivers,150.5,-122,
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jason Wright,passY,betrivers,171.5,-122,
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Dwayne Early Jr.,recY,betrivers,23.5,-127,
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Chance Morrow,recY,betrivers,70.5,-117,
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Clint Walker,recY,betrivers,21.5,-125,
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Nasir Williams,recY,betrivers,32.5,-121,
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Braylen Naves,recY,betrivers,32.5,-121,
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Nick Woodford,rushY,betrivers,70.5,-118,
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jason Wright,rushY,betrivers,13.5,-120,
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Terrance Shelton Jr.,rushY,betrivers,45.5,-122,
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Messiah Burch,rushY,betrivers,93.5,-118,
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jayden Clerveaux,rushY,betrivers,46.5,-121,
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jadyn Glasser,passY,williamhill_us,146.5,-115,-115
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jason Wright,passY,williamhill_us,172.5,-114,-115
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Clint Walker,recY,williamhill_us,20.5,-113,-118
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Dwayne Early Jr.,recY,williamhill_us,25.5,-113,-117
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Chance Morrow,recY,williamhill_us,69.5,-114,-115
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Dwayne Early Jr.,rec,williamhill_us,2.5,116,-152
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Clint Walker,rec,williamhill_us,2.5,100,-130
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jason Wright,rushY,williamhill_us,12.5,-115,-115
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Terrance Shelton Jr.,rushY,williamhill_us,47.5,-114,-117
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jayden Clerveaux,rushY,williamhill_us,48.5,-114,-115
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Messiah Burch,rushY,williamhill_us,94.5,-115,-114
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Nick Woodford,rushY,williamhill_us,71.5,-117,-113
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jason Wright,passY,prizepicks,170.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jadyn Glasser,passY,prizepicks,147.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Chance Morrow,recY,prizepicks,69.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,John Williams,recY,prizepicks,32.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Nasir Williams,recY,prizepicks,31.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Braylen Naves,recY,prizepicks,30.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Dwayne Early Jr.,recY,prizepicks,24.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Chance Morrow,rec,prizepicks,5.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Braylen Naves,rec,prizepicks,2.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Messiah Burch,rushY,prizepicks,95.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Nick Woodford,rushY,prizepicks,70.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jayden Clerveaux,rushY,prizepicks,47.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Terrance Shelton Jr.,rushY,prizepicks,47.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jason Wright,rushY,prizepicks,12.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jason Wright,passY,underdog,170.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jadyn Glasser,passY,underdog,147.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Messiah Burch,recY,underdog,2.5,-137,
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Nasir Williams,recY,underdog,32.5,-137,
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Chance Morrow,recY,underdog,69.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Dwayne Early Jr.,recY,underdog,24.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Braylen Naves,recY,underdog,30.5,-137,
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Clint Walker,recY,underdog,20.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Chance Morrow,rec,underdog,5.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Jayden Clerveaux,rushY,underdog,47.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Terrance Shelton Jr.,rushY,underdog,47.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Messiah Burch,rushY,underdog,95.5,-137,-137
+2026-11-17T20:22:41+00:00,10cec4ab386b12694dd3cee93d870b47,2026-11-19T00:30:00Z,Central Michigan @ Buffalo,Buffalo,Central Michigan,Nick Woodford,rushY,underdog,70.5,-137,-137
