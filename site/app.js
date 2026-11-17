@@ -283,10 +283,12 @@ function liveLines() {
 function vsTop10(T, st, pos, rel) {
   const key = r => r[pos + "_" + st], rows = T.vspos.filter(r => key(r) != null).sort((a, b) => key(b) - key(a));
   if (rows.length < 20) return "";
-  const rv = rel[pos + "_" + st], tag = rv == null ? "unknown" : rv < 0.2 ? "mostly noise" : rv < 0.4 ? "weak signal" : "some signal";
+  const rv = rel[pos + "_" + st], tag = rv == null ? "unknown" : rv < 0.3 ? "mostly noise" : rv < 0.5 ? "some signal" : "reliable";
+  const gp = (T.rows || []).map(r => r.g).filter(x => x != null), gmin = gp.length ? Math.min(...gp) : null, gmax = gp.length ? Math.max(...gp) : null;
+  const smalln = gmin != null && gmin < 25 ? ` <b>Small sample:</b> teams have played ${gmin === gmax ? gmin : gmin + "–" + gmax} games, and most of these reliability numbers have moved a lot week to week.` : "";
   const li = r => `<li><b>${esc(r.team)}</b> <span class="${key(r) > 1 ? "good" : key(r) < -1 ? "bad" : "mut"}">${key(r) > 0 ? "+" : ""}${num(key(r), 1)}%</span></li>`;
   const col = (title, arr) => `<div><h3>${title}</h3><ol class="movers">${arr.map(li).join("")}</ol></div>`;
-  return `<p class="banner">Reliability for ${{G: "guards", F: "forwards", C: "centers"}[pos]} ${LABEL[st]}: <b>${rv ?? "n/a"}</b> (${tag}). Early in the season most of this ranking is schedule and a few big games, not a stable trait. Treat it as context, not a pick; it is to be rechecked after about 10 more games per team.</p>
+  return `<p class="banner">Reliability for ${{G: "guards", F: "forwards", C: "centers"}[pos]} ${LABEL[st]}: <b>${rv ?? "n/a"}</b> (${tag}).${smalln} Rechecked Nov 17 (about 14-17 games per team): the lists did move next-week results in some cells (guard turnovers and assists, forward points), but nearly all of that is a team-wide effect the projections already use, and the position-specific part added nothing out of sample. Treat it as context, not a pick.</p>
     <div class="cols2">${col("Softest 10 (allows the most)", rows.slice(0, 10))}${col("Toughest 10 (allows the least)", rows.slice(-10).reverse())}</div>`;
 }
 function vsPosition() {
@@ -295,7 +297,7 @@ function vsPosition() {
   const st = F.vstat, rel = T.vspos_rel || {};
   const cell = pos => ({k: pos, h: {G: "Guards", F: "Forwards", C: "Centers"}[pos], t: `Reliability (split-half): ${rel[pos + "_" + st] ?? "n/a"}`,
     v: r => r[pos + "_" + st], f: r => { const x = r[pos + "_" + st]; return x == null ? "" : `<span class="${x > 1 ? "good" : x < -1 ? "bad" : "mut"}">${x > 0 ? "+" : ""}${num(x, 1)}%</span>`; }});
-  return `<h3>Vs position</h3><p class="sub">Per-minute ${LABEL[st]} each defence allows to guards, forwards and centers, relative to the league at that position (green = soft). Shrunk toward zero by minutes seen. <b>Display only:</b> as a projection input it added nothing in a walk-forward test (the position-specific part beyond the team-wide matchup was noise and the two halves of the season disagreed), so the projections do not use it. Split-half reliability for ${LABEL[st]}: guards ${rel["G_" + st] ?? "–"}, forwards ${rel["F_" + st] ?? "–"}, centers ${rel["C_" + st] ?? "–"}.</p>
+  return `<h3>Vs position</h3><p class="sub">Per-minute ${LABEL[st]} each defence allows to guards, forwards and centers, relative to the league at that position (green = soft). Shrunk toward zero by minutes seen. <b>Display only:</b> as a projection input it added nothing in a walk-forward test, repeated Nov 17 on 2024-25, 2025-26 and this season (the position-specific part beyond the team-wide matchup changed error by 0.3% or less and the halves disagreed), so the projections do not use it. Split-half reliability for ${LABEL[st]}: guards ${rel["G_" + st] ?? "–"}, forwards ${rel["F_" + st] ?? "–"}, centers ${rel["C_" + st] ?? "–"}.</p>
     <div class="bar"><label>Stat <select id="vstat">${STATS.map(s => `<option value="${s}" ${s === st ? "selected" : ""}>${LABEL[s]}</option>`).join("")}</select></label>
       <label>Position <select id="vpos">${[["G", "Guards"], ["F", "Forwards"], ["C", "Centers"]].map(([v, t]) => `<option value="${v}" ${F.vpos === v ? "selected" : ""}>${t}</option>`).join("")}</select></label></div>
     ${vsTop10(T, st, F.vpos, rel)}
@@ -530,11 +532,11 @@ const pages = {
       const c = [];
       for (const s of ["pts", "reb", "ast", "fg3m"]) {
         const x = vsRank[r.opp]?.[r.pos + "_" + s]; if (!x || (x.rank > 10 && x.rank <= x.of - 10)) continue;
-        const rel = VR[r.pos + "_" + s]; c.push({s, x, rel, weak: rel == null || rel < 0.2, ext: Math.abs(x.rank - (x.of + 1) / 2)});
+        const rel = VR[r.pos + "_" + s]; c.push({s, x, rel, weak: rel == null || rel < 0.3, ext: Math.abs(x.rank - (x.of + 1) / 2)});
       }
       c.sort((a, b) => a.weak - b.weak || b.ext - a.ext);
       return c.slice(0, 2).map(({s, x, rel, weak}) => { const soft = x.rank <= 10;
-        return `<span class="${weak ? "mut" : soft ? "good" : "bad"}" title="${esc(r.opp)} has allowed ${x.v > 0 ? "+" : ""}${num(x.v, 1)}% per-minute ${LABEL[s]} to ${{G: "guards", F: "forwards", C: "centers"}[r.pos]}: rank ${x.rank} of ${x.of} (1 = softest). Reliability ${rel ?? "n/a"}${weak ? " (mostly noise)" : ""}. Display only.">${LABEL[s]}${soft ? "▲" : "▼"}${x.rank}</span>`; }).join(" ");
+        return `<span class="${weak ? "mut" : soft ? "good" : "bad"}" title="${esc(r.opp)} has allowed ${x.v > 0 ? "+" : ""}${num(x.v, 1)}% per-minute ${LABEL[s]} to ${{G: "guards", F: "forwards", C: "centers"}[r.pos]}: rank ${x.rank} of ${x.of} (1 = softest). Reliability ${rel ?? "n/a"}${weak ? " (below 0.3: small sample, mostly noise)" : ""}. Display only.">${LABEL[s]}${soft ? "▲" : "▼"}${x.rank}</span>`; }).join(" ");
     };
     // his record against his own projection vs defences like tonight's (team-wide rank per stat, 1 = softest of 30). Display only.
     const SPL = D.splits || {}, MR = {};
