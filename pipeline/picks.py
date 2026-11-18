@@ -15,7 +15,7 @@ A "skip if the market disagrees with the model" filter was tested and changes no
 
 picks_log.csv is append-only per (slate date, player, stat, rule): the first run in which a leg qualifies writes first_* (line, side, P(win), rotation players out); every later run before tip-off
 updates last_* and qualifies_last (a leg can stop qualifying when injuries change); after tip-off nothing is touched. The pick that counts is the LAST qualifying state (what the 2-hours-before-tip run
-shows); the first state gives the closing-line value: CLV = how far the line moved in our favour between first and last sighting (Under: first - last, Over: last - first), in line units. Grading counts
+shows); the first state gives the closing-line value: CLV = how far the line moved in our favour between first and last sighting, measured on the side we first saw (Under: first - last, Over: last - first), in line units. It counts EVERY leg that ever qualified, including the ones that stopped qualifying by tip-off (a gap that closes is exactly the case worth seeing) and not only the survivors; legs seen once (first_ts == last_ts) have no second sighting and are left out. Grading counts
 legs and also PLAYER-DAYS (legs on one player the same day are one bet): hit rate by player-day, with 90% Wilson ranges. Voids (voids.csv) and pushes are left out.
 """
 import os, sys, json, argparse, datetime as dt
@@ -94,6 +94,27 @@ def wilson(h, n, z=1.645):
     p = h / n; c = (p + z * z / (2 * n)) / (1 + z * z / n); w = z * np.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / (1 + z * z / n); return [round(float(c - w), 3), round(float(c + w), 3)]
 
 
+def clv_of(first_side, first_line, last_line):
+    """line movement in our favour on the FIRST-sighting side: Under gains when the line falls, Over when it rises."""
+    return (first_line - last_line) if first_side == "U" else (last_line - first_line)
+
+
+def clv_summary(L):
+    """per rule: closing-line value over every logged leg with two sightings (first_ts != last_ts), survivors and dropped legs together and apart; legs seen once are counted separately."""
+    out = {}
+    for rule in RULES:
+        x = L[L.rule == rule]
+        two = x[x.first_ts != x.last_ts].copy()
+        two["clv"] = [clv_of(a, f, l) for a, f, l in zip(two.first_side, two.first_line, two.last_line)]
+        r = {"n": int(len(two)), "single_sighting_excluded": int(len(x) - len(two))}
+        if len(two):
+            sv, dr = two[two.qualifies_last.astype(bool)], two[~two.qualifies_last.astype(bool)]
+            r.update(mean=round(float(two.clv.mean()), 3), better=int((two.clv > 0).sum()), same=int((two.clv == 0).sum()), worse=int((two.clv < 0).sum()),
+                     survivors_n=int(len(sv)), survivors_mean=round(float(sv.clv.mean()), 3) if len(sv) else None, dropped_n=int(len(dr)), dropped_mean=round(float(dr.clv.mean()), 3) if len(dr) else None)
+        out[rule] = r
+    return out
+
+
 def grade(raw="data/raw", log=LOG, voids="data/log/voids.csv"):
     if not os.path.exists(log): print("no picks log yet"); return None
     L = pd.read_csv(log, dtype={"pid": str}); g = pd.read_csv(f"{raw}/games.csv", dtype={"pid": str}).drop_duplicates(["pid", "date"])
@@ -106,7 +127,7 @@ def grade(raw="data/raw", log=LOG, voids="data/log/voids.csv"):
         if pd.isna(d["min"]): continue                                                    # not played / not final yet
         act = comp(d, d["stat"]); void = (d["date"], d["pid"]) in vk or d["min"] <= 0
         res_f = R.grade(act, d["last_line"], d["last_side"]); res_1 = R.grade(act, d["first_line"], d["first_side"])
-        clv = None if d["first_side"] != d["last_side"] else (d["first_line"] - d["last_line"] if d["first_side"] == "U" else d["last_line"] - d["first_line"])
+        clv = clv_of(d["first_side"], d["first_line"], d["last_line"]) if d["first_ts"] != d["last_ts"] else None
         rows.append(dict(date=d["date"], pid=d["pid"], name=d["name"], team=d["team"], stat=d["stat"], rule=d["rule"], first_side=d["first_side"], first_line=d["first_line"], last_side=d["last_side"], last_line=d["last_line"],
                          last_pw=d["last_pw"], last_out=d["last_out"], last_min=d["last_min"], qualifies_last=bool(d["qualifies_last"]), actual=act, void=bool(void), hit_final=None if (void or res_f is None) else int(res_f),
                          hit_first=None if (void or res_1 is None) else int(res_1), clv=clv))
@@ -116,14 +137,14 @@ def grade(raw="data/raw", log=LOG, voids="data/log/voids.csv"):
     for rule, name in RULES.items():
         x = G[(G.rule == rule) & G.qualifies_last & G.hit_final.notna()]; f = G[(G.rule == rule) & G.hit_first.notna()]
         if not len(x): S["rules"][rule] = {"name": name, "legs": 0}; continue
-        pdv = x.groupby(["date", "pid"]).hit_final.mean(); c = x.clv.dropna()
+        pdv = x.groupby(["date", "pid"]).hit_final.mean()
         S["rules"][rule] = {"name": name, "legs": int(len(x)), "hit": round(float(x.hit_final.mean()), 3), "hit_range90": wilson(int(x.hit_final.sum()), len(x)),
                             "player_days": int(len(pdv)), "hit_player_day": round(float(pdv.mean()), 3), "days": int(x.date.nunique()),
                             "hit_first_sighting": round(float(f.hit_first.mean()), 3) if len(f) else None, "legs_ever_qualified": int(len(f)),
-                            "clv_mean": round(float(c.mean()), 3) if len(c) else None, "clv_positive_share": round(float((c > 0).mean()), 3) if len(c) else None, "clv_n": int(len(c)),
-                            "first_half": round(float(x[x.date < mid].hit_final.mean()), 3) if (x.date < mid).any() else None, "second_half": round(float(x[x.date >= mid].hit_final.mean()), 3) if (x.date >= mid).any() else None}
+                                                        "first_half": round(float(x[x.date < mid].hit_final.mean()), 3) if (x.date < mid).any() else None, "second_half": round(float(x[x.date >= mid].hit_final.mean()), 3) if (x.date >= mid).any() else None}
+    S["clv"] = clv_summary(L)                                                              # all legs ever logged, not only the graded survivors
     with open(SUMMARY, "w") as fh: json.dump(S, fh, indent=1)
-    print(f"picks graded through {S['graded_through']}: " + "; ".join(f"{k} {v.get('legs', 0)} legs" + (f" hit {v['hit']:.3f} (player-days {v['hit_player_day']:.3f}, CLV {v['clv_mean']})" if v.get("legs") else "") for k, v in S["rules"].items()))
+    print(f"picks graded through {S['graded_through']}: " + "; ".join(f"{k} {v.get('legs', 0)} legs" + (f" hit {v['hit']:.3f} (player-days {v['hit_player_day']:.3f}, CLV {S['clv'][k].get('mean')} on {S['clv'][k]['n']})" if v.get("legs") else "") for k, v in S["rules"].items()))
     return S
 
 
@@ -151,7 +172,7 @@ def site_json(out="site/data", raw="data/raw", log=LOG, graded=GRADED, summary=S
     for r in L.itertuples(index=False):
         if not bool(r.qualifies_last) or r.date not in keep: continue
         side_m = "O" if (r.last_proj is not None and r.last_proj == r.last_proj and r.last_proj >= r.last_line) else "U"
-        clv = None if r.first_side != r.last_side else (r.first_line - r.last_line if r.first_side == "U" else r.last_line - r.first_line)
+        clv = None if (r.first_side != r.last_side or r.first_ts == r.last_ts) else clv_of(r.first_side, r.first_line, r.last_line)     # per-leg CLV only while the side is unchanged; flipped legs are marked instead
         g = gk.get((r.date, r.pid, r.stat, r.rule))
         res = None; actual = None
         if g is not None:
@@ -159,7 +180,7 @@ def site_json(out="site/data", raw="data/raw", log=LOG, graded=GRADED, summary=S
             res = "V" if bool(g.void) else ("P" if g.hit_final != g.hit_final else ("W" if int(g.hit_final) == 1 else "L"))      # win / loss / push / void; None = not graded yet
         legs.append(dict(rule=r.rule, date=r.date, pid=r.pid, name=r.name, team=r.team, game=r.game, stat=r.stat, side=r.last_side, line=float(r.last_line), first_line=float(r.first_line), pw=float(r.last_pw),
                          out=int(r.last_out), min=None if r.last_min != r.last_min else float(r.last_min), cons=None if r.last_cons != r.last_cons else float(r.last_cons), agree=bool(side_m == r.last_side),
-                         clv=None if clv is None or clv != clv else float(clv), status=st.get((r.team, r.name), ""), commence=r.commence, last_ts=r.last_ts, res=res, actual=actual))
+                         clv=None if clv is None or clv != clv else float(clv), flipped=bool(r.first_side != r.last_side), first_side=r.first_side, status=st.get((r.team, r.name), ""), commence=r.commence, last_ts=r.last_ts, res=res, actual=actual))
     by_day = []
     if len(G):
         for date, d in G[G.qualifies_last & G.hit_final.notna()].groupby("date"):
@@ -170,7 +191,7 @@ def site_json(out="site/data", raw="data/raw", log=LOG, graded=GRADED, summary=S
             by_day.append(row)
         by_day.sort(key=lambda r: r["date"], reverse=True)
     res = {"version": RULES_VERSION, "break_even": C.PP_BREAKEVEN, "graded_through": S.get("graded_through"), "asof": max([l["last_ts"] for l in legs if l["res"] is None] or [l["last_ts"] for l in legs], default=None), "days": sorted({l["date"] for l in legs}, reverse=True),
-           "rules": {k: {"name": RULES[k], "text": RULE_TEXT[k], "insample": INSAMPLE[k], "record": S["rules"].get(k, {})} for k in RULES}, "today": legs, "by_day": by_day[:14]}
+           "rules": {k: {"name": RULES[k], "text": RULE_TEXT[k], "insample": INSAMPLE[k], "record": S["rules"].get(k, {}), "clv": (S.get("clv") or clv_summary(L)).get(k, {})} for k in RULES}, "today": legs, "by_day": by_day[:14]}
     os.makedirs(out, exist_ok=True)
     with open(os.path.join(out, "picks.json"), "w") as f: json.dump(res, f, separators=(",", ":"))
     print(f"picks.json: {len(legs)} legs over {len({l['date'] for l in legs})} slate days ({sum(1 for l in legs if l['res'] is None)} open), {len(by_day)} graded days")
