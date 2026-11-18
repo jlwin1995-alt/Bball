@@ -94,6 +94,36 @@ def build_lines(odds, players):
                 unmatched=sorted(unmatched)[:25], rows=rows)
 
 
+def snapshot_prices(res, log, now=None, week=None):
+    """Keep the LAST PRE-GAME price of every sportsbook for every (game, player, stat): one row per book with its line and over / under American
+    prices, overwritten on each pull until kickoff and never touched after. data/log/prices_log.csv (college: cfb_prices_log.csv). Lets a rule
+    be tested against what a bet would have paid (the consensus log keeps only the de-vigged line)."""
+    import datetime as dt
+    now = now or dt.datetime.now(dt.timezone.utc)
+    rows = []
+    for r in res.get("rows", []):
+        if dt.datetime.fromisoformat(r["commence"].replace("Z", "+00:00")) <= now:
+            continue
+        for b in r.get("books", []):
+            rows.append(dict(commence=r["commence"], game=r["game"], player_id=r["id"], stat=r["stat"], book=b["b"], line=b["line"],
+                             over=b.get("over", ""), under=b.get("under", ""), ts=res.get("updated"), **({} if week is None else dict(week=week))))
+    if not rows:
+        return 0
+    cols = ["commence", "game", "player_id", "stat", "book", "line", "over", "under", "ts"] + ([] if week is None else ["week"])
+    key = lambda d: f"{d['game']}|{d['player_id']}|{d['stat']}|{d['book']}"
+    fresh = {key(x) for x in rows}
+    old = []
+    if os.path.exists(log):
+        with open(log, newline="") as f:
+            old = [x for x in csv.DictReader(f) if key(x) not in fresh]
+    os.makedirs(os.path.dirname(log), exist_ok=True)
+    with open(log, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=cols)
+        w.writeheader()
+        w.writerows(old + rows)
+    return len(rows)
+
+
 def snapshot_pregame(res, log=None, now=None, week=None):
     """Keep the LAST PRE-GAME consensus / PrizePicks line for every (game, player, stat).
 
@@ -112,6 +142,7 @@ def snapshot_pregame(res, log=None, now=None, week=None):
                          cons_line=c.get("line", ""), cons_p_over=c.get("p_over", ""), n_books=c.get("n", ""),
                          pp_line=r["dfs"].get("prizepicks", ""), ud_line=r["dfs"].get("underdog", r["dfs"].get("pick6", "")), ts=res.get("updated"),
                          **({} if week is None else dict(week=week))))
+    snapshot_prices(res, log.replace("lines_log", "prices_log"), now=now, week=week)
     if not rows:
         return 0
     cols = ["commence", "game", "player_id", "name", "team", "stat", "cons_line", "cons_p_over", "n_books", "pp_line", "ud_line", "ts"] + ([] if week is None else ["week"])
