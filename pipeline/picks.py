@@ -136,7 +136,7 @@ RULE_TEXT = {"R1": "Under, no rotation player out for the team, model P(win) 65%
 
 
 def site_json(out="site/data", raw="data/raw", log=LOG, graded=GRADED, summary=SUMMARY):
-    """site/data/picks.json for the Picks tab: the open (not yet graded) legs per rule with their current status, the forward record from picks_summary.json, and the last days by rule."""
+    """site/data/picks.json for the Picks tab: every qualifying leg of the last 14 slate days per rule (open ones with their current injury status, graded ones with the result), the forward record from picks_summary.json, and the last days by rule."""
     L = pd.read_csv(log, dtype={"pid": str}) if os.path.exists(log) else pd.DataFrame(columns=COLS)
     G = pd.read_csv(graded, dtype={"pid": str}) if os.path.exists(graded) and os.path.getsize(graded) > 5 else pd.DataFrame()
     S = json.load(open(summary)) if os.path.exists(summary) else {"rules": {}, "graded_through": None}
@@ -145,15 +145,21 @@ def site_json(out="site/data", raw="data/raw", log=LOG, graded=GRADED, summary=S
     if os.path.exists(ip):
         inj = pd.read_csv(ip); inj["t"] = pd.to_datetime(inj["ts"], utc=True); inj = inj[inj.t >= pd.Timestamp.now("UTC") - pd.Timedelta(hours=48)].sort_values("t").drop_duplicates(["team", "name"], keep="last")
         st = {(r.team, r.name): r.status for r in inj.itertuples()}
-    done = set(zip(G.date, G.pid, G.stat, G.rule)) if len(G) else set()
+    gk = {(r.date, r.pid, r.stat, r.rule): r for r in G.itertuples(index=False)} if len(G) else {}
+    keep = sorted(L.date.unique())[-14:] if len(L) else []
     legs = []
     for r in L.itertuples(index=False):
-        if not bool(r.qualifies_last) or (r.date, r.pid, r.stat, r.rule) in done: continue
+        if not bool(r.qualifies_last) or r.date not in keep: continue
         side_m = "O" if (r.last_proj is not None and r.last_proj == r.last_proj and r.last_proj >= r.last_line) else "U"
         clv = None if r.first_side != r.last_side else (r.first_line - r.last_line if r.first_side == "U" else r.last_line - r.first_line)
+        g = gk.get((r.date, r.pid, r.stat, r.rule))
+        res = None; actual = None
+        if g is not None:
+            actual = float(g.actual) if g.actual == g.actual else None
+            res = "V" if bool(g.void) else ("P" if g.hit_final != g.hit_final else ("W" if int(g.hit_final) == 1 else "L"))      # win / loss / push / void; None = not graded yet
         legs.append(dict(rule=r.rule, date=r.date, pid=r.pid, name=r.name, team=r.team, game=r.game, stat=r.stat, side=r.last_side, line=float(r.last_line), first_line=float(r.first_line), pw=float(r.last_pw),
                          out=int(r.last_out), min=None if r.last_min != r.last_min else float(r.last_min), cons=None if r.last_cons != r.last_cons else float(r.last_cons), agree=bool(side_m == r.last_side),
-                         clv=None if clv is None or clv != clv else float(clv), status=st.get((r.team, r.name), ""), commence=r.commence, last_ts=r.last_ts))
+                         clv=None if clv is None or clv != clv else float(clv), status=st.get((r.team, r.name), ""), commence=r.commence, last_ts=r.last_ts, res=res, actual=actual))
     by_day = []
     if len(G):
         for date, d in G[G.qualifies_last & G.hit_final.notna()].groupby("date"):
@@ -163,11 +169,11 @@ def site_json(out="site/data", raw="data/raw", log=LOG, graded=GRADED, summary=S
                 row[rule] = [int(len(x)), int(x.hit_final.sum()), int(x.groupby("pid").ngroups)] if len(x) else None
             by_day.append(row)
         by_day.sort(key=lambda r: r["date"], reverse=True)
-    res = {"version": RULES_VERSION, "break_even": C.PP_BREAKEVEN, "graded_through": S.get("graded_through"), "asof": max([l["last_ts"] for l in legs], default=None),
+    res = {"version": RULES_VERSION, "break_even": C.PP_BREAKEVEN, "graded_through": S.get("graded_through"), "asof": max([l["last_ts"] for l in legs if l["res"] is None] or [l["last_ts"] for l in legs], default=None), "days": sorted({l["date"] for l in legs}, reverse=True),
            "rules": {k: {"name": RULES[k], "text": RULE_TEXT[k], "insample": INSAMPLE[k], "record": S["rules"].get(k, {})} for k in RULES}, "today": legs, "by_day": by_day[:14]}
     os.makedirs(out, exist_ok=True)
     with open(os.path.join(out, "picks.json"), "w") as f: json.dump(res, f, separators=(",", ":"))
-    print(f"picks.json: {len(legs)} open legs ({pd.Series([l['rule'] for l in legs]).value_counts().to_dict() if legs else {}}), {len(by_day)} graded days")
+    print(f"picks.json: {len(legs)} legs over {len({l['date'] for l in legs})} slate days ({sum(1 for l in legs if l['res'] is None)} open), {len(by_day)} graded days")
     return res
 
 
