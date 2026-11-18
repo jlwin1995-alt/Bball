@@ -3,7 +3,7 @@
     python -m pipeline.plays [--all] [--data DIR] [--asof ISO]   # --all lists the lines the rules dropped, with the reason; --data/--asof replay an old board
 
 Rules: two or more books, raw model confidence 62%+, depth-chart starter, no shift / returning / moved / status / thin flag, projection 0.55-1.6 of the
-line, Unders on receptions and receiving yards only (no Overs, no rushing Unders), player cleared the line in under 40% of his last games, no Miami pass
+line, Unders on receptions and receiving yards only (no Overs, no rushing Unders), no Miami pass
 catchers. Sort: blend P(side) = market + BLEND_K x (model - market) on the side, BLEND_K 0.25 (README "Model against the market", 2026-11-16).
 """
 import csv, json, sys
@@ -67,7 +67,7 @@ def build(data="site/data", asof=None):
         if p["status"]: why.append(p["status"])
         if p["g"] < 3: why.append("thin")
         if not 0.55 <= (m / line if line else 9) <= 1.6: why.append("gap to line")
-        if cl is not None and cl >= 0.4: why.append("cleared line %d%%" % round(cl * 100))
+        # no "cleared the line in 40%+ of his games" guard here: on 372 graded NFL receptions / receiving-yards Unders it was backwards (README 2026-11-18)
         if p["pos"] != "QB" and p["team"] in guard: why.append("team guard: " + guard[p["team"]].split(";")[0])
         if p["pos"] != "QB" and p["team"] in qb_new: why.append("new quarterback")
         out.append(dict(name=p["name"], team=p["team"], game=r["game"], stat=s, side=side, line=line, proj=round(m, 1), conf=conf, market=mk,
