@@ -1,64 +1,64 @@
 {
  "version": "v1",
- "graded_through": "2026-11-17",
+ "graded_through": "2026-11-18",
  "break_even": 0.544,
  "rules": {
   "R1": {
    "name": "under_solo",
-   "legs": 12,
-   "hit": 0.167,
+   "legs": 20,
+   "hit": 0.2,
    "hit_range90": [
-    0.057,
-    0.399
+    0.093,
+    0.378
    ],
-   "player_days": 3,
-   "hit_player_day": 0.111,
-   "days": 1,
-   "hit_first_sighting": 0.167,
-   "legs_ever_qualified": 12,
+   "player_days": 8,
+   "hit_player_day": 0.292,
+   "days": 2,
+   "hit_first_sighting": 0.185,
+   "legs_ever_qualified": 27,
    "clv_mean": 0.0,
    "clv_positive_share": 0.0,
-   "clv_n": 12,
-   "first_half": null,
-   "second_half": 0.167
+   "clv_n": 20,
+   "first_half": 0.167,
+   "second_half": 0.25
   },
   "R2": {
    "name": "over_one",
-   "legs": 2,
-   "hit": 0.0,
+   "legs": 55,
+   "hit": 0.473,
    "hit_range90": [
-    0.0,
-    0.575
+    0.366,
+    0.582
    ],
-   "player_days": 1,
-   "hit_player_day": 0.0,
-   "days": 1,
-   "hit_first_sighting": 0.0,
-   "legs_ever_qualified": 2,
-   "clv_mean": 0.0,
-   "clv_positive_share": 0.0,
-   "clv_n": 2,
-   "first_half": null,
-   "second_half": 0.0
+   "player_days": 23,
+   "hit_player_day": 0.462,
+   "days": 2,
+   "hit_first_sighting": 0.476,
+   "legs_ever_qualified": 63,
+   "clv_mean": 0.055,
+   "clv_positive_share": 0.073,
+   "clv_n": 55,
+   "first_half": 0.0,
+   "second_half": 0.491
   },
   "R3": {
    "name": "market_gap",
-   "legs": 16,
-   "hit": 0.75,
+   "legs": 67,
+   "hit": 0.612,
    "hit_range90": [
-    0.545,
-    0.882
+    0.511,
+    0.704
    ],
-   "player_days": 13,
-   "hit_player_day": 0.731,
-   "days": 1,
-   "hit_first_sighting": 0.75,
-   "legs_ever_qualified": 16,
+   "player_days": 56,
+   "hit_player_day": 0.625,
+   "days": 2,
+   "hit_first_sighting": 0.587,
+   "legs_ever_qualified": 104,
    "clv_mean": 0.0,
    "clv_positive_share": 0.0,
-   "clv_n": 16,
-   "first_half": null,
-   "second_half": 0.75
+   "clv_n": 67,
+   "first_half": 0.75,
+   "second_half": 0.569
   }
  }
 }
