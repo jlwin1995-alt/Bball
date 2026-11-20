@@ -196,3 +196,54 @@ date,pid,name,team,stat,rule,first_side,first_line,last_side,last_line,last_pw,l
 2026-11-18,3064440,Zach LaVine,SAC,pts,R3,U,18.5,U,18.5,0.5259,0,32.6,True,18.0,False,1.0,1.0,0.0
 2026-11-18,4433137,Ziaire Williams,LAL,pra,R2,O,10.5,O,10.5,0.6737,1,22.5,True,9.0,False,0.0,0.0,0.0
 2026-11-18,4433137,Ziaire Williams,LAL,pts,R2,O,6.5,O,6.5,0.7089,1,22.5,True,7.0,False,1.0,1.0,0.0
+2026-11-19,4592492,Bones Hyland,MIN,fg3m,R2,O,1.5,O,1.5,0.646,1,18.0,True,1.0,False,0.0,0.0,0.0
+2026-11-19,5082206,Brayden Burries,MIL,pa,R3,U,14.5,U,14.5,0.6031,2,23.2,False,17.0,False,0.0,0.0,0.0
+2026-11-19,5041935,Cameron Boozer,MEM,pts,R3,U,18.5,U,19.5,0.5788,2,30.8,False,16.0,False,1.0,1.0,-1.0
+2026-11-19,6606,Damian Lillard,POR,ast,R2,O,4.5,O,4.5,0.6262,1,31.6,True,0.0,False,0.0,0.0,0.0
+2026-11-19,4066259,De'Aaron Fox,SA,pr,R3,U,19.5,O,19.5,0.5242,1,30.0,False,12.0,False,0.0,1.0,
+2026-11-19,4395630,Devin Vassell,SA,fg3m,R2,O,1.5,O,1.5,0.6698,1,30.1,True,1.0,False,0.0,0.0,0.0
+2026-11-19,4432848,Jaime Jaquez Jr.,MIL,pa,R3,U,17.5,U,18.5,0.5222,2,26.7,False,11.0,False,1.0,1.0,-1.0
+2026-11-19,5112087,Jaylen Wells,MEM,pa,R2,O,11.5,O,11.5,0.628,2,27.6,False,22.0,False,1.0,1.0,0.0
+2026-11-19,5112087,Jaylen Wells,MEM,pr,R2,O,12.5,O,13.5,0.6119,2,27.6,False,29.0,False,1.0,1.0,1.0
+2026-11-19,5112087,Jaylen Wells,MEM,pr,R3,O,12.5,O,13.5,0.6119,2,27.6,False,29.0,False,1.0,1.0,1.0
+2026-11-19,5112087,Jaylen Wells,MEM,pra,R2,O,14.5,O,14.5,0.6299,2,27.6,False,29.0,False,1.0,1.0,0.0
+2026-11-19,5112087,Jaylen Wells,MEM,pts,R2,O,9.5,O,10.5,0.6055,2,27.6,False,22.0,False,1.0,1.0,1.0
+2026-11-19,2991070,Jerami Grant,MEM,pra,R2,O,14.5,O,14.5,0.7365,2,26.2,False,3.0,True,,,0.0
+2026-11-19,2991070,Jerami Grant,MEM,pts,R2,O,11.5,O,10.5,0.751,2,26.2,False,3.0,True,,,-1.0
+2026-11-19,4433247,Jonathan Kuminga,MIN,pts,R3,U,13.5,U,12.5,0.5905,1,25.6,False,23.0,False,0.0,0.0,1.0
+2026-11-19,3062679,Josh Hart,NY,pr,R3,U,14.5,O,13.5,0.5488,0,29.1,False,17.0,False,1.0,0.0,
+2026-11-19,4395723,Keldon Johnson,SA,fg3m,R2,O,0.5,O,0.5,0.6731,1,24.7,True,0.0,False,0.0,0.0,0.0
+2026-11-19,4432816,LaMelo Ball,MIN,pts,R3,O,18.5,O,18.5,0.5169,1,29.3,False,15.0,False,0.0,0.0,0.0
+2026-11-19,3914044,Landry Shamet,NY,pra,R3,O,11.5,O,11.5,0.5046,0,23.8,False,13.0,False,1.0,1.0,0.0
+2026-11-19,3934719,OG Anunoby,NY,pa,R3,U,17.5,U,17.5,0.5404,0,34.3,False,17.0,False,1.0,1.0,0.0
+2026-11-19,3032976,Rudy Gobert,MIN,pr,R3,O,18.5,U,18.5,0.513,1,30.1,False,16.0,False,1.0,0.0,
+2026-11-19,4066648,Rui Hachimura,LAC,pa,R1,U,13.5,U,12.5,0.6013,0,27.4,False,19.0,False,0.0,0.0,1.0
+2026-11-19,4066648,Rui Hachimura,LAC,pr,R1,U,17.5,U,16.5,0.6399,0,27.4,False,24.0,False,0.0,0.0,1.0
+2026-11-19,4066648,Rui Hachimura,LAC,pra,R1,U,18.5,U,17.5,0.6398,0,27.4,False,26.0,False,0.0,0.0,1.0
+2026-11-19,4066648,Rui Hachimura,LAC,pts,R1,U,12.5,U,11.5,0.5962,0,27.4,False,17.0,False,0.0,0.0,1.0
+2026-11-19,4395725,Tyler Herro,MIL,pa,R3,O,23.5,U,25.5,0.5733,2,30.1,False,22.0,False,1.0,0.0,
+2026-11-19,4395725,Tyler Herro,MIL,pr,R3,U,24.5,U,25.5,0.5859,2,30.1,False,23.0,False,1.0,1.0,-1.0
+2026-11-19,4395725,Tyler Herro,MIL,pts,R3,O,19.5,U,20.5,0.5445,2,30.1,False,19.0,False,1.0,0.0,
+2026-11-19,5104157,Victor Wembanyama,SA,pra,R3,O,44.5,U,43.5,0.6047,1,30.6,False,46.0,False,0.0,1.0,
+2026-11-19,5175737,Yaxel Lendeborg,GS,pr,R3,U,28.5,U,29.5,0.5294,2,31.7,False,19.0,False,1.0,1.0,-1.0
+2026-11-19,5175737,Yaxel Lendeborg,GS,reb,R2,O,6.5,O,7.5,0.5078,2,31.7,False,8.0,False,1.0,1.0,1.0
+2026-11-19,3213,Al Horford,GS,pr,R3,U,10.5,U,10.5,0.6063,2,21.6,True,5.0,False,1.0,1.0,0.0
+2026-11-19,4397002,Ayo Dosunmu,MIN,pr,R3,U,22.5,U,22.5,0.6661,1,31.3,True,10.0,False,1.0,1.0,0.0
+2026-11-19,4592492,Bones Hyland,MIN,pa,R2,O,10.5,O,10.5,0.6118,1,18.0,True,7.0,False,0.0,0.0,0.0
+2026-11-19,4592492,Bones Hyland,MIN,pra,R2,O,11.5,O,11.5,0.6267,1,18.0,True,8.0,False,0.0,0.0,0.0
+2026-11-19,4592492,Bones Hyland,MIN,pts,R2,O,7.5,O,7.5,0.6298,1,18.0,True,6.0,False,0.0,0.0,0.0
+2026-11-19,4592492,Bones Hyland,MIN,ra,R2,O,3.5,O,3.5,0.632,1,18.0,True,2.0,False,0.0,0.0,0.0
+2026-11-19,5082206,Brayden Burries,MIL,pts,R3,U,12.5,U,12.5,0.6402,2,23.2,True,14.0,False,0.0,0.0,0.0
+2026-11-19,6606,Damian Lillard,POR,pts,R3,O,22.5,O,22.5,0.5483,1,31.6,True,33.0,False,1.0,1.0,0.0
+2026-11-19,4066259,De'Aaron Fox,SA,pra,R3,O,25.5,O,25.5,0.5168,1,30.0,True,17.0,False,0.0,0.0,0.0
+2026-11-19,4395630,Devin Vassell,SA,pts,R3,U,12.5,U,12.5,0.5198,1,30.1,True,15.0,False,0.0,0.0,0.0
+2026-11-19,4432848,Jaime Jaquez Jr.,MIL,pr,R3,O,19.5,O,19.5,0.5125,2,26.7,True,10.0,False,0.0,0.0,0.0
+2026-11-19,4702352,Kobe Sanders,LAC,pts,R3,O,4.5,O,4.5,0.6067,0,20.3,True,0.0,False,0.0,0.0,0.0
+2026-11-19,4066648,Rui Hachimura,LAC,pa,R3,O,12.5,O,12.5,0.6013,0,27.4,True,19.0,False,1.0,1.0,0.0
+2026-11-19,4683678,Scoot Henderson,POR,ast,R2,O,2.5,O,2.5,0.6244,1,23.9,True,3.0,False,1.0,1.0,0.0
+2026-11-19,4684806,Taylor Hendricks,MEM,pr,R3,U,12.5,U,12.5,0.6864,2,22.1,True,12.0,False,1.0,1.0,0.0
+2026-11-19,4432847,Terrence Shannon Jr.,MIN,pr,R3,U,14.5,U,14.5,0.6199,1,21.5,True,14.0,False,1.0,1.0,0.0
+2026-11-19,4432847,Terrence Shannon Jr.,MIN,pts,R3,U,11.5,U,11.5,0.5962,1,21.5,True,10.0,False,1.0,1.0,0.0
+2026-11-19,3136196,Trey Lyles,MIN,pr,R3,U,10.5,U,10.5,0.5407,1,20.8,True,14.0,False,0.0,0.0,0.0
+2026-11-19,5104157,Victor Wembanyama,SA,pts,R3,O,27.5,O,27.5,0.5614,1,30.6,True,32.0,False,1.0,1.0,0.0
+2026-11-19,5175737,Yaxel Lendeborg,GS,pts,R3,O,21.5,O,21.5,0.5135,2,31.7,True,11.0,False,0.0,0.0,0.0

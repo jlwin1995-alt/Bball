@@ -29,15 +29,15 @@ pid,name,team,status,note,ts
 5037878,Ugonna Onyenso,DET,Day-To-Day,Onyenso agreed to a two-way contract with the Pistons on Thursday.,2026-11-19T16:15Z
 3157465,Duncan Robinson,DET,Out,"Robinson will be re-evaluated in one week due to a left quadriceps strain, Coty M. Davis of The Detroit News reports.",2026-11-17T16:25Z
 4433621,Jalen Duren,DET,Out,"Duren (hamstring) has begun on-court activity and will be re-evaluated in two weeks, Hunter Patterson of The Athletic reports.",2026-11-08T16:05Z
-6589,Draymond Green,GS,Out,Green (elbow) is out for Thursday's game against the Grizzlies.,2026-11-19T18:51Z
-4433149,LJ Cryer,GS,Day-To-Day,Cryer (back) is questionable for Thursday's game against Memphis.,2026-11-19T18:46Z
+6589,Draymond Green,GS,Day-To-Day,Green (elbow) is out for Thursday's game against the Grizzlies.,2026-11-20T03:53Z
 4397040,Brandon Williams,GS,Out,Williams (hamstring) has progressed to on-court activities and will be re-evaluated Saturday.,2026-11-18T17:12Z
 3975,Stephen Curry,GS,Out,"Curry has been diagnosed with an oblique abdominal tear and will be re-evaluated in two weeks, Shams Charania of ESPN reports.",2026-11-12T17:03Z
 3102531,Kristaps Porzingis,GS,Out,Porzingis announced on his social media that he's stepping away from basketball.,2026-11-06T21:26Z
 4432171,Moses Moody,GS,Out,"Moody (knee) is progressing toward a potential return between December and January after rupturing his left patellar tendon in March, Anthony Slater of ESPN reports.",2026-10-16T16:14Z
 6430,Jimmy Butler III,GS,Out,"Butler (knee) could return sometime between January and February as he continues recovering from a torn right ACL, Anthony Slater of ESPN reports.",2026-10-16T16:11Z
-4871144,Alperen Sengun,HOU,Day-To-Day,"Sengun (eye) will not return to Wednesday's game against the Pacers, Will Guillory of The Athletic reports.",2026-11-19T01:27Z
-3102529,Clint Capela,HOU,Out,Capela (ankle) has been ruled out for Wednesday's game against Indiana.,2026-11-17T20:58Z
+2991235,Steven Adams,HOU,Day-To-Day,Adams (quadriceps) is listed as questionable for Friday's game against Denver.,2026-11-19T23:22Z
+3102529,Clint Capela,HOU,Out,Capela (ankle) is out for Friday's game against Denver.,2026-11-19T23:19Z
+4871144,Alperen Sengun,HOU,Day-To-Day,Sengun (eye) is questionable for Friday's game against the Nuggets.,2026-11-19T23:17Z
 2530530,T.J. McConnell,IND,Day-To-Day,McConnell (hamstring) is listed as probable for Friday's game in Cleveland.,2026-11-19T22:14Z
 4395712,Andrew Nembhard,IND,Day-To-Day,Nembhard (hip) is questionable for Friday's game in Cleveland.,2026-11-19T22:07Z
 5105854,Braden Smith,IND,Day-To-Day,Smith (ankle) is listed as questionable for Friday's game against Cleveland.,2026-11-19T22:05Z
@@ -47,18 +47,17 @@ pid,name,team,status,note,ts
 3913176,Brandon Ingram,LAC,Out,Ingram (heel/Achilles) will remain on the inactive list for Thursday's game in San Antonio.,2026-11-18T23:11Z
 6580,Bradley Beal,LAC,Out,"Beal (knee) will not be ready for the start of the regular season, NBA writer Justin Russo reports.",2026-10-15T01:03Z
 4396818,Jordan Miller,LAC,Out,"Miller underwent surgery Wednesday to repair a torn left rotator cuff and will be re-evaluated in six months, per Law Murray of The Athletic.",2026-08-26T20:04Z
-4066457,Austin Reaves,LAL,Out,"Head coach JJ Redick said Reaves' (heel) pregame workout went ""well,"" but he remains without an official timetable to return, Daniel Starkand of LakersNation.com reports.",2026-11-19T01:38Z
-4432810,Isaiah Stewart,MEM,Day-To-Day,Stewart is questionable for Thursday's game against the Warriors due to an illness.,2026-11-19T19:11Z
-4600663,Zach Edey,MEM,Out,Edey (hip) has been ruled out for Thursday's game against the Warriors.,2026-11-19T19:09Z
+4066457,Austin Reaves,LAL,Out,Reaves (heel) is listed as out for Friday's game against the Kings.,2026-11-20T01:05Z
+4600663,Zach Edey,MEM,Day-To-Day,Edey (hip) has been ruled out for Thursday's game against the Warriors.,2026-11-20T03:53Z
+2991070,Jerami Grant,MEM,Day-To-Day,"Grant won't return to Thursday's game against the Warriors due to a left calf injury. He'll finish with three points (1-2 FG, 1-1 3Pt) across five minutes.",2026-11-20T02:08Z
 4065733,Ty Jerome,MEM,Out,Jerome (hip) has been ruled out for Thursday's game against the Warriors.,2026-11-19T19:07Z
 5105550,GG Jackson,MEM,Out,Jackson underwent a procedure Wednesday to repair a broken fifth metatarsal in his left foot. He is expected to recover fully and will be re-evaluated in approximately three months.,2026-11-17T23:18Z
 4431785,Scotty Pippen Jr.,MEM,Out,Pippen (back) is progressing in his recovery but is still considered week-to-week.,2026-11-16T17:16Z
 5105462,Richie Saunders,MEM,Out,"Saunders signed a two-way contract with the Grizzlies on Saturday, Shams Charania of ESPN reports.",2026-11-07T17:24Z
 4431772,Myron Gardner,MIA,Day-To-Day,Gardner (hamstring) is out for Wednesday's game against the Bucks.,2026-11-19T14:45Z
-3134907,Kyle Kuzma,MIL,Out,Kuzma (shoulder) has been ruled out for Thursday's game against Portland due to a right shoulder contusion.,2026-11-19T19:20Z
-3133628,Myles Turner,MIL,Out,"Turner (shoulder) has been ruled out for Thursday's game against Portland due to a left shoulder contusion,",2026-11-19T19:15Z
+3133628,Myles Turner,MIL,Day-To-Day,"Turner (shoulder) has been ruled out for Thursday's game against Portland due to a left shoulder contusion,",2026-11-20T03:55Z
+3134907,Kyle Kuzma,MIL,Day-To-Day,Kuzma (shoulder) has been ruled out for Thursday's game against Portland due to a right shoulder contusion.,2026-11-20T03:55Z
 4997526,Ousmane Dieng,MIL,Out,"Dieng will undergo a procedure to repair a fractured left finger Monday, Justin Garcia of the Milwaukee Bucks Radio Network reports.",2026-11-15T23:46Z
-4433247,Jonathan Kuminga,MIN,Day-To-Day,"Kuminga (shoulder) is questionable for Thursday's game against the Knicks, Charlie Walton of ZoneCoverage.com reports.",2026-11-18T23:04Z
 4432247,Jaylen Clark,MIN,Out,Clark (hamstring) has been ruled out for the next two weeks.,2026-11-15T22:40Z
 4594268,Anthony Edwards,MIN,Out,"Edwards underwent a successful arthroscopic procedure on his right knee Thursday, the Timberwolves announced.",2026-10-29T18:33Z
 3934673,Donte DiVincenzo,MIN,Out,"DiVincenzo (Achilles) remains confident that he'll return during the 2026-27 season, Jon Krawczynski of The Athletic reports.",2026-10-05T20:53Z
@@ -67,7 +66,7 @@ pid,name,team,status,note,ts
 4683634,Bennedict Mathurin,NO,Out,Mathurin (foot) has been ruled out for Friday's game against the Thunder.,2026-11-19T21:07Z
 4397688,Trey Murphy III,NO,Out,Murphy (knee) is questionable for Friday's game against the Thunder.,2026-11-19T21:05Z
 3907497,Dejounte Murray,NO,Out,Murray (ankle) is out for Friday's game against Memphis.,2026-11-13T20:19Z
-2991350,Alex Caruso,OKC,Day-To-Day,"Caruso won't return to Wednesday's game against the Hawks due to right hip soreness, Clemente Almanza of USA Today reports.",2026-11-19T14:50Z
+2991350,Alex Caruso,OKC,Day-To-Day,"Caruso is questionable for Friday's game against the Pelicans due to right hip soreness, Justin Martinez of The Oklahoman reports.",2026-11-19T23:21Z
 5061603,Thomas Sorber,OKC,Out,"Sorber underwent an arthroscopic knee procedure Tuesday to address inflammation at the patellofemoral joint in his right knee, and he's expected to return to on-court activities in 6-8 weeks, Steve McGehee of News 9 Oklahoma City reports.",2026-11-18T00:01Z
 4683692,Cason Wallace,OKC,Out,"Wallace underwent surgery Friday to repair a torn labrum in his left shoulder and will be re-evaluated before the end of the regular season, Clemente Almanza of USA Today reports.",2026-10-31T01:16Z
 4433255,Chet Holmgren,OKC,Out,"Holmgren underwent a biological treatment Friday to address a small patellar tendon tear and will miss at least 8-10 weeks, Nick Crain of Slam reports.",2026-10-31T01:02Z
@@ -83,13 +82,14 @@ pid,name,team,status,note,ts
 5105637,Adem Bona,PHI,Out,"Bona (back) will be re-evaluated in approximately one week after seeing a specialist, Ky Carlin of USA Today reports.",2026-11-12T16:36Z
 4871141,Ariel Hukporti,PHI,Out,"Hukporti has sustained a season-ending ruptured right Achilles tendon, per Shams Charania of ESPN.",2026-10-06T19:17Z
 4701232,Mark Williams,PHX,Out,"Williams underwent surgery Thursday to repair a torn labrum in his left shoulder and will miss an extended period of time, Shams Charania of ESPN reports.",2026-09-11T16:03Z
+4066211,Robert Williams III,POR,Day-To-Day,Williams (rest) is listed as out for Thursday's game versus the Bucks.,2026-11-20T03:55Z
+4683021,Deni Avdija,POR,Day-To-Day,Avdija (foot) is listed as out for Thursday's game against the Bucks.,2026-11-20T03:55Z
 4706557,Chris Youngblood,POR,Out,Youngblood (heel) has been ruled out for Thursday's game against the Bucks.,2026-11-19T15:06Z
-4066211,Robert Williams III,POR,Out,Williams (rest) is listed as out for Thursday's game versus the Bucks.,2026-11-18T22:58Z
-4683021,Deni Avdija,POR,Day-To-Day,Avdija (foot) is listed as questionable ahead of Thursday's game against Milwaukee.,2026-11-18T22:54Z
-4431736,Toumani Camara,POR,Day-To-Day,Camara is questionable to play Thursday against the Bucks due to general soreness.,2026-11-18T22:53Z
 4578893,Vit Krejci,POR,Out,"Krejci underwent surgery on his fractured left ankle Wednesday and will be re-evaluated in eight weeks, Brett Siegel of ClutchPoints.com reports.",2026-11-11T19:56Z
 4279888,Ja Morant,POR,Out,"Head coach Micah Nori said Morant met with a doctor in Los Angeles, who gave him a positive outlook on his recovery from the hamstring injury. While Nori declined to update Morant's timetable, he added Morant ""may not be out for as long as we thought,"" Trail Blazers Insider Sean Highkin reports.",2026-11-08T02:18Z
 4914336,Shaedon Sharpe,POR,Out,"Sharpe suffered a torn meniscus in his knee and is expected to miss six months, per Shams Charania of ESPN.",2026-08-24T20:23Z
+4431679,Precious Achiuwa,SAC,Day-To-Day,Achiuwa is doubtful for Friday's game against the Lakers due to a left lower leg bruise.,2026-11-20T01:22Z
+4065732,De'Andre Hunter,SAC,Day-To-Day,Hunter (hip) is listed as questionable for Friday's game against the Lakers.,2026-11-20T01:21Z
 4898371,Maxime Raynaud,SAC,Out,Raynaud (knee) will remain on the inactive list for Wednesday's game against the Suns.,2026-11-18T05:54Z
 3907387,Ben Simmons,SAC,Out,"Simmons underwent successful surgery Tuesday to repair a torn right Achilles tendon, James Ham of ESPN 1320 Sacramento reports.",2026-10-21T04:22Z
 5037871,Dylan Harper,SA,Out,"Harper (hip) is expected to miss two to three weeks, Brett Siegel of ClutchPoints.com reports.",2026-11-19T20:07Z
@@ -99,8 +99,8 @@ pid,name,team,status,note,ts
 4395625,RJ Barrett,TOR,Out,"Barrett has been diagnosed with a right hamstring strain and will be re-evaluated in two weeks, Brett Siegel of ClutchPoints.com reports.",2026-11-19T21:13Z
 6450,Kawhi Leonard,TOR,Out,"Leonard (knee) has progressed in his strength and conditioning program but will miss at least one more week, Michael Scotto of HoopsHype.com reports.",2026-11-17T22:25Z
 4432586,Nate Bittle,TOR,Out,"Bittle (foot) has been ruled out for Sunday's game against the Knicks, Zulfi Sheikh of Sportsnet.ca reports.",2026-11-14T21:59Z
+3102530,Jusuf Nurkic,UTAH,Out,Nurkic (toe) is listed as out for Friday's game against Phoenix.,2026-11-20T00:05Z
 4066336,Lauri Markkanen,UTAH,Out,"Markkanen has been diagnosed with a non-displaced fracture in his right hand and will be sidelined for at least one month, Shams Charania of ESPN reports.",2026-11-11T18:22Z
-3102530,Jusuf Nurkic,UTAH,Out,"Nurkic (toe) has begun participating in on-court activities as he continues recovering from a right foot injury sustained during an Oct. 4 preseason game against Denver. He will be re-evaluated in two weeks, the Jazz announced Friday.",2026-11-06T18:20Z
 4277961,Jaren Jackson Jr.,UTAH,Out,"Jackson has been diagnosed with a torn MCL in his right knee and will be sidelined for 6-to-8 weeks, per Shams Charania of ESPN.",2026-10-27T19:25Z
 5105841,Felix Okpara,WSH,Day-To-Day,Okpara (illness) is available for Friday's game against Toronto.,2026-11-17T16:38Z
 4997537,Tristan Vukcevic,WSH,Out,Vukcevic (hip) has been ruled out for Monday's game against Memphis.,2026-11-16T18:14Z

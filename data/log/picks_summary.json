@@ -1,6 +1,6 @@
 {
  "version": "v1",
- "graded_through": "2026-11-18",
+ "graded_through": "2026-11-19",
  "break_even": 0.544,
  "rules": {
   "R1": {
@@ -14,8 +14,8 @@
    "player_days": 8,
    "hit_player_day": 0.292,
    "days": 2,
-   "hit_first_sighting": 0.185,
-   "legs_ever_qualified": 27,
+   "hit_first_sighting": 0.161,
+   "legs_ever_qualified": 31,
    "clv_mean": 0.0,
    "clv_positive_share": 0.0,
    "clv_n": 20,
@@ -24,41 +24,41 @@
   },
   "R2": {
    "name": "over_one",
-   "legs": 55,
-   "hit": 0.473,
+   "legs": 64,
+   "hit": 0.422,
    "hit_range90": [
-    0.366,
-    0.582
+    0.326,
+    0.525
    ],
-   "player_days": 23,
-   "hit_player_day": 0.462,
-   "days": 2,
-   "hit_first_sighting": 0.476,
-   "legs_ever_qualified": 63,
-   "clv_mean": 0.055,
-   "clv_positive_share": 0.073,
-   "clv_n": 55,
+   "player_days": 28,
+   "hit_player_day": 0.415,
+   "days": 3,
+   "hit_first_sighting": 0.468,
+   "legs_ever_qualified": 77,
+   "clv_mean": 0.047,
+   "clv_positive_share": 0.062,
+   "clv_n": 64,
    "first_half": 0.0,
-   "second_half": 0.491
+   "second_half": 0.435
   },
   "R3": {
    "name": "market_gap",
-   "legs": 67,
-   "hit": 0.612,
+   "legs": 82,
+   "hit": 0.598,
    "hit_range90": [
-    0.511,
-    0.704
+    0.507,
+    0.682
    ],
-   "player_days": 56,
-   "hit_player_day": 0.625,
-   "days": 2,
-   "hit_first_sighting": 0.587,
-   "legs_ever_qualified": 104,
+   "player_days": 70,
+   "hit_player_day": 0.6,
+   "days": 3,
+   "hit_first_sighting": 0.578,
+   "legs_ever_qualified": 135,
    "clv_mean": 0.0,
    "clv_positive_share": 0.0,
-   "clv_n": 67,
+   "clv_n": 82,
    "first_half": 0.75,
-   "second_half": 0.569
+   "second_half": 0.561
   }
  }
 }
