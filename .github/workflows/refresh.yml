@@ -53,6 +53,9 @@ jobs:
           python -m pipeline.picks || echo "::warning::pick log could not be written"
           python -m pipeline.picks --grade || echo "::warning::picks could not be graded"
           python -m pipeline.picks --site || echo "::warning::picks.json for the Picks tab could not be written"
+      - name: Log line moves around new absences (research only)
+        # data/log/line_moves.csv: first and last pre-tip sighting of EVERY line with the team's rotation players out each time; python -m pipeline.line_moves --report measures how far the books move a teammate's line when someone is ruled out. Soft-fail.
+        run: python -m pipeline.line_moves || echo "::warning::line moves could not be logged"
       - name: Log DARKO's projections beside ours (research only)
         # DARKO's public MCP endpoint needs no key; this only writes data/log/darko_proj.csv on the first run after the pre-tip slate log. Soft-fail.
         run: python -m pipeline.darko_log || echo "::warning::DARKO projections could not be logged"
