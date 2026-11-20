@@ -143,3 +143,10 @@ Prefer your own machine? `scripts/morning.sh` does the same refresh locally; add
 
 ### Frozen pick rules (research, v1)
 `pipeline/picks.py` freezes three rules and grades them forward: **R1** Unders with no rotation player out for the team, model P(win) >= 65% and projected minutes >= 20 (in sample 68% over 335 legs); **R2** Overs with exactly one rotation player out, P(win) >= 60% (58% over 572); **R3** (tracked only) the side a PrizePicks line 1.0+ off the sportsbook consensus points to (56% over 725). The cuts were found post hoc on the first 14,717 graded legs, so they are not shown on the site; each refresh appends to `data/log/picks_log.csv` (first and last sighting of every qualifying leg, so closing-line value can be measured), and `picks_summary.json` reports hit rate by leg and by player-day (legs on one player the same day are one bet) with 90% ranges. `python -m pipeline.picks --backtest` reproduces the in-sample table. The **Picks** tab (`site/data/picks.json`, written by `--site`) shows the forward record per rule (hit rate with 90% range, by leg and by player-day, mean closing-line value, next to the in-sample number), the open legs per rule with their current injury status, and the last graded days. A "skip if the market disagrees" filter and a skew-aware probability were tested and not adopted.
+
+### Line moves around absences (research)
+
+`python -m pipeline.line_moves` (run by the refresh workflow, soft-fail) writes `data/log/line_moves.csv`: one row per slate day, player and stat for every line on the board, with the first and last
+pre-tip sighting (PrizePicks, consensus and Underdog line, the model's projection and minutes, and the team's rotation players out each time). `--report` compares lines on teams that gained an
+absence between the two sightings with the rest, and checks whether the move was enough (actual minus first line vs minus last line). Nothing here feeds the model or the pick rules. The window is
+about 10 hours (morning odds pull to pre-tip), so lines first seen with an absence already priced in show no move.
