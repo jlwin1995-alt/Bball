@@ -274,6 +274,29 @@ date,pid,name,team,stat,rule,first_side,first_line,last_side,last_line,last_pw,l
 2026-11-20,4395626,Tre Jones,CHI,ra,R2,O,6.5,O,6.5,0.6333,1,22.7,True,8.0,False,1.0,1.0,0.0
 2026-11-20,4395628,Zion Williamson,NO,pa,R3,U,23.5,U,22.5,0.5856,2,31.7,True,29.0,False,0.0,0.0,1.0
 2026-11-20,4395628,Zion Williamson,NO,pra,R3,O,28.5,O,28.5,0.5763,2,31.7,False,35.0,False,1.0,1.0,0.0
+2026-11-20,4397077,Jaxson Hayes,UTAH,pra,R3,U,16.5,U,16.5,0.6435,2,21.4,False,32.0,False,0.0,0.0,0.0
+2026-11-20,4871144,Alperen Sengun,HOU,ast,R1,U,6.5,U,6.5,0.7315,0,27.7,True,10.0,False,0.0,0.0,0.0
+2026-11-20,4871144,Alperen Sengun,HOU,pa,R1,U,26.5,U,26.5,0.732,0,27.7,True,38.0,False,0.0,0.0,0.0
+2026-11-20,4871144,Alperen Sengun,HOU,pr,R1,U,29.5,U,29.5,0.7301,0,27.7,True,39.0,False,0.0,0.0,0.0
+2026-11-20,4871144,Alperen Sengun,HOU,pra,R1,U,35.5,U,35.5,0.7511,0,27.7,True,49.0,False,0.0,0.0,0.0
+2026-11-20,4871144,Alperen Sengun,HOU,pts,R1,U,20.0,U,20.0,0.6568,0,27.7,True,28.0,False,0.0,0.0,0.0
+2026-11-20,4871144,Alperen Sengun,HOU,ra,R1,U,15.5,U,15.5,0.7462,0,27.7,True,21.0,False,0.0,0.0,0.0
+2026-11-20,4431767,Christian Braun,DEN,pra,R3,O,17.5,O,17.5,0.5105,0,33.0,False,27.0,False,1.0,1.0,0.0
+2026-11-20,4277811,Collin Sexton,LAL,pa,R2,O,16.5,O,16.5,0.6088,1,22.8,True,14.0,False,0.0,0.0,0.0
+2026-11-20,4065732,De'Andre Hunter,SAC,pra,R3,O,17.5,U,19.5,0.5402,1,29.0,True,38.0,False,0.0,1.0,
+2026-11-20,3155942,Domantas Sabonis,SAC,pra,R3,O,29.5,U,30.0,0.4846,1,31.0,False,36.0,False,0.0,1.0,
+2026-11-20,3155942,Domantas Sabonis,SAC,pts,R3,U,13.5,O,12.5,0.5789,1,31.0,False,19.0,False,1.0,0.0,
+2026-11-20,4432639,Jabari Smith Jr.,HOU,pa,R1,U,16.5,U,16.5,0.6592,0,31.2,True,24.0,False,0.0,0.0,0.0
+2026-11-20,4432639,Jabari Smith Jr.,HOU,pr,R1,U,21.5,U,21.5,0.6642,0,31.2,True,25.0,False,0.0,0.0,0.0
+2026-11-20,4432639,Jabari Smith Jr.,HOU,pra,R1,U,23.5,U,23.5,0.6858,0,31.2,True,28.0,False,0.0,0.0,0.0
+2026-11-20,4592691,Jake LaRavia,LAL,pra,R2,O,11.5,O,12.5,0.5649,1,26.0,False,9.0,False,0.0,0.0,1.0
+2026-11-20,3936299,Jamal Murray,DEN,pa,R3,O,27.5,O,28.5,0.5307,0,36.1,False,21.0,False,0.0,0.0,1.0
+2026-11-20,3112335,Nikola Jokic,DEN,pa,R3,O,34.5,O,34.5,0.5425,0,36.9,False,37.0,False,1.0,1.0,0.0
+2026-11-20,3112335,Nikola Jokic,DEN,pr,R3,O,36.5,O,36.5,0.5288,0,36.9,False,33.0,False,0.0,0.0,0.0
+2026-11-20,4278580,Sandro Mamukelashvili,LAL,pts,R2,O,9.5,O,9.5,0.6114,1,22.4,True,9.0,False,0.0,0.0,0.0
+2026-11-20,4433136,Walker Kessler,LAL,ast,R2,O,1.5,O,1.5,0.6228,1,30.5,True,2.0,False,1.0,1.0,0.0
+2026-11-20,4433137,Ziaire Williams,LAL,pra,R2,O,11.5,O,11.5,0.6054,1,22.7,True,6.0,False,0.0,0.0,0.0
+2026-11-20,4433137,Ziaire Williams,LAL,pts,R2,O,7.5,O,8.5,0.5667,1,22.7,False,5.0,False,0.0,0.0,1.0
 2026-11-20,4871145,Josh Giddey,CHI,pr,R2,O,20.5,O,21.5,0.5535,1,29.9,False,8.0,False,0.0,0.0,1.0
 2026-11-20,4433287,Brandon Miller,CHA,pra,R3,O,28.5,O,28.5,0.5836,4,29.4,True,30.0,False,1.0,1.0,0.0
 2026-11-20,4431680,Onyeka Okongwu,ATL,pra,R3,U,25.5,U,25.5,0.5296,1,32.6,True,24.0,False,1.0,1.0,0.0
@@ -293,3 +316,8 @@ date,pid,name,team,stat,rule,first_side,first_line,last_side,last_line,last_pw,l
 2026-11-20,4871145,Josh Giddey,CHI,pts,R3,U,14.5,U,14.5,0.5096,1,29.9,True,2.0,False,1.0,1.0,0.0
 2026-11-20,4711294,Matas Buzelis,CHI,pts,R3,O,17.5,O,17.5,0.5565,1,28.5,True,9.0,False,0.0,0.0,0.0
 2026-11-20,4397136,Saddiq Bey,NO,pra,R3,U,24.5,U,24.5,0.5721,2,35.0,True,30.0,False,0.0,0.0,0.0
+2026-11-20,5105839,Brice Sensabaugh,UTAH,pr,R3,U,15.5,U,15.5,0.5896,2,23.7,True,21.0,False,0.0,0.0,0.0
+2026-11-20,4278585,Collin Gillespie,PHX,pr,R3,U,13.5,U,13.5,0.5242,0,24.8,True,20.0,False,0.0,0.0,0.0
+2026-11-20,4277811,Collin Sexton,LAL,ra,R2,O,4.5,O,4.5,0.6091,1,22.8,True,5.0,False,1.0,1.0,0.0
+2026-11-20,3945274,Luka Doncic,LAL,pts,R3,O,35.5,O,35.5,0.5336,1,36.7,True,25.0,False,0.0,0.0,0.0
+2026-11-20,3907498,Matisse Thybulle,LAL,pra,R3,O,10.5,O,10.5,0.5389,1,22.7,True,16.0,False,1.0,1.0,0.0

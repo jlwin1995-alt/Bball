@@ -5,60 +5,60 @@
  "rules": {
   "R1": {
    "name": "under_solo",
-   "legs": 21,
-   "hit": 0.238,
+   "legs": 30,
+   "hit": 0.167,
    "hit_range90": [
-    0.121,
-    0.415
+    0.084,
+    0.305
    ],
-   "player_days": 9,
-   "hit_player_day": 0.37,
+   "player_days": 11,
+   "hit_player_day": 0.303,
    "days": 3,
-   "hit_first_sighting": 0.182,
-   "legs_ever_qualified": 33,
+   "hit_first_sighting": 0.143,
+   "legs_ever_qualified": 42,
    "clv_mean": 0.0,
    "clv_positive_share": 0.0,
-   "clv_n": 21,
+   "clv_n": 30,
    "first_half": 0.2,
-   "second_half": 1.0
+   "second_half": 0.1
   },
   "R2": {
    "name": "over_one",
-   "legs": 76,
+   "legs": 81,
    "hit": 0.395,
    "hit_range90": [
-    0.308,
-    0.489
+    0.31,
+    0.486
    ],
-   "player_days": 33,
-   "hit_player_day": 0.443,
+   "player_days": 37,
+   "hit_player_day": 0.436,
    "days": 4,
-   "hit_first_sighting": 0.441,
-   "legs_ever_qualified": 93,
-   "clv_mean": 0.026,
-   "clv_positive_share": 0.053,
-   "clv_n": 76,
+   "hit_first_sighting": 0.43,
+   "legs_ever_qualified": 100,
+   "clv_mean": 0.025,
+   "clv_positive_share": 0.049,
+   "clv_n": 81,
    "first_half": 0.473,
-   "second_half": 0.19
+   "second_half": 0.231
   },
   "R3": {
    "name": "market_gap",
-   "legs": 99,
-   "hit": 0.586,
+   "legs": 104,
+   "hit": 0.567,
    "hit_range90": [
-    0.503,
-    0.664
+    0.487,
+    0.645
    ],
-   "player_days": 86,
-   "hit_player_day": 0.587,
+   "player_days": 91,
+   "hit_player_day": 0.566,
    "days": 4,
-   "hit_first_sighting": 0.595,
-   "legs_ever_qualified": 163,
+   "hit_first_sighting": 0.583,
+   "legs_ever_qualified": 175,
    "clv_mean": 0.01,
    "clv_positive_share": 0.01,
-   "clv_n": 99,
+   "clv_n": 103,
    "first_half": 0.612,
-   "second_half": 0.531
+   "second_half": 0.486
   }
  }
 }
