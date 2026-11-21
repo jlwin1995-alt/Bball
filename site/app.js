@@ -85,7 +85,7 @@ function filters(extra = "") {
   return `<div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}">
   <label>Pos <select id="pos">${["", "G", "F", "C"].map(p => `<option ${F.pos === p ? "selected" : ""} value="${p}">${p || "All"}</option>`).join("")}</select></label>${extra}</div>`;
 }
-const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lside: "", lbucket: "", lcombo: false, lhl: false, lpicks: false, rday: "", rcat: "", vstat: "pts", vpos: "G", sview: "today", smode: "soft", cteam: "", cplayer: "", cheat: "fg", cdots: "all", rmode: null, rlines: false, rpicks: false, range: true};
+const F = {q: "", pos: "", ming: 10, lstat: "", lgame: "", lside: "", lbucket: "", lcombo: false, lhl: false, lpicks: false, rday: "", rcat: "", vstat: "pts", vpos: "G", sview: "today", smode: "soft", cteam: "", cplayer: "", cheat: "fg", cdots: "all", rmode: null, rlines: false, rpicks: false, range: true, tca: "", tcb: "", tcw: "season", tcg: ""};
 const RES = {};                                     // results/<date>.json cache
 function passes(r) {
   if (F.pos && r.pos !== F.pos) return false;
@@ -291,6 +291,53 @@ function vsTop10(T, st, pos, rel) {
   return `<p class="banner">Reliability for ${{G: "guards", F: "forwards", C: "centers"}[pos]} ${LABEL[st]}: <b>${rv ?? "n/a"}</b> (${tag}).${smalln} Rechecked Nov 17 (about 14-17 games per team): the lists did move next-week results in some cells (guard turnovers and assists, forward points), but nearly all of that is a team-wide effect the projections already use, and the position-specific part added nothing out of sample. Treat it as context, not a pick.</p>
     <div class="cols2">${col("Softest 10 (allows the most)", rows.slice(0, 10))}${col("Toughest 10 (allows the least)", rows.slice(-10).reverse())}</div>`;
 }
+
+// ---------- team comparison: each side's stats and what they allow, per game (display only) -------------------------------------
+function teamCompare() {
+  const T = D.team_stats;
+  if (!T || !T.teams || !T.teams.length) return "";
+  const tm = Object.fromEntries(T.teams.map(r => [r.team, r])), names = T.teams.map(r => r.team);
+  const games = [...new Set((D.projections || []).filter(p => p.opp).map(p => p.home ? `${p.team}|${p.opp}` : `${p.opp}|${p.team}`))];
+  if (!F.tca || !tm[F.tca] || !F.tcb || !tm[F.tcb]) {
+    const [h, a] = (games[0] || `${names[1]}|${names[0]}`).split("|");
+    F.tca = tm[a] ? a : names[0]; F.tcb = tm[h] ? h : names[1]; if (games[0]) F.tcg = games[0];
+  }
+  const A = tm[F.tca], B = tm[F.tcb], w = F.tcw, a = A[w], b = B[w], lg = T.league[w];
+  const rk = (side, r, k) => { const v = r[w]["rk_" + side]?.[k]; return v ? `<span class="rkn ${v <= 6 ? "good" : v > 24 ? "bad" : "mut"}">${v}</span>` : ""; };
+  const ROWS = [
+    {l: "Points", k: "pts", v: x => x.pts, t: x => num(x.pts)},
+    {l: "FG", k: "fg_pct", v: x => x.fg_pct, t: x => `${num(x.fgm)}/${num(x.fga)} <span class="mut">${num(x.fg_pct)}%</span>`},
+    {l: "3PT", k: "fg3_pct", v: x => x.fg3_pct ?? x.fg3m, t: x => x.fg3a == null ? num(x.fg3m) : `${num(x.fg3m)}/${num(x.fg3a)} <span class="mut">${num(x.fg3_pct)}%</span>`},
+    {l: "FT", k: "ft_pct", v: x => x.ft_pct, t: x => `${num(x.ftm)}/${num(x.fta)} <span class="mut">${num(x.ft_pct)}%</span>`},
+    {l: "Rebounds", k: "reb", v: x => x.reb, t: x => num(x.reb)}, {l: "Assists", k: "ast", v: x => x.ast, t: x => num(x.ast)},
+    {l: "Steals", k: "stl", v: x => x.stl, t: x => num(x.stl)}, {l: "Blocks", k: "blk", v: x => x.blk, t: x => num(x.blk)},
+    {l: "Turnovers", k: "tov", v: x => x.tov, t: x => num(x.tov)},
+    {l: "Points per 100 poss", k: "ortg", v: x => x.ortg, t: x => num(x.ortg)}];
+  const sec = (title, side, note) => `<h3>${title}</h3><p class="sub">${note}</p><div class="cmp">${ROWS.map(r => {
+      const x = a[side], y = b[side], vx = r.v(x), vy = r.v(y), sh = vx != null && vy != null && vx + vy > 0 ? 100 * vx / (vx + vy) : 50;
+      return `<div class="cr"><div class="cv l">${rk(side === "for" ? "for" : "al", A, r.k)}${r.t(x)}</div><div class="cl">${r.l}</div><div class="cv r">${r.t(y)}${rk(side === "for" ? "for" : "al", B, r.k)}</div>
+        <div class="cb"><i style="width:${sh}%"></i></div></div>`; }).join("")}</div>`;
+  const lgRow = (r, side, k) => lg[side][k];
+  const meet = (X, Y, label) => {
+    const rows = [["Points", "pts"], ["FG%", "fg_pct"], ["3PM", "fg3m"], ["FTA", "fta"], ["Rebounds", "reb"], ["Assists", "ast"], ["Turnovers", "tov"], ["Pts / 100 poss", "ortg"]];
+    const cols = [{k: "s", h: label, l: 1}, {k: "o", h: `${X.team} scored`}, {k: "d", h: `${Y.team} allowed`}, {k: "lg", h: "League"}, {k: "e", h: "Both above/below league", t: "Green: both the offence and the opposing defence are on the same side of league average in the direction that helps the offence"}];
+    const data = rows.map(([n, k]) => { const o = X[w].for[k], d = Y[w].allowed[k], l = lg.for[k], hi = k !== "tov";
+      const up = (o - l) * (hi ? 1 : -1) > 0, dn = (d - l) * (hi ? 1 : -1) > 0;
+      return {s: n, o: num(o), d: num(d), lg: num(l), e: up && dn ? `<span class="good">both help</span>` : !up && !dn ? `<span class="bad">both hurt</span>` : `<span class="mut">mixed</span>`}; });
+    return table(cols, data, {id: "tm" + X.team + Y.team, tight: true});
+  };
+  const opt = (id, cur) => `<select id="${id}">${names.map(n => `<option value="${n}" ${n === cur ? "selected" : ""}>${n}</option>`).join("")}</select>`;
+  const gsel = games.length ? `<label>Game <select id="tcg"><option value="" ${F.tcg ? "" : "selected"}>custom</option>${games.map(g => `<option value="${g}" ${g === F.tcg ? "selected" : ""}>${g.split("|")[1]} @ ${g.split("|")[0]}</option>`).join("")}</select></label>` : "";
+  return `<h3>Team comparison</h3><p class="sub">Per-game team stats from the box scores, and what each team has <b>allowed</b> (the other side's totals in the same games). The small number beside a stat is the league rank (1 = best for that side, so most scored / fewest allowed; green = top 6, red = bottom 6). Possessions are estimated, so points per 100 run a few percent high but rank properly. Rebounds are totals (offensive vs defensive and fouls are not in the feed). Season to date through ${esc(T.asof)}; short windows are noisy. Display only: none of this feeds the projections.</p>
+    <div class="bar">${gsel}<label>Away ${opt("tca", F.tca)}</label><label>Home ${opt("tcb", F.tcb)}</label>
+      <label>Window <select id="tcw">${[["season", "Season"], ["l10", "Last 10"], ["l5", "Last 5"]].map(([k, n]) => `<option value="${k}" ${k === w ? "selected" : ""}>${n}</option>`).join("")}</select></label></div>
+    <div class="cmphead"><div class="l"><b>${esc(F.tca)}</b> <span class="mut">${A.w}-${A.l} · ${a.g} g · pace ${num(A.pace)}</span></div><div class="r"><b>${esc(F.tcb)}</b> <span class="mut">${B.w}-${B.l} · ${b.g} g · pace ${num(B.pace)}</span></div></div>
+    ${sec("Scored per game", "for", "What each team does with the ball.")}
+    ${sec("Allowed per game", "allowed", "What each team gives up to its opponents (turnovers and steals here are the ones it forced).")}
+    <h3>Each offence against the other defence</h3>
+    <div class="two"><div>${meet(A, B, `${esc(F.tca)} offence`)}</div><div>${meet(B, A, `${esc(F.tcb)} offence`)}</div></div>`;
+}
+
 function vsPosition() {
   const T = D.tiers;
   if (!T || !T.vspos || !T.vspos.length) return "";
@@ -587,7 +634,7 @@ const pages = {
   Matchups() {
     const cols = [{k: "team", h: "Team", l: 1}, {k: "playing", h: "Plays", l: 1, f: r => r.playing ? "yes" : ""}, {k: "games", h: "G"},
       ...STATS.map(s => ({k: s + "_raw", h: LABEL[s], t: "What this defence allowed vs league, regressed by sample (not damped)", f: r => pct(r[s + "_raw"])}))];
-    return `<h2>Matchups</h2><p class="sub">What each defence has allowed relative to league, regressed toward 1.0 by games played. Green = soft (stat inflates), red = tough. The projection uses a damped share of these (see Methodology). Opposing-offence strength is not removed.</p>
+    return `<h2>Matchups</h2>${teamCompare()}<h3>Defence vs league</h3><p class="sub">What each defence has allowed relative to league, regressed toward 1.0 by games played. Green = soft (stat inflates), red = tough. The projection uses a damped share of these (see Methodology). Opposing-offence strength is not removed.</p>
       ${table(cols, D.matchups, {id: "mu", sort: {key: "pts_raw"}})}
       ${vsPosition()}`;
   },
@@ -963,6 +1010,10 @@ document.addEventListener("change", e => {
   else if (t.id === "rday") { F.rday = t.value; render(); }
   else if (t.id === "pday") { F.pday = t.value; render(); }
   else if (t.id === "rcat") { F.rcat = t.value; render(); }
+  else if (t.id === "tcg") { const [h, a] = t.value.split("|"); F.tcg = t.value; F.tca = a; F.tcb = h; render(); }
+  else if (t.id === "tca") { F.tca = t.value; F.tcg = ""; render(); }
+  else if (t.id === "tcb") { F.tcb = t.value; F.tcg = ""; render(); }
+  else if (t.id === "tcw") { F.tcw = t.value; render(); }
   else if (t.id === "sview") { F.sview = t.value; render(); }
   else if (t.id === "smode") { F.smode = t.value; render(); }
   else if (t.id === "cteam") { F.cteam = t.value; render(); }
@@ -996,7 +1047,7 @@ async function boot() {
   const saved = store.get("cfg", {}); if (saved.ver !== 2 && saved.preset === "DraftKings") { delete saved.preset; delete saved.scoring; }   // default scoring changed to PrizePicks; keep other saved settings
   if (saved.ppBE === 57.7) delete saved.ppBE;                                   // break-even default changed to 54.4% (Oct 29): drop the old default from saved settings, keep any other value
   CFG = {...CFG, ...saved}; OVR = store.get("ovr", {}); LINES = store.get("lines", []);
-  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "shots", "shotchart", "scorecard", "spread", "lines", "players", "splits", "calib", "highlights", "absence", "picks"];
+  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "shots", "shotchart", "scorecard", "spread", "lines", "players", "splits", "calib", "highlights", "absence", "picks", "team_stats"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   try { const r = await fetch("data/results/index.json", {cache: "no-cache"}); if (r.ok) D.rIdx = await r.json(); } catch (e) {}
   try { const r = await fetch("data/results_rehearsal/index.json", {cache: "no-cache"}); if (r.ok) D.rIdxR = await r.json(); } catch (e) {}

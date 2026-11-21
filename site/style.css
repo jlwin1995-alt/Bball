@@ -58,3 +58,9 @@ tr:hover td:first-child{background:var(--head)}
   .tw{max-height:none}
   th,td{padding:3px 6px}
 }
+.cmphead{display:flex;justify-content:space-between;margin:6px 0;font-size:15px}.cmphead .r{text-align:right}
+.cmp{max-width:760px}.cr{display:grid;grid-template-columns:1fr 150px 1fr;align-items:center;gap:0 10px;padding:5px 0}
+.cv{font-size:15px;font-weight:600}.cv.l{text-align:left}.cv.r{text-align:right}.cl{text-align:center;color:var(--mut);font-size:13px}
+.rkn{font-size:11px;font-weight:400;margin:0 6px}.cb{grid-column:1/-1;height:4px;background:var(--line);border-radius:2px;overflow:hidden}.cb i{display:block;height:100%;background:var(--acc);opacity:.75}
+@media (max-width:640px){.cr{grid-template-columns:1fr 100px 1fr}.cv{font-size:13px}}
+
