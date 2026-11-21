@@ -159,3 +159,8 @@ here feeds the projections.
 
 The Team comparison also shows **Allowed by position**: each defence's per-minute stats allowed to guards, forwards and centers (from the existing vs-position table), with ranks and a grey flag where the split-half reliability is under 0.2. Display only.
 
+### Unit strength and player consistency tags (display only)
+
+* **Unit strength** (Matchups > Team comparison): fantasy points per 48 minutes produced by each team's guards, forwards and centers, ranked in thirds across the league (units seen for few minutes are pulled toward the league average first). Built in `pipeline/team_stats.py`.
+* **Consistency tag** (Game Board, Projections and Trends): `pipeline/consistency.py` writes `site/data/consistency.json`. Over a player's last 20 games of 12+ minutes (8 needed), the spread of fantasy points (and points, rebounds, assists) is compared with players at a similar level: Steady / Average / Volatile = bottom / middle / top third. Volatile players are tagged Spiky, Dud-prone or Boom/bust from the share of games at 1.3x or 0.7x his own median. The bars are his last 10 games. A first look (Nov 21): the spread repeats only modestly (odd vs even games r 0.49, earlier vs later r 0.36 on 471 players), and out of sample, volatile players' misses against our projection were larger relative to the projection (about 40% vs 32% for Steady) but not larger in fantasy points. It describes recent games; it is not a forecast.
+

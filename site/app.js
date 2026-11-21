@@ -292,6 +292,24 @@ function vsTop10(T, st, pos, rel) {
     <div class="cols2">${col("Softest 10 (allows the most)", rows.slice(0, 10))}${col("Toughest 10 (allows the least)", rows.slice(-10).reverse())}</div>`;
 }
 
+
+// ---------- player consistency: spikes or steady? (display only) ---------------------------------------------------------------
+const CONS_CLASS = {Steady: "good", Average: "mut", Volatile: "hot"};
+function consBars(c, w = 62, h = 18) {                      // last 10 fantasy-point games as bars, a line at his median; taller = higher
+  const a = c.last || []; if (a.length < 3) return "";
+  const mx = Math.max(...a, c.fp.median * 1.1), bw = w / a.length;
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" class="cbars">${a.map((v, i) => { const bh = Math.max(1, v / mx * h), hi = v >= c.fp.median * 1.3, lo = v <= c.fp.median * 0.7;
+      return `<rect x="${(i * bw + 0.5).toFixed(1)}" y="${(h - bh).toFixed(1)}" width="${(bw - 1).toFixed(1)}" height="${bh.toFixed(1)}" fill="${hi ? "var(--good)" : lo ? "var(--bad)" : "var(--mut)"}"/>`; }).join("")}
+    <line x1="0" x2="${w}" y1="${(h - c.fp.median / mx * h).toFixed(1)}" y2="${(h - c.fp.median / mx * h).toFixed(1)}" stroke="var(--fg)" stroke-width=".6" stroke-dasharray="2 2"/></svg>`;
+}
+function consTip(c) {
+  const f = c.fp, rel = D.consistency?.rel || {}, t = k => c[k]?.tag ? `${LABEL[k] || k.toUpperCase()}: ${c[k].tag}${c[k].shape ? " (" + c[k].shape + ")" : ""}` : "";
+  return esc(`Last ${c.n} games of ${D.consistency?.min_minutes}+ min. FP median ${num(f.median)}, floor ${num(f.floor)}, ceiling ${num(f.ceil)}; CV ${num(f.cv, 2)} (${num(f.adj, 2)} x comparable players). Spikes (1.3x his median or more) in ${Math.round((f.spike ?? 0) * 100)}% of games, duds (0.7x or less) in ${Math.round((f.dud ?? 0) * 100)}%. ${["pts", "reb", "ast"].map(t).filter(Boolean).join("; ")}. Bars: his last 10 FP games (green = spike, red = dud), dashed = median. The tag is a description of recent games: his spread repeats only modestly (split-half r ${rel.odd_even ?? "n/a"} odd vs even games, ${rel.earlier_later ?? "n/a"} earlier vs later).`);
+}
+const consCell = r => { const c = D.consistency?.players?.[r.pid]; if (!c || !c.fp.tag) return "";
+  return `<span title="${consTip(c)}"><span class="pill ${CONS_CLASS[c.fp.tag]}">${c.fp.tag}${c.fp.shape ? " · " + c.fp.shape : ""}</span> ${consBars(c)}</span>`; };
+const consSort = r => D.consistency?.players?.[r.pid]?.fp?.adj ?? 99;
+
 // ---------- team comparison: each side's stats and what they allow, per game (display only) -------------------------------------
 function teamCompare() {
   const T = D.team_stats;
@@ -342,12 +360,32 @@ function teamCompare() {
       if (rk.rank <= 6) flags.push(`<span class="good">soft</span> to ${PN[pos]} on ${LABEL[st]} (rank ${rk.rank} of ${rk.of})`); else if (rk.rank > rk.of - 6) flags.push(`<span class="bad">tough</span> on ${PN[pos]} ${LABEL[st]} (rank ${rk.rank})`); }
     return `<div>${table(cols, data, {id: "vp" + team, tight: true})}<p class="sub">${flags.length ? "Reliable standouts: " + flags.join("; ") : "No reliable standouts (rank in the top or bottom 6 on a stat with split-half reliability of 0.2 or more)."}</p></div>`;
   };
+  const UN = {G: "Guards", F: "Forwards", C: "Centers"};
+  const uw = (w === "l5" ? "l10" : w);                          // unit strength is computed for the season and the last 10 games
+  const outBy = team => { const o = (D.projections || []).filter(p => p.team === team && p.out && p.pos).map(p => ({n: p.name, pos: (p.pos || "")[0]}));
+    const st = (D.absence?.stars?.[team] || []).map(x => x.name); const names = new Set(st);
+    return o.filter(x => names.has(x.n)); };
+  const tierCls = t => t === "Top third" ? "good" : t === "Bottom third" ? "bad" : "mut";
+  const uside = (U, team, pos, right) => { const u = U?.[uw]?.[pos]; if (!u) return `<div class="cv ${right ? "r" : "l"}"></div>`;
+    const pct = 100 * (u.of - u.rank + 1) / u.of;
+    const chip = `<span class="pill ${tierCls(u.tier)}">${u.tier}</span>`, txt = `<b>${num(u.fp48)}</b> <span class="mut">FP/48 · #${u.rank}</span>`;
+    return `<div class="cv ${right ? "r" : "l"}" title="${esc(team)} ${UN[pos].toLowerCase()}: ${num(u.fp48)} fantasy points per 48 minutes (${num(u.pts48)} pts, ${num(u.reb48)} reb, ${num(u.ast48)} ast), rank ${u.rank} of ${u.of}; ${num(u.mpg)} of the team's 240 minutes a game">${right ? chip + " " + txt : txt + " " + chip}
+      <div class="meter ${right ? "r" : ""}"><i class="${tierCls(u.tier)}" style="width:${pct.toFixed(0)}%"></i></div></div>`; };
+  const unitSec = () => {
+    if (!A.units || !Object.keys(A.units).length || !B.units || !Object.keys(B.units).length) return "";
+    const oa = outBy(F.tca), ob = outBy(F.tcb), outTxt = (o, pos) => o.filter(x => x.pos === pos).map(x => esc(x.n)).join(", ");
+    return `<h3>Unit strength</h3><p class="sub">Fantasy points per 48 minutes produced by each team's guards, forwards and centers (PrizePicks scoring), ranked against the league: <span class="good">top third</span>, middle, <span class="bad">bottom third</span> (units seen for few minutes are pulled toward the league average before ranking). It describes the players, not who is available: players out tonight are listed under each unit. ${uw !== w ? "Last 5 uses the last 10 games here." : ""} Display only.</p>
+      <div class="cmp">${["G", "F", "C"].map(pos => { const a = outTxt(oa, pos), b = outTxt(ob, pos);
+        return `<div class="cr">${uside(A.units, F.tca, pos, false)}<div class="cl">${UN[pos]}</div>${uside(B.units, F.tcb, pos, true)}
+          <div class="cout"><span class="bad">${a ? "Out: " + a : ""}</span><span class="bad r">${b ? "Out: " + b : ""}</span></div></div>`; }).join("")}</div>`;
+  };
   const opt = (id, cur) => `<select id="${id}">${names.map(n => `<option value="${n}" ${n === cur ? "selected" : ""}>${n}</option>`).join("")}</select>`;
   const gsel = games.length ? `<label>Game <select id="tcg"><option value="" ${F.tcg ? "" : "selected"}>custom</option>${games.map(g => `<option value="${g}" ${g === F.tcg ? "selected" : ""}>${g.split("|")[1]} @ ${g.split("|")[0]}</option>`).join("")}</select></label>` : "";
   return `<h3>Team comparison</h3><p class="sub">Per-game team stats from the box scores, and what each team has <b>allowed</b> (the other side's totals in the same games). The small number beside a stat is the league rank (1 = best for that side, so most scored / fewest allowed; green = top 6, red = bottom 6). Possessions are estimated, so points per 100 run a few percent high but rank properly. Rebounds are totals (offensive vs defensive and fouls are not in the feed). Season to date through ${esc(T.asof)}; short windows are noisy. Display only: none of this feeds the projections.</p>
     <div class="bar">${gsel}<label>Away ${opt("tca", F.tca)}</label><label>Home ${opt("tcb", F.tcb)}</label>
       <label>Window <select id="tcw">${[["season", "Season"], ["l10", "Last 10"], ["l5", "Last 5"]].map(([k, n]) => `<option value="${k}" ${k === w ? "selected" : ""}>${n}</option>`).join("")}</select></label></div>
     <div class="cmphead"><div class="l"><b>${esc(F.tca)}</b> <span class="mut">${A.w}-${A.l} · ${a.g} g · pace ${num(A.pace)}</span></div><div class="r"><b>${esc(F.tcb)}</b> <span class="mut">${B.w}-${B.l} · ${b.g} g · pace ${num(B.pace)}</span></div></div>
+    ${unitSec()}
     ${sec("Scored per game", "for", "What each team does with the ball.")}
     ${sec("Allowed per game", "allowed", "What each team gives up to its opponents (turnovers and steals here are the ones it forced).")}
     <h3>Each offence against the other defence</h3>
@@ -561,6 +599,7 @@ const pages = {
       {k: "cmin", h: "Min", c: "opt", v: r => r.c.min, f: r => num(r.c.min)},
       ...STATS.map(s => ({k: "c" + s, h: LABEL[s], v: r => r.c[s], f: r => num(r.c[s], 1) + (["pts", "reb", "ast", "fg3m"].includes(s) ? rangeLine(s, r.c[s]) : "")})),
       {k: "cfp", h: CFG.mean ? "Mean FP" : "Proj FP", v: r => r.c.fp, f: r => `<b>${num(r.c.fp)}</b>` + rangeLine("fp", r.c.fp)},
+      {k: "cons", h: "Consistency", c: "opt", t: "Steady / Average / Volatile = bottom / middle / top third of his game-to-game spread in fantasy points, against players at a similar level. Volatile players are tagged Spiky (big games outnumber duds), Dud-prone or Boom/bust. Hover for floor, ceiling and spike share. Display only.", v: consSort, f: consCell},
       {k: "apts", h: "Pts Adj", c: "opt", t: "Opponent multiplier on scoring, after damping", v: r => r.adj_pts, f: r => pct(r.adj_pts)},
       {k: "areb", h: "Reb Adj", c: "opt", v: r => r.adj_reb, f: r => pct(r.adj_reb)},
       {k: "aast", h: "Ast Adj", c: "opt", v: r => r.adj_ast, f: r => pct(r.adj_ast)}];
@@ -636,6 +675,7 @@ const pages = {
         ...["pts", "reb", "ast", "fg3m"].map(s => ({k: "c" + s, h: LABEL[s], t: "Projection [posted line]. Line = sportsbook consensus, else PrizePicks. Green O / orange U = the model is past your edge threshold (Config) on that side; hover for each book's line.",
           v: r => cellVal(r, s), f: r => boardCell(r, s)})),
         {k: "cfp", h: "FP", v: r => r.c.fp, f: r => `<b>${boardCell(r, "fp")}</b>`},
+        {k: "cons", h: "Consistency", c: "opt", t: "Steady / Average / Volatile = bottom / middle / top third of his game-to-game spread in fantasy points, against players at a similar level. Volatile players are tagged Spiky (big games outnumber duds), Dud-prone or Boom/bust. Bars: his last 10 FP games. Hover for floor, ceiling and spike share. Display only.", v: consSort, f: consCell},
         {k: "cab", h: "Without his teammate", c: "opt", l: 1, t: "How he has done in games without a rotation teammate who is out tonight (same team, box scores since that teammate joined): change in minutes and fantasy points vs the games WITH him, and the number of games without. Green / red = 3+ fantasy points either way; grey = under 5 games without. Hover for the full split. Display only.", v: r => Math.max(0, ...(ABS[r.pid] || []).map(x => Math.abs(x[12] - x[11]))), f: absCell},
         {k: "cvs", h: "Opp vs pos", c: "opt", l: 1, t: "Where the opposing defence ranks against his position (guards / forwards / centers) on that stat: ▲ = among the softest 10 of 30, ▼ = among the toughest 10; the number is the rank. Grey = split-half reliability under 0.2 (mostly noise). Display only: it is not in the projections.", v: r => { const x = vsRank[r.opp]?.[r.pos + "_pts"]; return x ? x.rank : 99; }, f: vsCell},
         {k: "csp", h: "Over proj vs this D", c: "opt", l: 1, t: "Games he beat his own pregame projection against defences like tonight's: ▲ = opponent is among the softest 10 for that stat, ▼ = among the toughest 10; over / games, since 2024-25. Grey = under 5 games. Display only: a 2024-25 / 2025-26 test found this record does not predict his next game.", f: splitCell}];
@@ -733,6 +773,7 @@ const pages = {
       {k: "d_fp", h: "Δ FP %", f: r => `<span class="${r.d_fp > 0 ? "good" : "bad"}">${num(r.d_fp)}</span>`},
       {k: "min_s", h: "Min"}, {k: "min_r", h: `Min L${D.meta.rolling_window}`}, {k: "d_min", h: "Δ Min %", f: r => `<span class="${r.d_min > 0 ? "good" : "bad"}">${num(r.d_min)}</span>`},
       {k: "form", h: "Form", t: "HOT/COLD need scoring AND minutes moving the same way, so a hot shooting night on flat minutes does not register", f: r => r.form === "-" ? "" : `<span class="pill ${r.form === "HOT" ? "hot" : "cold"}">${r.form}</span>`},
+      {k: "cons", h: "Tag", t: "Steady / Average / Volatile: his game-to-game spread in fantasy points against players at a similar level (bottom / middle / top third). Hover for details.", v: consSort, f: consCell},
       {k: "sd", h: "SD"}, {k: "cv", h: "CV", t: "SD / mean. Lower = steadier. Compare within a position."}, {k: "floor", h: "Floor", t: "10th percentile"}, {k: "ceil", h: "Ceiling", t: "90th percentile"},
       {k: "last", h: "Last 10", f: r => spark(r.last), v: r => r.d_fp}];
     return `<h2>Trends</h2><p class="sub">Rolling form against season baseline, plus consistency. FP uses the PrizePicks default weights (pts 1, reb 1.2, ast 1.5, stl 3, blk 3, tov −1) regardless of your Config choice.</p>
@@ -1065,7 +1106,7 @@ async function boot() {
   const saved = store.get("cfg", {}); if (saved.ver !== 2 && saved.preset === "DraftKings") { delete saved.preset; delete saved.scoring; }   // default scoring changed to PrizePicks; keep other saved settings
   if (saved.ppBE === 57.7) delete saved.ppBE;                                   // break-even default changed to 54.4% (Oct 29): drop the old default from saved settings, keep any other value
   CFG = {...CFG, ...saved}; OVR = store.get("ovr", {}); LINES = store.get("lines", []);
-  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "shots", "shotchart", "scorecard", "spread", "lines", "players", "splits", "calib", "highlights", "absence", "picks", "team_stats"];
+  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "shots", "shotchart", "scorecard", "spread", "lines", "players", "splits", "calib", "highlights", "absence", "picks", "team_stats", "consistency"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   try { const r = await fetch("data/results/index.json", {cache: "no-cache"}); if (r.ok) D.rIdx = await r.json(); } catch (e) {}
   try { const r = await fetch("data/results_rehearsal/index.json", {cache: "no-cache"}); if (r.ok) D.rIdxR = await r.json(); } catch (e) {}
