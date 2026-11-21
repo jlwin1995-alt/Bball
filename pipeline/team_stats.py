@@ -68,8 +68,46 @@ def build(g, shots=None):
                 for r in teams:
                     if pd.notna(rank.get(r["team"])): r[w].setdefault(rk, {})[s] = int(rank[r["team"]])
     lg = {w: {side: _side(t if WINDOWS[w] is None else t.groupby("team").tail(WINDOWS[w]), "" if side == "for" else "_o") for side in ("for", "allowed")} for w in WINDOWS}
+    try: un = units(g)
+    except Exception as e:
+        print(f"team_stats units skipped: {e}"); un = {}
+    for r in teams: r["units"] = un.get(r["team"], {})
     return {"season": int(g["season"].iloc[0]) if "season" in g else None, "asof": str(t["date"].max()), "windows": list(WINDOWS), "stats": stats,
             "teams": sorted(teams, key=lambda r: r["team"]), "league": lg}
+
+
+def units(g, windows=("season", "l10")):
+    """Unit strength: what each team's guards / forwards / centers produce per 48 minutes (PrizePicks fantasy points, plus points, rebounds, assists), ranked across the league in thirds.
+    Production only: it says how good the unit's players are, not who is available tonight (the page lists the unit's rotation players who are out)."""
+    from .model import norm_pos
+    SCw = {"pts": 1.0, "reb": 1.2, "ast": 1.5, "stl": 3.0, "blk": 3.0, "tov": -1.0}
+    x = g[g["min"] > 0].copy()
+    x["pos"] = x["pos"].map(norm_pos)
+    x["fp"] = sum(w * x[c] for c, w in SCw.items())
+    ev = x.groupby(["team", "event"], as_index=False)["date"].first().sort_values("date")
+    n = ev.groupby("team")["date"].transform("count")
+    ok = set(ev[n >= 0.5 * n.max()]["team"])
+    out = {t: {} for t in ok}
+    for w in windows:
+        last = None if w == "season" else int(w[1:])
+        keep = ev if last is None else ev.groupby("team").tail(last)
+        d = x.merge(keep[["team", "event"]], on=["team", "event"])
+        d = d[d["team"].isin(ok)]
+        agg = d.groupby(["team", "pos"])[["min", "fp", "pts", "reb", "ast"]].sum()
+        games = keep.groupby("team").size()
+        lgp = agg.groupby("pos")[["min", "fp"]].sum()
+        K = 250.0                                                           # minutes of league-average production added before ranking, so a unit seen for few minutes is not ranked on noise
+        for (team, pos), r in agg.iterrows():
+            if r["min"] <= 0: continue
+            out[team].setdefault(w, {})[pos] = {"mpg": round(float(r["min"] / games[team]), 1), "fp48": round(float(r["fp"] / r["min"] * 48), 1), "fp48_s": round(float((r["fp"] + K * lgp.loc[pos, "fp"] / lgp.loc[pos, "min"]) / (r["min"] + K) * 48), 2), "pts48": round(float(r["pts"] / r["min"] * 48), 1),
+                                                  "reb48": round(float(r["reb"] / r["min"] * 48), 1), "ast48": round(float(r["ast"] / r["min"] * 48), 1)}
+        for pos in ("G", "F", "C"):
+            v = pd.Series({t: out[t][w][pos]["fp48_s"] for t in ok if w in out[t] and pos in out[t][w]})
+            rk = v.rank(ascending=False, method="min")
+            for t in v.index:
+                out[t][w][pos]["rank"] = int(rk[t]); out[t][w][pos]["of"] = int(len(v))
+                out[t][w][pos]["tier"] = "Top third" if rk[t] <= len(v) / 3 else "Bottom third" if rk[t] > 2 * len(v) / 3 else "Middle third"
+    return out
 
 
 def main(raw="data/raw", out="site/data"):
