@@ -157,3 +157,5 @@ about 10 hours (morning odds pull to pre-tip), so lines first seen with an absen
 same games), for the season and the last 10 / 5 games, with league ranks. 3-point attempts come from the shot log; offensive vs defensive rebounds and fouls are not in the feed. Display only: nothing
 here feeds the projections.
 
+The Team comparison also shows **Allowed by position**: each defence's per-minute stats allowed to guards, forwards and centers (from the existing vs-position table), with ranks and a grey flag where the split-half reliability is under 0.2. Display only.
+

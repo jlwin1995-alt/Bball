@@ -320,11 +320,27 @@ function teamCompare() {
   const lgRow = (r, side, k) => lg[side][k];
   const meet = (X, Y, label) => {
     const rows = [["Points", "pts"], ["FG%", "fg_pct"], ["3PM", "fg3m"], ["FTA", "fta"], ["Rebounds", "reb"], ["Assists", "ast"], ["Turnovers", "tov"], ["Pts / 100 poss", "ortg"]];
-    const cols = [{k: "s", h: label, l: 1}, {k: "o", h: `${X.team} scored`}, {k: "d", h: `${Y.team} allowed`}, {k: "lg", h: "League"}, {k: "e", h: "Both above/below league", t: "Green: both the offence and the opposing defence are on the same side of league average in the direction that helps the offence"}];
+    const cols = [{k: "s", h: label, l: 1}, {k: "o", h: `${X.team} scored`}, {k: "d", h: `${Y.team} allowed`}, {k: "lg", h: "League"}, {k: "e", h: "Both above/below league", f: r => r.e, t: "Green: both the offence and the opposing defence are on the same side of league average in the direction that helps the offence"}];
     const data = rows.map(([n, k]) => { const o = X[w].for[k], d = Y[w].allowed[k], l = lg.for[k], hi = k !== "tov";
       const up = (o - l) * (hi ? 1 : -1) > 0, dn = (d - l) * (hi ? 1 : -1) > 0;
       return {s: n, o: num(o), d: num(d), lg: num(l), e: up && dn ? `<span class="good">both help</span>` : !up && !dn ? `<span class="bad">both hurt</span>` : `<span class="mut">mixed</span>`}; });
     return table(cols, data, {id: "tm" + X.team + Y.team, tight: true});
+  };
+  const VT = D.tiers?.vspos || [], VR = D.tiers?.vspos_rel || {}, PN = {G: "guards", F: "forwards", C: "centers"}, VS = ["pts", "reb", "ast", "fg3m", "stl", "blk", "tov"];
+  const vrank = {};                                              // rank among teams, 1 = allows the most to that position on that stat (softest)
+  for (const pos of ["G", "F", "C"]) for (const st of VS) { const k = pos + "_" + st; [...VT].filter(r => r[k] != null).sort((x, y) => y[k] - x[k]).forEach((r, i) => { (vrank[r.team] = vrank[r.team] || {})[k] = {rank: i + 1, of: VT.length}; }); }
+  const vpos = team => {
+    const r = VT.find(x => x.team === team); if (!r) return `<p class="sub">No position data for ${esc(team)}.</p>`;
+    const cols = [{k: "s", h: `${esc(team)} allows to`, l: 1}, ...["G", "F", "C"].map(pos => ({k: pos, h: {G: "Guards", F: "Forwards", C: "Centers"}[pos], f: r => r[pos]}))];
+    const rel = k => VR[k] == null ? 0 : VR[k];
+    const data = VS.map(st => { const row = {s: LABEL[st]};
+      for (const pos of ["G", "F", "C"]) { const k = pos + "_" + st, v = r[k], rk = vrank[team]?.[k], noisy = rel(k) < 0.2;
+        row[pos] = v == null ? "" : `<span class="${noisy ? "mut" : v > 1 ? "good" : v < -1 ? "bad" : "mut"}" title="Reliability (split-half) ${rel(k).toFixed(2)}${noisy ? ": mostly noise" : ""}">${v > 0 ? "+" : ""}${num(v, 1)}%</span> <span class="rkn mut">${rk ? rk.rank : ""}</span>`; }
+      return row; });
+    const flags = [];
+    for (const st of VS) for (const pos of ["G", "F", "C"]) { const k = pos + "_" + st, rk = vrank[team]?.[k]; if (!rk || rel(k) < 0.2 || st === "tov") continue;
+      if (rk.rank <= 6) flags.push(`<span class="good">soft</span> to ${PN[pos]} on ${LABEL[st]} (rank ${rk.rank} of ${rk.of})`); else if (rk.rank > rk.of - 6) flags.push(`<span class="bad">tough</span> on ${PN[pos]} ${LABEL[st]} (rank ${rk.rank})`); }
+    return `<div>${table(cols, data, {id: "vp" + team, tight: true})}<p class="sub">${flags.length ? "Reliable standouts: " + flags.join("; ") : "No reliable standouts (rank in the top or bottom 6 on a stat with split-half reliability of 0.2 or more)."}</p></div>`;
   };
   const opt = (id, cur) => `<select id="${id}">${names.map(n => `<option value="${n}" ${n === cur ? "selected" : ""}>${n}</option>`).join("")}</select>`;
   const gsel = games.length ? `<label>Game <select id="tcg"><option value="" ${F.tcg ? "" : "selected"}>custom</option>${games.map(g => `<option value="${g}" ${g === F.tcg ? "selected" : ""}>${g.split("|")[1]} @ ${g.split("|")[0]}</option>`).join("")}</select></label>` : "";
@@ -335,7 +351,9 @@ function teamCompare() {
     ${sec("Scored per game", "for", "What each team does with the ball.")}
     ${sec("Allowed per game", "allowed", "What each team gives up to its opponents (turnovers and steals here are the ones it forced).")}
     <h3>Each offence against the other defence</h3>
-    <div class="two"><div>${meet(A, B, `${esc(F.tca)} offence`)}</div><div>${meet(B, A, `${esc(F.tcb)} offence`)}</div></div>`;
+    <div class="two"><div>${meet(A, B, `${esc(F.tca)} offence`)}</div><div>${meet(B, A, `${esc(F.tcb)} offence`)}</div></div>
+    <h3>Allowed by position</h3><p class="sub">Per-minute stats each defence allows to guards, forwards and centers, against the league at that position (green = allows more, red = allows less), shrunk toward zero by minutes seen. The small number is the rank (1 = allows the most). Grey = split-half reliability under 0.2, mostly noise. Guards' assists (0.44), points (0.35) and rebounds (0.33) are the steadiest cells, forwards' assists and points next (about 0.3); forward rebounds, blocks and centers' threes show no signal. Display only: as a projection input this added nothing in a walk-forward test.</p>
+    <div class="two">${vpos(F.tca)}${vpos(F.tcb)}</div>`;
 }
 
 function vsPosition() {
