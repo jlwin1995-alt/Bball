@@ -50,7 +50,6 @@ pid,name,team,status,note,ts
 2991070,Jerami Grant,MEM,Out,Grant (calf) is out for Saturday's game against the Timberwolves.,2026-11-21T08:08Z
 4781746,Javon Small,MEM,Out,Small won't play Saturday against the Timberwolves due to personal reasons.,2026-11-20T23:14Z
 5041935,Cameron Boozer,MEM,Out,Boozer is out for Saturday's game against Minnesota due to a right ankle sprain.,2026-11-20T23:12Z
-4065733,Ty Jerome,MEM,Out,Jerome (hip) is probable for Saturday's game in Minnesota.,2026-11-20T23:11Z
 5105550,GG Jackson,MEM,Out,Jackson underwent a procedure Wednesday to repair a broken fifth metatarsal in his left foot. He is expected to recover fully and will be re-evaluated in approximately three months.,2026-11-17T23:18Z
 4431785,Scotty Pippen Jr.,MEM,Out,Pippen (back) is progressing in his recovery but is still considered week-to-week.,2026-11-16T17:16Z
 5105462,Richie Saunders,MEM,Out,"Saunders signed a two-way contract with the Grizzlies on Saturday, Shams Charania of ESPN reports.",2026-11-07T17:24Z
@@ -59,8 +58,9 @@ pid,name,team,status,note,ts
 4432247,Jaylen Clark,MIN,Out,Clark (hamstring) has been ruled out for the next two weeks.,2026-11-15T22:40Z
 4594268,Anthony Edwards,MIN,Out,"Edwards underwent a successful arthroscopic procedure on his right knee Thursday, the Timberwolves announced.",2026-10-29T18:33Z
 3934673,Donte DiVincenzo,MIN,Out,"DiVincenzo (Achilles) remains confident that he'll return during the 2026-27 season, Jon Krawczynski of The Athletic reports.",2026-10-05T20:53Z
+4397688,Trey Murphy III,NO,Out,Murphy (knee) has been ruled out for Saturday's game against the Spurs.,2026-11-21T18:22Z
+4431675,Trendon Watford,NO,Out,Watford (ankle) is out for Saturday's game against the Spurs.,2026-11-21T18:21Z
 4576086,Bryce McGowens,NO,Out,McGowens (elbow) has been ruled out for Friday's game against the Thunder.,2026-11-19T21:15Z
-4431675,Trendon Watford,NO,Out,Watford (ankle) has been ruled out for Friday's game against Oklahoma City.,2026-11-19T21:09Z
 4683634,Bennedict Mathurin,NO,Out,Mathurin (foot) has been ruled out for Friday's game against the Thunder.,2026-11-19T21:07Z
 3907497,Dejounte Murray,NO,Out,Murray (ankle) is out for Friday's game against Memphis.,2026-11-13T20:19Z
 3934719,OG Anunoby,NY,Day-To-Day,Anunoby (calf) has been downgraded to doubtful for Saturday's game against the Trail Bllazers.,2026-11-21T16:09Z
@@ -100,7 +100,6 @@ pid,name,team,status,note,ts
 3102530,Jusuf Nurkic,UTAH,Out,Nurkic (foot) has been cleared for on-court work and will be re-evaluated in one week.,2026-11-20T22:40Z
 4066336,Lauri Markkanen,UTAH,Out,"Markkanen has been diagnosed with a non-displaced fracture in his right hand and will be sidelined for at least one month, Shams Charania of ESPN reports.",2026-11-11T18:22Z
 4277961,Jaren Jackson Jr.,UTAH,Out,"Jackson has been diagnosed with a torn MCL in his right knee and will be sidelined for 6-to-8 weeks, per Shams Charania of ESPN.",2026-10-27T19:25Z
-5105841,Felix Okpara,WSH,Day-To-Day,Okpara (illness) is available for Friday's game against Toronto.,2026-11-21T14:54Z
 4997537,Tristan Vukcevic,WSH,Out,Vukcevic (hip) has been ruled out for Monday's game against Memphis.,2026-11-16T18:14Z
 4432187,Reece Beekman,WSH,Out,The Wizards announced Monday that Beekman sustained a right acromioclavicular joint injury and will be re-evaluated in approximately three weeks.,2026-11-02T18:22Z
 4432907,Justin Champagnie,WSH,Out,"Champagnie (foot) is expected to miss several months, per Josh Robbins of The Athletic.",2026-10-28T18:38Z
