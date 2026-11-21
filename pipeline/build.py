@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from . import config as C
 from .model import project, fantasy, _prep, all_players
-from . import scorecard, lines as lines_mod, results as results_mod, tiers as tiers_mod, shots as shots_mod
+from . import scorecard, lines as lines_mod, results as results_mod, tiers as tiers_mod, shots as shots_mod, team_stats as team_stats_mod
 from .preseason_test import resolve_mult
 
 
@@ -150,6 +150,12 @@ def main(raw="data/raw", out="site/data"):
     vsp, vsp_rel = tiers_mod.vs_position(gl) if len(gl) else ([], {})
     dump({"season": int(gl["season"].iloc[0]) if len(gl) else None, "rows": tiers_mod.build(gl), "reliability": tiers_mod.reliability(gl),
           "vspos": vsp, "vspos_rel": vsp_rel}, out, "tiers.json")
+    try:                                                                 # team stats for and allowed, per game (display only; Matchups tab)
+        sp_ = f"{raw}/shots.csv.gz"
+        sh_ = pd.read_csv(sp_, dtype={"event": str}, usecols=["event", "team", "three"]) if os.path.exists(sp_) else None
+        dump(team_stats_mod.build(gl.assign(event=gl["event"].astype(str)), sh_), out, "team_stats.json")
+    except Exception as e:
+        print(f"team_stats skipped: {e}")
 
     # --- Coverage / meta -----------------------------------------------------------
     cov = {"asof": str(g["date"].max().date()), "slate_date": str(P["date"].iloc[0].date()) if len(P) else None,

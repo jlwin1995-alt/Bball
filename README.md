@@ -150,3 +150,10 @@ Prefer your own machine? `scripts/morning.sh` does the same refresh locally; add
 pre-tip sighting (PrizePicks, consensus and Underdog line, the model's projection and minutes, and the team's rotation players out each time). `--report` compares lines on teams that gained an
 absence between the two sightings with the rest, and checks whether the move was enough (actual minus first line vs minus last line). Nothing here feeds the model or the pick rules. The window is
 about 10 hours (morning odds pull to pre-tip), so lines first seen with an absence already priced in show no move.
+
+### Team comparison on the Matchups tab
+
+`pipeline/team_stats.py` (called from `pipeline.build`, writes `site/data/team_stats.json`) rolls the player box scores up to team-per-game stats and what each team **allowed** (the other side's totals in the
+same games), for the season and the last 10 / 5 games, with league ranks. 3-point attempts come from the shot log; offensive vs defensive rebounds and fouls are not in the feed. Display only: nothing
+here feeds the projections.
+
