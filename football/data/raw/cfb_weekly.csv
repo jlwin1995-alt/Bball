@@ -17097,6 +17097,30 @@ week,playerId,player,position,team,conference,opponent,home,carries,rushing_yard
 12,5265447,Patrick Crayton Jr.,QB,Rice,American Athletic,Temple,0,2.0,3.0,0.0,0.0,0.0,0.0,5.0,10.0,106.0,1.0,0.0,0.0
 12,5265453,Colin Leahey,WR,Rice,American Athletic,Temple,0,5.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 12,5384737,Michael Sifford,WR,Rice,American Athletic,Temple,0,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,4837269,Omari Hayes,WR,Iowa State,Big 12,UCF,0,0.0,0.0,0.0,2.0,29.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,5080403,Jaylen Raynor,QB,Iowa State,Big 12,UCF,0,9.0,17.0,0.0,0.0,0.0,0.0,14.0,23.0,109.0,0.0,1.0,0.0
+12,5150693,Vince Benetti,TE,Iowa State,Big 12,UCF,0,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,5194663,Cameron Pettaway,RB,Iowa State,Big 12,UCF,0,1.0,3.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,5218664,Tyler Fortenberry,TE,Iowa State,Big 12,UCF,0,0.0,0.0,0.0,3.0,23.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,5219255,Carson Robbins,WR,Iowa State,Big 12,UCF,0,0.0,0.0,0.0,1.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,5219258,Aiden Flora,RB,Iowa State,Big 12,UCF,0,23.0,171.0,2.0,4.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+12,5326123,Jamal Polite Jr.,WR,Iowa State,Big 12,UCF,0,0.0,0.0,0.0,2.0,28.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+12,-6249, Team,,Iowa State,Big 12,UCF,0,1.0,-2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+12,4911929,Alonza Barnett,QB,UCF,Big 12,Iowa State,1,12.0,43.0,1.0,0.0,0.0,0.0,17.0,27.0,255.0,4.0,0.0,0.0
+12,4922996,Dylan Wade,TE,UCF,Big 12,Iowa State,1,0.0,0.0,0.0,2.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,5078144,Landen Chambers,RB,UCF,Big 12,Iowa State,1,2.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,5136049,Duke Watson,RB,UCF,Big 12,Iowa State,1,16.0,113.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,5141668,Taevion Swint,RB,UCF,Big 12,Iowa State,1,3.0,36.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,5148656,Caden Piening,TE,UCF,Big 12,Iowa State,1,0.0,0.0,0.0,2.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,5151048,Duane Thomas Jr.,WR,UCF,Big 12,Iowa State,1,2.0,2.0,1.0,1.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,5153889,Joshua Derry,WR,UCF,Big 12,Iowa State,1,0.0,0.0,0.0,4.0,125.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,5168802,Grayson Brousseau,TE,UCF,Big 12,Iowa State,1,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,5209923,Rocco Marriott,QB,UCF,Big 12,Iowa State,1,4.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,5212731,Jacob Maiava,,UCF,Big 12,Iowa State,1,0.0,0.0,0.0,1.0,5.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,5296077,Agyeman Addae,RB,UCF,Big 12,Iowa State,1,1.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,5296084,Chase Hinshaw,WR,UCF,Big 12,Iowa State,1,0.0,0.0,0.0,1.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,5385726,Tyren Hornes,WR,UCF,Big 12,Iowa State,1,1.0,1.0,0.0,5.0,80.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+12,-5563, Team,,UCF,Big 12,Iowa State,1,1.0,-4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 12,4608922,Braydon Bennett,RB,Eastern Michigan,Mid-American,Western Michigan,0,3.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 12,5083205,Nick Devereaux,WR,Eastern Michigan,Mid-American,Western Michigan,0,0.0,0.0,0.0,4.0,62.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 12,5094040,Brogan McCaughey,QB,Eastern Michigan,Mid-American,Western Michigan,0,4.0,-16.0,0.0,0.0,0.0,0.0,12.0,16.0,135.0,1.0,0.0,0.0
