@@ -1,64 +1,64 @@
 {
  "version": "v1",
- "graded_through": "2026-11-20",
+ "graded_through": "2026-11-21",
  "break_even": 0.544,
  "rules": {
   "R1": {
    "name": "under_solo",
-   "legs": 30,
-   "hit": 0.167,
+   "legs": 51,
+   "hit": 0.255,
    "hit_range90": [
-    0.084,
-    0.305
+    0.169,
+    0.366
    ],
-   "player_days": 11,
-   "hit_player_day": 0.303,
-   "days": 3,
-   "hit_first_sighting": 0.143,
-   "legs_ever_qualified": 42,
-   "clv_mean": 0.0,
+   "player_days": 17,
+   "hit_player_day": 0.29,
+   "days": 4,
+   "hit_first_sighting": 0.222,
+   "legs_ever_qualified": 63,
+   "clv_mean": -0.02,
    "clv_positive_share": 0.0,
-   "clv_n": 30,
+   "clv_n": 51,
    "first_half": 0.2,
-   "second_half": 0.1
+   "second_half": 0.29
   },
   "R2": {
    "name": "over_one",
-   "legs": 81,
-   "hit": 0.395,
+   "legs": 92,
+   "hit": 0.391,
    "hit_range90": [
-    0.31,
-    0.486
+    0.312,
+    0.477
    ],
-   "player_days": 37,
-   "hit_player_day": 0.436,
-   "days": 4,
-   "hit_first_sighting": 0.43,
-   "legs_ever_qualified": 100,
-   "clv_mean": 0.025,
-   "clv_positive_share": 0.049,
-   "clv_n": 81,
+   "player_days": 43,
+   "hit_player_day": 0.445,
+   "days": 5,
+   "hit_first_sighting": 0.429,
+   "legs_ever_qualified": 112,
+   "clv_mean": 0.022,
+   "clv_positive_share": 0.043,
+   "clv_n": 92,
    "first_half": 0.473,
-   "second_half": 0.231
+   "second_half": 0.27
   },
   "R3": {
    "name": "market_gap",
-   "legs": 104,
-   "hit": 0.567,
+   "legs": 116,
+   "hit": 0.56,
    "hit_range90": [
-    0.487,
-    0.645
+    0.484,
+    0.634
    ],
-   "player_days": 91,
-   "hit_player_day": 0.566,
-   "days": 4,
-   "hit_first_sighting": 0.583,
-   "legs_ever_qualified": 175,
-   "clv_mean": 0.01,
-   "clv_positive_share": 0.01,
-   "clv_n": 103,
+   "player_days": 101,
+   "hit_player_day": 0.569,
+   "days": 5,
+   "hit_first_sighting": 0.574,
+   "legs_ever_qualified": 202,
+   "clv_mean": 0.009,
+   "clv_positive_share": 0.009,
+   "clv_n": 114,
    "first_half": 0.612,
-   "second_half": 0.486
+   "second_half": 0.49
   }
  }
 }
