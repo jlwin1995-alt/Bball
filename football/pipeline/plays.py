@@ -4,7 +4,7 @@
 
 Rules: two or more books, raw model confidence 62%+, depth-chart starter, no shift / returning / moved / status / thin flag, projection 0.55-1.6 of the
 line, Unders on receptions and receiving yards only (no Overs, no rushing Unders), no Miami pass
-catchers. Sort: blend P(side) = market + BLEND_K x (model - market) on the side, BLEND_K 0.25 (README "Model against the market", 2026-11-16).
+catchers. Display only: a [DOG 7.5, total 54.5] tag marks a player whose team is an underdog of 6+ (FAV for a favourite of 6+). Sort: blend P(side) = market + BLEND_K x (model - market) on the side, BLEND_K 0.25 (README "Model against the market", 2026-11-16).
 """
 import csv, json, sys
 from datetime import datetime, timezone
@@ -42,6 +42,7 @@ def build(data="site/data", asof=None):
     L = json.load(open(f"{data}/lines.json"))
     P = {p["id"]: p for p in json.load(open(f"{data}/projections.json"))}
     H = json.load(open(f"{data}/hist.json"))
+    G = {g["game"]: g for g in json.load(open(f"{data}/games.json"))}
     now = asof or datetime.now(timezone.utc).isoformat()
     qb_new = swapped_teams(P)
     guard = team_guard(int(json.load(open(f"{data}/meta.json")).get("week") or 0))
@@ -70,9 +71,19 @@ def build(data="site/data", asof=None):
         # no "cleared the line in 40%+ of his games" guard here: on 372 graded NFL receptions / receiving-yards Unders it was backwards (README 2026-11-18)
         if p["pos"] != "QB" and p["team"] in guard: why.append("team guard: " + guard[p["team"]].split(";")[0])
         if p["pos"] != "QB" and p["team"] in qb_new: why.append("new quarterback")
-        out.append(dict(name=p["name"], team=p["team"], game=r["game"], stat=s, side=side, line=line, proj=round(m, 1), conf=conf, market=mk,
+        g = G.get(p["game"]) or {}
+        own = None if g.get("spread") is None else (g["spread"] if p.get("home") else -g["spread"])      # the team's own spread: + = favoured (games.json spread is + when the home team is favoured)
+        out.append(dict(own=own, total=g.get("total"), name=p["name"], team=p["team"], game=r["game"], stat=s, side=side, line=line, proj=round(m, 1), conf=conf, market=mk,
                         blend=blend, cleared=cl, n=len(h), books=c["n_books"], why=why))
     return out
+
+
+def tag(x):
+    """display-only script tag: DOG = the player's team is an underdog of 6+ (Unders on big underdogs hit 50% against 59% for the rest, README 2026-11-22, n 56)"""
+    o = x.get("own")
+    if o is None:
+        return ""
+    return f"  [DOG {-o:.1f}, total {x['total']:.1f}]" if o <= -6 else f"  [FAV {o:.1f}]" if o >= 6 else ""
 
 
 def main():
@@ -82,7 +93,7 @@ def main():
     print(f"{len(ok)} plays (of {len(rows)} upcoming lines), sorted by blend P(side):")
     for i, x in enumerate(ok, 1):
         cl = "-" if x["cleared"] is None else f"{round(x['cleared'] * 100)}%/{x['n']}"
-        print(f"{i:2}. {x['name']} ({x['team']}, {x['game']}) {x['stat']} {x['side']} {x['line']}  proj {x['proj']}  market {x['market'] * 100:.0f}%  model {x['conf'] * 100:.0f}%  blend {x['blend'] * 100:.1f}%  cleared {cl}  books {x['books']}")
+        print(f"{i:2}. {x['name']} ({x['team']}, {x['game']}) {x['stat']} {x['side']} {x['line']}  proj {x['proj']}  market {x['market'] * 100:.0f}%  model {x['conf'] * 100:.0f}%  blend {x['blend'] * 100:.1f}%  cleared {cl}  books {x['books']}{tag(x)}")
     if "--all" in sys.argv:
         for x in sorted((x for x in rows if x["why"] and x["conf"] >= 0.62), key=lambda x: -x["blend"]):
             print(f"   dropped: {x['name']} {x['stat']} {x['side']} {x['line']}  ({', '.join(x['why'])})")
