@@ -4215,74 +4215,75 @@ commence,game,player_id,name,team,stat,cons_line,cons_p_over,n_books,pp_line,ud_
 2026-11-22T01:00:00Z,UTSA @ UAB,4918110,Roderick Robinson II,UAB,rushY,65.5,0.5,1,65.5,,2026-11-21T20:25:55+00:00,12
 2026-11-22T01:00:00Z,UTSA @ UAB,5057381,Ryder Burton,UAB,passY,143.5,0.503,1,142.5,142.5,2026-11-21T20:25:55+00:00,12
 2026-11-22T01:00:00Z,UTSA @ UAB,5223167,Will Henderson III,UTSA,rushY,81.5,0.4995,2,81.5,81.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,4869422,Braden Pegan,Utah,rec,3.5,0.5612,3,4.0,,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,4869422,Braden Pegan,Utah,recY,55.5,0.5,2,52.5,55.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,4871040,Creed Whittemore,Utah,rec,2.5,0.5313,3,2.5,,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,4871040,Creed Whittemore,Utah,recY,38.5,0.499,1,37.5,37.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,5105849,Devon Dampier,Utah,passY,208.5,0.5005,2,208.5,208.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,5105849,Devon Dampier,Utah,rushY,59.5,0.5046,2,58.5,58.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,5200482,Ed Small,TCU,rec,3.5,0.3991,3,,,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,5200482,Ed Small,TCU,recY,34.5,0.5015,2,34.5,34.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,5079663,Jeremy Payne,TCU,rushY,51.5,0.5061,1,51.5,51.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,4832804,Jordan Dwyer,TCU,rec,4.5,0.4351,3,4.0,,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,4832804,Jordan Dwyer,TCU,recY,62.5,0.4653,1,62.5,,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,5084293,Ka'Morreun Pimpton,TCU,recY,,,,10.5,10.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,5391236,Kari Ashley,TCU,rec,4.5,0.4499,3,,,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,5391236,Kari Ashley,TCU,recY,46.5,0.495,2,46.5,46.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,4900351,Noah Bennee,Utah,recY,18.5,0.502,2,18.5,18.5,2026-11-21T20:25:55+00:00,12
 2026-11-22T02:00:00Z,Utah @ TCU,5132652,Ricky Johnson,Utah,rec,2.5,0.3887,1,,,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,5132652,Ricky Johnson,Utah,recY,23.5,0.499,1,22.5,22.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,5173431,Wayshawn Parker,Utah,rec,,,,1.5,,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,5173431,Wayshawn Parker,Utah,recY,10.5,0.497,3,10.5,10.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:00:00Z,Utah @ TCU,5173431,Wayshawn Parker,Utah,rushY,43.5,0.492,1,42.5,42.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:30:00Z,San Diego State @ Boise State,5146712,Dylan Riley,Boise State,rushY,102.5,0.4995,2,102.5,102.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:30:00Z,San Diego State @ Boise State,5254150,Javion Kinnard,San Diego State,rushY,59.5,0.5,1,59.5,59.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:30:00Z,San Diego State @ Boise State,5216639,Jaylon Hawkins,San Diego State,recY,48.5,0.5,1,48.5,48.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:30:00Z,San Diego State @ Boise State,4912453,Lucky Sutton,San Diego State,rushY,61.5,0.504,1,60.5,60.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:30:00Z,San Diego State @ Boise State,4870513,Maddux Madsen,Boise State,passY,247.5,0.5005,2,247.5,247.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:30:00Z,San Diego State @ Boise State,4870513,Maddux Madsen,Boise State,rushY,15.5,0.5024,3,15.5,15.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:30:00Z,San Diego State @ Boise State,5080888,Matt Wagner,Boise State,rec,3.5,0.3993,1,,,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:30:00Z,San Diego State @ Boise State,5080888,Matt Wagner,Boise State,recY,36.5,0.504,1,35.5,35.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:30:00Z,San Diego State @ Boise State,5082315,Nathan Acevedo,San Diego State,recY,31.5,0.5005,2,31.5,31.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:30:00Z,San Diego State @ Boise State,5290573,Rasean Jones,Boise State,rec,5.5,0.4997,3,5.5,5.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:30:00Z,San Diego State @ Boise State,5290573,Rasean Jones,Boise State,recY,89.5,0.4967,3,89.5,89.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:30:00Z,San Diego State @ Boise State,5147379,Sire Gaines,Boise State,rushY,72.5,0.4975,2,72.5,72.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T02:30:00Z,San Diego State @ Boise State,5141664,Stone Saunders,San Diego State,passY,186.5,0.5,1,186.5,186.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5258016,Caleb Hawkins,Oklahoma State,rec,5.5,0.4194,1,5.0,,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5258016,Caleb Hawkins,Oklahoma State,recY,34.5,0.5203,1,34.5,35.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5258016,Caleb Hawkins,Oklahoma State,rushY,98.5,0.5015,2,98.5,98.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5209382,Cardae Mack,Arizona State,recY,,,,19.5,19.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5209382,Cardae Mack,Arizona State,rushY,101.5,0.4995,2,101.5,101.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5159831,Derek Eusebio,Arizona State,recY,,,,48.5,48.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5219834,Drew Mestemaker,Oklahoma State,passY,,,,288.5,289.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5219834,Drew Mestemaker,Oklahoma State,rushY,,,,9.5,9.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5209295,Jake Fette,Arizona State,passY,235.5,0.5,1,235.5,235.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5209295,Jake Fette,Arizona State,rushY,20.5,0.4985,2,20.5,20.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5083747,Justin Bowick,Oklahoma State,rec,4.5,0.4939,3,4.5,4.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5083747,Justin Bowick,Oklahoma State,recY,70.5,0.5005,2,70.5,70.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5149007,Miles Coleman,Oklahoma State,rec,3.5,0.5306,1,3.5,3.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5149007,Miles Coleman,Oklahoma State,recY,41.5,0.5,1,41.5,41.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5031157,Reed Harris,Arizona State,rec,6.5,0.4375,3,6.0,,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5031157,Reed Harris,Arizona State,recY,87.5,0.5,2,87.5,87.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5148787,Wyatt Young,Oklahoma State,rec,4.5,0.4899,1,4.5,4.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5148787,Wyatt Young,Oklahoma State,recY,57.5,0.4899,1,55.5,55.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Hawai'i @ Nevada,4819250,AJ Bianco,Nevada,passY,147.5,0.4995,2,147.5,147.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Utah State @ Oregon State,4917981,AJ Newberry,Oregon State,rushY,49.5,0.5066,2,48.5,48.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Utah State @ Oregon State,5151339,Anthony Garcia,Utah State,rec,4.5,0.5005,2,4.5,4.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Utah State @ Oregon State,5151339,Anthony Garcia,Utah State,recY,51.5,0.499,2,51.5,51.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Hawai'i @ Nevada,4869582,Cam Barfield,Hawai'i,rushY,33.5,0.4995,2,33.5,33.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Utah State @ Oregon State,5167313,Cornell Hatcher Jr.,Oregon State,rushY,36.5,0.502,2,36.5,36.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Hawai'i @ Nevada,5079651,Devon Rice,Hawai'i,rushY,22.5,0.5047,3,22.5,22.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Hawai'i @ Nevada,5265178,Dominic Kelley,Nevada,rushY,44.5,0.5051,2,44.5,44.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Utah State @ Oregon State,5088952,Eric Olsen,Oregon State,recY,40.5,0.502,2,39.5,39.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Hawai'i @ Nevada,5226511,Gary Givens III,Nevada,recY,31.5,0.5,2,31.5,31.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Hawai'i @ Nevada,5220671,Herschel Turner,Nevada,rushY,49.5,0.5135,2,48.5,48.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Utah State @ Oregon State,4816099,Javen Jacobs,Utah State,rushY,53.5,0.5,2,53.5,53.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Utah State @ Oregon State,5289510,Jesse Legree,Oregon State,rec,7.5,0.4697,3,7.5,,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Utah State @ Oregon State,5289510,Jesse Legree,Oregon State,recY,111.5,0.5005,2,111.5,111.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Hawai'i @ Nevada,5085972,Kainoa Carvalho,Hawai'i,recY,36.5,0.498,2,36.5,36.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Utah State @ Oregon State,4685497,Maalik Murphy,Oregon State,passY,267.5,0.501,1,266.5,266.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Hawai'i @ Nevada,5103836,Marshaun Brown,Nevada,recY,31.5,0.5015,2,31.5,31.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Utah State @ Oregon State,4923285,McCae Hillstead,Utah State,passY,176.5,0.501,1,174.5,174.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Hawai'i @ Nevada,5101124,Micah Alejado,Hawai'i,passY,227.5,0.5,1,226.5,226.5,2026-11-21T20:25:55+00:00,12
-2026-11-22T03:30:00Z,Hawai'i @ Nevada,5148777,Titan Lacaden,Hawai'i,recY,39.5,0.502,2,38.5,38.5,2026-11-21T20:25:55+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,4869422,Braden Pegan,Utah,rec,3.5,0.5581,2,,,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,4869422,Braden Pegan,Utah,recY,55.5,0.5,2,52.5,55.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,4871040,Creed Whittemore,Utah,rec,2.5,0.5299,2,2.5,,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,4871040,Creed Whittemore,Utah,recY,37.5,0.5,1,37.5,37.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,5105849,Devon Dampier,Utah,passY,207.5,0.501,1,208.5,208.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,5105849,Devon Dampier,Utah,rushY,58.5,0.5,1,58.5,58.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,5200482,Ed Small,TCU,rec,3.5,0.4015,2,,,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,5200482,Ed Small,TCU,recY,34.5,0.5015,2,34.5,34.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,5079663,Jeremy Payne,TCU,rushY,51.5,0.5062,1,51.5,51.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,4832804,Jordan Dwyer,TCU,rec,4.5,0.4364,2,4.0,,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,4832804,Jordan Dwyer,TCU,recY,62.5,0.4802,1,62.5,,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,5084293,Ka'Morreun Pimpton,TCU,rec,,,,1.5,,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,5084293,Ka'Morreun Pimpton,TCU,recY,,,,10.5,10.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,5391236,Kari Ashley,TCU,rec,4.5,0.4523,2,,,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,5391236,Kari Ashley,TCU,recY,46.5,0.495,2,46.5,46.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,4900351,Noah Bennee,Utah,recY,18.5,0.502,2,18.5,18.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,5132652,Ricky Johnson,Utah,recY,22.5,0.4995,2,22.5,22.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,5173431,Wayshawn Parker,Utah,rec,,,,1.5,,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,5173431,Wayshawn Parker,Utah,recY,10.5,0.4955,2,10.5,10.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:00:00Z,Utah @ TCU,5173431,Wayshawn Parker,Utah,rushY,42.5,0.496,2,42.5,42.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:30:00Z,San Diego State @ Boise State,5146712,Dylan Riley,Boise State,rushY,102.5,0.4995,2,102.5,102.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:30:00Z,San Diego State @ Boise State,5254150,Javion Kinnard,San Diego State,rushY,59.5,0.5,1,59.5,59.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:30:00Z,San Diego State @ Boise State,5216639,Jaylon Hawkins,San Diego State,recY,48.5,0.5,1,48.5,48.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:30:00Z,San Diego State @ Boise State,4912453,Lucky Sutton,San Diego State,rushY,60.5,0.5,1,60.5,60.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:30:00Z,San Diego State @ Boise State,4870513,Maddux Madsen,Boise State,passY,247.5,0.5005,2,247.5,247.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:30:00Z,San Diego State @ Boise State,4870513,Maddux Madsen,Boise State,rushY,15.5,0.4985,2,15.5,15.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:30:00Z,San Diego State @ Boise State,5080888,Matt Wagner,Boise State,rec,3.5,0.4033,1,,,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:30:00Z,San Diego State @ Boise State,5080888,Matt Wagner,Boise State,recY,35.5,0.502,2,35.5,35.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:30:00Z,San Diego State @ Boise State,5082315,Nathan Acevedo,San Diego State,recY,31.5,0.5,1,31.5,31.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:30:00Z,San Diego State @ Boise State,5290573,Rasean Jones,Boise State,rec,5.5,0.4995,2,,5.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:30:00Z,San Diego State @ Boise State,5290573,Rasean Jones,Boise State,recY,89.5,0.495,2,,89.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:30:00Z,San Diego State @ Boise State,5147379,Sire Gaines,Boise State,rushY,72.5,0.4974,2,72.5,72.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T02:30:00Z,San Diego State @ Boise State,5141664,Stone Saunders,San Diego State,passY,186.5,0.5,1,186.5,186.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5258016,Caleb Hawkins,Oklahoma State,rec,,,,5.0,,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5258016,Caleb Hawkins,Oklahoma State,recY,,,,35.5,35.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5258016,Caleb Hawkins,Oklahoma State,rushY,98.5,0.5015,2,98.5,98.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5209382,Cardae Mack,Arizona State,recY,,,,19.5,19.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5209382,Cardae Mack,Arizona State,rushY,101.5,0.4995,2,101.5,101.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5159831,Derek Eusebio,Arizona State,recY,,,,48.5,48.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5219834,Drew Mestemaker,Oklahoma State,passY,,,,289.5,288.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5219834,Drew Mestemaker,Oklahoma State,rushY,,,,8.5,8.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5209295,Jake Fette,Arizona State,passY,235.5,0.5,1,235.5,235.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5209295,Jake Fette,Arizona State,rushY,20.5,0.4985,2,20.5,20.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5083747,Justin Bowick,Oklahoma State,rec,4.5,0.4978,2,4.5,4.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5083747,Justin Bowick,Oklahoma State,recY,70.5,0.5005,2,70.5,70.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5149007,Miles Coleman,Oklahoma State,rec,,,,3.5,3.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5149007,Miles Coleman,Oklahoma State,recY,,,,41.5,41.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5031157,Reed Harris,Arizona State,rec,6.5,0.4411,2,6.0,,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5031157,Reed Harris,Arizona State,recY,87.5,0.5,2,87.5,87.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5148787,Wyatt Young,Oklahoma State,rec,,,,4.5,4.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:15:00Z,Oklahoma State @ Arizona State,5148787,Wyatt Young,Oklahoma State,recY,,,,55.5,55.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Hawai'i @ Nevada,4819250,AJ Bianco,Nevada,passY,147.5,0.494,2,147.5,147.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Utah State @ Oregon State,4917981,AJ Newberry,Oregon State,rushY,48.5,0.5,1,48.5,48.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Utah State @ Oregon State,5151339,Anthony Garcia,Utah State,rec,4.5,0.5005,2,4.5,4.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Utah State @ Oregon State,5151339,Anthony Garcia,Utah State,recY,51.5,0.4989,2,51.5,51.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Hawai'i @ Nevada,4869582,Cam Barfield,Hawai'i,rushY,33.5,0.4995,2,33.5,33.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Utah State @ Oregon State,5167313,Cornell Hatcher Jr.,Oregon State,rushY,36.5,0.502,2,36.5,36.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Hawai'i @ Nevada,5079651,Devon Rice,Hawai'i,rushY,22.5,0.502,2,22.5,22.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Hawai'i @ Nevada,5265178,Dominic Kelley,Nevada,rushY,44.5,0.5,1,44.5,44.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Utah State @ Oregon State,5088952,Eric Olsen,Oregon State,recY,39.5,0.5,1,39.5,39.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Hawai'i @ Nevada,5226511,Gary Givens III,Nevada,recY,31.5,0.5,2,31.5,31.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Hawai'i @ Nevada,5220671,Herschel Turner,Nevada,rushY,48.5,0.5,1,48.5,48.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Utah State @ Oregon State,4816099,Javen Jacobs,Utah State,rushY,53.5,0.5,2,53.5,53.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Utah State @ Oregon State,5289510,Jesse Legree,Oregon State,rec,7.5,0.4724,2,7.5,,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Utah State @ Oregon State,5289510,Jesse Legree,Oregon State,recY,110.5,0.501,1,111.5,111.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Hawai'i @ Nevada,5085972,Kainoa Carvalho,Hawai'i,recY,36.5,0.498,2,36.5,36.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Utah State @ Oregon State,4685497,Maalik Murphy,Oregon State,passY,269.5,0.5005,2,269.5,269.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Hawai'i @ Nevada,5103836,Marshaun Brown,Nevada,recY,31.5,0.5015,2,31.5,31.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Utah State @ Oregon State,4923285,McCae Hillstead,Utah State,passY,174.5,0.4916,2,174.5,174.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Hawai'i @ Nevada,5101124,Micah Alejado,Hawai'i,passY,226.5,0.494,2,227.5,226.5,2026-11-22T01:10:39+00:00,12
+2026-11-22T03:30:00Z,Hawai'i @ Nevada,5148777,Titan Lacaden,Hawai'i,recY,38.5,0.5,1,38.5,38.5,2026-11-22T01:10:39+00:00,12
