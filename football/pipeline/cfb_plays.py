@@ -57,6 +57,15 @@ def build(data="site/data/cfb", asof=None):
     return out
 
 
+def tag(x):
+    """display-only script tag: DOG = the player's team is an underdog of 6+ points; FAV = a favourite of 6+ (fav is the team's own margin, + = favoured)"""
+    f = x.get("fav")
+    if f is None:
+        return ""
+    tot = f", total {x['total']:.1f}" if x.get("total") else ""
+    return f"  [DOG {-f:.1f}{tot}]" if f <= -6 else f"  [FAV {f:.1f}{tot}]" if f >= 6 else ""
+
+
 def main():
     arg = lambda k: sys.argv[sys.argv.index(k) + 1] if k in sys.argv else None
     rows = build(arg("--data") or "site/data/cfb", arg("--asof"))
@@ -64,7 +73,7 @@ def main():
     print(f"{len(ok)} plays (of {len(rows)} upcoming lines), sorted by blend P(side):")
     for i, x in enumerate(ok, 1):
         cl = "-" if x["cleared"] is None else f"{round(x['cleared'] * 100)}%/{x['n']}"
-        print(f"{i:2}. {x['name']} ({x['team']}, {x['game']}) {x['stat']} {x['side']} {x['line']}  proj {x['proj']}  market {x['market'] * 100:.0f}%  model {x['conf'] * 100:.0f}%  blend {x['blend'] * 100:.1f}%  cleared {cl}  books {x['books']}")
+        print(f"{i:2}. {x['name']} ({x['team']}, {x['game']}) {x['stat']} {x['side']} {x['line']}  proj {x['proj']}  market {x['market'] * 100:.0f}%  model {x['conf'] * 100:.0f}%  blend {x['blend'] * 100:.1f}%  cleared {cl}  books {x['books']}{tag(x)}")
     if "--all" in sys.argv:
         for x in sorted((x for x in rows if x["why"] and x["conf"] >= 0.62 and x["books"] >= 2), key=lambda x: -x["blend"]):
             print(f"   dropped: {x['name']} ({x['team']}) {x['stat']} {x['side']} {x['line']}  ({', '.join(x['why'])})")
