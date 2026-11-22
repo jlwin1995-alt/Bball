@@ -202,7 +202,7 @@ const pages = {
         {k: "crec", h: "Rec", v: r => r.c.rec, f: r => rg("rec", r, r.c.rec, num(r.c.rec, 1), 1)}, {k: "crecy", h: "Rec Yds", v: r => r.c.recY, f: r => rg("recY", r, r.c.recY, num(r.c.recY), 0)},
         {k: "catt", h: "Att", v: r => r.c.att, f: r => r.c.att > 0 ? num(r.c.att) : ""}, {k: "cpy", h: "Pass Yds", v: r => r.c.passY, f: r => r.c.att > 0 ? rg("passY", r, r.c.passY, num(r.c.passY), 0) : ""},
         {k: "ctd", h: "TD", v: r => r.c.rushTD + r.c.recTD + r.c.passTD, f: r => num(r.c.rushTD + r.c.recTD + r.c.passTD, 2)},
-        {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`}, rangeCol(),
+        {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`}, rangeCol(), consistCol(),
         {k: "role", h: "Role (PFF)", l: 1, t: "Alignment and routes per team pass play over the last 3 games (PFF); hover for the split", v: r => r.role?.rr, f: r => r.role ? `${roleCell(r.role)} <span class="mut">${num(r.role.rr, 0)}%</span>` : ""},
         {k: "mu", h: "Matchup (PFF)", l: 1, t: MU_TIP, v: r => r.mu?.rank, f: r => muCell(r.mu)},
         usageCol(r => UT[r.id], false),
