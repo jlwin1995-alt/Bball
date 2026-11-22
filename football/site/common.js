@@ -219,6 +219,31 @@ const rg = (stat, r, x, html, dec = 0) => { const g = statRange(stat, r.pos, x, 
 
 // "Cleared N of M": how many of his last games beat this posted line (box scores, `hist.json`; display only). A lean that goes against his own record is flagged: an UNDER on a player who cleared the line in 40% or more of
 // his recent games, an OVER on one who cleared it in 30% or less (high-confidence college Unders hit 52% when he had cleared the line in 40%+ of his prior games, 57% otherwise).
+// Consistency of a player's Full PPR fantasy points over his last (up to 10) games (`hist.json` stat "fp"; display only, nothing feeds the model). Needs 5+ games and a 3+ point average.
+// cv = sd / mean: Steady <= 0.45, Average under 0.75, Volatile above. Boom = a game at 1.5x his median or more, bust = at 0.5x or less. Volatile with 2+ booms and 2+ busts = Boom/bust;
+// more booms than busts = Spiky; otherwise plain Volatile (mostly down-swings). Bars: green = boom, red = bust, grey = the rest; the dotted line is his median.
+const consistOf = id => {
+  const v = D.hist?.[id]?.fp;
+  if (!v || v.length < 5) return null;
+  const mean = v.reduce((a, b) => a + b, 0) / v.length, s = [...v].sort((a, b) => a - b), med = (s[(v.length - 1) >> 1] + s[v.length >> 1]) / 2;
+  if (mean < 3 || med <= 0) return null;
+  const sd = Math.sqrt(v.reduce((a, b) => a + (b - mean) ** 2, 0) / v.length), cv = sd / mean;
+  const boom = v.filter(x => x >= 1.5 * med).length, bust = v.filter(x => x <= 0.5 * med).length;
+  const [label, cls] = cv <= 0.45 ? ["Steady", "steady"] : cv < 0.75 ? ["Average", "avg"] : boom >= 2 && bust >= 2 ? ["Volatile · Boom/bust", "vol"] : boom > bust ? ["Volatile · Spiky", "vol"] : ["Volatile", "vol"];
+  return {label, cls, v, med, mean, cv, boom, bust};
+};
+const consistCell = id => {
+  const c = consistOf(id);
+  if (!c) return "";
+  const w = 5, gap = 1, h = 18, n = c.v.length, mx = Math.max(...c.v, 1), W = n * (w + gap);
+  const bars = c.v.map((x, i) => { const bh = Math.max(1.5, x / mx * h), col = x >= 1.5 * c.med ? "var(--good)" : x <= 0.5 * c.med ? "var(--bad)" : "var(--mut)";
+    return `<rect x="${i * (w + gap)}" y="${(h - bh).toFixed(1)}" width="${w}" height="${bh.toFixed(1)}" fill="${col}" opacity="${x >= 1.5 * c.med || x <= 0.5 * c.med ? 1 : 0.55}"/>`; }).join("");
+  const my = (h - c.med / mx * h).toFixed(1);
+  const tip = `Last ${n} games, Full PPR points: ${c.v.map(x => x.toFixed(1)).join(", ")}. Median ${c.med.toFixed(1)}, mean ${c.mean.toFixed(1)}, sd/mean ${c.cv.toFixed(2)}; ${c.boom} boom game${c.boom === 1 ? "" : "s"} (1.5x median or more), ${c.bust} bust (0.5x or less).`;
+  return `<span class="cons" title="${esc(tip)}"><span class="pill cons-${c.cls}">${esc(c.label)}</span> <svg width="${W}" height="${h}" viewBox="0 0 ${W} ${h}"><line x1="0" x2="${W}" y1="${my}" y2="${my}" stroke="var(--mut)" stroke-width="0.8" stroke-dasharray="2 2"/>${bars}</svg></span>`;
+};
+const consistCol = () => ({k: "cons", h: "Consistency", l: 1, t: "How steady his Full PPR points have been over the last 10 games (hover a row for the games). Volatile = sd / mean 0.75 or more; Spiky = mostly flat with upward spikes; Boom/bust = both big and small games. A description of the past, not a lean.",
+  v: r => consistOf(r.id)?.cv ?? null, f: r => consistCell(r.id)});
 const histOf = (id, stat) => D.hist?.[id]?.[stat] || null;
 const histRate = (id, stat, line) => { const h = histOf(id, stat); return h && line != null && h.length >= 3 ? h.filter(v => v > line).length / h.length : null; };
 const histCell = (id, stat, line, z) => {
