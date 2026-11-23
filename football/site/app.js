@@ -1,6 +1,6 @@
 "use strict";
 // ---------- state ----------------------------------------------------------
-const TABS = ["Projections", "Game Board", "Leaders", "Matchups", "Efficiency", "Usage", "Trends", "Weather", "Lines", "Results", "Scorecard", "Backtest", "Config", "Methodology"];
+const TABS = ["Game", "Projections", "Leaders", "Matchups", "Efficiency", "Usage", "Trends", "Weather", "Lines", "Results", "Scorecard", "Backtest", "Config", "Methodology"];
 const D = {};
 let CFG = {preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}, mean: false, detail: false, edgeMin: 4, ppBE: 54.4};
 let LINES = [];
@@ -136,6 +136,67 @@ function legacyBlock(L, wc, pc) {
 }
 
 // ---------- pages ---------------------------------------------------------------
+function liveLines(o = {}) {
+    const L = D.lines, M = L && L.meta;
+    const credits = M && M.credits != null ? ` · Odds API credits left: <b>${M.credits}</b>` : "";
+    const byId = Object.fromEntries(proj().map(p => [p.id, p]));
+    let live = "";
+    if (!L || !L.rows || !L.rows.length) {
+      if (!M) live = `<p class="sub">No live lines yet. They come from The Odds API: add your key as the <code>ODDS_API_KEY</code> repository secret and run the "Football refresh odds" workflow (see the README).</p>`;
+      else {
+        const ago = Math.max(0, Math.round((Date.now() - Date.parse(M.ts)) / 60000)), when = ago < 90 ? ago + " min ago" : Math.round(ago / 60) + " h ago";
+        const games = (M.games || []).map(g => `<li>${esc(g.game)} — kickoff ${new Date(g.commence).toLocaleString([], {weekday: "short", hour: "numeric", minute: "2-digit"})}: ${g.props ? g.props + " props posted" : "<b>no player props posted yet</b>"}</li>`).join("");
+        live = `<p class="sub">Last checked ${when}${credits}. ${games ? "Upcoming games found:" : "No games start in the next 30 hours."}</p>${games ? `<ul class="sub">${games}</ul>` : ""}
+          <p class="sub">Books usually post player props on Tuesday/Wednesday for Thursday, and a day or two ahead for Sunday. This page fills in automatically on the next check.</p>`;
+      }
+    } else {
+      const BE = CFG.ppBE / 100;
+      const upd = /[zZ]|[+-]\d\d:?\d\d$/.test(L.updated) ? L.updated : L.updated + "Z", mins = Math.round((Date.now() - Date.parse(upd)) / 60000);
+      let rows = L.rows.map(r => {
+        const p = byId[r.id]; if (!p) return null;
+        const spec = mktSpec(r.stat), m = p.c[MKT[r.stat]], c = r.cons, pp = r.dfs.prizepicks;
+        const st = Date.now() >= Date.parse(r.commence), outp = isOut(p.status);
+        const o = {started: st, pid: p.id, gb: p.game, name: p.name, pos: p.pos, team: p.team, opp: p.opp, game: r.game, stat: r.stat, m, c, r, pp, ud: r.dfs.underdog ?? r.dfs.pick6};
+        if (c) { const sd = FB.sides(c.line, m, spec); o.po = sd.o; o.cpo = calP(sd.o); o.cedge = o.cpo == null ? null : (o.cpo - c.p_over) * 100; o.edge = (sd.o - c.p_over) * 100; o.z = zOf(spec, m, c.line); o.tier = st || outp || noLean(p) ? "" : leanTier(o.z); o.pick = st ? "LIVE" : outp ? "OUT" : Math.abs(o.edge) >= CFG.edgeMin ? (o.edge > 0 ? "OVER" : "UNDER") : ""; }
+        if (pp != null) { const sd = FB.sides(pp, m, spec); o.side = sd.o >= sd.u ? "OVER" : "UNDER"; o.pw = Math.max(sd.o, sd.u); o.ppEdge = (o.pw - BE) * 100;
+          o.ppPick = st ? "LIVE" : outp ? "OUT" : o.ppEdge >= CFG.edgeMin ? "PP " + o.side : ""; o.gap = c ? pp - c.line : null; }
+        return o;
+      }).filter(Boolean).filter(passes);
+      if (F.lstat) rows = rows.filter(r => r.stat === F.lstat);
+      if (o.game) rows = rows.filter(r => r.game === o.game); else if (F.lgame) rows = rows.filter(r => r.game === F.lgame);
+      if (F.lstrong) rows = rows.filter(r => r.tier === "strong");
+      if (F.lpicks) rows = rows.filter(r => (r.pick && r.pick !== "OUT" && r.pick !== "LIVE") || (r.ppPick && r.ppPick !== "OUT" && r.ppPick !== "LIVE"));
+      const tip = r => r.r.books.map(b => `${b.b} ${b.line} (${b.over ?? "-"}/${b.under ?? "-"})`).join("\n");
+      const cols = [{k: "name", h: "Player", l: 1, f: r => gbLink(r.name, r.gb, r.pid)}, {k: "team", h: "Team", l: 1},
+        {k: "game", h: "Game", l: 1, f: r => esc(r.game) + (r.started ? ` <span class="pill hot" title="Kicked off: these are the last PRE-game lines. The model's pregame probability no longer applies, so no pick is shown.">LIVE</span>` : "")},
+        {k: "stat", h: "Market", l: 1, f: r => esc(mktSpec(r.stat).label)}, {k: "m", h: "Proj", t: "Median projection, with your volume overrides", f: r => num(r.m)},
+        {k: "od", h: "Opp D", t: HR_TIP, v: r => D.hitrates?.tiers?.[r.stat]?.[r.opp]?.rank ?? null, f: r => oppTierCell(r)},
+        {k: "cl", h: "Cons line", t: "Median sportsbook line; hover for every book", v: r => r.c?.line, f: r => r.c ? `<span title="${esc(tip(r))}">${r.c.line} <span class="mut">${r.c.n}/${r.c.n_books}</span></span>` : ""},
+        {k: "clr", h: "Cleared", t: "Times he beat this line in his last games (up to 10); hover for the games. ⚠ = the lean goes against his own record (UNDER with 40%+ cleared, OVER with 30% or less).", v: r => histRate(r.pid, r.stat, r.c?.line), f: r => histCell(r.pid, r.stat, r.c?.line, r.z)},
+                {k: "cp", h: "Cons P(over)", t: "Average vig-free P(over) of the books at the consensus line", v: r => r.c?.p_over, f: r => r.c ? num(r.c.p_over * 100) + "%" : ""},
+        {k: "fo", h: "Fair odds", t: "Over / under, from the consensus probability", v: r => r.c?.p_over, f: r => r.c ? `${FB.amer(r.c.p_over)} / ${FB.amer(1 - r.c.p_over)}` : ""},
+        {k: "po", h: "Model P(over)", v: r => r.po, f: r => r.po == null ? "" : num(r.po * 100) + "%"},
+        {k: "cpo", h: "Cal P(over)", t: calTip(), v: r => r.cpo, f: r => r.cpo == null ? "" : num(r.cpo * 100) + "%"},
+        {k: "z", h: "Lean σ", t: leanTip, v: r => r.z == null ? null : Math.abs(r.z), f: r => r.z == null ? "" : `${r.tier ? `<span class="pill lean-${r.tier}">${r.tier === "strong" ? "STRONG " : ""}${r.z > 0 ? "OVER" : "UNDER"}</span> ` : ""}<span class="mut">${r.z > 0 ? "+" : ""}${num(r.z, 2)}</span>`},
+        {k: "edge", h: "Edge pp", v: r => r.edge, f: r => r.edge == null ? "" : `<span class="${r.edge > 0 ? "good" : "bad"}">${num(r.edge)}</span>`},
+        {k: "cedge", h: "Cal edge pp", t: "Edge against the book using the calibrated probability. " + calTip(), v: r => r.cedge, f: r => r.cedge == null ? "" : `<span class="${r.cedge > 0 ? "good" : "bad"}">${num(r.cedge)}</span>`},
+        {k: "pick", h: "Pick", l: 1, f: r => r.pick ? `<b>${r.pick}</b>${r.pick === "OUT" || r.pick === "LIVE" ? "" : warn(r.edge)}` : ""},
+        {k: "pp", h: "PrizePicks", v: r => r.pp, f: r => r.pp ?? ""},
+        {k: "gap", h: "PP − cons", t: "Positive: PrizePicks line is higher than the books' (easier UNDER); negative: lower (easier OVER)", v: r => r.gap, f: r => r.gap == null ? "" : `<span class="${r.gap < 0 ? "good" : r.gap > 0 ? "bad" : "mut"}">${r.gap > 0 ? "+" : ""}${num(r.gap)}</span>`},
+        {k: "pw", h: "PP P(win)", t: "Model probability of the better side at the PrizePicks line", v: r => r.pw, f: r => r.pw == null ? "" : `${r.side[0]} ${num(r.pw * 100)}%`},
+        {k: "ppEdge", h: "PP edge pp", t: `vs your break-even of ${CFG.ppBE}% (Config)`, v: r => r.ppEdge, f: r => r.ppEdge == null ? "" : `<span class="${r.ppEdge > 0 ? "good" : "bad"}">${num(r.ppEdge)}</span>`},
+        {k: "ppPick", h: "PP pick", l: 1, f: r => r.ppPick ? `<b>${r.ppPick}</b>${r.ppPick === "OUT" || r.ppPick === "LIVE" ? "" : warn(r.ppEdge)}` : ""},
+        {k: "ud", h: "UD/Pick6", v: r => r.ud, f: r => r.ud ?? ""}];
+      const games = [...new Set(L.rows.map(r => r.game))].sort(), stats = [...new Set(L.rows.map(r => r.stat))];
+      const extra = `<label>Market <select id="lstat"><option value="">All</option>${stats.map(x => `<option value="${x}" ${F.lstat === x ? "selected" : ""}>${esc(mktSpec(x).label)}</option>`).join("")}</select></label>
+        ${o.game ? "" : `<label>Game <select id="lgame"><option value="">All</option>${games.map(g => `<option ${F.lgame === g ? "selected" : ""}>${esc(g)}</option>`).join("")}</select></label>`}
+        <label><input type="checkbox" id="lstrong" ${F.lstrong ? "checked" : ""}> strong leans only</label><label><input type="checkbox" id="lpicks" ${F.lpicks ? "checked" : ""}> picks only</label>`;
+      const intro = `<p class="sub">Sportsbook consensus (median line; vig removed) beside PrizePicks / Underdog, with the model's edge against each${credits}. Updated ${mins < 90 ? mins + " min" : Math.round(mins / 60) + " h"} ago${mins > 360 ? " — <b>stale, lines move</b>" : ""}. DFS prices are nominal, so PrizePicks edge is measured against your break-even (Config) rather than odds. A k-pick entry paying M× needs M^(−1/k) per leg.</p>`;
+      live = `${o.game ? "" : intro}${filters(extra)}${table(cols, rows, {id: o.game ? "livegame" : "live", sort: {key: "edge"}})}`;
+    }
+    return live;
+}
+
 const pages = {
   Projections() {
     let rows = proj().filter(passes);
@@ -180,7 +241,7 @@ const pages = {
       ${table(cols, rows, {id: "proj" + (det ? "d" : ""), sort: {key: "cpts"}, rowClass: r => isOut(r.status) ? "out" : started(r.ko) ? "started" : leanRow(r)})}`;
   },
 
-  "Game Board"() {
+  Game() {
     const games = D.games;
     if (!F.game || !games.some(g => g.game === F.game)) F.game = (games.find(g => !started(g.ko)) || games[0]).game;
     const g = games.find(x => x.game === F.game);
@@ -216,13 +277,21 @@ const pages = {
     };
     const wx = g.src === "indoor" || g.roof === "indoor" ? "indoors" : g.wind != null ? `${num(g.wind, 0)} mph wind${g.temp != null ? `, ${num(g.temp, 0)}°F` : ""} <span class="mut">(${esc(g.src)})</span>` : "weather unknown";
     const sp = g.spread == null ? "" : g.spread > 0 ? `${g.home} -${num(g.spread)}` : g.spread < 0 ? `${g.away} -${num(-g.spread)}` : "pick'em";
-    return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected points.</p>
+    const sect = (id, title, hint, body, open) => `<details class="gsec" data-gs="${id}" ${open ? "open" : ""}><summary><b>${title}</b> <span class="mut">${hint}</span></summary>${body}</details>`;
+    const hasLines = (D.lines?.rows || []).some(r => r.game === g.game);
+    // one line per team: points scored and allowed per game with the league rank (green = top 10, red = bottom 10 of 32)
+    const teamBrief = t => { const x = D.teams?.teams?.[t]; if (!x) return esc(t);
+      const chip = (v, rk, tip) => { const c = rk <= 10 ? "good" : rk > (D.teams.n || 32) - 10 ? "bad" : "mut"; return `<span class="${c}" title="${esc(tip)}">${num(v, 1)} <small>#${rk}</small></span>`; };
+      return `<b>${esc(t)}</b> ${chip(x.ppg, x.ppg_rk, t + " points per game")} <span class="mut">scored</span> · ${chip(x.papg, x.papg_rk, t + " points allowed per game")} <span class="mut">allowed</span>`; };
+    return `<h2>Game</h2><p class="sub">Pick a game once: the matchup, both teams' players ranked by projected points, and every posted line for the game, all on this page.</p>
       <div class="bar"><label>Game <select id="game">${games.map(x => `<option value="${esc(x.game)}" ${x.game === g.game ? "selected" : ""}>${esc(x.game)} · ${esc(koLabel(x.ko))}${totalTag(x, false)}${x.played ? " (final)" : started(x.ko) ? " (started)" : ""}</option>`).join("")}</select></label></div>
       <div class="gamehead"><div><span>Kickoff</span><b>${esc(koLabel(g.ko))}</b></div><div><span>Stadium</span><b>${esc(g.stadium)}</b></div>
         <div><span>Weather</span><b>${wx}</b></div>${g.spread == null ? "" : `<div><span>Line (nflverse)</span><b>${esc(sp)} · O/U ${num(g.total)}${totalPill(g, false)}</b></div>
         <div><span>Implied total</span><b>${esc(g.away)} ${num(g.away_imp)} – ${esc(g.home)} ${num(g.home_imp)}</b></div>`}</div>
-      ${compareCard({...D.teams, note: "Net passing yards (minus sack yards); turnovers are giveaways, takeaways are the opponents' giveaways; first downs are passing + rushing. Completed games only. The last four rows are tendencies, not good or bad: pass rate is passes (with sacks) over passes + runs, \"faced\" is how opponents attacked this defence, plays are passes + runs a game (a pace proxy), and the 1st / 2nd down rate is passes over all plays on those downs in quarters 1-3 (a neutral-situation rate)."}, g.away, g.home)}
-      <div class="stack">${mk(g.away)}${mk(g.home)}</div>`;
+      ${D.teams?.teams?.[g.away] ? sect("cmp", "Team comparison", teamBrief(g.away) + " &nbsp;vs&nbsp; " + teamBrief(g.home) + " <span class=\"mut\">(click to open: scored, allowed and tendencies)</span>", compareCard({...D.teams, note: "Net passing yards (minus sack yards); turnovers are giveaways, takeaways are the opponents' giveaways; first downs are passing + rushing. Completed games only. The last four rows are tendencies, not good or bad: pass rate is passes (with sacks) over passes + runs, \"faced\" is how opponents attacked this defence, plays are passes + runs a game (a pace proxy), and the 1st / 2nd down rate is passes over all plays on those downs in quarters 1-3 (a neutral-situation rate)."}, g.away, g.home), F.gcmp === true) : ""}
+      <h3>Players</h3>
+      <div class="stack">${mk(g.away)}${mk(g.home)}</div>
+      ${hasLines ? sect("lines", "All lines for this game", "every market: books, PrizePicks / Underdog, model edge and pick", liveLines({game: g.game}), F.glines !== false) : ""}`;
   },
 
   Leaders() {
@@ -337,63 +406,8 @@ const pages = {
 
 
   Lines() {
-    const L = D.lines, M = L && L.meta;
-    const credits = M && M.credits != null ? ` · Odds API credits left: <b>${M.credits}</b>` : "";
     const byId = Object.fromEntries(proj().map(p => [p.id, p]));
-    let live = "";
-    if (!L || !L.rows || !L.rows.length) {
-      if (!M) live = `<p class="sub">No live lines yet. They come from The Odds API: add your key as the <code>ODDS_API_KEY</code> repository secret and run the "Football refresh odds" workflow (see the README).</p>`;
-      else {
-        const ago = Math.max(0, Math.round((Date.now() - Date.parse(M.ts)) / 60000)), when = ago < 90 ? ago + " min ago" : Math.round(ago / 60) + " h ago";
-        const games = (M.games || []).map(g => `<li>${esc(g.game)} — kickoff ${new Date(g.commence).toLocaleString([], {weekday: "short", hour: "numeric", minute: "2-digit"})}: ${g.props ? g.props + " props posted" : "<b>no player props posted yet</b>"}</li>`).join("");
-        live = `<p class="sub">Last checked ${when}${credits}. ${games ? "Upcoming games found:" : "No games start in the next 30 hours."}</p>${games ? `<ul class="sub">${games}</ul>` : ""}
-          <p class="sub">Books usually post player props on Tuesday/Wednesday for Thursday, and a day or two ahead for Sunday. This page fills in automatically on the next check.</p>`;
-      }
-    } else {
-      const BE = CFG.ppBE / 100;
-      const upd = /[zZ]|[+-]\d\d:?\d\d$/.test(L.updated) ? L.updated : L.updated + "Z", mins = Math.round((Date.now() - Date.parse(upd)) / 60000);
-      let rows = L.rows.map(r => {
-        const p = byId[r.id]; if (!p) return null;
-        const spec = mktSpec(r.stat), m = p.c[MKT[r.stat]], c = r.cons, pp = r.dfs.prizepicks;
-        const st = Date.now() >= Date.parse(r.commence), outp = isOut(p.status);
-        const o = {started: st, pid: p.id, gb: p.game, name: p.name, pos: p.pos, team: p.team, opp: p.opp, game: r.game, stat: r.stat, m, c, r, pp, ud: r.dfs.underdog ?? r.dfs.pick6};
-        if (c) { const sd = FB.sides(c.line, m, spec); o.po = sd.o; o.cpo = calP(sd.o); o.cedge = o.cpo == null ? null : (o.cpo - c.p_over) * 100; o.edge = (sd.o - c.p_over) * 100; o.z = zOf(spec, m, c.line); o.tier = st || outp || noLean(p) ? "" : leanTier(o.z); o.pick = st ? "LIVE" : outp ? "OUT" : Math.abs(o.edge) >= CFG.edgeMin ? (o.edge > 0 ? "OVER" : "UNDER") : ""; }
-        if (pp != null) { const sd = FB.sides(pp, m, spec); o.side = sd.o >= sd.u ? "OVER" : "UNDER"; o.pw = Math.max(sd.o, sd.u); o.ppEdge = (o.pw - BE) * 100;
-          o.ppPick = st ? "LIVE" : outp ? "OUT" : o.ppEdge >= CFG.edgeMin ? "PP " + o.side : ""; o.gap = c ? pp - c.line : null; }
-        return o;
-      }).filter(Boolean).filter(passes);
-      if (F.lstat) rows = rows.filter(r => r.stat === F.lstat);
-      if (F.lgame) rows = rows.filter(r => r.game === F.lgame);
-      if (F.lstrong) rows = rows.filter(r => r.tier === "strong");
-      if (F.lpicks) rows = rows.filter(r => (r.pick && r.pick !== "OUT" && r.pick !== "LIVE") || (r.ppPick && r.ppPick !== "OUT" && r.ppPick !== "LIVE"));
-      const tip = r => r.r.books.map(b => `${b.b} ${b.line} (${b.over ?? "-"}/${b.under ?? "-"})`).join("\n");
-      const cols = [{k: "name", h: "Player", l: 1, f: r => gbLink(r.name, r.gb, r.pid)}, {k: "team", h: "Team", l: 1},
-        {k: "game", h: "Game", l: 1, f: r => esc(r.game) + (r.started ? ` <span class="pill hot" title="Kicked off: these are the last PRE-game lines. The model's pregame probability no longer applies, so no pick is shown.">LIVE</span>` : "")},
-        {k: "stat", h: "Market", l: 1, f: r => esc(mktSpec(r.stat).label)}, {k: "m", h: "Proj", t: "Median projection, with your volume overrides", f: r => num(r.m)},
-        {k: "od", h: "Opp D", t: HR_TIP, v: r => D.hitrates?.tiers?.[r.stat]?.[r.opp]?.rank ?? null, f: r => oppTierCell(r)},
-        {k: "cl", h: "Cons line", t: "Median sportsbook line; hover for every book", v: r => r.c?.line, f: r => r.c ? `<span title="${esc(tip(r))}">${r.c.line} <span class="mut">${r.c.n}/${r.c.n_books}</span></span>` : ""},
-        {k: "clr", h: "Cleared", t: "Times he beat this line in his last games (up to 10); hover for the games. ⚠ = the lean goes against his own record (UNDER with 40%+ cleared, OVER with 30% or less).", v: r => histRate(r.pid, r.stat, r.c?.line), f: r => histCell(r.pid, r.stat, r.c?.line, r.z)},
-                {k: "cp", h: "Cons P(over)", t: "Average vig-free P(over) of the books at the consensus line", v: r => r.c?.p_over, f: r => r.c ? num(r.c.p_over * 100) + "%" : ""},
-        {k: "fo", h: "Fair odds", t: "Over / under, from the consensus probability", v: r => r.c?.p_over, f: r => r.c ? `${FB.amer(r.c.p_over)} / ${FB.amer(1 - r.c.p_over)}` : ""},
-        {k: "po", h: "Model P(over)", v: r => r.po, f: r => r.po == null ? "" : num(r.po * 100) + "%"},
-        {k: "cpo", h: "Cal P(over)", t: calTip(), v: r => r.cpo, f: r => r.cpo == null ? "" : num(r.cpo * 100) + "%"},
-        {k: "z", h: "Lean σ", t: leanTip, v: r => r.z == null ? null : Math.abs(r.z), f: r => r.z == null ? "" : `${r.tier ? `<span class="pill lean-${r.tier}">${r.tier === "strong" ? "STRONG " : ""}${r.z > 0 ? "OVER" : "UNDER"}</span> ` : ""}<span class="mut">${r.z > 0 ? "+" : ""}${num(r.z, 2)}</span>`},
-        {k: "edge", h: "Edge pp", v: r => r.edge, f: r => r.edge == null ? "" : `<span class="${r.edge > 0 ? "good" : "bad"}">${num(r.edge)}</span>`},
-        {k: "cedge", h: "Cal edge pp", t: "Edge against the book using the calibrated probability. " + calTip(), v: r => r.cedge, f: r => r.cedge == null ? "" : `<span class="${r.cedge > 0 ? "good" : "bad"}">${num(r.cedge)}</span>`},
-        {k: "pick", h: "Pick", l: 1, f: r => r.pick ? `<b>${r.pick}</b>${r.pick === "OUT" || r.pick === "LIVE" ? "" : warn(r.edge)}` : ""},
-        {k: "pp", h: "PrizePicks", v: r => r.pp, f: r => r.pp ?? ""},
-        {k: "gap", h: "PP − cons", t: "Positive: PrizePicks line is higher than the books' (easier UNDER); negative: lower (easier OVER)", v: r => r.gap, f: r => r.gap == null ? "" : `<span class="${r.gap < 0 ? "good" : r.gap > 0 ? "bad" : "mut"}">${r.gap > 0 ? "+" : ""}${num(r.gap)}</span>`},
-        {k: "pw", h: "PP P(win)", t: "Model probability of the better side at the PrizePicks line", v: r => r.pw, f: r => r.pw == null ? "" : `${r.side[0]} ${num(r.pw * 100)}%`},
-        {k: "ppEdge", h: "PP edge pp", t: `vs your break-even of ${CFG.ppBE}% (Config)`, v: r => r.ppEdge, f: r => r.ppEdge == null ? "" : `<span class="${r.ppEdge > 0 ? "good" : "bad"}">${num(r.ppEdge)}</span>`},
-        {k: "ppPick", h: "PP pick", l: 1, f: r => r.ppPick ? `<b>${r.ppPick}</b>${r.ppPick === "OUT" || r.ppPick === "LIVE" ? "" : warn(r.ppEdge)}` : ""},
-        {k: "ud", h: "UD/Pick6", v: r => r.ud, f: r => r.ud ?? ""}];
-      const games = [...new Set(L.rows.map(r => r.game))].sort(), stats = [...new Set(L.rows.map(r => r.stat))];
-      const extra = `<label>Market <select id="lstat"><option value="">All</option>${stats.map(x => `<option value="${x}" ${F.lstat === x ? "selected" : ""}>${esc(mktSpec(x).label)}</option>`).join("")}</select></label>
-        <label>Game <select id="lgame"><option value="">All</option>${games.map(g => `<option ${F.lgame === g ? "selected" : ""}>${esc(g)}</option>`).join("")}</select></label>
-        <label><input type="checkbox" id="lstrong" ${F.lstrong ? "checked" : ""}> strong leans only</label><label><input type="checkbox" id="lpicks" ${F.lpicks ? "checked" : ""}> picks only</label>`;
-      live = `<p class="sub">Sportsbook consensus (median line; vig removed) beside PrizePicks / Underdog, with the model's edge against each${credits}. Updated ${mins < 90 ? mins + " min" : Math.round(mins / 60) + " h"} ago${mins > 360 ? " — <b>stale, lines move</b>" : ""}. DFS prices are nominal, so PrizePicks edge is measured against your break-even (Config) rather than odds. A k-pick entry paying M× needs M^(−1/k) per leg.</p>
-        ${filters(extra)}${table(cols, rows, {id: "live", sort: {key: "edge"}})}`;
-    }
+    let live = liveLines();
     live = hitrateTable() + live;
     const own = LINES.map((l, i) => {
       const p = byId[l.id]; if (!p) return "";
@@ -530,14 +544,14 @@ const pages = {
 <h3>Scorecard</h3><p>Every week's projections are written to a log <b>before</b> kickoff and never rewritten, with two naive baselines frozen alongside (season average and last three games). A row logged after its team's kickoff is never scored. Each row carries a settings stamp, so changing any knob starts a fresh record.</p>
 <h3>Backtest</h3><p>The Backtest tab replays past seasons week by week with the same code the site runs. Treat the weather gain there as a ceiling: it uses observed wind, not a forecast.</p>
 <h3>Not modelled</h3><p>Injuries beyond the listed status (a player listed Out is still projected; a teammate's absence is only reflected once the participation window sees it), game script and spread, kickers, defences, and in-browser redistribution of volume when you override a teammate.</p>
-<h3>Data</h3><p>Box scores, schedule, snap counts and injuries from <a href="https://github.com/nflverse/nflverse-data/releases">nflverse</a> (free, no key); kickoff weather from Open-Meteo. The game lines on the Game Board are nflverse's and are context only - they do not feed the projections.</p></div>`;
+<h3>Data</h3><p>Box scores, schedule, snap counts and injuries from <a href="https://github.com/nflverse/nflverse-data/releases">nflverse</a> (free, no key); kickoff weather from Open-Meteo. The game lines on the Game page are nflverse's and are context only - they do not feed the projections.</p></div>`;
   },
 };
 
 // ---------- routing / render -----------------------------------------------------
 { const base = pages.Lines;
   pages.Lines = () => base() + fpSection(D.fp_lines, Object.fromEntries(proj().map(p => [p.id, p])), p => FB.calc(p, OVR[p.id], FB.SCORING["PrizePicks"], D.meta).pts, F); }
-let page = "Projections";
+let page = "Game";
 function render(keepFocus, focusId) {
   const act = document.activeElement, id = focusId || act?.id, pos = act?.selectionStart;
   view().innerHTML = pages[page]();
@@ -549,13 +563,15 @@ function nav() {
   document.getElementById("nav").innerHTML = TABS.map(t => `<a href="#${t.replace(" ", "-")}" class="${t === page ? "on" : ""}">${t}</a>`).join("");
 }
 function route() {
-  const h = decodeURIComponent(location.hash.slice(1)).replace("-", " ");
-  const next = TABS.includes(h) ? h : "Projections";
+  let h = decodeURIComponent(location.hash.slice(1)).replace("-", " ");
+  if (h === "Game Board") h = "Game";                      // the old tab name
+  const next = TABS.includes(h) ? h : "Game";
   if (next !== page) { F.q = ""; F.pos = ""; F.team = ""; }          // a stale search should not silently filter the next tab
   page = next;
   nav(); render();
 }
 window.addEventListener("hashchange", route);
+document.addEventListener("toggle", e => { const t = e.target; if (t && t.dataset && t.dataset.gs) F["g" + t.dataset.gs] = t.open; }, true);
 
 async function loadBacktests() {
   D.backtest = {};
