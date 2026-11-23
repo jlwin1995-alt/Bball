@@ -11,7 +11,7 @@ A static site (`site/`) fed by a small Python pipeline (`pipeline/`).
 | Tab | What it does |
 |---|---|
 | Projections | Next slate's stat line for every player: minutes × adjusted per-minute rate. Shaded **Min OVR** recalculates instantly and is saved on your device. |
-| Game Board | Pick a game; both teams ranked by projected fantasy points. |
+| Game (opening page) | Pick a game once: a collapsible team comparison (unit strength, scored and allowed, vs position) with a one-line unit summary, both teams' players with projections beside the posted lines, and every line for the game (books, PrizePicks, model edge and pick). Replaces the old Game Board; the Lines and Matchups tabs stay for the whole-slate and league-wide views. |
 | Matchups | What each defence allows vs league, per stat. |
 | Efficiency / Usage / Trends | Per-36 and shooting rates; share of team opportunity; rolling form vs season, floor/ceiling, HOT/COLD. |
 | Lines | Projection vs a posted line → P(over) with the vig removed from the book price. |
@@ -162,5 +162,5 @@ The Team comparison also shows **Allowed by position**: each defence's per-minut
 ### Unit strength and player consistency tags (display only)
 
 * **Unit strength** (Matchups > Team comparison): fantasy points per 48 minutes produced by each team's guards, forwards and centers, ranked in thirds across the league (units seen for few minutes are pulled toward the league average first). Built in `pipeline/team_stats.py`.
-* **Consistency tag** (Game Board, Projections and Trends): `pipeline/consistency.py` writes `site/data/consistency.json`. Over a player's last 20 games of 12+ minutes (8 needed), the spread of fantasy points (and points, rebounds, assists) is compared with players at a similar level: Steady / Average / Volatile = bottom / middle / top third. Volatile players are tagged Spiky, Dud-prone or Boom/bust from the share of games at 1.3x or 0.7x his own median. The bars are his last 10 games. A first look (Nov 21): the spread repeats only modestly (odd vs even games r 0.49, earlier vs later r 0.36 on 471 players), and out of sample, volatile players' misses against our projection were larger relative to the projection (about 40% vs 32% for Steady) but not larger in fantasy points. It describes recent games; it is not a forecast.
+* **Consistency tag** (Game, Projections and Trends): `pipeline/consistency.py` writes `site/data/consistency.json`. Over a player's last 20 games of 12+ minutes (8 needed), the spread of fantasy points (and points, rebounds, assists) is compared with players at a similar level: Steady / Average / Volatile = bottom / middle / top third. Volatile players are tagged Spiky, Dud-prone or Boom/bust from the share of games at 1.3x or 0.7x his own median. The bars are his last 10 games. A first look (Nov 21): the spread repeats only modestly (odd vs even games r 0.49, earlier vs later r 0.36 on 471 players), and out of sample, volatile players' misses against our projection were larger relative to the projection (about 40% vs 32% for Steady) but not larger in fantasy points. It describes recent games; it is not a forecast.
 
