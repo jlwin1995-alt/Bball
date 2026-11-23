@@ -1,7 +1,7 @@
 "use strict";
 // College football. Same engine and look as the NFL page, with what CollegeFootballData actually reports: no targets (receptions are projected
 // directly), no sacks, no weather, no injury report and no 2-point conversions. Player-prop lines (when books post them) give leans, as on the NFL page.
-const TABS = ["Projections", "Game Board", "Lines", "Leaders", "Matchups", "Usage", "Scorecard", "Backtest", "Config", "Methodology"];
+const TABS = ["Game", "Projections", "Lines", "Leaders", "Matchups", "Usage", "Scorecard", "Backtest", "Config", "Methodology"];
 const D = {};
 const store = makeStore("gmc_");
 let CFG = {preset: "Full PPR", scoring: {...FB.SCORING["Full PPR"]}, detail: false, mean: false};
@@ -115,9 +115,9 @@ const pages = {
       ${table(cols, rows, {id: "proj" + (det ? "d" : ""), sort: {key: "cpts"}, rowClass: rowCls})}`;
   },
 
-  "Game Board"() {
+  Game() {
     const games = D.games.filter(g => D.projections.some(p => p.game === g.game));
-    if (!games.length) return `<h2>Game Board</h2><p class="sub">No games with projections yet.</p>`;
+    if (!games.length) return `<h2>Game</h2><p class="sub">No games with projections yet.</p>`;
     if (!F.game || !games.some(g => g.game === F.game)) F.game = (games.find(g => !started(g.ko)) || games[0]).game;
     const g = games.find(x => x.game === F.game), all = proj().filter(p => p.game === g.game);
     const UT = Object.fromEntries((D.usage_trend || []).map(u => [u.id, u]));
@@ -129,14 +129,22 @@ const pages = {
         {k: "ctd", h: "TD", v: r => r.c.rushTD + r.c.recTD + r.c.passTD, f: r => num(r.c.rushTD + r.c.recTD + r.c.passTD, 2)}, {k: "cpts", h: "Pts", v: r => r.c.shown, f: r => `<b>${num(r.c.shown)}</b>`}, rangeCol(), consistCol(), ...(D.lines?.rows?.length ? [leanCol] : [])];
       return `<div><h3>${esc(t)} <span class="mut">· ${num(rows.reduce((a, r) => a + r.c.shown, 0))} projected pts across ${rows.length} players</span></h3>${table(cols, rows, {id: "gb" + t, sort: {key: "cpts"}, rowClass: r => [leanRow(r), focusRow(r)].filter(Boolean).join(" ")})}</div>`;
     };
-    return `<h2>Game Board</h2><p class="sub">Pick a game; both teams ranked by projected points.</p>
+    const sect = (id, title, hint, body, open) => `<details class="gsec" data-gs="${id}" ${open ? "open" : ""}><summary><b>${title}</b> <span class="mut">${hint}</span></summary>${body}</details>`;
+    const hasLines = (D.lines?.rows || []).some(r => r.game === g.game);
+    // one line per team: points scored and allowed per game with the league rank (green = top 10, red = bottom 10)
+    const teamBrief = t => { const x = D.teams?.teams?.[t]; if (!x) return esc(t);
+      const chip = (v, rk, tip) => { const c = rk <= 10 ? "good" : rk > (D.teams.n || 138) - 10 ? "bad" : "mut"; return `<span class="${c}" title="${esc(tip)}">${num(v, 1)} <small>#${rk}</small></span>`; };
+      return `<b>${esc(t)}</b> ${chip(x.ppg, x.ppg_rk, t + " points per game")} <span class="mut">scored</span> · ${chip(x.papg, x.papg_rk, t + " points allowed per game")} <span class="mut">allowed</span>`; };
+    return `<h2>Game</h2><p class="sub">Pick a game once: the matchup, both teams' players ranked by projected points, and every posted line for the game, all on this page.</p>
       <div class="bar"><label>Game <select id="game">${games.map(x => `<option value="${esc(x.game)}" ${x.game === g.game ? "selected" : ""}>${esc(x.game)} · ${esc(koLabel(x.ko))}${totalTag(x, true)}${started(x.ko) ? " (started)" : ""}</option>`).join("")}</select></label></div>
       <div class="gamehead"><div><span>Kickoff</span><b>${esc(koLabel(g.ko))}</b></div><div><span>Conferences</span><b>${esc(g.conf[0] || "-")} / ${esc(g.conf[1] || "-")}</b></div>${g.neutral ? `<div><span>Site</span><b>Neutral</b></div>` : ""}${g.spread == null && g.total == null ? "" : `<div><span>Line (The Odds API)</span><b>${g.spread == null ? "" : g.spread > 0 ? esc(g.home) + " -" + num(g.spread) : g.spread < 0 ? esc(g.away) + " -" + num(-g.spread) : "pick'em"}${g.total == null ? "" : " · O/U " + num(g.total)}${totalPill(g, true)}</b></div>`}${g.total == null && totalFlag(g, true) ? `<div><span>Expected total</span><b>${num(g.exp_total)}${totalPill(g, true)}</b></div>` : ""}${g.home_imp == null ? "" : `<div><span>Implied total</span><b>${esc(g.away)} ${num(g.away_imp)} – ${esc(g.home)} ${num(g.home_imp)}</b></div>`}</div>
-      ${compareCard({...D.teams, note: "Completed games only, FBS teams ranked (games against FCS teams count in a team's numbers). The last three rows are tendencies, not good or bad: pass rate is attempts over attempts + rushes, \"faced\" is how opponents attacked this defence, plays are attempts + rushes a game (a pace proxy). College rushing has sacks subtracted, as the NCAA books them. Third/fourth down, red zone and first downs are not in the box-score feed."}, g.away, g.home)}
-      <div class="stack">${mk(g.away)}${mk(g.home)}</div>`;
+      ${D.teams?.teams?.[g.away] ? sect("cmp", "Team comparison", teamBrief(g.away) + " &nbsp;vs&nbsp; " + teamBrief(g.home) + " <span class=\"mut\">(click to open: scored, allowed and tendencies)</span>", compareCard({...D.teams, note: "Completed games only, FBS teams ranked (games against FCS teams count in a team's numbers). The last three rows are tendencies, not good or bad: pass rate is attempts over attempts + rushes, \"faced\" is how opponents attacked this defence, plays are attempts + rushes a game (a pace proxy). College rushing has sacks subtracted, as the NCAA books them. Third/fourth down, red zone and first downs are not in the box-score feed."}, g.away, g.home), F.gcmp === true) : ""}
+      <h3>Players</h3>
+      <div class="stack">${mk(g.away)}${mk(g.home)}</div>
+      ${hasLines ? sect("lines", "All lines for this game", "every market: books, PrizePicks / Underdog, model lean", pages.Lines({game: g.game}), F.glines !== false) : ""}`;
   },
 
-  Lines() {
+  Lines(o = {}) {
     const L = D.lines;
     if (!L || !L.rows?.length) {
       const M = L?.meta || D.oddsmeta, games = (M?.games || []).map(g => `<li>${esc(g.game)} — kickoff ${koLabel(g.commence)}: ${g.props ? g.props + " props posted" : "<b>no player props posted yet</b>"}</li>`).join("");
@@ -161,6 +169,7 @@ const pages = {
       {k: "z", h: "Lean σ", t: leanTip, v: r => r.z == null ? null : Math.abs(r.z), f: r => r.z == null ? "" : `${r.z > 0 ? "+" : ""}${num(r.z, 2)}`},
       {k: "pick", h: "Lean", l: 1, v: r => r.tier ? Math.abs(r.z) : 0, f: r => r.st ? `<span class="pill hot">LIVE</span>` : r.tier ? `<span class="pill lean-${r.tier}">${r.tier === "strong" ? "STRONG " : ""}${r.side}</span>` : ""},
       {k: "pp", h: "PrizePicks", f: r => r.pp ?? ""}, {k: "ud", h: "UD/Pick6", f: r => r.ud ?? ""}, {k: "game", h: "Game", l: 1}];
+    if (o.game) return table(cols, rows.filter(r => r.game === o.game), {id: "clgame", sort: {key: "z"}, rowClass: r => r.st ? "started" : r.tier ? "lean-" + r.tier + "-row" : ""});
     const strong = rows.filter(r => r.tier === "strong").length;
     return `<h2>College Lines</h2>${hitrateTable()}<p class="sub">${rows.length} player props across ${L.games.length} games, last pulled ${mins < 90 ? mins + " min" : Math.round(mins / 60) + " h"} ago. Consensus is the median sportsbook line with the vig removed; the lean is the model's median projection against it, in standard deviations of the market (college sigma fitted by the backtest: ${Object.values(L.specs).map(x => x.label + (x.src === "college" ? "" : "*")).join(", ")}; * = NFL fit until enough college rows). <b>${strong}</b> strong. Books post college props for only the top few players per team, so most players have no line. Only STRONG leans are flagged: on week 7 they won 47 of 63 (75%) while smaller gaps won about half. That is one slate, so treat the size of the edge with caution.</p>
       <div class="bar"><input id="q" placeholder="Search player / team" value="${esc(F.q)}"><label>Pos <select id="pos">${["", ...POS].map(p => `<option ${F.pos === p ? "selected" : ""} value="${p}">${p || "All"}</option>`).join("")}</select></label></div>
@@ -263,8 +272,8 @@ const pages = {
 };
 
 { const base = pages.Lines;
-  pages.Lines = () => base() + fpSection(D.fp_lines, Object.fromEntries(proj().map(p => [p.id, p])), p => FB.calcCfb(p, OVR[p.id], FB.SCORING["PrizePicks"]).pts, F); }
-let page = "Projections";
+  pages.Lines = (o = {}) => o.game ? base(o) : base() + fpSection(D.fp_lines, Object.fromEntries(proj().map(p => [p.id, p])), p => FB.calcCfb(p, OVR[p.id], FB.SCORING["PrizePicks"]).pts, F); }
+let page = "Game";
 function render(keepFocus, focusId) {
   const act = document.activeElement, id = focusId || act?.id, pos = act?.selectionStart;
   view().innerHTML = pages[page]();
@@ -273,14 +282,16 @@ function render(keepFocus, focusId) {
   if (keepFocus && id) { const el = document.getElementById(id); if (el) { el.focus(); try { el.setSelectionRange(pos, pos); } catch (e) {} } }
 }
 function route() {
-  const h = decodeURIComponent(location.hash.slice(1)).replace("-", " ");
-  const next = TABS.includes(h) ? h : "Projections";
+  let h = decodeURIComponent(location.hash.slice(1)).replace("-", " ");
+  if (h === "Game Board") h = "Game";                      // the old tab name
+  const next = TABS.includes(h) ? h : "Game";
   if (next !== page) { F.q = ""; F.pos = ""; F.team = ""; F.conf = ""; }
   page = next;
   document.getElementById("nav").innerHTML = TABS.map(t => `<a href="#${t.replace(" ", "-")}" class="${t === page ? "on" : ""}">${t}</a>`).join("");
   render();
 }
 window.addEventListener("hashchange", route);
+document.addEventListener("toggle", e => { const t = e.target; if (t && t.dataset && t.dataset.gs) F["g" + t.dataset.gs] = t.open; }, true);
 document.addEventListener("change", e => {
   const t = e.target;
   if (t.classList.contains("ovr") && t.dataset.id) {

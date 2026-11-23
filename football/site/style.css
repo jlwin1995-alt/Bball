@@ -68,3 +68,5 @@ a.plink{color:inherit;text-decoration:underline dotted;cursor:pointer}a.plink:ho
 
 .cons{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}.cons svg{vertical-align:middle}
 .pill.cons-steady{color:var(--good);border-color:var(--good)}.pill.cons-avg{color:var(--mut)}.pill.cons-vol{color:var(--warn);border-color:var(--warn)}
+
+details.gsec{position:static;margin:10px 0;border:1px solid var(--line);border-radius:8px;padding:0}details.gsec>summary{padding:8px 12px;background:var(--head);border-radius:8px;display:block}details.gsec[open]>summary{border-bottom:1px solid var(--line);border-radius:8px 8px 0 0}details.gsec>summary::before{content:"▸ ";color:var(--mut)}details.gsec[open]>summary::before{content:"▾ "}details.gsec>*:not(summary){margin:8px 12px}details.gsec small{opacity:.7}

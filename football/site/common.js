@@ -85,8 +85,8 @@ const thinTag = p => isThin(p) ? ` <span class="pill bkp" title="Only ${p.g} gam
 const retTag = p => isRet(p) ? ` <span class="pill bkp" title="A starter who has missed games or left one early lately: his history understates the role he is expected to have back, so no lean is flagged.">returning</span>` : "";
 const depthCol = (tip, inferred) => ({k: "depth", h: "Depth", l: 1, t: tip, v: r => r.depth ? (starterOut(r) ? -1 : (r.depth.st ? 0 : 1) * 100 + r.depth.rank) : 999, f: r => depthPill(r.depth, tip, r.status) + thinTag(r) + shiftTag(r) + retTag(r)});
 
-// A player's name that opens his game on the Game Board (Lines tab): sets the board's game and highlights his row.
-const gbLink = (name, game, id) => `<a href="#Game-Board" class="plink" data-game="${esc(game)}" data-pid="${esc(id)}" title="Open this player's game on the Game Board">${esc(name)}</a>`;
+// A player's name that opens his game on the Game page (Lines tab): sets the board's game and highlights his row.
+const gbLink = (name, game, id) => `<a href="#Game" class="plink" data-game="${esc(game)}" data-pid="${esc(id)}" title="Open this player's game on the Game page">${esc(name)}</a>`;
 document.addEventListener("click", e => {
   const a = e.target.closest?.("a.plink");
   if (a && typeof F !== "undefined") { F.game = a.dataset.game; F.focus = a.dataset.pid; }
@@ -137,7 +137,7 @@ function spark(a) {
   return `<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><polyline points="${pts}" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>`;
 }
 
-// Recent usage beside a player on the Game Board: his main share of the team's work over the last 3 games, the move against the games before, and the weekly line.
+// Recent usage beside a player on the Game page: his main share of the team's work over the last 3 games, the move against the games before, and the weekly line.
 // RB: carries + targets (receptions in college); WR/TE and everyone else with targets: target share (reception share in college). Display only.
 const USAGE_TIP = "Share of the team's work, last 3 games, and the move in points against the games before (green/red at 5+). RB: carries + targets (college: carries + receptions). WR/TE: target share (college: reception share). The line is week by week. Display only: usage trends have not improved the projections.";
 function usageCell(u, college) {
