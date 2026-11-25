@@ -99,7 +99,7 @@ id,season,week,home,away,home_spread,total,n_spread,n_total,open_spread,open_tot
 401868310,2026,7,Nicholls,Stephen F. Austin,22.5,50.5,1,1,21.5,49.5
 401858317,2026,13,Virginia Tech,Virginia,-3.0,50.75,2,2,-2.25,52.75
 401856764,2026,13,Clemson,South Carolina,6.0,41.75,2,2,3.75,47.25
-401856873,2026,13,Arizona,Arizona State,-8.5,53.5,2,2,-6.0,53.25
+401856873,2026,13,Arizona,Arizona State,-8.25,53.5,2,2,-6.0,53.25
 401868105,2026,7,Weber State,Idaho State,4.5,63.5,1,1,7.0,63.5
 401866616,2026,1,UAlbany,New Hampshire,10.0,46.5,1,1,11.5,45.5
 401862844,2026,15,Army,Navy,2.5,37.5,1,1,2.5,37.5
@@ -128,7 +128,6 @@ id,season,week,home,away,home_spread,total,n_spread,n_total,open_spread,open_tot
 401858302,2026,12,Miami,Virginia Tech,-21.5,62.25,2,2,-18.5,58.75
 401858291,2026,10,Notre Dame,Miami,-7.25,54.5,2,2,-6.0,56.0
 401856759,2026,13,Florida State,Florida,6.0,53.5,2,2,5.0,52.5
-401856765,2026,13,Vanderbilt,Tennessee,13.5,43.25,2,2,7.25,50.25
 401858307,2026,12,Notre Dame,SMU,-20.5,55.75,2,2,-19.0,56.75
 401856762,2026,13,Ole Miss,Mississippi State,-18.75,56.25,2,2,-16.75,56.5
 401864528,2026,8,Nevada,San José State,-5.75,46.25,2,2,-5.25,45.75
@@ -141,10 +140,11 @@ id,season,week,home,away,home_spread,total,n_spread,n_total,open_spread,open_tot
 401866667,2026,7,Campbell,Towson,-11.5,56.5,1,1,-12.5,62.5
 401867968,2026,7,Tennessee State,Morgan State,6.0,50.5,1,1,5.5,51.5
 401856887,2026,11,Oklahoma,Ole Miss,-2.5,48.5,2,2,-3.0,51.5
+401856765,2026,13,Vanderbilt,Tennessee,13.5,42.75,2,2,7.25,50.25
 401858490,2026,7,Michigan,Penn State,-6.0,43.25,2,2,-6.25,47.0
 401858492,2026,7,Oregon,Nebraska,-6.75,51.0,2,2,-14.0,52.0
 401858509,2026,9,USC,Ohio State,6.25,50.75,2,2,7.25,52.75
-401858543,2026,13,UCLA,USC,7.0,45.5,2,2,8.75,50.75
+401858543,2026,13,UCLA,USC,6.75,45.5,2,2,8.75,50.75
 401856719,2026,7,Georgia,Auburn,-19.5,50.25,2,2,-17.5,51.5
 401856849,2026,10,Utah,BYU,-4.25,49.25,2,2,-4.0,49.5
 401858280,2026,9,Florida State,Clemson,-5.5,50.0,2,2,-3.75,50.5
@@ -1527,8 +1527,8 @@ id,season,week,home,away,home_spread,total,n_spread,n_total,open_spread,open_tot
 401871063,2026,13,Missouri State,Liberty,17.75,53.25,2,2,15.0,51.75
 401862840,2026,13,UTSA,Tulsa,-1.25,58.25,2,2,-2.0,58.5
 401868092,2026,12,Eastern Washington,Portland State,-7.0,63.5,1,1,-7.5,62.5
+401862838,2026,13,Memphis,Temple,-17.75,66.25,2,2,-17.25,64.5
 401864546,2026,13,New Mexico,Air Force,-6.5,42.25,2,2,-6.75,41.5
-401862838,2026,13,Memphis,Temple,-17.5,66.5,2,2,-17.25,64.5
 401868128,2026,12,Northern Arizona,Northern Colorado,-13.5,53.5,1,1,-13.5,53.5
 401869947,2026,13,James Madison,Coastal Carolina,-17.25,54.5,2,2,-14.5,55.75
 401862837,2026,13,East Carolina,Florida Atlantic,-1.25,57.75,2,2,-2.25,55.5
