@@ -164,3 +164,10 @@ The Team comparison also shows **Allowed by position**: each defence's per-minut
 * **Unit strength** (Matchups > Team comparison): fantasy points per 48 minutes produced by each team's guards, forwards and centers, ranked in thirds across the league (units seen for few minutes are pulled toward the league average first). Built in `pipeline/team_stats.py`.
 * **Consistency tag** (Game, Projections and Trends): `pipeline/consistency.py` writes `site/data/consistency.json`. Over a player's last 20 games of 12+ minutes (8 needed), the spread of fantasy points (and points, rebounds, assists) is compared with players at a similar level: Steady / Average / Volatile = bottom / middle / top third. Volatile players are tagged Spiky, Dud-prone or Boom/bust from the share of games at 1.3x or 0.7x his own median. The bars are his last 10 games. A first look (Nov 21): the spread repeats only modestly (odd vs even games r 0.49, earlier vs later r 0.36 on 471 players), and out of sample, volatile players' misses against our projection were larger relative to the projection (about 40% vs 32% for Steady) but not larger in fantasy points. It describes recent games; it is not a forecast.
 
+### Projected starters (Game page)
+
+`pipeline/lineups.py` writes `site/data/lineups.json`: for each team, the players with the most starts in its last 10 games (ties by minutes), from the starter flags in `data/raw/stints.csv.gz`. There is no public pregame lineup
+feed, so this is inferred, like the college side of the football site, not announced. The Game page shows a "Projected starters" strip above each team's player table (start counts as `9/10`, a ★ beside the name in the table,
+an amber chip for a Day-To-Day starter) and walks the list skipping anyone the injury report lists Out, so the next man up takes the spot; regular starters who are out are named. Backtest on 2,678 team-games: with the
+absences known beforehand it names 4.3 of the 5 starters on average (4 or 5 right 90% of the time, exactly right 46%); without that knowledge 3.8 of 5. Coaches' changes are the usual miss. Display only; it does not feed the projections.
+

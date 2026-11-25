@@ -318,6 +318,27 @@ function unitBrief(team) {
   return `<b>${esc(team)}</b> ${["G", "F", "C"].map(p => mk(p, {G: "guards", F: "forwards", C: "centers"}[p])).join(" ")}`;
 }
 
+// ---------- projected starters, inferred from who has been starting (display only) ----------------------------------------------------
+// The five players with the most starts in the team's last games (data/lineups.json), skipping anyone the injury report lists Out tonight (the next man up takes the spot); Day-To-Day starters are flagged.
+function startersFor(team) {
+  const L = D.lineups?.teams?.[team]; if (!L) return null;
+  const tonight = Object.fromEntries(D.projections.filter(p => p.team === team).map(p => [p.pid, p])), five = [], out = [];
+  for (const c of L.players) {
+    const p = tonight[c.pid]; if (!p) continue;                         // not on tonight's roster
+    if (five.length < 5) { if (p.out || p.status === "Out") { out.push(c); continue; } five.push({...c, status: p.status || ""}); }
+    else if ((p.out || p.status === "Out") && c.s >= 3) out.push(c);
+  }
+  const replaced = out.filter(c => c.s >= 3 && L.players.indexOf(c) < 7);        // a regular starter who is out
+  return {five, out: replaced, games: L.games};
+}
+function startersStrip(team) {
+  const S = startersFor(team); if (!S || !S.five.length) return "";
+  const acc = D.lineups?.acc?.absences_known, chip = c => `<span class="pill ${c.status === "Day-To-Day" ? "hot" : ""}" title="${esc(c.name)}: started ${c.s} of his last ${c.gp} games (${num(c.mpg)} min a game)${c.status === "Day-To-Day" ? "; listed Day-To-Day, check before tip" : ""}">★ ${esc(c.name)} <span class="mut">${esc(c.pos)} ${c.s}/${c.gp}</span></span>`;
+  const outTxt = S.out.length ? ` <span class="bad">Out: ${S.out.map(c => `${esc(c.name)} (${c.s}/${c.gp} starts)`).join(", ")}</span>` : "";
+  return `<p class="sub" title="Inferred, not announced. ${acc ? `Backtest on ${D.lineups.acc.team_games} team-games: with the injury report's absences known it names ${num(acc.avg_right, 1)} of the 5 starters on average (${Math.round(acc.four_plus * 100)}% of the time 4 or 5, ${Math.round(acc.exact * 100)}% exactly right). ` : ""}Coaches' changes are the usual miss.">Projected starters <span class="mut">(last ${S.games} games' starts; inferred, not announced)</span>: ${S.five.map(chip).join(" ")}${outTxt}</p>`;
+}
+const isStarter = (team, pid) => !!startersFor(team)?.five.some(c => c.pid === pid);
+
 // ---------- team comparison: each side's stats and what they allow, per game (display only) -------------------------------------
 function teamCompare(o = {}) {
   const T = D.team_stats;
@@ -680,7 +701,8 @@ const pages = {
     const [home, away] = (F.game || "|").split("|");
     const mk = t => {
       const rows = proj().filter(p => p.team === t);
-      const cols = [{k: "name", h: "Player", l: 1, f: r => esc(r.name) + ` <span class="mut">${esc(r.pos)}</span> ` + statusPill(r.status), v: r => r.name},
+      const SS = new Set((startersFor(t)?.five || []).map(c => c.pid));
+      const cols = [{k: "name", h: "Player", l: 1, f: r => (SS.has(r.pid) ? `<span class="star" title="Projected starter">★</span> ` : "") + esc(r.name) + ` <span class="mut">${esc(r.pos)}</span> ` + statusPill(r.status), v: r => r.name},
         {k: "cmin", h: "Min", v: r => r.c.min, f: r => num(r.c.min)},
         ...["pts", "reb", "ast", "fg3m"].map(s => ({k: "c" + s, h: LABEL[s], t: "Projection [posted line]. Line = sportsbook consensus, else PrizePicks. Green O / orange U = the model is past your edge threshold (Config) on that side; hover for each book's line.",
           v: r => cellVal(r, s), f: r => boardCell(r, s)})),
@@ -690,7 +712,7 @@ const pages = {
         {k: "cvs", h: "Opp vs pos", c: "opt", l: 1, t: "Where the opposing defence ranks against his position (guards / forwards / centers) on that stat: ▲ = among the softest 10 of 30, ▼ = among the toughest 10; the number is the rank. Grey = split-half reliability under 0.2 (mostly noise). Display only: it is not in the projections.", v: r => { const x = vsRank[r.opp]?.[r.pos + "_pts"]; return x ? x.rank : 99; }, f: vsCell},
         {k: "csp", h: "Over proj vs this D", c: "opt", l: 1, t: "Games he beat his own pregame projection against defences like tonight's: ▲ = opponent is among the softest 10 for that stat, ▼ = among the toughest 10; over / games, since 2024-25. Grey = under 5 games. Display only: a 2024-25 / 2025-26 test found this record does not predict his next game.", f: splitCell}];
       const st = (D.absence?.stars?.[t] || []).map(x => `${esc(x.name)} (${num(x.min)} min)`).join(", ");
-      return `<div><h3>${esc(t)} ${t === home ? "(home)" : "(away)"}</h3>${st ? `<p class="sub">Rotation out: ${st}</p>` : ""}${table(cols, rows, {id: "gb" + t, tight: true, sort: {key: "cfp"}, rowClass: r => r.c.min === 0 ? "out" : ""})}</div>`;
+      return `<div><h3>${esc(t)} ${t === home ? "(home)" : "(away)"}</h3>${startersStrip(t)}${st ? `<p class="sub">Rotation out: ${st}</p>` : ""}${table(cols, rows, {id: "gb" + t, tight: true, sort: {key: "cfp"}, rowClass: r => r.c.min === 0 ? "out" : ""})}</div>`;
     };
     const h0 = D.projections.find(p => p.team === home && p.exp_margin != null);
     const env = h0 ? ` Expected margin ${esc(home)} ${h0.exp_margin >= 0 ? "+" : ""}${num(h0.exp_margin)} (from each team's average point differential, a stand-in for the spread); pace ${h0.pace_f >= 1 ? "+" : ""}${num((h0.pace_f - 1) * 100)}% vs league.` : "";
@@ -1123,7 +1145,7 @@ async function boot() {
   const saved = store.get("cfg", {}); if (saved.ver !== 2 && saved.preset === "DraftKings") { delete saved.preset; delete saved.scoring; }   // default scoring changed to PrizePicks; keep other saved settings
   if (saved.ppBE === 57.7) delete saved.ppBE;                                   // break-even default changed to 54.4% (Oct 29): drop the old default from saved settings, keep any other value
   CFG = {...CFG, ...saved}; OVR = store.get("ovr", {}); LINES = store.get("lines", []);
-  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "shots", "shotchart", "scorecard", "spread", "lines", "players", "splits", "calib", "highlights", "absence", "picks", "team_stats", "consistency"];
+  const names = ["projections", "matchups", "efficiency", "usage", "trends", "coverage", "meta", "tiers", "shots", "shotchart", "scorecard", "spread", "lines", "players", "splits", "calib", "highlights", "absence", "picks", "team_stats", "consistency", "lineups"];
   await Promise.all(names.map(async n => { try { const r = await fetch(`data/${n}.json`, {cache: "no-cache"}); if (r.ok) D[n] = await r.json(); } catch (e) {} }));
   try { const r = await fetch("data/results/index.json", {cache: "no-cache"}); if (r.ok) D.rIdx = await r.json(); } catch (e) {}
   try { const r = await fetch("data/results_rehearsal/index.json", {cache: "no-cache"}); if (r.ok) D.rIdxR = await r.json(); } catch (e) {}
