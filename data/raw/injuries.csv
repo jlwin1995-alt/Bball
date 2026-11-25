@@ -6,10 +6,10 @@ pid,name,team,status,note,ts
 5105571,Henri Veesaar,ATL,Out,"Veesaar was diagnosed with a torn right ACL and is expected to miss the 2026-27 season, the Hawks announced Monday.",2026-09-21T19:50Z
 4351852,Mitchell Robinson,BOS,Out,"Robinson (illness) is out for Tuesday's game against Washington, Taylor Snow of the Celtics' official site reports.",2026-11-23T21:09Z
 5279130,Nolan Traore,BKN,Out,"Traore will be re-evaluated in approximately 8-10 weeks due to a right hamstring strain, Michael Scotto of HoopsHype.com reports.",2026-11-23T15:22Z
-4576060,Ryan Kalkbrenner,CHA,Day-To-Day,Kalkbrenner (hip) is doubtful to play Wednesday against the Bulls.,2026-11-24T22:33Z
+4576060,Ryan Kalkbrenner,CHA,Out,Kalkbrenner (hip) has been ruled out for Wednesday's matchup with Chicago.,2026-11-25T17:41Z
+3135045,Grayson Allen,CHA,Out,Allen (concussion) has been ruled out for Wednesday's game against Chicago.,2026-11-25T17:39Z
 3032979,Dennis Schroder,CHA,Out,Schroder (hamstring) is out for Wednesday's game the Bulls.,2026-11-24T22:32Z
 4602025,Sion James,CHA,Day-To-Day,James is probable for Wednesday's game against the Bulls due to general soreness.,2026-11-24T22:30Z
-3135045,Grayson Allen,CHA,Out,Allen (concussion) is listed as questionable for Wednesday's game versus Chicago.,2026-11-24T22:29Z
 5061575,Kon Knueppel,CHA,Out,Knueppel (hamstring) was diagnosed with a left hamstring strain Sunday and will be re-evaluated in four weeks.,2026-11-08T22:31Z
 4397189,Jalen Smith,CHI,Day-To-Day,Smith (illness) is listed as questionable for Wednesday's game against the Hornets.,2026-11-24T18:21Z
 2595516,Norman Powell,CHI,Out,Powell has been diagnosed with a mild right hamstring strain and will be re-evaluated later this week.,2026-11-22T15:25Z
@@ -20,7 +20,7 @@ pid,name,team,status,note,ts
 4683688,Dereck Lively II,DAL,Out,"Head coach Dusty May said Friday that Lively (foot) is moving well and progressing in his recovery, and the big man told May he's ""close"" to returning, Mike Curtis of The Dallas Morning News reports.",2026-11-20T19:31Z
 5279129,Sergio de Larrea,DAL,Out,De Larrea (knee) is listed as out for Wednesday's game against the Warriors.,2026-11-17T22:53Z
 5148538,Tarik Biberovic,DAL,Out,Biberovic (heel) is out for Wednesday's game against the Warriors.,2026-11-17T22:42Z
-4432166,Cade Cunningham,DET,Out,Cunningham (knee) is listed as out for Tuesday's game against Orlando.,2026-11-24T23:36Z
+4432166,Cade Cunningham,DET,Day-To-Day,Cunningham (knee) is listed as out for Tuesday's game against Orlando.,2026-11-25T19:00Z
 5258459,Ebuka Okorie,DET,Out,"The Pistons announced Tuesday that Okorie (oblique) will miss at least two weeks, per Eric Vincent of ClutchPoints.com.",2026-11-24T18:37Z
 2990962,Taurean Prince,DET,Out,"Prince underwent arthroscopic right knee surgery Nov. 18 and will be re-evaluated in four weeks, Eric Vincent of ClutchPoints.com reports.",2026-11-24T18:33Z
 3157465,Duncan Robinson,DET,Out,"Robinson (quadriceps) is considered day-to-day as he progresses in his rehab, Eric Vincent of ClutchPoints.com reports.",2026-11-24T18:30Z
@@ -48,14 +48,16 @@ pid,name,team,status,note,ts
 3934673,Donte DiVincenzo,MIN,Out,"DiVincenzo (Achilles) has been cleared for team basketball activities and is targeting a return to game action in January, Jon Krawczynski of The Athletic reports.",2026-11-24T17:10Z
 4432247,Jaylen Clark,MIN,Out,Clark (hamstring) has been ruled out for the next two weeks.,2026-11-15T22:40Z
 4594268,Anthony Edwards,MIN,Out,"Edwards underwent a successful arthroscopic procedure on his right knee Thursday, the Timberwolves announced.",2026-10-29T18:33Z
+4683742,Julian Reese,NO,Day-To-Day,"The Pelicans transferred Reese from the G League's Laketown Squadron, and he will be available for New Orleans' game against the Warriors on Monday.",2026-11-25T16:11Z
 4431675,Trendon Watford,NO,Out,Watford (ankle) is out for Saturday's game against the Spurs.,2026-11-21T18:21Z
 4683634,Bennedict Mathurin,NO,Out,Mathurin (foot) has been ruled out for Friday's game against the Thunder.,2026-11-19T21:07Z
 3907497,Dejounte Murray,NO,Out,Murray (ankle) is out for Friday's game against Memphis.,2026-11-13T20:19Z
-4431823,Miles McBride,NY,Day-To-Day,McBride (adductor) is listed as questionable for Wednesday's game versus Cleveland.,2026-11-24T21:56Z
+3062679,Josh Hart,NY,Day-To-Day,Hart (shoulder) has been upgraded to probable for Wednesday's game against the Cavaliers.,2026-11-25T17:57Z
+4431823,Miles McBride,NY,Out,McBride (adductor) has been ruled out for Wednesday's game against the Cavaliers.,2026-11-25T17:57Z
+3136195,Karl-Anthony Towns,NY,Day-To-Day,Towns (knee) is probable for Wednesday's game against Cleveland.,2026-11-25T17:54Z
+3934672,Jalen Brunson,NY,Day-To-Day,Brunson (illness) has been downgraded to questionable for Wednesday's game against the Cavaliers.,2026-11-25T17:53Z
 2528426,Jordan Clarkson,NY,Out,Clarkson (foot) is out for Wednesday's game against Cleveland.,2026-11-24T21:56Z
-3062679,Josh Hart,NY,Day-To-Day,Hart (shoulder) is listed as questionable for Wednesday's game against Cleveland.,2026-11-24T21:54Z
 3934719,OG Anunoby,NY,Out,Anunoby (calf) is out for Wednesday's game against Cleveland.,2026-11-24T21:53Z
-3136195,Karl-Anthony Towns,NY,Day-To-Day,Towns (knee) is questionable for Wednesday's game against Cleveland.,2026-11-24T21:50Z
 5159925,Nikola Topic,OKC,Out,Topic (hip) is listed as out for Wednesday's game versus Minnesota.,2026-11-24T23:29Z
 4432823,Jaylin Williams,OKC,Out,Williams (back) is listed as out for Wednesday's game against Minnesota.,2026-11-24T23:24Z
 5174983,Aday Mara,OKC,Out,Mara (leg) is out for Wednesday's game versus the Timberwolves.,2026-11-24T23:19Z
@@ -74,7 +76,7 @@ pid,name,team,status,note,ts
 4578893,Vit Krejci,POR,Out,"Krejci underwent surgery on his fractured left ankle Wednesday and will be re-evaluated in eight weeks, Brett Siegel of ClutchPoints.com reports.",2026-11-11T19:56Z
 4279888,Ja Morant,POR,Out,"Head coach Micah Nori said Morant met with a doctor in Los Angeles, who gave him a positive outlook on his recovery from the hamstring injury. While Nori declined to update Morant's timetable, he added Morant ""may not be out for as long as we thought,"" Trail Blazers Insider Sean Highkin reports.",2026-11-08T02:18Z
 4914336,Shaedon Sharpe,POR,Out,"Sharpe suffered a torn meniscus in his knee and is expected to miss six months, per Shams Charania of ESPN.",2026-08-24T20:23Z
-4898371,Maxime Raynaud,SAC,Out,Raynaud (knee) is out for Wednesday's game against the Warriors.,2026-11-25T04:21Z
+4898371,Maxime Raynaud,SAC,Out,"Raynaud (knee) was assigned to the G League's Stockton Kings on Wednesday, James Ham of ESPN 1320 Sacramento reports.",2026-11-25T16:25Z
 3907387,Ben Simmons,SAC,Out,"Simmons underwent successful surgery Tuesday to repair a torn right Achilles tendon, James Ham of ESPN 1320 Sacramento reports.",2026-10-21T04:22Z
 4066259,De'Aaron Fox,SA,Day-To-Day,Fox (shin) is questionable to play Wednesday's game against the Trail Blazers.,2026-11-25T01:27Z
 5104157,Victor Wembanyama,SA,Day-To-Day,Wembanyama (back) is questionable for Wednesday's game in Portland.,2026-11-25T01:23Z
