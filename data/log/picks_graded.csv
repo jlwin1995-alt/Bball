@@ -539,3 +539,29 @@ date,pid,name,team,stat,rule,first_side,first_line,last_side,last_line,last_pw,l
 2026-11-23,3945274,Luka Doncic,LAL,pr,R3,O,41.5,O,41.5,0.6047,1,36.8,True,32.0,False,0.0,0.0,0.0
 2026-11-23,4278580,Sandro Mamukelashvili,LAL,pra,R3,O,15.5,O,15.5,0.5857,1,21.4,True,8.0,False,0.0,0.0,0.0
 2026-11-23,3064440,Zach LaVine,SAC,pa,R3,U,19.5,U,19.5,0.5979,0,33.2,True,20.0,False,0.0,0.0,0.0
+2026-11-24,4066320,Desmond Bane,ORL,ra,R2,O,6.5,O,6.5,0.6265,1,34.2,True,6.0,False,0.0,0.0,0.0
+2026-11-24,4066372,Kevin Huerter,DET,pr,R3,U,15.5,O,14.5,0.5251,3,30.3,False,19.0,False,1.0,0.0,
+2026-11-24,4065648,Jayson Tatum,BOS,pa,R3,U,33.5,U,32.5,0.5068,0,35.5,False,49.0,False,0.0,0.0,1.0
+2026-11-24,4065648,Jayson Tatum,BOS,pra,R3,O,40.5,O,40.5,0.5188,0,35.5,False,55.0,False,1.0,1.0,0.0
+2026-11-24,4066354,Payton Pritchard,BOS,pra,R3,U,20.5,O,20.5,0.5904,0,29.6,False,20.0,False,0.0,1.0,
+2026-11-24,4431767,Christian Braun,DEN,pts,R3,U,13.5,O,12.5,0.5244,0,32.5,False,15.0,False,1.0,0.0,
+2026-11-24,5041939,Cooper Flagg,DAL,ast,R1,U,6.5,U,6.5,0.6881,0,32.8,True,12.0,False,0.0,0.0,0.0
+2026-11-24,5041939,Cooper Flagg,DAL,pa,R1,U,30.5,U,31.5,0.7345,0,32.8,True,36.0,False,0.0,0.0,-1.0
+2026-11-24,5041939,Cooper Flagg,DAL,pr,R3,O,29.5,U,31.5,0.6993,0,32.8,False,30.0,False,1.0,1.0,
+2026-11-24,5041939,Cooper Flagg,DAL,pra,R1,U,36.5,U,37.5,0.7164,0,32.8,True,42.0,False,0.0,0.0,-1.0
+2026-11-24,4278078,P.J. Washington,DAL,pra,R3,O,18.5,U,18.5,0.5616,0,25.1,False,20.0,False,0.0,1.0,
+2026-11-24,5107199,Daniss Jenkins,DET,pts,R3,U,15.5,U,15.5,0.6345,3,30.7,True,15.0,False,1.0,1.0,0.0
+2026-11-24,4066320,Desmond Bane,ORL,pra,R2,O,23.5,O,23.5,0.6004,1,34.2,True,27.0,False,1.0,1.0,0.0
+2026-11-24,4432165,Jalen Suggs,ORL,fg3m,R2,O,1.5,O,1.5,0.6089,1,26.8,True,0.0,False,0.0,0.0,0.0
+2026-11-24,4432165,Jalen Suggs,ORL,pts,R3,U,11.5,U,11.5,0.5242,1,26.8,True,4.0,False,1.0,1.0,0.0
+2026-11-24,4702382,Tristan da Silva,ORL,pr,R3,U,14.5,U,14.5,0.5879,1,26.4,True,19.0,False,0.0,0.0,0.0
+2026-11-24,4277847,Wendell Carter Jr.,ORL,pr,R3,U,19.5,U,19.5,0.6164,1,29.6,True,22.0,False,0.0,0.0,0.0
+2026-11-24,4397424,Neemias Queta,BOS,pr,R3,U,20.5,U,20.5,0.6286,0,24.6,True,26.0,False,0.0,0.0,0.0
+2026-11-24,4251,Paul George,BOS,pr,R3,U,24.5,U,24.5,0.5465,0,30.7,True,32.0,False,0.0,0.0,0.0
+2026-11-24,4251,Paul George,BOS,pra,R3,U,28.5,U,28.5,0.5548,0,30.7,True,41.0,False,0.0,0.0,0.0
+2026-11-24,4277905,Trae Young,WSH,ast,R2,O,7.5,O,7.5,0.6261,1,31.7,True,12.0,False,1.0,1.0,0.0
+2026-11-24,3064290,Aaron Gordon,DEN,pr,R3,U,19.5,U,19.5,0.523,0,29.0,True,4.0,False,1.0,1.0,0.0
+2026-11-24,3138160,Caleb Martin,DAL,pra,R3,O,11.5,O,11.5,0.5101,0,22.8,True,21.0,False,1.0,1.0,0.0
+2026-11-24,5041939,Cooper Flagg,DAL,pr,R1,U,31.5,U,31.5,0.6993,0,32.8,True,30.0,False,1.0,1.0,0.0
+2026-11-24,5041939,Cooper Flagg,DAL,pts,R1,U,24.5,U,24.5,0.6725,0,32.8,True,24.0,False,1.0,1.0,0.0
+2026-11-24,4278049,Daniel Gafford,DAL,pa,R3,U,11.5,U,11.5,0.5603,0,22.4,True,16.0,False,0.0,0.0,0.0
