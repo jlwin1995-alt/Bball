@@ -514,3 +514,180 @@ asof,pid,name,stat,flag,n,vs_league,z
 11,00-0032464,Kalif Raymond,pts,under,7,-3.666,-1.515
 11,00-0041523,Caleb Douglas,pts,over,4,4.644,1.514
 11,00-0039851,Drake Maye,pts,over,7,5.835,1.504
+12,00-0039032,Tyjae Spears,rushY,under,4,-17.926,-11.848
+12,00-0041529,Kevin Coleman Jr.,recY,under,4,-19.948,-10.139
+12,00-0040734,TreVeyon Henderson,pts,under,5,-3.772,-8.537
+12,00-0039032,Tyjae Spears,recY,under,4,-17.959,-8.258
+12,00-0039732,Bo Nix,rushY,under,7,-11.784,-7.657
+12,00-0038597,Chase Brown,car,under,8,-5.942,-7.508
+12,00-0039163,C.J. Stroud,rushY,under,5,-8.904,-6.434
+12,00-0040590,Konata Mumpfield,pts,under,4,-3.853,-6.269
+12,00-0033293,Aaron Jones,tgt,under,5,-1.767,-6.119
+12,00-0036442,Joe Burrow,rushY,under,8,-7.754,-5.687
+12,00-0040590,Konata Mumpfield,recY,under,4,-18.001,-5.517
+12,00-0040122,Ashton Jeanty,car,under,9,-6.806,-4.899
+12,00-0036040,Juwan Johnson,tgt,under,6,-2.314,-4.884
+12,00-0039811,MarShawn Lloyd,rushY,under,8,-15.299,-4.605
+12,00-0040584,Gunnar Helm,recY,under,5,-16.693,-4.482
+12,00-0039299,George Holani,rushY,under,7,-10.319,-4.368
+12,00-0035710,Daniel Jones,pts,under,9,-4.563,-4.216
+12,00-0036971,Trevor Lawrence,rushY,under,5,-9.84,-4.179
+12,00-0036244,Colby Parkinson,recY,under,5,-13.613,-4.077
+12,00-0036322,Justin Jefferson,tgt,over,6,3.12,3.687
+12,00-0040584,Gunnar Helm,pts,under,5,-3.769,-3.636
+12,00-0036309,Darnell Mooney,pts,under,6,-3.264,-3.53
+12,00-0032951,Laquon Treadwell,pts,under,6,-3.096,-3.502
+12,00-0039918,Caleb Williams,rushY,under,5,-15.826,-3.45
+12,00-0040237,Tez Johnson,recY,under,4,-14.433,-3.45
+12,00-0039067,Rashee Rice,rec,over,5,2.304,3.405
+12,00-0040734,TreVeyon Henderson,rushY,under,5,-20.573,-3.385
+12,00-0034857,Josh Allen,car,under,8,-2.98,-3.335
+12,00-0034869,Sam Darnold,pts,under,5,-3.815,-3.331
+12,00-0040785,Dohnte Meyers,tgt,under,6,-1.014,-3.322
+12,00-0033921,Chris Godwin Jr.,recY,under,7,-15.575,-3.28
+12,00-0033077,Dak Prescott,rushY,under,5,-7.495,-3.275
+12,00-0039893,Brian Thomas Jr.,recY,under,7,-19.547,-3.269
+12,00-0041496,Jonah Coleman,car,over,4,8.058,3.189
+12,00-0041529,Kevin Coleman Jr.,rec,under,4,-1.236,-3.163
+12,00-0041048,Ted Hurst III,rec,under,6,-1.523,-3.15
+12,00-0037248,James Cook,recY,under,6,-11.377,-3.121
+12,00-0040715,Cam Skattebo,recY,under,4,-10.25,-3.095
+12,00-0040198,Ollie Gordon II,rushY,over,8,27.359,3.083
+12,00-0038129,Cade Otton,pts,under,6,-3.885,-3.063
+12,00-0039811,MarShawn Lloyd,car,under,8,-3.13,-3.034
+12,00-0037525,Jordan Mason,pts,under,5,-3.157,-3.017
+12,00-0039910,Jayden Daniels,passY,over,6,51.155,2.992
+12,00-0036442,Joe Burrow,pts,over,8,6.818,2.972
+12,00-0041496,Jonah Coleman,pts,over,4,12.286,2.906
+12,00-0040122,Ashton Jeanty,rushY,under,9,-25.57,-2.902
+12,00-0038597,Chase Brown,rushY,under,8,-23.344,-2.874
+12,00-0038041,Jake Ferguson,recY,under,5,-11.94,-2.862
+12,00-0041496,Jonah Coleman,rushY,over,4,35.213,2.856
+12,00-0034383,Dalton Schultz,rec,under,8,-1.77,-2.856
+12,00-0033119,Jacoby Brissett,rushY,under,8,-7.154,-2.795
+12,00-0041048,Ted Hurst III,recY,under,6,-18.109,-2.777
+12,00-0034383,Dalton Schultz,pts,under,8,-4.172,-2.765
+12,00-0039021,Roschon Johnson,rec,under,4,-1.254,-2.717
+12,00-0036900,Ja'Marr Chase,tgt,over,6,3.903,2.68
+12,00-0034383,Dalton Schultz,recY,under,8,-20.332,-2.676
+12,00-0039163,C.J. Stroud,att,under,8,-4.931,-2.658
+12,00-0033873,Patrick Mahomes,rushY,under,7,-7.921,-2.634
+12,00-0039738,Blake Corum,pts,over,10,5.582,2.625
+12,00-0040134,Pat Bryant,recY,over,4,17.199,2.623
+12,00-0039065,Sam LaPorta,tgt,under,6,-2.047,-2.618
+12,00-0039893,Brian Thomas Jr.,rec,under,7,-1.348,-2.599
+12,00-0036275,D'Andre Swift,recY,under,8,-10.198,-2.539
+12,00-0039451,Isaiah Williams,rec,under,4,-1.147,-2.53
+12,00-0038134,Kenneth Walker III,car,under,6,-3.034,-2.52
+12,00-0037809,Chig Okonkwo,tgt,over,6,1.72,2.469
+12,00-0036223,Jonathan Taylor,pts,under,9,-5.297,-2.467
+12,00-0032464,Kalif Raymond,recY,under,8,-22.637,-2.463
+12,00-0032464,Kalif Raymond,rec,under,8,-1.481,-2.446
+12,00-0041048,Ted Hurst III,pts,under,6,-3.636,-2.399
+12,00-0037291,Jalen Nailor,tgt,over,5,0.453,2.387
+12,00-0036970,Kyle Pitts,tgt,over,6,1.336,2.384
+12,00-0031408,Mike Evans,recY,over,5,32.812,2.355
+12,00-0033906,Alvin Kamara,car,under,8,-1.98,-2.342
+12,00-0041438,Carnell Tate,tgt,under,4,-1.822,-2.341
+12,00-0037263,Tyler Allgeier,tgt,under,5,-1.167,-2.328
+12,00-0040590,Konata Mumpfield,rec,under,4,-0.891,-2.321
+12,00-0036223,Jonathan Taylor,car,under,9,-3.139,-2.293
+12,00-0039361,Bucky Irving,car,over,7,3.54,2.291
+12,00-0039150,Bryce Young,pts,under,8,-4.793,-2.287
+12,00-0034975,Justice Hill,rec,over,7,1.109,2.279
+12,00-0036997,Javonte Williams,recY,under,8,-9.163,-2.267
+12,00-0033921,Chris Godwin Jr.,pts,under,7,-2.693,-2.246
+12,00-0039491,Jalen Coker,pts,under,7,-5.913,-2.242
+12,00-0036358,CeeDee Lamb,tgt,over,6,2.82,2.222
+12,00-0038128,Malik Willis,passY,under,6,-52.368,-2.22
+12,00-0041523,Caleb Douglas,tgt,over,5,2.353,2.211
+12,00-0036997,Javonte Williams,car,over,8,3.658,2.203
+12,00-0036900,Ja'Marr Chase,rec,over,8,2.569,2.201
+12,00-0041032,Kenyon Sadiq,tgt,under,7,-0.918,-2.168
+12,00-0040734,TreVeyon Henderson,car,under,5,-4.137,-2.138
+12,00-0037248,James Cook,tgt,under,4,-1.147,-2.136
+12,00-0036555,Chuba Hubbard,rushY,over,8,23.954,2.136
+12,00-0039075,Puka Nacua,rec,over,6,4.067,2.132
+12,00-0040867,Makai Lemon,tgt,over,6,2.22,2.126
+12,00-0036555,Chuba Hubbard,car,over,8,5.595,2.118
+12,00-0038129,Cade Otton,recY,under,6,-15.174,-2.102
+12,00-0040198,Ollie Gordon II,car,over,7,4.612,2.073
+12,00-0039075,Puka Nacua,pts,over,6,9.256,2.072
+12,00-0039893,Brian Thomas Jr.,tgt,under,5,-0.887,-2.048
+12,00-0036963,Amon-Ra St. Brown,tgt,under,6,-1.964,-2.043
+12,00-0037742,Treylon Burks,recY,over,5,23.769,2.041
+12,00-0039794,Braelon Allen,rushY,over,9,28.469,2.023
+12,00-0032764,Derrick Henry,rushY,under,9,-19.954,-2.022
+12,00-0036442,Joe Burrow,passY,over,8,64.365,2.006
+12,00-0040867,Makai Lemon,rec,over,8,1.45,1.959
+12,00-0038544,Quentin Johnston,tgt,under,5,-1.087,-1.957
+12,00-0034975,Justice Hill,tgt,over,4,2.453,1.955
+12,00-0040878,Mike Washington Jr.,pts,under,7,-2.464,-1.946
+12,00-0035261,Tony Pollard,car,over,8,3.445,1.929
+12,00-0033110,Tyler Higbee,tgt,under,7,-0.961,-1.929
+12,00-0037834,Brock Purdy,car,under,6,-2.067,-1.921
+12,00-0038129,Cade Otton,rec,under,6,-1.342,-1.915
+12,00-0037291,Jalen Nailor,recY,under,6,-10.647,-1.904
+12,00-0036555,Chuba Hubbard,pts,over,8,5.407,1.898
+12,00-0039491,Jalen Coker,rec,under,7,-1.769,-1.894
+12,00-0038797,Emanuel Wilson,car,over,5,4.923,1.889
+12,00-0036355,Justin Herbert,passY,under,8,-35.834,-1.888
+12,00-0038120,Breece Hall,rec,over,4,0.526,1.88
+12,00-0040126,Colston Loveland,recY,over,8,14.36,1.875
+12,00-0039299,George Holani,car,under,6,-1.534,-1.873
+12,00-0034857,Josh Allen,pts,under,8,-4.232,-1.868
+12,00-0038393,Dontayvion Wicks,pts,under,4,-3.666,-1.865
+12,00-0039910,Jayden Daniels,att,over,6,3.927,1.858
+12,00-0032464,Kalif Raymond,pts,under,8,-3.914,-1.852
+12,00-0036040,Juwan Johnson,recY,under,8,-14.245,-1.83
+12,00-0036223,Jonathan Taylor,tgt,over,7,0.496,1.82
+12,00-0038046,Charlie Kolar,pts,under,4,-1.658,-1.814
+12,00-0039067,Rashee Rice,recY,over,5,17.655,1.808
+12,00-0040134,Pat Bryant,rec,over,4,0.921,1.806
+12,00-0034383,Dalton Schultz,tgt,under,6,-1.397,-1.803
+12,00-0040134,Pat Bryant,pts,over,4,4.326,1.798
+12,00-0033288,George Kittle,rec,over,8,1.013,1.786
+12,00-0040126,Colston Loveland,rec,over,8,1.433,1.786
+12,00-0036900,Ja'Marr Chase,pts,over,8,7.355,1.782
+12,00-0039361,Bucky Irving,rec,under,7,-1.404,-1.781
+12,00-0033906,Alvin Kamara,rushY,under,8,-8.313,-1.764
+12,00-0031408,Mike Evans,pts,over,5,5.211,1.762
+12,00-0040138,Jaylin Noel,rec,over,5,1.085,1.753
+12,00-0039491,Jalen Coker,recY,under,7,-25.072,-1.752
+12,00-0030565,Geno Smith,att,under,9,-4.223,-1.741
+12,00-0039067,Rashee Rice,pts,over,5,3.427,1.739
+12,00-0039067,Rashee Rice,tgt,over,4,1.103,1.724
+12,00-0033537,Deshaun Watson,pts,under,7,-3.35,-1.719
+12,00-0036900,Ja'Marr Chase,recY,over,8,42.702,1.716
+12,00-0036970,Kyle Pitts,rec,over,8,0.921,1.713
+12,00-0033288,George Kittle,pts,over,8,3.73,1.705
+12,00-0033555,Mack Hollins,pts,over,4,3.044,1.703
+12,00-0039299,George Holani,recY,under,5,-8.394,-1.689
+12,00-0033280,Christian McCaffrey,pts,over,8,5.877,1.684
+12,00-0036309,Darnell Mooney,recY,under,7,-12.385,-1.657
+12,00-0039794,Braelon Allen,car,over,9,3.772,1.649
+12,00-0037840,Kyren Williams,car,over,10,1.323,1.634
+12,00-0041512,Jadarian Price,rushY,under,4,-12.883,-1.633
+12,00-0041048,Ted Hurst III,tgt,under,4,-1.922,-1.629
+12,00-0037256,Rachaad White,car,over,6,1.316,1.627
+12,00-0034827,DJ Moore,tgt,over,4,1.728,1.626
+12,00-0040584,Gunnar Helm,rec,under,5,-1.124,-1.626
+12,00-0039361,Bucky Irving,recY,under,7,-10.565,-1.623
+12,00-0037809,Chig Okonkwo,rec,over,7,1.188,1.622
+12,00-0037240,Jameson Williams,pts,over,8,4.148,1.608
+12,00-0036355,Justin Herbert,att,under,8,-3.681,-1.607
+12,00-0036309,Darnell Mooney,rec,under,7,-0.731,-1.603
+12,00-0032764,Derrick Henry,pts,under,9,-3.726,-1.598
+12,00-0035261,Tony Pollard,rushY,over,8,19.714,1.588
+12,00-0036358,CeeDee Lamb,rec,over,8,2.307,1.582
+12,00-0036963,Amon-Ra St. Brown,pts,under,8,-3.218,-1.576
+12,00-0037247,George Pickens,recY,over,7,20.307,1.564
+12,00-0040669,Isaac TeSlaa,tgt,under,5,-1.147,-1.554
+12,00-0033288,George Kittle,recY,over,8,13.028,1.552
+12,00-0037248,James Cook,pts,over,8,1.936,1.548
+12,00-0038611,Chris Rodriguez Jr.,car,under,7,-1.66,-1.547
+12,00-0036410,Tee Higgins,pts,over,8,6.019,1.535
+12,00-0040122,Ashton Jeanty,recY,over,9,14.203,1.526
+12,00-0033110,Tyler Higbee,pts,under,8,-2.328,-1.524
+12,00-0035644,Noah Fant,recY,under,4,-9.627,-1.52
+12,00-0039851,Drake Maye,pts,over,7,5.861,1.511
