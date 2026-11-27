@@ -415,6 +415,32 @@ def noline_flags(proj, lines_path, rows=None, opp_min=10.0, absent_games=2, abse
     return sum(x["noline"] for x in proj)
 
 
+def qb_promotions(proj, lines_path, manual_teams=()):
+    """A quarterback the books are not pricing on a team they ARE pricing is treated as out (noline_flags); his attempts then need a taker. The taker is the teammate
+    quarterback who has a passing-yards line (several priced: the one projected for the most attempts). -> ({replacement id: note}, {ids treated as out}). Skipped for teams with a manual
+    quarterback override. README 2026-11-27: in weeks 7-12, 20 team-weeks had a QB1 with no line and a priced teammate QB: QB1 threw 15+ passes in 4 (20%), the priced QB in 17
+    (85%); a QB1 with a line threw 15+ in 362 of 396 (91%)."""
+    try:
+        lrows = json.load(open(lines_path))["rows"]
+    except (OSError, ValueError, KeyError):
+        return {}
+    pass_priced = {(r_["team"], r_["id"]) for r_ in lrows if r_["stat"] == "passY"}
+    by_team = {}
+    for x in proj:
+        if x["pos"] == "QB":
+            by_team.setdefault(x["team"], []).append(x)
+    out, gone_ids = {}, set()
+    for team, qbs in by_team.items():
+        if team in manual_teams:
+            continue
+        gone = [q for q in qbs if q["noline"] and q["att"] >= 10]
+        taker = sorted((q for q in qbs if (team, q["id"]) in pass_priced and not q["noline"]), key=lambda q: -q["att"])
+        if gone and taker:
+            gone_ids |= {q["id"] for q in gone}
+            out[taker[0]["id"]] = f"Auto: {gone[0]['name']} has no line while {taker[0]['name']} is priced, so {taker[0]['name']} is promoted to starter and {gone[0]['name']} is treated as out"
+    return out, gone_ids
+
+
 OUT_FILE = "data/log/cfb_out_overrides.csv"
 
 
@@ -478,10 +504,12 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
     meta_in = json.load(open(f"{d}/cfb_meta.json")) if os.path.exists(f"{d}/cfb_meta.json") else {}
     gaps = [w for w in meta_in.get("done", {}) if int(w) < week and meta_in.get("fetched", {}).get(w) != meta_in["done"][w]]
     kick = {t: m["start"] for t, m in s["matchup"].items()}
+    auto_out = set()                                            # quarterbacks treated as out because they have no line and a priced teammate is promoted
+    auto_note = {}                                              # id -> note for a quarterback promoted automatically (no line on the starter, a priced teammate)
     def make_proj(core):
         proj = []
         for pl in core["players"]:
-            if pl["id"] in out_ids:
+            if pl["id"] in out_ids or pl["id"] in auto_out:
                 pl = dict(pl, car=0.0, rec=0.0, att=0.0)           # ruled out (manual override): nothing projected, his volume went to his teammates
             x = derive(pl, W)
             proj.append(dict(id=pl["id"], name=pl["name"], pos=pl["pos"], team=pl["team"], conf=pl["conf"], opp=pl["opp"], site=pl["siteTag"], game=label(pl["team"], pl["opp"], pl["siteTag"]),
@@ -499,9 +527,9 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
         pff_college(raw, season, week, proj)
         for x in proj:
             m_ = manual.get(x["id"])
-            x["out"] = int(x["id"] in out_ids)
-            x["note"] = m_.get("note") if m_ else None
-            x["starter"] = int(bool(m_) and m_.get("status") == "starter")
+            x["out"] = int(x["id"] in out_ids or x["id"] in auto_out)
+            x["note"] = m_.get("note") if m_ else auto_note.get(x["id"]) or ("Auto: no line posted while a teammate quarterback is priced, so he is treated as out" if x["id"] in auto_out else None)
+            x["starter"] = int((bool(m_) and m_.get("status") == "starter") or x["id"] in auto_note)
         return proj
 
     proj = make_proj(core)
@@ -550,6 +578,11 @@ def main(raw="data/raw", out="site/data/cfb", log=True, do_backtest=False, seaso
     if C.CFB_NOLINE_OUT and n_nl:
         # live from week 9: players the books are not pricing on a priced team are treated as out in the team's carry / reception pool (README: teammates' carries MAE -8.6% in weeks 7-8)
         nl_ids = {x["id"] for x in proj if x["noline"]}
+        man_qb_teams = {pl_["team"] for pl_ in core["players"] if pl_["pos"] == "QB" and pl_["id"] in (out_ids | starter_ids)}
+        notes_, gone_ = qb_promotions(proj, f"{out}/lines.json", man_qb_teams)       # a no-line quarterback's attempts go to the priced teammate
+        auto_note.update(notes_)
+        auto_out.update(gone_)
+        starter_ids = starter_ids | set(auto_note)
         proj = make_proj(cfb_core(rows, s["matchup"], s["conf"], dict(P, CFB_OUT_IDS=nl_ids | out_ids, CFB_ABSENT_W=0.0, CFB_STARTER_IDS=starter_ids)))
         noline_flags(proj, f"{out}/lines.json", rows)
         json.dump(proj, open(f"{out}/projections.json", "w"), separators=(",", ":"))
