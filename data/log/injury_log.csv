@@ -954,3 +954,36 @@ snap_ts,slate_date,team,pid,name,status,tag,note_ts,note
 2026-11-26T07:29:18+00:00,2026-11-27,UTAH,3102530,Jusuf Nurkic,Out,stale,2026-11-20T22:40Z,Nurkic (foot) has been cleared for on-court work and will be re-evaluated in one week.
 2026-11-26T07:29:18+00:00,2026-11-27,UTAH,4066336,Lauri Markkanen,Out,stale,2026-11-11T18:22Z,"Markkanen has been diagnosed with a non-displaced fracture in his right hand and will be sidelined for at least one month, Shams Charania of ESPN reports."
 2026-11-26T07:29:18+00:00,2026-11-27,UTAH,4277961,Jaren Jackson Jr.,Out,stale,2026-10-27T19:25Z,"Jackson has been diagnosed with a torn MCL in his right knee and will be sidelined for 6-to-8 weeks, per Shams Charania of ESPN."
+2026-11-27T12:05:41+00:00,2026-11-27,ATL,3146557,Jock Landale,Out,out,2026-11-26T22:44Z,Landale (hip) is out for Friday's game against the Celtics.
+2026-11-27T12:05:41+00:00,2026-11-27,BOS,4351852,Mitchell Robinson,Out,questionable,2026-11-26T19:00Z,Robinson (illness) is questionable for Friday's game against the Hawks.
+2026-11-27T12:05:41+00:00,2026-11-27,BKN,3150844,Moritz Wagner,Out,probable,2026-11-26T21:33Z,Wagner (knee) won't be available for Friday's game against Toronto.
+2026-11-27T12:05:41+00:00,2026-11-27,DAL,5106040,Tobi Lawal,Out,out,2026-11-27T00:01Z,Lawal (groin) is out for Friday's game against the Suns.
+2026-11-27T12:05:41+00:00,2026-11-27,DAL,5279129,Sergio de Larrea,Out,out,2026-11-26T23:59Z,De Larrea (knee) is out for Friday's game against the Suns.
+2026-11-27T12:05:41+00:00,2026-11-27,DAL,4683688,Dereck Lively II,Out,out,2026-11-26T23:56Z,Lively (foot) is out for Friday's game against the Suns.
+2026-11-27T12:05:41+00:00,2026-11-27,DAL,5148538,Tarik Biberovic,Out,out,2026-11-26T23:53Z,Biberovic (heel) is out for Friday's game against the Suns.
+2026-11-27T12:05:41+00:00,2026-11-27,DET,3157465,Duncan Robinson,Out,out,2026-11-26T22:26Z,Robinson (quadriceps) is out for Friday's game against the Bucks.
+2026-11-27T12:05:41+00:00,2026-11-27,DET,4432166,Cade Cunningham,Out,out,2026-11-26T22:25Z,Cunningham (knee) is out for Friday's game against the Bucks.
+2026-11-27T12:05:41+00:00,2026-11-27,DET,4433621,Jalen Duren,Out,out,2026-11-26T15:31Z,Detroit recalled Duren (hamstring) from the G League's Motor City Cruise on Wednesday.
+2026-11-27T12:05:41+00:00,2026-11-27,IND,3133603,Kelly Oubre Jr.,Day-To-Day,questionable,2026-11-27T00:42Z,Oubre is questionable for Friday's game against the 76ers due to a right hand laceration.
+2026-11-27T12:05:41+00:00,2026-11-27,IND,2580365,Larry Nance Jr.,Day-To-Day,questionable,2026-11-26T22:43Z,Nance (ankle) is questionable for Friday's game against the 76ers.
+2026-11-27T12:05:41+00:00,2026-11-27,IND,2530530,T.J. McConnell,Day-To-Day,questionable,2026-11-26T22:29Z,McConnell (hamstring) is questionable for Friday's game against the 76ers.
+2026-11-27T12:05:41+00:00,2026-11-27,LAL,4066457,Austin Reaves,Out,questionable,2026-11-26T23:21Z,Reaves (heel) is questionable for Friday's game against the Spurs.
+2026-11-27T12:05:41+00:00,2026-11-27,MEM,4432810,Isaiah Stewart,Day-To-Day,questionable,2026-11-26T23:27Z,Stewart is questionable for Friday's game against the Timberwolves due to right hip soreness.
+2026-11-27T12:05:41+00:00,2026-11-27,MEM,4600663,Zach Edey,Day-To-Day,questionable,2026-11-26T23:24Z,Edey (ankle) is questionable for Friday's game against the Timberwolves.
+2026-11-27T12:05:41+00:00,2026-11-27,MIA,3032977,Giannis Antetokounmpo,Day-To-Day,probable,2026-11-26T21:15Z,Antetokounmpo is probable for Friday's game against the Knicks due to right groin tendinitis.
+2026-11-27T12:05:41+00:00,2026-11-27,MIA,3059319,Andrew Wiggins,Day-To-Day,probable,2026-11-26T21:08Z,Wiggins is probable for Friday's game against the Knicks due to a right ankle sprain.
+2026-11-27T12:05:41+00:00,2026-11-27,MIN,4432816,LaMelo Ball,Day-To-Day,questionable,2026-11-26T23:14Z,Ball (ankle) is questionable for Friday's game against the Grizzlies.
+2026-11-27T12:05:41+00:00,2026-11-27,NO,4431675,Trendon Watford,Out,probable,2026-11-26T21:22Z,Watford (ankle) is probable for Friday's game against the Clippers.
+2026-11-27T12:05:41+00:00,2026-11-27,NO,4683634,Bennedict Mathurin,Out,doubtful,2026-11-26T21:21Z,Mathurin (foot) is doubtful for Friday's game against the Clippers.
+2026-11-27T12:05:41+00:00,2026-11-27,NY,4431823,Miles McBride,Day-To-Day,questionable,2026-11-26T22:11Z,McBride (groin) is questionable for Friday's game against the Heat.
+2026-11-27T12:05:41+00:00,2026-11-27,NY,2528426,Jordan Clarkson,Out,questionable,2026-11-26T22:03Z,Clarkson (foot) is questionable for Friday's game against the Heat.
+2026-11-27T12:05:41+00:00,2026-11-27,NY,3934719,OG Anunoby,Out,doubtful,2026-11-26T21:57Z,Anunoby (calf) is doubtful for Friday's game against the Heat.
+2026-11-27T12:05:41+00:00,2026-11-27,NY,6585,Andre Drummond,Day-To-Day,questionable,2026-11-26T21:51Z,Drummond (head) is questionable for Friday's game against the Heat.
+2026-11-27T12:05:41+00:00,2026-11-27,PHI,3059318,Joel Embiid,Day-To-Day,questionable,2026-11-26T22:16Z,Embiid (illness) is questionable for Friday's game against the Pacers.
+2026-11-27T12:05:41+00:00,2026-11-27,PHI,3917376,Jaylen Brown,Out,out,2026-11-26T22:13Z,Brown (hamstring) is out for Friday's game against the Pacers.
+2026-11-27T12:05:41+00:00,2026-11-27,POR,4706557,Chris Youngblood,Out,out,2026-11-27T00:56Z,Youngblood (heel) is out for Friday's game against the Warriors.
+2026-11-27T12:05:41+00:00,2026-11-27,SA,5037871,Dylan Harper,Out,questionable,2026-11-26T23:41Z,Harper (hip) is questionable for Friday's game against the Lakers.
+2026-11-27T12:05:41+00:00,2026-11-27,SA,4066259,De'Aaron Fox,Day-To-Day,questionable,2026-11-26T23:35Z,Fox (shin) is questionable for Friday's game against the Lakers.
+2026-11-27T12:05:41+00:00,2026-11-27,TOR,4702656,Alijah Martin,Day-To-Day,questionable,2026-11-26T21:18Z,Martin is questionable for Friday's game against the Nets due to left knee soreness.
+2026-11-27T12:05:41+00:00,2026-11-27,UTAH,4397077,Jaxson Hayes,Day-To-Day,questionable,2026-11-27T00:11Z,Hayes (knee) is questionable for Friday's game against the Nuggets.
+2026-11-27T12:05:41+00:00,2026-11-27,UTAH,3102530,Jusuf Nurkic,Out,questionable,2026-11-27T00:08Z,Nurkic (foot) is questionable for Friday's game against the Nuggets.
