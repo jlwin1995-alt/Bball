@@ -1,64 +1,64 @@
 {
  "version": "v1",
- "graded_through": "2026-11-25",
+ "graded_through": "2026-11-27",
  "break_even": 0.544,
  "rules": {
   "R1": {
    "name": "under_solo",
-   "legs": 97,
-   "hit": 0.351,
+   "legs": 116,
+   "hit": 0.353,
    "hit_range90": [
-    0.276,
-    0.433
+    0.285,
+    0.429
    ],
-   "player_days": 32,
-   "hit_player_day": 0.36,
-   "days": 8,
+   "player_days": 37,
+   "hit_player_day": 0.347,
+   "days": 9,
    "hit_first_sighting": 0.349,
-   "legs_ever_qualified": 126,
-   "clv_mean": 0.0,
-   "clv_positive_share": 0.031,
-   "clv_n": 97,
-   "first_half": 0.167,
-   "second_half": 0.433
+   "legs_ever_qualified": 146,
+   "clv_mean": -0.078,
+   "clv_positive_share": 0.026,
+   "clv_n": 116,
+   "first_half": 0.255,
+   "second_half": 0.431
   },
   "R2": {
    "name": "over_one",
-   "legs": 180,
-   "hit": 0.517,
+   "legs": 224,
+   "hit": 0.545,
    "hit_range90": [
-    0.456,
-    0.577
+    0.49,
+    0.599
    ],
-   "player_days": 83,
-   "hit_player_day": 0.512,
-   "days": 9,
-   "hit_first_sighting": 0.54,
-   "legs_ever_qualified": 215,
-   "clv_mean": 0.033,
-   "clv_positive_share": 0.044,
-   "clv_n": 180,
-   "first_half": 0.395,
-   "second_half": 0.616
+   "player_days": 102,
+   "hit_player_day": 0.525,
+   "days": 10,
+   "hit_first_sighting": 0.553,
+   "legs_ever_qualified": 282,
+   "clv_mean": 0.018,
+   "clv_positive_share": 0.049,
+   "clv_n": 224,
+   "first_half": 0.391,
+   "second_half": 0.652
   },
   "R3": {
    "name": "market_gap",
-   "legs": 194,
-   "hit": 0.515,
+   "legs": 224,
+   "hit": 0.522,
    "hit_range90": [
-    0.457,
-    0.574
+    0.467,
+    0.577
    ],
-   "player_days": 174,
-   "hit_player_day": 0.52,
-   "days": 9,
-   "hit_first_sighting": 0.548,
-   "legs_ever_qualified": 343,
+   "player_days": 202,
+   "hit_player_day": 0.53,
+   "days": 10,
+   "hit_first_sighting": 0.553,
+   "legs_ever_qualified": 407,
    "clv_mean": 0.005,
    "clv_positive_share": 0.005,
-   "clv_n": 188,
-   "first_half": 0.567,
-   "second_half": 0.456
+   "clv_n": 215,
+   "first_half": 0.56,
+   "second_half": 0.481
   }
  }
 }
